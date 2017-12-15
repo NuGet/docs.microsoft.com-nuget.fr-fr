@@ -1,0 +1,107 @@
+---
+title: "Fournisseurs d’informations d’identification de NuGet.exe | Documents Microsoft"
+author: kraigb
+ms.author: kraigb
+manager: ghogen
+ms.date: 12/12/2017
+ms.topic: article
+ms.prod: nuget
+ms.technology: 
+ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
+description: "fournisseurs d’informations d’identification de NuGet.exe auprès d’un flux et sont implémentées comme des exécutables de ligne de commande qui suivent les conventions spécifiques."
+keywords: "fournisseurs d’informations d’identification de NuGet.exe, informations d’identification du fournisseur, auprès de l’alimentation, auprès de la galerie"
+ms.reviewer:
+- karann-msft
+- unniravindranathan
+ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
+ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 12/14/2017
+---
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a><span data-ttu-id="e0e96-104">Flux de l’authentification avec les fournisseurs d’informations d’identification de nuget.exe</span><span class="sxs-lookup"><span data-stu-id="e0e96-104">Authenticating feeds with nuget.exe credential providers</span></span>
+
+<span data-ttu-id="e0e96-105">*NuGet 3.3 +*</span><span class="sxs-lookup"><span data-stu-id="e0e96-105">*NuGet 3.3+*</span></span>
+
+<span data-ttu-id="e0e96-106">Lorsque `nuget.exe` a besoin d’informations d’identification pour s’authentifier auprès d’un flux, il recherche de la manière suivante :</span><span class="sxs-lookup"><span data-stu-id="e0e96-106">When `nuget.exe` needs credentials to authenticate with a feed, it looks for them in the following manner:</span></span>
+
+1. <span data-ttu-id="e0e96-107">NuGet recherche d’abord les informations d’identification dans `Nuget.Config` fichiers.</span><span class="sxs-lookup"><span data-stu-id="e0e96-107">NuGet first looks for credentials in `Nuget.Config` files.</span></span>
+1. <span data-ttu-id="e0e96-108">NuGet utilise ensuite les fournisseurs d’informations d’identification du plug-in, soumis à l’ordre indiqué ci-dessous.</span><span class="sxs-lookup"><span data-stu-id="e0e96-108">NuGet then uses plug-in credential providers, subject to the order given below.</span></span> <span data-ttu-id="e0e96-109">(Et est par exemple le [fournisseur d’informations d’identification de Visual Studio Team Services](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)</span><span class="sxs-lookup"><span data-stu-id="e0e96-109">(And example is the [Visual Studio Team Services Credential Provider](https://www.visualstudio.com/docs/package/get-started/nuget/auth#vsts-credential-provider).)</span></span>
+1. <span data-ttu-id="e0e96-110">NuGet puis invite l’utilisateur pour les informations d’identification sur la ligne de commande.</span><span class="sxs-lookup"><span data-stu-id="e0e96-110">NuGet then prompts the user for credentials on the command line.</span></span>
+
+<span data-ttu-id="e0e96-111">Notez que les fournisseurs d’informations d’identification décrites ici fonctionnent uniquement dans `nuget.exe` et non dans 'dotnet restore' ou de Visual Studio.</span><span class="sxs-lookup"><span data-stu-id="e0e96-111">Note that the credential providers described here work only in `nuget.exe` and not in 'dotnet restore' or Visual Studio.</span></span> <span data-ttu-id="e0e96-112">Pour les fournisseurs d’informations d’identification avec Visual Studio, consultez [nuget.exe fournisseurs d’informations d’identification pour Visual Studio](nuget-credential-providers-for-visual-studio.md)</span><span class="sxs-lookup"><span data-stu-id="e0e96-112">For credential providers with Visual Studio, see [nuget.exe Credential Providers for Visual Studio](nuget-credential-providers-for-visual-studio.md)</span></span>
+
+<span data-ttu-id="e0e96-113">fournisseurs d’informations d’identification de NuGet.exe peuvent être utilisés de 3 façons :</span><span class="sxs-lookup"><span data-stu-id="e0e96-113">nuget.exe credential providers can be used in 3 ways:</span></span>
+
+- <span data-ttu-id="e0e96-114">**Global**: de proposer un fournisseur d’informations d’identification pour toutes les instances de `nuget.exe` s’exécutent sous le profil utilisateur actuel, ajoutez-la à `%LocalAppData%\NuGet\CredentialProviders`.</span><span class="sxs-lookup"><span data-stu-id="e0e96-114">**Globally**: to make a credential provider available to all instances of `nuget.exe` run under the current user's profile, add it to `%LocalAppData%\NuGet\CredentialProviders`.</span></span> <span data-ttu-id="e0e96-115">Il se pouvez que vous deviez créer le `CredentialProviders` dossier.</span><span class="sxs-lookup"><span data-stu-id="e0e96-115">You may need to create the `CredentialProviders` folder.</span></span> <span data-ttu-id="e0e96-116">Les fournisseurs d’informations d’identification peuvent être installés à la racine de la `CredentialProviders` dossier ou dans un sous-dossier.</span><span class="sxs-lookup"><span data-stu-id="e0e96-116">Credential providers can be installed at the root of the `CredentialProviders`  folder or within a subfolder.</span></span> <span data-ttu-id="e0e96-117">Si un fournisseur d’informations d’identification a plusieurs fichiers/assemblys, vous pouvez utiliser des sous-dossiers pour conserver les fournisseurs organisés.</span><span class="sxs-lookup"><span data-stu-id="e0e96-117">If a credential provider has multiple files/assemblies, you can use subfolders to keep the providers organized.</span></span>
+
+- <span data-ttu-id="e0e96-118">**À partir d’une variable d’environnement**: les fournisseurs d’informations d’identification peuvent être stockés partout et accessibles via `nuget.exe` en définissant le `%NUGET_CREDENTIALPROVIDERS_PATH%` variable d’environnement à l’emplacement du fournisseur.</span><span class="sxs-lookup"><span data-stu-id="e0e96-118">**From an environment variable**: Credential providers can be stored anywhere and made accessible to `nuget.exe` by setting the `%NUGET_CREDENTIALPROVIDERS_PATH%` environment variable to the provider location.</span></span> <span data-ttu-id="e0e96-119">Cette variable peut être une liste délimitée par des points-virgules (par exemple, `path1;path2`) si vous disposez de plusieurs emplacements.</span><span class="sxs-lookup"><span data-stu-id="e0e96-119">This variable can be a semicolon-separated list (for example, `path1;path2`) if you have multiple locations.</span></span>
+
+- <span data-ttu-id="e0e96-120">**En même temps que nuget.exe**: fournisseurs d’informations d’identification de nuget.exe peuvent être placées dans le même dossier que `nuget.exe`.</span><span class="sxs-lookup"><span data-stu-id="e0e96-120">**Alongside nuget.exe**: nuget.exe credential providers can be placed in the same folder as `nuget.exe`.</span></span>
+
+<span data-ttu-id="e0e96-121">Lors du chargement des fournisseurs d’informations d’identification, `nuget.exe` recherche les emplacements ci-dessus, dans l’ordre, pour tous les fichiers nommés `credentialprovider*.exe`, charge ensuite ces fichiers dans l’ordre, elles sont détectées.</span><span class="sxs-lookup"><span data-stu-id="e0e96-121">When loading credential providers, `nuget.exe` searches the above locations, in order, for any file named `credentialprovider*.exe`, then loads those files in the order they're found.</span></span> <span data-ttu-id="e0e96-122">S’il existe plusieurs fournisseurs d’informations d’identification dans le même dossier, qu’elles sont chargées dans l’ordre alphabétique.</span><span class="sxs-lookup"><span data-stu-id="e0e96-122">If multiple credential providers exist in the same folder, they're loaded in alphabetical order.</span></span>
+
+## <a name="creating-a-nugetexe-credential-provider"></a><span data-ttu-id="e0e96-123">Création d’un fournisseur d’informations d’identification de nuget.exe</span><span class="sxs-lookup"><span data-stu-id="e0e96-123">Creating a nuget.exe credential provider</span></span>
+
+<span data-ttu-id="e0e96-124">Un fournisseur d’informations d’identification est un exécutable de ligne de commande, appelé dans le formulaire `CredentialProvider*.exe`, qui rassemble les entrées, acquiert des informations d’identification comme approprié, puis retourne le code d’état de sortie appropriée et la sortie standard.</span><span class="sxs-lookup"><span data-stu-id="e0e96-124">A credential provider is a command-line executable, named in the form `CredentialProvider*.exe`, that gathers inputs, acquires credentials as appropriate, and then returns the appropriate exit status code and standard output.</span></span>
+
+<span data-ttu-id="e0e96-125">Un fournisseur doit effectuer le des opérations suivantes :</span><span class="sxs-lookup"><span data-stu-id="e0e96-125">A provider must do the following:</span></span>
+
+- <span data-ttu-id="e0e96-126">Déterminer si elle peut fournir des informations d’identification pour l’URI cible avant de lancer l’acquisition des informations d’identification.</span><span class="sxs-lookup"><span data-stu-id="e0e96-126">Determine whether it can provide credentials for the targeted URI before initiating credential acquisition.</span></span> <span data-ttu-id="e0e96-127">Si ce n’est pas le cas, elle doit retourner le code d’état 1 sans informations d’identification.</span><span class="sxs-lookup"><span data-stu-id="e0e96-127">If not, it should return status code 1 with no credentials.</span></span>
+- <span data-ttu-id="e0e96-128">Ne modifiez pas `Nuget.Config` (telles que la définition des informations d’identification il).</span><span class="sxs-lookup"><span data-stu-id="e0e96-128">Not modify `Nuget.Config` (such as setting credentials there).</span></span>
+- <span data-ttu-id="e0e96-129">Configuration du proxy HTTP de handle sur son propre comme NuGet ne fournit pas les informations de proxy pour le plug-in.</span><span class="sxs-lookup"><span data-stu-id="e0e96-129">Handle HTTP proxy configuration on its own, as NuGet does not provide proxy information to the plugin.</span></span>
+- <span data-ttu-id="e0e96-130">Retourner des informations d’identification ou des détails de l’erreur à `nuget.exe` en écrivant un objet de réponse JSON (voir ci-dessous) dans stdout, à l’aide du codage UTF-8.</span><span class="sxs-lookup"><span data-stu-id="e0e96-130">Return credentials or error details to `nuget.exe` by writing a JSON response object (see below) to stdout, using UTF-8 encoding.</span></span>
+- <span data-ttu-id="e0e96-131">Si vous le souhaitez émettre de journalisation de suivi supplémentaires vers stderr.</span><span class="sxs-lookup"><span data-stu-id="e0e96-131">Optionally emit additional trace logging to stderr.</span></span> <span data-ttu-id="e0e96-132">Aucun secret ne doit est écrite dans stderr, étant donné que les niveaux de détail « normal » ou « détaillé » ces traces sont répercutées par NuGet dans la console.</span><span class="sxs-lookup"><span data-stu-id="e0e96-132">No secrets should ever be written to stderr, since at verbosity levels "normal" or "detailed" such traces are echoed by NuGet to the console.</span></span>
+- <span data-ttu-id="e0e96-133">Paramètres inattendus doivent être ignorées, en fournissant une compatibilité ascendante avec les futures versions de NuGet.</span><span class="sxs-lookup"><span data-stu-id="e0e96-133">Unexpected parameters should be ignored, providing forward compatibility with future versions of NuGet.</span></span>
+
+### <a name="input-parameters"></a><span data-ttu-id="e0e96-134">Paramètres d’entrée</span><span class="sxs-lookup"><span data-stu-id="e0e96-134">Input parameters</span></span>
+
+| <span data-ttu-id="e0e96-135">Commutateur de paramètre /</span><span class="sxs-lookup"><span data-stu-id="e0e96-135">Parameter/Switch</span></span> |<span data-ttu-id="e0e96-136">Description</span><span class="sxs-lookup"><span data-stu-id="e0e96-136">Description</span></span>|
+|----------------|-----------|
+| <span data-ttu-id="e0e96-137">URI {value}</span><span class="sxs-lookup"><span data-stu-id="e0e96-137">Uri {value}</span></span> | <span data-ttu-id="e0e96-138">Le package source des informations d’identification nécessitant des URI.</span><span class="sxs-lookup"><span data-stu-id="e0e96-138">The package source URI requiring credentials.</span></span>|
+| <span data-ttu-id="e0e96-139">Non interactif</span><span class="sxs-lookup"><span data-stu-id="e0e96-139">NonInteractive</span></span> | <span data-ttu-id="e0e96-140">S’il est présent, le fournisseur n’émet pas invites interactives.</span><span class="sxs-lookup"><span data-stu-id="e0e96-140">If present, provider does not issue interactive prompts.</span></span> |
+| <span data-ttu-id="e0e96-141">IsRetry</span><span class="sxs-lookup"><span data-stu-id="e0e96-141">IsRetry</span></span> | <span data-ttu-id="e0e96-142">Le cas échéant, indique que cette tentative est une nouvelle tentative d’une tentative ayant échouée précédemment.</span><span class="sxs-lookup"><span data-stu-id="e0e96-142">If present, indicates that this attempt is a retry of a previously failed attempt.</span></span> <span data-ttu-id="e0e96-143">Fournisseurs utilisent généralement cet indicateur pour vous assurer qu’ils contournent un cache existant et demander de nouvelles informations d’identification, si possible.</span><span class="sxs-lookup"><span data-stu-id="e0e96-143">Providers typically use this flag to ensure that they bypass any existing cache and prompt for new credentials if possible.</span></span>|
+| <span data-ttu-id="e0e96-144">Niveau de détail {value}</span><span class="sxs-lookup"><span data-stu-id="e0e96-144">Verbosity {value}</span></span> | <span data-ttu-id="e0e96-145">Le cas échéant, une des valeurs suivantes : « normal », « silencieuse » ou « détaillé ».</span><span class="sxs-lookup"><span data-stu-id="e0e96-145">If present, one of the following values: "normal", "quiet", or "detailed".</span></span> <span data-ttu-id="e0e96-146">Si aucune valeur n’est fournie, valeur par défaut est « normal ».</span><span class="sxs-lookup"><span data-stu-id="e0e96-146">If no value is supplied, defaults to "normal".</span></span> <span data-ttu-id="e0e96-147">Fournisseurs doivent utiliser cela comme une indication du niveau de journalisation facultatives pour émettre le flux d’erreur standard.</span><span class="sxs-lookup"><span data-stu-id="e0e96-147">Providers should use this as an indication of the level of optional logging to emit to the standard error stream.</span></span> |
+
+### <a name="exit-codes"></a><span data-ttu-id="e0e96-148">Codes de sortie</span><span class="sxs-lookup"><span data-stu-id="e0e96-148">Exit codes</span></span>
+
+| <span data-ttu-id="e0e96-149">Code</span><span class="sxs-lookup"><span data-stu-id="e0e96-149">Code</span></span> |<span data-ttu-id="e0e96-150">Résultat</span><span class="sxs-lookup"><span data-stu-id="e0e96-150">Result</span></span> | <span data-ttu-id="e0e96-151">Description</span><span class="sxs-lookup"><span data-stu-id="e0e96-151">Description</span></span> |
+|----------------|-----------|-----------|
+| <span data-ttu-id="e0e96-152">0</span><span class="sxs-lookup"><span data-stu-id="e0e96-152">0</span></span> | <span data-ttu-id="e0e96-153">Opération réussie</span><span class="sxs-lookup"><span data-stu-id="e0e96-153">Success</span></span> | <span data-ttu-id="e0e96-154">Informations d’identification ont été acquis avec succès et ont été écrites dans stdout.</span><span class="sxs-lookup"><span data-stu-id="e0e96-154">Credentials were successfully acquired and have been written to stdout.</span></span>|
+| <span data-ttu-id="e0e96-155">1</span><span class="sxs-lookup"><span data-stu-id="e0e96-155">1</span></span> | <span data-ttu-id="e0e96-156">ProviderNotApplicable</span><span class="sxs-lookup"><span data-stu-id="e0e96-156">ProviderNotApplicable</span></span> | <span data-ttu-id="e0e96-157">Le fournisseur actuel ne fournit pas les informations d’identification de l’URI spécifié.</span><span class="sxs-lookup"><span data-stu-id="e0e96-157">The current provider does not provide credentials for the given URI.</span></span>|
+| <span data-ttu-id="e0e96-158">2</span><span class="sxs-lookup"><span data-stu-id="e0e96-158">2</span></span> | <span data-ttu-id="e0e96-159">Échec</span><span class="sxs-lookup"><span data-stu-id="e0e96-159">Failure</span></span> | <span data-ttu-id="e0e96-160">Le fournisseur est le fournisseur approprié pour l’URI donné, mais ne peut pas fournir les informations d’identification.</span><span class="sxs-lookup"><span data-stu-id="e0e96-160">The provider is the correct provider for the given URI, but cannot provide credentials.</span></span> <span data-ttu-id="e0e96-161">Dans ce cas, nuget.exe ne sera pas relancé l’authentification et échoue.</span><span class="sxs-lookup"><span data-stu-id="e0e96-161">In this case, nuget.exe will not retry authentication and will fail.</span></span> <span data-ttu-id="e0e96-162">Un exemple classique est lorsqu’un utilisateur annule une connexion interactive.</span><span class="sxs-lookup"><span data-stu-id="e0e96-162">A typical example is when a user cancels an interactive login.</span></span> |
+
+### <a name="standard-output"></a><span data-ttu-id="e0e96-163">Objet de flux de sortie standard</span><span class="sxs-lookup"><span data-stu-id="e0e96-163">Standard output</span></span>
+
+| <span data-ttu-id="e0e96-164">Propriété</span><span class="sxs-lookup"><span data-stu-id="e0e96-164">Property</span></span> |<span data-ttu-id="e0e96-165">Remarques</span><span class="sxs-lookup"><span data-stu-id="e0e96-165">Notes</span></span>|
+|----------------|-----------|
+| <span data-ttu-id="e0e96-166">Utilisateur</span><span class="sxs-lookup"><span data-stu-id="e0e96-166">Username</span></span> | <span data-ttu-id="e0e96-167">Nom d’utilisateur pour les demandes authentifiées.</span><span class="sxs-lookup"><span data-stu-id="e0e96-167">Username for authenticated requests.</span></span>|
+| <span data-ttu-id="e0e96-168">Mot de passe</span><span class="sxs-lookup"><span data-stu-id="e0e96-168">Password</span></span> | <span data-ttu-id="e0e96-169">Mot de passe pour les requêtes authentifiées.</span><span class="sxs-lookup"><span data-stu-id="e0e96-169">Password for authenticated requests.</span></span>|
+| <span data-ttu-id="e0e96-170">Message</span><span class="sxs-lookup"><span data-stu-id="e0e96-170">Message</span></span> | <span data-ttu-id="e0e96-171">Détails facultatifs sur la réponse, utilisé uniquement pour afficher des détails supplémentaires en cas d’échec.</span><span class="sxs-lookup"><span data-stu-id="e0e96-171">Optional details about the response, used only to show additional details in failure cases.</span></span> |
+
+<span data-ttu-id="e0e96-172">Exemple stdout :</span><span class="sxs-lookup"><span data-stu-id="e0e96-172">Example stdout:</span></span>
+
+    { "Username" : "freddy@example.com",
+      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+      "Message"  : "" }
+
+## <a name="troubleshooting-a-credential-provider"></a><span data-ttu-id="e0e96-173">Résolution des problèmes d’un fournisseur d’informations d’identification</span><span class="sxs-lookup"><span data-stu-id="e0e96-173">Troubleshooting a credential provider</span></span>
+
+<span data-ttu-id="e0e96-174">À l’heure actuelle, NuGet ne fournit pas de prise en charge directe pour déboguer les fournisseurs d’informations d’identification personnalisées ; [émettre 4598](https://github.com/NuGet/Home/issues/4598) effectue le suivi de ce travail.</span><span class="sxs-lookup"><span data-stu-id="e0e96-174">At present, NuGet doesn't provide much direct support for debugging custom credential providers; [issue 4598](https://github.com/NuGet/Home/issues/4598) is tracking this work.</span></span>
+
+<span data-ttu-id="e0e96-175">Vous pouvez également effectuer les opérations suivantes :</span><span class="sxs-lookup"><span data-stu-id="e0e96-175">You can also do the following:</span></span>
+
+- <span data-ttu-id="e0e96-176">Exécutez nuget.exe avec la `-verbosity` commutateur pour inspecter une sortie détaillée.</span><span class="sxs-lookup"><span data-stu-id="e0e96-176">Run nuget.exe with the `-verbosity` switch to inspect detailed output.</span></span>
+- <span data-ttu-id="e0e96-177">Ajouter des messages de débogage pour `stdout` endroits appropriés.</span><span class="sxs-lookup"><span data-stu-id="e0e96-177">Add debug messages to `stdout` in appropriate places.</span></span>
+- <span data-ttu-id="e0e96-178">N’oubliez pas que vous utilisez nuget.exe 3.3 ou ultérieure.</span><span class="sxs-lookup"><span data-stu-id="e0e96-178">Be sure that you're using nuget.exe 3.3 or higher.</span></span>
+- <span data-ttu-id="e0e96-179">Attacher le débogueur au démarrage avec cet extrait de code :</span><span class="sxs-lookup"><span data-stu-id="e0e96-179">Attach debugger on startup with this code snippet:</span></span>
+
+    ```cs
+    while (!Debugger.IsAttached)
+    {
+        System.Threading.Thread.Sleep(100);
+    }
+    Debugger.Break();
+    ```
+
+<span data-ttu-id="e0e96-180">Pour plus d’informations, [soumettre une demande de prise en charge un nuget.org](https://www.nuget.org/policies/Contact).</span><span class="sxs-lookup"><span data-stu-id="e0e96-180">For further help, [submit a support request a nuget.org](https://www.nuget.org/policies/Contact).</span></span>
