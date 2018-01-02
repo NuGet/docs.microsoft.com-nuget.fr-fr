@@ -1,0 +1,41 @@
+- name: Docs
+  tocHref: /
+  topicHref: /
+  items:
+    - name: NuGet
+      tocHref: /nuget/
+      topicHref: /nuget
+      items:
+        - name: Démarrage rapide
+          tocHref: /nuget/quickstart/
+          topicHref: /nuget/quickstart/create-and-publish-a-package
+        - name: Guides
+          tocHref: /nuget/guides/
+          topicHref: /nuget/guides/install-nuget
+        - name: Créer des packages
+          tocHref: /nuget/create-packages/
+          topicHref: /nuget/create-packages/overview-and-workflow
+        - name: Consommer des packages
+          tocHref: /nuget/consume-packages/
+          topicHref: /nuget/consume-packages/overview-and-workflow
+        - name: Hébergement des packages
+          tocHref: /nuget/hosting-packages/
+          topicHref: /nuget/hosting-packages/overview
+        - name: Outils
+          tocHref: /nuget/tools/
+          topicHref: /nuget/tools/nuget-exe-cli-reference
+        - name: Référence
+          tocHref: /nuget/reference/
+          topicHref: /nuget/schema/nuspec
+        - name: API
+          tocHref: /nuget/api/
+          topicHref: /nuget/api/overview
+        - name: "Extensibilité de Visual\_Studio"
+          tocHref: /nuget/visual-studio-extensibility/
+          topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
+        - name: Stratégies
+          tocHref: /nuget/policies/
+          topicHref: /nuget/policies/nuget-faq
+        - name: Notes de publication
+          tocHref: /nuget/release-notes/
+          topicHref: /nuget/release-notes/index
