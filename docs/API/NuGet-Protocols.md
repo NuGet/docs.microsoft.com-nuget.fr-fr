@@ -12,11 +12,11 @@ description: "Les protocoles nuget.org en constante évolution pour interagir av
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 097b7a86d056b692c52d6de76bc2fb99d1b58c6f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nugetorg-protocols"></a>Protocoles NuGet.org
 
@@ -43,7 +43,7 @@ Les clients doivent passer de l’en-tête suivant lorsqu’ils effectuent des a
 X-NuGet-Protocol-Version: 4.1.0
 ```
 
-Notez que le préexistant `X-NuGet-Client-Version` en-tête a le même objectif, mais est désormais déconseillé et ne doit plus être utilisé.
+Notez que le `X-NuGet-Client-Version` en-tête a une sémantique similaire, mais elle est réservé à utiliser par le client NuGet officiels. Les clients tiers doivent utiliser le `X-NuGet-Protocol-Version` en-tête et valeur.
 
 Le **push** protocole lui-même est décrit dans la documentation relative à la [ `PackagePublish` ressources](package-publish-resource.md).
 
@@ -59,7 +59,7 @@ POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom           | Vers l'avant     | Type   | Obligatoire | Remarques
+Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’identidier de package pour lequel la clé de portée Vérifiez est demandée
 VERSION        | URL    | chaîne | Non       | La version du package
@@ -84,7 +84,7 @@ GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom           | Vers l'avant     | Type   | Obligatoire | Remarques
+Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------  | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’identificateur de package pour lequel la clé de portée Vérifiez est demandée
 VERSION        | URL    | chaîne | Non       | La version du package

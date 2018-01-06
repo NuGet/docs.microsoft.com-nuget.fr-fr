@@ -17,22 +17,21 @@ keywords: "Package NuGet API push supprimer le package NuGet API, API NuGet pack
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1fa3c0e1698a11208d9ef29fdf26a4980cb60cf5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 87970a701c63bce2b74c619069ec1d231ea77ab5
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="push-and-delete"></a>Push et supprimer
 
-Il est possible de transmettre et supprimer (ou retirer de la liste, en fonction de l’implémentation du serveur) à l’aide de l’API de V3 NuGet de packages.
-Les deux opérations sont en fonction de la `PackagePublish` ressource trouvée dans le [index service](service-index.md).
+Il est possible de transmettre, supprimer (ou retirer de la liste, en fonction de l’implémentation du serveur) et la remise des packages à l’aide de l’API de V3 NuGet. Ces opérations sont en fonction de la `PackagePublish` ressource trouvée dans le [index service](service-index.md).
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` valeur est utilisée :
 
-Valeur @type          | Remarques
+Valeur @type          | Notes
 -------------------- | -----
 PackagePublish/2.0.0 | La version initiale
 
@@ -44,9 +43,12 @@ Notez que cette URL pointe vers le même emplacement que le point de terminaison
 
 ## <a name="http-methods"></a>Méthodes HTTP
 
-Le `PUT` et `DELETE` méthodes HTTP sont pris en charge par cette ressource. Pour les méthodes qui sont pris en charge sur chaque point de terminaison, voir ci-dessous.
+Le `PUT`, `POST` et `DELETE` méthodes HTTP sont pris en charge par cette ressource. Pour les méthodes qui sont pris en charge sur chaque point de terminaison, voir ci-dessous.
 
 ## <a name="push-a-package"></a>Un package de push
+
+> [!Note]
+> NuGet.org a [exigences supplémentaires](NuGet-Protocols.md) pour interagir avec le point de terminaison par émission de données.
 
 NuGet.org prend en charge l’exécution d’un push des nouveaux packages à l’aide de l’API suivante. Si le package avec l’ID et la version fourni existe déjà, nuget.org rejette le push. Autres sources de package peuvent prendre en charge le remplacement d’un package existant.
 
@@ -56,7 +58,7 @@ PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom           | Vers l'avant     | Type   | Obligatoire | Remarques
+Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
 NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
@@ -90,7 +92,7 @@ DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom           | Vers l'avant     | Type   | Obligatoire | Remarques
+Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’ID du package à supprimer
 VERSION        | URL    | chaîne | oui      | La version du package à supprimer
@@ -101,4 +103,29 @@ NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {US
 Code d’état | Signification
 ----------- | -------
 204         | Le package a été supprimé.
+404         | Aucun package avec le paramètre `ID` et `VERSION` existe
+
+## <a name="relist-a-package"></a>Remettre un package
+
+Si un package n’est pas spécifié, il est possible de rendre ce package à nouveau visible dans les résultats de recherche à l’aide du point de terminaison « remise ». Ce point de terminaison a la même forme que le [supprimer (retirer de la liste) point de terminaison](#delete-a-package) , mais utilise le `POST` méthode HTTP au lieu du `DELETE` (méthode).
+
+Si le package est déjà répertorié, la demande réussit toujours.
+
+```
+POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
+```
+
+### <a name="request-parameters"></a>Paramètres de la demande
+
+Name           | Vers l'avant     | Type   | Obligatoire | Notes
+-------------- | ------ | ------ | -------- | -----
+Id             | URL    | chaîne | oui      | L’ID du package de remise
+VERSION        | URL    | chaîne | oui      | La version du package à remettre en vente
+NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
+
+### <a name="response"></a>Réponse
+
+Code d’état | Signification
+----------- | -------
+204         | Le package est maintenant répertorié.
 404         | Aucun package avec le paramètre `ID` et `VERSION` existe

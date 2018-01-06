@@ -17,17 +17,17 @@ keywords: "API de NuGet V3, API V2 de NuGet, NuGet JSON, API d’inscription de 
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: a9515d90ad66d8840f575bba542f0cf887c41718
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
 L’API de NuGet est un ensemble de points de terminaison HTTP qui peut être utilisé pour télécharger les packages, extraire les métadonnées, publier les nouveaux packages et effectuer la plupart des opérations disponibles dans les clients NuGet officielles.
 
-Cette API est utilisée par le client de NuGet dans Visual Studio et l’interface CLI .NET nuget.exe pour effectuer les opérations de NuGet [ `dotnet restore` ](https://docs.microsoft.com/dotnet/articles/core/preview3/tools/dotnet-restore), recherche dans l’interface utilisateur de Visual Studio, et [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Cette API est utilisée par le client de NuGet dans Visual Studio et l’interface CLI .NET nuget.exe pour effectuer les opérations de NuGet [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), recherche dans l’interface utilisateur de Visual Studio, et [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Notez dans certains cas, nuget.org a des exigences supplémentaires qui ne sont pas appliquées par d’autres sources de package. Ces différences sont documentées par les [nuget.org protocoles](nuget-protocols.md).
 
@@ -42,7 +42,7 @@ Les clients qui prennent en charge l’API doivent accepter un ou plusieurs de c
 
 Pour plus d’informations sur l’index de service, consultez [sa référence de l’API](service-index.md).
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 L’API est la version 3 du protocole HTTP de NuGet. Ce protocole est parfois appelée « l’API V3. » Ces documents de référence fait référence à cette version du protocole simplement comme « API. »
 
@@ -79,7 +79,7 @@ Tous les horodatages renvoyés par l’API de format UTC ou sont définis à l�
 
 ## <a name="http-methods"></a>Méthodes HTTP
 
-Verbe   | Utilisation
+Verbe   | Utilisez
 ------ | -----------
 GET    | Effectue une opération en lecture seule, en général, la récupération de données.
 HEAD   | Extrait les en-têtes de réponse correspondant `GET` demande.
@@ -110,7 +110,7 @@ Dans le cas d’un code d’état de niveau 500, le client peut implémenter un 
 
 ## <a name="http-request-headers"></a>En-têtes de demande HTTP
 
-Nom                     | Description
+Name                     | Description
 ------------------------ | -----------
 NuGet-X-ApiKey           | Obligatoire pour par émission de données et la suppression, voir [ `PackagePublish` ressource](package-publish-resource.md)
 X-NuGet-Client-Version   | **Déconseillé** et remplacée par`X-NuGet-Protocol-Version`

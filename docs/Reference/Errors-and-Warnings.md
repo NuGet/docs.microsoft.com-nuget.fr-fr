@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3423e30eae07ff0c70a010576b8e701be027b847
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="errors-and-warnings"></a>Erreurs et avertissements
 
 Dans NuGet 4.3.0, erreurs et avertissements sont numérotées comme décrit dans cette rubrique et fournissent des informations détaillées pour vous aider à résoudre les problèmes rencontrés. 
 
-Les erreurs et les avertissements répertoriés ici sont uniquement disponibles avec [basée sur les PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) NuGet 4.3.0 et projets. NuGet honore également des propriétés MSBuild pour supprimer les avertissements ou les élever à erreurs. Pour plus d’informations, consultez [Comment : supprimer les avertissements du compilateur](https://docs.microsoft.com/visualstudio/ide/how-to-suppress-compiler-warnings) dans la documentation de Visual Studio.
+Les erreurs et les avertissements répertoriés ici sont uniquement disponibles avec [basée sur les PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) NuGet 4.3.0 et projets. NuGet honore également des propriétés MSBuild pour supprimer les avertissements ou les élever à erreurs. Pour plus d’informations, consultez [Comment : supprimer les avertissements du compilateur](/visualstudio/ide/how-to-suppress-compiler-warnings) dans la documentation de Visual Studio.
 
 **Erreurs**
 

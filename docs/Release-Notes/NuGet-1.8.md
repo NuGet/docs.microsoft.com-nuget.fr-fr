@@ -13,11 +13,11 @@ keywords: "Notes de version 1.8 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 875cb752fed102c24da255a336d3f16729ca082c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 350f0d9590c1e0ef1a843fd783203b158059efa7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-18-release-notes"></a>Notes de version 1.8 de NuGet
 
@@ -72,7 +72,7 @@ Il existe 2 façons pour fournir ce consentement. Vous trouverez le premier dans
 
 La deuxième consiste à définir l’environnement de variable « EnableNuGetPackageRestore » à la valeur « true ».  Cette méthode est conçue pour les ordinateurs sans assistance tels que les serveurs de l’élément de configuration ou de la build.
 
-À présent, comme indiqué ci-dessus, nous avons uniquement défini pour cette fonctionnalité dans NuGet 1.8.  En pratique, cela signifie que pendant que nous avons ajouté l’ensemble de la logique pour activer la fonctionnalité, il n’est pas actuellement appliquée dans cette version. Il est activé, toutefois, dans la prochaine version de NuGet, donc nous souhaitons vous faire part de celui-ci dès que possible afin que vous pouvez configurer vos environnements de façon appropriée et par conséquent ne pas être affectée lorsque nous commençons appliquer la contrainte de consentement.
+À présent, comme indiqué ci-dessus, nous avons uniquement défini pour cette fonctionnalité dans NuGet 1.8.  En pratique, cela signifie que pendant que nous avons ajouté l’ensemble de la logique pour activer la fonctionnalité, elle n’est pas actuellement appliquée dans cette version. Il est activé, toutefois, dans la prochaine version de NuGet, donc nous souhaitons vous faire part de celui-ci dès que possible afin que vous pouvez configurer vos environnements de façon appropriée et par conséquent ne pas être affectée lorsque nous commençons appliquer la contrainte de consentement.
 
 Pour plus d’informations, consultez la [billet de blog de l’équipe](http://blog.nuget.org/20120518/package-restore-and-consent.html) sur cette fonctionnalité.
 

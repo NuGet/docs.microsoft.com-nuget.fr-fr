@@ -13,11 +13,11 @@ keywords: "Notes de publication NuGet 2.8, des correctifs de bogues, problèmes 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0bb35e9d6ef6f3dde7919cd502b32ba5a550c689
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-28-release-notes"></a>Notes de publication NuGet 2.8
 
@@ -49,7 +49,7 @@ NuGet 2.8 a été publié le 29 janvier 2014.
 
 ## <a name="patch-resolution-for-dependencies"></a>Résolution de correctif logiciel pour les dépendances
 
-Lors de la résolution des dépendances du package, NuGet a implémenté historiquement une stratégie de sélection de la version majeure et mineure package le plus bas qui satisfait aux dépendances sur le package. Toutefois, contrairement à la version majeure et mineure, la version du correctif a été résolue toujours à la version la plus élevée. Bien que le comportement a été bien intentionné, il créé un manque de déterminisme pour l’installation de packages avec des dépendances. Prenons l'exemple suivant :
+Lors de la résolution des dépendances du package, NuGet a implémenté historiquement une stratégie de sélection de la version majeure et mineure package le plus bas qui satisfait aux dépendances sur le package. Toutefois, contrairement à la version majeure et mineure, la version du correctif a été résolue toujours à la version la plus élevée. Bien que le comportement a été bien intentionné, il créé un manque de déterminisme pour l’installation de packages avec des dépendances. Prenons l'exemple suivant :
 
     PackageA@1.0.0 -[ >=1.0.0 ]-> PackageB@1.0.0
 
@@ -96,7 +96,7 @@ Il n’est pas rare d’installer une version préliminaire d’un package afin 
 
 ## <a name="development-dependencies"></a>Dépendances de développement
 
-Différents types de fonctionnalités peuvent être remis sous forme de packages NuGet - y compris les outils utilisés pour l’optimisation du processus de développement. Ces composants, pendant qu’ils peuvent vous aider dans le développement d’un nouveau package, ne doivent pas être considérés publié par une dépendance du nouveau package lorsqu’il est plus loin. NuGet 2.8 permet à un package pour s’identifier dans la `.nuspec` fichier comme un developmentDependency. Lors de l’installation, ces métadonnées sont également ajoutées à la `packages.config` fichier du projet dans lequel le package a été installé. Lorsque que `packages.config` fichier est analysé ultérieurement les dépendances de NuGet pendant `nuget.exe pack`, il exclut ces dépendances marquées en tant que dépendances de développement.
+Différents types de fonctionnalités peuvent être remis sous forme de packages NuGet - y compris les outils utilisés pour l’optimisation du processus de développement. Ces composants, s’ils peuvent vous aider dans le développement d’un nouveau package ne doivent pas être considéré comme une dépendance du nouveau package lorsqu’il est publié ultérieurement. NuGet 2.8 permet à un package pour s’identifier dans la `.nuspec` fichier comme un developmentDependency. Lors de l’installation, ces métadonnées sont également ajoutées à la `packages.config` fichier du projet dans lequel le package a été installé. Lorsque que `packages.config` fichier est analysé ultérieurement les dépendances de NuGet pendant `nuget.exe pack`, il exclut ces dépendances marquées en tant que dépendances de développement.
 
 ## <a name="individual-packagesconfig-files-for-different-platforms"></a>Fichiers de packages.config individuelles pour les différentes plateformes
 

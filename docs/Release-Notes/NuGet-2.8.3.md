@@ -13,11 +13,11 @@ keywords: "NuGet 2.8.3 notes de publication, des correctifs de bogues, problème
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8c0b38ea4975300af701b66266a9883eb54412c1
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d6fbebaf02cede52a701abd31e843a077f8acbb7
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-283-release-notes"></a>Notes de mise à jour de NuGet 2.8.3
 
@@ -25,4 +25,4 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 2.8.3 a été publiée le 17 octobre 2014. Il est une mise à jour mineure sur notre 2.8.1 VSIX avec certains ciblé des correctifs.
 
-Dans cette version, la prise en charge pour la boîte de dialogue Gestionnaire de Package NuGet a été ajouté pour [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) et [BizTalk (.btproj)](http://msdn.microsoft.com/library/aa577497.aspx) types de projet. Il inclut également des correctifs de bogues de fiabilité relatifs aux scénarios de l’activation de la restauration des packages et d’enregistrement des options du Gestionnaire de package.
+Dans cette version, la prise en charge pour la boîte de dialogue Gestionnaire de Package NuGet a été ajouté pour [ASP.NET vNext](http://www.asp.net/vnext), [DevExtreme](http://js.devexpress.com/) et [BizTalk (.btproj)](/biztalk/core/developing-biztalk-server-applications) types de projet. Il inclut également des correctifs de bogues de fiabilité relatifs aux scénarios de l’activation de la restauration des packages et d’enregistrement des options du Gestionnaire de package.

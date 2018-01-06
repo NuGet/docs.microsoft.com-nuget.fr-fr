@@ -17,11 +17,11 @@ keywords: "NuGet plats conteneur, adresse de base de package NuGet, NuGet nupkg 
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 756001ff7376a8dd8d66bd2136408e90e6a85d19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: a581f9854410bc1a84d65310b38928a1d889ece2
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-content"></a>Contenu du package
 
@@ -29,11 +29,11 @@ Il est possible de générer une URL pour extraire le contenu d’un package arb
 
 Cette ressource est communément soit « package adresse de base » ou « conteneur plat ».
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` valeur est utilisée :
 
-Valeur @type              | Remarques
+Valeur @type              | Notes
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | La version initiale
 
@@ -58,11 +58,11 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom     | Vers l'avant     | Type    | Obligatoire | Remarques
+Name     | Vers l'avant     | Type    | Obligatoire | Notes
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | chaîne  | oui      | L’ID de package, en minuscules
 
-Le `LOWER_ID` valeur est l’ID de package souhaité minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) (méthode).
+Le `LOWER_ID` valeur est l’ID de package souhaité minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 
 ### <a name="response"></a>Réponse
 
@@ -70,7 +70,7 @@ Si la source du package n’a aucune version de l’ID de package fourni, un cod
 
 Si la source du package a une ou plusieurs versions, un code de 200 état est retourné. Le corps de réponse est un objet JSON avec la propriété suivante :
 
-Nom     | Type             | Obligatoire | Remarques
+Name     | Type             | Obligatoire | Notes
 -------- | ---------------- | -------- | -----
 versions | Tableau de chaînes | oui      | Le package ID disponibles
 
@@ -98,12 +98,12 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom          | Vers l'avant     | Type   | Obligatoire | Remarques
+Name          | Vers l'avant     | Type   | Obligatoire | Notes
 ------------- | ------ | ------ | -------- | -----
 LOWER_ID      | URL    | chaîne | oui      | L’ID de package, en minuscules
 LOWER_VERSION | URL    | chaîne | oui      | La version du package, normalisé et minuscule
 
-Les deux `LOWER_ID` et `LOWER_VERSION` sont minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) (méthode).
+Les deux `LOWER_ID` et `LOWER_VERSION` sont minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 
 Le `LOWER_VERSION` est la version du package souhaitée normalisée par rapport à l’aide de la version de NuGet [règles de normalisation](../reference/package-versioning.md#normalized-version-numbers). Cela signifie que les métadonnées de build qui sont autorisée par la spécification SemVer 2.0.0 doivent être exclues dans ce cas.
 
@@ -133,12 +133,12 @@ GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom          | Vers l'avant     | Type    | Obligatoire | Remarques
+Name          | Vers l'avant     | Type    | Obligatoire | Notes
 ------------- | ------ | ------- | -------- | -----
 LOWER_ID      | URL    | chaîne  | oui      | L’ID de package, en minuscules
 LOWER_VERSION | URL    | entiers | oui      | La version du package, normalisé et minuscule
 
-Les deux `LOWER_ID` et `LOWER_VERSION` sont minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) (méthode).
+Les deux `LOWER_ID` et `LOWER_VERSION` sont minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 
 Le `LOWER_VERSION` est la version du package souhaitée normalisée par rapport à l’aide de la version de NuGet [règles de normalisation](../reference/package-versioning.md#normalized-version-numbers). Cela signifie que les métadonnées de build qui sont autorisée par la spécification SemVer 2.0.0 doivent être exclues dans ce cas.
 

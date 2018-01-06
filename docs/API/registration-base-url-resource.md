@@ -17,11 +17,11 @@ keywords: "Métadonnées de package NuGet API, l’inscription NuGet API, les AP
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 15d3c836a5748497fe33dadc17e5a44846b4a8c0
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-metadata"></a>Métadonnées du package
 
@@ -29,11 +29,11 @@ Il est possible de récupérer les métadonnées sur les packages disponibles su
 
 La collection des documents situés sous `RegistrationsBaseUrl` sont souvent appelés « inscriptions » ou « objets BLOB de l’inscription ». L’ensemble de documents sous un seul `RegistrationsBaseUrl` est appelé une « ruche de l’inscription ». Une ruche de l’enregistrement contient toutes les métadonnées relatives à chaque package disponible sur une source de package.
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur @type                     | Remarques
+Valeur @type                     | Notes
 ------------------------------- | -----
 RegistrationsBaseUrl            | La version initiale
 RegistrationsBaseUrl/3.0.0-beta | Alias de`RegistrationsBaseUrl`
@@ -76,7 +76,7 @@ L’URL de l’index de l’enregistrement est prévisible et peut être déterm
 
 ### <a name="registration-pages-and-leaves"></a>Feuilles et pages d’inscription
 
-Bien qu’il ne soit pas strictement obligatoire pour une implémentation de serveur stocker les feuilles de l’inscription dans des documents de page d’inscription distinctes, il est recommandé d’économiser la mémoire du côté client. Au lieu d’incorporation (inlining) de tous les laisse de l’inscription dans l’index ou immédiatement le stockage laisse dans les documents de la page, il est recommandé que l’implémentation du serveur définir certains éléments de recherche pour choisir entre les deux approches en fonction du nombre de versions de package ou quitte la taille cumulée de package.
+Bien qu’il ne soit pas strictement requis pour une implémentation de serveur stocker les feuilles de l’inscription dans des documents de page d’inscription distinctes, il est recommandé d’économiser la mémoire du côté client. Au lieu d’incorporation (inlining) de tous les laisse de l’inscription dans l’index ou immédiatement le stockage laisse dans les documents de la page, il est recommandé que l’implémentation du serveur définir certains éléments de recherche pour choisir entre les deux approches en fonction du nombre de versions de package ou quitte la taille cumulée de package.
 
 Le stockage de toutes les versions de package (feuilles) dans les sauvegardes d’index d’enregistrement sur le nombre de requêtes HTTP nécessaire pour extraire les métadonnées du package mais signifie qu’un document plus volumineux doit être téléchargé et davantage de mémoire de client doit être allouée. En revanche, si l’implémentation du serveur stocke immédiatement laisse de l’inscription dans les documents d’une page distincte, le client doit effectuer davantage de requêtes HTTP pour obtenir les informations dont il a besoin.
 
@@ -88,17 +88,17 @@ GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom     | Vers l'avant     | Type    | Obligatoire | Remarques
+Name     | Vers l'avant     | Type    | Obligatoire | Notes
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | chaîne  | oui      | L’ID de package, minuscule
 
-Le `LOWER_ID` valeur est l’ID de package souhaité minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](https://msdn.microsoft.com/en-us/library/system.string.tolowerinvariant.aspx) (méthode).
+Le `LOWER_ID` valeur est l’ID de package souhaité minuscule à l’aide des règles implémentées par. De NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 
 ### <a name="response"></a>Réponse
 
 La réponse est un document JSON qui possède un objet racine avec les propriétés suivantes :
 
-Nom  | Type             | Obligatoire | Remarques
+Name  | Type             | Obligatoire | Notes
 ----- | ---------------- | -------- | -----
 count | entiers          | oui      | Le nombre de pages d’inscription dans l’index
 Éléments | Tableau d’objets | oui      | Le tableau des pages d’inscription
@@ -109,7 +109,7 @@ Chaque élément dans l’objet index `items` tableau est un objet JSON qui repr
 
 L’objet de page d’inscription dans l’index de l’enregistrement a les propriétés suivantes :
 
-Nom   | Type             | Obligatoire | Remarques
+Name   | Type             | Obligatoire | Notes
 ------ | ---------------- | -------- | -----
 @id    | chaîne           | oui      | L’URL vers la page d’inscription
 count  | entiers          | oui      | Le numéro d’enregistrement laisse dans la page
@@ -133,7 +133,7 @@ Chaque élément dans l’objet page `items` tableau est un objet JSON qui repr�
 
 L’objet de feuille de l’inscription trouvé dans une page d’inscription a les propriétés suivantes :
 
-Nom           | Type   | Obligatoire | Remarques
+Name           | Type   | Obligatoire | Notes
 -------------- | ------ | -------- | -----
 @id            | chaîne | oui      | L’URL de la feuille de l’inscription
 catalogEntry   | object | oui      | L’entrée du catalogue contenant les métadonnées de package
@@ -145,7 +145,7 @@ Chaque objet de feuille d’enregistrement représente les données associées �
 
 Le `catalogEntry` propriété de l’objet de feuille de l’enregistrement a les propriétés suivantes :
 
-Nom                     | Type                       | Obligatoire | Remarques
+Name                     | Type                       | Obligatoire | Notes
 ------------------------ | -------------------------- | -------- | -----
 @id                      | chaîne                     | oui      | L’URL du document utilisé pour produire cet objet
 authors                  | chaîne ou tableau de chaînes | Non       | 
@@ -170,7 +170,7 @@ Le `dependencyGroups` propriété est un tableau d’objets représentant les d�
 
 Chaque objet de dépendance de groupe a les propriétés suivantes :
 
-Nom            | Type             | Obligatoire | Remarques
+Name            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
 targetFramework | chaîne           | Non       | La cible de .NET framework ces dépendances sont applicables à
 dépendances    | Tableau d’objets | Non       |
@@ -183,7 +183,7 @@ Le `dependencies` propriété est un tableau d’objets, représentant chacune u
 
 Chaque dépendance de package a les propriétés suivantes :
 
-Nom         | Type   | Obligatoire | Remarques
+Name         | Type   | Obligatoire | Notes
 ------------ | ------ | -------- | -----
 ID           | chaîne | oui      | L’ID de la dépendance de package
 range        | object | Non       | Autorisées [la plage de versions](../reference/package-versioning.md#version-ranges-and-wildcards) de la dépendance
@@ -209,7 +209,7 @@ La page d’inscription contient des feuilles de l’inscription. L’URL pour e
 
 Lorsque le `items` tableau n’est pas fourni dans l’index de l’enregistrement, d’une demande HTTP GET de la `@id` valeur retournera un document JSON qui dispose d’un objet en tant que racine. L’objet a les propriétés suivantes :
 
-Nom   | Type             | Obligatoire | Remarques
+Name   | Type             | Obligatoire | Notes
 ------ | ---------------- | -------- | -----
 @id    | chaîne           | oui      | L’URL vers la page d’inscription
 count  | entiers          | oui      | Le numéro d’enregistrement laisse dans la page
@@ -238,7 +238,7 @@ L’URL pour extraire d’une feuille de l’enregistrement est obtenu à partir
 
 La feuille de l’enregistrement est un document JSON avec un objet racine avec les propriétés suivantes :
 
-Nom           | Type    | Obligatoire | Remarques
+Name           | Type    | Obligatoire | Notes
 -------------- | ------- | -------- | -----
 @id            | chaîne  | oui      | L’URL de la feuille de l’inscription
 catalogEntry   | chaîne  | Non       | L’URL à l’entrée de catalogue qui a produit ces feuille

@@ -17,11 +17,11 @@ keywords: "Catalogue de NuGet V3 API, le journal des transactions nuget.org rép
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50e329680c5527d2a69d9c2b1421dc3aa609b478
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -33,11 +33,11 @@ Le **catalogue** est une ressource qui enregistre toutes les opérations de pack
 > [!Note]
 > Actuellement, le catalogue nuget.org n’est pas disponible en Chine. Pour plus d’informations, consultez [NuGet/NuGetGallery #4949](https://github.com/NuGet/NuGetGallery/issues/4949).
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` valeur est utilisée :
 
-Valeur @type   | Remarques
+Valeur @type   | Notes
 ------------- | -----
 Catalog/3.0.0 | La version initiale
 
@@ -79,7 +79,7 @@ GET {@id}
 
 L’index du catalogue est un document JSON qui contient un objet avec les propriétés suivantes :
 
-Nom            | Type             | Obligatoire | Remarques
+Name            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
 commitId        | chaîne           | oui      | Un ID unique associé à la dernière validation
 commitTimeStamp | chaîne           | oui      | Un horodateur de la dernière validation
@@ -96,7 +96,7 @@ Comme les éléments sont ajoutés à, l’index du catalogue `commitId` change 
 
 Les objets de la page catalogue se trouvant dans l’index de catalogue `items` propriété ont les propriétés suivantes :
 
-Nom            | Type    | Obligatoire | Remarques
+Name            | Type    | Obligatoire | Notes
 --------------- | ------- | -------- | -----
 @id             | chaîne  | oui      | L’URL de page de catalogue fetch
 commitId        | chaîne  | oui      | Un ID unique associé à la validation la plus récente de cette page
@@ -123,7 +123,7 @@ Nouveaux éléments de catalogue sont ajoutés à la page dans l’index du cata
 
 Le document de la page catalogue est un objet JSON avec les propriétés suivantes :
 
-Nom            | Type             | Obligatoire | Remarques
+Name            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
 commitId        | chaîne           | oui      | Un ID unique associé à la validation la plus récente de cette page
 commitTimeStamp | chaîne           | oui      | Un horodateur de la validation la plus récente de cette page
@@ -143,7 +143,7 @@ Comme les éléments sont ajoutés à la page, le `commitId` modifications et la
 
 Les objets d’élément de catalogue trouvant dans la page de catalogue `items` propriété ont les propriétés suivantes :
 
-Nom            | Type    | Obligatoire | Remarques
+Name            | Type    | Obligatoire | Notes
 --------------- | ------- | -------- | -----
 @id             | chaîne  | oui      | L’URL pour extraire l’élément de catalogue
 @type           | chaîne  | oui      | Le type de l’élément de catalogue
@@ -175,7 +175,7 @@ La feuille de catalogue contient les métadonnées relatives à un ID de package
 
 Le document de feuille de catalogue est un objet JSON avec les propriétés suivantes :
 
-Nom                    | Type                       | Obligatoire | Remarques
+Name                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
 @type                   | chaîne ou tableau de chaînes | oui      | Les types de l’élément de catalogue
 catalogue : commitId        | chaîne                     | oui      | Un ID de validation associé à cet élément de catalogue
@@ -206,7 +206,7 @@ Clients consommant les éléments de catalogue ne doivent pas tenter de détermi
 
 Détails des éléments de catalogue package ont les propriétés suivantes en plus de ceux [inclus sur toutes les feuilles de catalogue](#catalog-leaf).
 
-Nom                    | Type                       | Obligatoire | Remarques
+Name                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
 authors                 | chaîne                     | Non       |
 created                 | chaîne                     | oui      | Lorsque le package a été créé pour la première horodateur

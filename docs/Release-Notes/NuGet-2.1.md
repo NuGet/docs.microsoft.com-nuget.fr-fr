@@ -13,11 +13,11 @@ keywords: "Notes de version 2.1 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c45cfb9f6a46a1efd9fe4531602191973da66290
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-21-release-notes"></a>Notes de version 2.1 de NuGet
 
@@ -80,7 +80,7 @@ NuGet 2.1 fournit un contrôle plus précis sur l’emplacement du dossier packa
 Dans cet exemple, le partage `Nuget.Config` fichier Spécifie un dossier partagé des packages pour chaque projet est créé sous C:\myteam, quelle que soit la profondeur. Notez que si vous avez un dossier de packages existant sous la racine de votre solution, vous devez supprimer avant NuGet placera les packages dans le nouvel emplacement.
 
 ## <a name="support-for-portable-libraries"></a>Prise en charge pour les bibliothèques portables
-[Les bibliothèques portables](http://msdn.microsoft.com/library/gg597391.aspx) est une fonctionnalité introduite avec 4 .NET qui vous permet de générer des assemblys qui peuvent fonctionner sans modification sur différentes plateformes de Microsoft, à partir de versions du.NET Framework pour Silverlight pour Windows Phone et Xbox même 360 (même si à ce stade, NuGet ne prend pas en charge la cible de la bibliothèque portable Xbox).  En étendant le [package conventions](../create-packages/supporting-multiple-target-frameworks.md) pour les profils et les versions du framework, NuGet 2.1 prend désormais en charge les bibliothèques portables en vous permettant de créer des packages qui ont composée framework et profil cible `lib` dossiers.
+[Les bibliothèques portables](/dotnet/standard/cross-platform/cross-platform-development-with-the-portable-class-library) est une fonctionnalité introduite avec 4 .NET qui vous permet de générer des assemblys qui peuvent fonctionner sans modification sur différentes plateformes de Microsoft, à partir de versions du.NET Framework pour Silverlight pour Windows Phone et Xbox même 360 (même si à ce stade, NuGet ne prend pas en charge la cible de la bibliothèque portable Xbox).  En étendant le [package conventions](../create-packages/supporting-multiple-target-frameworks.md) pour les profils et les versions du framework, NuGet 2.1 prend désormais en charge les bibliothèques portables en vous permettant de créer des packages qui ont composée framework et profil cible `lib` dossiers.
 
 Par exemple, envisagez de plateformes cibles disponibles de la bibliothèque de classes portable suivantes.
 

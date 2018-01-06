@@ -13,11 +13,11 @@ keywords: "Notes de version 2.2 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 690e76a0686a5e7bb699410edef4a6e62ccd2a32
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1f6080e01777431c4dfb2278db167bd3bc9a67ea
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-22-release-notes"></a>Notes de version 2.2 NuGet
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 12/14/2017
 2.2 de NuGet a été publiée le 12 décembre 2012.
 
 ## <a name="visual-studio-quick-launch"></a>Lancement rapide Visual Studio
-L’une des nouvelles fonctionnalités qui a été ajoutée dans Visual Studio 2012 était le [boîte de dialogue de lancement rapide](http://msdn.microsoft.com/library/hh417697.aspx). NuGet 2.2 étend cette boîte de dialogue, ce qui lui permet d’initialiser la boîte de dialogue de gestionnaire de package avec les termes de recherche entrés dans le volet Lancement rapide. Par exemple, si vous saisissez 'jquery' dans Lancement rapide maintenant inclut une option dans les résultats pour rechercher les packages NuGet correspondant à 'jquery'.
+L’une des nouvelles fonctionnalités qui a été ajoutée dans Visual Studio 2012 était le [boîte de dialogue de lancement rapide](/visualstudio/ide/reference/quick-launch-environment-options-dialog-box). NuGet 2.2 étend cette boîte de dialogue, ce qui lui permet d’initialiser la boîte de dialogue de gestionnaire de package avec les termes de recherche entrés dans le volet Lancement rapide. Par exemple, si vous saisissez 'jquery' dans Lancement rapide maintenant inclut une option dans les résultats pour rechercher les packages NuGet correspondant à 'jquery'.
 
 ![NuGet dans Lancement rapide Visual Studio](./media/quick-launch.png)
 

@@ -13,11 +13,11 @@ keywords: "Fournisseurs d’informations d’identification de NuGet, auprès de
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b2fac23102865a08509acc1cc3d09f0cd375f26
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8d7360205387d4813f95560018e2ac68f71f5603
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>L’authentification des flux avec des fournisseurs d’informations d’identification de NuGet dans Visual Studio
 
@@ -88,5 +88,5 @@ Un fournisseur d’informations d’identification NuGet personnalisé pour Visu
 | bool isRetry | True si les informations d’identification ont été précédemment demandées pour cet Uri, mais les informations d’identification fournies ne permettait pas autorisé à accéder. |
 | bool non interactif | Si la valeur est true, le fournisseur d’informations d’identification doit supprimer toutes les invites utilisateur et utilisez à la place des valeurs par défaut. |
 | CancellationToken cancellationToken | Ce jeton d’annulation doit être vérifié pour déterminer si les informations d’identification demande à l’opération a été annulée. |
-  
-**Valeur de retour**: un objet informations d’identification qui implémente le [ `System.Net.ICredentials` interface](https://msdn.microsoft.com/library/system.net.icredentials.aspx).
+
+**Valeur de retour**: un objet informations d’identification qui implémente le [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
