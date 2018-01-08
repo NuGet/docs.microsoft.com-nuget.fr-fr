@@ -17,15 +17,15 @@ keywords: NuGet UI, Gestionnaire de package NuGet UI, NuGet dans Visual Studio, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 88e987054f3c59a327f71b15330a99eb350449e5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0f08e5a36499c4481c4e0cd70738d67d65cd980a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 
-Le Gestionnaire de Package NuGet UI dans Visual Studio sur Windows vous permet facilement installer, désinstaller et mettre à jour les packages NuGet dans des projets et solutions. Pour une expérience dans Visual Studio pour Mac, consultez [package, y compris un NuGet dans votre projet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough). Le Gestionnaire de Package UI n’est pas incluse dans Visual Studio Code.
+Le Gestionnaire de Package NuGet UI dans Visual Studio sur Windows vous permet facilement installer, désinstaller et mettre à jour les packages NuGet dans des projets et solutions. Pour une expérience dans Visual Studio pour Mac, consultez [package, y compris un NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough). Le Gestionnaire de Package UI n’est pas incluse dans Visual Studio Code.
 
 Dans cette rubrique :
 

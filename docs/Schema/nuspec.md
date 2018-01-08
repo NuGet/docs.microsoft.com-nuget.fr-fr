@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 91efd4b4cd2ec0bee4425ab66e0152e580e7975c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
+ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -78,14 +78,14 @@ Ces éléments doivent apparaître dans un élément `<metadata>`.
 
 | Élément | Description |
 | --- | --- |
-| **id** | Identificateur de package ne respectant pas la casse, qui doit être unique dans nuget.org ou dans toute autre galerie susceptible d’héberger le package. Les ID ne peuvent pas contenir d’espaces ni de caractères qui ne sont pas valides pour une URL et suivent généralement les règles d’espace de noms .NET. Pour obtenir des conseils, consultez [Choix d’un identificateur de package unique](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
+| **ID** | Identificateur de package ne respectant pas la casse, qui doit être unique dans nuget.org ou dans toute autre galerie susceptible d’héberger le package. Les ID ne peuvent pas contenir d’espaces ni de caractères qui ne sont pas valides pour une URL et suivent généralement les règles d’espace de noms .NET. Pour obtenir des conseils, consultez [Choix d’un identificateur de package unique](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
 | **version** | Version du package, selon le modèle *version_principale.version_secondaire.version_corrective*. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../reference/package-versioning.md#pre-release-versions). |
 | **description** | Description longue du package pour l’affichage de l’interface utilisateur. |
 | **authors** | Liste séparée par des virgules des auteurs de packages, qui correspondent aux noms de profil sur nuget.org. Ceux-ci sont affichés dans la galerie NuGet sur nuget.org et servent à croiser les références des packages de mêmes auteurs. |
 
 ### <a name="optional-metadata-elements"></a>Éléments de métadonnées facultatifs
 
-Ces éléments doivent apparaître dans un élément `<metadata>`.
+Ces éléments peuvent apparaître dans un élément `<metadata>`.
 
 #### <a name="single-elements"></a>Éléments uniques
 
@@ -142,7 +142,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| Token | Source de valeur | Valeur
+| Token | Source de valeur | Value
 | --- | --- | ---
 | **$id$** | Fichier projet | AssemblyName du fichier projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
