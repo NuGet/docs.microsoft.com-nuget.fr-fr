@@ -14,11 +14,11 @@ ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 25b74ab629cab0fff7114bf1621606de5fc18dd2
-ms.sourcegitcommit: 89bb9d429c19ff69084c35acad09daea3e16d56b
+ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
+ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="package-versioning"></a>Contrôle de version de package
 
@@ -59,8 +59,8 @@ Techniquement parlant, créateurs de package peuvent utiliser n’importe quelle
 Ceci dit, les développeurs de packages suivent les conventions d’affectation de noms reconnues :
 
 - `-alpha`: Version alpha, généralement utilisée pour les travaux en cours et d’expérimentation.
-- `-beta`: Bêta, généralement une fonctionnalité complète pour le prochain planifié, mais il peut contenir des bogues.
-- `-rc`: Version release candidate, généralement une version finale potentiellement (stable), sauf si l’apparition de bogues importants.
+- `-beta`: version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
+- `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
 > Prend en charge de NuGet 4.3.0+ [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de version préliminaire avec la notation à points, comme dans *1.0.1-build.23*. Notation par points n’est pas pris en charge avec les versions de NuGet antérieures 4.3.0. Vous pouvez utiliser un formulaire comme *1.0.1-build23*.
@@ -95,7 +95,8 @@ Pour nuget.org, un package est défini en tant que package v2.0.0 SemVer si une 
 Si vous téléchargez un package de v2.0.0 spécifiques SemVer nuget.org, le package est invisible pour les clients plus anciens et disponible aux clients NuGet uniquement suivants :
 
 - NuGet 4.3.0+
-- Visual Studio 2017 version 15.3 + 
+- Visual Studio 2017 version 15.3 +
+- Visual Studio 2015 avec [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet.exe (Kit de développement .NET 2.0.0+)
 
 Les clients tiers :
