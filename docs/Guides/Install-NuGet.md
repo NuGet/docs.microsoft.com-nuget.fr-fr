@@ -13,11 +13,11 @@ keywords: CLI NuGet.exe, outils clients NuGet, gestionnaire de package NuGet, co
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1abb30458c9ebfb0ffb28be254efd9709a9627f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2f67c298d269149bba9f36ad9e026d5443c39b6a
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Installation des outils clients NuGet
 
@@ -29,7 +29,7 @@ Il existe deux outils principaux pour créer, publier et consommer des packages 
 1. [**L’interface de ligne de commande NuGet**](#nuget-cli) est l’utilitaire en ligne de commande pour Windows qui fournit toutes les fonctionnalités NuGet ; il peut également être exécuté sur Mac OSX et Linux à l’aide de Mono ou via l’interface de ligne de commande .NET Core (`dotnet`).
 1. Le [**Gestionnaire de package NuGet dans Visual Studio**](#nuget-package-manager-in-visual-studio) (Windows uniquement) est un outil GUI pour la gestion des packages et inclut une console PowerShell par le biais de laquelle vous pouvez utiliser certaines commandes NuGet directement dans Visual Studio. La console et l’interface utilisateur du Gestionnaire de package sont inclus dans Visual Studio (sur Windows) versions 2012 et ultérieures et peuvent être installées manuellement pour les versions antérieures.
 
-    Avec Visual Studio pour Mac, les fonctionnalités NuGet sont intégrées directement. Consultez [Inclusion d’un package NuGet dans votre projet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) pour une procédure pas à pas.
+    Avec Visual Studio pour Mac, les fonctionnalités NuGet sont intégrées directement. Consultez [Inclusion d’un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough) pour une procédure pas à pas.
 
     À l’heure actuelle, Visual Studio Code n’a pas de prise en charge intégrée de NuGet. Utilisez l’interface de ligne de commande NuGet ou [l’interface de ligne de commande dotnet](../Tools/dotnet-Commands.md).
 
@@ -53,7 +53,7 @@ Les fonctionnalités suivantes sont uniquement prises en charge dans l’interfa
 
 > [!Note]
 > Un autre bon outil est [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer), outil autonome open source permettant d’explorer, de créer et de modifier des packages NuGet visuellement. Il est très utile, par exemple, pour apporter des modifications expérimentales à une structure de package sans avoir à reconstruire le package systématiquement.
-> La chaîne d’outils multiplateforme de [l’interface de ligne de commande .NET Core](https://docs.microsoft.com/dotnet/articles/core/tools/index#installation), utilisée pour développer des applications .NET Core, prend en charge une série de commandes NuGet, telles que delete, locals, push, pack et restore. 
+> La chaîne d’outils multiplateforme de [l’interface de ligne de commande .NET Core](/dotnet/articles/core/tools/index#installation), utilisée pour développer des applications .NET Core, prend en charge une série de commandes NuGet, telles que delete, locals, push, pack et restore. 
 
 ## <a name="nuget-cli"></a>Interface de ligne de commande NuGet
 

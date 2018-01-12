@@ -13,17 +13,17 @@ keywords: "créer un package, packages .NET Standard, .NET Core"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82e413119b12503336becd6019e4fa3e4ac0b1f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5b48ad2f062fd3a9b99985dbda6f89e6039dac4d
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-net-standard-20-packages-with-visual-studio-2017"></a>Créer des packages .NET Standard 2.0 avec Visual Studio 2017
 
 *S’applique à NuGet 4.x+ et MSBuild 15.3+ tels que fournis avec Visual Studio 2017 Update 3. Pour les versions antérieures de Visual Studio 2017, ces instructions s’appliquent à .NET Standard versions 1.4 à 1.6 sous réserve de modifier la propriété \<TargetFramework\>. Consultez également [Créer des packages .NET Standard avec Visual Studio 2015](../guides/create-net-standard-packages-vs2015.md) si vous envisagez d’utiliser NuGet 3.x+.*
 
-La [bibliothèque .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library) est une spécification formelle des API .NET destinées à être disponibles sur tous les runtimes .NET, renforçant ainsi l’uniformité de l’écosystème .NET. La bibliothèque .NET Standard définit un ensemble uniforme d’API de bibliothèque de classes de base pour toutes les plateformes .NET à implémenter, indépendamment de la charge de travail. Elle permet aux développeurs de produire des bibliothèques de classes portables qui sont utilisables à travers tous les runtimes .NET, et réduit, si ce n’est élimine, les directives de compilation conditionnelle spécifiques à la plateforme dans le code partagé.
+La [bibliothèque .NET Standard](/dotnet/articles/standard/library) est une spécification formelle des API .NET destinées à être disponibles sur tous les runtimes .NET, renforçant ainsi l’uniformité de l’écosystème .NET. La bibliothèque .NET Standard définit un ensemble uniforme d’API de bibliothèque de classes de base pour toutes les plateformes .NET à implémenter, indépendamment de la charge de travail. Elle permet aux développeurs de produire des bibliothèques de classes portables qui sont utilisables à travers tous les runtimes .NET, et réduit, si ce n’est élimine, les directives de compilation conditionnelle spécifiques à la plateforme dans le code partagé.
 
 Ce guide vous explique comment créer un package nuget ciblant .NET Standard Library 2.0 avec Visual Studio 2017 Update 3 et NuGet 4.0.
 
@@ -33,7 +33,7 @@ Ce guide vous explique comment créer un package nuget ciblant .NET Standard Lib
 1. [Empaqueter le composant](#package-the-component)
 1. [Rubriques connexes](#related-topics)
 
-## <a name="pre-requisites"></a>Prérequis
+## <a name="pre-requisites"></a>Conditions préalables
 
 Cette procédure pas à pas nécessite Visual Studio 2017 Update 3 avec la charge de travail **Développement multiplateforme .Net Core**. Vous pouvez installer l’édition Community gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/), ou utiliser les éditions Professional et Enterprise.
 
@@ -113,5 +113,5 @@ Pour mettre votre package à la disposition des autres développeurs, suivez les
 
 - [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md) explique comment décrire votre package directement dans le fichier projet.
 - [Cibles NuGet pack et restore en tant que cibles MSBuild](../schema/msbuild-targets.md) décrit toutes les options de création d’un package à l’aide de `msbuild /t:pack`.
-- [Documentation de la bibliothèque .NET Standard](https://docs.microsoft.com/dotnet/articles/standard/library)
-- [Portage vers .NET Core à partir du .NET Framework](https://docs.microsoft.com/dotnet/articles/core/porting/index)
+- [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
+- [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)

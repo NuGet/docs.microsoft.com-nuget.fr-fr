@@ -13,11 +13,11 @@ keywords: "Restauration des packages NuGet, installation des packages NuGet, ins
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2567f45b6bb36cdd94c4ce6f1418cb1c7ceac5e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4e819a2bb34bbe70f0f11d5adeed82b976a8cb65
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-restore"></a>Restauration des packages
 
@@ -64,7 +64,7 @@ Ensuite, vous pouvez démarrer une restauration à l’aide de la liste de réf�
 | Commande | Scénarios applicables |
 | --- | --- | 
 | `nuget restore` | Toutes les versions de NuGet et tous les types référence. Consultez [Restauration en ligne de commande](#command-line-restore) ci-dessous. | 
-| `dotnet restore` | Comme avec `nuget restore` pour les projets .NET Core. Consultez [dotnet restore](https://docs.microsoft.com/dotnet/articles/core/tools/dotnet-restore). |
+| `dotnet restore` | Comme avec `nuget restore` pour les projets .NET Core. Consultez [dotnet restore](/dotnet/articles/core/tools/dotnet-restore). |
 | `msbuild /t:restore` | NuGet 4.x+ et MSBuild 15.1+ avec les [références de package dans les fichiers projet](../Consume-Packages/Package-References-in-Project-Files.md) uniquement. `nuget restore` et `dotnet restore` utilisent cette commande pour les projets applicables. Consultez [Commandes pack et restore NuGet comme cibles MSBuild - restore target](../schema/msbuild-targets.md#restore-target).|
 
 Visual Studio restaure également des packages à différents moments :

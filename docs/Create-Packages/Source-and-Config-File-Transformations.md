@@ -14,11 +14,11 @@ ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 7d380b7f2ff52ec39a2ac9a2b939ee51db6054f3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 89a55716ccbc9043cfce4c7f38ec8ab9a0e2f768
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformation de fichiers de code source et de configuration
 
@@ -27,20 +27,19 @@ Pour les projets utilisant `packages.config` ou `project.json`, NuGet prend en c
 > [!Note]
 > Les transformations de fichiers sources et de configuration ne sont pas appliquées au moment où un package est installé dans un projet à l’aide des [références de package dans les fichiers projet](../Consume-Packages/Package-References-in-Project-Files.md). 
 
-Une **transformation de code source** applique un remplacement unilatéral des jetons aux fichiers inclus dans le dossier `content` du package au moment où le package est installé, où les jetons font référence aux [propriétés de projet](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) Visual Studio. Ainsi, vous pouvez insérer un fichier dans l’espace de noms du projet, ou bien personnaliser du code qui irait normalement dans `global.asax` dans un projet ASP.NET.
+Une **transformation de code source** applique un remplacement unilatéral des jetons aux fichiers inclus dans le dossier `content` du package au moment où le package est installé, où les jetons font référence aux [propriétés de projet](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) Visual Studio. Ainsi, vous pouvez insérer un fichier dans l’espace de noms du projet, ou bien personnaliser du code qui irait normalement dans `global.asax` dans un projet ASP.NET.
 
 Une **transformation de fichier de configuration** vous permet de modifier des fichiers qui existent déjà dans un projet cible, comme `web.config` et `app.config`. Par exemple, votre package peut avoir besoin d’ajouter un élément à la section `modules` dans le fichier de configuration. Cette transformation est effectuée en incluant des fichiers spéciaux dans le package qui décrivent les sections à ajouter aux fichiers de configuration. Lorsqu’un package est désinstallé, ces mêmes modifications sont alors annulées, ce qui en fait une transformation bidirectionnelle.
-
 
 ## <a name="specifying-source-code-transformations"></a>Spécification de transformations de code source
 
 1. Les fichiers que vous voulez insérer à partir du package dans le projet doivent se trouver dans le dossier `content` du package. Par exemple, si vous voulez installer un fichier appelé `ContosoData.cs` dans un dossier `Models` du projet cible, il doit se trouver à l’intérieur du dossier `content\Models` dans le package.
 
-2. Pour demander à NuGet d’appliquer un remplacement des jetons au moment de l’installation, ajoutez `.pp` au nom du fichier de code source. Après l’installation, le fichier ne porte pas l’extension `.pp`.
+1. Pour demander à NuGet d’appliquer un remplacement des jetons au moment de l’installation, ajoutez `.pp` au nom du fichier de code source. Après l’installation, le fichier ne porte pas l’extension `.pp`.
 
     Par exemple, pour effectuer des transformations dans `ContosoData.cs`, nommez le fichier dans le package `ContosoData.cs.pp`. Après l’installation, il s’affiche en tant que `ContosoData.cs`.
 
-3. Dans le fichier de code source, utilisez des jetons ne respectant pas la casse sous la forme `$token$` pour indiquer les valeurs que NuGet doit remplacer par les propriétés de projet :
+1. Dans le fichier de code source, utilisez des jetons ne respectant pas la casse sous la forme `$token$` pour indiquer les valeurs que NuGet doit remplacer par les propriétés de projet :
 
     ```cs
     namespace $rootnamespace$.Models
@@ -58,8 +57,7 @@ Une **transformation de fichier de configuration** vous permet de modifier des f
 
     Lors de l’installation, NuGet remplace `$rootnamespace$` par `Fabrikam` en supposant que le projet cible a pour espace de noms racine `Fabrikam`.
 
-Le jeton `$rootnamespace$` est la propriété de projet la plus souvent utilisée ; toutes les autres sont répertoriées dans la documentation sur les [propriétés de projet](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) sur MSDN. N’oubliez pas, évidemment, que certaines propriétés peuvent être spécifiques du type de projet.
-
+Le jeton `$rootnamespace$` est la propriété de projet la plus souvent utilisée ; toutes les autres sont répertoriées dans la documentation sur les [propriétés de projet](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) sur MSDN. N’oubliez pas, évidemment, que certaines propriétés peuvent être spécifiques du type de projet.
 
 ## <a name="specifying-config-file-transformations"></a>Spécification de transformations de fichiers de configuration
 
@@ -91,7 +89,6 @@ Par exemple, supposons que le projet contienne initialement ce qui suit dans `we
 
 Pour ajouter un élément `MyNuModule` à la section `modules` lors de l’installation d’un package, créez un fichier `web.config.transform` dans le dossier `content` du package qui ressemble à ceci :
 
-    
 ```xml
 <configuration>
     <system.webServer>
@@ -125,10 +122,9 @@ Pour examiner son fichier `web.config.transform`, téléchargez le package ELMAH
 
 Pour voir l’effet de l’installation et de la désinstallation du package, créez un projet ASP.NET dans Visual Studio (le modèle est disponible sous **Visual C# > Web** dans la boîte de dialogue Nouveau projet), puis sélectionnez une application ASP.NET vide. Ouvrez `web.config` pour voir son état initial. Ensuite, cliquez sur le projet, sélectionnez **Gérer les packages NuGet**, recherchez ELMAH sur nuget.org et installez la version la plus récente. Remarquez toutes les modifications apportées à `web.config`. À présent, désinstallez le package et vous verrez que `web.config` revient à son état antérieur.
 
-
 ### <a name="xdt-transforms"></a>Transformations XDT
 
-Avec NuGet 2.6 et versions ultérieures, vous pouvez modifier des fichiers de configuration en utilisant la [syntaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Vous pouvez également demander à NuGet de remplacer les jetons par des [propriétés de projet](https://msdn.microsoft.com/library/vslangproj.projectproperties_properties.aspx) en incluant le nom des propriétés entre des délimiteurs `$` (ne respectant pas la casse).
+Avec NuGet 2.6 et versions ultérieures, vous pouvez modifier des fichiers de configuration en utilisant la [syntaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Vous pouvez également demander à NuGet de remplacer les jetons par des [propriétés de projet](/dotnet/api/vslangproj.projectproperties?redirectedfrom=MSDN&view=visualstudiosdk-2017#properties_) en incluant le nom des propriétés entre des délimiteurs `$` (ne respectant pas la casse).
 
 Par exemple, le fichier `app.config.install.xdt` suivant insère un élément `appSettings` dans `app.config` qui contient les valeurs `FullPath`, `FileName` et `ActiveConfigurationSettings` du projet :
 

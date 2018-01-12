@@ -14,17 +14,17 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b1a29fe6e9a3dec6847dbed07761e28fb8eb9b19
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bdb8a2c946618b0c297c70bf7fcf6a9038b2a02
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-symbol-packages"></a>Création de packages de symboles
 
 En plus de générer des packages pour nuget.org ou d’autres sources, NuGet prend également en charge la création de packages de symboles associés et leur publication dans le [dépôt SymbolSource](http://www.symbolsource.org/Public).
 
-Les consommateurs de packages peuvent alors ajouter `http://srv.symbolsource.org/pdb/Public` à leurs sources de symbole dans Visual Studio, ce qui permet d’exécuter pas à pas le code du package dans le débogueur Visual Studio. Pour plus d’informations sur ce processus, consultez [Spécifier les fichiers de symboles (.pdb) et les fichiers sources dans le débogueur Visual Studio](https://docs.microsoft.com/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger).
+Les consommateurs de packages peuvent alors ajouter `http://srv.symbolsource.org/pdb/Public` à leurs sources de symbole dans Visual Studio, ce qui permet d’exécuter pas à pas le code du package dans le débogueur Visual Studio. Pour plus d’informations sur ce processus, consultez [Spécifier les fichiers de symboles (.pdb) et les fichiers sources dans le débogueur Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger).
 
 
 ## <a name="creating-a-symbol-package"></a>Création d’un package de symboles

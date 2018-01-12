@@ -13,11 +13,11 @@ keywords: "NuGet dans Visual Studio, types de projets personnalisés, projets Vi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39212361e7cb2c214c3e83cef604d40cd057fd7e
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Prise en charge de NuGet pour le système de projets Visual Studio
 
@@ -121,9 +121,8 @@ case __VSHPROPID8.VSHPROPID_ProjectCapabilitiesChecker:
     return VSConstants.S_OK;
 ```
 
-
 ## <a name="dte-support"></a>Prise en charge de DTE
 
-NuGet pilote le système de projets pour ajouter des références, des éléments de contenu et des importations MSBuild en appelant [DTE](https://msdn.microsoft.com/library/mt452175.aspx), qui est l’interface d’automatisation du plus haut niveau de Visual Studio. DTE est un ensemble d’interfaces COM que vous pouvez déjà implémenter.
+NuGet pilote le système de projets pour ajouter des références, des éléments de contenu et des importations MSBuild en appelant [DTE](/dotnet/api/envdte.dte?view=visualstudiosdk-2017), qui est l’interface d’automatisation du plus haut niveau de Visual Studio. DTE est un ensemble d’interfaces COM que vous pouvez déjà implémenter.
 
 Si votre type de projet est basé sur CPS, DTE est implémenté pour vous.

@@ -13,11 +13,11 @@ keywords: "contrôles UWP NuGet, concepteur XAML Visual Studio, concepteur Blend
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f51dbabd406199752e4f9d612b498f59ffb54021
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Création de contrôles UWP en tant que packages NuGet
 
@@ -105,7 +105,7 @@ Par exemple, supposons que vous avez défini la propriété TPMinV de votre pack
 \ref\uap10.0\*
 ```
 
-Pour appliquer la vérification TPMinV appropriée, créez un [fichier de cibles MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) et empaquetez-le sous le dossier de build (en remplaçant « your_assembly_name » par le nom de votre assembly) :
+Pour appliquer la vérification TPMinV appropriée, créez un [fichier de cibles MSBuild](/visualstudio/msbuild/msbuild-targets) et empaquetez-le sous le dossier de build (en remplaçant « your_assembly_name » par le nom de votre assembly) :
 
 ```
 \build
@@ -133,7 +133,7 @@ Voici à quoi devrait ressembler le fichier de cibles :
 
 ## <a name="add-design-time-support"></a>Ajouter la prise en charge au moment de la conception
 
-Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\<platform>\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](https://docs.microsoft.com/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<AssemblyName>\Themes`. (Ce fichier n’a aucun impact sur le comportement d’un contrôle au moment de l’exécution.)
+Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\<platform>\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<AssemblyName>\Themes`. (Ce fichier n’a aucun impact sur le comportement d’un contrôle au moment de l’exécution.)
 
 
 ```
@@ -172,7 +172,7 @@ Pour empaqueter du contenu tel que des images pouvant être utilisées par votre
 \tools
 ```
 
-Vous pouvez également créer un [fichier de cibles MSBuild](https://docs.microsoft.com/visualstudio/msbuild/msbuild-targets) pour que le composant soit copié dans le dossier de sortie du projet de consommation :
+Vous pouvez également créer un [fichier de cibles MSBuild](/visualstudio/msbuild/msbuild-targets) pour que le composant soit copié dans le dossier de sortie du projet de consommation :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
