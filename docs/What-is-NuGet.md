@@ -13,15 +13,15 @@ keywords: "gestionnaire de package NuGet, consommation, création de package, h�
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 29dcedf33a54e249fe0b6acf588e4aafde28304f
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2bc6a9e154df287fee6a7e00cc1349dfa2100643
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
-Un mécanisme à travers lequel les développeurs peuvent créer, partager et consommer des bibliothèques de code utiles est un outil essentiel pour toutes les plateformes de développement modernes. Ces bibliothèques sont généralement appelées « packages », car elles peuvent contenir du code compilé (sous forme de DLL) ainsi que d’autres types de contenus qui peuvent être nécessaires dans les projets qui utilisent ces bibliothèques.
+Un mécanisme à travers lequel les développeurs peuvent créer, partager et consommer du code utile est un outil indispensable pour toutes les plateformes de développement modernes. Souvent, ce code est fourni dans des « packages » qui contiennent du code compilé (sous forme de DLL) et tout autre contenu nécessaire aux projets qui utilisent ces packages.
 
 Pour .NET, le mécanisme de partage de code est **NuGet**, qui définit comment les packages pour .NET sont créés, hébergés et consommés, et qui fournit les outils pour chacun de ces rôles. 
 
@@ -43,11 +43,11 @@ En plus de la prise en charge de l’hébergement, NuGet fournit également diff
 
 | Outil | Plateformes | Scénarios applicables | Description |
 | --- | --- | --- | --- |
-| [Interface CLI de nuget.exe](Tools/nuget-exe-CLI-Reference.md) | Tout | Création, consommation | Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblys et de fichiers associés, les consommateurs de packages utilisent `nuget install` pour inclure des packages dans un projet, et tous utilisent `nuget config` pour définir les variables de configuration de NuGet.  |
+| [Interface CLI de nuget.exe](Tools/nuget-exe-CLI-Reference.md) | Tous | Création, consommation | Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblys et de fichiers associés, les consommateurs de packages utilisent `nuget install` pour inclure des packages dans un projet, et tous utilisent `nuget config` pour définir les variables de configuration de NuGet.  |
 | [Interface utilisateur du Gestionnaire de package](Tools/Package-Manager-UI.md) | Visual Studio sur Windows | Consommation | Fournit une interface utilisateur facile à utiliser pour l’installation et la gestion des packages dans les projets .NET. | 
-| [Interface utilisateur de gestion de NuGet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough) | Visual Studio pour Mac | Consommation | Fournit une interface utilisateur facile à utiliser pour l’installation et la gestion des packages dans les projets .NET. |
+| [Interface utilisateur de gestion de NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio pour Mac | Consommation | Fournit une interface utilisateur facile à utiliser pour l’installation et la gestion des packages dans les projets .NET. |
 | [Console du Gestionnaire de package](Tools/Package-Manager-Console.md) | Visual Studio sur Windows | Consommation | Fournit des [commandes PowerShell](Tools/Powershell-Reference.md) pour l’installation et la gestion des packages dans les projets .NET. | 
-| [Interface CLI .NET](Tools/dotnet-Commands.md) | Tout | Création, consommation | Fournit certaines fonctionnalités de l’interface utilisateur de NuGet directement dans la chaîne d’outils .NET Core. |
+| [Interface CLI .NET](Tools/dotnet-Commands.md) | Tous | Création, consommation | Fournit certaines fonctionnalités de l’interface utilisateur de NuGet directement dans la chaîne d’outils .NET Core. |
 | [MSBuild](Schema/msbuild-targets.md) | Windows | Création, consommation | Fournit la possibilité de créer et de restaurer des packages utilisés dans un projet directement via la chaîne d’outils MSBuild. |
 
 Comme vous pouvez le voir, les outils que vous utilisez avec NuGet dépendent fortement du fait que vous créez (et vous publiez) des packages ou que vous les consommez, ainsi que de la plateforme sur laquelle vous travaillez. Vous pouvez trouver des détails plus spécifiques dans les rubriques [Flux de travail de création des packages](Create-Packages/Overview-and-Workflow.md) et [Flux de travail de consommation des packages](Consume-Packages/Overview-and-Workflow.md), ainsi que dans d’autres rubriques de ces sections. 

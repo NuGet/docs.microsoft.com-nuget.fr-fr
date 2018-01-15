@@ -13,11 +13,11 @@ keywords: "Installation des packages NuGet, réinstallation des packages NuGet, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 898a431af4ed2e090b87d97bf43cec965b72d3c3
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6a198b371c86166e2bcdee7f6cf2a6c971bea0a3
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Réinstallation et mise à jour des packages
 
@@ -31,7 +31,8 @@ La mise à jour et la réinstallation des packages s’effectuent de la façon s
 | Interface utilisateur du gestionnaire de package | Sous l’onglet **Mises à jour**, sélectionnez un ou plusieurs packages, puis sélectionnez **Mettre à jour**. | Sous l’onglet **Installé**, sélectionnez un package, enregistrez son nom, puis sélectionnez **Désinstaller**. Basculez vers l’onglet **Parcourir**, recherchez le nom du package, sélectionnez-le, puis sélectionnez **Installer**. |
 | Interface CLI de nuget.exe | Commande `nuget update` | Pour tous les packages, supprimez le dossier de package, puis exécutez `nuget install`. S’il n’y a qu’un seul package, supprimez le dossier de package et utilisez `nuget install <id>` pour réinstaller le même package. |
 
-Dans cette rubrique :
+Dans cet article :
+
 - [Quand réinstaller un package](#when-to-reinstall-a-package)
 - [Restriction des versions de mise à niveau](#constraining-upgrade-versions)
 
@@ -39,7 +40,7 @@ Dans cette rubrique :
 
 1. **Références rompues après restauration des packages** : si vous avez toujours des références rompues après avoir ouvert un projet et restauré des packages NuGet, essayez de réinstaller chacun de ces packages.
 1. **Projet ne fonctionnant plus après une suppression de fichiers** : NuGet ne vous empêche pas de supprimer des éléments ajoutés à partir des packages. Il est donc facile de modifier par inadvertance le contenu installé à partir d’un package et de rendre votre projet inutilisable. Pour restaurer le projet, réinstallez les packages concernés.
-1. **Projet ne fonctionnant plus après une mise à jour de package** : si la mise à jour d’un package rend un projet inutilisable, cela est généralement dû à un package de dépendance endommagé. Pour restaurer l’état de la dépendance, réinstallez le package en question.
+1. **Projet ne fonctionnant plus après une mise à jour de package** : si la mise à jour d’un package rend un projet inutilisable, cela est généralement dû à un package de dépendance qui a peut-être été aussi mis à jour. Pour restaurer l’état de la dépendance, réinstallez le package en question.
 1. **Reciblage ou mise à niveau du projet** : cela peut être utile lorsqu’un projet a été reciblé ou mis à niveau, et si le package nécessite une réinstallation en raison de la modification de la version cible de .NET Framework. Dans ce cas, NuGet 2.7 (et versions ultérieures) affiche une erreur de build tout de suite après le reciblage du projet, et les avertissements de build suivants vous informent que le package doit être réinstallé. Pour la mise à niveau du projet, NuGet affiche une erreur dans le journal de mise à niveau du projet.
 1. **Réinstallation d’un package durant son développement** : les auteurs de packages ont souvent besoin de réinstaller la même version d’un package qu’ils développent afin de tester son comportement. La commande `Install-Package` ne fournit pas d’option permettant de forcer une réinstallation. Vous devez donc utiliser `Update-Package -reinstall` à la place.
 

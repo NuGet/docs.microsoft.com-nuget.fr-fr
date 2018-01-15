@@ -13,11 +13,11 @@ keywords: "Création d’un package NuGet, création d’un package, manifeste n
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e7a2c4d02afb2387161c22fe5bd443eb0991ea8c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6675d21a2900a1b61e17c08518b328732f4472c5
+ms.sourcegitcommit: 1cb047b24b3b69d80e808c23b2ace0d98d2dfdcc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="creating-nuget-packages"></a>Création de packages NuGet
 
@@ -284,7 +284,7 @@ Avec NuGet 3.5+, les packages peuvent être marqués avec un *type de package* 
 
 - Les packages de type `Dependency` ajoutent des ressources de build ou d’exécution aux bibliothèques et applications et peuvent être installés dans n’importe quel type de projet (en supposant qu’ils soient compatibles).
 
-- Les packages de type `DotnetCliTool` sont des extensions de l’[interface de ligne de commande .NET](https://docs.microsoft.com/dotnet/articles/core/tools/index) et ils sont appelés à partir de la ligne de commande. De tels packages peuvent être installés uniquement dans des projets .NET Core et n’ont aucun effet sur les opérations de restauration. Plus d’informations sur ces extensions par projet sont disponibles dans la documentation [Extensibilité de .NET Core](https://docs.microsoft.com/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
+- Les packages de type `DotnetCliTool` sont des extensions de l’[interface de ligne de commande .NET](/dotnet/articles/core/tools/index) et ils sont appelés à partir de la ligne de commande. De tels packages peuvent être installés uniquement dans des projets .NET Core et n’ont aucun effet sur les opérations de restauration. Plus d’informations sur ces extensions par projet sont disponibles dans la documentation [Extensibilité de .NET Core](/dotnet/articles/core/tools/extensibility#per-project-based-extensibility).
 
     Lorsqu’un package DotnetCliTool est installé, Visual Studio le place dans le nœud `project.json` `tools` au lieu du nœud `dependencies`.
 

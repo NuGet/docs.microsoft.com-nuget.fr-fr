@@ -13,11 +13,11 @@ keywords: "Q&R sur NuGet, questions et réponses, problèmes courants, versions 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 105fa6e1cad3d163b673376c74ce9c835a0b5059
-ms.sourcegitcommit: 122bf7ce308365ea45da018b0768f0536de76a1f
+ms.openlocfilehash: d19a24a2d1955e996e18d44fee346865d36493f8
+ms.sourcegitcommit: e5b7cf6675be9891341c196afe822cea6f71d60c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -57,9 +57,9 @@ Pour plus d’informations, consultez [Recherche et sélection des packages](../
 **Comment NuGet est-il pris en charge dans les différents produits Visual Studio ?**
 
 - Visual Studio sur Windows prend en charge [l’interface utilisateur du Gestionnaire de package](../tools/Package-Manager-UI.md) et la [console du Gestionnaire de package](../tools/Package-Manager-Console.md).
-- Visual Studio pour Mac offre des fonctionnalités NuGet intégrées, comme décrit dans [Inclusion d’un package NuGet dans votre projet](https://docs.microsoft.com/visualstudio/mac/nuget-walkthrough).
+- Visual Studio pour Mac offre des fonctionnalités NuGet intégrées, comme décrit dans [Inclusion d’un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (toutes les plateformes) n’a pas d’intégration directe de NuGet. Utilisez [l’interface de ligne de commande NuGet](../tools/nuget-exe-CLI-Reference.md) ou [l’interface de ligne de commande dotnet](../tools/dotnet-commands.md).
-- Visual Studio Team Services fournit [une étape de génération pour restaurer les packages NuGet](https://docs.microsoft.com/vsts/build-release/tasks/package/nuget). Vous pouvez également [héberger les flux de package NuGet privés sur Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
+- Visual Studio Team Services fournit [une étape de génération pour restaurer les packages NuGet](/vsts/build-release/tasks/package/nuget). Vous pouvez également [héberger les flux de package NuGet privés sur Team Services](https://www.visualstudio.com/docs/package/nuget/publish).
 
 **Comment vérifier la version exacte des outils NuGet qui sont installés ?**
 
@@ -101,7 +101,7 @@ Oui, vous pouvez ajouter des commandes personnalisées à `nuget.exe`, comme le 
 
 **Comment accéder à l’objet DTE dans la console du Gestionnaire de package ?**
 
-L’objet de niveau supérieur dans le modèle objet automation Visual Studio est appelé objet DTE (Development Tools Environment). La console le fournit par le biais d’une variable nommée `$DTE`. Pour plus d’informations, consultez [Vue d’ensemble du modèle Automation](https://docs.microsoft.com/visualstudio/extensibility/internals/automation-model-overview) dans la documentation de l’extensibilité de Visual Studio.
+L’objet de niveau supérieur dans le modèle objet automation Visual Studio est appelé objet DTE (Development Tools Environment). La console le fournit par le biais d’une variable nommée `$DTE`. Pour plus d’informations, consultez [Vue d’ensemble du modèle Automation](/visualstudio/extensibility/internals/automation-model-overview) dans la documentation de l’extensibilité de Visual Studio.
 
 **J’essaie de caster la variable $DTE en type DTE2, mais j’obtiens une erreur indiquant qu’il est impossible de convertir la valeur « EnvDTE.DTEClass » du type « EnvDTE.DTEClass » en type « EnvDTE80.DTE2 ». Quel est le problème ?**
 
@@ -177,9 +177,9 @@ Si un package ne spécifie pas les termes du contrat de licence, contactez le pr
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestion des packages sur nuget.org
 
-**Puis-je modifier les métadonnées d’un package après l’avoir chargé ? Pourquoi recommandez-vous de modifier le fichier nuspec et de charger un nouveau package pour apporter des modifications aux métadonnées du package ?**
+**Puis-je modifier les métadonnées d’un package après l’avoir chargé ? Pourquoi demandez-vous de modifier le fichier nuspec et de charger un nouveau package pour apporter des modifications aux métadonnées du package ?**
 
-NuGet implémente la signature des packages. Un principe de conception de la signature du package est que le contenu du package signé doit être immuable, ce qui comprend le fichier nuspec. Modifier les métadonnées du package entraîne des modifications du fichier nuspec, invalidant les signatures existantes. Nous vous recommandons de modifier les flux de travail existants de manière à ce qu’il ne soit pas nécessaire de modifier les métadonnées du package une fois ce dernier créé.
+NuGet exige que tous les packages soient signés. Un principe de conception de la signature du package est que le contenu du package signé doit être immuable, ce qui comprend le fichier nuspec. Modifier les métadonnées du package entraîne des modifications du fichier nuspec, invalidant les signatures existantes. Nous vous recommandons de modifier les flux de travail existants de manière à ce qu’il ne soit pas nécessaire de modifier les métadonnées du package une fois ce dernier créé.
 
 Notez que les dépendances répertoriées pour votre package sont générées automatiquement à partir du package lui-même et qu’elles ne peuvent pas être modifiées.
 

@@ -13,11 +13,11 @@ keywords: "création de package NuGet, publication de package NuGet, didacticiel
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36a7c2b1d056dddf07a59737de1c3e94294689ac
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-and-publish-a-package"></a>Créer et publier un package
 
@@ -28,7 +28,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 - [Exécuter la commande pack](#run-the-pack-command)
 - [Publier le package](#publish-the-package)
 
-## <a name="pre-requisites"></a>Prérequis
+## <a name="pre-requisites"></a>Conditions préalables
 
 1. Installez une édition quelconque de Visual Studio 2017 à partir de [visualstudio.com](https://www.visualstudio.com/).
 
@@ -52,7 +52,7 @@ Chaque package NuGet a besoin d’un manifeste &mdash;un fichier `.nuspec`&mdash
     nuget spec
     ```
 
-1. Ouvrez le fichier dans un éditeur de texte. Le manifeste ressemble au code ci-dessous, où les jetons au format *$`<token>`$* seront remplacés pendant le processus d’empaquetage par des valeurs tirées du fichier Properties/AssemblyInfo.cs du projet. Pour plus d’informations sur les jetons, consultez [Création d’un fichier .nuspec](../create-packages/creating-a-package.md#creating-the-nuspec-file).
+1. Ouvrez le fichier dans un éditeur de texte. Le manifeste ressemble au code ci-dessous, où les jetons au format `<token>` (comme `$id$`) seront remplacés pendant le processus d’empaquetage par des valeurs tirées du fichier Properties/AssemblyInfo.cs du projet. Pour plus d’informations sur les jetons, consultez [Création d’un fichier .nuspec](../create-packages/creating-a-package.md#creating-the-nuspec-file).
 
     ```xml
     <?xml version="1.0"?>
@@ -115,7 +115,6 @@ Une fois que vous avez un fichier `.nupkg`, vous pouvez le publier sur nuget.org
 > [!Warning]
 > Les packages que vous publiez sur nuget.org sont visibles publiquement par d’autres développeurs. Pour héberger des packages en privé, consultez [Hébergement de packages](../hosting-packages/overview.md).
 
-
 1. Créez un compte gratuit sur [nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F), ou connectez-vous si vous en avez déjà un. La création d’un compte envoie un e-mail de confirmation. Vous devez confirmer le compte avant de pouvoir charger un package.
 
 1. Une fois connecté, sélectionnez votre nom d’utilisateur (dans le coin supérieur droit), puis **Clés API**.
@@ -134,7 +133,7 @@ Une fois que vous avez un fichier `.nupkg`, vous pouvez le publier sur nuget.org
     ```
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
-    
+
 1. nuget.exe affiche les résultats du processus de publication :
 
     ```
@@ -158,5 +157,5 @@ Et voilà ! Vous venez de publier votre premier package NuGet sur [nuget.org](h
 - [Créer un package](../create-packages/creating-a-package.md)
 - [Publier un package](../create-packages/publish-a-package.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
-- [Gestion de version des packages](../reference/package-versioning.md)
+- [Gestion des versions de package](../reference/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)

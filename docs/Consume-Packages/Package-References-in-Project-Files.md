@@ -13,11 +13,11 @@ keywords: "Dépendances de package NuGet, références de package, fichiers proj
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c8fc9e558557af444d9a35ace36d043a5f6382a7
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 275957c94e4a4bb45f359cd48816acf4f286ebad
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -89,23 +89,23 @@ Les balises de métadonnées suivantes permettent de contrôler les ressources d
 
 | Balise | Description | Valeur par défaut |
 | --- | --- | --- |
-| IncludeAssets | Ces ressources sont consommées. | all |
-| ExcludeAssets | Ces ressources ne sont pas consommées. | none | 
+| IncludeAssets | Ces ressources sont consommées. | toutes les |
+| ExcludeAssets | Ces ressources ne sont pas consommées. | aucun | 
 | PrivateAssets | Ces ressources sont consommées, mais ne sont pas acheminées vers le projet parent. | contentfiles;analyzers;build |
 
 
 Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multiples doivent être séparées par un point-virgule, à l’exception de `all` et de `none` qui doivent s’afficher seules) :
 
-| Valeur | Description |
+| Value | Description |
 | --- | ---
 | compile | Contenu du dossier `lib` |
 | runtime | Contenu du dossier `runtime` |
 | contentFiles | Contenu du dossier `contentfiles` |
 | build | Propriétés et cibles du dossier `build` |
 | analyzers | Analyseurs .NET |
-| native | Contenu du dossier `native` |
-| none | Aucune des valeurs ci-dessus n’est utilisée. |
-| all | Toutes les valeurs ci-dessus sont utilisées (sauf `none`) |
+| natifs | Contenu du dossier `native` |
+| aucun | Aucune des valeurs ci-dessus n’est utilisée. |
+| toutes les | Toutes les valeurs ci-dessus sont utilisées (sauf `none`) |
 
 Dans l’exemple suivant, tout (à l’exception des fichiers de contenu du package) est consommé par le projet et tout (à l’exception des fichiers de contenu et des analyseurs) est acheminé vers le projet parent.
 

@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: d002f55a75b3daaa2fed7a94e88582dd4f04e05f
-ms.sourcegitcommit: 1ebfff1263992c54de75366a1b1c26dbae6c0318
+ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -172,8 +172,8 @@ Et que vous générez un assembly dont `AssemblyName` est `LoggingLibrary` avec 
 L’élément `<dependencies>` dans `<metadata>` contient un nombre quelconque d’éléments `<dependency>` qui identifient d’autres packages dont dépend le package de niveau supérieur. Les attributs pour chaque élément `<dependency>` sont les suivants :
 
 | Attribut | Description |
-| --- | --- | 
-| `id` | (Obligatoire) ID de package de la dépendance. |
+| --- | --- |
+| `id` | (Obligatoire) ID de package de la dépendance, tel que « EntityFramework » et « NUnit », qui est le nom du package nuget.org affiché sur une page de package. |
 | `version` | (Obligatoire) Plage de versions acceptables en tant que dépendance. Consultez [Gestion de versions des packages](../reference/package-versioning.md#version-ranges-and-wildcards) pour connaître la syntaxe exacte. |
 | include | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à inclure dans le package final. La valeur par défaut est `none`. |
 | exclude | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à exclure dans le package final. La valeur par défaut est `all`. Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`. |
@@ -254,7 +254,7 @@ Par exemple, l’élément `<references>` suivant demande à NuGet d’ajouter d
 </references>
 ```
 
-Des références explicites sont généralement utilisées pour les assemblys uniquement au moment du design. Quand vous utilisez des [contrats de code](https://docs.microsoft.com/dotnet/framework/debug-trace-profile/code-contracts), par exemple, les assemblys de contrat doivent être en regard des assemblys de runtime qu’ils augmentent afin que Visual Studio puisse les trouver, mais les assemblys de contrat n’ont pas à être référencés par le projet ni copiés dans le dossier `bin` du projet.
+Des références explicites sont généralement utilisées pour les assemblys uniquement au moment du design. Quand vous utilisez des [contrats de code](/dotnet/framework/debug-trace-profile/code-contracts), par exemple, les assemblys de contrat doivent être en regard des assemblys de runtime qu’ils augmentent afin que Visual Studio puisse les trouver, mais les assemblys de contrat n’ont pas à être référencés par le projet ni copiés dans le dossier `bin` du projet.
 
 De même, des références explicites peuvent servir pour les frameworks de tests unitaires, tels que XUnit,dont les assemblys d’outils doivent être situés en regard des assemblys de runtime, mais qui n’ont pas besoin d’être inclus comme références de projet.
 

@@ -13,11 +13,11 @@ keywords: "Dépendances de package NuGet, gestion des versions NuGet, versions d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 44c69c07990fed72b439698d22021ebcbb2eed89
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93a3d077a6dd1946485fc8c48f97c8009280890c
+ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Comment NuGet résout les dépendances de package
 
@@ -103,7 +103,7 @@ Lorsque des versions de package différentes sont référencées à une même di
 
 ![Résolution des dépendances cousines à l’aide de la plus ancienne version qui respecte toutes les restrictions](media/projectJson-dependency-7.png)
 
-Dans certains cas, il n’est pas possible de répondre à toutes les exigences de version. Comme indiqué ci-dessous, si le Package A nécessite exactement le Package B 1.0, et si le Package C nécessite le Package B « version supérieure ou égale à 2.0 », NuGet ne peut pas résoudre les dépendances et génère une erreur.
+Dans certains cas, il n’est pas possible de répondre à toutes les conditions des versions. Comme indiqué ci-dessous, si le Package A nécessite exactement le Package B 1.0, et si le Package C nécessite le Package B « version supérieure ou égale à 2.0 », NuGet ne peut pas résoudre les dépendances et génère une erreur.
 
 ![Dépendances ne pouvant être résolues en raison d’une spécification de version exacte](media/projectJson-dependency-8.png)
 
@@ -151,6 +151,12 @@ Pour résoudre ce problème, vous devez référencer directement le `C.dll` que 
             }
         }
     }
+    ```
+
+- Avec les [références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md) (NuGet 4.0+ uniquement), ajoutez `ExcludeAssets="All"` dans la dépendance :
+
+    ```xml
+    <PackageReference Include="packageC" Version="1.0.0" ExcludeAssets="All" />
     ```
 
 ## <a name="dependency-updates-during-package-install"></a>Mises à jour des dépendances pendant l’installation du package 

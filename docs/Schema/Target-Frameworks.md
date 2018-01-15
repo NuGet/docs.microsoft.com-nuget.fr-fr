@@ -1,5 +1,5 @@
 ---
-title: "Références des versions cibles de .NET Framework pour NuGet | Microsoft Docs"
+title: "Références des frameworks cibles pour NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -8,26 +8,26 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 ms.assetid: 4343a48e-f6df-4a44-9d66-4616c3caacf5
-description: "Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package."
+description: "Les références des frameworks cibles NuGet identifient et isolent les composants d’un package qui dépendent d’un framework."
 keywords: ciblage de package NuGet, versions cibles de .NET Framework, versions du .NET Framework
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4d1d2e6850f22306d715b1c2071ee45b0eb050dc
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="target-frameworks"></a>Versions cibles de .NET Framework
+# <a name="target-frameworks"></a>Frameworks cibles
 
-NuGet utilise les références des versions cibles de .NET Framework à de nombreux endroits pour identifier et isoler spécifiquement les composants dépendants du framework d’un package :
+NuGet utilise des références de frameworks cibles à divers endroits pour identifier et isoler spécifiquement les composants d’un package qui dépendent d’un framework :
 
-- [Manifeste .nuspec](../schema/nuspec.md) : un package peut désigner des packages distincts à inclure dans un projet en fonction de la version cible de .NET Framework du projet.
+- [Manifeste .nuspec](../schema/nuspec.md) : un package peut désigner des packages distincts à inclure dans un projet en fonction du framework cible du projet.
 - [Nom du dossier .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) : les dossiers à l’intérieur du dossier `lib` d’un package peuvent être nommés en fonction de la version cible de .NET Framework, chacun contenant les DLL et tout autre contenu appropriés pour ce framework.
 - [packages.config](../Schema/packages-config.md) : l’attribut `targetframework` d’une dépendance spécifie la variante d’un package à installer.
-- [project.json](../Schema/project-json.md) : le nœud `frameworks` spécifie les versions cibles de .NET Framework avec lesquelles le projet peut être compilé.
+- [project.json](../Schema/project-json.md) : le nœud `frameworks` spécifie les versions de framework avec lesquelles le projet peut être compilé.
 
 > [!Note]
 > Le code source du client NuGet qui calcule les tableaux ci-dessous se trouve aux emplacements suivants :
@@ -40,7 +40,7 @@ Un framework est généralement référencé par un moniker du Framework cible o
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 
-| Nom           | Abréviation | TFMs/TxMs |
+| Name           | Abréviation | TFMs/TxMs |
 | -------------  | ------------ | --------- |
 |.NET Framework  | net          | net11     |
 |                |              | net20     |
@@ -53,7 +53,7 @@ Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. 
 |                |              | net46      |
 |                |              | net461     |
 |                |              | net462     |
-|Windows Store   | netcore      | netcore [netcore45] |
+|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
 |                |              | netcore45 [win, win8] |
 |                |              | netcore451 [win81] |
 |                |              | netcore50 |
@@ -122,7 +122,7 @@ Un certain nombre de frameworks sont liés et compatibles entre eux, mais sans �
 
 ## <a name="net-platform-standard"></a>.NET Standard
 
-[.NET Standard Platform](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) simplifie les références entre les frameworks compatibles au niveau binaire, ce qui permet à une même version cible de .NET Framework de référencer une combinaison d’autres frameworks. (Pour obtenir des informations générales, consultez le [Guide de .NET](https://docs.microsoft.com/dotnet/articles/standard/index).)
+[.NET Standard Platform](https://github.com/dotnet/corefx/blob/master/Documentation/architecture/net-platform-standard.md) simplifie les références entre les frameworks compatibles au niveau binaire, ce qui permet à une même version cible de .NET Framework de référencer une combinaison d’autres frameworks. (Pour obtenir des informations générales, consultez le [Guide de .NET](/dotnet/articles/standard/index).)
 
 L’outil [Get Nearest Framework Nuget](https://aka.ms/s2m3th) simule ce que NuGet utilise pour la sélection d’un framework à partir de nombreuses ressources de framework disponibles dans un package, en fonction du framework du projet.
 
@@ -282,7 +282,7 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
 
 De plus, les packages NuGet ciblant Xamarin peuvent utiliser d’autres frameworks définis par Xamarin. Consultez [Création de packages NuGet pour Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Nom | Description | .NET Standard |
+| Name | Description | .NET Standard |
 | --- | --- | ---
 | monoandroid | Prise en charge mono pour le système d’exploitation Android | netstandard1.4 |
 | monotouch | Prise en charge mono pour iOS | netstandard1.4 |

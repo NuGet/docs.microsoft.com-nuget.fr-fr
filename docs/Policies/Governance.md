@@ -13,11 +13,11 @@ keywords: "gouvernance pour NuGet, dictateur bienveillant NuGet, responsabilité
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: db2ed774b35d5698a88f9afba43fd30692001f6a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-governance"></a>Gouvernance pour NuGet
 
@@ -47,7 +47,7 @@ En règle générale, un validateur se concentre sur un aspect spécifique du pr
 
 Les validateurs n’ont aucune autorité sur la direction globale de NuGet. Toutefois, ils ont toute l’attention du chef de projet. Il appartient au validateur de s’assurer que le responsable tient compte des besoins et des objectifs collectifs de la communauté et d’aider à développer ou obtenir des contributions appropriées au projet. Souvent, les validateurs se voient accorder un contrôle informel de leurs domaines de responsabilité spécifiques, ainsi que des droits de modification directe de certaines zones du code source. Autrement dit, bien que les validateurs n’aient pas explicitement autorité en matière de prise de décision, ils constatent souvent que leurs actions concordent avec les décisions prises par le responsable.
 
-### <a name="contributors"></a>Contributeurs
+### <a name="contributors"></a>Contributors
 
 Les contributeurs sont des membres de la communauté qui soumettent des correctifs à NuGet. Ces correctifs peuvent se produire une ou plusieurs fois. En règle générale, les correctifs soumis par un contributeur sont petits dans un premier temps, puis deviennent plus importants à mesure que leur qualité gagne la confiance des contributeurs, des validateurs et du chef de projet. Les contributeurs sont identifiés dans le document des notes de publication du produit associé.
 

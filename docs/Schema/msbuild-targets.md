@@ -11,11 +11,11 @@ ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "Les commandes pack et restore NuGet peuvent être utilisées directement comme cibles MSBuild avec NuGet 4.0+."
 keywords: NuGet et MSBuild, cible pack NuGet, cible restore NuGet
 ms.reviewer: karann-msft
-ms.openlocfilehash: def01380e5bc3bf878e72dd437f52cd033641ca5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
+ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -55,7 +55,7 @@ Lors de l’utilisation de la cible pack, autrement dit `msbuild /t:pack`, MSBui
 Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises en charge avec MSBuild.
 
 
-| Valeur d’attribut/NuSpec | Propriété MSBuild | Par défaut | Remarques |
+| Valeur d’attribut/NuSpec | Propriété MSBuild | Par défaut | Notes |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
 | Version | PackageVersion | Version | Compatible avec SemVer, par exemple « 1.0.0 », « version bêta 1.0.0 » ou « version bêta-1.0.0-00345 » |
@@ -75,7 +75,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | RepositoryUrl | RepositoryUrl | vide | |
 | RepositoryType | RepositoryType | vide | |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Résumé | Non pris en charge | | |
+| Récapitulatif | Non pris en charge | | |
 
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
