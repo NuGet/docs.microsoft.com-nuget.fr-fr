@@ -14,11 +14,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 53fccbb86f2920d870b5383070d043e25045a626
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 29eb72cbb6c095cd3aeb524fd8b28416ec5dc798
+ms.sourcegitcommit: 6ccb963e065680ab2e7df1d8dd5492897fd56b04
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="errors-and-warnings"></a>Erreurs et avertissements
 
@@ -31,7 +31,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | Regrouper | Numéros d’erreur |
 | --- | --- |
 | [Erreurs d’entrée non valides](#invalid-input-errors) | [NU1001](#nu1001), [NU1002](#nu1002), [NU1003](#nu1003) |
-| [Erreurs de package et de projet manquants](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (précédemment NU1607) [NU1108](#nu1107) (précédemment NU1606) |
+| [Erreurs de package et de projet manquants](#missing-package-and-project-errors) | [NU1100](#nu1100), [NU1101](#nu1101), [NU1102](#nu1102), [NU1103](#nu1103), [NU1104](#nu1104), [NU1105](#nu1105), [ NU1106](#nu1106), [NU1107](#nu1107) (précédemment NU1607) [NU1108](#nu1108) (précédemment NU1606) |
 | [Erreurs de compatibilité](#compatibility-errors) | [NU1201](#nu1201), [NU1202](#nu1202), [NU1203](#nu1203), [NU1401](#nu1401) |
 
 **Avertissements**
@@ -75,7 +75,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 
 ## <a name="missing-package-and-project-errors"></a>Erreurs de package et de projet manquants
 
-[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104 ](#nu1104)  |  [NU1105](#nu1105) | [NU1106](#nu1106)
+[NU1100](#nu1100) | [NU1101](#nu1101) | [NU1102](#nu1102) | [NU1103](#nu1103) | [NU1104](#nu1104) | [NU1105](#nu1105) | [NU1106](#nu1106)
 
 ### <a name="nu1100"></a>NU1100
 
@@ -133,7 +133,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | **Causes courantes** | Les packages contiennent la dépendance sur les versions exactes d’un package au lieu de plages ouvertes. |
 | **Exemple de message** | *Impossible de satisfaire les requêtes en conflit pour {id} : {chemin d’accès de conflit} Framework : {graphique cible}* |
 
-< un name = "NU1107 ></a>
+<a name="nu1107"></a> 
 
 ### <a name="nu1107-previously-nu1607"></a>NU1107 (précédemment NU1607)
 
@@ -141,9 +141,9 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | Impossible de résoudre les contraintes de dépendances entre les packages. |
 | **Causes courantes** | Les packages avec des contraintes de dépendance sur les versions exactes ne permettent pas d’autres packages d’augmenter la version, si nécessaire. |
-| **Exemple de message** | *Conflit de version détecté pour NuGet.Versioning. Référencer le package directement à partir du projet pour résoudre ce problème.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
+| **Exemple de message** | *Conflit de version détecté pour NuGet.Versioning. Référencer le package directement à partir du projet pour résoudre ce problème.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 
-< un name = "NU1108 ></a>
+<a name="nu1108"></a>
 
 ### <a name="nu1108-previously-nu1606"></a>NU1108 (précédemment NU1606)
 
@@ -259,11 +259,9 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | Un package de dépendance spécifié une contrainte de version sur une version supérieure d’un package au restauration finalement réduite. |
 | **Causes courantes** | Wins le plus proche lors de la résolution des packages. Un package plus proche dans le graphique peut avoir substitution un package distant. |
-| **Exemple de message** | *Détecté vers une version antérieure du package : NuGet.Versioning de 4.0.0 vers la version 3.5.0. Référencer le package directement à partir du projet pour sélectionner une autre version.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/> NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
+| **Exemple de message** | *Détecté vers une version antérieure du package : NuGet.Versioning de 4.0.0 vers la version 3.5.0. Référencer le package directement à partir du projet pour sélectionner une autre version.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/>  NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
 
 ## <a name="resolver-conflict-warnings"></a>Avertissements de conflit de programme de résolution
-
-[NU1608](#nu1608)
 
 ### <a name="nu1608"></a>NU1608
 
@@ -275,8 +273,6 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 
 ## <a name="package-fallback-warnings"></a>Avertissements de secours de package
 
-[NU1701](#nu1701)
-
 ### <a name="nu1701"></a>NU1701
 
 | | |
@@ -286,8 +282,6 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | **Exemple de message** | *Package 'NuGet.Versioning' a été restauré à l’aide de « portable-net45 + win8 » à la place le framework cible du projet 'netstandard1.5'. Ce package ne peut pas être entièrement compatible avec votre projet.* |
 
 ## <a name="feed-warnings"></a>Flux d’avertissements
-
-[NU1801](#nu1801)
 
 ### <a name="nu1801"></a>NU1801
 
