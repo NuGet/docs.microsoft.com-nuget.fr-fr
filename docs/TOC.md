@@ -2,14 +2,13 @@
 # Démarrage rapide
 ## [Créer et publier un package](Quickstart/Create-and-Publish-a-Package.md)
 ## [Utiliser un package](Quickstart/Use-a-Package.md)
-# Guides
+# Repères
 ## [Installer les outils clients NuGet](Guides/Install-NuGet.md)
 ## [Créer des packages NET Standard (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [Créer des packages NET Standard (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [Créer des packages UWP](Guides/Create-UWP-Packages.md)
 ## [Création de contrôles UWP en tant que packages NuGet](Guides/Create-UWP-Controls.md)
 ## [Créer des packages multiplateformes](Guides/Create-Cross-Platform-Packages.md)
-## [Requête pour tous les packages à l’aide de l’API](Guides/api/query-for-all-published-packages.md)
 # Créer des packages
 ## [Vue d’ensemble et flux de travail](Create-Packages/Overview-and-Workflow.md)
 ## [Création d’un package](Create-Packages/Creating-a-Package.md)
@@ -86,6 +85,7 @@
 ### [Fournisseurs d’informations d’identification nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
 # API
 ## [Vue d’ensemble](API/overview.md)
+## [Comment : effectuez une requête pour tous les packages à l’aide de l’API](Guides/api/query-for-all-published-packages.md)
 ## [Index de service](API/service-index.md)
 ## [Envoyer (push) et supprimer](API/package-publish-resource.md)
 ## [Rechercher](API/search-query-service-resource.md)
