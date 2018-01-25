@@ -20,13 +20,12 @@ ms.date: 08/15/2017
 ms.topic: hub-page
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 49f63ee9-86a9-41de-baba-e3d66f3d5966
 ms.reviewer: karann-msft
-ms.openlocfilehash: 0354aba81d1b4ae33000934e2a78970e6daf75ad
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f17245f6dd4e47c0993de6861e4a7a2cc77284bb
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 <div id="main" class="v2">
 <div class="container">
@@ -68,7 +67,7 @@ ms.lasthandoff: 12/14/2017
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Guides de démarrage rapide</h3>
+                                            <h3>Démarrages rapides</h3>
                                             <p>Utilisez NuGet en suivant des procédures pas à pas dédiées à la création d’un package simple et à l’utilisation d’un package.</p>
                                         </div>
                                     </div>
@@ -77,7 +76,7 @@ ms.lasthandoff: 12/14/2017
                             </a>
                         </li>
                         <li>
-                            <a href="guides/install-nuget.md">
+                            <a href="install-nuget-client-tools.md">
                             <div class="cardSize">
                                 <div class="cardPadding">
                                     <div class="card">
@@ -87,7 +86,7 @@ ms.lasthandoff: 12/14/2017
                                             </div>
                                         </div>
                                         <div class="cardText">
-                                            <h3>Guides</h3>
+                                            <h3>Repères</h3>
                                             <p>Utilisez les outils et les fonctionnalités de NuGet en suivant des procédures pas à pas dédiées à l’installation et à la création de packages.</p>
                                         </div>
                                     </div>
