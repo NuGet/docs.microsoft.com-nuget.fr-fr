@@ -11,27 +11,26 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ead5cf7a-e51e-4cbb-8798-58226f4c853f
 description: "Le service de la saisie semi-automatique search prend en charge les versions et découverte interactive de l’ID de package."
 keywords: "API de la saisie semi-automatique de NuGet, ID de package NuGet recherche, ID de package de sous-chaîne"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 313ceb630947b46c34b98e14044ecf121b725087
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="autocomplete"></a>Saisie semi-automatique
 
 Il est possible de générer un package ID et la version la saisie semi-automatique expérience à l’aide de l’API V3. La ressource utilisée pour effectuer des requêtes de la saisie semi-automatique est la `SearchAutocompleteService` ressource trouvée dans le [index service](service-index.md).
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur @type                          | Remarques
+Valeur @type                          | Notes
 ------------------------------------ | -----
 SearchAutocompleteService            | La version initiale
 SearchAutocompleteService/3.0.0-beta | Alias de`SearchAutocompleteService`
@@ -51,13 +50,11 @@ La saisie semi-automatique la première API prend en charge la recherche d’une
 
 Un package avec uniquement les versions non listées n’apparaîtra pas dans les résultats.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom        | Vers l'avant     | Type    | Obligatoire | Remarques
+Name        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | chaîne  | Non       | La chaîne à comparer à l’ID de package
 skip        | URL    | entiers | Non       | Le nombre de résultats à ignorer, pour la pagination
@@ -83,16 +80,14 @@ La réponse est document JSON contenant jusqu'à `take` les résultats de la sai
 
 L’objet JSON racine a les propriétés suivantes :
 
-Nom      | Type             | Obligatoire | Remarques
+Name      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
 total des accès | entiers          | oui      | Le nombre total de correspondances, ignorant `skip` et`take`
 Données      | Tableau de chaînes | oui      | Les ID correspondant à la demande de package
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
 GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
-```
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -104,13 +99,11 @@ Une fois qu’un ID de package a été détecté à l’aide de l’API précéd
 
 Une version de package qui n’est pas spécifiée n’apparaîtra pas dans les résultats.
 
-```
-GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom        | Vers l'avant     | Type    | Obligatoire | Remarques
+Name        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
 ID          | URL    | chaîne  | oui      | Pour récupérer des versions pour l’ID de package
 version préliminaire  | URL    | boolean | Non       | `true`ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
@@ -126,7 +119,7 @@ La réponse est un document JSON qui contient toutes les versions de package de 
 
 L’objet JSON racine a la propriété suivante :
 
-Nom      | Type             | Obligatoire | Remarques
+Name      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
 Données      | Tableau de chaînes | oui      | Les versions de package correspondance à la demande
 
@@ -134,9 +127,7 @@ Les versions de package dans le `data` tableau peut contenir des métadonnées d
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
-```
+    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
 
 ### <a name="sample-response"></a>Exemple de réponse
 

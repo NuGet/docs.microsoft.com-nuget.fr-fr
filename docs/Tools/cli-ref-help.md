@@ -3,21 +3,20 @@ title: Commande de help NuGet CLI | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 780d7f52-d6c6-45cd-8a62-218ff8c0b270
 description: "Informations de référence pour la commande de help nuget.exe"
 keywords: "référence d’aide de NuGet, la commande aide"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 55dc263fedd7ed5a3e48b76dbc9a3ccc220655cf
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 97f72e1be0df6e97f8b06696b2b3861800e4ea08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>aide ou ? commande (NuGet CLI)
 
@@ -27,7 +26,7 @@ Général des informations et des informations sur les commandes spécifiques.
 
 ## <a name="usage"></a>Utilisation
 
-```
+```cli
 nuget help [command] [options]
 nuget ? [command] [options]
 ```
@@ -41,19 +40,19 @@ où [commande] identifie une commande spécifique pour laquelle afficher l’aid
 
 | Option | Description |
 | --- | --- |
-| Tout | Imprimer une aide détaillée pour toutes les commandes disponibles ; ignoré si une commande spécifique est donnée. |
-| ConfigFile | *(2.5 +)*  NuGet le fichier de configuration à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| Tous | Imprimer une aide détaillée pour toutes les commandes disponibles ; ignoré si une commande spécifique est donnée. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande aide lui-même. |
 | Markdown | Imprimer une aide détaillée dans le format markdown lorsqu’il est utilisé avec `-All`. Ignoré dans le cas contraire. |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
-| Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées (2.5 +)*. |
+| Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)
 
 ## <a name="examples"></a>Exemples
 
-```
+```cli
 nuget help
 nuget help push
 nuget ?

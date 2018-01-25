@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6f972803-9e17-43f5-b77b-973c3accf695
 description: "Notes de publication pour 2.1 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de version 2.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dafe575eedbfed215c0b1c86795bea281de97252
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-21-release-notes"></a>Notes de version 2.1 de NuGet
 
@@ -101,14 +100,14 @@ Pour les applications du Windows Store de 8, les identificateurs de se présente
 
 |NuGet 2.0 et versions antérieur|NuGet 2.1|
 |----------------|-----------|
-|winRT45. NETCore45|Win Windows, Windows 8, win8|
+|winRT45, .NETCore45|Win Windows, Windows 8, win8|
 
 <br/>
 Pour les projets Windows Phone, les identificateurs de se présenter comme suit :
 
 |Système d’exploitation du téléphone|NuGet 2.0 et versions antérieur|NuGet 2.1
 |----------------|-----------|-----------|
-|Windows Phone 7|silverlight3-wp|WP, wp7, WindowsPhone, WindowsPhone7|
+|Windows Phone 7|silverlight3-wp|wp, wp7, WindowsPhone, WindowsPhone7|
 |Windows Phone 7.5 (Mango)|silverilght4-wp71|wp71, WindowsPhone71|
 |Windows Phone 8|(non pris en charge)|wp8, WindowsPhone8|
 <br/>

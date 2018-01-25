@@ -7,18 +7,17 @@ ms.date: 12/08/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee3c826-dd3a-4fa9-863f-1fd80bc4230f
 description: "Détails exacts sur la spécification des numéros de version et de plages pour d’autres packages qui dépend d’un package NuGet, et comment les dépendances sont installées."
 keywords: "le contrôle de version, les dépendances de package NuGet, versions de dépendance de NuGet, les numéros de version de NuGet, version du package NuGet, plages de versions, les spécifications de version, les numéros de version normalisée"
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb5624a2fd99e8afd8a8226fd786343f485041c4
-ms.sourcegitcommit: c27e565de485cbe836e6c2a66e44a50b35b487ff
+ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/09/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-versioning"></a>Contrôle de version de package
 
@@ -42,12 +41,11 @@ Un numéro de version est au format *majeure.mineure.correctif [-suffixe]*, où 
 - *-Suffixe* (facultatif) : un trait d’union suivi d’une chaîne qui dénote une version préliminaire (suivant la [convention de contrôle de version sémantique ou SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
 
 **Exemples :**
-```
-1.0.1
-6.11.1231
-4.3.1-rc
-2.2.44-beta1
-```
+
+    1.0.1
+    6.11.1231
+    4.3.1-rc
+    2.2.44-beta1
 
 > [!Important]
 > NuGet.org rejette tout le téléchargement du package qui ne dispose pas d’un numéro de version exact. La version doit être spécifiée dans le `.nuspec` ou le fichier de projet utilisé pour créer le package.
@@ -67,16 +65,14 @@ Ceci dit, les développeurs de packages suivent les conventions d’affectation 
 
 Lors de la résolution des références de package et de plusieurs versions de package diffèrent uniquement par le suffixe, NuGet choisit une version sans suffixe tout d’abord, puis applique la priorité pour la version préliminaire dans l’ordre alphabétique inverse. Par exemple, les versions suivantes sont choisies en respectant l’ordre indiqué :
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-1.0.1-aaa
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
+    1.0.1-aaa
 
 ## <a name="semantic-versioning-200"></a>Contrôle de version sémantique 2.0.0
 
@@ -123,7 +119,7 @@ Lorsque vous faites référence aux dépendances de package, NuGet prend en char
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Inclusive minimum et exclusive maximale version mixte |
 | (1.0)    | non valide | non valide |
 
-Lorsque vous utilisez la PackageReference ou `project.json` package NuGet, référence des formats également prend en charge à l’aide d’une notation de caractère générique, \*, pour majeure, mineure, Patch et parties de suffixe de la version préliminaire du nombre. Les caractères génériques ne sont pas pris en charge avec les `packages.config` format.
+Lorsque vous utilisez le format PackageReference, NuGet prend également en charge à l’aide d’une notation de caractère générique, \*, pour majeure, mineure, Patch et parties de suffixe de la version préliminaire du nombre. Les caractères génériques ne sont pas pris en charge avec les `packages.config` format.
 
 > [!Note]
 > Versions antérieures ne sont pas incluses lors de la résolution des plages de versions. Versions préliminaires *sont* inclus lorsque vous utilisez un caractère générique (\*). La plage de versions *[1.0,2.0]*, par exemple, n’inclut pas 2.0 bêta, mais les génériques _2.0-*_ est. Consultez [émettre 912](https://github.com/NuGet/Home/issues/912) pour obtenir des informations sur les caractères génériques de la version préliminaire.
@@ -228,18 +224,14 @@ Lors de l’obtention de packages à partir d’un référentiel pendant l’ins
 
 - Les zéros non significatifs sont supprimés de numéros de version :
 
-    ```
-    1.00 is treated as 1.0
-    1.01.1 is treated as 1.1.1
-    1.00.0.1 is treated as 1.0.0.1
-    ```
+        1.00 is treated as 1.0
+        1.01.1 is treated as 1.1.1
+        1.00.0.1 is treated as 1.0.0.1
 
 - Un zéro dans la quatrième partie du numéro de version sera omis
 
-    ```
-    1.0.0.0 is treated as 1.0.0
-    1.0.01.0 is treated as 1.0.1
-    ```
+        1.0.0.0 is treated as 1.0.0
+        1.0.01.0 is treated as 1.0.1
 
 Cette normalisation n’affecte pas les numéros de version dans les packages eux-mêmes ; elle affecte uniquement comment NuGet correspond aux versions lors de la résolution des dépendances.
 

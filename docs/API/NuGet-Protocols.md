@@ -7,18 +7,17 @@ ms.date: 10/30/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: ba1d9742-9f1c-42ff-8c30-8e953e23c501
 description: "Les protocoles nuget.org en constante évolution pour interagir avec les clients NuGet."
 ms.reviewer:
 - kraigb
 - karann-msft
-ms.openlocfilehash: 0bc71795d120256b9eb14ca64141f0b69f01e620
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 488a86a36a6bc83c91f0182bf437ddb83e707e31
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="nugetorg-protocols"></a>Protocoles NuGet.org
+# <a name="nugetorg-protocols"></a>protocoles NuGet.org
 
 Pour interagir avec nuget.org, les clients doivent suivre certains protocoles. Étant donné que ces protocoles conservent en constante évolution, les clients doivent identifier la version du protocole qu’ils utilisent lors de l’appel d’API de nuget.org spécifique. Cela permet de nuget.org apporter des modifications d’une manière sans rupture pour les anciens clients.
 
@@ -39,9 +38,7 @@ Validation garantit que les clés API créés par l’utilisateur sont utilisée
 
 Les clients doivent passer de l’en-tête suivant lorsqu’ils effectuent des appels d’API à **push** packages nuget.org :
 
-```
-X-NuGet-Protocol-Version: 4.1.0
-```
+    X-NuGet-Protocol-Version: 4.1.0
 
 Notez que le `X-NuGet-Client-Version` en-tête a une sémantique similaire, mais elle est réservé à utiliser par le client NuGet officiels. Les clients tiers doivent utiliser le `X-NuGet-Protocol-Version` en-tête et valeur.
 
@@ -53,9 +50,7 @@ Si un client interagit avec les services externes et des besoins pour vérifier 
 
 Cette API est utilisée pour obtenir une clé de l’étendue de la vérification d’un auteur nuget.org valider un package détenu par ce dernier.
 
-```
-POST api/v2/package/create-verification-key/{ID}/{VERSION}
-```
+    POST api/v2/package/create-verification-key/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -63,11 +58,11 @@ Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’identidier de package pour lequel la clé de portée Vérifiez est demandée
 VERSION        | URL    | chaîne | Non       | La version du package
-NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
+X-NuGet-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 #### <a name="response"></a>Réponse
 
-```
+```json
 {
     "Key": "{Verify scope key from nuget.org}",
     "Expires": "{Date}"
@@ -78,9 +73,7 @@ NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {US
 
 Cette API est utilisée pour valider une clé de vérifier la portée pour le package détenu par l’auteur nuget.org.
 
-```
-GET api/v2/verifykey/{ID}/{VERSION}
-```
+    GET api/v2/verifykey/{ID}/{VERSION}
 
 #### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -88,7 +81,7 @@ Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------  | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’identificateur de package pour lequel la clé de portée Vérifiez est demandée
 VERSION        | URL    | chaîne | Non       | La version du package
-NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`.
+X-NuGet-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {VERIFY_SCOPE_KEY}`.
 
 > [!Note]
 > Cette clé de portée API Vérifiez expire dans une journée ou à la première utilisation, selon ce qui se produit en premier.

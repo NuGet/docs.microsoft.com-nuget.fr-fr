@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8314ec69-ee8c-4933-84ef-e6d8a412d268
 description: "Référence de commande Register-TabExpansion PowerShell dans la Console du Gestionnaire de Package NuGet dans Visual Studio."
 keywords: "NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Register-TabExpansion"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 498b8638c81b800e5f20f7604b36e6af76da0283
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 5691c07f9efef4bfd12680421f3b02c5a523eb6f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (Console du Gestionnaire de Package dans Visual Studio)
 
@@ -35,7 +34,7 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | Paramètre | Description |
 | --- | --- |
-| Nom | (Obligatoire) La commande pour laquelle inscrire les expansions. -Nom de commutateur lui-même est facultative. |
+| Name | (Obligatoire) La commande pour laquelle inscrire les expansions. -Nom de commutateur lui-même est facultative. |
 | Définition | (Obligatoire) Un objet qui décrit l’argument dans la syntaxe `@{'<parameter>' = {'<value1>', '<value2>', ...}}` où `<parameter>` est le nom de paramètre à modifier et à chaque `<value>` fournit une extension spécifique. Les guillemets simples et doubles sont acceptés. |
 
 Aucun de ces paramètres accepter pipeline entrée ni les caractères génériques.

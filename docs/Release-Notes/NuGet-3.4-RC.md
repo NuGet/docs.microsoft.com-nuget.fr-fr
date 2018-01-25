@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 239d3d95-5a72-4fac-8389-b6deac27884d
 description: "Notes de publication pour NuGet 3.4 RC est, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de publication NuGet 3.4 RC, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 86c37d516eede2ac5e6e5e842f687a8f3b17c0a4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 749068683d6e2a3fd9dd29c69d9ff50137acdd46
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-34-rc-release-notes"></a>Notes de publication NuGet 3.4-RC
 
@@ -25,9 +24,9 @@ ms.lasthandoff: 12/14/2017
 
 NuGet 3.4-RC a été publiée le 3 mars 2016 en même temps que Visual Studio 2015 Update 2 RC et a été généré avec quelques principes dans esprit :
 
-*  Prise en charge multiplateforme
-*  Amélioration des performances
-*  Petites améliorations de l’interface utilisateur
+* Prise en charge multiplateforme
+* Amélioration des performances
+* Petites améliorations de l’interface utilisateur
 
 Les fonctionnalités suivantes sont disponibles dans cette RC, avec plusieurs planifié pour la version finale 3.4.
 

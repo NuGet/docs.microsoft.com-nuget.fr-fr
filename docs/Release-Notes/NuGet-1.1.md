@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0e7688f7-09d2-4477-9fdf-0e27f572a4de
 description: "Notes de version 1.1 de NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de version 1.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 593848b3e5e063816fbbec8b4d11e6fc789d05cd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 68c3415fe328fe6d9db91757a7fc180da8489a9f
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Notes de version 1.0 et 1.1 de NuGet
 

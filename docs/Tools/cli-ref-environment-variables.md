@@ -3,21 +3,20 @@ title: "Variables d’environnement NuGet CLI | Documents Microsoft"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1f5c31ca-fa0a-4798-a906-110f2c73d00b
 description: "Informations de référence pour les variables d’environnement nuget.exe"
 keywords: "variables d’environnement NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0a1dc2a928da657b0d222c2adc02fbd850b66704
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 516a66103d6159a3d68b5383090e8e3b519a5588
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-cli-environment-variables"></a>Variables d’environnement NuGet CLI
 
@@ -25,7 +24,7 @@ Le comportement de l’interface CLI de nuget.exe peut être configuré via un n
 
 En général, les options spécifiées directement sur la ligne de commande ou dans les fichiers de configuration NuGet ont une priorité, mais il existe quelques exceptions telles que *FORCE_NUGET_EXE_INTERACTIVE*. Si vous trouvez que nuget.exe se comporte différemment entre des ordinateurs différents, une variable d’environnement peut être la cause. Par exemple, Azure Web Apps Kudu (utilisés pendant le déploiement) a *NUGET_XMLDOC_MODE* la valeur *ignorer* pour accélérer les performances de restauration de package et d’économiser l’espace disque.
 
-| Variable | Description | Remarques |
+| Variable | Description | Notes |
 | --- | --- | --- |
 | http_proxy | Serveur proxy HTTP utilisé pour les opérations de NuGet HTTP. | Cela serait spécifiée en tant que `http://<username>:<password>@proxy.com`. |
 | no_proxy | Configure les domaines de contourner l’utilisation de proxy. | Spécifié en tant que domaines séparés par des virgules (,). |

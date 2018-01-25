@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 77ba98d8-3d66-4126-b2b6-813ddd8ef192
 description: "Notes de version de NuGet 2.8, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de publication NuGet 2.8, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 182e7d1e2224c431631cddd14fdbea8dd9e14278
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-28-release-notes"></a>Notes de publication NuGet 2.8
 

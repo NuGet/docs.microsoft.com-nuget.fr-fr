@@ -7,19 +7,18 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 0b76064f-0607-438a-bbf8-dd862690f48e
 description: "Notes de publication pour NuGet 3.5 bêta 2, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de publication NuGet 3.5 bêta 2, les correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6dd388e52308d2f3cd32d4d6c66c2868f0ae2a41
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 4073b669c19f9e96ebd35ba269919b5f42313e7c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
-# <a name="35-beta2-release-notes"></a>3.5 Notes de version bêta 2 de
+# <a name="nuget-35-beta2-release-notes"></a>Notes de mise à jour de NuGet 3.5 bêta 2
 
 [Notes de version bêta de 3.5 NuGet](../release-notes/nuget-3.5-Beta.md) | [Notes 3.5 RC de NuGet](../release-notes/nuget-3.5-RC.md)
 
@@ -28,8 +27,6 @@ NuGet 3.5 bêta 2 RTM publiée le 27 juin 2016 pour Visual Studio 2013 et nuget.
 [Journal complet](https://github.com/NuGet/NuGet.Client/compare/release-3.5.0-beta...release-3.5.0-beta2)
 
 [Liste des problèmes](https://github.com/Nuget/Home/issues?q=is%3Aissue+milestone%3A%223.5+Beta2%22+is%3Aclosed)
-
-# <a name="notable-changes"></a>Modifications importantes
 
 ## <a name="bug-fixes"></a>Correctifs de bogues
 

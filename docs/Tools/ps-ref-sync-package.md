@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1b980b93-fa58-430c-b663-78ce069b1603
 description: "Référence de commande PowerShell de synchronisation-Package dans la Console du Gestionnaire de Package NuGet dans Visual Studio."
 keywords: "NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, synchronisation-Package"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 4dc542714f14f0e6d3e827292f8fce06561fe270
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 02233cd0532fab2338e65e0d58b9afc3e2dab6af
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="sync-package-package-manager-console-in-visual-studio"></a>Synchronisation-Package (Package Manager Console dans Visual Studio)
 

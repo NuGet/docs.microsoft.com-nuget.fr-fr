@@ -7,17 +7,16 @@ ms.date: 12/12/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3cf592de-39f2-4e7f-a597-62635fdcedfa
 description: "fournisseurs d’informations d’identification de NuGet.exe auprès d’un flux et sont implémentées comme des exécutables de ligne de commande qui suivent les conventions spécifiques."
 keywords: "fournisseurs d’informations d’identification de NuGet.exe, informations d’identification du fournisseur, auprès de l’alimentation, auprès de la galerie"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 82ab4d6e9be0736e008f5bd27d46e1db166d7bb4
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Flux de l’authentification avec les fournisseurs d’informations d’identification de nuget.exe
 
@@ -58,7 +57,7 @@ Un fournisseur doit effectuer le des opérations suivantes :
 
 | Commutateur de paramètre / |Description|
 |----------------|-----------|
-| URI {value} | Le package source des informations d’identification nécessitant des URI.|
+| Uri {value} | Le package source des informations d’identification nécessitant des URI.|
 | Non interactif | S’il est présent, le fournisseur n’émet pas invites interactives. |
 | IsRetry | Le cas échéant, indique que cette tentative est une nouvelle tentative d’une tentative ayant échouée précédemment. Fournisseurs utilisent généralement cet indicateur pour vous assurer qu’ils contournent un cache existant et demander de nouvelles informations d’identification, si possible.|
 | Niveau de détail {value} | Le cas échéant, une des valeurs suivantes : « normal », « silencieuse » ou « détaillé ». Si aucune valeur n’est fournie, valeur par défaut est « normal ». Fournisseurs doivent utiliser cela comme une indication du niveau de journalisation facultatives pour émettre le flux d’erreur standard. |
@@ -73,7 +72,7 @@ Un fournisseur doit effectuer le des opérations suivantes :
 
 ### <a name="standard-output"></a>Objet de flux de sortie standard
 
-| Propriété |Remarques|
+| Propriété |Notes|
 |----------------|-----------|
 | Utilisateur | Nom d’utilisateur pour les demandes authentifiées.|
 | Mot de passe | Mot de passe pour les requêtes authentifiées.|

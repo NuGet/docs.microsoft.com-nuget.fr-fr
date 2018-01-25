@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: b4aa92a9-ce47-4d23-ae51-d5683e08a9d5
 description: "Référence de commande PowerShell de Package de mise à jour dans la Console du Gestionnaire de Package NuGet dans Visual Studio."
 keywords: "NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Package de mise à jour"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f5cd7061e0f765d8808db8a3798657a941ba14
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 768fdb4d7c785b4f3ed9e70958390676ea965794
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Package de mise à jour (Console du Gestionnaire de Package dans Visual Studio)
 
@@ -52,7 +51,7 @@ NuGet 2.7 et versions antérieur génère une erreur indiquant qu’une version 
 | Safe | Contraint les mises à niveau vers des versions uniquement avec la même version majeure et mineure en tant que le package actuellement installée. |
 | Source | Le chemin d’accès URL ou un dossier pour la source du package à rechercher. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Uninstall-Package` recherche la source du package actuellement sélectionnée. |
 | IncludePrerelease | Inclut les versions préliminaires des packages de mises à jour. |
-| Réinstaller | Packages de Resintalls à l’aide de leur version actuellement installée. Consultez [réinstallation et mise à jour des packages](../consume-packages/reinstalling-and-updating-packages.md). |
+| Réinstallation | Packages de Resintalls à l’aide de leur version actuellement installée. Consultez [réinstallation et mise à jour des packages](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Action à prendre lorsque vous êtes invité à remplacer ou ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *remplacer, ignorer, None, OverwriteAll*, et *IgnoreAll* (3.0 +). |
 | DependencyVersion | La version des packages de dépendance à utiliser, ce qui peut prendre l’une des opérations suivantes :<br/><ul><li>*La plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch*: la version avec le correctif logiciel le plus bas majeure, mineure la plus basse, la plus élevée</li><li>*HighestMinor*: la version avec le plus bas principales, le correctif plus élevé de secondaire, la plus élevée</li><li>*La plus élevée* (valeur par défaut pour le Package de mise à jour sans paramètres) : la version la plus récente</li></ul>Vous pouvez définir la valeur par défaut en utilisant le [ `dependencyVersion` ](../Schema/nuget-config-file.md#config-section) définition dans le `Nuget.Config` fichier. |
 | ToHighestPatch | Contraint les mises à niveau uniquement aux versions avec la version mineure de même que le package actuellement installée. |

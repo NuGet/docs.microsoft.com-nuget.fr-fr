@@ -7,17 +7,16 @@ ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 09c10ea3-ba26-4bfa-999e-de5350e6e920
 description: "Référence de commande GetProject PowerShell dans la Console du Gestionnaire de Package NuGet dans Visual Studio."
 keywords: "NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Get-projet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 40c986164c3f6bd6a02877e15827541aae77d8ad
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: cb98498d6cc6245c9e22b00eada097b816160aea
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-projet (Console du Gestionnaire de Package dans Visual Studio)
 
@@ -35,8 +34,8 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | Paramètre | Description |
 | --- | --- |
-| Nom | Spécifie le projet à afficher, par défaut pour le projet par défaut sélectionné dans la Console du Gestionnaire de Package. -Nom de commutateur est facultatif. |
-| Tout | Affiche des informations pour chaque projet dans la solution ; l’ordre des projets n’est pas déterministe. |
+| Name | Spécifie le projet à afficher, par défaut pour le projet par défaut sélectionné dans la Console du Gestionnaire de Package. -Nom de commutateur est facultatif. |
+| Tous | Affiche des informations pour chaque projet dans la solution ; l’ordre des projets n’est pas déterministe. |
 
 Aucun de ces paramètres accepter pipeline entrée ni les caractères génériques.
 

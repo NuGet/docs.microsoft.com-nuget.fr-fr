@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 8c81f1ac-18c7-44d1-b2e3-584fe85dee6f
-description: "L’API de NuGet est un ensemble de points de terminaison HTTP qui peut être utilisé pour télécharger les packages, extraire les métadonnées, publier des nouveaux packages, etc."
+description: "L’API de NuGet est un ensemble de points de terminaison HTTP qui peut être utilisé pour télécharger les packages, extraire les métadonnées, publier des nouveaux packages, etc.."
 keywords: "API de NuGet V3, API V2 de NuGet, NuGet JSON, API d’inscription de NuGet, conteneur plat de NuGet API, NuGet nupkg API, API de métadonnées NuGet, API de recherche NuGet, push de NuGet API, NuGe publier des API, NuGet supprimer API, NuGet retirer de la liste API, protocole de NuGet"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 05ed17f12f413d29d97a253d7d55f154d4910834
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 
@@ -79,7 +78,7 @@ Tous les horodatages renvoyés par l’API de format UTC ou sont définis à l�
 
 ## <a name="http-methods"></a>Méthodes HTTP
 
-Verbe   | Utilisez
+Verb   | Utilisez
 ------ | -----------
 GET    | Effectue une opération en lecture seule, en général, la récupération de données.
 HEAD   | Extrait les en-têtes de réponse correspondant `GET` demande.
@@ -112,9 +111,9 @@ Dans le cas d’un code d’état de niveau 500, le client peut implémenter un 
 
 Name                     | Description
 ------------------------ | -----------
-NuGet-X-ApiKey           | Obligatoire pour par émission de données et la suppression, voir [ `PackagePublish` ressource](package-publish-resource.md)
+X-NuGet-ApiKey           | Obligatoire pour par émission de données et la suppression, voir [ `PackagePublish` ressource](package-publish-resource.md)
 X-NuGet-Client-Version   | **Déconseillé** et remplacée par`X-NuGet-Protocol-Version`
-X-NuGet--Version de protocole | Obligatoire dans certains cas uniquement sur nuget.org, voir [nuget.org protocoles](NuGet-Protocols.md)
+X-NuGet-Protocol-Version | Obligatoire dans certains cas uniquement sur nuget.org, voir [nuget.org protocoles](NuGet-Protocols.md)
 
 ## <a name="authentication"></a>Authentification
 

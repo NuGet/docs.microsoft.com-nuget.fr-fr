@@ -11,27 +11,26 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 11ca2092-67dc-41a9-a7af-afe610d8febb
 description: "Le service de recherche permet aux clients pour rechercher les packages par mot clé et de résultats du filtrage sur certains champs de package."
 keywords: "API de recherche NuGet, NuGet découvrir les packages, les API pour les packages NuGet de requête, les API pour parcourir les packages NuGet"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 8b37c1bfb66290de49641a8b6197cb83cd35318a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="search"></a>Rechercher
 
 Il est possible de rechercher des packages disponibles sur une source de package à l’aide de l’API V3. La ressource utilisée pour la recherche est la `SearchQueryService` ressource trouvée dans le [index service](service-index.md).
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur @type                   | Remarques
+Valeur @type                   | Notes
 ----------------------------- | -----
 SearchQueryService            | La version initiale
 SearchQueryService/3.0.0-beta | Alias de`SearchQueryService`
@@ -51,13 +50,11 @@ L’API de recherche permet à un client à une requête pour une page de packag
 
 Un package non listé doit n’apparaissent jamais dans les résultats de la recherche.
 
-```
-GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
-```
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom        | Vers l'avant     | Type    | Obligatoire | Remarques
+Name        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | chaîne  | Non       | Les termes de recherche à utiliser pour les packages de filtre
 skip        | URL    | entiers | Non       | Le nombre de résultats à ignorer, pour la pagination
@@ -83,7 +80,7 @@ La réponse est document JSON contenant jusqu'à `take` résultats de la recherc
 
 L’objet JSON racine a les propriétés suivantes :
 
-Nom      | Type             | Obligatoire | Remarques
+Name      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
 total des accès | entiers          | oui      | Le nombre total de correspondances, ignorant `skip` et`take`
 Données      | Tableau d’objets | oui      | Les résultats de recherche correspondant à la demande
@@ -93,7 +90,7 @@ Données      | Tableau d’objets | oui      | Les résultats de recherche corr
 Chaque élément dans le `data` tableau est un objet JSON composé d’un groupe de versions de package partage le même ID de package.
 L’objet a les propriétés suivantes :
 
-Nom           | Type                       | Obligatoire | Remarques
+Name           | Type                       | Obligatoire | Notes
 -------------- | -------------------------- | -------- | -----
 ID             | chaîne                     | oui      | L’ID du package de mise en correspondance
 version        | chaîne                     | oui      | La chaîne de version SemVer 2.0.0 complet du package (peut contenir des métadonnées de la build)
@@ -115,7 +112,7 @@ Sur nuget.org, un package vérifié est celui qui a un ID de lot correspondant �
 
 Les métadonnées contenues dans l’objet de résultat de recherche sont effectuée à partir de la dernière version du package. Chaque élément dans le `versions` tableau est un objet JSON avec les propriétés suivantes :
 
-Nom      | Type    | Obligatoire | Remarques
+Name      | Type    | Obligatoire | Notes
 --------- | ------- | -------- | -----
 @id       | chaîne  | oui      | L’URL absolue à le [feuille de l’inscription](registration-base-url-resource.md#registration-leaf)
 version   | chaîne  | oui      | La chaîne de version SemVer 2.0.0 complet du package (peut contenir des métadonnées de la build)
@@ -123,9 +120,7 @@ Téléchargements | entiers | oui      | Le nombre de téléchargements pour cet
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
-```
+    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
 
 ### <a name="sample-response"></a>Exemple de réponse
 

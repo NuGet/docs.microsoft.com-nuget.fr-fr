@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d99bbf29-2b9a-4dc5-a823-5eb4f9e30f7f
 description: "Notes de publication pour 2.6 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de version 2.6 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b34c0049a5ba42f6bcd5b36fa5b0ba261e27ecd5
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-26-release-notes"></a>Notes de version 2.6 de NuGet
 
@@ -38,7 +37,7 @@ Afin d’offrir la meilleure prise en charge possible pour Visual Studio 2013, t
 1. [Gestionnaire de Package NuGet](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManager) (s’applique à Visual Studio 2010 et 2012)
 1. [Gestionnaire de Package NuGet pour Visual Studio 2013](https://marketplace.visualstudio.com/items?itemName=NuGetTeam.NuGetPackageManagerforVisualStudio2013)
 
-Avec cette division, le [nuget.org](https://nuget.org) bouton « Installer NuGet » de la page d’accueil va vous guider pour la [l’installation de NuGet](../guides/install-nuget.md) page, où vous trouverez plus d’informations sur l’installation des clients NuGet différents.
+Avec cette division, les [nuget.org](https://nuget.org) bouton « Installer NuGet » de la page d’accueil permet d’accéder à la [l’installation de NuGet](../install-nuget-client-tools.md) page, où vous trouverez plus d’informations sur l’installation des clients NuGet différents.
 
 <a name="xdt"></a>
 
@@ -53,8 +52,8 @@ En avril 2013, nous avons apporté deux annonces big concernant la prise en char
 Pour tirer parti de la prise en charge XDT de NuGet, les mécanismes de présenter un aspect similaires à celles de la [fonctionnalité actuelle de la transformation de config](../create-packages/source-and-config-file-transformations.md).
 Fichiers de transformation sont ajoutés au dossier de contenu du package. Toutefois, alors que les transformations de configuration utilisent un seul fichier pour l’installation et la désinstallation, les transformations de XDT permettent un contrôle affiné sur ces deux processus à l’aide de fichiers suivants :
 
-- Web.config.Install.xdt
-- Web.config.Uninstall.xdt
+- Web.config.install.xdt
+- Web.config.uninstall.xdt
 
 En outre, NuGet utilise le suffixe de fichier pour déterminer le moteur à exécuter pour les transformations, afin de packages à l’aide de la web.config.transforms existants continueront de fonctionner. XDT transformations peuvent également être appliquées à n’importe quel fichier XML (pas seulement le fichier web.config), donc vous pouvez exploiter ceci pour d’autres applications dans votre projet.
 
@@ -72,7 +71,7 @@ NuGet 2.6 étend la logique de configuration NuGet en parcourant la hiérarchie 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
 3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{référence (SKU)}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
 
 Dans cette liste, l’espace réservé {IDE} est spécifique à l’IDE dans lequel NuGet est en cours d’exécution, dans le cas de Visual Studio, il est donc « VisualStudio ». La Version {} et des espaces réservés {SKU} sont fournis par l’IDE (par exemple) « 11.0 » et « WDExpress », « VWDExpress » et « Pro », respectivement). Le dossier peut contenir plusieurs fichiers *.config différents.
 Par conséquent, la société de composant ACME peut, dans le cadre de son programme d’installation du produit, ajoutez une source de package personnalisé qui sera visible uniquement dans les versions Professionnel et Édition intégrale de Visual Studio 2012 en créant le chemin d’accès suivant :

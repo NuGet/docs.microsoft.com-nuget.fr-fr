@@ -3,21 +3,20 @@ title: Commande config de NuGet CLI | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: a50295ff-8be9-47d9-a260-822e899334cb
 description: "Informations de référence pour la commande config de nuget.exe"
 keywords: "référence de configuration NuGet, commande config"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f49751d9747687177e3b6c1890ee9d2919be8d0e
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 31abc5c1ade0aff9a2f23ec89ec7082acedb3653
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="config-command-nuget-cli"></a>commande de configuration (NuGet CLI)
 
@@ -27,7 +26,7 @@ Obtient ou définit les valeurs de configuration NuGet. Pour l’utilisation sup
 
 ## <a name="usage"></a>Utilisation
 
-```
+```cli
 nuget config -Set <name>=[<value>] [<name>=<value> ...] [options]
 nuget config -AsPath <name> [options]
 ```
@@ -43,17 +42,17 @@ Dans NuGet 3.4 + `<value>` peut utiliser [variables d’environnement](cli-ref-e
 | Option | Description |
 | --- | --- |
 | AsPath | Renvoie la valeur de la configuration comme un chemin d’accès, ignorées lorsque `-Set` est utilisé. |
-| ConfigFile | *(2.5 +)*  NuGet le fichier de configuration à modifier. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à modifier. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
-| Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées (2.5 +)*. |
+| Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)
 
 ### <a name="examples"></a>Exemples
 
-```
+```cli
 nuget config -Set repositoryPath=c:\packages -configfile c:\my.config
 
 nuget config -Set repositoryPath=

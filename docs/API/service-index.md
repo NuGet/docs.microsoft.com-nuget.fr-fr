@@ -11,28 +11,24 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 2f6d6cf2-53fb-417a-b1d8-e0ac591c1699
 description: "L’index de service est le point d’entrée de l’API HTTP de NuGet et énumère les fonctionnalités du serveur."
 keywords: "Point d’entrée API NuGet, découverte de point de terminaison NuGetA PI"
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 0c43a09d8564964bd0140b9ac5deb9d3063e4dc5
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="service-index"></a>Index de service
 
 L’index de service est un document JSON qui est le point d’entrée pour une source de package NuGet et permet une implémentation de client découvrir les fonctionnalités de la source du package. L’index de service est un objet JSON avec deux propriétés obligatoires : `version` (la version du schéma de l’index de service) et `resources` (les points de terminaison ou les fonctions de la source du package).
 
-index de service NuGet.org se trouve ici :
-```
-https://api.nuget.org/v3/index.json
-```
+index de service NuGet.org se trouve dans `https://api.nuget.org/v3/index.json`.
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Le `version` valeur est une chaîne de version analysables SemVer 2.0.0 qui indique la version du schéma de l’index de service.
 L’API exige qu’un numéro de version principale de la chaîne de version `3`. Comme les modifications sans rupture sont apportées au schéma d’index de service, version mineure de la chaîne version augmente.
@@ -53,7 +49,7 @@ Le `resources` propriété contient un tableau de ressources pris en charge par 
 
 Une ressource est un objet dans le `resources` tableau. Il représente une fonctionnalité avec version de la source de package. Une ressource a les propriétés suivantes :
 
-Nom          | Type   | Obligatoire | Remarques
+Name          | Type   | Obligatoire | Notes
 ------------- | ------ | -------- | -----
 @id           | chaîne | oui      | L’URL de la ressource
 @type         | chaîne | oui      | Une constante de chaîne qui représente le type de ressource
@@ -63,9 +59,7 @@ Le `@id` est une URL qui doit être absolu et doit avoir le schéma HTTP ou HTTP
 
 Le `@type` est utilisé pour identifier le protocole à utiliser lors de l’interaction avec les ressources. Le type de la ressource est une chaîne opaque, mais généralement a le format :
 
-```
-{RESOURCE_NAME}/{RESOURCE_VERSION}
-```
+    {RESOURCE_NAME}/{RESOURCE_VERSION}
 
 Les clients doivent coder en dur le `@type` valeurs comprendre et de les rechercher dans l’index de service d’une source de package. Le texte exact `@type` utilisés aujourd'hui, les valeurs sont énumérées dans les documents de référence de ressource individuelle répertoriés dans le [présentation de l’API](overview.md#resources-and-schema).
 
@@ -75,9 +69,7 @@ Il est inutile que chaque ressource a une valeur unique `@id` ou `@type`. C’es
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
 GET https://api.nuget.org/v3/index.json
-```
 
 ### <a name="sample-response"></a>Exemple de réponse
 

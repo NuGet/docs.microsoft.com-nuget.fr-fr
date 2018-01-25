@@ -3,21 +3,20 @@ title: NuGet CLI ajouter commande | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4f68a016-ad4e-41fc-b869-88910fc5121e
 description: "Informations de référence pour le nuget.exe ajouter (commande)"
 keywords: "Ajouter une référence de NuGet, ajouter la commande de package"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bf9a6e51dfbf1716ba40273487b76ae04c18e948
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 70c86f8d240bd308224f6b7887b630cc1e953bf8
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="add-command-nuget-cli"></a>ajouter des commandes (NuGet CLI)
 
@@ -38,7 +37,7 @@ Pour développer tous les fichiers dans le package à la source de package de de
 
 ## <a name="usage"></a>Utilisation
 
-```
+```cli
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
@@ -59,7 +58,7 @@ Consultez également [variables d’environnement](cli-ref-environment-variables
 
 ## <a name="examples"></a>Exemples
 
-```
+```cli
 nuget add foo.nupkg -Source c:\bar\
 
 nuget add foo.nupkg -Source \\bar\packages\

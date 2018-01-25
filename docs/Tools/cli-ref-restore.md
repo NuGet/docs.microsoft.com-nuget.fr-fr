@@ -3,41 +3,36 @@ title: Commande de restauration NuGet CLI | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/24/2017
+ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 6ee41020-e548-4e61-b8cd-c82b77ac6af7
 description: "Informations de référence pour la commande restore de nuget.exe"
 keywords: "NuGet référence de restauration, restaurer des commandes de packages"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b435a3c2ffe08e3c2f8fc6a4dacb06cf674e4fb9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 93d7b6967d9297ee822df1583351385210775173
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (NuGet CLI)
 
 **S’applique à :** package consommation &bullet; **versions prises en charge :** 2.7 +
 
-NuGet 2.7 + : Télécharge et installe tous les packages manquants à partir de la `packages` dossier.
+Télécharge et installe tous les packages manquants à partir de la `packages` dossier. Lorsqu’il est utilisé avec NuGet 4.0 + et le format PackageReference, génère un `<project>.nuget.props` de fichiers, si nécessaire, dans le `obj` dossier. (Le fichier peut être omis à partir du contrôle de code source.)
 
-NuGet 3.3 + avec les projets à l’aide de `project.json`: génère un `project.lock.json` fichier et un `<project>.nuget.props` de fichiers, si nécessaire. (Les deux fichiers peuvent être omis à partir du contrôle de code source.)
-
-NuGet 4.0 + avec le projet dans le package qui les références sont inclus dans le fichier projet directement : génère un `<project>.nuget.props` de fichiers, si nécessaire, dans le `obj` dossier. (Le fichier peut être omis à partir du contrôle de code source.)
-
-Sur Mac OSX et Linux avec l’interface CLI sur Mono, la restauration des packages n’est pas pris en charge avec le format PackageReference.
+Sur Mac OSX et Linux avec l’interface CLI sur Mono, la restauration des packages n’est pas pris en charge avec PackageReference.
 
 ## <a name="usage"></a>Utilisation
 
-```
+```cli
 nuget restore <projectPath> [options]
 ```
 
-où `<projectPath>` Spécifie l’emplacement d’une solution, un `packages.config` fichier, ou un `project.json` fichier. Consultez [notes](#remarks) ci-dessous pour plus d’informations de comportement.
+où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.config` fichier. Consultez [notes](#remarks) ci-dessous pour plus d’informations de comportement.
 
 ## <a name="options"></a>Options
 
@@ -61,11 +56,11 @@ où `<projectPath>` Spécifie l’emplacement d’une solution, un `packages.con
 | RequireConsent | Vérifie que la restauration des packages est activé avant de télécharger et installer les packages. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md). |
 | SolutionDirectory | Spécifie le dossier de solution. Non valide lors de la restauration des packages pour une solution. |
 | Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour la restauration. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../Consume-Packages/Configuring-NuGet-Behavior.md). |
-| Commentaires |> Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées (2.5 +)*. |
+| Commentaires |> Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)
 
-## <a name="remarks"></a>Remarques
+## <a name="remarks"></a>Notes
 
 La commande restore effectue les étapes suivantes :
 
@@ -74,15 +69,14 @@ La commande restore effectue les étapes suivantes :
     | --- | --- |
     Solution (dossier) | NuGet cherche un `.sln` fichier et utilise ce si elle est trouvée ; sinon, renvoie une erreur. `(SolutionDir)\.nuget`est utilisé en tant que le dossier de démarrage.
     `.sln`fichier | Restaurer les packages identifiés par la solution ; génère une erreur si `-SolutionDirectory` est utilisé. `$(SolutionDir)\.nuget`est utilisé en tant que le dossier de démarrage.
-    `packages.config`, `project.json`, ou un fichier de projet | Restaurer les packages répertoriés dans le fichier, la résolution et l’installation de dépendances.
+    `packages.config`ou le fichier projet | Restaurer les packages répertoriés dans le fichier, la résolution et l’installation de dépendances.
     Autre type de fichier | Fichier est censé pour être un `.sln` fichier comme indiqué ci-dessus ; s’il n’est pas une solution, donne NuGet une erreur.
     (projectPath non spécifié) | -NuGet recherche des fichiers de solution dans le dossier actif. Si un fichier unique est trouvé, qui est utilisée pour restaurer les packages ; Si plusieurs solutions sont détectées, NuGet génère une erreur.
-    |-S’il n’y a aucun fichier de solution, NuGet cherche un `packages.config` ou `project.json` et l’utilise pour restaurer les packages.
-    |-Si aucun fichier de solution, `packages.config`, ou `project.json` est trouvé, NuGet génère une erreur.
+    |-S’il n’y a aucun fichier de solution, NuGet cherche un `packages.config` et l’utilise pour restaurer les packages.
+    |-Si aucune solution ou `packages.config` fichier est trouvé, NuGet génère une erreur.
 
 1. Déterminer le dossier de packages à l’aide de l’ordre de priorité suivant (NuGet génère une erreur si aucun de ces dossiers se trouvent) :
 
-    - Le `%userprofile%\.nuget\packages` valeur dans `project.json`.
     - Le dossier spécifié avec `-PackagesDirectory`.
     - La `repositoryPath` valeur dans`Nuget.Config`
     - Le dossier spécifié avec`-SolutionDirectory`
@@ -95,7 +89,7 @@ La commande restore effectue les étapes suivantes :
 
 ## <a name="examples"></a>Exemples
 
-```
+```cli
 # Restore packages for a solution file
 nuget restore a.sln
 

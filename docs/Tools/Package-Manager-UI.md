@@ -7,7 +7,6 @@ ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 62f6962b-7b84-4452-ae0d-a9e1ef1fc6f0
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
@@ -18,11 +17,11 @@ keywords: NuGet UI, Gestionnaire de package NuGet UI, NuGet dans Visual Studio, 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 39ce53184755887c419c8872148a6c13dc2c65ec
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 0ff60c3cecee5fd9b7f698d2abed7553f5d89c1d
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 
@@ -137,7 +136,7 @@ Pour gérer les sources de package :
 
 ## <a name="package-manager-options-control"></a>Contrôlent des Options du Gestionnaire de package
 
-Lorsqu’un package est sélectionné, le Gestionnaire de Package UI affiche un petit, extensible **Options** contrôle ci-dessous le sélecteur de version (illustré à la fois réduit et développé). Notez que pour certains types de projets, tels que .NET Core et celles à l’aide de la `project.json` format référence uniquement les **afficher la fenêtre Aperçu** option est fournie.
+Lorsqu’un package est sélectionné, le Gestionnaire de Package UI affiche un petit, extensible **Options** contrôle ci-dessous le sélecteur de version (illustré à la fois réduit et développé). Notez que, pour certains projets, types, uniquement le **afficher la fenêtre Aperçu** option est fournie.
 
 ![Options du Gestionnaire de package](media/PackageManagerUIOptions.png)
 

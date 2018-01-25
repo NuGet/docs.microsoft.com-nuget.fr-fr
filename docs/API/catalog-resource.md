@@ -11,17 +11,16 @@ ms.date: 10/30/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: cfd338b5-6253-48c0-88ba-17c6b98fc935
 description: "Le catalogue est un index de tous les packages créés et supprimés sur nuget.org."
 keywords: "Catalogue de NuGet V3 API, le journal des transactions nuget.org répliquer NuGet.org, cloner NuGet.org, un enregistrement en mode append-only de NuGet.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 4c98b7cbd92575f6905e98a5bca5602a4d8ac0dd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -73,9 +72,7 @@ Contrairement à la [ressource de métadonnées du package](registration-base-ur
 
 La requête suivante extrait l’index du catalogue.
 
-```
-GET {@id}
-```
+    GET {@id}
 
 L’index du catalogue est un document JSON qui contient un objet avec les propriétés suivantes :
 
@@ -107,9 +104,7 @@ Contrairement à la [ressource de métadonnées du package](registration-base-ur
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api.nuget.org/v3/catalog0/index.json
-```
+    GET https://api.nuget.org/v3/catalog0/index.json
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -129,7 +124,7 @@ commitId        | chaîne           | oui      | Un ID unique associé à la val
 commitTimeStamp | chaîne           | oui      | Un horodateur de la validation la plus récente de cette page
 count           | entiers          | oui      | Le nombre d’éléments dans la page
 Éléments           | Tableau d’objets | oui      | Les éléments de catalogue dans cette page
-Parent          | chaîne           | oui      | Une URL à l’index du catalogue
+parent          | chaîne           | oui      | Une URL à l’index du catalogue
 
 Chaque élément dans le `items` tableau est un objet avec le minimum de certains détails sur l’élément de catalogue. Des objets de ces éléments ne contiennent pas toutes les données de l’élément de catalogue. L’ordre des éléments dans la page `items` tableau n’est pas défini. Éléments peuvent être triés par le client dans la mémoire à l’aide de leurs `commitTimeStamp` propriété.
 
@@ -150,7 +145,7 @@ Name            | Type    | Obligatoire | Notes
 commitId        | chaîne  | oui      | L’ID de validation associé à cet élément de catalogue
 commitTimeStamp | chaîne  | oui      | L’horodateur de validation de cet élément de catalogue
 NuGet:ID        | chaîne  | oui      | L’ID de package correspondant à cette feuille
-NuGet:version   | chaîne  | oui      | La version du package associé à cette feuille.
+nuget:version   | chaîne  | oui      | La version du package associé à cette feuille.
 
 Le `@type` aura l’une des deux valeurs suivantes :
 
@@ -161,9 +156,7 @@ Pour plus d’informations sur la chaque type, consultez la [correspondant les �
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api.nuget.org/v3/catalog0/page2926.json
-```
+    GET https://api.nuget.org/v3/catalog0/page2926.json
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -178,8 +171,8 @@ Le document de feuille de catalogue est un objet JSON avec les propriétés suiv
 Name                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
 @type                   | chaîne ou tableau de chaînes | oui      | Les types de l’élément de catalogue
-catalogue : commitId        | chaîne                     | oui      | Un ID de validation associé à cet élément de catalogue
-catalogue : commitTimeStamp | chaîne                     | oui      | L’horodateur de validation de cet élément de catalogue
+catalog:commitId        | chaîne                     | oui      | Un ID de validation associé à cet élément de catalogue
+catalog:commitTimeStamp | chaîne                     | oui      | L’horodateur de validation de cet élément de catalogue
 ID                      | chaîne                     | oui      | L’ID de package de l’élément de catalogue
 publié               | chaîne                     | oui      | La date de publication de l’élément de catalogue du package
 version                 | chaîne                     | oui      | La version du package de l’élément de catalogue
@@ -242,9 +235,7 @@ Le `published` timestamp est le temps lorsque le package a été indiqué dernie
 
 #### <a name="sample-request"></a>Exemple de demande
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
-```
 
 #### <a name="sample-response"></a>Exemple de réponse
 
@@ -265,9 +256,7 @@ Le `published` propriété est le temps lorsque le package a été supprimé, ce
 
 #### <a name="sample-request"></a>Exemple de demande
 
-```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
-```
 
 #### <a name="sample-response"></a>Exemple de réponse
 

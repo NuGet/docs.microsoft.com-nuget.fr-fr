@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4110a36a-cffe-4038-8da4-e841bce6e94b
 description: "Notes de publication pour 3.3 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
 keywords: "Notes de version 3.3 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f35f7621db324957b0af8329cf9faa11493835e2
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c83f87231497e14c36f1b8100b7bec720bb63b1c
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="nuget-33-release-notes"></a>Notes de version 3.3 de NuGet
 
@@ -46,7 +45,7 @@ ms.lasthandoff: 12/14/2017
 
 Dans cette version, nous avons présenté la `add` et `init` commandes pour initialiser les référentiels basés sur le dossier comme décrit dans la [nuget.exe référence](../tools/nuget-exe-cli-reference.md). Les dépôts qui sont créés et conservés dans ce dossier de la structure sera [offrent des avantages de performances significatifs](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) comme indiqué sur notre blog.
 
-## <a name="contentfiles"></a>Fichiers
+## <a name="contentfiles"></a>ContentFiles
 
 Le contenu est désormais prise en charge dans `project.json` géré des projets à partir de la nouvelle `contentFiles` dossier et `.nuspec` `contentFiles` notation de l’élément.  Ce contenu peut être spécifié directement par l’auteur du package pour les interactions avec les systèmes de projet.  Plus d’informations sur la configuration des fichiers dans un `.nuspec` document se trouve dans le [.nuspec référence](../schema/nuspec.md).
 

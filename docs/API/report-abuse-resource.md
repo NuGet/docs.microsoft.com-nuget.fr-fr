@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 148d743a-09e5-4539-8454-675be11902db
 description: "Le modèle d’URL de rapport abus permet aux clients d’afficher un lien Signaler un abus dans leur interface utilisateur."
 keywords: "API NuGet signaler un abus, réclamation de fichier API NuGet, modèle d’URL NuGet.org rapport"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 7b3413297f5a7fcf0e2c7757036b1f240ed0058a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="report-abuse-url-template"></a>Modèle d’URL de rapport abus
 
@@ -29,11 +28,11 @@ Il est possible pour un client générer une URL qui peut être utilisée par l�
 
 La ressource utilisée pour extraire le contenu du package est le `ReportAbuseUriTemplate` ressource trouvée dans le [index service](service-index.md).
 
-## <a name="versioning"></a>Versioning
+## <a name="versioning"></a>Gestion de version
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur @type                       | Remarques
+Valeur @type                       | Notes
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | La version initiale
 ReportAbuseUriTemplate/3.0.0-rc   | Alias de`ReportAbuseUriTemplate/3.0.0-beta`
@@ -54,7 +53,7 @@ La valeur de la `@id` est une chaîne d’URL contenant l’un des jetons d’es
 
 ### <a name="url-placeholders"></a>Espaces réservés d’URL
 
-Nom        | Type    | Obligatoire | Remarques
+Name        | Type    | Obligatoire | Notes
 ----------- | ------- | -------- | -----
 `{id}`      | chaîne  | Non       | L’ID de package pour signaler un abus pour
 `{version}` | chaîne  | Non       | La version du package pour signaler un abus pour
@@ -63,12 +62,8 @@ Le `{id}` et `{version}` valeurs interprétée par l’implémentation de serveu
 
 Par exemple, le modèle d’abus nuget.org rapport ressemble à ceci :
 
-```
-https://www.nuget.org/packages/{id}/{version}/ReportAbuse
-```
+    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
 Si l’implémentation cliente doit afficher un lien vers le formulaire d’abus de rapport pour NuGet.Versioning 4.3.0, il génère l’URL suivante et fournir à l’utilisateur :
 
-```
-https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
-```
+    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse

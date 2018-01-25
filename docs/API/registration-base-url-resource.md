@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 96b07019-c2e1-4f40-9290-f65ad71af3b1
 description: "L’URL de base de l’inscription de package permet de récupérer les métadonnées à propos des packages."
 keywords: "Métadonnées de package NuGet API, l’inscription NuGet API, les API NuGet packages non listées"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 1aabe6ae5c661e12b2639700813946e7a9a58b24
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="package-metadata"></a>Métadonnées du package
 
@@ -82,9 +81,7 @@ Le stockage de toutes les versions de package (feuilles) dans les sauvegardes d�
 
 L’heuristique nuget.org utilise est comme suit : s’il existe 128 ou de plusieurs versions d’un package, scinder le laisse en pages de taille de 64. S’il existe moins de 128 versions, inline tous les laisse dans l’index de l’enregistrement.
 
-```
-GET {@id}/{LOWER_ID}/index.json
-```
+    GET {@id}/{LOWER_ID}/index.json
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -115,7 +112,7 @@ Name   | Type             | Obligatoire | Notes
 count  | entiers          | oui      | Le numéro d’enregistrement laisse dans la page
 Éléments  | Tableau d’objets | Non       | Le tableau de feuilles de l’inscription et leurs métadonnées associées
 Inférieure  | chaîne           | oui      | La version la plus basse SemVer 2.0.0 dans la page (incluse)
-Parent | chaîne           | Non       | L’URL à l’index de l’enregistrement
+parent | chaîne           | Non       | L’URL à l’index de l’enregistrement
 supérieur  | chaîne           | oui      | La version la plus récente SemVer 2.0.0 dans la page (incluse)
 
 Le `lower` et `upper` limites de l’objet de la page sont utiles lorsque les métadonnées pour une version de la page spécifique sont nécessaire.
@@ -193,11 +190,9 @@ Si le `range` propriété est exclue ou une chaîne vide, le client doit utilise
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.server.core/index.json
 
-### <a name="sample-response"></a>Exemple de réponse 
+### <a name="sample-response"></a>Exemple de réponse
 
 [!code-JSON [package-registration-index.json](./_data/package-registration-index.json)]
 
@@ -215,16 +210,14 @@ Name   | Type             | Obligatoire | Notes
 count  | entiers          | oui      | Le numéro d’enregistrement laisse dans la page
 Éléments  | Tableau d’objets | oui      | Le tableau de feuilles de l’inscription et leurs métadonnées associées
 Inférieure  | chaîne           | oui      | La version la plus basse SemVer 2.0.0 dans la page (incluse)
-Parent | chaîne           | oui      | L’URL à l’index de l’enregistrement
+parent | chaîne           | oui      | L’URL à l’index de l’enregistrement
 supérieur  | chaîne           | oui      | La version la plus récente SemVer 2.0.0 dans la page (incluse)
 
 La forme des objets de feuille de l’inscription est le même que dans l’index de l’enregistrement [ci-dessus](#registration-leaf-object-in-a-page).
 
 ## <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
-```
+    GET https://api.nuget.org/v3/registration3/ravendb.client/page/1.0.531/1.0.729-unstable.json
 
 ## <a name="sample-response"></a>Exemple de réponse
 
@@ -252,9 +245,7 @@ inscription   | chaîne  | Non       | L’URL à l’index de l’enregistremen
 
 ### <a name="sample-request"></a>Exemple de demande
 
-```
-GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
-```
+    GET https://api.nuget.org/v3/registration3/nuget.versioning/4.3.0.json
 
 ### <a name="sample-response"></a>Exemple de réponse
 

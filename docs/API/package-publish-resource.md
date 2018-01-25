@@ -11,17 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1eaa403a-5c13-4c05-9352-2f791b98aa7e
 description: "Le service de publication autorise les clients à publier les nouveaux packages et de retrait de la liste ou de supprimer des packages existants."
 keywords: "Package NuGet API push supprimer le package NuGet API, API NuGet package, le package de téléchargement NuGet API retirer de la liste, créer des package NuGet API"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 5fbcd82b09ebd56ae21103640e7c39b482059525
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: f8051ca57fccae77917567d8c9f2f8a120a8d884
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="push-and-delete"></a>Push et supprimer
 
@@ -52,15 +51,13 @@ Le `PUT`, `POST` et `DELETE` méthodes HTTP sont pris en charge par cette ressou
 
 NuGet.org prend en charge l’exécution d’un push des nouveaux packages à l’aide de l’API suivante. Si le package avec l’ID et la version fourni existe déjà, nuget.org rejette le push. Autres sources de package peuvent prendre en charge le remplacement d’un package existant.
 
-```
-PUT https://www.nuget.org/api/v2/package
-```
+    PUT https://www.nuget.org/api/v2/package
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
 Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
-NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
+X-NuGet-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 La clé API est une chaîne opaque obtenu à partir de la source du package par l’utilisateur et configuré dans le client. Aucun format de chaîne particulière n’est autorisé, mais la longueur de la clé d’API ne doit pas dépasser une taille raisonnable pour les valeurs d’en-tête HTTP.
 
@@ -86,9 +83,7 @@ Les implémentations de serveur varient selon le code d’état de réussite ret
 
 NuGet.org interprète la demande de suppression de package comme un « retirer de la liste ». Cela signifie que le package est toujours disponible pour les utilisateurs existants du package, mais le package ne s’affiche plus dans les résultats de la recherche ou dans l’interface web. Pour plus d’informations sur cette pratique, consultez la [supprimé les Packages](../policies/deleting-packages.md) stratégie. Autres implémentations de serveur sont libres d’interpréter ce signal comme une suppression définitive, la suppression réversible ou retirer de la liste. Par exemple, [NuGet.Server](https://www.nuget.org/packages/NuGet.Server) (une implémentation de serveur de prise en charge uniquement l’ancienne API V2) prend en charge gère cette requête comme un unlist ou une suppression définitive basé sur une option de configuration.
 
-```
-DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    DELETE https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -96,7 +91,7 @@ Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’ID du package à supprimer
 VERSION        | URL    | chaîne | oui      | La version du package à supprimer
-NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
+X-NuGet-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 ### <a name="response"></a>Réponse
 
@@ -111,9 +106,7 @@ Si un package n’est pas spécifié, il est possible de rendre ce package à no
 
 Si le package est déjà répertorié, la demande réussit toujours.
 
-```
-POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
-```
+    POST https://www.nuget.org/api/v2/package/{ID}/{VERSION}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -121,7 +114,7 @@ Name           | Vers l'avant     | Type   | Obligatoire | Notes
 -------------- | ------ | ------ | -------- | -----
 Id             | URL    | chaîne | oui      | L’ID du package de remise
 VERSION        | URL    | chaîne | oui      | La version du package à remettre en vente
-NuGet-X-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
+X-NuGet-ApiKey | Header | chaîne | oui      | Par exemple, `X-NuGet-ApiKey: {USER_API_KEY}`.
 
 ### <a name="response"></a>Réponse
 
