@@ -1,9 +1,9 @@
-# [Qu’est-ce que NuGet ?](What-is-NuGet.md)
+# [Qu’est-ce que NuGet ?](what-is-nuget.md)
+# [Installer les outils clients NuGet](install-nuget-client-tools.md)
 # Démarrage rapide
 ## [Créer et publier un package](Quickstart/Create-and-Publish-a-Package.md)
 ## [Utiliser un package](Quickstart/Use-a-Package.md)
 # Repères
-## [Installer les outils clients NuGet](Guides/Install-NuGet.md)
 ## [Créer des packages NET Standard (Visual Studio 2017)](Guides/Create-NET-Standard-Packages-VS2017.md)
 ## [Créer des packages NET Standard (Visual Studio 2015)](Guides/Create-NET-Standard-Packages-VS2015.md)
 ## [Créer des packages UWP](Guides/Create-UWP-Packages.md)
@@ -19,8 +19,6 @@
 ## [Packages natifs](Create-Packages/Native-Packages.md)
 ## [Packages de symboles](Create-Packages/Symbol-Packages.md)
 ## [Publier un package](Create-Packages/Publish-a-package.md)
-## [project.json et UWP](Create-Packages/project-json-and-UWP.md)
-## [Impact de project.json](Create-Packages/project-json-Impact.md)
 # Consommer des packages
 ## [Vue d’ensemble et flux de travail](Consume-Packages/Overview-and-Workflow.md)
 ## [Recherche et sélection des packages](Consume-Packages/Finding-and-Choosing-Packages.md)
@@ -71,7 +69,6 @@
 # Référence
 ## [.nuspec](Schema/nuspec.md)
 ## [packages.config](Schema/packages-config.md)
-## [project.json](Schema/project-json.md)
 ## [Gestion de versions des packages](reference/package-versioning.md)
 ## [Fichier Nuget.Config](Schema/nuget-config-file.md)
 ## [Cibles de MSBuild](Schema/msbuild-targets.md)
@@ -83,6 +80,10 @@
 ## Extensibilité
 ### [Fournisseurs d’informations d’identification NuGet pour Visual Studio](Reference/extensibility/Nuget-Credential-Providers-for-Visual-Studio.md)
 ### [Fournisseurs d’informations d’identification nuget.exe](Reference/extensibility/nuget-exe-Credential-Providers.md)
+## Contenu archivé
+### [Format de référence project.json](archive/project-json.md)
+### [project.json et UWP](archive/project-json-and-UWP.md)
+### [Impact de project.json](archive/project-json-impact.md)
 # API
 ## [Vue d’ensemble](API/overview.md)
 ## [Comment : effectuez une requête pour tous les packages à l’aide de l’API](Guides/api/query-for-all-published-packages.md)
