@@ -18,12 +18,12 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 01/25/2018
 ---
-# <a name="dotnet-commands"></a>commandes dotNet
+# <a name="dotnet-commands"></a>Les Commandes dotnet
 
-L’interface de ligne de commande DotNet, qui s’exécute sous Windows, Mac OS X et Linux, fournit un nombre de commandes de nuget.exe essentiels comme indiqué ci-dessous. Où dotnet fournit les commandes souhaitées, il n’est pas nécessaire de télécharger nuget.exe.
+L’interface de ligne de commande (CLI) dotnet, qui s’exécute sous Windows, Mac OS X et Linux, fournit un nombre de commandes de essentielles nuget.exe comme listé ci-dessous. Si le CLI dotnet fournit les commandes souhaitées, il n’est pas nécessaire de télécharger nuget.exe.
 
-- [**pack de dotnet**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x): compresse le code dans un package NuGet. À compter de NuGet 4.0, cette commande exécute le même code que `nuget pack`.
-- [**restauration de dotnet**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): restaure les dépendances et les outils d’un projet. À compter de NuGet 4.0, cette commande exécute le même code que `nuget restore`.
-- [**variables locales de nuget dotnet**](/dotnet/core/tools/dotnet-nuget-locals): efface ou répertorie les ressources locales de NuGet tels que http-demande de cache, cache temporaire ou dossier packages global d’échelle de l’ordinateur.
-- [**dotnet nuget push**](/dotnet/core/tools/dotnet-nuget-push): exécute un push d’un package à un serveur et le publie, applicables à tous les serveurs NuGet tiers, Visual Studio Team Services ou nuget.org.
-- [**dotnet nuget supprimer**](/dotnet/core/tools/dotnet-nuget-delete): supprime ou unlists un package à partir d’un serveur, applicable à tous les serveurs NuGet tiers, Visual Studio Team Services ou nuget.org.
+- [**dotnet pack**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x): crée un package NuGet avec le code. À partir de la version 4.0 de NuGet, cette commande exécute le même code que `nuget pack`.
+- [**dotnet restore**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): restaure les dépendances et les outils d’un projet.À partir de la version 4.0 de NuGet, cette commande exécute le même code que `nuget restore`.
+- [**dotnet nuget locals**](/dotnet/core/tools/dotnet-nuget-locals): efface ou liste les ressources locales de NuGet tels que http requête le cache, le cache temporaire ou le dossier packages global d’échelle de l’ordinateur.
+- [**dotnet nuget push**](/dotnet/core/tools/dotnet-nuget-push): exécute la téléverse un package NuGet sur un serveur et le publie, applicables à tous les serveurs NuGet tiers, Visual Studio Team Services ou nuget.org.
+- [**dotnet nuget delete**](/dotnet/core/tools/dotnet-nuget-delete): supprime ou déliste un package à partir d’un serveur, applicable à tous les serveurs NuGet tiers, Visual Studio Team Services ou nuget.org.
