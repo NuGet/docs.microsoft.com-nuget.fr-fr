@@ -3,21 +3,20 @@ title: "Préversions dans les packages NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/14/2017
+ms.date: 08/14/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: df6a366a-22c1-47bb-8017-18231311ce88
 description: "Instructions pour la génération de packages en préversion"
 keywords: "gestion de versions, gestion des versions de package NuGet, préversions NuGet, packages NuGet en préversion, préversions de packages, versions de package RC, versions de package bêta, gestion de versions sémantique NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 07cb9b9bdeeea6f283e95a11a06d7f2043c9b17c
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
+ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/25/2018
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
 
@@ -47,7 +46,6 @@ Vous pouvez spécifier ces versions de deux manières :
 
 Lorsque vous êtes prêt à publier une version stable, supprimez simplement le suffixe et le package est prioritaire sur toutes les préversions. Là encore, consultez [Gestion des versions de package](../reference/package-versioning.md#pre-release-versions).
 
-
 ## <a name="installing-and-updating-pre-release-packages"></a>Installation et mise à jour des packages en préversion
 
 Par défaut, NuGet n’inclut pas de préversions dans le cadre de l’utilisation de packages, mais vous pouvez modifier ce comportement comme suit :
@@ -60,8 +58,7 @@ Par défaut, NuGet n’inclut pas de préversions dans le cadre de l’utilisati
 
 - **Console du gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../tools/powershell-reference.md).
 
-- **Interface de ligne de commande NuGet** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../tools/nuget-exe-cli-reference.md).
-
+- **Interface de ligne de commande NuGet** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../tools/nuget-exe-cli-reference.md).
 
 ## <a name="semantic-versioning"></a>Gestion sémantique des versions
 
@@ -86,16 +83,14 @@ En sachant cela, il est généralement judicieux de suivre les conventions de no
 
 Quels que soient les suffixes que vous utilisez, toutefois, NuGet leur donne la priorité dans l’ordre alphabétique inverse :
 
-```
-1.0.1
-1.0.1-zzz
-1.0.1-rc
-1.0.1-open
-1.0.1-beta12
-1.0.1-beta05
-1.0.1-beta
-1.0.1-alpha2
-1.0.1-alpha
-```
+    1.0.1
+    1.0.1-zzz
+    1.0.1-rc
+    1.0.1-open
+    1.0.1-beta12
+    1.0.1-beta05
+    1.0.1-beta
+    1.0.1-alpha2
+    1.0.1-alpha
 
 Comme indiqué, la version sans aucun suffixe est toujours prioritaire par rapport aux préversions. Notez également que si vous utilisez des suffixes numériques avec des balises en préversion susceptibles d’utiliser des nombres à deux chiffres (ou plus), utilisez des zéros non significatifs comme dans beta01 et beta05 pour pouvoir les trier correctement quand ces numéros s’allongent.
