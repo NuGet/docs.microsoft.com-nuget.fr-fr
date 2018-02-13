@@ -12,11 +12,11 @@ keywords: "fichier NuGet.Config, référence de configuration NuGet, options de 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: df602cb561a19f0eac085695de80db1fbaa1a313
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="nugetconfig-reference"></a>Informations de référence sur NuGet.Config
 
@@ -48,7 +48,7 @@ Dans cette rubrique :
 
 Contient des paramètres de configuration divers, qui peuvent être définis à l’aide de la [commande `nuget config`](../tools/cli-ref-config.md).
 
-Remarque : `dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets utilisant `packages.config`. `globalPackagesFolder`s’applique uniquement aux projets en utilisant le format PackageReference.
+Remarque : `dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets utilisant `packages.config`. `globalPackagesFolder` s’applique uniquement aux projets en utilisant le format PackageReference.
 
 | Touche | Value |
 | --- | --- |
@@ -131,7 +131,7 @@ Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json
 
 ### <a name="packagesources"></a>packageSources
 
-Répertorie toutes les sources de packages connues.
+Répertorie toutes les sources de packages connues. L’ordre est ignoré pendant les opérations de restauration et aucun projet utilisant le format PackageReference. NuGet respecte l’ordre des sources pour installer et mettre à jour des opérations avec des projets à l’aide de `packages.config`.
 
 | Touche | Value |
 | --- | --- |
