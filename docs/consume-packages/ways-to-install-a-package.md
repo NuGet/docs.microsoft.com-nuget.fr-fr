@@ -3,7 +3,7 @@ title: "Méthodes d’installation des packages NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 01/30/2018
+ms.date: 02/12/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "installer NuGet, consommation de package NuGet, installation de packa
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e48bbe813168e773bc46b7fe25af29785ff75df
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3bae03e148a366388c10d08e83c89dac6ff56d06
+ms.sourcegitcommit: 33436d122873249dbb20616556cd8c6783f38909
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/12/2018
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Différentes méthodes d’installer un package NuGet
 
@@ -35,7 +35,10 @@ En règle générale, NuGet effectue les opérations suivantes pour installer un
 
 1. Acquérir le package :
     - Vérifiez si le package demandé existe déjà dans un cache (consultez [Gestion du cache NuGet](managing-the-nuget-cache.md)).
-    - Si le package n’est pas dans le cache, essayez de télécharger le package à partir des sources répertoriées dans les fichiers de configuration, en commençant par le premier dans la liste. Ce comportement vous permet d’utiliser des flux de package privés avant de rechercher un package sur nuget.org (voir [Configuration du comportement de NuGet](configuring-nuget-behavior.md)).
+    - Si le package n’est pas dans le cache, essayez de télécharger le package à partir des sources répertoriées dans les [fichiers de configuration](Configuring-NuGet-Behavior.md).
+      - Pour les projets utilisant le format de référence `packages.config`, NuGet utilise l’ordre des sources dans la configuration.
+      - Pour les projets en utilisant le format PackageReference, NuGet vérifie d’abord les sources qui sont des dossiers locaux, puis vérifie les sources sur les partages réseau et vérifie les sources HTTP (Internet).
+      - En règle générale, l’ordre dans lequel NuGet vérifie les sources n’est pas particulièrement explicite, car n’importe quel package donné avec un identificateur et un numéro de version spécifiques est exactement le même quelle que soit la source sur laquelle il est trouvé.
     - Si le package a correctement acquis à partir d’une des sources, NuGet l’ajoute au cache. Sinon, l’installation échoue.
 
 1. Développez le package dans le projet.
