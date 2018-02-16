@@ -12,38 +12,38 @@ keywords: "NuGet package manager console, commandes Powershell de NuGet, référ
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb98498d6cc6245c9e22b00eada097b816160aea
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: c347a6104d89bb29626ad7c2f33bec150eb38cd2
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
-# <a name="get-project-package-manager-console-in-visual-studio"></a><span data-ttu-id="63e03-104">Get-projet (Console du Gestionnaire de Package dans Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="63e03-104">Get-Project (Package Manager Console in Visual Studio)</span></span>
+# <a name="get-project-package-manager-console-in-visual-studio"></a><span data-ttu-id="dcdd8-104">Get-projet (Console du Gestionnaire de Package dans Visual Studio)</span><span class="sxs-lookup"><span data-stu-id="dcdd8-104">Get-Project (Package Manager Console in Visual Studio)</span></span>
 
-<span data-ttu-id="63e03-105">*Disponible uniquement dans les [Console du Gestionnaire de Package NuGet](Package-Manager-Console.md) dans Visual Studio sous Windows.*</span><span class="sxs-lookup"><span data-stu-id="63e03-105">*Available only within the [NuGet Package Manager Console](Package-Manager-Console.md) in Visual Studio on Windows.*</span></span>
+<span data-ttu-id="dcdd8-105">*Disponible uniquement dans les [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sous Windows.*</span><span class="sxs-lookup"><span data-stu-id="dcdd8-105">*Available only within the [NuGet Package Manager Console](package-manager-console.md) in Visual Studio on Windows.*</span></span>
 
-<span data-ttu-id="63e03-106">Affiche des informations sur la valeur par défaut ou le projet spécifié.</span><span class="sxs-lookup"><span data-stu-id="63e03-106">Displays information about the default or specified project.</span></span> <span data-ttu-id="63e03-107">`Get-Project`spécifiquement, retourne une référence à l’objet DTE (environnement d’outils de développement) de Visual Studio pour le projet.</span><span class="sxs-lookup"><span data-stu-id="63e03-107">`Get-Project` specifically returns a referent to the Visual Studio DTE (Development Tools Environment) object for the project.</span></span>
+<span data-ttu-id="dcdd8-106">Affiche des informations sur la valeur par défaut ou le projet spécifié.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-106">Displays information about the default or specified project.</span></span> <span data-ttu-id="dcdd8-107">`Get-Project` spécifiquement, retourne une référence à l’objet DTE (environnement d’outils de développement) de Visual Studio pour le projet.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-107">`Get-Project` specifically returns a referent to the Visual Studio DTE (Development Tools Environment) object for the project.</span></span>
 
-## <a name="syntax"></a><span data-ttu-id="63e03-108">Syntaxe</span><span class="sxs-lookup"><span data-stu-id="63e03-108">Syntax</span></span>
+## <a name="syntax"></a><span data-ttu-id="dcdd8-108">Syntaxe</span><span class="sxs-lookup"><span data-stu-id="dcdd8-108">Syntax</span></span>
 
 ```ps
 Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a><span data-ttu-id="63e03-109">Paramètres</span><span class="sxs-lookup"><span data-stu-id="63e03-109">Parameters</span></span>
+## <a name="parameters"></a><span data-ttu-id="dcdd8-109">Paramètres</span><span class="sxs-lookup"><span data-stu-id="dcdd8-109">Parameters</span></span>
 
-| <span data-ttu-id="63e03-110">Paramètre</span><span class="sxs-lookup"><span data-stu-id="63e03-110">Parameter</span></span> | <span data-ttu-id="63e03-111">Description</span><span class="sxs-lookup"><span data-stu-id="63e03-111">Description</span></span> |
+| <span data-ttu-id="dcdd8-110">Paramètre</span><span class="sxs-lookup"><span data-stu-id="dcdd8-110">Parameter</span></span> | <span data-ttu-id="dcdd8-111">Description</span><span class="sxs-lookup"><span data-stu-id="dcdd8-111">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="63e03-112">Name</span><span class="sxs-lookup"><span data-stu-id="63e03-112">Name</span></span> | <span data-ttu-id="63e03-113">Spécifie le projet à afficher, par défaut pour le projet par défaut sélectionné dans la Console du Gestionnaire de Package.</span><span class="sxs-lookup"><span data-stu-id="63e03-113">Specifies the project to display, defaulting to the default project selected in the Package Manager Console.</span></span> <span data-ttu-id="63e03-114">-Nom de commutateur est facultatif.</span><span class="sxs-lookup"><span data-stu-id="63e03-114">The -Name switch is itself optional.</span></span> |
-| <span data-ttu-id="63e03-115">Tous</span><span class="sxs-lookup"><span data-stu-id="63e03-115">All</span></span> | <span data-ttu-id="63e03-116">Affiche des informations pour chaque projet dans la solution ; l’ordre des projets n’est pas déterministe.</span><span class="sxs-lookup"><span data-stu-id="63e03-116">Displays information for every project in the solution; the order of projects is not deterministic.</span></span> |
+| <span data-ttu-id="dcdd8-112">Name</span><span class="sxs-lookup"><span data-stu-id="dcdd8-112">Name</span></span> | <span data-ttu-id="dcdd8-113">Spécifie le projet à afficher, par défaut pour le projet par défaut sélectionné dans la Console du Gestionnaire de Package.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-113">Specifies the project to display, defaulting to the default project selected in the Package Manager Console.</span></span> <span data-ttu-id="dcdd8-114">-Nom de commutateur est facultatif.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-114">The -Name switch is itself optional.</span></span> |
+| <span data-ttu-id="dcdd8-115">Tous</span><span class="sxs-lookup"><span data-stu-id="dcdd8-115">All</span></span> | <span data-ttu-id="dcdd8-116">Affiche des informations pour chaque projet dans la solution ; l’ordre des projets n’est pas déterministe.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-116">Displays information for every project in the solution; the order of projects is not deterministic.</span></span> |
 
-<span data-ttu-id="63e03-117">Aucun de ces paramètres accepter pipeline entrée ni les caractères génériques.</span><span class="sxs-lookup"><span data-stu-id="63e03-117">None of these parameters accept pipeline input or wildcard characters.</span></span>
+<span data-ttu-id="dcdd8-117">Aucun de ces paramètres accepter pipeline entrée ni les caractères génériques.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-117">None of these parameters accept pipeline input or wildcard characters.</span></span>
 
-## <a name="common-parameters"></a><span data-ttu-id="63e03-118">Paramètres communs</span><span class="sxs-lookup"><span data-stu-id="63e03-118">Common Parameters</span></span>
+## <a name="common-parameters"></a><span data-ttu-id="dcdd8-118">Paramètres communs</span><span class="sxs-lookup"><span data-stu-id="dcdd8-118">Common Parameters</span></span>
 
-<span data-ttu-id="63e03-119">`Get-Project`prend en charge les [les paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="63e03-119">`Get-Project` supports the following [common PowerShell parameters](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
+<span data-ttu-id="dcdd8-119">`Get-Project` prend en charge les [les paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.</span><span class="sxs-lookup"><span data-stu-id="dcdd8-119">`Get-Project` supports the following [common PowerShell parameters](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Error Action, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction, and WarningVariable.</span></span>
 
-## <a name="examples"></a><span data-ttu-id="63e03-120">Exemples</span><span class="sxs-lookup"><span data-stu-id="63e03-120">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="dcdd8-120">Exemples</span><span class="sxs-lookup"><span data-stu-id="dcdd8-120">Examples</span></span>
 
 ```ps
 # Displays information for the default project
