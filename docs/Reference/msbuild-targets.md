@@ -11,17 +11,17 @@ description: "Les commandes pack et restore NuGet peuvent être utilisées direc
 keywords: NuGet et MSBuild, cible pack NuGet, cible restore NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 6c488f49e12b014e7bd197d57041745387a4d7b4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
 *NuGet 4.0+*
 
-Avec le format PackageReference, NuGet 4.0 + peut stocker des métadonnées du manifeste tout directement dans un fichier projet au lieu d’utiliser un distinct `.nuspec` fichier.
+Avec le format PackageReference, NuGet 4.0+ peut stocker toutes les métadonnées du manifeste directement dans un fichier projet, au lieu d’utiliser un fichier `.nuspec` distinct.
 
 Avec MSBuild 15.1+, NuGet est également un citoyen MSBuild de première classe avec les cibles `pack` et `restore` comme décrit ci-dessous. Ces cibles vous permettent d’utiliser NuGet comme vous utiliseriez toute autre tâche ou cible MSBuild. (Pour NuGet 3.x et versions antérieures, vous utilisez les commandes [pack](../tools/cli-ref-pack.md) et [restore](../tools/cli-ref-restore.md) via l’interface de ligne de commande NuGet à la place.)
 
@@ -42,7 +42,7 @@ De même, vous pouvez écrire une tâche MSBuild, écrire votre propre cible et 
 
 ## <a name="pack-target"></a>Cible pack
 
-Lors de l’utilisation de la cible de pack, autrement dit, `msbuild /t:pack`, MSBuild dessine ses entrées dans le fichier projet. Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier de projet dans le premier `<PropertyGroup>` nœud. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../reference/nuspec.md).
+Lors de l’utilisation de la cible pack, autrement dit `msbuild /t:pack`, MSBuild obtient ses entrées du fichier projet. Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier projet au sein du premier nœud `<PropertyGroup>`. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../reference/nuspec.md).
 
 Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises en charge avec MSBuild.
 
@@ -63,8 +63,10 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | IconUrl | PackageIconUrl | vide | |
 | Balises | PackageTags | vide | Les balises sont séparées par un point-virgule. |
 | ReleaseNotes | PackageReleaseNotes | vide | |
-| RepositoryUrl | RepositoryUrl | vide | |
-| RepositoryType | RepositoryType | vide | |
+| Url du référentiel / | RepositoryUrl | vide | URL de référentiel permettant de cloner ou extraire le code source. Example: *https://github.com/NuGet/NuGet.Client.git* |
+| / Type de référentiel | RepositoryType | vide | Type de référentiel. Exemples : *git*, *tfs*. |
+| Branche du référentiel / | RepositoryBranch | vide | Informations de branche de référentiel facultatif. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *master* (NuGet 4.7.0+) |
+| Référentiel/validation | RepositoryCommit | vide | Validation du référentiel facultatif ou l’ensemble de modifications pour indiquer le package de la source qui a été généré. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Récapitulatif | Non pris en charge | | |
 
@@ -90,6 +92,8 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 - IsTool
 - RepositoryUrl
 - RepositoryType
+- RepositoryBranch
+- RepositoryCommit
 - NoPackageAnalysis
 - MinClientVersion
 - IncludeBuildOutput
@@ -170,7 +174,7 @@ Il existe également une propriété MSBuild `$(IncludeContentInPack)` qui a pou
 D’autres métadonnées spécifiques à pack que vous pouvez définir sur l’un des éléments ci-dessus incluent ```<PackageCopyToOutput>``` et ```<PackageFlatten>``` qui définissent les valeurs ```CopyToOutput``` et ```Flatten``` sur l’entrée ```contentFiles``` dans le fichier nuspec de sortie.
 
 > [!Note]
-> Outre les éléments de contenu, le `<Pack>` et `<PackagePath>` métadonnées peuvent également être définies sur les fichiers avec une action de génération de la compilation, EmbeddedResource, ApplicationDefinition, Page, ressources, écran de démarrage, DesignData, DesignDataWithDesignTimeCreateableTypes , CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource ou None.
+> Outre les éléments de contenu, les métadonnées `<Pack>` et `<PackagePath>` peuvent aussi être définies sur des fichiers avec l’action de génération Compile, EmbeddedResource, ApplicationDefinition, Page, Resource, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes, CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource ou None.
 >
 > Pour que la commande pack ajoute le nom de fichier à votre chemin de package lors de l’utilisation de modèles de globbing, votre chemin doit se terminer par le caractère de séparation de dossier, sinon il est traité comme le chemin complet avec le nom de fichier.
 

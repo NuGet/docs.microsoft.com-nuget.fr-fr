@@ -13,23 +13,23 @@ keywords: "NuGet 2.6.1 pour les notes de publication WebMatrix, des correctifs d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6150fc34dd05c2e7ce132d2d6744b823daeb1a07
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 pour les Notes de publication WebMatrix
 
 [Notes de publication NuGet 2.6](../release-notes/nuget-2.6.md) | [NuGet 2.7 Notes de publication](../release-notes/nuget-2.7.md)
 
-L’équipe NuGet a publié une extension de gestionnaire de Package NuGet de mise à jour pour WebMatrix 26 mars 2014.  Cette mise à jour peut être installé à partir de la [Galerie d’extensions WebMatrix](http://extensions.webmatrix.com/packages/NuGetPackageManager/) en procédant comme suit :
+L’équipe NuGet a publié une extension de gestionnaire de Package NuGet de mise à jour pour WebMatrix 26 mars 2014.  Cette mise à jour peut être installé à partir de la [Galerie d’extensions WebMatrix](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) en procédant comme suit :
 
 1. Ouvrez WebMatrix 3
-2. Cliquez sur l’icône des Extensions dans le ruban Accueil
-3. Sélectionnez l’onglet mises à jour
-4. Cliquez pour mettre à jour le Gestionnaire de Package NuGet pour 2.6.1
-6. Fermez et redémarrez WebMatrix 3
+1. Cliquez sur l’icône des Extensions dans le ruban Accueil
+1. Sélectionnez l’onglet mises à jour
+1. Cliquez pour mettre à jour le Gestionnaire de Package NuGet pour 2.6.1
+1. Fermez et redémarrez WebMatrix 3
 
 ## <a name="notable-changes"></a>Modifications importantes
 

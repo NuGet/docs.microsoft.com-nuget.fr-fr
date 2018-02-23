@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: dbeec1d3332571d8e9616dfe9675b5fcf3c85589
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e3621f01312e3b4fdbef116e5044869416b851c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -129,7 +129,7 @@ La série `dotnet` des monikers doit être utilisée dans NuGet 3.3 et versions 
 ## <a name="portable-class-libraries"></a>Bibliothèques de classes portables
 
 > [!Warning]
-> **Les bibliothèques de classes portables ne sont pas recommandées**. Même si elles sont prises en charge, les auteurs de packages doivent prendre en charge netstandard à la place. .NET Standard Platform est une évolution des bibliothèques de classes portables et représente la portabilité binaire entre les plateformes à l’aide d’un moniker unique qui n’est lié à rien de statique comme les monikers *portable-a+b+c*.
+> **Les bibliothèques de classes portables ne sont pas recommandées**. Même si elles sont prises en charge, les auteurs de packages doivent prendre en charge netstandard à la place. Est une évolution du PCLs et le représente la portabilité binaire entre les plateformes à l’aide d’un moniker unique qui n’est pas lié à une bibliothèque statique, par exemple la plateforme .NET Standard *portable-a + b + c* monikers.
 
 Pour définir une version cible de .NET Framework qui fait référence à plusieurs frameworks-cibles-enfants, le mot clé `portable` est utilisé pour préfixer la liste des frameworks référencés. Évitez d’inclure artificiellement des frameworks supplémentaires qui ne sont pas directement compilés, car cela peut aboutir à des effets secondaires inattendus dans ces frameworks.
 
