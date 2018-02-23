@@ -3,42 +3,32 @@ title: "Créer des packages NuGet pour la plateforme Windows universelle | Micro
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 7/17/2017
+ms.date: 03/21/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d98524b1-a674-4803-8ac5-3c6bce867f86
 description: "Procédure pas à pas de bout en bout pour créer des packages NuGet à l’aide d’un composant Windows Runtime pour la plateforme Windows universelle."
 keywords: "créer un package, packages pour UWP, composants Windows Runtime"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0513ad063d01e573672b6c84a9e819b6df516f03
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="create-uwp-packages"></a>Créer des packages UWP
 
 La [plateforme Windows universelle (UWP)](https://developer.microsoft.com/windows) fournit une plateforme d’application commune pour chaque appareil qui exécute Windows 10. Dans ce modèle, les applications UWP peuvent appeler à la fois les API WinRT communes à tous les appareils et les API (notamment Win32 et .NET) propres à la famille d’appareils sur laquelle les applications s’exécutent.
 
-Dans cette procédure pas à pas, vous allez créer un package NuGet avec un composant UWP natif (y compris un contrôle XAML) qui peut être utilisé dans les projets natifs et managés.
-
-1. [Prérequis](#pre-requisites)
-1. [Créer un composant Windows Runtime UWP](#create-a-uwp-windows-runtime-component)
-1. [Créer et mettre à jour le fichier .nuspec](#create-and-update-the-nuspec-file)
-1. [Empaqueter le composant](#package-the-component)
-1. [Rubriques connexes](#related-topics)
+Dans cette procédure pas à pas, vous créez un package NuGet avec un composant UWP natif (y compris un contrôle XAML) qui peut être utilisé dans les projets natifs et managés.
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
-1. Visual Studio 2017 ou Visual Studio 2015. Installez l’édition Community gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/) ; vous pouvez également utiliser les éditions Professional et Enterprise.
-1. Interface de ligne de commande NuGet. Téléchargez la dernière version de nuget.exe à partir de [nuget.org/downloads](https://nuget.org/downloads), puis enregistrez-la dans un emplacement de votre choix. Ajoutez ensuite cet emplacement à votre variable d’environnement PATH, si ce n’est déjà fait.
+1. Visual Studio 2017 ou Visual Studio 2015. Installez l’édition Community 2017 gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/) ; vous pouvez également utiliser les éditions Professional et Enterprise.
 
-> [!Note]
-> nuget.exe étant l’outil CLI proprement dit, pas un programme d’installation, veillez à enregistrer le fichier téléchargé à partir de votre navigateur au lieu de l’exécuter.
-
+1. Interface de ligne de commande NuGet. Téléchargez la dernière version de `nuget.exe` à partir de [nuget.org/downloads](https://nuget.org/downloads), puis enregistrez-la dans un emplacement de votre choix (le téléchargement est directement le `.exe`). Ajoutez ensuite cet emplacement à votre variable d’environnement PATH, si ce n’est déjà fait.
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Créer un composant Windows Runtime UWP
 
@@ -58,11 +48,10 @@ Dans cette procédure pas à pas, vous allez créer un package NuGet avec un com
 
     ![Générer en tâche de fond](media/UWP-BatchBuild.png)
 
-1. Dans la boîte de dialogue Générer en tâche de fond, cliquez sur **Générer** pour vérifier le projet et créer les fichiers de sortie dont vous aurez besoin pour le package NuGet.
+1. Dans la boîte de dialogue Générer en tâche de fond, cliquez sur **Générer** pour vérifier le projet et créer les fichiers de sortie dont vous avez besoin pour le package NuGet.
 
 > [!Note]
-> Dans cette procédure pas à pas, vous allez utiliser les artefacts de débogage pour le package. Pour un package sans débogage, cochez plutôt les options Release dans la boîte de dialogue Générer en tâche de fond et consultez les dossiers Release résultants dans les étapes qui suivent.
-
+> Dans cette procédure pas à pas, vous utilisez les artefacts de débogage pour le package. Pour un package sans débogage, cochez plutôt les options Release dans la boîte de dialogue Générer en tâche de fond et consultez les dossiers Release résultants dans les étapes qui suivent.
 
 ## <a name="create-and-update-the-nuspec-file"></a>Créer et mettre à jour le fichier .nuspec
 
@@ -71,7 +60,7 @@ Pour créer le fichier `.nuspec` initial, effectuez les trois étapes ci-dessous
 1. Ouvrez une invite de commandes et accédez au dossier contenant `ImageEnhancer.vcxproj` (il s’agit d’un sous-dossier situé en dessous du fichier solution).
 1. Exécutez la commande NuGet `spec` pour générer `ImageEnhancer.nuspec` (le nom du fichier est tiré du nom du fichier `.vcxproj`) :
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -97,8 +86,6 @@ Pour créer le fichier `.nuspec` initial, effectuez les trois étapes ci-dessous
 
 > [!Note]
 > Pour les packages générés en vue d’une consommation publique, faites particulièrement attention à l’élément `<tags>`, car ces balises aident l’utilisateur à trouver votre package et à comprendre ce qu’il fait.
-
-
 
 ### <a name="adding-windows-metadata-to-the-package"></a>Ajout de métadonnées Windows au package
 
@@ -247,12 +234,11 @@ Votre fichier `.nuspec` final doit maintenant ressembler au code ci-après, où 
 </package>
 ```
 
-
 ## <a name="package-the-component"></a>Empaqueter le composant
 
 Une fois que le fichier `.nuspec` est finalisé et qu’il référence tous les fichiers à inclure dans le package, vous pouvez exécuter la commande `pack` :
 
-```
+```cli
 nuget pack ImageEnhancer.nuspec
 ```
 
@@ -267,7 +253,7 @@ Pour mettre votre package à la disposition des autres développeurs, suivez les
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [Informations de référence sur le fichier nuspec](../schema/nuspec.md)
+- [Informations de référence sur le fichier nuspec](../reference/nuspec.md)
 - [Packages de symboles](../create-packages/symbol-packages.md)
 - [Gestion de version des packages](../reference/package-versioning.md)
 - [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)

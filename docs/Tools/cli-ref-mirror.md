@@ -12,11 +12,11 @@ keywords: "référence de mise en miroir de NuGet, les commandes de mise en miro
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 7ff5f1c1a915943e8a2eb9c6d6ab09a850968371
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>commande de mise en miroir (NuGet CLI)
 
@@ -37,7 +37,7 @@ où `<packageID>` est le package pour mettre en miroir, ou `<configFilePath>` id
 
 Le `<listUrlTarget>` Spécifie le référentiel de code source, et `<publishUrlTarget>` Spécifie le référentiel cible.
 
-Si votre référentiel cible se trouve sur `https://machine/repo` qui est en cours d’exécution [NuGet.Server](../hosting-packages/NuGet-Server.md), les URL de liste et push sera `https://machine/repo/nuget` et `https://machine/repo/api/v2/package`, respectivement.
+Si votre référentiel cible se trouve sur `https://machine/repo` qui est en cours d’exécution [NuGet.Server](../hosting-packages/nuget-server.md), les URL de liste et push sera `https://machine/repo/nuget` et `https://machine/repo/api/v2/package`, respectivement.
 
 ## <a name="options"></a>Options
 

@@ -12,11 +12,11 @@ keywords: "NuGet 2.5 notes de publication, des correctifs de bogues, problèmes 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c2c6cf85b9ebccf200be9ef4a2bf96802cffcaea
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 4fb696a1f4d76bdd3461df6af461f279f9f0a8b0
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-25-release-notes"></a>Notes de publication NuGet 2.5
 
@@ -62,7 +62,7 @@ Nous apprécions également aux personnes suivantes pour la recherche de bogues 
 
 ### <a name="allow-users-to-overwrite-content-files-that-already-exist"></a>Autoriser les utilisateurs à remplacer les fichiers de contenu qui existent déjà
 
-Une des fonctionnalités plus demandées du temps a été la possibilité de remplacer les fichiers de contenu qui existent déjà sur le disque lorsque inclus dans un package NuGet. À compter de NuGet 2.5, ces conflits sont identifiés et vous devrez remplacer les fichiers, alors que précédemment ces fichiers toujours ignorés.
+Une des fonctionnalités plus demandées du temps a été la possibilité de remplacer les fichiers de contenu qui existent déjà sur le disque lorsque inclus dans un package NuGet. À compter de NuGet 2.5, ces conflits sont identifiés et vous êtes invité à remplacer les fichiers, alors que précédemment ces fichiers toujours ignorés.
 
 ![Remplacer les fichiers de contenu](./media/NuGet-2.5/overwrite-file.png)
 

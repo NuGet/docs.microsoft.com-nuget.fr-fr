@@ -3,30 +3,24 @@ title: "Guide d’introduction à la création et à la publication de package N
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/3/2017
+ms.date: 10/03/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 91781ed6-da5c-49f0-b973-16dd8ad84229
 description: "Didacticiel expliquant comment créer et publier un package NuGet à l’aide de l’interface de ligne de commande de nuget.exe et de Visual Studio."
 keywords: "création de package NuGet, publication de package NuGet, didacticiel NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ab5235537d869047075b93f9d8255ae9e61dfedd
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 53d29283c9e786fc27e9a608d7d251d8d0b5b0b2
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="create-and-publish-a-package"></a>Créer et publier un package
 
-La création d’un package NuGet à partir d’une bibliothèque de classes .NET et sa publication sur nuget.org sont des processus simples. Les étapes suivantes vous expliquent pas à pas comment procéder à l’aide de Visual Studio et de l’interface de ligne de commande (CLI) de NuGet :
-
-- [Prérequis](#install-pre-requisites)
-- [Créer le fichier manifeste du package .nuspec](#create-the-nuspec-package-manifest-file)
-- [Exécuter la commande pack](#run-the-pack-command)
-- [Publier le package](#publish-the-package)
+La création d’un package NuGet à partir d’une bibliothèque de classes .NET et sa publication sur nuget.org sont des processus simples. Cet article explique pas à pas comment procéder avec Visual Studio et l’interface de ligne de commande (CLI) NuGet.
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
@@ -48,7 +42,7 @@ Chaque package NuGet a besoin d’un manifeste &mdash;un fichier `.nuspec`&mdash
 
 1. Exécutez la commande CLI NuGet `spec` pour générer le manifeste, qui est nommé d’après votre projet, par exemple `AppLogger.nuspec`:
 
-    ```
+    ```cli
     nuget spec
     ```
 
@@ -102,7 +96,7 @@ Chaque package NuGet a besoin d’un manifeste &mdash;un fichier `.nuspec`&mdash
 
 Pour générer un package NuGet (un fichier `.nupkg`) à partir d’un projet, exécutez la commande `pack` :
 
-```
+```cli
 nuget pack AppLogger.csproj
 ```
 
@@ -119,24 +113,24 @@ Une fois que vous avez un fichier `.nupkg`, vous pouvez le publier sur nuget.org
 
 1. Une fois connecté, sélectionnez votre nom d’utilisateur (dans le coin supérieur droit), puis **Clés API**.
 
-1. Sélectionnez **Créer**, spécifiez un nom pour votre clé, sélectionnez **Choix des étendues > Push** sous **Clé API**, entrez * pour **Modèle Glob**, puis Sélectionnez **Créer**.
+1. Sélectionnez **Créer**, donnez un nom à votre clé, sélectionnez **Sélectionner les étendues > Push** sous **Clé API**, entrez * pour **Modèle Glob**, puis sélectionnez **Créer**.
 
 1. Une fois la clé créée, sélectionnez **Copier** pour récupérer la clé d’accès dont vous aurez besoin dans l’interface CLI :
 
     ![Copie de la clé d’API dans le Presse-papiers](media/QS_Create-02-APIKey.png)
 
     > [!Warning]
-    > Enregistrez votre clé à un emplacement sécurisé et ne la divulguez pas. Si votre clé est révélée accidentellement, vous pouvez toujours la régénérer à tout moment. Vous pouvez également supprimer la clé API si vous ne souhaitez plus distribuer des packages par le biais de l’interface CLI.
+    > Enregistrez votre clé à un emplacement sécurisé et ne la divulguez pas. Au cas où elle serait révélée accidentellement, vous pourriez la régénérer à tout moment. Vous pouvez également supprimer la clé API si vous ne souhaitez plus distribuer des packages par le biais de l’interface CLI.
 
 1. À l’invite de commandes, exécutez la commande suivante, en spécifiant votre nom de package et en remplaçant la clé par la valeur copiée à l’étape 4 :
 
-    ```
+    ```cli
     nuget push AppLogger.1.0.0.0.nupkg 47be3377-c434-4c29-8576-af7f6993a54b -Source https://api.nuget.org/v3/index.json
     ```
 
 1. nuget.exe affiche les résultats du processus de publication :
 
-    ```
+    ```output
     Pushing AppLogger.1.0.0.0.nupkg to 'https://www.nuget.org/api/v2/package'...
         PUT https://www.nuget.org/api/v2/package/
         Created https://www.nuget.org/api/v2/package/ 6829ms

@@ -12,11 +12,11 @@ keywords: "Notes de publication NuGet 3.0 Preview, les correctifs de bogues, pro
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e07bcad2bf713deee0add72663c84b9979f8c5c4
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: cf7cd17065e1c83beb935fe2969e6ecd8b52aa29
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-30-preview-release-notes"></a>Notes de mise à jour de NuGet 3.0 Preview
 
@@ -30,7 +30,7 @@ Cette version d’évaluation 3.0 NuGet est incluse dans Visual Studio 2015 Prev
 
 ## <a name="brand-new-ui"></a>Nouvelle interface utilisateur
 
-La première chose que vous remarquerez que sur la version préliminaire de NuGet 3.0 est notre interface utilisateur nouvelle. Il n’est plus une boîte de dialogue modale ; Il est désormais une fenêtre de document Visual Studio complète. Cela vous permet à ouvrir l’interface utilisateur pour plusieurs projets (et/ou la solution) en une seule fois, détacher la fenêtre vers un autre moniteur, ancrer toutefois vous le feriez comme, etc.
+La première chose que vous remarquerez sur la version préliminaire de NuGet 3.0 est notre interface utilisateur nouvelle. Il n’est plus une boîte de dialogue modale ; Il est désormais une fenêtre de document Visual Studio complète. Cela vous permet à ouvrir l’interface utilisateur pour plusieurs projets (et/ou la solution) en une seule fois, détacher la fenêtre vers un autre moniteur, ancrer toutefois vous le feriez comme, etc.
 
 ![La nouvelle UI NuGet](./media/NuGet-3.0-Preview/new-ui.png)
 
@@ -116,13 +116,13 @@ Nous avons utilisé dispose d’un bouton « Tout mettre à jour » dans l’i
 
 En plus de toutes les nouvelles fonctionnalités de gestion des packages notre nouvelle interface utilisateur, nous avons également travaillé sur certains détails d’implémentation pour le protocole de NuGet client/serveur. Le travail que nous avons faites consiste à créer des « API v3 » pour NuGet, qui est conçue autour de haute disponibilité pour des scénarios critiques telles que la restauration des packages et installation des packages. La nouvelle API est basée sur REST et hypermédia et nous avons sélectionné [JSON-LD](http://json-ld.org) comme notre format de ressource.
 
-Les bits de NuGet 3.0 Preview, vous voyez une nouvelle source de package appelée « preview.nuget.org » dans la liste déroulante source de package. Si vous sélectionnez cette source de package, nous allons utiliser notre nouvelle API plutôt à se connecter à nuget.org. Nous avons simplifié l’aperçu de la source disponibles dans l’interface utilisateur pendant que nous continuons à tester, passez en revue et améliorer la nouvelle API. Cette nouvelle source du package de base v3 API remplace dans NuGet 3.0 RC, la source du package « nuget.org « v2.
+Dans les bits de NuGet 3.0 Preview, vous consultez une nouvelle source de package appelée « preview.nuget.org » dans la liste déroulante source de package. Si vous sélectionnez cette source de package, nous allons utiliser notre nouvelle API plutôt à se connecter à nuget.org. Nous avons simplifié l’aperçu de la source disponibles dans l’interface utilisateur pendant que nous continuons à tester, passez en revue et améliorer la nouvelle API. Cette nouvelle source du package de base v3 API remplace dans NuGet 3.0 RC, la source du package « nuget.org « v2.
 
 En dépit de l’investissement, que nous mettons en API v3, nous avons apporté toutes ces nouvelles fonctionnalités fonctionnent également avec notre existant protocole API v2, ce qui signifie qu’ils fonctionnent avec des sources de package existant autre que nuget.org également.
 
 ## <a name="new-features-coming"></a>Nouvelles fonctionnalités à venir
 
-Entre maintenant et 3.0 RTM, nous travaillons également sur certaines nouvelles fonctionnalités de NuGet fondamentale, au-delà de ce que vous verrez dans l’interface utilisateur. Voici une courte liste des domaines d’investissement marquants :
+Entre maintenant et 3.0 RTM, nous travaillons également sur certaines nouvelles fonctionnalités de NuGet fondamentale, au-delà de ce que vous voyez dans l’interface utilisateur. Voici une courte liste des domaines d’investissement marquants :
 
 1. Nous mettons en partenariat avec Visual Studio et MSBuild équipes pour obtenir [NuGet profond dans la plateforme](http://blog.nuget.org/20141014/in-the-platform.html).
 1. Nous nous efforçons d’abandonner les conventions de package au moment de l’installation et l’appliquer à la place de ces conventions au moment de l’empaquetage en introduisant un nouveau faisant « autorité » [le manifeste du package](http://blog.nuget.org/20141023/package-manifests.html).

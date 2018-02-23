@@ -12,11 +12,11 @@ keywords: "NuGet installer référence, la commande de package d’installation"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b77e0e6ce045d1a1e59b29f770b5aca13fc4e7e3
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9e824b08486704371eebefb964f86315d82fc222
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="install-command-nuget-cli"></a>installation de commande (CLI NuGet)
 
@@ -62,7 +62,7 @@ où `<packageID>` le package à installer (à l’aide de la version la plus ré
 | Version préliminaire | Permet de versions préliminaires des packages à installer. Cet indicateur n’est pas requis lors de la restauration des packages avec `packages.config`. |
 | RequireConsent | Vérifie que la restauration des packages est activé avant de télécharger et installer les packages. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md). |
 | SolutionDirectory | Spécifie le dossier racine de la solution pour lequel restaurer les packages. |
-| Source | Spécifie la liste des sources de package (en tant qu’URL) pour utiliser. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../Consume-Packages/Configuring-NuGet-Behavior.md). |
+| Source | Spécifie la liste des sources de package (en tant qu’URL) pour utiliser. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md). |
 | Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 | Version | Spécifie la version du package à installer. |
 

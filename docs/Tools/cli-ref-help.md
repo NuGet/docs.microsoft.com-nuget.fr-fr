@@ -12,11 +12,11 @@ keywords: "référence d’aide de NuGet, la commande aide"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 97f72e1be0df6e97f8b06696b2b3861800e4ea08
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: b4255c353e412cf1d1a59590ee816b7887c90653
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>aide ou ? commande (NuGet CLI)
 
@@ -34,7 +34,7 @@ nuget ? [command] [options]
 où [commande] identifie une commande spécifique pour laquelle afficher l’aide.
 
 > [!Warning]
-> Des commandes, tenez compte à spécifier *aide* tout d’abord, comme avec `nuget help install`, étant donné qu’un package nommé « help » sur nuget.org. Si vous attribuez à la commande `nuget install help`, vous n'allez pas obtenir de l’aide sur la commande d’installation mais va installer le package nommé aide.
+> Des commandes, tenez compte à spécifier *aide* tout d’abord, comme avec `nuget help install`, étant donné qu’un package nommé « help » sur nuget.org. Si vous attribuez à la commande `nuget install help`, vous ne sera pas obtenir de l’aide sur la commande d’installation mais va installer le package nommé aide.
 
 ## <a name="options"></a>Options
 

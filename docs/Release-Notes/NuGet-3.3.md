@@ -12,11 +12,11 @@ keywords: "Notes de version 3.3 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c83f87231497e14c36f1b8100b7bec720bb63b1c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 4d077fb53abd8033aad6da01ad090297109aa68c
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-33-release-notes"></a>Notes de version 3.3 de NuGet
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 01/25/2018
 
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
-* Les fournisseurs d’informations d’identification ont été introduites qui permettent aux clients de ligne de commande de NuGet être en mesure de fonctionner de manière transparente avec un flux authentifié. [Fournisseur des informations d’identification des instructions sur la façon d’installer Visual Studio Team Services ](../API/nuget-exe-Credential-Providers.md) et configurer NuGet à disposition des clients sont disponibles sur NuGet Docs.
+* Les fournisseurs d’informations d’identification ont été introduites qui permettent aux clients de ligne de commande de NuGet être en mesure de fonctionner de manière transparente avec un flux authentifié. [Fournisseur des informations d’identification des instructions sur la façon d’installer Visual Studio Team Services ](../api/nuget-exe-credential-providers.md) et configurer NuGet à disposition des clients sont disponibles sur NuGet Docs.
 
 ## <a name="new-user-interface-features"></a>Nouvelles fonctionnalités de l’Interface utilisateur
 
@@ -47,7 +47,7 @@ Dans cette version, nous avons présenté la `add` et `init` commandes pour init
 
 ## <a name="contentfiles"></a>ContentFiles
 
-Le contenu est désormais prise en charge dans `project.json` géré des projets à partir de la nouvelle `contentFiles` dossier et `.nuspec` `contentFiles` notation de l’élément.  Ce contenu peut être spécifié directement par l’auteur du package pour les interactions avec les systèmes de projet.  Plus d’informations sur la configuration des fichiers dans un `.nuspec` document se trouve dans le [.nuspec référence](../schema/nuspec.md).
+Le contenu est désormais prise en charge dans `project.json` géré des projets à partir de la nouvelle `contentFiles` dossier et `.nuspec` `contentFiles` notation de l’élément.  Ce contenu peut être spécifié directement par l’auteur du package pour les interactions avec les systèmes de projet.  Plus d’informations sur la configuration des fichiers dans un `.nuspec` document se trouve dans le [.nuspec référence](../reference/nuspec.md).
 
 ## <a name="nuget-locals-cache-management"></a>Gestion de Cache de variables locales de NuGet
 

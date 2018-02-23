@@ -3,21 +3,20 @@ title: "Création de packages NuGet natifs | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 7a70d748-efe2-4f8f-a3fd-67ddb0f6214e
 description: "Informations sur la création de packages NuGet natifs contenant du code C++ au lieu de code managé, à utiliser dans des projets C++."
 keywords: Packages NuGet natifs, packages NuGet C++, packages de code natif, ciblant des projets C++
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: fa5baaa6ecbad0f5f6dd85d657679ffbbbc8a47a
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 71f4eca411d520630ca7d77165b8f03cd32af290
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="creating-native-packages"></a>Création de packages natifs
 

@@ -12,11 +12,11 @@ keywords: "Notes de version 1.1 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 68c3415fe328fe6d9db91757a7fc180da8489a9f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Notes de version 1.0 et 1.1 de NuGet
 
@@ -135,7 +135,7 @@ Voici les modifications apportées dans cette version finale depuis CTP 2. Visit
 
 Voici les principales modifications apportées dans CTP 2 :
 
-* Basculer le package de flux d’ATOM à un point de terminaison du service OData : Si vous mettez à niveau vers la version CTP2 de NuGet, veillez à ajouter l’URL suivante comme source de package : [http://go.microsoft.com/fwlink/?LinkID=204820](http://go.microsoft.com/fwlink/?LinkID=204820).
+* Basculer le package de flux d’ATOM à un point de terminaison du service OData : Si vous mettez à niveau vers la version CTP2 de NuGet, veillez à ajouter l’URL suivante comme source de package : https://feed.nuget.org/ctp2/odata/v1/.
 * Renommer la commande Add-Package pour *Install-Package*.
 * Mise à jour le `.nuspec` Format. Le `.nuspec` format inclut désormais la *iconUrl* champ pour spécifier une icône de png 32 x 32 qui s’afficheront dans la boîte de dialogue Package ajouter. Veillez à définir pour distinguer votre package. Le `.nuspec` format comprend également la nouvelle *projectUrl* champ que vous pouvez utiliser pour pointer vers une page web qui fournit des informations sur votre package.
 

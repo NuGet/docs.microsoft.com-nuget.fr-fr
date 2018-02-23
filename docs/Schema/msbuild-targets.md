@@ -3,35 +3,27 @@ title: Commandes pack et restore NuGet comme cibles MSBuild | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 4/3/2017
+ms.date: 04/03/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 86f7e724-2509-4d7d-aa8d-4a3fb913ded6
 description: "Les commandes pack et restore NuGet peuvent être utilisées directement comme cibles MSBuild avec NuGet 4.0+."
 keywords: NuGet et MSBuild, cible pack NuGet, cible restore NuGet
-ms.reviewer: karann-msft
-ms.openlocfilehash: d4778a21a96de6d76d7a20ff9a305960dd6c2bf1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.reviewer:
+- karann-msft
+ms.openlocfilehash: 169d73709eeb17aade7d99da66bbb4f346f8093f
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
 *NuGet 4.0+*
 
-NuGet 4.0+ peut fonctionner directement avec les informations contenues dans un fichier `.csproj` sans nécessiter de fichier `.nuspec` ou `project.json` distinct. Toutes les métadonnées précédemment stockées dans ces fichiers de configuration peuvent être à la place stockées directement dans le fichier `.csproj`, comme décrit ici.
+Avec le format PackageReference, NuGet 4.0+ peut stocker toutes les métadonnées du manifeste directement dans un fichier projet, au lieu d’utiliser un fichier `.nuspec` distinct.
 
 Avec MSBuild 15.1+, NuGet est également un citoyen MSBuild de première classe avec les cibles `pack` et `restore` comme décrit ci-dessous. Ces cibles vous permettent d’utiliser NuGet comme vous utiliseriez toute autre tâche ou cible MSBuild. (Pour NuGet 3.x et versions antérieures, vous utilisez les commandes [pack](../tools/cli-ref-pack.md) et [restore](../tools/cli-ref-restore.md) via l’interface de ligne de commande NuGet à la place.)
-
-Dans cette rubrique :
-
-- [Ordre de génération des cibles](#target-build-order)
-- [Cible pack](#pack-target)
-- [Scénarios avec pack](#pack-scenarios)
-- [Cible restore](#restore-target)
-- [PackageTargetFallback](#packagetargetfallback)
 
 ## <a name="target-build-order"></a>Ordre de génération des cibles
 
@@ -50,17 +42,16 @@ De même, vous pouvez écrire une tâche MSBuild, écrire votre propre cible et 
 
 ## <a name="pack-target"></a>Cible pack
 
-Lors de l’utilisation de la cible pack, autrement dit `msbuild /t:pack`, MSBuild obtient ses entrées du fichier `.csproj` plutôt que des fichiers `project.json` ou `.nuspec`. Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier `.csproj` au sein du premier nœud `<PropertyGroup>`. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../schema/nuspec.md).
+Lors de l’utilisation de la cible pack, autrement dit `msbuild /t:pack`, MSBuild obtient ses entrées du fichier projet. Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier projet au sein du premier nœud `<PropertyGroup>`. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../schema/nuspec.md).
 
 Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises en charge avec MSBuild.
-
 
 | Valeur d’attribut/NuSpec | Propriété MSBuild | Par défaut | Notes |
 |--------|--------|--------|--------|
 | Id | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
 | Version | PackageVersion | Version | Compatible avec SemVer, par exemple « 1.0.0 », « version bêta 1.0.0 » ou « version bêta-1.0.0-00345 » |
 | VersionPrefix | PackageVersionPrefix | vide | La définition de PackageVersion remplace PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | vide | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix | 
+| VersionSuffix | PackageVersionSuffix | vide | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix |
 | Auteurs | Auteurs | Nom de l’utilisateur actuel | |
 | Propriétaires | N/A | Ne figure pas dans NuSpec | |
 | Titre | Titre | PackageId| |
@@ -76,7 +67,6 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | RepositoryType | RepositoryType | vide | |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Récapitulatif | Non pris en charge | | |
-
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
 
@@ -158,7 +148,7 @@ Pour inclure du contenu, ajoutez des métadonnées supplémentaires à l’élé
 Par défaut, tous les éléments sont ajoutés à la racine de `content` et du dossier `contentFiles\any\<target_framework>` au sein d’un package et la structure de dossier relatif est conservée, sauf si vous spécifiez un chemin de package :
 
 ```xml
-<Content Include="..\win7-x64\libuv.txt">        
+<Content Include="..\win7-x64\libuv.txt">
     <Pack>true</Pack>
     <PackagePath>content\myfiles\</PackagePath>
 </Content>
@@ -179,9 +169,8 @@ Il existe également une propriété MSBuild `$(IncludeContentInPack)` qui a pou
 
 D’autres métadonnées spécifiques à pack que vous pouvez définir sur l’un des éléments ci-dessus incluent ```<PackageCopyToOutput>``` et ```<PackageFlatten>``` qui définissent les valeurs ```CopyToOutput``` et ```Flatten``` sur l’entrée ```contentFiles``` dans le fichier nuspec de sortie.
 
-
 > [!Note]
-> Outre les éléments de contenu, les métadonnées `<Pack>` et `<PackagePath>` peuvent aussi être définies sur des fichiers avec l’action de génération Compile, EmbeddedResource, ApplicationDefinition, Page, Resource, SplashScreen, DesignData, DesignDataWithDesignTimeCreatableTypes, CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource ou None.
+> Outre les éléments de contenu, les métadonnées `<Pack>` et `<PackagePath>` peuvent aussi être définies sur des fichiers avec l’action de génération Compile, EmbeddedResource, ApplicationDefinition, Page, Resource, SplashScreen, DesignData, DesignDataWithDesignTimeCreateableTypes, CodeAnalysisDictionary, AndroidAsset, AndroidResource, BundleResource ou None.
 >
 > Pour que la commande pack ajoute le nom de fichier à votre chemin de package lors de l’utilisation de modèles de globbing, votre chemin doit se terminer par le caractère de séparation de dossier, sinon il est traité comme le chemin complet avec le nom de fichier.
 
@@ -209,13 +198,13 @@ Vous pouvez utiliser un fichier `.nuspec` pour compresser votre projet à condit
 
 Si vous utilisez `dotnet.exe` pour compresser votre projet, utilisez une commande semblable à la suivante :
 
-```
+```cli
 dotnet pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
 Si vous utilisez MSBuild pour compresser votre projet, utilisez une commande semblable à la suivante :
 
-```
+```cli
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
@@ -229,7 +218,6 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Exécuter la restauration
 1. Télécharger les packages
 1. Écrire le fichier de ressources, les cibles et les propriétés
-
 
 ### <a name="restore-properties"></a>Propriétés de restauration
 
@@ -247,11 +235,11 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 | RestoreGraphProjectInput | Liste de projets à restaurer séparés par un point-virgule, qui doit contenir des chemins absolus. |
 | RestoreOutputPath | Dossier de sortie qui est par défaut le dossier `obj`. |
 
-**Exemples**
+#### <a name="examples"></a>Exemples
 
 Ligne de commande :
 
-```
+```cli
 msbuild /t:restore /p:RestoreConfigFile=<path>
 ```
 
@@ -273,10 +261,9 @@ La restauration crée les fichiers suivants dans le dossier `obj` de build :
 | `{projectName}.projectFileExtension.nuget.g.props` | Références à des propriétés MSBuild contenues dans des packages |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Références à des cibles MSBuild contenues dans des packages |
 
+### <a name="packagetargetfallback"></a>PackageTargetFallback
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback 
-
-L’élément `PackageTargetFallback` vous permet de spécifier un ensemble de cibles compatibles à utiliser lors de la restauration des packages (équivalent de [`imports` dans `project.json`](../schema/project-json.md#imports)). Il est conçu pour permettre aux packages qui utilisent un [moniker du Framework cible](../schema/target-frameworks.md) dotnet de fonctionner avec des packages compatibles qui ne déclarent pas de moniker du Framework cible dotnet. Autrement dit, si votre projet utilise le moniker du Framework cible dotnet, tous les packages dont il dépend doivent également avoir un moniker du Framework cible dotnet, sauf si vous ajoutez `<PackageTargetFallback>` à votre projet pour permettre aux plateformes autres que dotnet d’être compatibles avec dotnet. 
+L’élément `PackageTargetFallback` vous permet de spécifier un jeu de cibles compatibles à utiliser lors de la restauration des packages. Il est conçu pour permettre aux packages qui utilisent un [moniker du Framework cible](../schema/target-frameworks.md) dotnet de fonctionner avec des packages compatibles qui ne déclarent pas de moniker du Framework cible dotnet. Autrement dit, si votre projet utilise le moniker du Framework cible dotnet, tous les packages dont il dépend doivent également avoir un moniker du Framework cible dotnet, sauf si vous ajoutez `<PackageTargetFallback>` à votre projet pour permettre aux plateformes autres que dotnet d’être compatibles avec dotnet.
 
 Par exemple, si le projet utilise le moniker du Framework cible `netstandard1.6` et qu’un package dépendant ne contient que `lib/net45/a.dll` et `lib/portable-net45+win81/a.dll`, la génération du projet échoue. Si vous souhaitez présenter la dernière DLL, vous pouvez ajouter un `PackageTargetFallback` comme suit pour dire que la DLL `portable-net45+win81` est compatible :
 
@@ -293,7 +280,6 @@ Pour déclarer une solution de secours pour toutes les cibles de votre projet, o
     $(PackageTargetFallback);portable-net45+win81
 </PackageTargetFallback >
 ```
-
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Remplacement d’une bibliothèque à partir d’un graphique de restauration
 

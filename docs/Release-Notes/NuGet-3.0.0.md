@@ -12,11 +12,11 @@ keywords: "NuGet 3.0.0 notes de publication, des correctifs de bogues, problème
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ef8557c37105eb7915919c7b15d41d024921761f
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 65251b28093d2ac275053b8bfef6620e16e3fb4a
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-30-release-notes"></a>Notes de version 3.0 de NuGet
 
@@ -30,7 +30,7 @@ Au total, nous avons fermé 240 problèmes dans la version 3.0, et vous pouvez p
 
 ## <a name="known-issues"></a>Problèmes connus
 
-Un certain nombre de problèmes connus fourni avec cette version, et tous ces éléments ont été corrigés dans notre version 3.1 planifiées pour coïncider avec la version de Windows 10 sur 29 juillet.  Vous ne pourrez pas mettre à jour votre extension de Visual Studio à partir de la galerie sur ou après cette date pour résoudre ces problèmes connus.
+Un certain nombre de problèmes connus fourni avec cette version, et tous ces éléments ont été corrigés dans notre version 3.1 planifiées pour coïncider avec la version de Windows 10 sur 29 juillet.  Vous ne parvenez pas à mettre à jour votre extension de Visual Studio à partir de la galerie sur ou après cette date pour résoudre ces problèmes connus.
 
 *  Traduction n’est pas fournie pour l’étiquette « Ne plus afficher cette boîte de dialogue » dans la fenêtre d’aperçu et de l’étiquette « Auteurs » dans la fenêtre de la description du package.
 *  Lorsque vous travaillez sur un projet à l’aide de TFS contrôle de source, NuGet ne peuvent pas présenter le Gestionnaire de package interface utilisateur si le fichier Nuget.Config est marqué comme étant en lecture seule.

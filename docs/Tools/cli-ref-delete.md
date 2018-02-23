@@ -12,17 +12,17 @@ keywords: "supprimer la référence de NuGet, supprimer la commande de package"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3890e33ab0fc425e1c2ee39631ade57ea9b92bc9
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 3412d38edbdb011d050b9b61c7c144568edd4cca
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="delete-command-nuget-cli"></a>supprimer la commande (NuGet CLI)
 
 **S’applique à :** la publication du package &bullet; **versions prises en charge :** toutes les
 
-Supprime ou unlists un package à partir d’une source de package. Pour nuget.org, la commande de suppression [unlists le package](../policies/Deleting-Packages.md).
+Supprime ou unlists un package à partir d’une source de package. Pour nuget.org, la commande de suppression [unlists le package](../policies/deleting-packages.md).
 
 ## <a name="usage"></a>Utilisation
 

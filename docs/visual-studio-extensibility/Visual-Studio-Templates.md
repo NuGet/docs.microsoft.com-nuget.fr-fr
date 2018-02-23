@@ -3,7 +3,7 @@ title: "Packages NuGet dans les modèles Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/3/2018
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -12,11 +12,11 @@ keywords: "NuGet dans Visual Studio, modèles de projet Visual Studio, modèles 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 45a2ca2c08660be650f9cf38301f628923e1f8be
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Packages dans des modèles Visual Studio
 
@@ -135,7 +135,7 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
         </packages>
         ```
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 1. Déclarez une dépendance sur l’extension VSIX NuGet en ajoutant une référence à celle-ci dans votre manifeste VSIX :
 
@@ -149,4 +149,4 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
 
 1. Forcez l’enregistrement des modèles de projet/élément lors de la création en ajoutant [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) dans le fichier `.vstemplate`.
 
-1. Les modèles n’incluent pas de fichier `packages.config` ou `project.json` ; n’incluez aucune référence ou contenu qui serait ajouté lors de l’installation des packages NuGet.
+1. Les modèles ne comportent pas de fichier `packages.config` ; n’incluez aucune référence ni aucun contenu qui serait ajouté lors de l’installation des packages NuGet.

@@ -12,11 +12,11 @@ keywords: "Notes de publication NuGet 3.0 bêta, les correctifs de bogues, probl
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 618d140c443d51f4d7eb87bac2381ad961ed85d1
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 3a595d002e385ff0330c2eebd0e8439f5dbefbd9
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-30-beta-release-notes"></a>Notes de mise à jour de NuGet 3.0 bêta
 
@@ -34,7 +34,7 @@ Cette NuGet 3.0 bêta peut être installée dans la galerie d’extensions 6 Vis
 
 Nous avons travaillé sur certains détails d’implémentation pour le protocole de NuGet client/serveur. Le travail que nous avons faites consiste à créer des « API v3 » pour NuGet, qui est conçue autour de haute disponibilité pour des scénarios critiques telles que la restauration des packages et installation des packages. La nouvelle API est basée sur REST et hypermédia et nous avons sélectionné [JSON-LD](http://json-ld.org) comme notre format de ressource.
 
-Dans les bits de NuGet 3.0 bêta, vous verrez une nouvelle source de package appelée « api.nuget.org » dans la liste déroulante source de package.   Si vous sélectionnez cette source de package, nous allons utiliser notre nouvelle API plutôt à se connecter à nuget.org. Cette nouvelle source du package de base v3 API remplace dans NuGet 3.0 RC, la source du package « nuget.org « v2.  Nous vous recommandons de désactiver toutes les autres sources de package public et que vous laissez api.nuget.org uniquement comme référentiel package publics uniquement.
+Dans les bits de NuGet 3.0 bêta, vous consultez une nouvelle source de package appelée « api.nuget.org » dans la liste déroulante source de package.   Si vous sélectionnez cette source de package, nous allons utiliser notre nouvelle API plutôt à se connecter à nuget.org. Cette nouvelle source du package de base v3 API remplace dans NuGet 3.0 RC, la source du package « nuget.org « v2.  Nous vous recommandons de désactiver toutes les autres sources de package public et que vous laissez api.nuget.org uniquement comme référentiel package publics uniquement.
 
 Nous avez mis beaucoup de temps dans la conception de nos API v3 et continuera à mettre à jour de l’API v2 standard pour les anciens clients la recherche accéder au référentiel public.
 

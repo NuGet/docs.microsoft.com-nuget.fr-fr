@@ -12,11 +12,11 @@ keywords: "Notes de publication NuGet 1.4, des correctifs de bogues, problèmes 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a69f4f5c7172817d711fa5e995cf6db3875c4810
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: bc0800361551b996d958e03b9cfa3d745b78e43d
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-14-release-notes"></a>Notes de publication NuGet 1.4
 
@@ -115,11 +115,11 @@ Cette fonctionnalité a été ajoutée dans NuGet 1.3, mais ne serait pas visibl
 * **Plus simple le flux de travail pour la création de packages de symboles**: le `-Symbols` indicateur peut être appliqué à une structure de dossiers basé sur une convention normaux création d’un package de symboles en incluant uniquement de la source et `.pdb` fichiers au sein du dossier.
 * **Spécification de plusieurs Sources**: le `NuGet install` commande prend en charge la spécification de plusieurs sources à l’aide de points-virgules comme un séparateur ou en spécifiant `-Source` plusieurs fois.
 * **Prend en charge de l’authentification proxy**: NuGet 1.4 ajoute la prise en charge de la demande d’informations d’identification de l’utilisateur lors de l’utilisation de NuGet derrière un proxy qui nécessite une authentification.
-* **mettre à jour les modifications avec rupture de NuGet.exe**: le `-Self` indicateur est désormais requis pour nuget.exe mettre à jour automatiquement. `nuget.exe Update`prend désormais en un chemin d’accès à la `packages.config` de fichiers et tente de mettre à jour les packages. Notez que cette mise à jour est limité, il ne sera pas : ** mettre à jour, ajouter, supprimer du contenu dans le fichier projet.
+* **mettre à jour les modifications avec rupture de NuGet.exe**: le `-Self` indicateur est désormais requis pour nuget.exe mettre à jour automatiquement. `nuget.exe Update` prend désormais en un chemin d’accès à la `packages.config` de fichiers et tente de mettre à jour les packages. Notez que cette mise à jour est limité, il ne sera pas : ** mettre à jour, ajouter, supprimer du contenu dans le fichier projet.
 ** D’exécution des scripts Powershell dans le package.
 
 ### <a name="nuget-server-support-for-pushing-packages-using-nugetexe"></a>Prise en charge du serveur NuGet pour les Packages de distribution à l’aide de nuget.exe
-NuGet inclut une méthode simple pour héberger un [sur le web léger référentiel NuGet](../hosting-packages/NuGet-Server.md) via la `NuGet.Server` package NuGet. Avec NuGet 1.4, le serveur léger prend en charge l’envoi et la suppression de packages à l’aide de nuget.exe.
+NuGet inclut une méthode simple pour héberger un [sur le web léger référentiel NuGet](../hosting-packages/nuget-server.md) via la `NuGet.Server` package NuGet. Avec NuGet 1.4, le serveur léger prend en charge l’envoi et la suppression de packages à l’aide de nuget.exe.
 La dernière version de `NuGet.Server` ajoute un nouveau `appSetting`, nommé `apiKey`. Lorsque la clé est omise ou est vide, en exécutant un push de packages pour le flux est désactivé. Affecter l’apiKey une valeur (dans l’idéal, un mot de passe fort) permet de push des packages à l’aide de nuget.exe.
 
 ```xml

@@ -12,17 +12,18 @@ keywords: "NuGet sources de référence, des sources de commande"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c1cd909c0c35d52f0269d267367669df46f9db55
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 1e8204f5e1bf712f65d8efb14ca2a4bd802e3f90
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="sources-command-nuget-cli"></a>commande de sources (NuGet CLI)
 
 **S’applique à :** consommation de package, publication &bullet; **versions prises en charge :** toutes les
 
-Gère la liste des sources de `%AppData%\NuGet\NuGet.Config` ou le fichier de configuration spécifié.
+Gère la liste de sources situées dans le fichier de configuration de portée utilisateur ou un fichier de configuration spécifié. Le fichier de configuration de portée utilisateur se trouve à `%APPDATA%\NuGet\NuGet.Config` dans Windows et à `~/.nuget/NuGet.Config` dans Mac/Linux.
+
 
 Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json`.
 

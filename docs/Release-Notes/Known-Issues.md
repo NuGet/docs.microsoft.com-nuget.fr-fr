@@ -7,17 +7,16 @@ ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 42e7a619-1c69-454b-8243-16e2f9f950d0
 description: "Problèmes connus avec NuGet, notamment liés à l’authentification, à l’installation de package et aux outils."
 keywords: "problèmes connus NuGet, problèmes NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ce145212da3830216e123f39257a6707712f88c9
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problèmes connus avec NuGet
 
@@ -68,7 +67,6 @@ install-package log4net
         FullyQualifiedErrorId : NuGetCmdletUnhandledException,NuGet.PowerShell.Commands.InstallPackageCommand
 ```
 
-
 Cela est dû au fait que la bibliothèque de types pour le composant COM `VSLangProj.dll` est désinscrite sur votre système. Cela peut se produire par exemple quand vous avez deux versions de Visual Studio installées côte à côte, et que vous désinstallez l’ancienne version. Cela peut annuler par inadvertance l’inscription de la bibliothèque COM ci-dessus.
 
 **Solution :**
@@ -82,12 +80,12 @@ Si la commande échoue, vérifiez si le fichier existe à cet emplacement.
 Pour plus d’informations sur cette erreur, consultez cet [élément de travail](https://nuget.codeplex.com/workitem/3609 "Élément de travail 3609").
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Échec de la build après la mise à jour de package dans Visual Studio 2012
+
 Le problème : vous utilisez Visual Studio 2012 RTM. Lors de la mise à jour de packages NuGet, vous recevez ce message : « Un ou plusieurs packages n’ont pas pu être désinstallés complètement. » et vous êtes invité à redémarrer Visual Studio. Après le redémarrage de Visual Studio, vous obtenez des erreurs de build étranges.
 
-Elles sont dues au fait que certains fichiers dans les anciens packages sont verrouillés par un processus MSBuild en arrière-plan.
-Même après le redémarrage de Visual Studio, le processus MSBuild en arrière-plan utilise toujours les fichiers des anciens packages, ce qui provoque les échecs de build.
+Elles sont dues au fait que certains fichiers dans les anciens packages sont verrouillés par un processus MSBuild en arrière-plan. Même après le redémarrage de Visual Studio, le processus MSBuild en arrière-plan utilise toujours les fichiers des anciens packages, ce qui provoque les échecs de build.
 
-La solution consiste à installer une mise à jour de Visual Studio 2012, par exemple [Visual Studio 2012 Update 2](http://www.microsoft.com/download/details.aspx?id=38188).
+La solution consiste à installer une mise à jour de Visual Studio 2012, par exemple Visual Studio 2012 Update 2.
 
 ## <a name="upgrading-to-latest-nuget-from-an-older-version-causes-a-signature-verification-error"></a>La mise à niveau vers la version la plus récente de NuGet à partir d’une version plus ancienne provoque une erreur de vérification de signature
 
@@ -163,9 +161,7 @@ Si votre solution contient un ou plusieurs projets InstallShield Limited Edition
 
 ## <a name="uninstall-button-greyed-out-nuget-requires-admin-privileges-to-installuninstall"></a>Bouton Désinstaller grisé ? NuGet nécessite des privilèges d’administrateur pour installer ou désinstaller
 
-Si vous essayez de désinstaller NuGet par le biais du Gestionnaire d’extensions Visual Studio, vous pouvez remarquer que le bouton Désinstaller est désactivé.
-NuGet nécessite un accès administrateur pour installer et désinstaller. Redémarrez Visual Studio en tant qu’administrateur pour désinstaller l’extension.
-L’utilisation de NuGet ne nécessite pas d’accès administrateur.
+Si vous essayez de désinstaller NuGet par le biais du Gestionnaire d’extensions Visual Studio, vous pouvez remarquer que le bouton Désinstaller est désactivé. NuGet nécessite un accès administrateur pour installer et désinstaller. Redémarrez Visual Studio en tant qu’administrateur pour désinstaller l’extension. L’utilisation de NuGet ne nécessite pas d’accès administrateur.
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>La console du Gestionnaire de package se bloque quand je l’ouvre dans Windows XP. Quel est le problème ?
 
@@ -173,24 +169,23 @@ NuGet nécessite le runtime Powershell 2.0. Windows XP, par défaut, ne dispose 
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Visual Studio 2010 SP1 bêta se bloque lors de sa fermeture si la console du Gestionnaire de package est ouverte.
 
-Si vous avez installé Visual Studio 2010 SP1 bêta, vous pouvez remarquer que si vous laissez la console du Gestionnaire de package ouverte et que vous fermez Visual Studio, il se bloque. Il s’agit d’un problème connu dans Visual Studio. Il sera résolu dans la version SP1 RTM.
-Pour le moment, ignorez simplement l’incident ou désinstallez SP1 bêta, si vous le pouvez.
+Si vous avez installé Visual Studio 2010 SP1 bêta, vous pouvez remarquer que si vous laissez la console du Gestionnaire de package ouverte et que vous fermez Visual Studio, il se bloque. Il s’agit d’un problème connu dans Visual Studio. Il sera résolu dans la version SP1 RTM. Pour le moment, ignorez simplement l’incident ou désinstallez SP1 bêta, si vous le pouvez.
 
 ## <a name="the-element-metadata--has-invalid-child-element-exception-occurs"></a>L’exception « L’élément 'metadata'... a un élément enfant non valide » se produit
 
 Si vous avez installé des packages créés avec une préversion de NuGet, vous pouvez recevoir un message d’erreur indiquant que « L’élément 'metadata' dans l’espace de noms 'schemas.microsoft.com/packaging/2010/07/nuspec.xsd' a un élément enfant non valide » quand vous exécutez la version RTM de NuGet avec ce projet. Vous devez désinstaller puis réinstaller chaque package à l’aide de la version RTM de NuGet.
 
-## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-existsrdquo"></a>Une tentative d’installation ou de désinstallation provoque l’erreur « Impossible de créer un fichier lorsque ce fichier existe déjà. »
+## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Une tentative d’installation ou de désinstallation provoque l’erreur « Impossible de créer un fichier lorsque ce fichier existe déjà. »
 
 Pour une raison quelconque, les extensions Visual Studio peuvent basculer dans un état étrange quand vous avez désinstallé l’extension VSIX mais que certains fichiers ont été conservés. Pour contourner ce problème, procédez comme suit :
 
-1. Quitter Visual Studio.
-2. Ouvrez le dossier suivant (il peut être sur un lecteur différent sur votre ordinateur) :
+1. Quitter Visual Studio
+1. Ouvrez le dossier suivant (il peut être sur un lecteur différent sur votre ordinateur) :
 
     C:\Program Files (x86)\Microsoft Visual Studio 10.0\Common7\IDE\Extensions\Microsoft Corporation\NuGet Package Manager\<version>\
 
-3. Supprimez tous les fichiers avec l’extension *.deleteme*.
-4. Rouvrez Visual Studio.
+1. Supprimez tous les fichiers avec l’extension *.deleteme*.
+1. Rouvrez Visual Studio.
 
 Après avoir suivi ces étapes, vous devriez pouvoir continuer.
 
@@ -217,6 +212,7 @@ Il s'agit d'un problème connu. Au lieu d’appeler Write-Error, essayez d’app
     throw "My error message"
 
 ## <a name="installing-nuget-with-restricted-access-on-windows-2003-can-crash-visual-studio"></a>L’installation de NuGet avec accès restreint sur Windows 2003 peut provoquer le blocage de Visual Studio
+
 Quand vous tentez d’installer NuGet à l’aide du Gestionnaire d’extensions Visual Studio et que vous ne l’exécutez pas en tant qu’administrateur, la boîte de dialogue « Exécuter en tant que » s’affiche avec la case « Exécuter ce programme avec un accès restreint » cochée par défaut.
 
 ![Boîte de dialogue Exécuter en tant que](./media/RunAsRestricted.png)
@@ -224,13 +220,15 @@ Quand vous tentez d’installer NuGet à l’aide du Gestionnaire d’extensions
 Si cette case est cochée et que vous cliquez sur OK, Visual Studio se bloque. Veillez à désactiver cette option avant d’installer NuGet.
 
 ## <a name="cannot-uninstall-nuget-for-windows-phone-tools"></a>Impossible de désinstaller NuGet pour les Outils Windows Phone
+
 Les Outils Windows Phone ne prennent pas en charge le Gestionnaire d’extensions de Visual Studio. Pour désinstaller NuGet, exécutez la commande suivante.
 
      vsixinstaller.exe /uninstall:NuPackToolsVsix.Microsoft.67e54e40-0ae3-42c5-a949-fddf5739e7a5
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>La modification de la casse des ID de packages NuGet interrompt la restauration des packages
+
 Comme expliqué en détail dans [ce problème GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), la modification de la casse des packages NuGet peut être effectuée par le Support technique NuGet, mais elle provoque des complications pendant la restauration des packages pour les personnes dont le cache local de packages contient des packages à la casse différente. Nous vous recommandons de demander un changement de casse uniquement quand vous avez la possibilité d’informer les utilisateurs de votre package de la rupture susceptible de se produire lors de la restauration des packages au moment de la build.
 
-## <a name="reporting-issues"></a>Signaler des problèmes
-Pour signaler des problèmes sur les clients NuGet, accédez à [cette page](https://nuget.codeplex.com/WorkItem/Create).
-Pour signaler des problèmes dans la galerie NuGet, accédez à [cette page](https://github.com/nuget/nugetgallery/issues).
+## <a name="reporting-issues"></a>Problèmes liés aux rapports
+
+Pour signaler des problèmes avec NuGet, visitez [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).

@@ -12,11 +12,11 @@ keywords: "Notes de version 2.7 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b0e12f7e2cffa6e721dd13c117b7b3727cfcb5d7
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-27-release-notes"></a>Notes de version 2.7 NuGet
 
@@ -98,7 +98,7 @@ Alors que tous les utilisateurs sont implicitement quittent le consentement de l
 
 #### <a name="simplified-package-restore-from-the-command-line"></a>Restauration simplifiée de Package à partir de la ligne de commande
 
-NuGet 2.7 introduit une nouvelle fonctionnalité de nuget.exe :`nuget.exe restore`
+NuGet 2.7 introduit une nouvelle fonctionnalité de nuget.exe : `nuget.exe restore`
 
 Cette nouvelle commande de restauration vous permet de restaurer facilement tous les packages d’une solution avec une seule commande, en acceptant un fichier solution ou un dossier en tant qu’argument. En outre, cet argument est implicite lorsqu’il existe une seule solution dans le dossier actif. Cela signifie que tous les éléments suivants de travail à partir d’un dossier qui contient un fichier de solution unique (MySolution.sln) :
 
@@ -110,7 +110,7 @@ La commande de restauration ouvrez le fichier solution et rechercher tous les pr
 
 #### <a name="the-new-package-restore-workflow"></a>Le nouveau flux de travail de restauration de Package
 
-Nous sommes ravis à ces modifications à la restauration des packages, car elle introduit un nouveau flux de travail. Si vous souhaitez omettre vos packages à partir du contrôle de code source vous simplement ne validez pas le `packages` dossier. Les utilisateurs de Visual Studio qui ouvrent et génèrent la solution seront affiche les packages automatiquement restaurés. Pour les versions de ligne de commande, simplement appeler `nuget.exe restore` avant d’appeler `msbuild`. Vous devrez n’est plus n’oubliez pas d’utiliser le mouvement de « Activer la restauration des packages NuGet » sur votre solution, et nous allons n’avez plus besoin modifier vos projets pour modifier la build. Cela génère également une expérience considérablement améliorée pour les packages qui incluent des importations de MSBuild, en particulier pour les importations ajoutées via la fonctionnalité de récente de NuGet pour [important automatiquement les fichiers de propriétés/cibles](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) à partir du dossier \build.
+Nous sommes ravis à ces modifications à la restauration des packages, car elle introduit un nouveau flux de travail. Si vous souhaitez omettre vos packages à partir du contrôle de code source vous simplement ne validez pas le `packages` dossier. Les utilisateurs de Visual Studio qui ouvrent et génèrent la solution seront affiche les packages automatiquement restaurés. Pour les versions de ligne de commande, simplement appeler `nuget.exe restore` avant d’appeler `msbuild`. Vous n’avez plus besoin de penser à utiliser le mouvement de « Activer la restauration des packages NuGet » sur votre solution, et nous allons n’avez plus besoin modifier vos projets pour modifier la build. Cela génère également une expérience considérablement améliorée pour les packages qui incluent des importations de MSBuild, en particulier pour les importations ajoutées via la fonctionnalité de récente de NuGet pour [important automatiquement les fichiers de propriétés/cibles](../release-notes/nuget-2.5.md#automatic-import-of-msbuild-targets-and-props-files) à partir du dossier \build.
 
 Outre le travail que nous avons nous-mêmes, nous travaillons également avec certains partenaires importants pour compléter cette nouvelle approche. Nous n’avons pas chronologies concret de ces encore, mais chaque partenaire est très heureux car nous sommes sur la nouvelle approche.
 

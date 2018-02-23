@@ -3,21 +3,20 @@ title: Gouvernance des projets NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 94c088ce-ec96-4876-a210-fbdae743942c
 description: "Modèle de gouvernance pour NuGet, y compris les rôles et responsabilités des validateurs, contributeurs et utilisateurs."
 keywords: "gouvernance pour NuGet, dictateur bienveillant NuGet, responsabilités des validateurs, responsabilités des contributeurs, responsabilités des utilisateurs"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0437b7d41f965da6a7ad44a7d0675916ed655fe1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-governance"></a>Gouvernance pour NuGet
 
@@ -81,21 +80,22 @@ Les utilisateurs doivent être encouragés à participer à la vie de NuGet et d
 Les utilisateurs qui continuent de s’engager dans le projet et sa communauté voient souvent leur implication prendre de l’ampleur. Ces utilisateurs peuvent tenter de devenir contributeurs, comme décrit ci-dessus.
 
 ## <a name="package-succession-under-special-circumstances"></a>Succession des packages dans des circonstances particulières
+
 En cas de décès ou d’incapacité d’un détenteur de compte NuGet, nous travaillons avec la communauté pour ajouter un ou des propriétaires appropriés au package si le compte en question jouit d’une propriété exclusive et que le package est publié sous une [licence OSI approuvée](https://opensource.org/licenses/alphabetical). Pour demander la propriété, vous devez nous envoyer les documents suivants :
 
-1.  Une photocopie d’une pièce d’identité officielle avec photo
-2.  Un des documents suivants prouvant l’état du titulaire précédent du compte : 
+1. Une photocopie d’une pièce d’identité officielle avec photo
+1. Un des documents suivants prouvant l’état du titulaire précédent du compte : 
     - Un certificat de décès officiel si le détenteur précédent du compte est décédé ou
     - Un document certifié, tel qu’un certificat signé par un professionnel de la santé qui assure le suivi d’un titulaire de compte frappé d’incapacité
-3.  Un des documents suivants prouvant votre droit à la propriété : 
+1. Un des documents suivants prouvant votre droit à la propriété : 
     - Certificat de mariage montrant que vous êtes le conjoint survivant du titulaire du compte
     - Procuration signée
     - Copie d’un testament ou document de fiducie nommant un l’exécuteur ou bénéficiaire
     - Certificat de naissance du titulaire du compte, si vous êtes son parent ou
     - Documents de tutelle si vous êtes tuteur légal du titulaire du compte
-    
+
 Si vous vous sentez concerné, veuillez nous envoyer un e-mail à [support@nuget.org](mailto:support@nuget.org) avec l’ID et la version du package.
-    
+
 ## <a name="transparency"></a>Transparence
 
 Bâtir la confiance de la communauté dans la gouvernance d’un projet open source est essentiel à la réussite de ce dernier. À cette fin, la prise de décision doit être effectuée de façon transparente et ouverte. La direction du projet doit faire l’objet d’une présentation publique. La communauté ne doit jamais être prise au dépourvu par une décision du dictateur bienveillant. De plus, la discussion à propos des décisions relatives au projet doit être archivée afin que les membres de la communauté puissent comprendre l’historique complet d’une décision et son contexte.

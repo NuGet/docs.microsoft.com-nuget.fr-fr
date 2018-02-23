@@ -3,22 +3,21 @@ title: "Informations de référence sur le fichier .nuspec pour NuGet | Microsof
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 8/29/2017
+ms.date: 08/29/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: d4a4db9b-5c2d-46aa-9107-d2b01733df7c
 description: "Le fichier .nuspec contient des métadonnées de package utilisées lors de la création d’un package et pour fournir des informations aux consommateurs de packages."
 keywords: "informations de référence sur nuspec, métadonnées de package NuGet, manifeste de package NuGet, schéma nuspec"
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cd5b7c79ad0af07b167e062d4a2f5142ef2d718a
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 95f86d8cd11bce8f0f1fed068370311f575601de
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -68,7 +67,7 @@ L’élément `<metadata>` prend en charge les attributs décrits dans le tablea
 
 | Attribut | Obligatoire | Description |
 | --- | --- | --- | 
-| **minClientVersion** | Non | *(2.5+)* Spécifie la version minimale du client NuGet qui peut installer ce package, appliquée par nuget.exe et le Gestionnaire de package Visual Studio. Cet attribut est utilisé chaque fois que le package dépend de fonctionnalités spécifiques du fichier `.nuspec` qui ont été ajoutées dans une version particulière du client NuGet. Par exemple, un package utilisant l’attribut `developmentDependency` doit spécifier « 2.8 » pour `minClientVersion`. De même, un package utilisant l’élément `contentFiles` (consultez la section suivante) doit affecter à `minClientVersion` la valeur « 3.3 ». Notez également que, comme les clients NuGet antérieurs à 2.5 ne reconnaissent pas cet indicateur, ils refusent *toujours* d’installer le package, quel que soit le contenu de `minClientVersion`. |
+| **minClientVersion** | Non | Spécifie la version minimale du client NuGet qui peut installer ce package, appliquée par nuget.exe et le gestionnaire de package Visual Studio. Cet attribut est utilisé chaque fois que le package dépend de fonctionnalités spécifiques du fichier `.nuspec` qui ont été ajoutées dans une version particulière du client NuGet. Par exemple, un package utilisant l’attribut `developmentDependency` doit spécifier « 2.8 » pour `minClientVersion`. De même, un package utilisant l’élément `contentFiles` (consultez la section suivante) doit affecter à `minClientVersion` la valeur « 3.3 ». Notez également que, comme les clients NuGet antérieurs à 2.5 ne reconnaissent pas cet indicateur, ils refusent *toujours* d’installer le package, quel que soit le contenu de `minClientVersion`. |
 
 ### <a name="required-metadata-elements"></a>Éléments de métadonnées requis
 
@@ -109,7 +108,7 @@ Ces éléments peuvent apparaître dans un élément `<metadata>`.
 
 | Élément | Description |
 | --- | --- |
-**packageTypes** | *(3.3+)* Collection de zéro ou plusieurs éléments `<packageType>` spécifiant le type du package s’il est différent du package de dépendances classique. Chaque élément packageType a des attributs *name* et *version*. Consultez [Définition d’un type de package](../create-packages/creating-a-package.md#setting-a-package-type). |
+**packageTypes** | *(3.5+)* Collection de zéro ou plusieurs éléments `<packageType>` spécifiant le type du package s’il est différent du package de dépendances classique. Chaque élément packageType a des attributs *name* et *version*. Consultez [Définition d’un type de package](../create-packages/creating-a-package.md#setting-a-package-type). |
 | **dependencies** | Collection de zéro ou plusieurs éléments `<dependency>` spécifiant les dépendances du package. Chaque dépendance a des attributs *id*, *version*, *include* (3.x+) et *exclude* (3.x+). Consultez [Dépendances](#dependencies) ci-dessous. |
 | **frameworkAssemblies** | *(1.2 +)* Collection de zéro ou plusieurs éléments `<frameworkAssembly>` identifiant les références d’assembly .NET Framework nécessaires à ce package, ce qui garantit que les références sont ajoutées à des projets utilisant le package. Chaque élément frameworkAssembly a des attributs *assemblyName* et *targetFramework*. Consultez [Références d’assembly Framework](#specifying-framework-assembly-references-gac) ci-dessous. |
 | **references** | *(1.5+)* Collection de zéro ou plusieurs éléments `<reference>` nommant des assemblys dans le dossier `lib` du package qui sont ajoutés en tant que références de projet. Chaque référence a un attribut *file*. `<references>` peut également contenir un élément `<group>` avec un attribut *targetFramework* qui contient à son tour des éléments `<reference>`. Si cet élément est omis, toutes les références dans `lib` sont incluses. Consultez [Références d’assembly explicite](#specifying-explicit-assembly-references) ci-dessous. |
@@ -260,8 +259,6 @@ De même, des références explicites peuvent servir pour les frameworks de test
 
 ### <a name="reference-groups"></a>Groupes de référence
 
-*Version 2.5+*
-
 Comme alternative à une liste plate unique, les références peuvent être spécifiées selon le profil de framework du projet cible avec les éléments `<group>` dans `<references>`.
 
 Chaque groupe possède un attribut nommé `targetFramework` et contient zéro ou plusieurs éléments `<reference>`. Ces références sont ajoutées à un projet quand la version cible de .NET Framework est compatible avec le profil de framework du projet.
@@ -331,7 +328,7 @@ Pour ignorer ce comportement automatique et contrôler explicitement les fichier
 </files>
 ```
 
-Avec NuGet 2.x et versions antérieures, et des projets utilisant `packages.config`, l’élément `<files>` est également utilisé pour inclure les fichiers de contenu non modifiables quand un package est installé. Avec NuGet 3.3+ et des projets utilisant `project.json` ou PackageReference, l’élément `<contentFiles>` est utilisé à la place. Consultez [Inclusion des fichiers de contenu](#including-content-files) ci-dessous pour plus d’informations.
+Avec NuGet 2.x et versions antérieures, et des projets utilisant `packages.config`, l’élément `<files>` est également utilisé pour inclure les fichiers de contenu non modifiables quand un package est installé. Avec NuGet 3.3+ et les projets PackageReference, l’élément `<contentFiles>` est utilisé à la place. Consultez [Inclusion des fichiers de contenu](#including-content-files) ci-dessous pour plus d’informations.
 
 ### <a name="file-element-attributes"></a>Attributs des éléments File
 
@@ -416,7 +413,7 @@ Les fichiers de contenu sont des fichiers non modifiables qu’un package doit i
 - Scripts qui doivent être inclus avec la sortie de génération du projet
 - Fichiers de configuration pour le package qui doivent être inclus dans le projet, mais ne nécessitent aucune modification spécifique au projet
 
-Les fichiers de contenu sont inclus dans un package à l’aide de l’élément `<files>`, en spécifiant le dossier `content` dans l’attribut `target`. Toutefois, ces fichiers sont ignorés quand le package est installé dans un projet utilisant le système `project.json` dans NuGet 3.3+ ou PackageReference dans NuGet 4+, qui utilise à la place l’élément `<contentFiles>`.
+Les fichiers de contenu sont inclus dans un package à l’aide de l’élément `<files>`, en spécifiant le dossier `content` dans l’attribut `target`. Toutefois, ces fichiers sont ignorés quand le package est installé dans un projet utilisant PackageReference, qui utilise à la place l’élément `<contentFiles>`.
 
 Pour une compatibilité maximale avec les projets de consommation, un package spécifie dans l’idéal les fichiers de contenu dans les deux éléments.
 
@@ -533,7 +530,7 @@ Dans ce cas, étant donné que les extensions de fichier de la source et de la c
 
 ### <a name="using-the-contentfiles-element-for-content-files"></a>Utilisation de l’élément contentFiles pour les fichiers de contenu
 
-*Version 3.3+ avec project.json et 4.0+ avec PackageReference*
+*NuGet 4.0 + avec PackageReference*
 
 Par défaut, un package place le contenu dans un dossier `contentFiles` (voir ci-dessous) et `nuget pack` a mis tous les fichiers dans ce dossier à l’aide des attributs par défaut. Dans ce cas, il n’est pas du tout nécessaire d’inclure un nœud `contentFiles` dans le fichier `.nuspec`.
 
@@ -547,7 +544,7 @@ Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comm
 | **exclude** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **buildAction** | Action de génération à affecter à l’élément de contenu pour MSBuild, comme `Content`, `None`, `Embedded Resource`, `Compile`, etc. La valeur par défaut est `Compile`. |
 | **copyToOutput** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans le dossier de sortie de génération. La valeur par défaut est false. |
-| **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). La valeur par défaut est false. |
+| **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |
 
 Lors de l’installation d’un package, NuGet applique les éléments enfants de `<contentFiles>` de haut en bas. Si plusieurs entrées correspondent au même fichier, toutes les entrées sont appliquées. L’entrée supérieure remplace les entrées inférieures s’il existe un conflit pour le même attribut.
 

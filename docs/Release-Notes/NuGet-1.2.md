@@ -12,11 +12,11 @@ keywords: "Notes de publication NuGet 1.2, les correctifs de bogues, problèmes 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: cb9eb1cb8fc3a77fc297e04ce73aaf8e24fc557a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9c8fff67eb61ab673eb62113e0cc46c0868be237
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-12-release-notes"></a>Notes de version 1.2 de NuGet
 
@@ -73,4 +73,4 @@ La liste précédente a été le plus notable des nombreuses fonctionnalités qu
 
 * **1.2 incompatibilité du package**: Packages générés avec la version la plus récente de l’outil de ligne de commande, de nuget.exe (1.2 >) ne fonctionne pas avec les versions antérieures du complément Visual Studio de NuGet (par exemple 1.1). Si vous rencontrez un message d’erreur indiquant que des informations sur le schéma incompatible, vous rencontrez cette erreur. Mettez à jour NuGet vers la dernière version.
 * **Incompatibilité de NuGet.Server**: Si vous hébergez un flux à l’aide du projet NuGet.Server de NuGet interne, vous devez mettre à jour de ce projet avec la version la plus récente de NuGet.Server.
-* **Erreur d’incompatibilité de signature**: Si vous rencontrez une erreur pendant une mise à niveau avec un message sur une incompatibilité de Signature, vous devez d’abord désinstaller NuGet, puis installez-le. Cette information est répertoriée dans notre [page problèmes connus](../release-notes/Known-Issues.md) qui fournit plus de détails. Le problème affecte ceux exécutant Visual Studio 2010 SP1 uniquement et disposez d’une version 1.0 de NuGet installés qui ont été signées incorrectement. Cette version a été uniquement accessibles depuis le site Web CodePlex pendant une brève période afin de ce problème ne devrait pas affecter trop d’utilisateurs.
+* **Erreur d’incompatibilité de signature**: Si vous rencontrez une erreur pendant une mise à niveau avec un message sur une incompatibilité de Signature, vous devez d’abord désinstaller NuGet, puis installez-le. Cette information est répertoriée dans notre [page problèmes connus](../release-notes/known-issues.md) qui fournit plus de détails. Le problème affecte ceux exécutant Visual Studio 2010 SP1 uniquement et disposez d’une version 1.0 de NuGet installés qui ont été signées incorrectement. Cette version a été uniquement accessibles depuis le site Web CodePlex pendant une brève période afin de ce problème ne devrait pas affecter trop d’utilisateurs.

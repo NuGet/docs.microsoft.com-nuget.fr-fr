@@ -12,11 +12,11 @@ keywords: "NuGet référence de restauration, restaurer des commandes de package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 93d7b6967d9297ee822df1583351385210775173
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 0ad5156a065e20dfced99da6b2e2860dbd748ad5
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (NuGet CLI)
 
@@ -55,7 +55,7 @@ où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.c
 | Récursive | *(4.0 +)*  Restaure toutes les références de projets pour les projets UWP et .NET Core. Ne s’applique pas aux projets à l’aide de `packages.config`. |
 | RequireConsent | Vérifie que la restauration des packages est activé avant de télécharger et installer les packages. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md). |
 | SolutionDirectory | Spécifie le dossier de solution. Non valide lors de la restauration des packages pour une solution. |
-| Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour la restauration. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../Consume-Packages/Configuring-NuGet-Behavior.md). |
+| Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour la restauration. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md). |
 | Commentaires |> Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)
@@ -67,9 +67,9 @@ La commande restore effectue les étapes suivantes :
 1. Déterminer le mode de fonctionnement de la commande restore.
     type de fichier projectPath | Comportement
     | --- | --- |
-    Solution (dossier) | NuGet cherche un `.sln` fichier et utilise ce si elle est trouvée ; sinon, renvoie une erreur. `(SolutionDir)\.nuget`est utilisé en tant que le dossier de démarrage.
-    `.sln`fichier | Restaurer les packages identifiés par la solution ; génère une erreur si `-SolutionDirectory` est utilisé. `$(SolutionDir)\.nuget`est utilisé en tant que le dossier de démarrage.
-    `packages.config`ou le fichier projet | Restaurer les packages répertoriés dans le fichier, la résolution et l’installation de dépendances.
+    Solution (dossier) | NuGet cherche un `.sln` fichier et utilise ce si elle est trouvée ; sinon, renvoie une erreur. `(SolutionDir)\.nuget` est utilisé en tant que le dossier de démarrage.
+    `.sln` Fichier | Restaurer les packages identifiés par la solution ; génère une erreur si `-SolutionDirectory` est utilisé. `$(SolutionDir)\.nuget` est utilisé en tant que le dossier de démarrage.
+    `packages.config` ou le fichier projet | Restaurer les packages répertoriés dans le fichier, la résolution et l’installation de dépendances.
     Autre type de fichier | Fichier est censé pour être un `.sln` fichier comme indiqué ci-dessus ; s’il n’est pas une solution, donne NuGet une erreur.
     (projectPath non spécifié) | -NuGet recherche des fichiers de solution dans le dossier actif. Si un fichier unique est trouvé, qui est utilisée pour restaurer les packages ; Si plusieurs solutions sont détectées, NuGet génère une erreur.
     |-S’il n’y a aucun fichier de solution, NuGet cherche un `packages.config` et l’utilise pour restaurer les packages.
@@ -78,8 +78,8 @@ La commande restore effectue les étapes suivantes :
 1. Déterminer le dossier de packages à l’aide de l’ordre de priorité suivant (NuGet génère une erreur si aucun de ces dossiers se trouvent) :
 
     - Le dossier spécifié avec `-PackagesDirectory`.
-    - La `repositoryPath` valeur dans`Nuget.Config`
-    - Le dossier spécifié avec`-SolutionDirectory`
+    - La `repositoryPath` valeur dans `Nuget.Config`
+    - Le dossier spécifié avec `-SolutionDirectory`
     - `$(SolutionDir)\packages`
 
 1. Lors de la restauration des packages pour une solution, NuGet effectue les opérations suivantes :

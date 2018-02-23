@@ -3,21 +3,20 @@ title: "Prise en charge de NuGet pour le système de projets Visual Studio | Mic
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/09/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 9d7fa7f6-82ed-4df6-9734-f43a3d8e3b98
 description: "Intégration de NuGet dans le système de projets Visual Studio pour les types de projets tiers."
 keywords: "NuGet dans Visual Studio, types de projets personnalisés, projets Visual Studio"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c8cad46f18578bec41bd9280985e42972a9b3c1
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: e2f7c4a32f80b96360f08d04efb8af639af2ddd3
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-support-for-the-visual-studio-project-system"></a>Prise en charge de NuGet pour le système de projets Visual Studio
 
@@ -25,20 +24,18 @@ Pour prendre en charge des types de projets tiers dans Visual Studio, NuGet 3.x+
 
 Pour s’intégrer à NuGet, un système de projets doit publier sa propre prise en charge de toutes les fonctionnalités des projets décrites dans cette rubrique.
 
-
-> [!NOTE]
-> Ne déclarez pas des fonctionnalités que votre projet n’a pas en réalité, de façon à permettre l’installation correcte des packages dans votre projet. De nombreuses fonctionnalités de Visual Studio et d’autres extensions dépendent des fonctionnalités du projet, en plus du client NuGet. Publier des fonctionnalités dont votre projet ne dispose pas en réalité peut provoquer le dysfonctionnement de ces composants et une dégradation de l’expérience de vos utilisateurs.
+> [!Note]
+> Ne déclarez pas des fonctionnalités que votre projet ne possède pas en réalité, de façon à permettre l’installation correcte des packages dans votre projet. De nombreuses fonctionnalités de Visual Studio et d’autres extensions dépendent des fonctionnalités du projet, en plus du client NuGet. Publier des fonctionnalités dont votre projet ne dispose pas en réalité peut provoquer le dysfonctionnement de ces composants et une dégradation de l’expérience de vos utilisateurs.
 
 ## <a name="advertise-project-capabilities"></a>Publier les fonctionnalités d’un projet
 
 Le client NuGet détermine les packages qui sont compatibles avec votre type de projet en fonction des [fonctionnalités du projet](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md), comme décrit dans le tableau suivant.
 
-
-|Fonctionnalité|Description|
-|----------------|-----------|
-|AssemblyReferences|Indique que le projet prend en charge les références d’assembly (ceci est différent de WinRTReferences)|
-|DeclaredSourceItems|Indique que le projet est un projet MSBuild classique (non DNX) dans la mesure où il déclare des éléments sources dans le projet lui-même (et non pas dans un fichier `project.json` qui suppose que tous les fichiers du dossier font partie d’une compilation).|
-|UserSourceItems|Indique que l’utilisateur est autorisé à ajouter des fichiers arbitraires à son projet.|
+| Fonctionnalité | Description |
+| --- | --- |
+| AssemblyReferences | Indique que le projet prend en charge les références d’assembly (à distinguer de WinRTReferences). |
+| DeclaredSourceItems | Indique que le projet est un projet MSBuild classique (non DNX) dans la mesure où il déclare des éléments sources dans le projet lui-même. |
+| UserSourceItems|Indique que l’utilisateur est autorisé à ajouter des fichiers arbitraires à son projet. |
 
 Pour les systèmes de projets basés sur CPS, les détails d’implémentation des fonctionnalités des projets décrites dans le reste de cette section ont été écrits pour vous. Consultez [Déclaration des fonctionnalités de projet dans les projets CPS](https://github.com/Microsoft/VSProjectSystem/blob/master/doc/overview/about_project_capabilities.md#how-to-declare-project-capabilities-in-your-project).
 
@@ -76,9 +73,8 @@ public interface IVsBooleanSymbolPresenceChecker
 }
 ```
 
-
 Voici un exemple d’implémentation de cette interface :
-    
+
 ```cs
 class VsProjectCapabilitiesPresenceChecker : IVsBooleanSymbolPresenceChecker
 {

@@ -13,11 +13,11 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: adea51fdd435b36e236028ad51d9f26969d15a09
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: bee215fcc88b03dbdde6c15d1583898bdf205952
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation de préfixe ID de package
 
@@ -59,7 +59,7 @@ Il existe plusieurs scénarios de réservation préfixe plus avancées décrites
 
 ### <a name="prefix-reservation-visual-indicator"></a>Indicateur visuel de réservation du préfixe
 
-Si un package proviennent d’un préfixe réservé, vous verrez l’au-dessous des indicateurs visuels sur le [nuget.org](https://www.nuget.org/) la galerie et dans Visual Studio 2017 15.4 ou version ultérieure :
+Si un package proviennent d’un préfixe réservé, vous voyez l’au-dessous des indicateurs visuels sur le [nuget.org](https://www.nuget.org/) la galerie et dans Visual Studio 2017 15.4 ou version ultérieure :
 
 **Galerie de NuGet.org**
 ![nuget.org galerie](media/nuget-gallery-reserved-prefix.png)
@@ -75,7 +75,7 @@ Si un package proviennent d’un préfixe réservé, vous verrez l’au-dessous 
 
 1. Envoyer un message électronique à [ account@nuget.org ](mailto:account@nuget.org) avec le propriétaire du nom d’affichage sur [nuget.org](https://www.nuget.org/), ainsi que tous les préfixes réservés que vous demandez. Si vous déléguez des sous-ensembles de préfixe à plusieurs propriétaires, assurez-vous que vous indiquez tous les noms complets de propriétaire et des sous-ensembles de préfixe.
 
-Une fois l’application est envoyée, vous serez averti de l’acceptation ou rejet (avec les critères qui a provoqué le rejet). Nous devons poser des questions d’identification supplémentaires pour confirmer l’identité du propriétaire.
+Une fois l’application est envoyée, vous êtes informé de l’acceptation ou rejet (avec les critères qui a provoqué le rejet). Nous devons poser des questions d’identification supplémentaires pour confirmer l’identité du propriétaire.
 
 ### <a name="id-prefix-reservation-criteria"></a>Critères de réservation de préfixe ID
 

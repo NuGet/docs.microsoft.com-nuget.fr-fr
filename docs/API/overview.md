@@ -11,16 +11,16 @@ ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-description: "L’API de NuGet est un ensemble de points de terminaison HTTP qui peut être utilisé pour télécharger les packages, extraire les métadonnées, publier des nouveaux packages, etc.."
+description: "L’API de NuGet est un ensemble de points de terminaison HTTP qui peut être utilisé pour télécharger les packages, extraire les métadonnées, publier des nouveaux packages, etc."
 keywords: "API de NuGet V3, API V2 de NuGet, NuGet JSON, API d’inscription de NuGet, conteneur plat de NuGet API, NuGet nupkg API, API de métadonnées NuGet, API de recherche NuGet, push de NuGet API, NuGe publier des API, NuGet supprimer API, NuGet retirer de la liste API, protocole de NuGet"
 ms.reviewer:
 - karann
 - unniravindranathan
 ms.openlocfilehash: c28b0912be6dbccab06078100cb71821c3658e08
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="nuget-api"></a>NuGet API
 

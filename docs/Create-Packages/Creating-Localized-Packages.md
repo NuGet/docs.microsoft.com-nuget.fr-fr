@@ -3,28 +3,27 @@ title: "Guide pratique pour créer un package NuGet localisé | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 1/9/2017
+ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 824c3f45-c6c2-4c82-9d6d-62a19bfdc4a4
 description: "Informations sur les deux façons de créer des packages NuGet localisés, soit en incluant tous les assemblys dans un package unique, soit en publiant des assemblys séparés."
 keywords: "Localisation de packages NuGet, assemblys satellites NuGet, création de packages localisés, conventions de localisation NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: aa48e77bd0e64cf45292687a2d4cada198ff5749
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 1ce8cff07bf629fcdeeaace901a185f2446b077a
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Création de packages NuGet localisés
 
 Il existe deux façons de créer des versions localisées d’une bibliothèque :
 
 1. Incluez tous les assemblys de ressources localisés dans un package unique.
-2. Créez des packages satellites localisés distincts (NuGet 1.8 et version ultérieure), en suivant un ensemble strict de conventions.
+1. Créez des packages satellites localisés distincts (NuGet 1.8 et version ultérieure), en suivant un ensemble strict de conventions.
 
 Les deux méthodes ont leurs avantages et leurs inconvénients, comme décrit dans les sections suivantes.
 
@@ -63,9 +62,9 @@ Par exemple, la structure de dossiers suivante prend en charge l’allemand (de)
                 Contoso.Utilities.resources.dll
                 Contoso.Utilities.xml
 
-Vous pouvez voir que les langues sont toutes répertoriées sous le dossier de la version cible de .Net Framework `net40`. Si vous [prenez en charge plusieurs frameworks](../create-packages/supporting-multiple-target-frameworks.md), vous avez un dossier sous `lib` pour chaque variante.
+Vous pouvez voir que les langues sont toutes répertoriées sous le dossier de la version cible de .Net Framework `net40`. Si vous [prenez en charge plusieurs versions](../create-packages/supporting-multiple-target-frameworks.md), vous avez un dossier sous `lib` pour chacune d’elles.
 
-Avec ces dossiers en place, vous allez ensuite référencer tous les fichiers dans votre `.nuspec` :
+Une fois ces dossiers en place, vous pouvez référencer tous les fichiers dans votre `.nuspec` :
 
 ```xml
 <?xml version="1.0"?>
@@ -80,19 +79,18 @@ Avec ces dossiers en place, vous allez ensuite référencer tous les fichiers da
 
 [Microsoft.Data.OData 5.4.0](http://nuget.org/packages/Microsoft.Data.OData/5.4.0) est un exemple de package qui utilise cette approche.
 
-### <a name="advantages-and-disadvantages"></a>Avantages et inconvénients
+### <a name="advantages-and-disadvantages-localized-resource-assemblies"></a>Avantages et inconvénients (assemblies de ressources localisées)
 
 Le regroupement de toutes les langues dans un package unique présente quelques inconvénients :
 
 1. **Métadonnées partagées** : étant donné qu’un package NuGet peut uniquement contenir un seul fichier `.nuspec`, vous pouvez fournir les métadonnées d’une seule langue. Autrement dit, NuGet ne prend pas encore en charge les métadonnées localisées.
-2. **Taille du package** : selon le nombre de langues que vous prenez en charge, la bibliothèque peut devenir très volumineuse, ce qui ralentit l’installation et la restauration du package.
-3. **Versions simultanées** : le regroupement des fichiers localisés dans un package unique exige la publication simultanée de toutes les ressources dans ce package, au lieu de la publication de chaque localisation séparément. De plus, toute mise à jour d’une localisation exige une nouvelle version de la totalité du package.
+1. **Taille du package** : selon le nombre de langues que vous prenez en charge, la bibliothèque peut devenir très volumineuse, ce qui ralentit l’installation et la restauration du package.
+1. **Versions simultanées** : le regroupement des fichiers localisés dans un package unique exige la publication simultanée de toutes les ressources dans ce package, au lieu de la publication de chaque localisation séparément. De plus, toute mise à jour d’une localisation exige une nouvelle version de la totalité du package.
 
 Toutefois, il a également quelques avantages :
 
 1. **Simplicité** : les consommateurs du package obtiennent toutes les langues prises en charge dans une installation unique, au lieu de devoir installer chaque langue séparément. Un package unique est également plus facile à trouver sur nuget.org.
-2. **Versions couplées** : étant donné que tous les assemblys de ressources se trouvent dans le même package que l’assembly principal, ils partagent tous le même numéro de version et ne courent pas le risque d’être découplés par erreur.
-
+1. **Versions couplées** : étant donné que tous les assemblys de ressources se trouvent dans le même package que l’assembly principal, ils partagent tous le même numéro de version et ne courent pas le risque d’être découplés par erreur.
 
 ## <a name="localized-satellite-packages"></a>Packages satellites localisés
 
@@ -127,11 +125,11 @@ Lorsque toutes ces conventions sont respectées, NuGet reconnaît le package en 
 
 Vous créez d’autres assemblys satellites de la même façon pour chaque langue prise en charge. Pour obtenir un exemple, examinez l’ensemble de packages MVC ASP.NET :
 
-* [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (anglais principal)
-* [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (allemand)
-* [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (japonais)
-* [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (chinois (simplifié))
-* [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (chinois (traditionnel))
+- [Microsoft.AspNet.Mvc](http://nuget.org/packages/Microsoft.AspNet.Mvc) (anglais principal)
+- [Microsoft.AspNet.Mvc.de](http://nuget.org/packages/Microsoft.AspNet.Mvc.de) (allemand)
+- [Microsoft.AspNet.Mvc.ja](http://nuget.org/packages/Microsoft.AspNet.Mvc.ja) (japonais)
+- [Microsoft.AspNet.Mvc.zh-Hans](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hans) (chinois (simplifié))
+- [Microsoft.AspNet.Mvc.zh-Hant](http://nuget.org/packages/Microsoft.AspNet.Mvc.zh-Hant) (chinois (traditionnel))
 
 ### <a name="summary-of-required-conventions"></a>Résumé des conventions obligatoires
 
@@ -141,16 +139,16 @@ Vous créez d’autres assemblys satellites de la même façon pour chaque langu
 - Un package satellite doit déclarer une dépendance vis-à-vis d’une version exacte du package principal à l’aide de la notation [] dans son fichier `.nuspec`. Les plages ne sont pas prises en charge.
 - Un package satellite doit placer des fichiers dans le dossier `lib\[{framework}\]{language}` qui correspondent exactement à `{language}` dans le nom de fichier.
 
-### <a name="advantages-and-disadvantages"></a>Avantages et inconvénients
+### <a name="advantages-and-disadvantages-satellite-packages"></a>Avantages et inconvénients (packages satellites)
 
 L’utilisation de packages satellites présente quelques avantages :
 
 1. **Taille du package** : l’encombrement global du package principal est réduit et les consommateurs payent uniquement les coûts de chaque langue qu’ils souhaitent utiliser.
-2. **Métadonnées distinctes** : chaque package satellite possède son propre fichier `.nuspec` et, par conséquent, ses propres métadonnées localisées. Cela peut permettre à certains consommateurs de trouver plus facilement des packages sur nuget.org en utilisant des termes localisés.
-3. **Versions découplées** : il est possible de publier les assemblys satellites progressivement, plutôt que tous en même temps, ce qui vous permet d’étaler vos efforts de localisation.
+1. **Métadonnées distinctes** : chaque package satellite possède son propre fichier `.nuspec` et, par conséquent, ses propres métadonnées localisées. Cela peut permettre à certains consommateurs de trouver plus facilement des packages sur nuget.org en utilisant des termes localisés.
+1. **Versions découplées** : il est possible de publier les assemblys satellites progressivement, plutôt que tous en même temps, ce qui vous permet d’étaler vos efforts de localisation.
 
 Néanmois, les packages satellites présentent aussi quelques inconvénients :
 
 1. **Multiplicité** : au lieu d’un package unique, vous avez de nombreux packages pouvant engendrer des résultats de recherche confus sur nuget.org et une longue liste de références dans un projet Visual Studio.
-2. **Conventions strictes**. Les packages satellites doivent suivre les conventions à la lettre sans quoi les versions localisées ne sont pas correctement sélectionnées.
-3. **Gestion de versions** : chaque package satellite doit avoir une dépendance de version exacte vis-à-vis du package principal. Cela signifie que la mise à jour du package principal peut nécessiter celle de tous les packages satellites également, même si les ressources n’ont pas changé.
+1. **Conventions strictes**. Les packages satellites doivent suivre les conventions à la lettre sans quoi les versions localisées ne sont pas correctement sélectionnées.
+1. **Gestion de versions** : chaque package satellite doit avoir une dépendance de version exacte vis-à-vis du package principal. Cela signifie que la mise à jour du package principal peut nécessiter celle de tous les packages satellites également, même si les ressources n’ont pas changé.

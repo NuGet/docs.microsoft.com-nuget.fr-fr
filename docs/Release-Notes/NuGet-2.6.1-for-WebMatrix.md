@@ -13,23 +13,23 @@ keywords: "NuGet 2.6.1 pour les notes de publication WebMatrix, des correctifs d
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9c37ddc998378b8aaa477dd5df814bab6f0b3c58
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 633b71011dd1bc897ad95fd706337cef3aeef34c
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-261-for-webmatrix-release-notes"></a>NuGet 2.6.1 pour les Notes de publication WebMatrix
 
 [Notes de publication NuGet 2.6](../release-notes/nuget-2.6.md) | [NuGet 2.7 Notes de publication](../release-notes/nuget-2.7.md)
 
-L’équipe NuGet a publié une extension de gestionnaire de Package NuGet de mise à jour pour WebMatrix 26 mars 2014.  Cette mise à jour peut être installé à partir de la [Galerie d’extensions WebMatrix](http://extensions.webmatrix.com/packages/NuGetPackageManager/) en procédant comme suit :
+L’équipe NuGet a publié une extension de gestionnaire de Package NuGet de mise à jour pour WebMatrix 26 mars 2014.  Cette mise à jour peut être installé à partir de la [Galerie d’extensions WebMatrix](https://blogs.iis.net/webmatrix/retiring-the-webmatrix-extensions-gallery) en procédant comme suit :
 
 1. Ouvrez WebMatrix 3
-2. Cliquez sur l’icône des Extensions dans le ruban Accueil
-3. Sélectionnez l’onglet mises à jour
-4. Cliquez pour mettre à jour le Gestionnaire de Package NuGet pour 2.6.1
-6. Fermez et redémarrez WebMatrix 3
+1. Cliquez sur l’icône des Extensions dans le ruban Accueil
+1. Sélectionnez l’onglet mises à jour
+1. Cliquez pour mettre à jour le Gestionnaire de Package NuGet pour 2.6.1
+1. Fermez et redémarrez WebMatrix 3
 
 ## <a name="notable-changes"></a>Modifications importantes
 
@@ -37,7 +37,7 @@ Cette extension mise à jour concerne deux des problèmes majeurs à vos utilisa
 
 ### <a name="nuget-schema-version-error"></a>Erreur de Version du schéma de NuGet
 
-Depuis la publication de WebMatrix 3, les nouvelles fonctionnalités ont été introduites dans NuGet qui nécessitent une nouvelle version de schéma pour les packages NuGet.  Lorsque vous tentez de gérer vos packages NuGet dans votre site web, ces nouveaux packages peuvent entraîner des erreurs qui s’affiche dans WebMatrix.
+Depuis la publication de WebMatrix 3, les nouvelles fonctionnalités ont été introduites dans NuGet qui nécessitent une nouvelle version de schéma pour les packages NuGet.  Lorsque vous tentez de gérer vos packages NuGet dans votre site web, ces nouveaux packages peuvent entraîner des erreurs que vous voyez dans WebMatrix.
 
 ![Une erreur s'est produite. La version du schéma est incompatible. Mettez à niveau NuGet vers la dernière version.](./media/NuGet-2.8/webmatrix-schema-version.png)
 

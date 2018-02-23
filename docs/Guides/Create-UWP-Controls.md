@@ -3,41 +3,38 @@ title: "Guide pratique pour empaqueter des contrôles UWP avec NuGet | Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 3/21/2017
+ms.date: 03/21/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 1f9de20a-f394-4cf2-8e40-ba0f4239cd5e
 description: "Comment créer des packages NuGet qui contiennent des contrôles UWP, y compris les métadonnées nécessaires et les fichiers de prise en charge pour les concepteurs Visual Studio et Blend."
 keywords: "contrôles UWP NuGet, concepteur XAML Visual Studio, concepteur Blend, contrôles personnalisés"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8756ce472c11a05370914841245295361b3f179b
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: 3af17121f73b878decd5f0c933696fc1b0c786d7
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="creating-uwp-controls-as-nuget-packages"></a>Création de contrôles UWP en tant que packages NuGet
 
 Avec Visual Studio 2017, vous pouvez tirer parti de fonctionnalités qui ont été ajoutées pour les contrôles UWP que vous mettez à disposition dans les packages NuGet. Ce guide présente ces fonctionnalités au moyen de [l’exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). 
 
-## <a name="pre-requisites"></a>Prérequis :
+## <a name="pre-requisites"></a>Conditions préalables
 
-1.  Visual Studio 2017
-1.  Savoir [créer des packages UWP](create-uwp-packages.md)
+1. Visual Studio 2017
+1. Savoir [créer des packages UWP](create-uwp-packages.md)
 
 ## <a name="add-toolboxassets-pane-support-for-xaml-controls"></a>Ajouter la prise en charge de la boîte à outils/du volet Composants pour les contrôles XAML
 
 Pour qu’un contrôle XAML apparaisse dans la boîte à outils du concepteur XAML de Visual Studio et dans le volet Composants de Blend, créez un fichier `VisualStudioToolsManifest.xml` dans la racine du dossier `tools` de votre projet de package. Ce fichier n’est pas requis si vous n’avez pas besoin que le contrôle apparaisse dans la boîte à outils ou le volet Composants.
 
-```
-\build
-\lib
-\tools
-    \VisualStudioToolsManifest.xml
-```    
+    \build
+    \lib
+    \tools
+        VisualStudioToolsManifest.xml
 
 La structure du fichier est la suivante :
 
@@ -98,22 +95,18 @@ Dans l’exemple ci-dessous, le projet contient un fichier image nommé « Manag
 
 Les packages UWP ont une propriété TargetPlatformVersion (TPV) et une propriété TargetPlatformMinVersion (TPMinV) qui définissent les limites supérieure et inférieure de la version de système d’exploitation sur laquelle l’application peut être installée. La propriété TPV spécifie en outre la version du SDK par rapport auquel l’application est générée. Tenez compte de ces propriétés quand vous créez un package UWP : l’utilisation d’API en dehors des limites des versions de plateforme définies dans l’application entraîne l’échec de la génération ou l’échec de l’application au moment de l’exécution.
 
-Par exemple, supposons que vous avez défini la propriété TPMinV de votre package de contrôles sur Windows 10 Édition anniversaire (10.0 ; Build 14393), afin que le package soit consommé uniquement par les projets UWP qui correspondent à cette limite inférieure. Pour que votre package puisse être consommé par les projets UWP basés sur `project.json`, vous devez empaqueter vos contrôles avec les noms de dossier suivants :
+Par exemple, supposons que vous avez défini la propriété TPMinV de votre package de contrôles sur Windows 10 Édition anniversaire (10.0 ; Build 14393), afin que le package soit consommé uniquement par les projets UWP qui correspondent à cette limite inférieure. Pour que le package puisse être utilisé par des projets UWP, les contrôles doivent être empaquetés avec les noms de dossiers suivants :
 
-```
-\lib\uap10.0\*
-\ref\uap10.0\*
-```
+    \lib\uap10.0\*
+    \ref\uap10.0\*
 
 Pour appliquer la vérification TPMinV appropriée, créez un [fichier de cibles MSBuild](/visualstudio/msbuild/msbuild-targets) et empaquetez-le sous le dossier de build (en remplaçant « your_assembly_name » par le nom de votre assembly) :
 
-```
-\build
-    \uap10.0
+    \build
+      \uap10.0
         your_assembly_name.targets
-\lib
-\tools
-```
+    \lib
+    \tools
 
 Voici à quoi devrait ressembler le fichier de cibles :
 
@@ -135,22 +128,18 @@ Voici à quoi devrait ressembler le fichier de cibles :
 
 Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\<platform>\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<AssemblyName>\Themes`. (Ce fichier n’a aucun impact sur le comportement d’un contrôle au moment de l’exécution.)
 
-
-```
-\build
-\lib
-    \uap10.0.14393.0
+    \build
+    \lib
+      \uap10.0.14393.0
         \Design
-            \MyControl.design.dll
+          \MyControl.design.dll
         \your_assembly_name
-            \Themes     
-                Generic.xaml
-\tools
-```
+          \Themes
+            Generic.xaml
+    \tools
 
 > [!Note]
 > Par défaut, les propriétés des contrôles apparaissent sous la catégorie Divers dans l’inspecteur de propriété.
-
 
 ## <a name="use-strings-and-resources"></a>Utilisez des chaînes et des ressources
 
@@ -162,15 +151,13 @@ Pour obtenir un exemple, reportez-vous à [MyCustomControl.cs](https://github.co
 
 Pour empaqueter du contenu tel que des images pouvant être utilisées par votre contrôle ou le projet UWP de consommation, ajoutez ces fichiers au `lib\uap10.0.14393.0` dossier comme suit (« your_assembly_name » doit correspondre à nouveau à votre contrôle particulier) :
 
-```
-\build
-\lib
-    \uap10.0.14393.0
+    \build
+    \lib
+      \uap10.0.14393.0
         \Design
-        \your_assembly_name
-\contosoSampleImage.jpg
-\tools
-```
+          \your_assembly_name
+    \contosoSampleImage.jpg
+    \tools
 
 Vous pouvez également créer un [fichier de cibles MSBuild](/visualstudio/msbuild/msbuild-targets) pour que le composant soit copié dans le dossier de sortie du projet de consommation :
 

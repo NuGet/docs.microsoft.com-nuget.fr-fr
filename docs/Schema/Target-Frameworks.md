@@ -1,5 +1,5 @@
 ---
-title: "Références des frameworks cibles pour NuGet | Microsoft Docs"
+title: "Références des versions cibles de .NET Framework pour NuGet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -7,32 +7,30 @@ ms.date: 12/11/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 4343a48e-f6df-4a44-9d66-4616c3caacf5
-description: "Les références des frameworks cibles NuGet identifient et isolent les composants d’un package qui dépendent d’un framework."
+description: "Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package."
 keywords: ciblage de package NuGet, versions cibles de .NET Framework, versions du .NET Framework
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 36e1f0cd6e4284a6bd272ce3c85749e9ed72cbcd
-ms.sourcegitcommit: a40c1c1cc05a46410f317a72f695ad1d80f39fa2
+ms.openlocfilehash: c69ff6efca2dcc4a5c1242277f537012e9f4610f
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/31/2018
 ---
-# <a name="target-frameworks"></a>Frameworks cibles
+# <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
-NuGet utilise des références de frameworks cibles à divers endroits pour identifier et isoler spécifiquement les composants d’un package qui dépendent d’un framework :
+NuGet utilise les références des versions cibles de .NET Framework à de nombreux endroits pour identifier et isoler spécifiquement les composants dépendants du framework d’un package :
 
-- [Manifeste .nuspec](../schema/nuspec.md) : un package peut désigner des packages distincts à inclure dans un projet en fonction du framework cible du projet.
+- [Manifeste .nuspec](../schema/nuspec.md) : un package peut désigner des packages distincts à inclure dans un projet en fonction de la version cible de .NET Framework du projet.
 - [Nom du dossier .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) : les dossiers à l’intérieur du dossier `lib` d’un package peuvent être nommés en fonction de la version cible de .NET Framework, chacun contenant les DLL et tout autre contenu appropriés pour ce framework.
-- [packages.config](../Schema/packages-config.md) : l’attribut `targetframework` d’une dépendance spécifie la variante d’un package à installer.
-- [project.json](../Schema/project-json.md) : le nœud `frameworks` spécifie les versions de framework avec lesquelles le projet peut être compilé.
+- [packages.config](../schema/packages-config.md) : l’attribut `targetframework` d’une dépendance spécifie la variante d’un package à installer.
 
 > [!Note]
 > Le code source du client NuGet qui calcule les tableaux ci-dessous se trouve aux emplacements suivants :
-> -  Noms des frameworks pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> -  Priorité des frameworks et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Noms des frameworks pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Priorité des frameworks et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Frameworks pris en charge
 

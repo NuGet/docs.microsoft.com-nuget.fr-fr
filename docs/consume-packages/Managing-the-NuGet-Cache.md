@@ -7,38 +7,39 @@ ms.date: 7/26/2017
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: 3932217d-780d-4bd1-ad15-767acd3e8870
 description: "Explique comment gérer les différents caches de packages NuGet présents sur un ordinateur, qui sont utilisés lors de l’installation ou de la restauration des packages."
 keywords: Cache de package NuGet, mise en cache des packages, caches NuGet, gestion des caches, cache local NuGet, cache global NuGet, commande locals NuGet, vider le cache
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6e76c219ba420eb285af20e67b26dcdceebb6bab
-ms.sourcegitcommit: d0ba99bfe019b779b75731bafdca8a37e35ef0d9
+ms.openlocfilehash: 84bc34e02572a912fb86ce1a5cf54d8ff212ac6e
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 02/02/2018
 ---
 # <a name="managing-the-nuget-cache"></a>Gestion du cache NuGet
 
-NuGet gère plusieurs caches locaux pour ne pas avoir à télécharger des packages déjà présents sur l’ordinateur et pour avoir une prise en charge en mode hors connexion. NuGet 2.8+ recourt automatiquement au cache lors de l’installation ou de la réinstallation de packages sans connexion réseau.
+NuGet gère plusieurs caches locaux pour ne pas avoir à télécharger des packages déjà présents sur l’ordinateur et pour avoir une prise en charge en mode hors connexion. NuGet recourt automatiquement au cache en cas d’installation ou de réinstallation de packages sans connexion réseau.
 
 Les emplacements du cache sont disponibles via la [commande locals](../tools/cli-ref-locals.md) :
 
-```
+```cli
 nuget locals all -list
 ```
 
 Voici une sortie typique :
 
-    http-cache: C:\Users\user\AppData\Local\NuGet\v3-cache   #NuGet 3.x+ cache
-    packages-cache: C:\Users\user\AppData\Local\NuGet\Cache  #NuGet 2.x cache
-    global-packages: C:\Users\user\.nuget\packages\          #Global packages folder
-    temp: C:\Users\user\AppData\Local\Temp\NuGetScratch      #Temp folder
+```output
+http-cache: C:\Users\user\AppData\Local\NuGet\v3-cache   #NuGet 3.x+ cache
+packages-cache: C:\Users\user\AppData\Local\NuGet\Cache  #NuGet 2.x cache
+global-packages: C:\Users\user\.nuget\packages\          #Global packages folder
+temp: C:\Users\user\AppData\Local\Temp\NuGetScratch      #Temp folder
+```
 
 Si vous rencontrez des problèmes avec l’installation des packages ou si vous voulez être sûr que vous installez les packages à partir d’une galerie à distance, utilisez l’option `locals -clear` :
 
-```
+```cli
 nuget locals http-cache -clear        #Clear the 3.x+ cache
 nuget locals packages-cache -clear    #Clear the 2.x cache
 nuget locals global-packages -clear   #Clear the global packages folder
@@ -50,7 +51,7 @@ Notez que la gestion du cache est seulement possible à partir de la ligne de co
 
 Les erreurs suivantes peuvent se produire lorsque vous utilisez `nuget locals` :
 
-* **Échec de l’effacement des ressources locales : impossible de supprimer un ou plusieurs fichiers**
-* **Le répertoire n’est pas vide**
+- **Échec de l’effacement des ressources locales : impossible de supprimer un ou plusieurs fichiers**
+- **Le répertoire n’est pas vide**
 
 Ces erreurs indiquent que vous n’avez pas l’autorisation de supprimer les fichiers du cache, ou qu’un ou plusieurs fichiers du cache sont actuellement utilisés par un autre processus, qui doit être fermé pour que ces fichiers puissent être supprimés.

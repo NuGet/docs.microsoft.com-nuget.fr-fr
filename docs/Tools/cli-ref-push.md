@@ -12,11 +12,11 @@ keywords: "référence de push de NuGet, commande"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 50883bc85ab96cba54fb4ce0bd344e8148c4fab1
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: df8ef42f650a20b92a281fff3e597ac8d484544e
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="push-command-nuget-cli"></a>commande (NuGet CLI)
 
@@ -48,7 +48,7 @@ où `<packagePath>` identifie le package à distribuer vers le serveur.
 | Help | Affiche l’aide de la commande. |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
 | NoSymbols | *(3.5 +)*  Si un package de symboles existe, il n’est pas adressée à un serveur de symboles. |
-| Source | Spécifie l’URL du serveur. NuGet identifie un chemin UNC ou une source de dossier local et simplement copie le fichier au lieu d’envoyer à l’aide de HTTP.  Également, à partir de NuGet 3.4.2, ce paramètre est obligatoire, sauf si le `NuGet.Config` fichier Spécifie un *DefaultPushSource* valeur (consultez [NuGet de configuration de comportement](../Consume-Packages/Configuring-NuGet-Behavior.md)). |
+| Source | Spécifie l’URL du serveur. NuGet identifie un chemin UNC ou une source de dossier local et simplement copie le fichier au lieu d’envoyer à l’aide de HTTP.  Également, à partir de NuGet 3.4.2, ce paramètre est obligatoire, sauf si le `NuGet.Config` fichier Spécifie un *DefaultPushSource* valeur (consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md)). |
 | SymbolSource | *(3.5 +)*  Spécifie l’URL du serveur de symboles ; nuget.smbsrc.net est utilisé lors de la diffusion à nuget.org |
 | SymbolApiKey | *(3.5 +)*  Spécifie la clé d’API pour l’URL spécifiée dans `-SymbolSource`. |
 | Délai d'expiration | Spécifie le délai d’attente, en secondes, en exécutant un push sur un serveur. La valeur par défaut est 300 secondes (5 minutes). |

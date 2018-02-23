@@ -12,11 +12,11 @@ keywords: "Notes de version 1.5 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 261cfbbd262bad28f142b0c3dff8a541641d9fda
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 9f93000cd5e86cb8f3798e32daf6a4ded0d4e9c3
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="nuget-15-release-notes"></a>Notes de version 1.5 de NuGet
 
@@ -46,7 +46,7 @@ Par exemple, si vous ajoutez le code suivant :
 </references>
 ```
 
-Alors seulement le `xunit.dll` et `xunit.extensions.dll` sera référencé à partir de la commande appropriée [sous-dossier de profil du framework/](../schema/nuspec.md#explicit-assembly-references) de la `lib` dossier même si d’autres assemblys dans le dossier.
+Alors seulement le `xunit.dll` et `xunit.extensions.dll` sera référencé à partir de la commande appropriée [sous-dossier de profil du framework/](../reference/nuspec.md#explicit-assembly-references) de la `lib` dossier même si d’autres assemblys dans le dossier.
 
 Si cet élément est omis, le comportement habituel s’applique, qui consiste à faire référence à chaque assembly dans le `lib` dossier.
 
@@ -87,7 +87,7 @@ Lorsque vous désinstallez un package avec des dépendances, NuGet vous invite �
 ![Suppression des packages dépendants](./media/remove-dependent-packages.png)
 
 
-### <a name="get-package-command-improvement"></a>`Get-Package`amélioration de la commande
+### <a name="get-package-command-improvement"></a>`Get-Package` amélioration de la commande
 Le `Get-Package` commande prend désormais en charge un `-ProjectName` paramètre. Par conséquent, la commande
 
     Get-Package –ProjectName A

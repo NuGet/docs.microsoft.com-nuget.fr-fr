@@ -12,11 +12,11 @@ keywords: "Notes de version 1.8 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: e77c8a7cc2096e11571025b2a55bc6f20dfa4351
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 139c30e29d8148eab7298329a07d8e412259e595
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-18-release-notes"></a>Notes de version 1.8 de NuGet
 
@@ -35,7 +35,7 @@ Remarque : Si Visual Studio ne vous autorisent à désinstaller l’extension (
 
 Peu de temps après la parution de NuGet 1.8, nous l’avons vu qu’une modification de la cryptographie 1.8 s’est arrêtée utilisateurs sous Windows XP.
 
-Nous avons depuis publié un correctif qui résout ce problème.  En mettant à jour NuGet via la galerie d’extensions Visual Studio, vous recevrez ce correctif logiciel.
+Nous avons depuis publié un correctif qui résout ce problème.  En mettant à jour NuGet via la galerie d’extensions Visual Studio, vous recevez ce correctif logiciel.
 
 ## <a name="features"></a>Fonctionnalités
 

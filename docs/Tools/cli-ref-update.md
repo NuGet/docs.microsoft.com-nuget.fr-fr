@@ -12,11 +12,11 @@ keywords: "référence de mise à jour de NuGet, commande d’un package de mise
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 891ce1f27102b16125c93e7a66ebd29f6fc626db
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 6a788244d23354b980e8fa86fa170740c18f17b2
+ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/14/2018
 ---
 # <a name="update-command-nuget-cli"></a>commande de mise à jour (NuGet CLI)
 
@@ -54,7 +54,7 @@ où `<configPath>` soit identifie un `packages.config` ou le fichier de solution
 | RepositoryPath | Spécifie le dossier local dans lequel les packages sont installés. |
 | Safe | Spécifie qui met à jour uniquement avec la version la plus récente disponible dans la même version majeure et mineure que le package installé sera installé. |
 | Self | Nuget.exe mises à jour vers la dernière version ; tous les autres arguments sont ignorés. |
-| Source | Spécifie la liste des sources de package (en tant qu’URL) pour utiliser les mises à jour. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../Consume-Packages/Configuring-NuGet-Behavior.md). |
+| Source | Spécifie la liste des sources de package (en tant qu’URL) pour utiliser les mises à jour. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md). |
 | Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 | Version | Lorsqu’il est utilisé avec un ID de package, spécifie la version du package à mettre à jour. |
 

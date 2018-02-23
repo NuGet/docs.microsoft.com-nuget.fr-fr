@@ -12,17 +12,17 @@ keywords: "référence de configuration NuGet, commande config"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 31abc5c1ade0aff9a2f23ec89ec7082acedb3653
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 34d156a29207122bac3c21c3307cbe7373b5f031
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="config-command-nuget-cli"></a>commande de configuration (NuGet CLI)
 
 **S’applique à :** tous les &bullet; **versions prises en charge**: tous les
 
-Obtient ou définit les valeurs de configuration NuGet. Pour l’utilisation supplémentaire, consultez [configuration de comportement de NuGet](../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur les noms de clés autorisées, reportez-vous à la [référence du fichier de configuration NuGet](../Schema/nuget-config-file.md).
+Obtient ou définit les valeurs de configuration NuGet. Pour l’utilisation supplémentaire, consultez [configuration de comportement de NuGet](../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur les noms de clés autorisées, reportez-vous à la [référence du fichier de configuration NuGet](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Utilisation
 
@@ -33,7 +33,7 @@ nuget config -AsPath <name> [options]
 
 où `<name>` et `<value>` spécifier une paire clé-valeur à définir dans la configuration. Vous pouvez spécifier autant de paires comme vous le souhaitez. Pour supprimer une valeur, spécifiez le nom et le `=` signe mais aucune valeur.
 
-Pour les noms de clé autorisées, consultez la [référence du fichier de configuration NuGet](../Schema/nuget-config-file.md).
+Pour les noms de clé autorisées, consultez la [référence du fichier de configuration NuGet](../reference/nuget-config-file.md).
 
 Dans NuGet 3.4 + `<value>` peut utiliser [variables d’environnement](cli-ref-environment-variables.md).
 

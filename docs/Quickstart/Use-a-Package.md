@@ -7,17 +7,16 @@ ms.date: 10/04/2017
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-ms.assetid: f31f8259-20a8-4617-880e-5819299372d2
 description: "Didacticiel décrivant la procédure pas à pas permettant d’installer et d’utiliser un package NuGet dans un projet."
 keywords: "installer NuGet, consommation de package NuGet, installation de packages NuGet, références de package NuGet, utilisation de packages NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 639f4883f5ce904a44d8aa23d76c93ed79ea4b9d
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
+ms.openlocfilehash: 897419d1e49f12d54fbb996a2462e06e32933e65
+ms.sourcegitcommit: 24997b5345a997501fff846c9bd73610245ae0a6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 01/31/2018
 ---
 # <a name="install-and-use-a-package"></a>Installer et utiliser un package
 
@@ -27,7 +26,7 @@ Les packages NuGet sont des unités de code réutilisables que les autres dével
 
 Une fois le package installé, faites-y référence dans le code avec `using <namespace>`, où \<namespace\> est propre au package que vous utilisez. Une fois la référence effectuée, vous pouvez appeler le package par le biais de son API.
 
-Le reste de cette rubrique vous guide tout au long du processus d’installation du package [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) dans un projet de plateforme Windows universelle (UWP, Universal Windows Platform) à l’aide de l’interface utilisateur du Gestionnaire de Package. Il contient ensuite un exemple d’utilisation du package. Vous utilisez un flux de travail similaire pour presque tous les packages NuGet que vous utilisez dans un projet.
+Le reste de cette rubrique vous guide tout au long du processus d’installation du package [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) dans un projet de plateforme Windows universelle (UWP, Universal Windows Platform) à l’aide de l’interface utilisateur du Gestionnaire de Package. Il contient ensuite un exemple d’utilisation du package. Vous utilisez un flux de travail similaire pour d’autres packages NuGet.
 
 - [Installer les prérequis](#install-pre-requisites)
 - [Créer un projet](#create-a-project)
@@ -35,7 +34,7 @@ Le reste de cette rubrique vous guide tout au long du processus d’installation
 - [Utiliser l’API Newtonsoft.Json dans l’application](#use-the-newtonsoftjson-api-in-the-app)
 
 > [!Tip]
-> **Commencez par nuget.org** : l’installation des packages à partir de nuget.org est un flux de travail courant grâce auquel les développeurs .NET peuvent rechercher des composants réutilisables dans leurs propres applications. Vous pouvez toujours effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cette rubrique.
+> **Commencez par nuget.org** : l’installation des packages à partir de nuget.org est un flux de travail courant grâce auquel les développeurs .NET peuvent rechercher des composants utilisables dans leurs propres applications. Vous pouvez toujours effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cette rubrique.
 
 ## <a name="install-pre-requisites"></a>Installer les prérequis
 

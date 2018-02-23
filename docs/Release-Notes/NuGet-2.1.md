@@ -12,11 +12,11 @@ keywords: "Notes de version 2.1 de NuGet, des correctifs de bogues, problèmes c
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 05cdb898cc674ac7eadb238d41896638d8e3488c
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.openlocfilehash: 405f5a0bddd5472cc760da77412c5fa066da1558
+ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 02/20/2018
 ---
 # <a name="nuget-21-release-notes"></a>Notes de version 2.1 de NuGet
 
@@ -54,7 +54,7 @@ Nous pouvons voir que la source a été ajoutée en exécutant la commande 'sour
 
 ![Sources de package à partir de la configuration de nuget parent](./media/releasenotes-21-cfg-hierarchy.png)
 
-`NuGet.Config`les fichiers sont recherchés dans l’ordre suivant :
+`NuGet.Config` les fichiers sont recherchés dans l’ordre suivant :
 
 1. `.nuget\Nuget.Config`
 2. Récursive parcours du dossier de projet à la racine
@@ -89,7 +89,7 @@ Une fois la bibliothèque générée et la commande `nuget.exe pack MyPortablePr
 
 ![Disposition de package de bibliothèque portable](./media/releasenotes-21-plib-layout.png)
 
-Comme vous pouvez le voir, la convention de nom de dossier de bibliothèque portable suit le modèle de « portable-{framework 1} + {framework n} » dans lequel les identificateurs de framework suivent existants [conventions de nom et la version de framework](../schema/target-frameworks.md). Une exception pour les conventions de nom et la version se trouve dans l’identificateur de framework utilisé pour Windows Phone.  Ce moniker doit utiliser le nom d’infrastructure « wp » (wp7, wp71 ou wp8). À l’aide de 'silverlight-wp7', par exemple, entraîne une erreur.
+Comme vous pouvez le voir, la convention de nom de dossier de bibliothèque portable suit le modèle de « portable-{framework 1} + {framework n} » dans lequel les identificateurs de framework suivent existants [conventions de nom et la version de framework](../reference/target-frameworks.md). Une exception pour les conventions de nom et la version se trouve dans l’identificateur de framework utilisé pour Windows Phone.  Ce moniker doit utiliser le nom d’infrastructure « wp » (wp7, wp71 ou wp8). À l’aide de 'silverlight-wp7', par exemple, entraîne une erreur.
 
 Lorsque vous installez le package est créé à partir de cette structure de dossiers, NuGet peut appliquer maintenant ses règles framework et profil vers plusieurs cibles, comme spécifié dans le nom du dossier.  Derrière les règles de correspondance de NuGet est le principe que les cibles « plus spécifiques » aura priorité sur « moins spécifiques ».  Cela signifie que les monikers cibler une plateforme spécifique sera toujours préférés sur ceux qui sont portables s’ils sont tous deux compatibles avec un projet.  En outre, si plusieurs cibles portables sont compatibles avec un projet, NuGet préfèreront celui où l’ensemble des plateformes prises en charge est « le plus proche » au projet référençant le lot.
 

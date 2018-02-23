@@ -7,17 +7,16 @@ ms.date: 10/25/2017
 ms.topic: reference
 ms.prod: nuget
 ms.technology: 
-ms.assetid: fbf31530-3bf4-478c-b26c-c2b24dd3406d
 description: "Informations de référence sur le fichier NuGet.Config, notamment les sections config, bindingRedirects, packageRestore, solution et packageSource."
 keywords: "fichier NuGet.Config, référence de configuration NuGet, options de configuration NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 830c622f622b894a228b18dfdb3a790bccfde8a3
-ms.sourcegitcommit: bdcd2046b1b187d8b59716b9571142c02181c8fb
-ms.translationtype: HT
+ms.openlocfilehash: 9a183b67ae18f4fa5c042f1806f8abcc9b799b77
+ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 02/01/2018
 ---
 # <a name="nugetconfig-reference"></a>Informations de référence sur NuGet.Config
 
@@ -31,7 +30,8 @@ Dans cette rubrique :
 - [Section bindingRedirects](#bindingredirects-section)
 - [Section packageRestore](#packagerestore-section)
 - [Section solution](#solution-section)
-- [Sections sur les sources de packages](#package-source-sections)- :[packageSources](#packagesources)
+- [Sections sur les sources de packages](#package-source-sections) :
+  - [packageSources](#packagesources)
   - [packageSourceCredentials](#packagesourcecredentials)
   - [apikeys](#apikeys)
   - [disabledPackageSources](#disabledpackagesources)
@@ -48,7 +48,7 @@ Dans cette rubrique :
 
 Contient des paramètres de configuration divers, qui peuvent être définis à l’aide de la [commande `nuget config`](../tools/cli-ref-config.md).
 
-Remarque : `dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets utilisant `packages.config`. `globalPackagesFolder` s’applique uniquement aux projets utilisant `project.json` et les formats PackageReference.
+Remarque : `dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets utilisant `packages.config`. `globalPackagesFolder`s’applique uniquement aux projets en utilisant le format PackageReference.
 
 | Touche | Value |
 | --- | --- |
