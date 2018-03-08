@@ -32,14 +32,14 @@ Par exemple, rechercher et installer un package s’effectue en trois étapes si
 2. Recherchez le package que vous souhaitez installer. Si vous connaissez déjà cela, passez à l’étape 3.
 
     ```ps
-    # Cherche des paquets contenant le mot-clé "elmah"
+    # Find packages containing the keyword "elmah" 
     Find-Package elmah
     ```
 
 3. Exécutez la commande d’installation :
 
     ```ps
-    # Installe le package Elmah sur le projet MyProject.
+    # Install the Elmah package to the project named MyProject.
     Install-Package Elmah -ProjectName MyProject
     ```
 
@@ -51,58 +51,57 @@ Par exemple, rechercher et installer un package s’effectue en trois étapes si
 
 ## <a name="opening-the-console-and-console-controls"></a>Utiliser la console et les contrôles de la console
 
-1. Pour utiliser la console dans Visual Studio en utilisant le **Outils > Gestionnaire de Package NuGet > Package Manager Console** commande. La console est une fenêtre de Visual Studio qui peut être organisée et positionnée comme vous le souhaitez (voir [personnaliser des dispositions de fenêtres dans Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Ouvrez la console dans Visual Studio en utilisant la commande **Outils > Gestionnaire de Package NuGet > Package Manager Console**. La console est une fenêtre de Visual Studio qui peut être organisée et positionnée comme vous le souhaitez (voir [Personnaliser des dispositions de fenêtres dans Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 2. Par défaut, les commandes de la console fonctionnent par rapport à un projet et la source du package spécifique défini dans le contrôle en haut de la fenêtre :
 
     ![Contrôles de la Console du Gestionnaire de package pour le projet et de la source du package](media/PackageManagerConsoleControls1.png)
 
-3. Sélectionnez une source de package différent et/ou d’un projet modifie les valeurs par défaut pour les commandes suivantes. Pour  d’ignorer ces paramètres sans modifier les valeurs par défaut, la plupart des commandes prennent en charge `-Source` et `-ProjectName` options.
+3. La sélection d’une source de package et/ou d’un projet différent(e) modifie les valeurs par défaut pour les commandes suivantes. Pour remplacer ces paramètres sans modifier les valeurs par défaut, la plupart des commandes prend en charge les options `-Source` et `-ProjectName`.
 
-4. Pour gérer les sources de package, sélectionnez l’icône d’engrenage. Il s’agit d’un raccourci vers le **Outils > Options > Gestionnaire de Package NuGet > Sources de Package** de la boîte de dialogue, comme décrit dans la page [Package Manager UI](Package-Manager-UI.md#package-sources). En outre, le contrôle situé à droite du sélecteur de projet efface contenu de la console :
+4. Pour gérer les sources de package, sélectionnez l’icône d’engrenage. Il s’agit d’un raccourci vers la boîte de dialogue **Outils > Options > Gestionnaire de Package NuGet > Sources de Package**, comme décrit dans la page [Package Manager UI](Package-Manager-UI.md#package-sources). En outre, le contrôle situé à droite du sélecteur de projet efface contenu de la console :
 
     ![Paramètres de la Console du Gestionnaire de package et effacer les contrôles](media/PackageManagerConsoleControls2.png)
 
-5. Le bouton plus à droite interrompt une commande longue. Par exemple, utilisez la commande `Get-Package -ListAvailable -PageSize 500` qui vous permet de répertorier les packages top 500 sur la source par défaut (par exemple nuget.org). Celle-ci peut prendre plusieurs minutes pour s’exécuter.
+5. Le bouton plus à droite interrompt une commande longue. Par exemple, utilisez la commande `Get-Package -ListAvailable -PageSize 500` qui vous permet de répertorier les 500 premiers packages sur la source par défaut (par exemple nuget.org). Celle-ci peut prendre plusieurs minutes pour s’exécuter.
 
     ![Contrôle d’arrêt de Console du Gestionnaire de package](media/PackageManagerConsoleControls3.png)
 
 ## <a name="installing-a-package"></a>Installer un package
 
 ```ps
-# Ajouter le package Elmah au projet par défaut comme spécifié dans le sélecteur de projet de la console.
-Install-Package Elmah
+# Add the Elmah package to the default project as specified in the console's project selector
 
-# Ajouter le package Elmah à un projet nommé UtilitiesLib qui n'est pas celui par défaut.
+# Add the Elmah package to a project named UtilitiesLib that is not the default
 Install-Package Elmah -ProjectName UtilitiesLib
 ```
 
-Voir aussi [Install-Package](../tools/ps-ref-install-package.md).
+Consultez [Install-Package](../tools/ps-ref-install-package.md).
 
 L'installation d’un package effectue les actions suivantes :
 
 - Affiche les termes du contrat de licence applicable dans la fenêtre de console avec accord implicite. Si vous n’acceptez pas les termes du contrat, vous devez désinstaller le package immédiatement.
-- Ajoute une référence au projet dans le format de la référence est en cours d’utilisation. Les références apparaissent par la suite dans l’Explorateur de solutions et le fichier de format de référence applicable. Notez, toutefois, avec PackageReference, vous devez enregistrer le projet pour voir les modifications dans le fichier projet directement.
+- Ajoute une référence au projet dans le format de référence utilisé. Les références apparaissent par la suite dans l’Explorateur de solutions et le fichier de format de référence applicable. Notez, toutefois, qu'avec PackageReference, vous devez enregistrer le projet pour voir les modifications dans le fichier projet directement.
 - Met en cache le package :
-  - PackageReference : le(s) package(s) est/sont mis en cache dans `%USERPROFILE%\.nuget\packages` et le verrouillage de fichier par exemple, `project.assets.json` est mis à jour.
-  - `packages.config`: crée un dossier `packages` à la racine de la solution et copie les fichiers de package dans un sous-dossier. Le `package.config` fichier est mis à jour.
+  - PackageReference : package est mis en cache dans `%USERPROFILE%\.nuget\packages` et le verrouillage de fichier par exemple, `project.assets.json` est mis à jour.
+  - `packages.config`: crée un dossier `packages` à la racine de la solution et copie les fichiers de package dans un sous-dossier. Le fichier `package.config` est mis à jour.
 - Les mises à jour `app.config` et/ou `web.config` si le package utilise [source et configuration des transformations de fichiers](../create-packages/source-and-config-file-transformations.md).
 - Installe toutes les dépendances, si elles ne sont pas déjà présentes dans le projet. Cela pourrait mettre à jour les versions de package dans le processus, comme décrit dans [résolution de dépendance](../consume-packages/dependency-resolution.md).
 - Affiche le fichier Lisez-moi du package si elle est disponible, dans une fenêtre de Visual Studio.
 
 > [!Tip]
-> Un des principaux avantages de l’installation des packages avec la commade `Install-Package` dans la console est qu'il ajoute une référence au projet comme si vous avez utilisé le Gestionnaire de Package UI. En revanche, la commade CLI `nuget install`  télécharge le package uniquement et n’ajoute pas automatiquement une référence.
+> Un des principaux avantages de l’installation des packages avec la commande `Install-Package` dans la console est qu'il ajoute une référence au projet comme si vous aviez utilisé le Gestionnaire de Package UI. En revanche, la commande CLI `nuget install` télécharge le package uniquement et n’ajoute pas automatiquement de référence.
 
 ## <a name="uninstalling-a-package"></a>Désinstaller un package
 
 ```ps
-# Désinstalle le paquet Elmah du projet par défaut
+# Uninstalls the Elmah package from the default project
 Uninstall-Package Elmah
 
-# Désinstalle le paquet Elmah et toutes ses dépendances inutilisées
+# Uninstalls the Elmah package and all its unused dependencies
 Uninstall-Package Elmah -RemoveDependencies 
 
-# Désinstalle le paquet Elmah même si un autre paquet en dépend
+# Uninstalls the Elmah package even if another package depends on it
 Uninstall-Package Elmah -Force
 ```
 
@@ -110,7 +109,7 @@ Consultez la section [Uninstall-Package](../tools/ps-ref-uninstall-package.md). 
 
 La désinstallation d’un package effectue les actions suivantes :
 
-- Supprime les références du package associé au projet (et le format de la référence est en cours d’utilisation). Les références n’apparaissent plus dans l’Explorateur de solutions. (Vous devrez peut-être régénérer le projet pour voir qu’il est supprimé de la **Bin** dossier.)
+- Supprime les références du package associé au projet (et le format de la référence utilisé). Les références n’apparaissent plus dans l’Explorateur de solutions. (Vous devrez peut-être régénérer le projet pour voir s’il est supprimé du dossier **Bin**.)
 - Annule les modifications apportées à `app.config` ou `web.config` lorsque le package a été installé.
 - Supprime les dépendances précédemment installées si aucun paquet restant n'utilise ces dépendances.
 
@@ -120,35 +119,35 @@ La désinstallation d’un package effectue les actions suivantes :
 ## <a name="updating-a-package"></a>Mettre à jour un package
 
 ```ps
-# Vérifie si des versions plus récentes sont disponibles pour tous les packages installés
+# Checks if there are newer versions available for any installed packages
 Get-Package -updates
 
-# Met à jour un package spécifique en utilisant son identifiant, dans ce cas jQuery
+# Updates a specific package using its identifier, in this case jQuery
 Update-Package jQuery
 
-# Met à jour tous les packages du projet MyProject (tel qu'il apparaît dans Solution Explorer)
+# Update all packages in the project named MyProject (as it appears in Solution Explorer)
 Update-Package -ProjectName MyProject
 
-# Met à jour tous les paquets de la solution
+# Update all packages in the solution
 Update-Package
 ```
 
-Voir aussi [Get-Package](../tools/ps-ref-get-package.md) et [Package de mise à jour](../tools/ps-ref-update-package.md)
+Voir aussi [Obtenir un package](../tools/ps-ref-get-package.md) et [Mettre à jour un package](../tools/ps-ref-update-package.md)
 
 ## <a name="finding-a-package"></a>Rechercher un package
 
 ```ps
-# Trouver des paquets contenant des mots-clés
+# Find packages containing keywords
 Find-Package elmah
 Find-Package logging
 
-# Liste les paquets dont l'ID commence par Elmah
+# List packages whose ID begins with Elmah
 Find-Package Elmah -StartWith
 
-# Par défaut, Get-Package renvoie une liste de 20 paquets; utilisez le paramètre -First pour afficher plus de paquets.
+# By default, Get-Package returns a list of 20 packages; use -First to show more
 Find-Package logging -First 100
 
-# Listez toutes les versions du paquet avec l'ID de "jquery".
+# List all versions of the package with the ID of "jquery"
 Find-Package jquery -AllVersions -ExactMatch
 ```
 
@@ -156,15 +155,15 @@ Voir aussi [Find-Package](../tools/ps-ref-find-package.md). Dans Visual Studio 2
 
 ## <a name="availability-of-the-console"></a>Disponibilité de la console
 
-Dans Visual Studio 2017, NuGet et le Gestionnaire de Package NuGet sont installés automatiquement lorsque vous sélectionnez n'importe quelle fonctionnalité liée au .NET ; Vous pouvez également l’installer séparément en cochant l'otpion **des composants individuels > Code Outils > Gestionnaire de package NuGet** dans le programme d’installation de Visual Studio 2017.
+Dans Visual Studio 2017, NuGet et le Gestionnaire de package NuGet sont installés automatiquement lorsque vous sélectionnez n'importe quelle fonctionnalité liée au .NET ; Vous pouvez également l’installer séparément en cochant l'option **Composants individuels > Code Outils > Gestionnaire de package NuGet** dans le programme d’installation de Visual Studio 2017.
 
-En outre, si vous n'avez pas le Gestionnaire de Package NuGet dans Visual Studio 2015 et versions antérieures, vérifiez **Outils > Extensions et mises à jour...**  et recherchez l’extension du Gestionnaire de Package NuGet. Si vous ne parvenez pas à utiliser le programme d’installation des extensions dans Visual Studio, vous pouvez télécharger l’extension directement à partir de [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+En outre, si vous n'avez pas le Gestionnaire de package NuGet dans Visual Studio 2015 et versions antérieures, vérifiez **Outils > Extensions et mises à jour...** et recherchez l’extension du Gestionnaire de package NuGet. Si vous ne parvenez pas à utiliser le programme d’installation des extensions dans Visual Studio, vous pouvez télécharger l’extension directement à partir de [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
 
 La Console du Gestionnaire de Package n’est pas actuellement disponible dans Visual Studio pour Mac. Toutefois, les commandes équivalentes, sont disponibles via le [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio pour Mac possède une interface utilisateur pour la gestion des packages NuGet. Consultez [package, y compris un NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
 
 La Console du Gestionnaire de Package n’est pas incluse avec Visual Studio Code.
 
-## <a name="extending-the-package-manager-console"></a>Etendre la Console du Gestionnaire de Package
+## <a name="extending-the-package-manager-console"></a>Etendre la Console du Gestionnaire de package
 
 Certains packages installent de nouvelles commandes de la console. Par exemple, `MvcScaffolding` crée des commandes telles que `Scaffold` illustré ci-dessous, qui génère les contrôleurs ASP.NET MVC et les vues :
 
@@ -172,7 +171,7 @@ Certains packages installent de nouvelles commandes de la console. Par exemple, 
 
 ## <a name="setting-up-a-nuget-powershell-profile"></a>Configurer un profil de NuGet PowerShell
 
-Un profil PowerShell vous permet de rendre les commandes couramment utilisées disponible partout où vous utilisez PowerShell. NuGet prend en charge un profil NuGet spécifique qui se trouve généralement à l’emplacement suivant :
+Un profil PowerShell vous permet de rendre les commandes couramment utilisées disponibles partout où vous utilisez PowerShell. NuGet prend en charge un profil NuGet spécifique qui se trouve généralement à l’emplacement suivant :
 
     %UserProfile%\Documents\WindowsPowerShell\NuGet_profile.ps1
 
@@ -187,7 +186,7 @@ Pour plus d’informations, reportez-vous à [les profils Windows PowerShell](ht
 
 ## <a name="using-the-nugetexe-cli-in-the-console"></a>Utiliser l’interface CLI de nuget.exe dans la console
 
-Pour rendre le [ `nuget.exe` CLI](nuget-exe-CLI-Reference.md) disponibles dans la Console du Gestionnaire de Package, installer le package [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) à partir de la console :
+Pour rendre [CLI `nuget.exe`](nuget-exe-CLI-Reference.md) disponible dans la Console du Gestionnaire de package, installez le package [NuGet.CommandLine](http://www.nuget.org/packages/NuGet.CommandLine/) à partir de la console :
 
 ```ps
 # D'autres versions sont disponibles, voir http://www.nuget.org/packages/NuGet.CommandLine/
