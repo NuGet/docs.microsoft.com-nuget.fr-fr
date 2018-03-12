@@ -16,11 +16,11 @@ keywords: "Point d’entrée API NuGet, découverte de point de terminaison NuGe
 ms.reviewer:
 - karann
 - unnir
-ms.openlocfilehash: 9d0bb421c163520df4a1f0e9f3f71aab823aace3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 8de0bc15edc358d091d84da54b8b67c085f29645
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="service-index"></a>Index de service
 
@@ -30,12 +30,11 @@ index de service NuGet.org se trouve dans `https://api.nuget.org/v3/index.json`.
 
 ## <a name="versioning"></a>Gestion de version
 
-Le `version` valeur est une chaîne de version analysables SemVer 2.0.0 qui indique la version du schéma de l’index de service.
-L’API exige qu’un numéro de version principale de la chaîne de version `3`. Comme les modifications sans rupture sont apportées au schéma d’index de service, version mineure de la chaîne version augmente.
+Le `version` valeur est une chaîne de version analysables SemVer 2.0.0 qui indique la version du schéma de l’index de service. L’API exige qu’un numéro de version principale de la chaîne de version `3`. Comme les modifications sans rupture sont apportées au schéma d’index de service, version mineure de la chaîne version augmente.
 
 Chaque ressource dans l’index de service est créée indépendamment de la version de schéma d’index service.
 
-La version de schéma actuelle est `3.0.0-beta.1`.
+La version de schéma actuelle est `3.0.0`. Le `3.0.0` version est fonctionnellement équivalente à l’ancien `3.0.0-beta.1` version mais doit être préféré car il communique plus clairement le schéma stable, défini.
 
 ## <a name="http-methods"></a>Méthodes HTTP
 

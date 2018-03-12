@@ -11,11 +11,11 @@ description: "Les commandes pack et restore NuGet peuvent être utilisées direc
 keywords: NuGet et MSBuild, cible pack NuGet, cible restore NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 4d448af3d31e0907cba223c0ccec55604e94f055
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -55,7 +55,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Auteurs | Auteurs | Nom de l’utilisateur actuel | |
 | Propriétaires | N/A | Ne figure pas dans NuSpec | |
 | Titre | Titre | PackageId| |
-| Description | Description | « Description du package » | |
+| Description | PackageDescription | « Description du package » | |
 | Copyright | Copyright | vide | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | LicenseUrl | PackageLicenseUrl | vide | |
@@ -222,6 +222,9 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Exécuter la restauration
 1. Télécharger les packages
 1. Écrire le fichier de ressources, les cibles et les propriétés
+
+> [!Note]
+> Le `restore` cible MSBuild ne fonctionne que pour les projets à l’aide de `PackageReference` les éléments et ne restaure pas les packages référencés à l’aide un `packages.config` fichier.
 
 ### <a name="restore-properties"></a>Propriétés de restauration
 

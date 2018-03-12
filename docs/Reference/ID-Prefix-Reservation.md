@@ -13,15 +13,15 @@ ms.reviewer:
 - ananguar
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: bee215fcc88b03dbdde6c15d1583898bdf205952
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: f74ea3c772a129f4b9cd286a77cf3e88eba2d33b
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation de préfixe ID de package
 
-Les propriétaires de package sont permet de réserver et de protéger leur identité en réservant ID préfixes. Les consommateurs de package sont fournis avec des informations supplémentaires lors de l’utilisation de packages qui le package qu’ils consomment ne sont pas trompeurs dans leurs propriétés d’identification. 
+Les propriétaires de package peuvent de réserver et protéger leur identité en réservant ID préfixes. Les consommateurs de package sont fournis avec des informations supplémentaires lors de l’utilisation de packages qui le package qu’ils consomment ne sont pas trompeurs dans leurs propriétés d’identification. 
 
 [NuGet.org](https://www.nuget.org/) et Visual Studio 2017 15.4 ou version ultérieure afficher un indicateur visuel pour le modèle d’affectation de noms du préfixe de packages qui sont envoyés par les propriétaires avec un préfixe d’ID de package réservé, tant que le package correspond à l’ID réservé. Le ci-dessous référence explique ce qui implique la réservation du préfixe ID, et comment il peut appliquer un propriétaire pour un préfixe d’identificateur.
 
