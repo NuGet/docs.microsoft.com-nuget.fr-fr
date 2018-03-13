@@ -26,6 +26,7 @@
 ## [Packages de préversion](create-packages/prerelease-packages.md)
 ## [Packages natifs](create-packages/native-packages.md)
 ## [Packages de symboles](create-packages/symbol-packages.md)
+## [Signature de packages](create-packages/sign-a-package.md)
 ## [Publier un package](create-packages/publish-a-package.md)
 ## Repères
 ### [Créer des packages UWP](guides/create-uwp-packages.md)
@@ -51,9 +52,11 @@
 ### [push](tools/cli-ref-push.md)
 ### [restore](tools/cli-ref-restore.md)
 ### [setapikey](tools/cli-ref-setapikey.md)
+### [sign](tools/cli-ref-sign.md)
 ### [sources](tools/cli-ref-sources.md)
 ### [spec](tools/cli-ref-spec.md)
 ### [update](tools/cli-ref-update.md)
+### [verify](tools/cli-ref-verify.md)
 ### [Variables d’environnement](tools/cli-ref-environment-variables.md)
 ## [Interface utilisateur du Gestionnaire de package](tools/package-manager-ui.md)
 ## [Console du Gestionnaire de package](tools/package-manager-console.md)
@@ -79,6 +82,7 @@
 ## [Erreurs et avertissements](reference/errors-and-warnings.md)
 ## [Réservation du préfixe d’identificateur](reference/id-prefix-reservation.md)
 ## [Kit SDK du client NuGet](reference/nuget-client-sdk.md)
+## [Informations de référence sur les packages signés](reference/signed-packages-reference.md)
 ## Extensibilité
 ### [Fournisseurs d’informations d’identification NuGet pour Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Fournisseurs d’informations d’identification nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
@@ -108,9 +112,9 @@
 ## [Écosystème](policies/ecosystem.md)
 ## [Résolution des conflits](policies/dispute-resolution.md)
 ## [Suppression de packages](policies/deleting-packages.md)
-# [Dépôts GitHub](https://github.com/NuGet)
 # Notes de publication
 ## [Problèmes connus](release-notes/known-issues.md)
+## [NuGet 4.6 RTM](release-notes/NuGet-4.6-RTM.md)
 ## [NuGet 4.5 RTM](release-notes/NuGet-4.5-RTM.md)
 ## [NuGet 4.4 RTM](release-notes/NuGet-4.4-RTM.md)
 ## [NuGet 4.3 RTM](release-notes/NuGet-4.3-RTM.md)
