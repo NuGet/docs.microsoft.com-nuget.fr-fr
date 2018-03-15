@@ -12,11 +12,11 @@ keywords: "référence d’aide de NuGet, la commande aide"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b4255c353e412cf1d1a59590ee816b7887c90653
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 281c6ccc7c58d153280441430be063d9ee89955d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="help-or--command-nuget-cli"></a>aide ou ? commande (NuGet CLI)
 
@@ -41,7 +41,7 @@ où [commande] identifie une commande spécifique pour laquelle afficher l’aid
 | Option | Description |
 | --- | --- |
 | Tous | Imprimer une aide détaillée pour toutes les commandes disponibles ; ignoré si une commande spécifique est donnée. |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande aide lui-même. |
 | Markdown | Imprimer une aide détaillée dans le format markdown lorsqu’il est utilisé avec `-All`. Ignoré dans le cas contraire. |

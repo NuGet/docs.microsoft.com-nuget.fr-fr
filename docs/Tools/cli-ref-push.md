@@ -12,11 +12,11 @@ keywords: "référence de push de NuGet, commande"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: df8ef42f650a20b92a281fff3e597ac8d484544e
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 095e81406df3db5fbfc6c5202362894b2c6d7cf8
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="push-command-nuget-cli"></a>commande (NuGet CLI)
 
@@ -27,7 +27,7 @@ ms.lasthandoff: 02/14/2018
 
 Exécute un push d’un package à une source de package et le publie.
 
-Configuration par défaut de NuGet est obtenue en chargeant `%AppData%\NuGet\NuGet.Config`, puis charger les `Nuget.Config` ou `.nuget\Nuget.Config` fichiers commençant à la racine du lecteur et de fin dans le répertoire actif (consultez [configuration de comportement de NuGet](../consume-packages/configuring-nuget-behavior.md))
+Configuration par défaut de NuGet est obtenue en chargeant `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Linux/Mac), puis en le chargeant tout `Nuget.Config` ou `.nuget\Nuget.Config` fichiers commençant à la racine du lecteur et de fin dans le répertoire actif (consultez [configuration Comportement de NuGet](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Utilisation
 
@@ -41,8 +41,8 @@ où `<packagePath>` identifie le package à distribuer vers le serveur.
 
 | Option | Description |
 | --- | --- |
-| apiKey | La clé d’API pour le référentiel cible. Si absent, celui spécifié dans *%AppData%\NuGet\NuGet.Config* est utilisé. |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| apiKey | La clé d’API pour le référentiel cible. Sinon, l’élément spécifié dans le fichier de configuration est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | DisableBuffering | Désactive la mise en mémoire tampon lors de la distribution à un serveur HTTP (s) pour réduire les utilisations de la mémoire. Attention : lorsque cette option est utilisée, l’authentification intégrée de Windows ne fonctionnent pas. |
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |

@@ -12,11 +12,11 @@ keywords: "NuGet installer référence, la commande de package d’installation"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e824b08486704371eebefb964f86315d82fc222
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-command-nuget-cli"></a>installation de commande (CLI NuGet)
 
@@ -27,7 +27,7 @@ Télécharge et installe un package dans un projet, par défaut dans le dossier 
 > [!Tip]
 > Pour télécharger un package directement à l’extérieur du contexte d’un projet, visitez la page de du package sur [nuget.org](https://www.nuget.org) et sélectionnez le **télécharger** lien.
 
-Si aucune source n’est spécifiées, ceux répertoriés dans le fichier de configuration globale, `%APPDATA%\NuGet\NuGet.Config`, sont utilisés. Consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md) pour plus d’informations.
+Si aucune source n’est spécifiées, ceux répertoriés dans le fichier de configuration globale, `%APPDATA%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Linux/Mac), sont utilisés. Consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md) pour plus d’informations.
 
 Si aucun des packages spécifiques ne sont spécifiés, `install` installe tous les packages répertoriés dans le fichier `packages.config` fichier semblable à [ `restore` ](cli-ref-restore.md).
 
@@ -47,7 +47,7 @@ où `<packageID>` le package à installer (à l’aide de la version la plus ré
 
 | Option | Description |
 | --- | --- |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | DependencyVersion | *(4.4 +)*  Spécifie une version spécifique, la substitution du comportement de résolution de dépendance par défaut. |
 | DisableParallelProcessing | Désactive l’installation de plusieurs packages en parallèle. |
 | ExcludeVersion | Installe le package dans un dossier nommé avec uniquement le nom du package et pas le numéro de version. |

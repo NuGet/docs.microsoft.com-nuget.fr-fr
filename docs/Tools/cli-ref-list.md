@@ -12,17 +12,17 @@ keywords: "référence de liste de NuGet, la liste packages commande"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5a1f68aaffd26a0f903aa3a7a4a450a0121191c3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 7e0945b9e64a15a839f62bde0a0ef8f3d83335d4
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="list-command-nuget-cli"></a>commande de la liste (NuGet CLI)
 
 **S’applique à :** consommation de package, publication &bullet; **versions prises en charge :** toutes les
 
-Affiche la liste des packages à partir d’une source donnée. Si aucune source n’est spécifiée, toutes les sources définies dans le fichier de configuration globale, `%AppData%\NuGet\NuGet.Config`, sont utilisés. Si `NuGet.Config` ne spécifie aucune source, puis `list` utilise le flux par défaut (nuget.org).
+Affiche la liste des packages à partir d’une source donnée. Si aucune source n’est spécifiée, toutes les sources définies dans le fichier de configuration globale, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config`, sont utilisés. Si `NuGet.Config` ne spécifie aucune source, puis `list` utilise le flux par défaut (nuget.org).
 
 ## <a name="usage"></a>Utilisation
 
@@ -30,14 +30,14 @@ Affiche la liste des packages à partir d’une source donnée. Si aucune source
 nuget list [search terms] [options]
 ```
 
-où les termes de recherche facultatif filtre la liste affichée. Termes de recherche sont appliqués aux noms des packages, les balises et les descriptions de package.
+où les termes de recherche facultatif filtre la liste affichée. Termes de recherche sont appliqués aux noms des packages, les balises et les descriptions de package, comme lors de leur utilisation sur nuget.org.
 
 ## <a name="options"></a>Options
 
 | Option | Description |
 | --- | --- |
 | AllVersions | Répertorier toutes les versions d’un package. Par défaut, la dernière version de package s’affiche. |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | IncludeDelisted | *(3.2 +)*  Afficher les packages non listées. |
@@ -53,5 +53,7 @@ Consultez également [variables d’environnement](cli-ref-environment-variables
 ```cli
 nuget list
 
-nuget list -Verbosity detailed -AllVersions
+nuget list chinese korean -Verbosity detailed
+
+nuget list couchbase -AllVersions
 ```

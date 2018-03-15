@@ -12,11 +12,11 @@ keywords: "référence de connexion NuGet, commande sign"
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 109b0f6aca0ebaae2ea56fbb45226bc1b14f2ea1
-ms.sourcegitcommit: df7158169e84900d135416cd5e52f937df0beb52
+ms.openlocfilehash: f600a0830472703f40ef62f1b1538c53671703a9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="sign-command-nuget-cli"></a>commande de connexion (NuGet CLI)
 
@@ -44,7 +44,7 @@ où `<package(s)>` est un ou plusieurs `.nupkg` fichiers.
 | CertificateStoreLocation | Spécifie le nom de l’utilisation du magasin de certificats X.509 pour rechercher le certificat. La valeur par défaut est « CurrentUser », le magasin de certificats X.509 utilisé par l’utilisateur actuel. Cette option doit être utilisée lorsque vous spécifiez le certificat via les options disponibles CertificateSubjectName - ou - CertificateFingerprint. |
 | CertificateStoreName | Spécifie le nom du magasin de certificats X.509 à utiliser pour rechercher le certificat. Valeur par défaut est « My », le magasin de certificats X.509 pour les certificats personnels. Cette option doit être utilisée lorsque vous spécifiez le certificat via les options disponibles CertificateSubjectName - ou - CertificateFingerprint. |
 | CertificateSubjectName | Spécifie le nom du sujet du certificat utilisé pour rechercher un magasin de certificats local pour le certificat.  La recherche est une comparaison de chaînes pas la casse à l’aide de la valeur fournie, qui recherche tous les certificats avec le nom d’objet contient cette chaîne, indépendamment des autres valeurs de l’objet.  Le magasin de certificats peut être spécifié par les options CertificateStoreName - et - CertificateStoreLocation. |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | HashAlgorithm | Algorithme de hachage à utiliser pour signer le package. La valeur par défaut est SHA256. |
 | Help | Affiche l’aide de la commande. |

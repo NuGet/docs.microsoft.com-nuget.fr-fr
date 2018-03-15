@@ -12,11 +12,11 @@ keywords: "vérifier la référence de NuGet, vérifiez la commande"
 ms.reviewer:
 - karann
 - rmpablos
-ms.openlocfilehash: 2747491eb35d8685a44e86fcc1b572013982c754
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 096c79670267d9b602dd6ad30640e832441c31c5
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="verify-command-nuget-cli"></a>Vérifiez la commande (NuGet CLI)
 
@@ -38,7 +38,7 @@ où `<package(s)>` est un ou plusieurs `.nupkg` fichiers.
 | --- | --- |
 | Tous | Spécifie que toutes les vérifications possibles doivent être effectuées sur l’ou les packages. |
 | CertificateFingerprint | Spécifie un ou plusieurs des empreintes certificat SHA-256 de certificats (s), lesquelles packages signés doivent être signées avec. Une empreinte de certificat SHA-256 est un hachage SHA-256 du certificat. Plusieurs entrées doivent être séparées par des points-virgules. |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |

@@ -12,11 +12,11 @@ keywords: "NuGet référence de restauration, restaurer des commandes de package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0ad5156a065e20dfced99da6b2e2860dbd748ad5
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (NuGet CLI)
 
@@ -38,7 +38,7 @@ où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.c
 
 | Option | Description |
 | --- | --- |
-| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | DirectDownload | *(4.0 +)*  Télécharge les packages directement sans l’alimenter les caches avec des fichiers binaires ou des métadonnées. |
 | DisableParallelProcessing | Désactive la restauration de plusieurs lots en parallèle. |
 | FallbackSource | *(3.2 +)*  Une liste des sources de package à utiliser comme secours au cas où le package n’est pas trouvé dans le serveur principal ou source par défaut. |

@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Le catalogue est un index de tous les packages créés et supprimés sur nuget.org."
-keywords: "Catalogue de NuGet V3 API, le journal des transactions nuget.org répliquer NuGet.org, cloner NuGet.org, un enregistrement en mode append-only de NuGet.org"
+keywords: "Catalogue de NuGet V3 API, le journal des transactions nuget.org répliquer nuget.org, clone nuget.org, un enregistrement en mode append-only de nuget.org"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: d1a24be68a60085a40361c374ffb34dc221f09c4
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: be30b21d488c323c439a59fff290a95adaefd902
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -50,7 +50,7 @@ Toutes les URL trouvés dans la prise en charge de la ressource catalogue unique
 
 ## <a name="catalog-index"></a>Index du catalogue
 
-L’index du catalogue est un document dans un emplacement connu qui contient une liste d’éléments de catalogue, classés cronologically. Il est le point d’entrée de la ressource de catalogue.
+L’index du catalogue est un document dans un emplacement connu qui contient une liste d’éléments de catalogue, classés par ordre chronologique. Il est le point d’entrée de la ressource de catalogue.
 
 L’index se compose de pages de catalogue. Chaque page de catalogue contient des éléments de catalogue. Chaque élément de catalogue représente un événement concernant un package unique à un point dans le temps. Un élément de catalogue peut représenter un package qui a été créé, non répertoriées, remis ou supprimés à partir de la source du package. En traitant les éléments de catalogue dans l’ordre chronologique, le client peut générer une vue à jour de chaque package existe sur la source du package V3.
 
@@ -128,7 +128,7 @@ parent          | chaîne           | oui      | Une URL à l’index du catalog
 
 Chaque élément dans le `items` tableau est un objet avec le minimum de certains détails sur l’élément de catalogue. Des objets de ces éléments ne contiennent pas toutes les données de l’élément de catalogue. L’ordre des éléments dans la page `items` tableau n’est pas défini. Éléments peuvent être triés par le client dans la mémoire à l’aide de leurs `commitTimeStamp` propriété.
 
-Le nombre d’éléments de catalogue dans une page est défini par l’implémentation du serveur. Pour nuget.org, est au maximum 550 éléments dans chaque page, le nombre réel peut être plus petit pour certaines dependong pages sur la taille du lot de validation suivante au point dans le temps.
+Le nombre d’éléments de catalogue dans une page est défini par l’implémentation du serveur. Pour nuget.org, est au maximum 550 éléments dans chaque page, le nombre réel peut être plus petit pour certaines pages selon la taille du lot de validation suivante au point dans le temps.
 
 Comme de nouveaux éléments sont ajoutées, les `count` est objets des éléments de catalogue incrémenté et nouvelle s’affichent dans le `items` tableau.
 
@@ -164,7 +164,7 @@ Pour plus d’informations sur la chaque type, consultez la [correspondant les �
 
 ## <a name="catalog-leaf"></a>Feuille de catalogue
 
-La feuille de catalogue contient les métadonnées relatives à un ID de package spécifique et une version à un moment donné dans le temps. Il s’agit d’un document extrait à l’aide de la `@id` valeur trouvée dans une page du catalogue. L’URL à une feuille de catalogue n’est pas destinée à être predictedable et doit être découvert à l’aide d’une page de catalogue.
+La feuille de catalogue contient les métadonnées relatives à un ID de package spécifique et une version à un moment donné dans le temps. Il s’agit d’un document extrait à l’aide de la `@id` valeur trouvée dans une page du catalogue. L’URL à une feuille de catalogue n’est pas destinée à être prévisible et doit être découvert à l’aide d’une page de catalogue.
 
 Le document de feuille de catalogue est un objet JSON avec les propriétés suivantes :
 
@@ -226,16 +226,16 @@ Le package `version` propriété est la chaîne de version complet, normalisé. 
 
 Le `created` timestamp est lorsque le package a été reçu par la source du package, qui est généralement une brève période avant l’horodateur de validation de l’élément de catalogue.
 
-Le `packageHashAlgorithm` est une chaîne définie par le represeting implémentation serveur l’algorithme de hachage utilisé pour produire le `packageHash`. NuGet.org toujours utilisé la `packageHashAlgorithm` valeur `SHA512`.
+Le `packageHashAlgorithm` est une chaîne définie par l’implémentation de serveur qui représente l’algorithme de hachage utilisé pour produire le `packageHash`. NuGet.org toujours utilisé la `packageHashAlgorithm` valeur `SHA512`.
 
 Le `published` timestamp est le temps lorsque le package a été indiqué dernier.
 
 > [!Note]
-> Sur nuget.org, le `published` a la valeur année 1900 lorsque le package n’est pas spécifié.
+> Sur nuget.org, le `published` a la valeur à l’année 1900 lorsque le package n’est pas spécifié.
 
 #### <a name="sample-request"></a>Exemple de demande
 
-GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+TÉLÉCHARGER https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
 
 #### <a name="sample-response"></a>Exemple de réponse
 
@@ -256,7 +256,7 @@ Le `published` propriété est le temps lorsque le package a été supprimé, ce
 
 #### <a name="sample-request"></a>Exemple de demande
 
-GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+TÉLÉCHARGER https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
 
 #### <a name="sample-response"></a>Exemple de réponse
 
@@ -307,7 +307,7 @@ Avec cet algorithme de base, l’implémentation du client peut générer une vu
 
 ### <a name="dependent-cursors"></a>Curseurs dépendants
 
-Supposons qu’il existe deux clients de catalogue qui ont une dépendance inherant où sortie d’un client dépend de sortie d’un autre client. 
+Supposons qu’il existe deux clients de catalogue qui ont une dépendance inhérente à la sortie d’un client où dépend de sortie du client à un autre. 
 
 #### <a name="example"></a>Exemple
 
@@ -317,7 +317,7 @@ Par exemple, sur nuget.org un package qui vient d’être publié ne doit pas ap
 
 #### <a name="algorithm"></a>Algorithme
 
-Pour implémenter cette restriction, de modifier l’algorithme ci-dessus pour être simple :
+Pour implémenter cette restriction, modifiez simplement l’algorithme ci-dessus pour être :
 
 1. Extraire la valeur de curseur enregistrée à partir d’un magasin local.
 1. Télécharger et la désérialisation de l’index du catalogue.

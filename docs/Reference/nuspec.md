@@ -13,11 +13,11 @@ ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c52d0a7c0da507cb9688c8a7b2c4eaf54a8ca5c2
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 90693b09fce966e3bc28ca24360a3fb4e1f73386
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -94,7 +94,7 @@ Ces éléments peuvent apparaître dans un élément `<metadata>`.
 | **owners** | Liste des créateurs de packages séparés par des virgules, qui utilisent des noms de profil sur nuget.org. Il s’agit souvent de la même liste que dans `authors` et elle est ignorée lors du chargement du package sur nuget.org. Consultez [Gestion des propriétaires de packages sur nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | URL de la page d’accueil du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. |
 | **licenseUrl** | URL de la licence du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. |
-| **iconUrl** | URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut, comme les URL *https://github.com/\<nom d’utilisateur\>/\<référentiel\>/raw/\<branche\> / \<logo.png\>*. |
+| **iconUrl** | URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut, comme les URL  *https://github.com/ \<nom d’utilisateur\>/\<référentiel\>/raw/\<branche\> / \<logo.png\>*. |
 | **requireLicenseAcceptance** | Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à accepter la licence du package avant d’installer le package. |
 | **developmentDependency** | *(2.8+)* Valeur booléenne qui spécifie si le package doit être marqué comme dépendance de développement uniquement, ce qui l’empêche d’être inclus en tant que dépendance dans d’autres packages. |
 | **summary** | Brève description du package pour l’affichage de l’interface utilisateur. Si cet élément est omis, une version tronquée de `description` est utilisée. |
@@ -143,9 +143,10 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 | Token | Source de valeur | Value
 | --- | --- | ---
-| **$id$** | Fichier projet | AssemblyName du fichier projet |
+| **$id$** | Fichier projet | Nom de l’assembly (titre) à partir du fichier de projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
+| **$title$** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL d’assembly | Configuration utilisée pour générer l’assembly, Debug étant la valeur par défaut. Notez que, pour créer un package à l’aide d’une configuration Release, vous utilisez toujours `-properties Configuration=Release` sur la ligne de commande. |
@@ -543,7 +544,7 @@ Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comm
 | **include** | (Obligatoire) Emplacement du ou des fichiers à inclure, soumis à des exclusions définies par l’attribut `exclude`. Le chemin est relatif au fichier `.nuspec` sauf si un chemin absolu est spécifié. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **exclude** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **buildAction** | Action de génération à affecter à l’élément de contenu pour MSBuild, comme `Content`, `None`, `Embedded Resource`, `Compile`, etc. La valeur par défaut est `Compile`. |
-| **copyToOutput** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans le dossier de sortie de génération. La valeur par défaut est false. |
+| **copyToOutput** | Valeur booléenne qui indique s’il faut copier des éléments de contenu à la build (ou publier) dossier de sortie. La valeur par défaut est false. |
 | **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |
 
 Lors de l’installation d’un package, NuGet applique les éléments enfants de `<contentFiles>` de haut en bas. Si plusieurs entrées correspondent au même fichier, toutes les entrées sont appliquées. L’entrée supérieure remplace les entrées inférieures s’il existe un conflit pour le même attribut.

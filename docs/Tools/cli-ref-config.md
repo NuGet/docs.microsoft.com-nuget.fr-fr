@@ -12,11 +12,11 @@ keywords: "référence de configuration NuGet, commande config"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 34d156a29207122bac3c21c3307cbe7373b5f031
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.openlocfilehash: 7cf7c06000904a617752567ed7612c0c48042db9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="config-command-nuget-cli"></a>commande de configuration (NuGet CLI)
 
@@ -42,7 +42,7 @@ Dans NuGet 3.4 + `<value>` peut utiliser [variables d’environnement](cli-ref-e
 | Option | Description |
 | --- | --- |
 | AsPath | Renvoie la valeur de la configuration comme un chemin d’accès, ignorées lorsque `-Set` est utilisé. |
-| ConfigFile | Le fichier de configuration NuGet à modifier. Si non spécifié, *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| ConfigFile | Le fichier de configuration NuGet à modifier. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |

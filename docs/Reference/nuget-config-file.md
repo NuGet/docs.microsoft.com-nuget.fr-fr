@@ -12,11 +12,11 @@ keywords: "fichier NuGet.Config, référence de configuration NuGet, options de 
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c76ebcb06adc5e5b862647de6b6f4e19bde87b91
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: 6a5be1ebcca0accafcdaf32f0b1b7ca66ec53425
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nugetconfig-reference"></a>Informations de référence sur NuGet.Config
 
@@ -86,8 +86,6 @@ Définit si NuGet effectue des redirections de liaisons automatiques quand un pa
 ```
 
 ## <a name="packagerestore-section"></a>Section packageRestore
-
-*Ignoré dans toutes les versions actuelles (2.7 +)*
 
 Contrôle la restauration de packages pendant les générations.
 
@@ -159,7 +157,7 @@ Stocke les noms d’utilisateur et mots de passe pour les sources, spécifiés e
 
 **Exemple :**
 
-Dans le fichier config, l’élément `<packageSourceCredentials>` contient des nœuds enfants pour chaque nom de source applicable (les espaces dans le nom sont remplacés par `_x0020+`). Autrement dit, pour les sources nommées « Contoso » et « Test Source », le fichier config contient les éléments suivants lors de l’utilisation de mots de passe chiffrés :
+Dans le fichier config, l’élément `<packageSourceCredentials>` contient des nœuds enfants pour chaque nom de source applicable (les espaces dans le nom sont remplacés par `_x0020_`). Autrement dit, pour les sources nommées « Contoso » et « Test Source », le fichier config contient les éléments suivants lors de l’utilisation de mots de passe chiffrés :
 
 ```xml
 <packageSourceCredentials>

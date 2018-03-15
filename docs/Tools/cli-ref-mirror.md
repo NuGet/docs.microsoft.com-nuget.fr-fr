@@ -12,11 +12,11 @@ keywords: "référence de mise en miroir de NuGet, les commandes de mise en miro
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 80b8f9a3b74030ffd3f1c7b784204d98be67d684
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>commande de mise en miroir (NuGet CLI)
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 02/14/2018
 Reflète un package et ses dépendances à partir des référentiels source spécifiée dans le référentiel cible.
 
 > [!NOTE]
-> Pour activer cette commande pour les versions de NuGet avant 3.2, accédez à [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases), sélectionnez la dernière version stable, téléchargez `NuGet.ServerExtensions.dll` et `Nuget-Signed.exe` à votre disque local et le changement de nom `Nuget-Signed.exe` à `nuget.exe`.
+> Pour activer cette commande pour les versions de NuGet avant 3.2, accédez à [ https://nuget.codeplex.com/releases ](https://nuget.codeplex.com/releases), sélectionnez la dernière version stable, téléchargez `NuGet.ServerExtensions.dll` et `Nuget-Signed.exe` à votre disque local et le changement de nom `Nuget-Signed.exe` à `nuget.exe`.
 
 ## <a name="usage"></a>Utilisation
 
@@ -43,12 +43,12 @@ Si votre référentiel cible se trouve sur `https://machine/repo` qui est en cou
 
 | Option | Description |
 | --- | --- |
-| apiKey | La clé d’API pour le référentiel cible. Si absent, celui spécifié dans *%AppData%\NuGet\NuGet.Config* est utilisé. |
+| apiKey | La clé d’API pour le référentiel cible. Si absent, l’élément spécifié dans le fichier de configuration est utilisé (`%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Help | Affiche l’aide de la commande. |
 | NoCache | NuGet empêche l’utilisation de packages de caches de l’ordinateur local. |
 | NOOP | Journaux seront effectuées, mais n’effectue pas les actions. suppose la réussite des opérations de push. |
 | Version préliminaire | Inclut les versions préliminaires des packages dans l’opération de mise en miroir. |
-| Source | Liste des sources de package pour mettre en miroir. Si aucune source n’est spécifiées, ceux définis dans *%AppData%\NuGet\NuGet.Config* sont utilisés, la valeur par défaut : nuget.org si aucune n’est spécifiée. |
+| Source | Liste des sources de package pour mettre en miroir. Si aucune source n’est spécifiées, ceux définis dans le fichier de configuration (voir ApiKey ci-dessus) sont utilisés, nuget.org par défaut si aucune n’est spécifiée. |
 | Délai d'expiration | Spécifie le délai d’attente, en secondes, en exécutant un push sur un serveur. La valeur par défaut est 300 secondes (5 minutes). |
 | Version | La version du package à installer. Si non spécifié, la version la plus récente est mise en miroir. |
 

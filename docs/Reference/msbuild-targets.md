@@ -3,7 +3,7 @@ title: Commandes pack et restore NuGet comme cibles MSBuild | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 04/03/2017
+ms.date: 03/13/2018
 ms.topic: article
 ms.prod: nuget
 ms.technology: 
@@ -11,11 +11,11 @@ description: "Les commandes pack et restore NuGet peuvent être utilisées direc
 keywords: NuGet et MSBuild, cible pack NuGet, cible restore NuGet
 ms.reviewer:
 - karann-msft
-ms.openlocfilehash: 798b3550718294072d86b6e4827ec5017178d2cc
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.openlocfilehash: bb0ade1b0f5f81d7c8822d3c2b2f9dd45745fb8d
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -42,7 +42,9 @@ De même, vous pouvez écrire une tâche MSBuild, écrire votre propre cible et 
 
 ## <a name="pack-target"></a>Cible pack
 
-Lors de l’utilisation de la cible pack, autrement dit `msbuild /t:pack`, MSBuild obtient ses entrées du fichier projet. Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier projet au sein du premier nœud `<PropertyGroup>`. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../reference/nuspec.md).
+Pour les projets .NET Standard en utilisant le format PackageReference, à l’aide de `msbuild /t:pack` dessine des entrées à partir du fichier de projet à utiliser pour créer un package NuGet.
+
+Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier projet au sein du premier nœud `<PropertyGroup>`. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../reference/nuspec.md).
 
 Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises en charge avec MSBuild.
 
@@ -63,7 +65,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | IconUrl | PackageIconUrl | vide | |
 | Balises | PackageTags | vide | Les balises sont séparées par un point-virgule. |
 | ReleaseNotes | PackageReleaseNotes | vide | |
-| Url du référentiel / | RepositoryUrl | vide | URL de référentiel permettant de cloner ou extraire le code source. Example: *https://github.com/NuGet/NuGet.Client.git* |
+| Url du référentiel / | RepositoryUrl | vide | URL de référentiel permettant de cloner ou extraire le code source. Exemple : *https://github.com/NuGet/NuGet.Client.git* |
 | / Type de référentiel | RepositoryType | vide | Type de référentiel. Exemples : *git*, *tfs*. |
 | Branche du référentiel / | RepositoryBranch | vide | Informations de branche de référentiel facultatif. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *master* (NuGet 4.7.0+) |
 | Référentiel/validation | RepositoryCommit | vide | Validation du référentiel facultatif ou l’ensemble de modifications pour indiquer le package de la source qui a été généré. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
@@ -194,7 +196,7 @@ Lors de l’utilisation de `MSBuild /t:pack /p:IsTool=true`, tous les fichiers d
 
 ### <a name="packing-using-a-nuspec"></a>Compression à l’aide d’un fichier .nuspec
 
-Vous pouvez utiliser un fichier `.nuspec` pour compresser votre projet à condition que vous ayez un fichier projet pour importer `NuGet.Build.Tasks.Pack.targets` afin que la tâche de compression puisse être exécutée. Les trois propriétés MSBuild suivantes sont pertinentes lors de la compression à l’aide d’un fichier `.nuspec` :
+Vous pouvez utiliser un `.nuspec` fichier de pack de votre projet si vous disposez d’un fichier de projet de kit de développement logiciel pour importer `NuGet.Build.Tasks.Pack.targets` afin que la tâche pack peut être exécutée. Vous devez toujours restaurer le projet avant que vous pouvez choisir un fichier nuspec. Le framework cible du fichier projet n’est pas pertinent et pas utilisé lors de la livraison d’un nuspec. Les trois propriétés MSBuild suivantes sont pertinentes lors de la compression à l’aide d’un fichier `.nuspec` :
 
 1. `NuspecFile` : chemin relatif ou absolu du fichier `.nuspec` utilisé pour la compression.
 1. `NuspecProperties` : liste de paires clé=valeur séparées par un point-virgule. En raison du mode de fonctionnement de l’analyse de ligne de commande MSBuild, plusieurs propriétés doivent être spécifiées comme suit : `/p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -212,6 +214,23 @@ Si vous utilisez MSBuild pour compresser votre projet, utilisez une commande sem
 msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:NuspecProperties=<> /p:NuspecBasePath=<Base path> 
 ```
 
+Notez qu’un nuspec de livraison à l’aide de dotnet.exe ou msbuild d’accéder à générer le projet par défaut. Cela peut être évité en passant ```--no-build``` dotnet.exe, qui est l’équivalent du paramètre de propriété ```<NoBuild>true</NoBuild> ``` dans votre fichier projet, en même temps que le paramètre ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` dans le fichier projet
+
+Un exemple d’un fichier csproj compresser un fichier nuspec est :
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <NoBuild>true</NoBuild>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <NuspecFile>PATH_TO_NUSPEC_FILE</NuspecFile>
+    <NuspecProperties>add nuspec properties here</NuspecProperties>
+    <NuspecBasePath>optional to provide</NuspecBasePath>
+  </PropertyGroup>
+</Project>
+```
+
 ## <a name="restore-target"></a>Cible restore
 
 `MSBuild /t:restore` (que `nuget restore` et `dotnet restore` utilisent avec les projets .NET Core) restaure les packages référencés dans le fichier projet en effectuant les opérations suivantes :
@@ -223,8 +242,7 @@ msbuild /t:pack <path to .csproj file> /p:NuspecFile=<path to nuspec file> /p:Nu
 1. Télécharger les packages
 1. Écrire le fichier de ressources, les cibles et les propriétés
 
-> [!Note]
-> Le `restore` cible MSBuild ne fonctionne que pour les projets à l’aide de `PackageReference` les éléments et ne restaure pas les packages référencés à l’aide un `packages.config` fichier.
+Le `restore` cible fonctionne **uniquement** pour les projets en utilisant le format PackageReference. Il effectue **pas** fonctionnent pour les projets à l’aide de la `packages.config` format ; utilisez [restauration nuget](../tools/cli-ref-restore.md) à la place.
 
 ### <a name="restore-properties"></a>Propriétés de restauration
 

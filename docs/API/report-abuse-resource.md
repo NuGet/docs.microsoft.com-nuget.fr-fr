@@ -12,15 +12,15 @@ ms.topic: reference
 ms.prod: nuget
 ms.technology: 
 description: "Le modèle d’URL de rapport abus permet aux clients d’afficher un lien Signaler un abus dans leur interface utilisateur."
-keywords: "API NuGet signaler un abus, réclamation de fichier API NuGet, modèle d’URL NuGet.org rapport"
+keywords: "API NuGet signaler un abus, réclamation de fichier API NuGet, modèle d’URL nuget.org rapport"
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c12be294c71547fbce421c72aa091e0eee15aacd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: efbe5704e6e6028f9382fea3fe5ec453f573a2e9
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="report-abuse-url-template"></a>Modèle d’URL de rapport abus
 
@@ -35,7 +35,7 @@ Les éléments suivants `@type` les valeurs sont utilisées :
 Valeur @type                       | Notes
 --------------------------------- | -----
 ReportAbuseUriTemplate/3.0.0-beta | La version initiale
-ReportAbuseUriTemplate/3.0.0-rc   | Alias de`ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-rc   | Alias de `ReportAbuseUriTemplate/3.0.0-beta`
 
 ## <a name="url-template"></a>Modèle d’URL
 
@@ -58,7 +58,7 @@ Name        | Type    | Obligatoire | Notes
 `{id}`      | chaîne  | Non       | L’ID de package pour signaler un abus pour
 `{version}` | chaîne  | Non       | La version du package pour signaler un abus pour
 
-Le `{id}` et `{version}` valeurs interprétée par l’implémentation de serveur doivent être insenstive cas et n’ont aucune incidence si la version est normalisé.
+Le `{id}` et `{version}` valeurs interprétée par l’implémentation de serveur doivent être insensible à la casse et n’ont aucune incidence si la version est normalisé.
 
 Par exemple, le modèle d’abus nuget.org rapport ressemble à ceci :
 
