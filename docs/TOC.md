@@ -3,8 +3,9 @@
 # Démarrages rapides
 ## [Installer et utiliser un package (interface CLI dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Installer et utiliser un package (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
-## [Créer et publier un package (interface CLI dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
-## [Créer et publier un package (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [Créer et publier un package NET Standard (interface CLI dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
+## [Créer et publier un package NET Standard (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio.md)
+## [Créer et publier un package NET Framework (Visual Studio)](quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md)
 # Consommer des packages
 ## [Vue d’ensemble et flux de travail](consume-packages/overview-and-workflow.md)
 ## [Recherche et sélection des packages](consume-packages/finding-and-choosing-packages.md)
