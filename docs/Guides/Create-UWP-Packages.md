@@ -12,11 +12,11 @@ keywords: "créer un package, packages pour UWP, composants Windows Runtime"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6d35b484ff708d7174c19791ab1ad7904bea0d2f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: af650b6cd67855a67d0f49cdbd9f510bf90a60f6
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-uwp-packages"></a>Créer des packages UWP
 
@@ -24,7 +24,7 @@ La [plateforme Windows universelle (UWP)](https://developer.microsoft.com/window
 
 Dans cette procédure pas à pas, vous créez un package NuGet avec un composant UWP natif (y compris un contrôle XAML) qui peut être utilisé dans les projets natifs et managés.
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1. Visual Studio 2017 ou Visual Studio 2015. Installez l’édition Community 2017 gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/) ; vous pouvez également utiliser les éditions Professional et Enterprise.
 
@@ -156,7 +156,7 @@ Au sein de votre composant, la logique principale du type ImageEnhancer est en c
 
 ### <a name="adding-targets"></a>Ajout d’un fichier .targets
 
-Ensuite, les projets C++ et JavaScript susceptibles de consommer votre package NuGet ont besoin d’un fichier .targets pour identifier les fichiers winmd et d’assembly nécessaires. (Les projets C# et Visual Basic effectuent cette opération automatiquement.) Créez ce fichier en copiant le texte ci-dessous dans `ImageEnhancer.targets` et enregistrez-le dans le même dossier que le fichier `.nuspec` :
+Ensuite, les projets C++ et JavaScript susceptibles de consommer votre package NuGet ont besoin d’un fichier .targets pour identifier les fichiers winmd et d’assembly nécessaires. (Les projets C# et Visual Basic effectuent cette opération automatiquement.) Créez ce fichier en copiant le texte ci-dessous dans `ImageEnhancer.targets` et enregistrez-le dans le même dossier que le fichier `.nuspec`. _Remarque_ : Ce fichier `.targets` doit avoir le même nom que l’ID de package (par exemple, l’élément `<Id>` du fichier `.nupspec`) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

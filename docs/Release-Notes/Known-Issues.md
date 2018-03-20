@@ -12,11 +12,11 @@ keywords: "problèmes connus NuGet, problèmes NuGet"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2b9190c058215d9e63894de45c0c55c8ddae0e0f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problèmes connus avec NuGet
 
@@ -45,7 +45,7 @@ Dans NuGet 3.4 et 3.4.1, quand vous utilisez le complément NuGet, aucune source
 
 ![Configuration de NuGet sans sources](./media/knownIssue-34-NoSources.PNG)
 
-Le fichier `NuGet.Config` dans votre dossier `%AppData%\NuGet\` a été vidé accidentellement. Pour résoudre ce problème, fermez Visual Studio 2015, supprimez le fichier `NuGet.Config` du dossier `%AppData%\NuGet\` et redémarrez Visual Studio.  Un nouveau fichier `NuGet.Config` sera généré et vous pourrez continuer.
+Le fichier `NuGet.Config` dans votre dossier `%AppData%\NuGet\` (Windows) ou `~/.nuget/` (Mac/Linux) a été vidé accidentellement. Pour résoudre ce problème : Fermez Visual Studio (sur Windows, le cas échéant), supprimez le fichier `NuGet.Config`, puis recommencez l’opération. NuGet génère un nouveau fichier `NuGet.Config` et vous devez pouvoir continuer.
 
 ## <a name="error-installing-packages-with-nuget-27"></a>Erreur d’installation de packages avec NuGet 2.7
 
@@ -231,4 +231,4 @@ Comme expliqué en détail dans [ce problème GitHub](https://github.com/Particu
 
 ## <a name="reporting-issues"></a>Problèmes liés aux rapports
 
-Pour signaler des problèmes avec NuGet, visitez [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Pour signaler des problèmes liés à NuGet, visitez [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).

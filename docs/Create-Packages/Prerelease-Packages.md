@@ -12,11 +12,11 @@ keywords: "gestion de versions, gestion des versions de package NuGet, préversi
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f07b4a0428685b036640a7153190fd8454885608
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 03f744a96841a8c49d9f1dde89620b85de968d6f
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
 
@@ -79,7 +79,7 @@ En sachant cela, il est généralement judicieux de suivre les conventions de no
 - `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
-> NuGet ne prend pas en charge les numéros de préversion [compatibles avec SemVer (v2.0.0)](http://semver.org/spec/v2.0.0.html) avec la notation à points, comme dans `1.0.1-build.23`. Vous pouvez utiliser un format comme `1.0.1-build23`, mais il est toujours considéré comme une préversion.
+> NuGet 4.3.0+ prend en charge la [gestion sémantique de version 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de pré-livraison utilisant la notation à points (par exemple, `1.0.1-build.23`). La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Dans les versions antérieures de NuGet, vous pouviez utiliser un format similaire à `1.0.1-build23`, mais celui-ci est toujours considéré comme une version de pré-livraison.
 
 Quels que soient les suffixes que vous utilisez, toutefois, NuGet leur donne la priorité dans l’ordre alphabétique inverse :
 

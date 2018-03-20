@@ -1,28 +1,28 @@
 ---
-title: "Guide d’introduction à la création et à la publication de package NuGet avec Visual Studio | Microsoft Docs"
+title: "Guide d’introduction à la création et à la publication de package NuGet .NET Standard avec Visual Studio | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/02/2018
+ms.date: 03/18/2018
 ms.topic: get-started-article
 ms.prod: nuget
 ms.technology: 
-description: "Ce didacticiel explique pas à pas comment créer et publier un package NuGet avec Visual Studio 2017."
+description: "Ce didacticiel explique pas à pas comment créer et publier un package NuGet .NET Standard avec Visual Studio 2017."
 keywords: "Création de package NuGet, publication de package NuGet, didacticiel NuGet, création de package NuGet avec Visual Studio, pack msbuild"
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: a4d60fdc0f27f9c4080266e212ac1cfe470ba925
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 733fee616601e1d15d8fb5814b5bfb7905ff4a33
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
-# <a name="create-and-publish-a-package-using-visual-studio"></a>Créer et publier un package avec Visual Studio
+# <a name="create-and-publish-a-package-using-visual-studio-net-standard"></a>Créer et publier un package avec Visual Studio (.NET Standard)
 
-La création d’un package NuGet à partir d’une bibliothèque de classes .NET dans Visual Studio est un processus simple, de même que sa publication sur nuget.org avec un outil de ligne de commande (CLI).
+La création d’un package NuGet à partir d’une bibliothèque de classes .NET Standard dans Visual Studio est un processus simple, de même que sa publication sur nuget.org avec un outil de ligne de commande (CLI).
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez une édition de Visual Studio 2017 à l’adresse [visualstudio.com](https://www.visualstudio.com/) avec n’importe quelle charge de travail liée à .NET. Visual Studio 2017 intègre automatiquement les fonctionnalités NuGet lorsqu’une charge de travail .NET est installée.
 
@@ -34,7 +34,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 
 ## <a name="create-a-class-library-project"></a>Créer un projet de bibliothèque de classes
 
-Vous pouvez utiliser un projet de bibliothèque de classes .NET existant pour le code à empaqueter, ou bien en créer un de la façon suivante :
+Vous pouvez utiliser un projet de bibliothèque de classes .NET Standard existant pour le code à empaqueter, ou bien en créer un de la façon suivante :
 
 1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > .NET Standard**, sélectionnez le modèle « Bibliothèque de classes (.NET Standard) », nommez le projet AppLogger, puis cliquez sur **OK**.
 
@@ -60,7 +60,7 @@ namespace AppLogger
 
 ## <a name="configure-package-properties"></a>Configurer les propriétés de package
 
-1. Sélectionnez la commande de menu **Projet > Propriétés**, puis sélectionnez l’onglet **Package** :
+1. Sélectionnez la commande de menu **Projet > Propriétés**, puis l’onglet **Package**. (L’onglet **Package** s’affiche uniquement pour les projets de bibliothèque de classes .NET Standard ; si vous ciblez le .NET Framework, consultez [Créer et publier un package .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md).)
 
     ![Propriétés de package NuGet dans un projet Visual Studio](media/qs_create-vs-01-package-properties.png)
 
@@ -95,7 +95,7 @@ namespace AppLogger
 
 ### <a name="alternate-option-pack-with-msbuild"></a>Autre option : pack avec MSBuild
 
-En guise d’alternative à l’utilisation de la commande de menu **Pack**, NuGet 4.x+ et MSBuild 15.1+ prennent en charge une cible `pack` lorsque le projet contient les données de package nécessaires :
+En guise d’alternative à l’utilisation de la commande de menu **Pack**, NuGet 4.x+ et MSBuild 15.1+ prennent en charge une cible `pack` quand le projet contient les données de package nécessaires. Ouvrez une invite de commandes, accédez au dossier de votre projet et exécutez la commande suivante. (Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu Démarrer, car elle est configurée avec tous les chemins nécessaires pour MSBuild.)
 
 ```cli
 msbuild /t:pack /p:Configuration=Release

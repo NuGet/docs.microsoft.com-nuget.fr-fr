@@ -1,5 +1,5 @@
 ---
-title: "Guide d’introduction à la création et à la publication de package NuGet avec l’interface CLI dotnet | Microsoft Docs"
+title: "Création et publication d’un package NuGet avec l’interface CLI dotnet | Microsoft Docs"
 author: kraigb
 ms.author: kraigb
 manager: ghogen
@@ -12,17 +12,17 @@ keywords: "Création de package NuGet, publication de package NuGet, didacticiel
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c9f46cafafcdc238e43979d6f05521e19bf3d7f6
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: 086de5378fe4ae928e6bd00cd3a87afd7c366a01
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="create-and-publish-a-package"></a>Créer et publier un package
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET est un processus simple, de même que sa publication sur nuget.org avec l’interface de ligne de commande (CLI) `dotnet`.
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez le [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/), qui comprend l’interface CLI `dotnet`.
 
@@ -95,7 +95,6 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 [!INCLUDE[publish-errors](includes/publish-errors.md)]
 
-
 ### <a name="manage-the-published-package"></a>Gérer le package publié
 
 [!INCLUDE[publish-manage](includes/publish-manage.md)]
@@ -107,3 +106,4 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Gestion des versions de package](../reference/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
+- [Signature de packages](../create-packages/Sign-a-package.md)

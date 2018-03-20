@@ -12,11 +12,11 @@ keywords: "installer NuGet, consommation de package NuGet, installation de packa
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c0030877803ac7403f26e27ac3c5a0303d69c489
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
+ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/15/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Installer et utiliser un package dans Visual Studio
 
@@ -27,7 +27,7 @@ Une fois le package installé, faites-y référence dans le code avec `using <na
 > [!Tip]
 > **Commencez par nuget.org** : les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Visual Studio 2017 avec la charge de travail Développement pour la plateforme Windows universelle ou
 - Visual Studio 2015 Update 3 avec les Outils pour les applications Windows universelles.
@@ -40,7 +40,7 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Ajouter le package NuGet Newtonsoft.Json
 
-Pour installer le package, vous pouvez utiliser l’interface utilisateur du Gestionnaire de package ou sur la console du Gestionnaire de package.
+Pour installer le package, vous pouvez utiliser l’interface utilisateur du Gestionnaire de package ou sur la console du Gestionnaire de package. Quand vous installez un package, NuGet enregistre la dépendance dans votre fichier projet ou un fichier `packages.config`. Pour plus d’informations, consultez [Vue d’ensemble et flux de consommation des packages](../consume-packages/Overview-and-Workflow.md).
 
 ### <a name="package-manager-ui"></a>Interface utilisateur du gestionnaire de package
 

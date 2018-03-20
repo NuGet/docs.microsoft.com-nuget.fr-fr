@@ -12,11 +12,11 @@ keywords: "Dépendances NuGet, NuGet et UWP, UWP et project.json, fichier projec
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: f1ec086d6404c441ca5ad53028af2265a2344905
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 3ef3703b2be92f84d37866bce9934ebcfed3a9f7
+ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/08/2018
 ---
 # <a name="projectjson-and-uwp"></a>project.json et UWP
 
@@ -121,7 +121,7 @@ Dans cet exemple, les assemblys inclus dans les répertoires `ref` sont tous ide
 
 Le dossier des runtimes contient des assemblys et des bibliothèques natives devant s’exécuter sur des « runtimes » spécifiques, qui sont généralement définis par le système d’exploitation et l’architecture du processeur. Ces runtimes sont identifiés à l’aide d’[identificateurs de runtime (RID)](/dotnet/core/rid-catalog) comme `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
 
-## <a name="native-light-up"></a>Éclairage natif
+## <a name="native-helpers-to-use-platform-specific-apis"></a>Programmes d’assistance natifs pour utiliser les API spécifiques à la plateforme
 
 L’exemple suivant montre un package qui a une implémentation purement managée pour plusieurs plateformes, mais qui utilise des assistances natives sur Windows 8, où il peut appeler des API natives propres à Windows 8.
 
