@@ -1,22 +1,25 @@
 ---
-title: "Commande d’installation de NuGet CLI | Documents Microsoft"
+title: Commande d’installation de NuGet CLI | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Référence de la commande d’installation de nuget.exe"
-keywords: "NuGet installer référence, la commande de package d’installation"
+ms.technology: ''
+description: Référence de la commande d’installation de nuget.exe
+keywords: NuGet installer référence, la commande de package d’installation
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 8d5f53c833fb42c9fe37d0629eab33e8f0bc70d7
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 121d7b50767f1d466d6d0d8494f324b02d8ff6f1
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-command-nuget-cli"></a>installation de commande (CLI NuGet)
 
@@ -27,7 +30,7 @@ Télécharge et installe un package dans un projet, par défaut dans le dossier 
 > [!Tip]
 > Pour télécharger un package directement à l’extérieur du contexte d’un projet, visitez la page de du package sur [nuget.org](https://www.nuget.org) et sélectionnez le **télécharger** lien.
 
-Si aucune source n’est spécifiées, ceux répertoriés dans le fichier de configuration globale, `%APPDATA%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Linux/Mac), sont utilisés. Consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md) pour plus d’informations.
+Si aucune source n’est spécifiées, ceux répertoriés dans le fichier de configuration globale, `%appdata%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Linux/Mac), sont utilisés. Consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md) pour plus d’informations.
 
 Si aucun des packages spécifiques ne sont spécifiés, `install` installe tous les packages répertoriés dans le fichier `packages.config` fichier semblable à [ `restore` ](cli-ref-restore.md).
 
@@ -55,7 +58,7 @@ où `<packageID>` le package à installer (à l’aide de la version la plus ré
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Framework | *(4.4 +)*  Framework cible utilisé pour la sélection des dépendances. Par défaut, 'Any' Si non spécifié. |
 | Help | Affiche l’aide de la commande. |
-| NoCache | NuGet empêche l’utilisation de packages de caches de l’ordinateur local. |
+| NoCache | NuGet empêche l’utilisation de packages de mise en cache. Consultez [gestion des packages globaux et des dossiers cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
 | OutputDirectory | Spécifie le dossier dans lequel les packages sont installés. Si aucun dossier n’est spécifié, le dossier actif est utilisé. |
 | PackageSaveMode | Spécifie les types de fichiers à enregistrer après l’installation du package : un des `nuspec`, `nupkg`, ou `nuspec;nupkg`. |

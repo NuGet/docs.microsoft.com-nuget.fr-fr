@@ -1,27 +1,30 @@
 ---
-title: "Référence de l’interface utilisateur du Gestionnaire de Package NuGet | Documents Microsoft"
+title: Référence de l’interface utilisateur du Gestionnaire de Package NuGet | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/08/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
+ms.technology: ''
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: "Instructions sur l’utilisation du Gestionnaire de Package NuGet UI dans Visual Studio pour travailler avec les packages NuGet."
+description: Instructions sur l’utilisation du Gestionnaire de Package NuGet UI dans Visual Studio pour travailler avec les packages NuGet.
 keywords: NuGet UI, Gestionnaire de package NuGet UI, NuGet dans Visual Studio, la gestion des packages NuGet, interface utilisateur de NuGet, Gestionnaire de package dans Visual Studio
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 35bb856ccff43c77af7eac67da4614d83dcdc533
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 
@@ -37,7 +40,7 @@ Dans cette rubrique :
 - [Contrôlent des Options du Gestionnaire de package](#package-manager-options-control)
 
 > [!Note]
-> Si vous êtes pas le Gestionnaire de Package NuGet dans Visual Studio 2015, consultez **Outils > Extensions et mises à jour...**  et recherchez le *Gestionnaire de Package NuGet* extension. Si vous ne parvenez pas à utiliser le programme d’installation des extensions dans Visual Studio, téléchargez l’extension directement à partir de [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+> Si vous êtes pas le Gestionnaire de Package NuGet dans Visual Studio 2015, consultez **Outils > Extensions et mises à jour...**  et recherchez le *Gestionnaire de Package NuGet* extension. Si vous ne parvenez pas à utiliser le programme d’installation des extensions dans Visual Studio, téléchargez l’extension directement à partir de [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
 > Visual Studio 2017, NuGet et le Gestionnaire de Package NuGet sont installées automatiquement avec n’importe quelle. Charges de travail liées au réseau. Installer individuellement en sélectionnant le **des composants individuels > Code Outils > Gestionnaire de package NuGet** option dans le programme d’installation de Visual Studio 2017.
 
@@ -58,23 +61,23 @@ Dans cette rubrique :
 > [!Tip]
     > Pour inclure les versions préliminaires dans la recherche et de proposer des versions préliminaires dans la version de liste déroulante, sélectionnez le **inclure la version préliminaire** option.
 
-## <a name="uninstalling-a-package"></a>Désinstallation d’un package
+## <a name="uninstalling-a-package"></a>Désinstaller un package
 
 1. Dans **l’Explorateur de solutions**, avec le bouton droit soit **références** ou le projet de votre choix, puis sélectionnez **gérer les Packages NuGet...** .
 1. Sélectionnez le **installé** onglet.
 1. Sélectionnez le package à désinstaller (à l’aide de la recherche pour filtrer la liste si nécessaire) et sélectionnez **désinstallation**.
 
-    ![Désinstallation d’un package](media/UninstallPackage.png)
+    ![Désinstaller un package](media/UninstallPackage.png)
 
 1. Notez que la **inclure la version préliminaire** et **source du Package** contrôles n’ont aucun effet lors de la désinstallation des packages.
 
-## <a name="updating-a-package"></a>Un package de mise à jour
+## <a name="updating-a-package"></a>Mettre à jour un package
 
 1. Dans **l’Explorateur de solutions**, avec le bouton droit soit **références** ou le projet de votre choix, puis sélectionnez **gérer les Packages NuGet...** . (Dans les projets de site web, cliquez sur le **Bin** dossier.)
 1. Sélectionnez le **mises à jour** onglet pour afficher les packages qui ont des mises à jour disponibles à partir des sources de package sélectionné. Sélectionnez **inclure la version préliminaire** pour inclure les versions préliminaires des packages dans la liste de mise à jour.
 1. Sélectionnez le package à mettre à jour, sélectionnez la version souhaitée dans la liste déroulante à droite, puis sélectionnez **mettre à jour**.
 
-    ![Un package de mise à jour](media/UpdatePackages.png)
+    ![Mettre à jour un package](media/UpdatePackages.png)
 
 1. <a name="implicit_reference"></a>Pour certains packages, les **mise à jour** bouton est désactivé et un message s’affiche indiquant qu’il est « implicitement référencé par un SDK » (ou « AutoReferenced »). Le message indique que le package, telles que Microsoft.NETCore.App ou Microsoft.NETStandard.Library, fait partie d’un plus grand framework ou kit de développement logiciel et ne doit pas être mis à jour indépendamment. (Ces packages sont marqués en interne avec `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Pour mettre à jour le package, mettre à jour le Kit de développement logiciel auquel il appartient.
 
@@ -125,7 +128,7 @@ Pour gérer les sources de package :
 
     ![Options de Sources de package](media/options.png)
 
-1. Pour ajouter une source, sélectionnez  **+** , modifiez le nom, entrez l’URL ou le chemin d’accès dans le **Source** contrôler, puis sélectionnez **mise à jour**. La source apparaît maintenant dans la liste déroulante du sélecteur.
+1. Pour ajouter une source, sélectionnez **+**, modifiez le nom, entrez l’URL ou le chemin d’accès dans le **Source** contrôler, puis sélectionnez **mise à jour**. La source apparaît maintenant dans la liste déroulante du sélecteur.
 1. Pour modifier une source de package, sélectionnez-le, apporter des modifications dans le **nom** et **Source** cases, puis sélectionnez **mise à jour**.
 1. Pour désactiver une source de package, désactivez la case à gauche du nom dans la liste.
 1. Pour supprimer une source de package, sélectionnez-le, puis le **X** bouton.

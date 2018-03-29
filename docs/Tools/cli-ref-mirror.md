@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Référence de la commande de mise en miroir de nuget.exe"
-keywords: "référence de mise en miroir de NuGet, les commandes de mise en miroir"
+ms.technology: ''
+description: Référence de la commande de mise en miroir de nuget.exe
+keywords: référence de mise en miroir de NuGet, les commandes de mise en miroir
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 0c1969cc04b2e2cead5e9dadf9739fdabdf65f6c
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 512bd72d568cda81eb7c6a1555c36ead66b5c438
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="mirror-command-nuget-cli"></a>commande de mise en miroir (NuGet CLI)
 
@@ -45,7 +48,7 @@ Si votre référentiel cible se trouve sur `https://machine/repo` qui est en cou
 | --- | --- |
 | apiKey | La clé d’API pour le référentiel cible. Si absent, l’élément spécifié dans le fichier de configuration est utilisé (`%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)). |
 | Help | Affiche l’aide de la commande. |
-| NoCache | NuGet empêche l’utilisation de packages de caches de l’ordinateur local. |
+| NoCache | NuGet empêche l’utilisation de packages de mise en cache. Consultez [gestion des packages globaux et des dossiers cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NOOP | Journaux seront effectuées, mais n’effectue pas les actions. suppose la réussite des opérations de push. |
 | Version préliminaire | Inclut les versions préliminaires des packages dans l’opération de mise en miroir. |
 | Source | Liste des sources de package pour mettre en miroir. Si aucune source n’est spécifiées, ceux définis dans le fichier de configuration (voir ApiKey ci-dessus) sont utilisés, nuget.org par défaut si aucune n’est spécifiée. |

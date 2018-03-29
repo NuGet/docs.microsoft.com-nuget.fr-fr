@@ -1,5 +1,5 @@
 ---
-title: "Package NuGet API métadonnées | Documents Microsoft"
+title: Package NuGet API métadonnées | Documents Microsoft
 author:
 - joelverhagen
 - kraigb
@@ -10,17 +10,20 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "L’URL de base de l’inscription de package permet de récupérer les métadonnées à propos des packages."
-keywords: "Métadonnées de package NuGet API, l’inscription NuGet API, les API NuGet packages non listées"
+ms.technology: ''
+description: L’URL de base de l’inscription de package permet de récupérer les métadonnées à propos des packages.
+keywords: Métadonnées de package NuGet API, l’inscription NuGet API, les API NuGet packages non listées
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: c098d70d58011bad7f9829f0c95c87c1339dd362
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-metadata"></a>Métadonnées du package
 
@@ -35,8 +38,8 @@ Les éléments suivants `@type` les valeurs sont utilisées :
 Valeur @type                     | Notes
 ------------------------------- | -----
 RegistrationsBaseUrl            | La version initiale
-RegistrationsBaseUrl/3.0.0-beta | Alias de`RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-rc   | Alias de`RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias de `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias de `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Réponses Gzippé
 RegistrationsBaseUrl/3.6.0      | Inclut les packages SemVer 2.0.0
 
@@ -146,7 +149,7 @@ Name                     | Type                       | Obligatoire | Notes
 ------------------------ | -------------------------- | -------- | -----
 @id                      | chaîne                     | oui      | L’URL du document utilisé pour produire cet objet
 authors                  | chaîne ou tableau de chaînes | Non       | 
-dependencyGroups         | Tableau d’objets           | Non       | L’URL pour le contenu du package (.nupkg)
+dependencyGroups         | Tableau d’objets           | Non       | Les dépendances du package, regroupés par le framework cible
 Description              | chaîne                     | Non       | 
 iconUrl                  | chaîne                     | Non       | 
 ID                       | chaîne                     | oui      | L’ID du package

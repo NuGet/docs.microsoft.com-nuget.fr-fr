@@ -6,23 +6,26 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Commande des sources de référence pour le nuget.exe"
-keywords: "NuGet sources de référence, des sources de commande"
+ms.technology: ''
+description: Commande des sources de référence pour le nuget.exe
+keywords: NuGet sources de référence, des sources de commande
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 139a9494e1ea898c90ce79d5990530fbe08642bd
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f682a5209556ec6741473ccf2648e8f38bb568b9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="sources-command-nuget-cli"></a>commande de sources (NuGet CLI)
 
 **S’applique à :** consommation de package, publication &bullet; **versions prises en charge :** toutes les
 
-Gère la liste de sources situées dans le fichier de configuration de portée utilisateur ou un fichier de configuration spécifié. Le fichier de configuration de portée utilisateur se trouve à `%APPDATA%\NuGet\NuGet.Config` (Windows) et `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
+Gère la liste de sources situées dans le fichier de configuration de portée utilisateur ou un fichier de configuration spécifié. Le fichier de configuration de portée utilisateur se trouve à `%appdata%\NuGet\NuGet.Config` (Windows) et `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json`.
 

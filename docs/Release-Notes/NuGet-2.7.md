@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 2.7 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 2.7 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
+ms.technology: ''
+description: Notes de publication pour 2.7 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
+keywords: Notes de version 2.7 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 43638626661ae034bb0a1cc28958a2e2929f047f
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 71ced70af127c8219001069739a6cec59d7d1684
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-27-release-notes"></a>Notes de version 2.7 NuGet
 
@@ -158,7 +161,7 @@ Consultez [par défaut de Configuration NuGet](../consume-packages/configuring-n
 
 ### <a name="renaming-the-default-package-source"></a>Modification du nom de la Source du Package par défaut
 
-NuGet a inscrit toujours une source de package par défaut appelée « Officiel source du package NuGet » qui pointe vers nuget.org. Ce nom a été documenté et elle n’a pas également spécifier où il a été réellement pointe. Pour résoudre ces deux problèmes, nous avons renommé cette source de package simplement « nuget.org » dans l’interface utilisateur. L’URL de la source du package a été également modifié pour inclure « www ». préfixe. Après l’utilisation de NuGet 2.7, votre existante « source de package officielle de NuGet » mettra automatiquement à jour « nuget.org » en tant que son nom et « https://www.nuget.org/api/v2/ » en tant que son URL.
+NuGet a inscrit toujours une source de package par défaut appelée « Officiel source du package NuGet » qui pointe vers nuget.org. Ce nom a été documenté et elle n’a pas également spécifier où il a été réellement pointe. Pour résoudre ces deux problèmes, nous avons renommé cette source de package simplement « nuget.org » dans l’interface utilisateur. L’URL de la source du package a été également modifié pour inclure « www ». « group. ». Après l’utilisation de NuGet 2.7, votre existante « source de package officielle de NuGet » sera automatiquement mise à jour pour « nuget.org » en tant que son nom et «https://www.nuget.org/api/v2/» en tant que son URL.
 
 ### <a name="performance-improvements"></a>Amélioration des performances
 

@@ -1,22 +1,25 @@
 ---
-title: "Référence de Package de mise à jour de NuGet PowerShell | Documents Microsoft"
+title: Référence de Package de mise à jour de NuGet PowerShell | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Référence de commande PowerShell de Package de mise à jour dans la Console du Gestionnaire de Package NuGet dans Visual Studio."
-keywords: "NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Package de mise à jour"
+ms.technology: ''
+description: Référence de commande PowerShell de Package de mise à jour dans la Console du Gestionnaire de Package NuGet dans Visual Studio.
+keywords: NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Package de mise à jour
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 293d9a7fdcce633eb5a97e5f76398deb5c13bdb4
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 05772159d62f73e7d25f71ad36809f5ae8ef6aae
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Package de mise à jour (Console du Gestionnaire de Package dans Visual Studio)
 
@@ -47,7 +50,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Nom_projet | Le nom du projet contenant les packages à mettre à jour, par défaut à tous les projets. |
 | Version | La version à utiliser pour la mise à niveau, la version la plus récente par défaut. Dans NuGet 3.0 +, la valeur de version doit être *la plus faible, plus élevé, HighestMinor*, ou *HighestPatch* (équivalent à - Safe). |
 | Safe | Contraint les mises à niveau vers des versions uniquement avec la même version majeure et mineure en tant que le package actuellement installée. |
-| Source | Le chemin d’accès URL ou un dossier pour la source du package à rechercher. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Uninstall-Package` recherche la source du package actuellement sélectionnée. |
+| Source | Le chemin d’accès URL ou un dossier pour la source du package à rechercher. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Update-Package` recherche la source du package actuellement sélectionnée. |
 | IncludePrerelease | Inclut les versions préliminaires des packages de mises à jour. |
 | Réinstallation | Packages de Resintalls à l’aide de leur version actuellement installée. Consultez [Réinstallation et mise à jour des packages](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Action à prendre lorsque vous êtes invité à remplacer ou ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *remplacer, ignorer, None, OverwriteAll*, et *IgnoreAll* (3.0 +). |

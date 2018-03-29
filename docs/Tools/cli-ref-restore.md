@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Informations de référence pour la commande restore de nuget.exe"
-keywords: "NuGet référence de restauration, restaurer des commandes de packages"
+ms.technology: ''
+description: Informations de référence pour la commande restore de nuget.exe
+keywords: NuGet référence de restauration, restaurer des commandes de packages
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2416ad652244e0ea60651147ad74a1513cdb75ff
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 64f12fdedc8fbfcee15c1dcddc445148f458c030
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (NuGet CLI)
 
@@ -46,15 +49,15 @@ où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.c
 | Help | Affiche l’aide de la commande. |
 | MSBuildPath | *(4.0 +)*  Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15. Par défaut que le MSBuild dans votre chemin d’accès est sélectionné, sinon la valeur par défaut pour la version installée la plus élevée de MSBuild. |
-| NoCache | NuGet empêche l’utilisation de packages de caches de l’ordinateur local. |
+| NoCache | NuGet empêche l’utilisation de packages de mise en cache. Consultez [gestion des packages globaux et des dossiers cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
-| OutputDirectory | Spécifie le dossier dans lequel les packages sont installés. Si aucun dossier n’est spécifié, le dossier actif est utilisé. |
+| OutputDirectory | Spécifie le dossier dans lequel les packages sont installés. Si aucun dossier n’est spécifié, le dossier actif est utilisé. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `PackagesDirectory` ou `SolutionDirectory` est utilisé.|
 | PackageSaveMode | Spécifie les types de fichiers à enregistrer après l’installation du package : un des `nuspec`, `nupkg`, ou `nuspec;nupkg`. |
-| PackagesDirectory | Comme pour `OutputDirectory`. |
+| PackagesDirectory | Comme pour `OutputDirectory`. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `OutputDirectory` ou `SolutionDirectory` est utilisé. |
 | Project2ProjectTimeOut | Délai d’expiration en secondes pour la résolution des références entre projets. |
 | Récursive | *(4.0 +)*  Restaure toutes les références de projets pour les projets UWP et .NET Core. Ne s’applique pas aux projets à l’aide de `packages.config`. |
 | RequireConsent | Vérifie que la restauration des packages est activé avant de télécharger et installer les packages. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md). |
-| SolutionDirectory | Spécifie le dossier de solution. Non valide lors de la restauration des packages pour une solution. |
+| SolutionDirectory | Spécifie le dossier de solution. Non valide lors de la restauration des packages pour une solution. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `PackagesDirectory` ou `OutputDirectory` est utilisé. |
 | Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour la restauration. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [NuGet de configuration de comportement](../consume-packages/configuring-nuget-behavior.md). |
 | Commentaires |> Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 

@@ -1,25 +1,28 @@
 ---
-title: "Référence de Version de Package NuGet | Documents Microsoft"
+title: Référence de Version de Package NuGet | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 12/08/2017
+ms.date: 03/23/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Détails exacts sur la spécification des numéros de version et de plages pour d’autres packages qui dépend d’un package NuGet, et comment les dépendances sont installées."
-keywords: "le contrôle de version, les dépendances de package NuGet, versions de dépendance de NuGet, les numéros de version de NuGet, version du package NuGet, plages de versions, les spécifications de version, les numéros de version normalisée"
+ms.technology: ''
+description: Détails exacts sur la spécification des numéros de version et de plages pour d’autres packages qui dépend d’un package NuGet, et comment les dépendances sont installées.
+keywords: le contrôle de version, les dépendances de package NuGet, versions de dépendance de NuGet, les numéros de version de NuGet, version du package NuGet, plages de versions, les spécifications de version, les numéros de version normalisée
 ms.reviewer:
 - anandr
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 70472d7d97d073009237a047e0fdf528b221dfd0
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="package-versioning"></a>Contrôle de version de package
+# <a name="package-versioning"></a>Contrôle de version des packages
 
 Un package spécifique est toujours appelée à l’aide de son identificateur de package et un numéro de version exact. Par exemple, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) sur nuget.org a plusieurs dizaines des packages spécifiques disponibles, allant de version *4.1.10311* vers la version *6.1.3* (la dernière stable version) et les diverses versions préliminaires telles que *6.2.0-beta1*.
 
@@ -61,7 +64,7 @@ Ceci dit, les développeurs de packages suivent les conventions d’affectation 
 - `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
-> Prend en charge de NuGet 4.3.0+ [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de version préliminaire avec la notation à points, comme dans *1.0.1-build.23*. Notation par points n’est pas pris en charge avec les versions de NuGet antérieures 4.3.0. Vous pouvez utiliser un formulaire comme *1.0.1-build23*.
+> Prend en charge de NuGet 4.3.0+ [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de version préliminaire avec la notation à points, comme dans *1.0.1-build.23*. La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un formulaire comme *1.0.1-build23*.
 
 Lors de la résolution des références de package et de plusieurs versions de package diffèrent uniquement par le suffixe, NuGet choisit une version sans suffixe tout d’abord, puis applique la priorité pour la version préliminaire dans l’ordre alphabétique inverse. Par exemple, les versions suivantes sont choisies en respectant l’ordre indiqué :
 
@@ -109,8 +112,8 @@ Lorsque vous faites référence aux dépendances de package, NuGet prend en char
 
 | Notation | Règle appliquée | Description |
 |----------|--------------|-------------|
-| 1.0 | 1.0 ≤ x | Version minimale, inclusive |
-| (1.0,) | 1.0 < x | Version minimale, exclusive |
+| 1.0 | x ≥ 1.0 | Version minimale, inclusive |
+| (1.0,) | x > 1.0 | Version minimale, exclusive |
 | [1.0] | x == 1.0 | Correspondance exacte |
 | (,1.0] | x ≤ 1.0 | Version maximale, inclusive |
 | (,1.0) | x < 1.0 | Version maximale, exclusive |

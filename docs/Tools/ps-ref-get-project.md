@@ -1,22 +1,25 @@
 ---
-title: "Référence de PowerShell Get-projet NuGet | Documents Microsoft"
+title: Référence de PowerShell Get-projet NuGet | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 12/07/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Référence de commande GetProject PowerShell dans la Console du Gestionnaire de Package NuGet dans Visual Studio."
-keywords: "NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Get-projet"
+ms.technology: ''
+description: Référence de commande GetProject PowerShell dans la Console du Gestionnaire de Package NuGet dans Visual Studio.
+keywords: NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Get-projet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c347a6104d89bb29626ad7c2f33bec150eb38cd2
-ms.sourcegitcommit: b0af28d1c809c7e951b0817d306643fcc162a030
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 9fcdcf7c550408cd7dfd73787ee14821c46a1df9
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-projet (Console du Gestionnaire de Package dans Visual Studio)
 

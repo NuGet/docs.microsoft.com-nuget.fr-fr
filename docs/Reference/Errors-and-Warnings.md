@@ -1,18 +1,21 @@
 ---
-title: "NuGet erreurs et avertissements référence | Documents Microsoft"
+title: NuGet erreurs et avertissements référence | Documents Microsoft
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 03/06/2018
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Informations de référence complètes pour les avertissements et erreurs émises à partir de NuGet lors de diverses opérations de NuGet."
+ms.technology: ''
+description: Informations de référence complètes pour les avertissements et erreurs émises à partir de NuGet lors de diverses opérations de NuGet.
 keywords: Erreurs de NuGet, les avertissements de NuGet, les diagnostics
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
+ms.workload:
+- dotnet
+- aspnet
 f1_keywords:
 - NU1000
 - NU1001
@@ -50,11 +53,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 59bbe37d1a965e5167800148603869645fc5e0b2
-ms.sourcegitcommit: df21fe770900644d476d51622a999597a6f20ef8
+ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/12/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="errors-and-warnings"></a>Erreurs et avertissements
 
@@ -136,7 +139,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | L’identificateur du package est trouvé, mais une version dans la plage de dépendance spécifié est introuvable sur une des sources. La plage peut être spécifiée par un package et non à l’utilisateur. |
 | **Exemple de message** | *Impossible de trouver le package NuGet.Versioning avec la version (> = 9.0.1)<br/> -30 de trouvé ou les versions dans nuget.org [plus proche de la version : 4.0.0]<br/> -trouvé les 10 ou les versions dans buildtools-dotnet [plus proche de la version : 4.0.0-rc-2129]<br/> -trouvé le 9 versions dans NuGetVolatile [version la plus proche : 3.0.0-beta-00032]<br/> -trouvé 0 ou les versions dans core-dotnet<br/> -trouvé 0 ou les versions de roslyn-dotnet* |
-| **Solution** | Modifiez le fichier projet ou `packages.config` pour corriger la version du package. Assurez-vous également que le [configuration NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifie les sources de package votre s’attendre à être à l’aide. Vous devrez peut-être modifier la version requeted si ce package est référencé directement par le projet. |
+| **Solution** | Modifiez le fichier projet pour corriger la version du package. Assurez-vous également que le [configuration NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifie les sources de package votre s’attendre à être à l’aide. Vous devrez peut-être modifier la version requeted si ce package est référencé directement par le projet. |
 
 ### <a name="nu1103"></a>NU1103
 
@@ -144,7 +147,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | Le projet spécifié une version stable pour la plage de dépendance, mais aucune version stable a été trouvée dans cette plage. Versions préliminaires ont été trouvées, mais ne sont pas autorisées. |
 | **Exemple de message** | *Impossible de trouver un package stable NuGet.Versioning avec la version (> = 3.0.0)<br/> -trouvé les 10 ou les versions dans buildtools-dotnet [plus proche de la version : 4.0.0-rc-2129]<br/> -versions 9 de trouvé dans NuGetVolatile [version la plus proche : 3.0.0-beta-00032] <br/> -Trouvé 0 ou les versions dans core-dotnet<br/> -trouvé 0 ou les versions de roslyn-dotnet* |
-| **Solution** |  Modifier la plage de versions dans le fichier projet ou `packages.config` pour inclure les versions préliminaires. Consultez [contrôle de version de Package](../reference/Package-Versioning.md). |
+| **Solution** |  Modifier la plage de version dans le fichier projet pour inclure les versions préliminaires. Consultez [contrôle de version de Package](../reference/Package-Versioning.md). |
 
 ### <a name="nu1104"></a>NU1104
 
@@ -167,8 +170,8 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | | |
 | --- | --- |
 | **Problème** | Contraintes de dépendances ne peut pas être résolus. |
-| **Exemple de message** | *Impossible de satisfaire les requêtes en conflit pour {id} : {chemin d’accès de conflit} Framework : {graphique cible}* 
-| **Solution** | Modifiez le fichier projet ou `packages.config` pour spécifier les plages plus flexible pour la dépendance plutôt qu’une version exacte. |
+| **Exemple de message** | *Impossible de satisfaire les requêtes en conflit pour {id} : {chemin d’accès de conflit} Framework : {graphique cible}* |
+| **Solution** | Modifiez le fichier projet pour spécifier les plages plus flexible pour la dépendance plutôt qu’une version exacte. |
 |
 
 <a name="nu1107"></a>
@@ -179,7 +182,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | Impossible de résoudre les contraintes de dépendances entre les packages. |
 | **Exemple de message** | *Conflit de version détecté pour NuGet.Versioning. Référencer le package directement à partir du projet pour résoudre ce problème.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **Solution** | Les packages avec des contraintes de dépendance sur les versions exactes ne permettent pas d’autres packages d’augmenter la version, si nécessaire. Ajouter une référence au projet directement (dans le fichier projet ou `packages.config`) avec la version exacte requise. |
+| **Solution** | Les packages avec des contraintes de dépendance sur les versions exactes ne permettent pas d’autres packages d’augmenter la version, si nécessaire. Ajoutez une référence au projet directement (dans le fichier projet) avec la version exacte requise. |
 
 <a name="nu1108"></a>
 

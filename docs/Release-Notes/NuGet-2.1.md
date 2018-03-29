@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 2.1 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 2.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
+ms.technology: ''
+description: Notes de publication pour 2.1 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
+keywords: Notes de version 2.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 405f5a0bddd5472cc760da77412c5fa066da1558
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 06116a86887b5561ad4e2ecad8090222d16cd333
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-21-release-notes"></a>Notes de version 2.1 de NuGet
 

@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notes de version 1.1 de NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 1.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
+ms.technology: ''
+description: Notes de version 1.1 de NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
+keywords: Notes de version 1.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6a596e61f144e7269f703f2dba3dddb4fd338e6a
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dd320df2d725e58182cd908ce621571ea018b350
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Notes de version 1.0 et 1.1 de NuGet
 
@@ -49,7 +52,7 @@ Pour utiliser cette [dernière version](http://nuget.codeplex.com/releases/view/
 
 * Tout d’abord désinstaller votre ancienne version. Vous devez exécuter Visual Studio en tant qu’administrateur pour ce faire.
 * Supprimez tous les flux existants dont vous disposez.
-* Ajouter un nouveau flux pointant vers [http://go.microsoft.com/fwlink/?LinkId=206669](http://go.microsoft.com/fwlink/?LinkId=206669).
+* Ajouter un nouveau flux pointant vers [ http://go.microsoft.com/fwlink/?LinkId=206669 ](http://go.microsoft.com/fwlink/?LinkId=206669).
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -135,7 +138,7 @@ Voici les modifications apportées dans cette version finale depuis CTP 2. Visit
 
 Voici les principales modifications apportées dans CTP 2 :
 
-* Basculer le package de flux d’ATOM à un point de terminaison du service OData : Si vous mettez à niveau vers la version CTP2 de NuGet, veillez à ajouter l’URL suivante comme source de package : https://feed.nuget.org/ctp2/odata/v1/.
+* Basculer le package de flux d’ATOM à un point de terminaison du service OData : Si vous mettez à niveau vers la version CTP2 de NuGet, veillez à ajouter l’URL suivante comme source de package : `https://feed.nuget.org/ctp2/odata/v1/`.
 * Renommer la commande Add-Package pour *Install-Package*.
 * Mise à jour le `.nuspec` Format. Le `.nuspec` format inclut désormais la *iconUrl* champ pour spécifier une icône de png 32 x 32 qui s’afficheront dans la boîte de dialogue Package ajouter. Veillez à définir pour distinguer votre package. Le `.nuspec` format comprend également la nouvelle *projectUrl* champ que vous pouvez utiliser pour pointer vers une page web qui fournit des informations sur votre package.
 
