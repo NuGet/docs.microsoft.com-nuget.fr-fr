@@ -1,6 +1,6 @@
 # [Qu’est-ce que NuGet ?](what-is-nuget.md)
 # [Installer les outils clients NuGet](install-nuget-client-tools.md)
-# Démarrages rapides
+# Guides de démarrage rapide
 ## [Installer et utiliser un package (interface CLI dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Installer et utiliser un package (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
 ## [Créer et publier un package NET Standard (interface CLI dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
@@ -14,7 +14,7 @@
 ### [Résolution des problèmes](consume-packages/package-restore-troubleshooting.md)
 ## [Réinstallation et mise à jour des packages](consume-packages/reinstalling-and-updating-packages.md)
 ## [Packages et contrôle de code source](consume-packages/packages-and-source-control.md)
-## [Gestion du cache NuGet](consume-packages/managing-the-nuget-cache.md)
+## [Gestion des packages globaux et des dossiers de cache](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ## [Configuration du comportement de NuGet](consume-packages/configuring-nuget-behavior.md)
 ## [Résolution des dépendances](consume-packages/dependency-resolution.md)
 # Créer des packages
@@ -31,8 +31,8 @@
 ## Repères
 ### [Créer des packages UWP](guides/create-uwp-packages.md)
 ### [Création de contrôles UWP en tant que packages NuGet](guides/create-uwp-controls.md)
-### [Créer des packages NET Standard (Visual Studio 2015)](guides/create-net-standard-packages-vs2015.md)
-### [Créer des packages pour Xamarin](guides/create-packages-for-xamarin.md)
+### [Créer des packages NET Standard/NET Framework avec Visual Studio 2015](guides/create-net-standard-packages-vs2015.md)
+### [Créer des packages pour Xamarin avec Visual Studio 2015](guides/create-packages-for-xamarin.md)
 # Héberger des packages
 ## [Vue d’ensemble](hosting-packages/overview.md)
 ## [Flux locaux](hosting-packages/local-feeds.md)
@@ -88,7 +88,7 @@
 ### [Fournisseurs d’informations d’identification NuGet pour Visual Studio](reference/extensibility/nuget-credential-providers-for-visual-studio.md)
 ### [Fournisseurs d’informations d’identification nuget.exe](reference/extensibility/nuget-exe-credential-providers.md)
 ## Contenu archivé
-### [Format de référence project.json](archive/project-json.md)
+### [Format de gestion project.json](archive/project-json.md)
 ### [project.json et UWP](archive/project-json-and-uwp.md)
 ### [Impact de project.json](archive/project-json-impact.md)
 # API
