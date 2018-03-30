@@ -1,5 +1,5 @@
 ---
-title: "Rechercher à l’aide d’une requête tous les packages publiés sur nuget.org | Microsoft Docs"
+title: Rechercher à l’aide d’une requête tous les packages publiés sur nuget.org | Microsoft Docs
 author:
 - joelverhagen
 - kraigb
@@ -8,19 +8,22 @@ ms.author:
 - kraigb
 manager: skofman
 ms.date: 11/02/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "À l’aide de l’API NuGet, vous pouvez rechercher au moyen d’une requête tous les packages publiés sur nuget.org et rester à jour au fil du temps."
-keywords: "énumérer tous les packages avec l’API NuGet, répliquer les packages avec l’API NuGet, derniers packages publiés sur nuget.org"
+ms.technology: ''
+description: À l’aide de l’API NuGet, vous pouvez rechercher au moyen d’une requête tous les packages publiés sur nuget.org et rester à jour au fil du temps.
+keywords: énumérer tous les packages avec l’API NuGet, répliquer les packages avec l’API NuGet, derniers packages publiés sur nuget.org
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: ce25680f3b591e9c6b0234b6ac30b82205d10ad3
-ms.sourcegitcommit: 7969f6cd94eccfee5b62031bb404422139ccc383
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 5ea11e1b4edd87b6d30d3838986ca60aaa77870f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/20/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Rechercher à l’aide d’une requête tous les packages publiés sur nuget.org
 

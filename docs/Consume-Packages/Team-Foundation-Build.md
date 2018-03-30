@@ -1,22 +1,25 @@
 ---
-title: "Procédure pas à pas pour la restauration des packages NuGet avec Team Foundation Build | Microsoft Docs"
+title: Procédure pas à pas pour la restauration des packages NuGet avec Team Foundation Build | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Procédure pas à pas expliquant comment restaurer des packages avec Team Foundation Build (Visual Studio Team Services et TFS)."
-keywords: "Restauration des packages NuGet, NuGet et TFS, NuGet et VSTS, systèmes de génération NuGet, Team Foundation Build, projets MSBuild personnalisés, Cloud Build, intégration continue"
+ms.technology: ''
+description: Procédure pas à pas expliquant comment restaurer des packages avec Team Foundation Build (Visual Studio Team Services et TFS).
+keywords: Restauration des packages NuGet, NuGet et TFS, NuGet et VSTS, systèmes de génération NuGet, Team Foundation Build, projets MSBuild personnalisés, Cloud Build, intégration continue
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 9e3ef6e3bcc55705315fcb6ccf3e917963c62250
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: f46a7402214bf965918a5195605027913a8c60c2
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configuration de la restauration de packages avec Team Foundation Build
 
@@ -110,6 +113,9 @@ Le fichier `.gitignore` se présente ainsi :
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 Le fichier `.gitignore` est [très puissant](https://www.kernel.org/pub/software/scm/git/docs/gitignore.html). Par exemple, si vous ne souhaitez pas archiver le contenu du dossier `packages`, mais souhaitez archiver les fichiers `.targets`, vous pouvez utiliser la règle suivante :
 
@@ -125,6 +131,9 @@ La gestion de versions Team Foundation prend en charge un mécanisme très simil
     bin
     obj
     packages
+    *.nupkg
+    project.lock.json
+    project.assets.json
 
 ## <a name="buildproj"></a>build.proj
 

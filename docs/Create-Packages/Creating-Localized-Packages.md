@@ -1,22 +1,25 @@
 ---
-title: "Guide pratique pour créer un package NuGet localisé | Microsoft Docs"
+title: Guide pratique pour créer un package NuGet localisé | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Informations sur les deux façons de créer des packages NuGet localisés, soit en incluant tous les assemblys dans un package unique, soit en publiant des assemblys séparés."
-keywords: "Localisation de packages NuGet, assemblys satellites NuGet, création de packages localisés, conventions de localisation NuGet"
+ms.technology: ''
+description: Informations sur les deux façons de créer des packages NuGet localisés, soit en incluant tous les assemblys dans un package unique, soit en publiant des assemblys séparés.
+keywords: Localisation de packages NuGet, assemblys satellites NuGet, création de packages localisés, conventions de localisation NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 5946ba6b43d3c418a1624aeb27d12b385d66b2fb
-ms.sourcegitcommit: 8f26d10bdf256f72962010348083ff261dae81b9
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 39ff6d300ec1a1f7941cad5953599f25f55117f4
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/08/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-localized-nuget-packages"></a>Création de packages NuGet localisés
 

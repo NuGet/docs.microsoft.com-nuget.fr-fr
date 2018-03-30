@@ -1,26 +1,29 @@
 ---
-title: "Création de packages NuGet natifs | Microsoft Docs"
+title: Création de packages NuGet natifs | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Informations sur la création de packages NuGet natifs contenant du code C++ au lieu de code managé, à utiliser dans des projets C++."
+ms.technology: ''
+description: Informations sur la création de packages NuGet natifs contenant du code C++ au lieu de code managé, à utiliser dans des projets C++.
 keywords: Packages NuGet natifs, packages NuGet C++, packages de code natif, ciblant des projets C++
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 71f4eca411d520630ca7d77165b8f03cd32af290
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: ed33f906f11a80c0d033292f7de151e93b8368fd
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="creating-native-packages"></a>Création de packages natifs
 
-Un package natif contient du code C++ natif au lieu de code managé, ce qui lui permet d’être utilisé dans des projets C++. (Consultez [Packages C++ natifs](../consume-packages/finding-and-choosing-packages.md#native-cpp-packages) dans la section Consommer.)
+Un package natif contient du code C++ natif au lieu de code managé, ce qui lui permet d’être utilisé dans des projets C++. (Consultez [Packages C++ natifs](../consume-packages/finding-and-choosing-packages.md#native-c-packages) dans la section Consommer.)
 
 Pour être consommable dans un projet C++, un package doit cibler le framework `native`. Actuellement, aucun numéro de version n’est associé à ce framework car NuGet traite tous les projets C++ de la même façon.
 

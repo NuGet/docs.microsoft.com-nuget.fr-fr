@@ -6,18 +6,21 @@ manager: unnir
 ms.date: 3/7/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Notes de publication de NuGet 4.6.0, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR."
-keywords: "Notes de publication de NuGet 4.6.0 RC, correctifs de bogues, problèmes connus, fonctionnalités ajoutées, DCR"
+ms.technology: ''
+description: Notes de publication de NuGet 4.6.0, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR.
+keywords: Notes de publication de NuGet 4.6.0 RC, correctifs de bogues, problèmes connus, fonctionnalités ajoutées, DCR
 ms.reviewer:
 - karann-msft
 - unniravindranathan
 - anangaur
-ms.openlocfilehash: 32bfe8a7d5d60a0ad24444749beff64edcaab305
-ms.sourcegitcommit: fa31ae10b5a5add7184bf7420554aade8adce6ed
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 004ad16018443292840b00fa88aa78350e371414
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-46-rtm-release-notes"></a>Notes de publication de NuGet 4.6 RTM
 
