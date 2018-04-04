@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Informations sur la façon dont l’implémentation de project.json dans NuGet 3.x affecte les auteurs de packages, notamment en termes de fonctionnalités, de contenu et de format de package non pris en charge."
-keywords: "NuGet et project.json, impact de project.json, considérations liées à la création de packages, fonctionnalités de project.json"
+ms.technology: ''
+description: Informations sur la façon dont l’implémentation de project.json dans NuGet 3.x affecte les auteurs de packages, notamment en termes de fonctionnalités, de contenu et de format de package non pris en charge.
+keywords: NuGet et project.json, impact de project.json, considérations liées à la création de packages, fonctionnalités de project.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: b732d48b169825764d614c338658f8c6ef45e765
-ms.sourcegitcommit: eabd401616a98dda2ae6293612acb3b81b584967
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 6e8af98504a2866106e84943989aeb91f2e9c1fb
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impact de project.json lors de la création de packages
 
@@ -51,7 +54,7 @@ La prise en charge du contenu est actuellement désactivée pour des raisons sim
 
 Les fichiers de contenu peuvent toujours être déplacés à l’intérieur des packages, même s’ils sont ignorés actuellement, mais l’utilisateur final peut toujours les copier au bon endroit.
 
-Vous pouvez consulter une des propositions de réintégration des fichiers de contenu et suivre sa progression ici : [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+Vous trouverez une des propositions de réintégration des fichiers de contenu et pourrez suivre sa progression ici : [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
 
 ## <a name="impact-for-package-authors"></a>Impact pour les auteurs de packages
 

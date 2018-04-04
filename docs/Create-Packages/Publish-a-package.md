@@ -3,78 +3,97 @@ title: Guide pratique pour publier un package NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 10/05/2017
+ms.date: 03/19/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Instructions détaillées sur la manière de publier un package NuGet sur nuget.org ou des flux privés et de gérer la propriété du package sur nuget.org."
-keywords: "Publication de packages NuGet, publier un package NuGet, propriété de package NuGet, publier sur nuget.org, flux NuGet privés"
+ms.technology: ''
+description: Instructions détaillées sur la manière de publier un package NuGet sur nuget.org ou des flux privés et de gérer la propriété du package sur nuget.org.
+keywords: Publication de packages NuGet, publier un package NuGet, propriété de package NuGet, publier sur nuget.org, flux NuGet privés
 ms.reviewer:
 - anangaur
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 6cb582c036392ae2792f2fa4d307370e91c4f961
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 68db25276297353fab03258adecd9169149dbe51
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
 Une fois que vous avez créé un package et obtenu votre fichier `.nukpg`, un processus simple permet de le mettre à la disposition d’autres développeurs, de façon publique ou privée :
 
-- Les packages publics sont accessibles à tous les développeurs de la planète via [nuget.org](https://www.nuget.org/packages/manage/upload), comme décrit dans cette rubrique.
+- Les packages publics sont à la disposition des développeurs du monde entier par le biais de [nuget.org](https://www.nuget.org/packages/manage/upload), comme l’explique cet article (NuGet 4.1.0+ requis).
 - Les packages privés sont disponibles uniquement pour une équipe ou organisation, via leur hébergement sur un partage de fichiers, un serveur NuGet privé, [Visual Studio Team Services Package Management](https://www.visualstudio.com/docs/package/nuget/publish) ou un dépôt tiers comme myget, ProGet, Nexus Repository et Artifactory. Pour plus d’informations, consultez [Vue d’ensemble de l’hébergement des packages](../hosting-packages/overview.md).
 
-Cette rubrique traite de la publication sur nuget.org ; pour la publication sur Visual Studio Team Services, consultez [Gestion des packages](https://www.visualstudio.com/docs/package/nuget/publish).
+Cet article traite de la publication sur nuget.org ; en ce qui concerne la publication sur Visual Studio Team Services, consultez la page [Gestion des packages](https://www.visualstudio.com/docs/package/nuget/publish).
 
 ## <a name="publish-to-nugetorg"></a>Publier dans nuget.org
 
-Pour nuget.org, vous devez d’abord vous [inscrire pour créer un compte gratuit](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) ou vous connecter si vous êtes déjà inscrit :
+Dans le cas de nuget.org, il est nécessaire de se connecter avec un compte Microsoft, qui servira à enregistrer le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé avec des versions antérieures du portail.
 
-![Inscription à NuGet et emplacement de connexion](media/publish_NuGetSignIn.png)
+![Emplacement de la connexion NuGet](media/publish_NuGetSignIn.png)
 
 Ensuite, vous pouvez télécharger le package via le portail web nuget.org, l’envoyer (push) à nuget.org à partir de la ligne de commande (nécessite `nuget.exe` 4.1.0+), ou le publier dans le cadre d’un processus CI/CD via Visual Studio Team Services, comme décrit dans les sections suivantes.
 
 ### <a name="web-portal-use-the-upload-package-tab-on-nugetorg"></a>Portail web : utilisez l’onglet de chargement de package sur nuget.org
 
-![Charger un package avec le gestionnaire de package NuGet](media/publish_UploadYourPackage.PNG)
+1. Sélectionnez **Charger** dans le menu supérieur de nuget.org et accédez à l’emplacement du package.
+
+    ![Charger un package sur nuget.org](media/publish_UploadYourPackage.PNG)
+
+1. nuget.org indique si le nom du package est disponible. Si ce n’est pas le cas, modifiez l’identificateur du package dans votre projet, relancez la génération et retentez le chargement.
+
+1. Si le nom du package est disponible, nuget.org ouvre une section **Vérifier**, qui permet de consulter les métadonnées du manifeste de package. Pour modifier les métadonnées, modifiez votre projet (fichier projet ou fichier `.nuspec`), relancez la génération, recréez le package et relancez le chargement.
+
+1. Sous **Documentation de l’importation** vous pouvez coller Markdown, pointer sur vos documents avec une URL ou charger un fichier de documentation.
+
+1. Lorsque toutes les informations sont prêtes, sélectionnez le bouton **Envoyer**.
 
 ### <a name="command-line"></a>Ligne de commande
 
-> [!Important]
-> Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4.1.0 ou plus](https://www.nuget.org/downloads), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) requis.
+Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4.1.0 ou plus](https://www.nuget.org/downloads), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) requis. Vous aurez également besoin d’une clé API, créée sur nuget.org.
 
-1. Cliquez sur votre nom d’utilisateur pour accéder aux paramètres de votre compte.
-1. Sous **Clé API**, cliquez sur **Copier dans le Presse-papiers** pour récupérer la clé d’accès nécessaire dans l’interface CLI :
+#### <a name="create-api-keys"></a>Créer des clés API
 
-    ![Copie d’une clé API à partir des paramètres de compte](media/publish_APIKey.png)
+[!INCLUDE[publish-api-key](../quickstart/includes/publish-api-key.md)]
 
-1. À l’invite de commandes, exécutez la commande suivante :
+#### <a name="publish-with-dotnet-nuget-push"></a>Publier avec dotnet nuget push
+
+[!INCLUDE[publish-dotnet](../quickstart/includes/publish-dotnet.md)]
+
+#### <a name="publish-with-nuget-push"></a>Publier avec nuget push
+
+1. Dans une invite de commandes, exécutez la commande suivante en remplaçant `<your_API_key>` par la clé obtenue sur nuget.org :
 
     ```cli
-    nuget setApiKey Your-API-Key
+    nuget setApiKey <your_API_key>
     ```
 
-    Votre clé API est ainsi stockée sur l’ordinateur afin que vous n’ayez pas à répéter cette étape sur le même ordinateur.
+    Cette commande stocke votre clé API dans votre configuration NuGet ; vous devrez donc répéter cette étape sur le même ordinateur.
 
-1. Envoyez (push) votre package à la galerie NuGet à l’aide de la commande :
+1. Envoyez (push) votre package dans la galerie NuGet à l’aide de la commande suivante :
 
     ```cli
     nuget push YourPackage.nupkg -Source https://api.nuget.org/v3/index.json
     ```
 
-1. Avant de devenir publics, tous les packages chargés sur nuget.org sont analysés et rejetés si des virus sont détectés. Tous les packages répertoriés sur nuget.org sont aussi analysés régulièrement.
-
-1. Dans votre compte sur nuget.org, cliquez sur **Gérer mes packages** pour voir celui que vous venez de publier ; vous recevez également un e-mail de confirmation. Notez que l’indexation de votre package peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Pendant ce délai, le message suivant s’affiche dans la page de votre package :
-
-    ![Message indiquant qu’un package n’est pas encore indexé](media/publish_NotYetIndexed.png)
-
 ### <a name="package-validation-and-indexing"></a>Validation du package et indexation
 
-Les packages envoyés à nuget.org passent par plusieurs validations. Lorsque le package a satisfait à tous les contrôles de validation, son indexation peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Une fois que l’indexation est terminée, vous recevez un e-mail de confirmation que le package a été correctement publié. Si le package ne satisfait pas à un contrôle de validation, la page des détails du package se met à jour pour afficher l’erreur associée et vous recevez aussi un e-mail vous en informant.
+Les packages envoyés sur nuget.org passent par plusieurs validations, notamment des contrôles antivirus. (Tous les packages présents sur nuget.org sont analysés régulièrement.)
+
+. Lorsque le package a satisfait à tous les contrôles de validation, son indexation peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Une fois que l’indexation est terminée, vous recevez un e-mail de confirmation que le package a été correctement publié. Si le package ne satisfait pas à un contrôle de validation, la page des détails du package se met à jour pour afficher l’erreur associée et vous recevez aussi un e-mail vous en informant.
 
 La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si nuget.org rencontre des interruptions. Si tous les systèmes sont opérationnels et que le package n’a pas été correctement publié dans l’heure, connectez-vous à nuget.org et contactez-nous à l’aide du lien permettant de contacter le support disponible dans la page du package.
+
+Pour afficher l’état d’un package, sélectionnez **Gérer les packages** sous le nom de votre compte sur nuget.org. Vous recevrez un e-mail de confirmation à la fin de la validation.
+
+Notez que l’indexation de votre package peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Pendant ce délai, le message suivant s’affiche dans la page de votre package :
+
+![Message indiquant qu’un package n’est pas encore publié](media/publish_NotYetIndexed.png)
 
 ### <a name="visual-studio-team-services-cicd"></a>Visual Studio Team Services (CI/CD)
 
@@ -89,14 +108,14 @@ Tous les propriétaires de packages disposent d’autorisations complètes sur l
 Pour modifier la propriété d’un package, effectuez les opérations suivantes :
 
 1. Connectez-vous à nuget.org avec le compte qui est le propriétaire actuel du package.
-1. Cliquez sur votre nom d’utilisateur, puis sous **Gérer mes packages**, cliquez sur le package à gérer.
-1. Cliquez sur le lien **Gérer les propriétaires** à gauche.
+1. Sélectionnez le nom de votre compte, puis **Gérer les packages** et développez **Packages publiés**.
+1. Sélectionnez le package que vous souhaitez gérer, puis **Gérer les propriétaires** à droite.
 
 À partir de là, vous disposez de plusieurs options :
 
-1. Pour ajouter un propriétaire, entrez le nom de leur compte NuGet, puis cliquez sur **Ajouter**. Un e-mail est envoyé à ce nouveau copropriétaire avec un lien de confirmation. Une fois la confirmation effectuée, cette personne dispose d’autorisations complètes pour ajouter et supprimer des propriétaires. (Tant que la confirmation n’est pas effectuée, la page **Gérer les propriétaires** indique « En attente d’approbation » pour cette personne).
-1. Pour supprimer un propriétaire, sélectionnez son nom sous **Gérer les propriétaires** et cliquez sur **Supprimer**.
-1. Pour transférer la propriété (quand elle change ou quand un package a été publié sous un compte incorrect), ajoutez simplement le nouveau propriétaire, puis une fois qu’il a confirmé sa propriété, il peut vous supprimer de la liste.
+1. Supprimez des propriétaires listés sous **Propriétaires actuels**.
+1. Ajoutez un propriétaire sous **Ajouter un propriétaire** en entrant son nom d’utilisateur et un message, puis en sélectionnant **Ajouter**. Cette action envoie un e-mail comportant un lien de confirmation à ce nouveau copropriétaire. Une fois la confirmation effectuée, cette personne dispose d’autorisations complètes pour ajouter et supprimer des propriétaires. (Tant que la confirmation n’est pas effectuée, la section **Propriétaires actuels** indique « En attente d’approbation » pour cette personne.)
+1. Pour transférer la propriété (quand elle change ou qu’un package n’a pas été publié sous le bon compte), ajoutez le nouveau propriétaire ; une fois qu’il aura confirmé sa propriété, il pourra vous supprimer de la liste.
 
 Pour affecter la propriété à une entreprise ou un groupe, créez un compte nuget.org à l’aide d’un alias de messagerie transféré aux membres d’équipe appropriés. Par exemple, les comptes [microsoft](http://nuget.org/profiles/microsoft) et [aspnet](http://nuget.org/profiles/aspnet) sont propriétaires de divers packages Microsoft ASP.NET.
 

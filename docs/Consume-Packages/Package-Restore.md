@@ -3,36 +3,38 @@ title: Restauration des packages NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
-ms.date: 02/12/2018
+ms.date: 03/16/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-ms.assetid: a7bf21da-86ae-4c2d-8750-04ff53f41967
-description: "Vue d’ensemble décrivant comment NuGet restaure les packages dont dépend un projet (notamment les procédures de désactivation de la restauration et de restriction des versions)."
-keywords: "Restauration des packages NuGet, installation des packages NuGet, installation de package, restauration des packages, versions des dépendances, désactivation de la restauration automatique, restriction des versions de package"
+ms.technology: ''
+description: Vue d’ensemble décrivant comment NuGet restaure les packages dont dépend un projet (notamment les procédures de désactivation de la restauration et de restriction des versions).
+keywords: Restauration des packages NuGet, installation des packages NuGet, installation de package, restauration des packages, versions des dépendances, désactivation de la restauration automatique, restriction des versions de package
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 761ef86a70e0a681449dc9fe86d6a52ac2b19bb1
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: d5c9c9f571ea25f8877f78c3fba114562d31fcd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="package-restore"></a>Restauration des packages
 
-Pour promouvoir un environnement de développement plus propre et pour réduire la taille du référentiel, la fonctionnalité de **restauration des packages** de NuGet installe tous les packages référencés avant la génération d’un projet. Cette fonctionnalité largement utilisée &mdash;disponible dans Visual Studio, .NET Core 2.0+ et avec xbuild sur Mono&mdash; garantit la disponibilité de toutes les dépendances dans un projet, sans que les packages ne doivent être stockés dans le contrôle de code source (consultez [Packages et contrôle de code source](../consume-packages/packages-and-source-control.md) pour configurer votre référentiel de manière à exclure les fichiers binaires des packages). Vous pouvez également à tout moment restaurer manuellement les packages.
+Pour promouvoir un environnement de développement plus propre et réduire la taille du référentiel, la fonctionnalité de **restauration de package** de NuGet installe toutes les dépendances d’un projet telles qu’elles sont listées dans le fichier projet ou `packages.config`. Visual Studio peut restaurer les packages automatiquement à la génération d’un projet. Les commandes `dotnet build` et `dotnet run` (.NET Core 2.0+) effectuent également une restauration automatique. Vous pouvez aussi restaurer les packages à tout moment avec Visual Studio, `nuget restore`, `dotnet restore` et xbuild sur Mono.
 
-Pour plus d’informations concernant la restauration des packages sur les serveurs de builds, consultez [Restauration des packages avec TFBuild](../consume-packages/team-foundation-build.md).
+La restauration de package permet de garantir la disponibilité de toutes les dépendances d’un projet sans stocker les packages dans le contrôle de code source. Consultez la page [Packages et contrôle de code source](../consume-packages/packages-and-source-control.md) pour savoir comment configurer votre référentiel de façon à exclure les binaires des packages.
 
 ## <a name="package-restore-overview"></a>Présentation de la restauration de package
 
-La restauration des packages installe tout d’abord les dépendances directes d’un projet selon les besoins, puis toutes les dépendances de ces packages dans l’ensemble du graphique de dépendance.
+La restauration de package installe tout d’abord les dépendances directes nécessaires d’un projet, puis toutes les dépendances du graphique de dépendance de ces packages.
 
-Si un package n’est pas déjà installé, NuGet essaie d’abord de le récupérer à partir du [cache](../consume-packages/managing-the-nuget-cache.md). Si le package ne se trouve pas dans le cache, NuGet tente alors de télécharger (et de mettre en cache) le package à partir de toute les sources activées (consultez [Configuration du comportement de NuGet](Configuring-NuGet-Behavior.md)). Les sources apparaissent également dans la liste **Outils > Options > Gestionnaire de package NuGet > Sources de package** dans Visual Studio. NuGet ignore l’ordre des sources de package et utilise le package provenant de la première source à répondre aux requêtes.
+Si un package n’est pas déjà installé, NuGet essaie d’abord de le récupérer à partir du [cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). Si le package ne se trouve pas dans le cache, NuGet tente de le télécharger à partir de toute les sources activées (consultez la page [Configurer le comportement de NuGet](Configuring-NuGet-Behavior.md) ; les sources apparaissent également dans la liste **Outils > Options > Gestionnaire de package NuGet > Sources de packages** dans Visual Studio). Lors de la restauration, NuGet ignore l’ordre des sources de packages et utilise le package provenant de la première source à répondre aux requêtes.
 
 > [!Note]
-> NuGet n’indique pas l’échec de la restauration d’un package tant que toutes les sources n’ont pas été vérifiées. À ce stade, NuGet ne signale l’échec que pour la dernière source dans la liste. L’erreur implique que le package ne se trouvait dans *aucune* autre source, même si les erreurs ne sont pas affichées pour chacune de ces sources.
+> NuGet n’indique pas l’échec de la restauration d’un package tant que toutes les sources n’ont pas été vérifiées. À ce stade, NuGet ne signale de défaillance que pour la dernière source de la liste. L’erreur implique que le package ne se trouvait dans *aucune* autre source, même si les erreurs ne sont pas affichées pour chacune de ces sources.
 
 La restauration du package est déclenchée comme suit :
 
@@ -42,11 +44,11 @@ La restauration du package est déclenchée comme suit :
 
     Pour effectuer une restauration manuelle, cliquez avec le bouton droit sur la solution dans l’Explorateur de solutions puis sélectionnez **Restaurer des packages NuGet**. Si un ou plusieurs packages individuels ne sont toujours pas installés correctement (comme en témoigne une icône d’erreur dans l’Explorateur de solutions), utilisez l’interface utilisateur du Gestionnaire de package pour désinstaller puis réinstaller les packages affectés. Consultez [Réinstallation et mise à jour des packages](../consume-packages/reinstalling-and-updating-packages.md).
 
-    Si vous voyez l’erreur « Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur » ou l’erreur « Un ou plusieurs packages NuGet doivent être restaurés mais n’ont pas pu l’être, car le consentement n’a pas été octroyé », activez la restauration automatique en suivant les instructions de la section [Activation et désactivation de la restauration des packages](#enabling-and-disabling-package-restore).
+    Si vous voyez l’erreur « Ce projet fait référence à des packages NuGet qui sont manquants sur cet ordinateur » ou l’erreur « Un ou plusieurs packages NuGet doivent être restaurés mais n’ont pas pu l’être, car le consentement n’a pas été octroyé », activez la restauration automatique en suivant les instructions de la section [Activation et désactivation de la restauration des packages](#enabling-and-disabling-package-restore). Consultez également la page [Résolution des problèmes de restauration de package](Package-restore-troubleshooting.md).
 
-- **Interface CLI NuGet** : utilisez la commande [nuget restore](../tools/cli-ref-restore.md), qui restaure les packages répertoriés dans le fichier projet (consultez [PackageReference](../consume-packages/package-references-in-project-files.md)) ou dans un fichier [packages.config](../reference/packages-config.md). Vous pouvez également spécifier un fichier solution.
+- **Interface CLI NuGet** : utilisez la commande [nuget restore](../tools/cli-ref-restore.md), qui restaure les packages listés dans le fichier projet ou dans `packages.config`. Vous pouvez également spécifier un fichier solution.
 
-- **MSBuild** : utilisez la commande [msbuild /t:restore](../reference/msbuild-targets.md#restore-target), qui restaure les packages répertoriés dans le fichier projet (consultez [PackageReference](../consume-packages/package-references-in-project-files.md)). Disponible uniquement dans NuGet 4.x+ et MSBuild 15.1+, inclus avec Visual Studio 2017. `nuget restore` et `dotnet restore` utilisent cette commande pour les projets applicables.
+- **MSBuild** : utilisez la commande [msbuild /t:restore](../reference/msbuild-targets.md#restore-target), qui restaure les packages listés dans le fichier projet (PackageReference uniquement). Disponible uniquement dans NuGet 4.x+ et MSBuild 15.1+, inclus avec Visual Studio 2017. `nuget restore` et `dotnet restore` utilisent cette commande pour les projets applicables.
 
 - **Visual Studio Team Services** : lorsque vous créez une définition de build dans Team Services, incluez la tâche [Restauration NuGet](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) ou [Restauration .NET Core](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) avant de procéder à toute tâche de génération. Cette tâche est incluse par défaut dans plusieurs modèles de build.
 
@@ -89,7 +91,10 @@ La restauration du package est généralement activée via **Outils > Options > 
 
 Pour référence, consultez [Fichier config NuGet - Section packageRestore](../reference/nuget-config-file.md#packagerestore-section).
 
-Dans certains cas, un développeur ou une société peuvent vouloir activer ou désactiver la restauration de package pour tous les utilisateurs d’un ordinateur. Pour cela, ajoutez les paramètres ci-dessus au fichier de configuration NuGet global situé dans `%ProgramData%\NuGet\Config[\{IDE}[\{Version}[\{SKU}]]]`. Chaque utilisateur peut ensuite activer la restauration au niveau d’un projet, si nécessaire. Pour plus d’informations sur la façon dont NuGet hiérarchise les fichiers de configuration, consultez [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+Dans certains cas, un développeur ou une société peuvent vouloir activer ou désactiver la restauration de package pour tous les utilisateurs d’un ordinateur. Pour cela, ajoutez les paramètres ci-dessus au fichier de configuration NuGet global situé dans `%ProgramData%\NuGet\Config` (Windows, potentiellement sous un dossier `\{IDE}\{Version}\{SKU}\` propre à Visual Studio) ou `~/.local/share` (Mac/Linux). Chaque utilisateur peut ensuite activer la restauration au niveau d’un projet, si nécessaire. Pour plus d’informations sur la façon dont NuGet hiérarchise les fichiers de configuration, consultez [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+
+> [!Important]
+> Si vous modifiez les paramètres `packageRestore` directement dans `nuget.config`, redémarrez Visual Studio pour que la boîte de dialogue des options affiche les valeurs actuelles.
 
 ## <a name="constraining-package-versions-with-restore"></a>Restriction des versions de package avec la restauration
 
@@ -101,13 +106,31 @@ Lors de la restauration des packages avec l’une des méthodes disponibles, NuG
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- PackageReference : permet de spécifier une plage de versions directement avec le numéro de version de la dépendance. Exemple :
+- Fichier projet (PackageReference) : permet de spécifier une plage de versions directement avec le numéro de version de la dépendance. Exemple :
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
 Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du package](../reference/package-versioning.md).
+
+## <a name="forcing-restore-from-package-sources"></a>Forcer la restauration à partir de sources de packages
+
+Par défaut, les opérations de restauration NuGet utilisent des packages provenant des dossiers *global-packages* et *http-cache*, décrits sur la page [Gérer les dossiers de packages globaux et de cache](managing-the-global-packages-and-cache-folders.md).
+
+Pour éviter d’utiliser le dossier *global-packages*, effectuez l’une des opérations suivantes :
+
+- Effacez le dossier avec `nuget locals global-packages -clear` ou `dotnet nuget locals global-packages --clear`.
+- Modifiez temporairement l’emplacement du dossier *global-packages* avant l’opération de restauration en suivant l’une des méthodes ci-dessous :
+  - Définissez la variable d’environnement NUGET_PACKAGES sur un autre dossier.
+  - Créez un fichier `NuGet.Config` qui définit `globalPackagesFolder` (si vous utilisez PackageReference) ou `repositoryPath` (si vous utilisez `packages.config`) sur un autre dossier (consultez les [paramètres de configuration](../reference/nuget-config-file.md#config-section)).
+  - MSBuild uniquement : spécifiez un autre dossier avec la propriété `RestorePackagesPath`.
+
+Pour éviter d’utiliser le cache pour les sources HTTP, effectuez l’une des opérations suivantes :
+
+- Utilisez l’option `-NoCache` avec `nuget restore` ou l’option `--no-cache` avec `dotnet restore`. Elles n’affectent pas les opérations de restauration effectuées par le biais de la console ou de l’interface utilisateur du Gestionnaire de package de Visual Studio.
+- Effacez le cache avec `nuget locals http-cache -clear` ou `dotnet nuget locals http-cache --clear`.
+- Définissez temporairement la variable d’environnement NUGET_HTTP_CACHE_PATH sur un autre dossier.
 
 ## <a name="troubleshooting"></a>Résolution des problèmes
 

@@ -1,35 +1,38 @@
 ---
-title: "Créer des packages NuGet .NET Standard avec Visual Studio 2015 | Microsoft Docs"
+title: Créer des packages NuGet .NET Standard et .NET Framework avec Visual Studio 2015 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 02/02/2018
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Procédure pas à pas de bout en bout pour créer des packages NuGet .NET Standard à l’aide de NuGet 3.x et Visual Studio 2015."
-keywords: "créer un package, packages .NET Standard, table de mappage .NET Standard"
+ms.technology: ''
+description: Procédure pas à pas de bout en bout pour créer des packages NuGet .NET Standard et .NET Framework avec NuGet 3.x et Visual Studio 2015.
+keywords: créer un package, packages .NET Standard, packages .NET Framework
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: abf6a56cbc84bdd066e31e77c7883825a8456144
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: dbe0a0788b5fc9ba37f7db601bd51c3e4f78f5b8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-net-standard-packages-with-visual-studio-2015"></a>Créer des packages .NET Standard avec Visual Studio 2015
+# <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Créer des packages .NET Standard et .NET Framework avec Visual Studio 2015
 
-*S’applique à NuGet 3.x. Consultez [Créer et publier un package avec Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) si vous envisagez d’utiliser NuGet 4.x+.*
+**Remarque :** Visual Studio 2017 est recommandé pour développer des bibliothèques .NET Standard. Visual Studio 2015 peut fonctionner, mais les outils .NET Core n’étaient qu’en préversion. Consultez la page [Créer et publier un package avec Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pour utiliser NuGet 4.x+ et Visual Studio 2017.
 
 La [bibliothèque .NET Standard](/dotnet/articles/standard/library) est une spécification formelle des API .NET destinées à être disponibles sur tous les runtimes .NET, renforçant ainsi l’uniformité de l’écosystème .NET. La bibliothèque .NET Standard définit un ensemble uniforme d’API de bibliothèque de classes de base pour toutes les plateformes .NET à implémenter, indépendamment de la charge de travail. Elle permet aux développeurs de produire du code qui est utilisable sur tous les runtimes .NET, et réduit, si ce n’est élimine, les directives de compilation conditionnelle spécifiques à la plateforme dans le code partagé.
 
-Ce guide vous explique comment créer un package NuGet ciblant .NET Standard Library 1.4. Cette bibliothèque fonctionne sur le .NET Framework 4.6.1, la plateforme Windows universelle 10, .NET Core et Mono/Xamarin. Pour plus d’informations, consultez la [table de mappage .NET Standard](#net-standard-mapping-table) plus loin dans cette rubrique.
+Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque .NET Standard 1.4 ou .NET Framework 4.6. Une bibliothèque .NET Standard 1.4 fonctionne sur .NET Framework 4.6.1, la plateforme Windows universelle 10, .NET Core et Mono/Xamarin. Pour plus d’informations, consultez la [table de mappage .NET Standard](/dotnet/standard/net-standard#net-implementation-support) (documentation .NET). Vous pouvez choisir une autre version de la bibliothèque .NET Standard si vous le souhaitez.
 
 ## <a name="prerequisites"></a>Prérequis
 
 1. Visual Studio 2015 Update 3
-1. [SDK .NET Core](https://www.microsoft.com/net/download/)
+1. (.NET Standard uniquement) [Kit SDK .NET Core](https://www.microsoft.com/net/download/)
 1. Interface de ligne de commande NuGet. Téléchargez la dernière version de nuget.exe à partir de [nuget.org/downloads](https://nuget.org/downloads), puis enregistrez-la dans un emplacement de votre choix. Ajoutez ensuite cet emplacement à votre variable d’environnement PATH, si ce n’est déjà fait.
 
     > [!Note]
@@ -37,13 +40,13 @@ Ce guide vous explique comment créer un package NuGet ciblant .NET Standard Lib
 
 ## <a name="create-the-class-library-project"></a>Créer le projet de bibliothèque de classes
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (Portable)**, changez le nom en AppLogger et cliquez sur OK.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)**, remplacez le nom par AppLogger et sélectionnez **OK**.
 
     ![Créer un projet de bibliothèque de classes](media/NetStandard-NewProject.png)
 
-1. Dans la boîte de dialogue **Ajouter une bibliothèque de classes portable** qui s’affiche, sélectionnez les options `.NET Framework 4.6` et `ASP.NET Core 1.0`.
+1. Dans la boîte de dialogue **Ajouter une bibliothèque de classes portable** qui s’affiche, sélectionnez les options de `.NET Framework 4.6` et de `ASP.NET Core 1.0`. (Si vous ciblez .NET Framework, vous pouvez sélectionner n’importe quelle option correspondante.)
 
-1. Cliquez avec le bouton droit sur `AppLogger (Portable)` dans l’Explorateur de solutions, sélectionnez **Propriétés**, sélectionnez l’onglet **Bibliothèque**, puis cliquez sur **Cibler .NET Platform Standard** dans la section **Ciblage**. Confirmez l’opération, puis sélectionnez `.NET Standard 1.4` dans la liste déroulante :
+1. Si vous ciblez .NET Standard, cliquez avec le bouton droit sur `AppLogger (Portable)` dans l’Explorateur de solutions, sélectionnez **Propriétés**, l’onglet **Bibliothèque**, puis **Cibler .NET Platform Standard** dans la section **Ciblage**. Cette action demande une confirmation, après quoi vous pourrez sélectionner `.NET Standard 1.4` (ou une autre version disponible) dans la liste déroulante :
 
     ![Définition de la cible sur .NET Standard 1.4](media/NetStandard-ChangeTarget.png)
 
@@ -96,11 +99,23 @@ Ce guide vous explique comment créer un package NuGet ciblant .NET Standard Lib
 
 1. Ajoutez des assemblys de référence au fichier `.nuspec`, concrètement les fichiers DLL et XML IntelliSense de la bibliothèque :
 
+    Si vous ciblez .NET Standard, les entrées se présentent ainsi :
+
     ```xml
     <!-- Insert below <metadata> element -->
     <files>
         <file src="bin\Release\AppLogger.dll" target="lib\netstandard1.4\AppLogger.dll" />
         <file src="bin\Release\AppLogger.xml" target="lib\netstandard1.4\AppLogger.xml" />
+    </files>
+    ```
+
+    Si vous ciblez .NET Framework, les entrées se présentent ainsi :
+
+    ```xml
+    <!-- Insert below <metadata> element -->
+    <files>
+        <file src="bin\Release\AppLogger.dll" target="lib\net46\AppLogger.dll" />
+        <file src="bin\Release\AppLogger.xml" target="lib\net46\AppLogger.xml" />
     </files>
     ```
 
@@ -146,7 +161,7 @@ Une fois que le fichier `.nuspec` est finalisé et qu’il référence tous les 
 nuget pack AppLogger.nuspec
 ```
 
-Cette opération génère `AppLogger.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce fichier dans un outil tel que [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) et développez tous les nœuds, le contenu suivant apparaît :
+Cette opération génère `AppLogger.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce fichier dans un outil comme [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) et que vous développez tous les nœuds, le contenu suivant (indiqué pour .NET Standard) apparaît :
 
 ![NuGet Package Explorer affichant le package AppLogger](media/NetStandard-PackageExplorer.png)
 
@@ -156,19 +171,6 @@ Cette opération génère `AppLogger.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce f
 Pour mettre votre package à la disposition des autres développeurs, suivez les instructions indiquées dans [Publier un package](../create-packages/publish-a-package.md).
 
 Notez que `pack` nécessite Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins Windows dans le fichier `.nuspec` en chemins de style Unix.
-
-## <a name="net-standard-mapping-table"></a>Table de mappage .NET Standard
-
-| Nom de la plateforme | Alias |
-| --- | --- |
-| .NET Standard | netstandard | 1.0 | 1.1 | 1.2 | 1.3 | 1.4 | 1,5 | 1.6 |
-| .NET Core | netcoreapp | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | 1.0 |
-| .NET Framework | net | 4.5 | 4.5.1 | 4.6 | 4.6.1 | 4.6.2 | 4.6.3 |
-| Plateformes Mono/Xamarin | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; | &#x2192; |
-| Plateforme Windows universelle | uap | &#x2192; | &#x2192; | &#x2192; | &#x2192; |10.0 |
-| Windows | win| &#x2192; | 8.0 | 8.1 |
-| Windows Phone | wpa| &#x2192;| &#x2192; | 8.1 |
-| Windows Phone Silverlight | wp | 8.0 |
 
 ## <a name="related-topics"></a>Rubriques connexes
 

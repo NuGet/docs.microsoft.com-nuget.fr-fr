@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 01/18/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Modèle de gouvernance pour NuGet, y compris les rôles et responsabilités des validateurs, contributeurs et utilisateurs."
-keywords: "gouvernance pour NuGet, dictateur bienveillant NuGet, responsabilités des validateurs, responsabilités des contributeurs, responsabilités des utilisateurs"
+ms.technology: ''
+description: Modèle de gouvernance pour NuGet, y compris les rôles et responsabilités des validateurs, contributeurs et utilisateurs.
+keywords: gouvernance pour NuGet, dictateur bienveillant NuGet, responsabilités des validateurs, responsabilités des contributeurs, responsabilités des utilisateurs
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ea1ddcc3e145afe3b905b23db37e1e61500200bb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: aa48b95482c65de47d54daff142402dd2ff6558a
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="nuget-governance"></a>Gouvernance pour NuGet
 
@@ -40,7 +43,7 @@ De plus, les équipes de la .NET Foundation considère le responsable de projet 
 
 ### <a name="committers"></a>Validateurs
 
-Les validateurs sont des contributeurs qui ont régulièrement apporté des contributions précieuses à NuGet et sont désignés par le dictateur bienveillant. Une fois nommés, les validateurs sont chargés d’écrire le code directement dans le dépôt et de filtrer les contributions des autres. Les validateurs sont souvent des développeurs, mais ils peuvent contribuer par d’autres moyens.
+Les validateurs sont des contributeurs qui ont régulièrement apporté des contributions précieuses à NuGet et sont désignés par le dictateur bienveillant. Une fois nommés, les validateurs sont chargés d’écrire le code directement dans le référentiel et de filtrer les contributions des autres. Les validateurs sont souvent des développeurs, mais ils peuvent contribuer par d’autres moyens.
 
 En règle générale, un validateur se concentre sur un aspect spécifique du projet, apportant un niveau d’expertise et de compréhension qui lui vaut le respect de la communauté et du responsable de projet. Le rôle de validateur n’est pas un rôle officiel ; il s’agit simplement d’une position que les membres influents de la communauté assument quand le responsable de projet se tourne vers eux pour obtenir de l’aide et un soutien.
 

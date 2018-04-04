@@ -1,22 +1,25 @@
 ---
-title: "Problèmes connus dans NuGet | Microsoft Docs"
+title: Problèmes connus dans NuGet | Microsoft Docs
 author: karann-msft
 ms.author: karann-msft
 manager: ghogen
 ms.date: 11/11/2016
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Problèmes connus avec NuGet, notamment liés à l’authentification, à l’installation de package et aux outils."
-keywords: "problèmes connus NuGet, problèmes NuGet"
+ms.technology: ''
+description: Problèmes connus avec NuGet, notamment liés à l’authentification, à l’installation de package et aux outils.
+keywords: problèmes connus NuGet, problèmes NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ac00e3f11c54290a31319e7f2946fd965a0a9288
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: c36da5dc73dddbd540a36d171583cbf542e0678f
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="known-issues-with-nuget"></a>Problèmes connus avec NuGet
 
@@ -227,7 +230,7 @@ Les Outils Windows Phone ne prennent pas en charge le Gestionnaire d’extension
 
 ## <a name="changing-the-capitalization-of-nuget-package-ids-breaks-package-restore"></a>La modification de la casse des ID de packages NuGet interrompt la restauration des packages
 
-Comme expliqué en détail dans [ce problème GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), la modification de la casse des packages NuGet peut être effectuée par le Support technique NuGet, mais elle provoque des complications pendant la restauration des packages pour les personnes dont le cache local de packages contient des packages à la casse différente. Nous vous recommandons de demander un changement de casse uniquement quand vous avez la possibilité d’informer les utilisateurs de votre package de la rupture susceptible de se produire lors de la restauration des packages au moment de la build.
+Comme l’explique en détail [ce problème GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), la modification de la mise en majuscules de packages NuGet peut être effectuée par le support NuGet, mais elle provoque des complications lors de la restauration de package pour les utilisateurs dont le dossier *global-packages* contient déjà des packages à la casse différente. Nous vous recommandons de demander un changement de casse uniquement quand vous avez la possibilité d’informer les utilisateurs de votre package de la rupture susceptible de se produire lors de la restauration des packages au moment de la build.
 
 ## <a name="reporting-issues"></a>Problèmes liés aux rapports
 

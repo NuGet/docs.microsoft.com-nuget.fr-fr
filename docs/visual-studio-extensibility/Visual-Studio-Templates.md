@@ -1,22 +1,25 @@
 ---
-title: "Packages NuGet dans les modèles Visual Studio | Microsoft Docs"
+title: Packages NuGet dans les modèles Visual Studio | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/03/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Instructions pour inclure des packages NuGet dans des modèles de projet et d’élément Visual Studio."
-keywords: "NuGet dans Visual Studio, modèles de projet Visual Studio, modèles d’élément Visual Studio, packages dans des modèles de projet, packages dans des modèles d’élément"
+ms.technology: ''
+description: Instructions pour inclure des packages NuGet dans des modèles de projet et d’élément Visual Studio.
+keywords: NuGet dans Visual Studio, modèles de projet Visual Studio, modèles d’élément Visual Studio, packages dans des modèles de projet, packages dans des modèles d’élément
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 65b914e1fa59c28615f195b470880a12bf80efbb
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 8c1751ba9caf5e71ace7a81575e4e5448b1e4185
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="packages-in-visual-studio-templates"></a>Packages dans des modèles Visual Studio
 
@@ -62,7 +65,7 @@ Les packages préinstallés fonctionnent avec des [Assistants Modèle](/visualst
     </WizardData>
     ```
 
-    *(NuGet 2.2.1+)*  L’Assistant prend en charge plusieurs éléments `<package>`, ce qui permet la prise en charge de plusieurs sources de packages. Les attributs `id` et `version` sont tous deux obligatoires, ce qui signifie qu’une version spécifique d’un package est installée même si une version plus récente est disponible. Ceci évite que les mises à jour des packages ne compromettent le bon fonctionnement du modèle, en laissant au développeur la possibilité de mettre à jour le package avec le modèle.
+    L’Assistant prend en charge plusieurs éléments `<package>`, donc plusieurs sources de packages. Les attributs `id` et `version` sont tous deux obligatoires, ce qui signifie qu’une version spécifique d’un package est installée même si une version plus récente est disponible. Ceci évite que les mises à jour des packages ne compromettent le bon fonctionnement du modèle, en laissant au développeur la possibilité de mettre à jour le package avec le modèle.
 
 1. Spécifiez le référentiel où NuGet peut trouver les packages, comme décrit dans les sections suivantes.
 

@@ -6,17 +6,20 @@ manager: ghogen
 ms.date: 10/25/2017
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Les fichiers NuGet.Config permettent de contrôler le comportement de NuGet pour l’ensemble des projets et pour chacun des projets. Pour modifier ces fichiers, utilisez la commande nuget config."
-keywords: "Fichiers config NuGet, configuration NuGet, paramètres de comportement de NuGet, paramètres NuGet, Nuget.Config, NuGetDefaults.Config, valeurs par défaut"
+ms.technology: ''
+description: Les fichiers NuGet.Config permettent de contrôler le comportement de NuGet pour l’ensemble des projets et pour chacun des projets. Pour modifier ces fichiers, utilisez la commande nuget config.
+keywords: Fichiers config NuGet, configuration NuGet, paramètres de comportement de NuGet, paramètres NuGet, Nuget.Config, NuGetDefaults.Config, valeurs par défaut
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: c46f23fcbec5dfcb6122434d43097212f6230fb0
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Configuration du comportement de NuGet
 
@@ -27,7 +30,7 @@ Le comportement de NuGet est contrôlé par les paramètres qui sont définis da
 | Portée | Emplacement du fichier NuGet.Config | Description |
 | --- | --- | --- |
 | Projet | Dossier actuel (dossier du projet) ou tout dossier pouvant être situé jusqu’à la racine du lecteur.| Dans un dossier de projet, les paramètres s’appliquent uniquement au projet en question. Dans les dossiers parents qui contiennent plusieurs dossiers de projets, les paramètres s’appliquent à tous les projets des sous-dossiers. |
-| Utilisateur | Windows : `%APPDATA%\NuGet\NuGet.Config`<br/>Mac/Linux : `~/.nuget/NuGet/NuGet.Config` | Les paramètres s’appliquent à toutes les opérations. Toutefois, ils sont substitués par tout paramètre défini au niveau du projet. |
+| Utilisateur | Windows : `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux : `~/.nuget/NuGet/NuGet.Config` | Les paramètres s’appliquent à toutes les opérations. Toutefois, ils sont substitués par tout paramètre défini au niveau du projet. |
 | Ordinateur | Windows : `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux : `$XDG_DATA_HOME` (en général, `~/.local/share`) | Les paramètres s’appliquent à toutes les opérations effectuées sur l’ordinateur. Toutefois, ils sont substitués par tout paramètre défini au niveau de l’utilisateur ou du projet. |
 
 Remarques concernant les versions précédentes de NuGet :
@@ -94,7 +97,7 @@ nuget config -set repositoryPath= -configfile /home/my.Config
 
 ### <a name="creating-a-new-config-file"></a>Création d’un fichier config
 
-Copiez le modèle ci-dessous dans le nouveau fichier, puis utilisez `nuget config --configFile <filename>` pour définir les valeurs :
+Copiez le modèle ci-dessous dans le nouveau fichier, puis utilisez `nuget config -configFile <filename>` pour définir les valeurs :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -137,7 +140,7 @@ Supposons que vous disposiez de la structure de dossiers suivante sur deux lecte
 
 Vous avez donc quatre fichiers `NuGet.Config` aux emplacements suivants, avec le contenu spécifié (le fichier défini au niveau de l’ordinateur n’est pas inclus dans cet exemple, toutefois, son comportent est similaire à celui du fichier défini au niveau de l’utilisateur).
 
-Fichier A. Fichier de niveau utilisateur (`%APPDATA%\NuGet\NuGet.Config` sur Windows, `~/.nuget/NuGet/NuGet.Config` sur Mac/Linux) :
+Fichier A. Fichier de niveau utilisateur (`%appdata%\NuGet\NuGet.Config` sur Windows, `~/.nuget/NuGet/NuGet.Config` sur Mac/Linux) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -220,7 +223,7 @@ Le tableau suivant explique où le fichier `NuGetDefaults.Config` doit être sto
 
 ### <a name="nugetdefaultsconfig-settings"></a>Paramètres du fichier NuGetDefaults.Config
 
-- `packageSources` : cette collection a la même signification que `packageSources` dans les fichiers config habituels, et spécifie les sources par défaut. NuGet utilise les sources dans l’ordre durant l’installation ou la mise à jour des packages dans les projets utilisant le format de référence`packages.config`. Pour les projets utilisant le format PackageReference, NuGet utilise tout d’abord les sources locales, puis les sources sur les partages réseau et enfin les sources HTTP, quel que soit l’ordre dans les fichiers de configuration. NuGet ignore toujours l’ordre des sources avec les opérations de restauration.
+- `packageSources` : cette collection a la même signification que `packageSources` dans les fichiers config habituels, et spécifie les sources par défaut. NuGet utilise les sources dans l’ordre durant l’installation ou la mise à jour de packages dans les projets utilisant le format de gestion `packages.config`. Pour les projets utilisant le format PackageReference, NuGet utilise tout d’abord les sources locales, puis les sources sur les partages réseau et enfin les sources HTTP, quel que soit l’ordre dans les fichiers de configuration. NuGet ignore toujours l’ordre des sources avec les opérations de restauration.
 
 - `disabledPackageSources` : cette collection a également la même signification que dans les fichiers`NuGet.Config`, où chaque source affectée est répertoriée, avec son nom et une valeur true/false indiquant si elle est activée ou non. Ainsi, le nom et l’URL de la source sont conservés dans `packageSources`, sans que vous ayez à l’activer par défaut. Les développeurs peuvent ensuite réactiver la source en définissant sa valeur sur false dans d’autres fichiers `NuGet.Config`, sans avoir à connaître l’URL correcte. Cela est également utile pour fournir aux développeurs la liste complète des URL sources internes d’une organisation, tout en activant uniquement la source par défaut d’une équipe.
 

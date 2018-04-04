@@ -1,26 +1,29 @@
 ---
-title: "Guide d’introduction à l’utilisation des packages NuGet dans Visual Studio | Microsoft Docs"
+title: Guide d’introduction à l’utilisation des packages NuGet dans Visual Studio | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/23/2018
-ms.topic: get-started-article
+ms.topic: quickstart
 ms.prod: nuget
-ms.technology: 
-description: "Didacticiel décrivant la procédure pas à pas permettant d’installer et d’utiliser un package NuGet dans un projet Visual Studio."
-keywords: "installer NuGet, consommation de package NuGet, installation de packages NuGet, références de package NuGet, utilisation de packages NuGet"
+ms.technology: ''
+description: Didacticiel décrivant la procédure pas à pas permettant d’installer et d’utiliser un package NuGet dans un projet Visual Studio.
+keywords: installer NuGet, consommation de package NuGet, installation de packages NuGet, références de package NuGet, utilisation de packages NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: ff905fec6d6af4fa40fd4331cb970121b6eb0879
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 4205893cc02cffff8926513a555393d10c046f43
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="install-and-use-a-package-in-visual-studio"></a>Installer et utiliser un package dans Visual Studio
 
-Les packages NuGet contiennent du code réutilisable que les autres développeurs mettent à votre disposition pour l’utiliser dans vos projets. Pour des informations de base, consultez [Qu’est-ce que NuGet ?](../What-is-NuGet.md). Les packages sont installés dans un projet Visual Studio à l’aide de l’interface utilisateur du Gestionnaire de package ou de la Console du Gestionnaire de package, comme décrit dans cet article pour le package courant [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) et un projet de plateforme Windows universelle (UWP).
+Les packages NuGet contiennent du code réutilisable que les autres développeurs mettent à votre disposition pour l’utiliser dans vos projets. Pour des informations de base, consultez [Qu’est-ce que NuGet ?](../What-is-NuGet.md). Les packages sont installés dans un projet Visual Studio à l’aide de l’interface utilisateur ou de la console du Gestionnaire de Package. Cet article explique le processus avec le package [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) bien connu et un projet de plateforme Windows universelle (UWP). Le même processus s’applique à n’importe quel autre projet .NET ou .NET Core.
 
 Une fois le package installé, faites-y référence dans le code avec `using <namespace>`, où \<namespace\> est propre au package que vous utilisez. Une fois la référence effectuée, vous pouvez appeler le package par le biais de son API.
 
@@ -36,7 +39,9 @@ Vous pouvez installer l’édition Community 2017 gratuitement à partir de [vis
 
 ## <a name="create-a-project"></a>Créer un projet
 
-Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour cette procédure pas à pas, vous utilisez une application Windows universelle (UWP) simple. Créez un projet dans Visual Studio en sélectionnant le menu **Fichier > Nouveau projet...** puis **Windows universel > Application vide (Universal Windows)**. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
+Les packages NuGet peuvent être installés dans n’importe quel projet .NET, à condition qu’ils prennent en charge la même version cible de .NET Framework que le projet.
+
+Dans cette procédure pas à pas, utilisez une application Windows universelle (UWP) simple. Créez un projet dans Visual Studio en sélectionnant le menu **Fichier > Nouveau projet...** puis **Windows universel > Application vide (Universal Windows)**. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Ajouter le package NuGet Newtonsoft.Json
 
@@ -56,7 +61,7 @@ Pour installer le package, vous pouvez utiliser l’interface utilisateur du Ges
 
 1. (Visual Studio 2017) Si vous êtes invité à sélectionner un format de gestion de package, sélectionnez **PackageReference dans le fichier projet** :
 
-    ![Sélection d’un format de référence de package](media/QS_Use-03b-SelectFormat.png)
+    ![Sélectionner un format de gestion des packages](media/QS_Use-03b-SelectFormat.png)
 
 1. Si vous êtes invité à vérifier les modifications, sélectionnez **OK**.
 

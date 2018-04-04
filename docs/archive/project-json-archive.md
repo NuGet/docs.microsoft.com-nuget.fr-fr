@@ -1,26 +1,29 @@
 ---
-title: "Contenu archivé de project.json NuGet | Microsoft Docs"
+title: Contenu archivé de project.json NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/17/2018
 ms.topic: article
 ms.prod: nuget
-ms.technology: 
-description: "Éléments divers du contenu de project.json supprimés à d’autres endroits de la documentation NuGet."
+ms.technology: ''
+description: Éléments divers du contenu de project.json supprimés à d’autres endroits de la documentation NuGet.
 keywords: Fichier project.json NuGet
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 42a40c6c637839c13effc9e476ac5702a92cfd2a
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 16361fe16d8ecc7064af4b6d636435a31a5663dc
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-archive"></a>Archive project.json
 
-Le format de référence `project.json`, introduit avec NuGet 3.x, est utilisé pour certains types de projets. Il est déconseillé depuis l’introduction du format PackageReference, suivant lequel les dépendances sont listées directement dans le fichier projet.
+Le format de gestion `project.json`, introduit avec NuGet 3.x, est utilisé pour certains types de projets. Il est déconseillé depuis l’introduction du format PackageReference, suivant lequel les dépendances sont listées directement dans le fichier projet.
 
 Voir aussi :
 
@@ -28,11 +31,11 @@ Voir aussi :
 - [Impact de project.json sur les auteurs de packages](project-json-impact.md)
 - [project.json et UWP](project-json-and-uwp.md)
 
-## <a name="projectjson-reference-format"></a>Format de référence de project.json
+## <a name="projectjson-management-format"></a>Format de gestion project.json
 
 *À l’origine dans [Restauration de packages](../what-is-nuget.md).*
 
-Dans la liste des formats de référence :
+Dans la liste des formats de gestion :
 
 - [`project.json`](project-json.md) : *(déconseillé)* fichier JSON qui gère la liste des dépendances du projet avec un graphique de packages global dans un fichier associé, `project.lock.json`. Ce format est déconseillé ; préférer PackageReference.
 
@@ -138,7 +141,7 @@ Lorsque le format `project.json` est utilisé, NuGet prend également en charge 
 
 *À l’origine dans [Informations de référence sur NuGet.Config](../reference/nuget-config-file.md).*
 
-`globalPackagesFolder` s’applique uniquement à `project.json`.
+`globalPackagesFolder` s’applique uniquement à `project.json`. (Remarque supplémentaire : s’applique également à PackageReference.)
 
 ### <a name="nuspec-file-reference"></a>Informations de référence sur nuspec
 
@@ -150,7 +153,7 @@ L’élément `<contentFiles>` est utilisé à la place de `<files>` avec `proje
 
 *À l’origine dans [Informations de référence sur l’interface utilisateur du Gestionnaire de package](../tools/package-manager-ui.md).*
 
-Les projets qui utilisent le format de référence `project.json` présentent uniquement l’option **Afficher la fenêtre d’aperçu**.
+Les projets qui utilisent le format de gestion `project.json` présentent uniquement l’option **Afficher la fenêtre d’aperçu**.
 
 ### <a name="visual-studio-templates"></a>Modèles Visual Studio
 

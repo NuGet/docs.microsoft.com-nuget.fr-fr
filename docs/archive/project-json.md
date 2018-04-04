@@ -1,28 +1,31 @@
 ---
-title: "Informations de référence sur le fichier project.json pour NuGet | Microsoft Docs"
+title: Informations de référence sur le fichier project.json pour NuGet | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 07/27/2017
 ms.topic: reference
 ms.prod: nuget
-ms.technology: 
-description: "Dans certains types de projets, project.json gère la liste des packages NuGet utilisés dans le projet."
-keywords: "project.json NuGet, références de package NuGet, dépendances NuGet, project.lock.json"
+ms.technology: ''
+description: Dans certains types de projets, project.json gère la liste des packages NuGet utilisés dans le projet.
+keywords: project.json NuGet, références de package NuGet, dépendances NuGet, project.lock.json
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 2e2c521b18dd67e49942cc20eafef0be7f91573a
-ms.sourcegitcommit: 262d026beeffd4f3b6fc47d780a2f701451663a8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: 21542a219faa3d1fa0c32a838645d4471c5aa935
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/25/2018
+ms.lasthandoff: 03/28/2018
 ---
 # <a name="projectjson-reference"></a>Documentation de référence sur project.json
 
 *NuGet 3.x+*
 
-Le fichier `project.json` gère une liste de packages utilisés dans un projet, appelée format de référence de package. Il remplace `packages.config` mais est à son tour remplacé par [PackageReference](../consume-packages/package-references-in-project-files.md) avec NuGet 4.0 +.
+Le fichier `project.json` gère une liste de packages utilisés dans un projet, appelée format de gestion des packages. Il remplace `packages.config` mais est à son tour remplacé par [PackageReference](../consume-packages/package-references-in-project-files.md) avec NuGet 4.0 +.
 
 Le fichier [`project.lock.json`](#projectlockjson) (décrit ci-dessous) est également utilisé dans les projets employant `project.json`.
 
@@ -122,7 +125,7 @@ Répertorie les frameworks sur lesquels le projet est exécuté, comme `net45`, 
     }
  ```
 
-Une seule entrée est autorisée dans la section `frameworks`. (Les fichiers `project.json` pour les projets ASP.NET qui sont générés avec une chaîne d’outils DNX dépréciée, ce qui permet plusieurs cibles, représentent une exception.)
+Une seule entrée est autorisée dans la section `frameworks`. (Les fichiers `project.json` des projets ASP.NET créés avec une chaîne d’outils DNX déconseillée, qui autorise plusieurs cibles, font figure d’exception.)
 
 ## <a name="runtimes"></a>Runtimes
 

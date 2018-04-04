@@ -1,28 +1,31 @@
 ---
-title: "Créer des packages NuGet pour Xamarin (pour iOS, Android et Windows) | Microsoft Docs"
+title: Créer des packages NuGet pour Xamarin (pour iOS, Android et Windows) avec Visual Studio 2015 | Microsoft Docs
 author: kraigb
 ms.author: kraigb
 manager: ghogen
 ms.date: 01/09/2017
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.prod: nuget
-ms.technology: 
-description: "Procédure pas à pas de bout en bout montrant comment créer des packages NuGet pour Xamarin qui utilisent des API natives sur iOS, Android et Windows."
-keywords: "créer un package, packages pour Xamarin, packages multiplateformes"
+ms.technology: ''
+description: Procédure pas à pas de bout en bout montrant comment créer des packages NuGet pour Xamarin qui utilisent des API natives sur iOS, Android et Windows.
+keywords: créer un package, packages pour Xamarin, packages multiplateformes
 ms.reviewer:
 - karann-msft
 - unniravindranathan
-ms.openlocfilehash: 3e1460de060980365a5eaa2ef91c052cc359bb70
-ms.sourcegitcommit: 74c21b406302288c158e8ae26057132b12960be8
+ms.workload:
+- dotnet
+- aspnet
+ms.openlocfilehash: e101ca2d124a19d2cf758776717b3680aa5bbdd8
+ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/15/2018
+ms.lasthandoff: 03/28/2018
 ---
-# <a name="create-packages-for-xamarin"></a>Créer des packages pour Xamarin
+# <a name="create-packages-for-xamarin-with-visual-studio-2015"></a>Créer des packages pour Xamarin avec Visual Studio 2015
 
-Un package multiplateforme contient du code qui utilise des API natives sur iOS, Android et Windows, suivant le système d’exploitation du runtime. Bien que cela soit simple à faire, il est préférable de permettre aux développeurs d’utiliser le package à partir d’une bibliothèque de classes portable ou de bibliothèques .NET Standard par le biais d’une surface d’exposition d’API communes.
+Un package pour Xamarin contient du code qui utilise des API natives sur iOS, Android et Windows, suivant le système d’exploitation du runtime. Bien que cela soit simple à faire, il est préférable de permettre aux développeurs d’utiliser le package à partir d’une bibliothèque de classes portable ou de bibliothèques .NET Standard par le biais d’une surface d’exposition d’API communes.
 
-Dans cette procédure pas à pas, vous allez créer un package NuGet multiplateforme utilisable dans des projets mobiles sous iOS, sous Android et sous Windows.
+Dans cette procédure pas à pas, vous allez utiliser Visual Studio 2015 pour créer un package NuGet multiplateforme utilisable dans des projets mobiles sous iOS, sous Android et sous Windows.
 
 1. [Composants requis](#prerequisites)
 1. [Créer la structure du projet et le code d’abstraction](#create-the-project-structure-and-abstraction-code)
