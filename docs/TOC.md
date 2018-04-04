@@ -1,6 +1,6 @@
 # [Qu’est-ce que NuGet ?](what-is-nuget.md)
 # [Installer les outils clients NuGet](install-nuget-client-tools.md)
-# Guides de démarrage rapide
+# Démarrages rapides
 ## [Installer et utiliser un package (interface CLI dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Installer et utiliser un package (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
 ## [Créer et publier un package NET Standard (interface CLI dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
@@ -74,6 +74,7 @@
 # Référence
 ## [.nuspec](reference/nuspec.md)
 ## [Références de package dans les fichiers projet](consume-packages/package-references-in-project-files.md)
+## [Migrer packages.config vers PackageReference](reference/migrate-packages-config-to-package-reference.md)
 ## [packages.config](reference/packages-config.md)
 ## [Gestion des versions de package](reference/package-versioning.md)
 ## [Fichier Nuget.Config](reference/nuget-config-file.md)
