@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: dd9ca3b39c4bc9b00d8fca6fe1479d64016bad86
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e4dfe1102d1e0e2013136b0ae4975e5036e34642
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="installing-nuget-client-tools"></a>Installation des outils clients NuGet
 
@@ -59,7 +59,7 @@ Installation :
 [!INCLUDE[install-cli](includes/install-cli.md)]
 
 > [!Tip]
-> Utilisez `nuget update -self` pour mettre à jour un nuget.exe existant vers la dernière version.
+> Utilisez `nuget update -self` sur Windows pour mettre à jour un nuget.exe existant vers la dernière version.
 
 > [!Note]
 > La dernière interface CLI de NuGet est toujours disponible à l’adresse `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Pour des raisons de compatibilité avec d’anciens systèmes d’intégration continue, une URL précédente, `https://nuget.org/nuget.exe`, fournit actuellement [l’outil CLI 2.8.6 déconseillé](https://github.com/NuGet/NuGetGallery/issues/5381).

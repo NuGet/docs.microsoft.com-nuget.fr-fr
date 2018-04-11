@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: 99caf371ca1bd85e6af4e879741e3e2caab6e860
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7844ace0565b2e70f8f68e6e61548f0f28171689
+ms.sourcegitcommit: 5b223c5814799caa6309e95792a2d338df692778
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/04/2018
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -96,8 +96,8 @@ Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multipl
 
 | Value | Description |
 | --- | ---
-| compile | Contenu du dossier `lib` |
-| runtime | Contenu du dossier `runtimes` |
+| compile | Contenu du dossier `lib` et contrôles permettant de déterminer si votre projet peut être compilé avec les assemblys dans le dossier |
+| runtime | Contenu des dossiers `lib` et `runtimes` contrôles permettant de déterminer si ces assemblys seront copiés vers le répertoire de sortie de build |
 | contentFiles | Contenu du dossier `contentfiles` |
 | build | Propriétés et cibles du dossier `build` |
 | analyzers | Analyseurs .NET |

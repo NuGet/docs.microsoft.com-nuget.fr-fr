@@ -15,11 +15,11 @@ ms.reviewer:
 ms.workload:
 - dotnet
 - aspnet
-ms.openlocfilehash: a575868894d5ca9992b1c9984cf4920bd2858209
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 88f10cf15e16013ac99f315e572f932fd3948f73
+ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/03/2018
 ---
 # <a name="configuring-nuget-behavior"></a>Configuration du comportement de NuGet
 
@@ -30,8 +30,8 @@ Le comportement de NuGet est contrôlé par les paramètres qui sont définis da
 | Portée | Emplacement du fichier NuGet.Config | Description |
 | --- | --- | --- |
 | Projet | Dossier actuel (dossier du projet) ou tout dossier pouvant être situé jusqu’à la racine du lecteur.| Dans un dossier de projet, les paramètres s’appliquent uniquement au projet en question. Dans les dossiers parents qui contiennent plusieurs dossiers de projets, les paramètres s’appliquent à tous les projets des sous-dossiers. |
-| Utilisateur | Windows : `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux : `~/.nuget/NuGet/NuGet.Config` | Les paramètres s’appliquent à toutes les opérations. Toutefois, ils sont substitués par tout paramètre défini au niveau du projet. |
-| Ordinateur | Windows : `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux : `$XDG_DATA_HOME` (en général, `~/.local/share`) | Les paramètres s’appliquent à toutes les opérations effectuées sur l’ordinateur. Toutefois, ils sont substitués par tout paramètre défini au niveau de l’utilisateur ou du projet. |
+| Utilisateur | Windows : `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux : `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (en fonction de la distribution du système d’exploitation) | Les paramètres s’appliquent à toutes les opérations. Toutefois, ils sont substitués par tout paramètre défini au niveau du projet. |
+| Ordinateur | Windows : `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux : `$XDG_DATA_HOME`. Si `$XDG_DATA_HOME` est null ou vide, `~/.local/share` ou `/usr/local/share` seront utilisés (en fonction de la distribution du système d’exploitation)  | Les paramètres s’appliquent à toutes les opérations effectuées sur l’ordinateur. Toutefois, ils sont remplacés par tout paramètre défini au niveau de l’utilisateur ou du projet. |
 
 Remarques concernant les versions précédentes de NuGet :
 - NuGet 3.3 et versions antérieures utilisaient un dossier `.nuget` pour les paramètres définis au niveau de la solution. Ce fichier n’est plus utilisé dans NuGet 3.4+.
@@ -140,7 +140,7 @@ Supposons que vous disposiez de la structure de dossiers suivante sur deux lecte
 
 Vous avez donc quatre fichiers `NuGet.Config` aux emplacements suivants, avec le contenu spécifié (le fichier défini au niveau de l’ordinateur n’est pas inclus dans cet exemple, toutefois, son comportent est similaire à celui du fichier défini au niveau de l’utilisateur).
 
-Fichier A. Fichier de niveau utilisateur (`%appdata%\NuGet\NuGet.Config` sur Windows, `~/.nuget/NuGet/NuGet.Config` sur Mac/Linux) :
+Fichier A. Fichier de niveau utilisateur (`%appdata%\NuGet\NuGet.Config` sur Windows, `~/.config/NuGet/NuGet.Config` sur Mac/Linux) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -218,8 +218,8 @@ Le tableau suivant explique où le fichier `NuGetDefaults.Config` doit être sto
 
 | Plateforme du système d’exploitation  | Emplacement de NuGetDefaults.Config |
 | --- | --- |
-| Windows      | **Visual Studio 2017 ou NuGet 4.x+ :** %ProgramFiles(x86)%\NuGet\Config <br />**Visual Studio 2015 et antérieur ou NuGet 3.x et antérieur :** %PROGRAMDATA%\NuGet |
-| Mac/Linux    | $XDG_DATA_HOME (en général, ~/.local/share)|
+| Windows      | **Visual Studio 2017 ou NuGet 4.x+ :** `%ProgramFiles(x86)%\NuGet\Config` <br />**Visual Studio 2015 et versions antérieures ou NuGet 3.x et versions antérieures :** `%PROGRAMDATA%\NuGet` |
+| Mac/Linux    | `$XDG_DATA_HOME` (généralement `~/.local/share` ou `/usr/local/share`, en fonction de la distribution du système d’exploitation)|
 
 ### <a name="nugetdefaultsconfig-settings"></a>Paramètres du fichier NuGetDefaults.Config
 
