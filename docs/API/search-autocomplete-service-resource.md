@@ -1,26 +1,17 @@
 ---
-title: La saisie semi-automatique, NuGet API | Documents Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Saisie semi-automatique, NuGet API
+description: Le service de la saisie semi-automatique search prend en charge les versions et découverte interactive de l’ID de package.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Le service de la saisie semi-automatique search prend en charge les versions et découverte interactive de l’ID de package."
-keywords: "API de la saisie semi-automatique de NuGet, ID de package NuGet recherche, ID de package de sous-chaîne"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 7c984ca61799293d7832851b80cf3fefc4734288
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: d5e1936c6c5406a1a376c16b2bad5351320dfb4f
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="autocomplete"></a>Saisie semi-automatique
 
@@ -33,8 +24,8 @@ Les éléments suivants `@type` les valeurs sont utilisées :
 Valeur @type                          | Notes
 ------------------------------------ | -----
 SearchAutocompleteService            | La version initiale
-SearchAutocompleteService/3.0.0-beta | Alias de`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-rc   | Alias de`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-beta | Alias de `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-rc   | Alias de `SearchAutocompleteService`
 
 ## <a name="base-url"></a>URL de base
 
@@ -59,7 +50,7 @@ Name        | Vers l'avant     | Type    | Obligatoire | Notes
 q           | URL    | chaîne  | Non       | La chaîne à comparer à l’ID de package
 skip        | URL    | entiers | Non       | Le nombre de résultats à ignorer, pour la pagination
 prendre        | URL    | entiers | Non       | Le nombre de résultats à retourner pour la pagination
-version préliminaire  | URL    | boolean | Non       | `true`ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
+version préliminaire  | URL    | boolean | Non       | `true` ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | chaîne  | Non       | Une chaîne de version SemVer 1.0.0 
 
 La requête de la saisie semi-automatique `q` est analysé de manière définie par l’implémentation du serveur. NuGet.org prend en charge l’interrogation d’origine pour le préfixe de jetons d’ID de package, qui sont des éléments de l’ID de produit par spliting par des caractères de cas et le symbole mixte.
@@ -82,12 +73,12 @@ L’objet JSON racine a les propriétés suivantes :
 
 Name      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-total des accès | entiers          | oui      | Le nombre total de correspondances, ignorant `skip` et`take`
+total des accès | entiers          | oui      | Le nombre total de correspondances, ignorant `skip` et `take`
 Données      | Tableau de chaînes | oui      | Les ID correspondant à la demande de package
 
 ### <a name="sample-request"></a>Exemple de demande
 
-GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+TÉLÉCHARGER https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -106,7 +97,7 @@ Une version de package qui n’est pas spécifiée n’apparaîtra pas dans les 
 Name        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
 ID          | URL    | chaîne  | oui      | Pour récupérer des versions pour l’ID de package
-version préliminaire  | URL    | boolean | Non       | `true`ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
+version préliminaire  | URL    | boolean | Non       | `true` ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | chaîne  | Non       | Une chaîne de version SemVer 2.0.0 
 
 Si `prerelease` n’est pas fourni, les packages en version préliminaire sont exclus.

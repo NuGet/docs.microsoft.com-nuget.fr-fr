@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 1.6 | Documents Microsoft
+title: Notes de version 1.6 de NuGet
+description: Notes de publication pour 1.6 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 1.6 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 1.6 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 114b03cede24dee520ace1d8aa920a648ad16af1
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0345e180893a56302385d27792c4e15ba5d96989
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
  # <a name="nuget-16-release-notes"></a>Notes de version 1.6 de NuGet
 

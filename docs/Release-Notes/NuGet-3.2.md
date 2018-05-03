@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 3.2 | Documents Microsoft
+title: Notes de version 3.2 de NuGet
+description: Notes de publication pour 3.2 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 3.2 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 3.2 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 1728a5c0d83be84686e7ab1394cfc4f8f809987c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 938104c50fee19ee398de49c786bbb4963ba1429
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-release-notes"></a>Notes de version 3.2 de NuGet
 
@@ -45,7 +39,7 @@ Nous avons apporté un certain nombre d’améliorations pour mieux gérer les d
 * Correction de commande de restauration de NuGet au retour de 1 lorsqu’une condition d’erreur se produit - [1186](https://github.com/NuGet/Home/issues/1186)
 * Une nouvelle tentative maintenant des connexions réseau chaque 200 ms pour un maximum de 5 tentatives en cas de défaillance de 5xx HTTP - [1120](https://github.com/NuGet/Home/issues/1120)
 * Améliorer le traitement des réponses de redirection du serveur pendant une commande push - [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`prend désormais en charge le nom de l’URL ou le référentiel à partir de Nuget.Config en tant qu’argument - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` prend désormais en charge le nom de l’URL ou le référentiel à partir de Nuget.Config en tant qu’argument - [1046](https://github.com/NuGet/Home/issues/1046)
 * Les packages manquants qui n’étaient pas situées sur un référentiel lors d’une restauration sont maintenant signalées comme des erreurs et non des avertissements [1038](https://github.com/NuGet/Home/issues/1038)
 * Correction de la gestion des multipartwebrequest de \r\n pour les scénarios d’Unix/Linux - [776](https://github.com/NuGet/Home/issues/776)
 

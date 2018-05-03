@@ -1,25 +1,16 @@
 ---
-title: Référence de PowerShell Install-Package NuGet | Documents Microsoft
+title: Référence de PowerShell Install-Package NuGet
+description: Référence de commande PowerShell de Package d’installation de la Console du Gestionnaire de Package NuGet dans Visual Studio.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 06/01/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Référence de commande PowerShell de Package d’installation de la Console du Gestionnaire de Package NuGet dans Visual Studio.
-keywords: NuGet package manager console, commandes Powershell de NuGet, référence NuGet Powershell, Install-Package
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 99c965c2f8c12c7a59ee48e270172b719c1482ea
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 5adfbcae0affcaa402f7981c12e108490d546511
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Package Manager Console dans Visual Studio)
 

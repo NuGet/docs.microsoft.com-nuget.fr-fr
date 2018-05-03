@@ -1,22 +1,16 @@
 ---
-title: "Fournisseurs d’informations d’identification de NuGet.exe | Documents Microsoft"
+title: Fournisseurs d’informations d’identification de NuGet.exe
+description: fournisseurs d’informations d’identification de NuGet.exe auprès d’un flux et sont implémentées comme des exécutables de ligne de commande qui suivent les conventions spécifiques.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/12/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "fournisseurs d’informations d’identification de NuGet.exe auprès d’un flux et sont implémentées comme des exécutables de ligne de commande qui suivent les conventions spécifiques."
-keywords: "fournisseurs d’informations d’identification de NuGet.exe, informations d’identification du fournisseur, auprès de l’alimentation, auprès de la galerie"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 88ce0106ad4e628ba8120f94b7951c7746ab67f3
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Flux de l’authentification avec les fournisseurs d’informations d’identification de nuget.exe
 
@@ -57,7 +51,7 @@ Un fournisseur doit effectuer le des opérations suivantes :
 
 | Commutateur de paramètre / |Description|
 |----------------|-----------|
-| Uri {value} | Le package source des informations d’identification nécessitant des URI.|
+| URI {value} | Le package source des informations d’identification nécessitant des URI.|
 | Non interactif | S’il est présent, le fournisseur n’émet pas invites interactives. |
 | IsRetry | Le cas échéant, indique que cette tentative est une nouvelle tentative d’une tentative ayant échouée précédemment. Fournisseurs utilisent généralement cet indicateur pour vous assurer qu’ils contournent un cache existant et demander de nouvelles informations d’identification, si possible.|
 | Niveau de détail {value} | Le cas échéant, une des valeurs suivantes : « normal », « silencieuse » ou « détaillé ». Si aucune valeur n’est fournie, valeur par défaut est « normal ». Fournisseurs doivent utiliser cela comme une indication du niveau de journalisation facultatives pour émettre le flux d’erreur standard. |

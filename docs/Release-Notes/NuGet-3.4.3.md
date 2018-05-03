@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 3.4.3 | Documents Microsoft
+title: Notes de mise à jour de NuGet 3.4.3
+description: Notes de publication pour NuGet 3.4.3, notamment de problèmes connus, des correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour NuGet 3.4.3, notamment de problèmes connus, des correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "NuGet 3.4.3 notes de publication, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 68aab607659d15f96aefeab7bb90afc787710824
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 6c25d3b678e6e72eca3e1157f91a75bfa8cbb18e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-343-release-notes"></a>Notes de mise à jour de NuGet 3.4.3
 

@@ -1,26 +1,17 @@
 ---
-title: Signé référence de Packages | Documents Microsoft
+title: Référence des Packages NuGet de signé
+description: Configuration requise pour la signature du package NuGet.
 author: rido-min
 ms.author: rido-min
-manager: unniravindranathan
-ms.date: 03/06/2018
+manager: unnir
+ms.date: 04/24/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Signé la description de la fonctionnalité Packages.
-keywords: Connexion de package NuGet, signature de certificat
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: a2a338596f7d98ded11da6fb02bafba3521249ab
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 751a8ff14bdc3a647985da4f908ad1a0fd0def9a
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="signed-packages"></a>Packages signés
 
@@ -38,6 +29,9 @@ Pour plus d’informations sur la création d’un package signé, consultez [de
 
 > [!Important]
 > actuellement, NuGet.org n’accepte pas les packages signés. Vous pouvez signer des packages pour les publier dans des flux personnalisés.
+
+> [!Important]
+> La signature du package est actuellement pris en charge uniquement sur Windows à l’aide de nuget.exe. Vérification des packages signés est actuellement pris en charge uniquement sur Windows à l’aide de nuget.exe ou Visual Studio.
 
 ## <a name="certificate-requirements"></a>Conditions de certificat
 

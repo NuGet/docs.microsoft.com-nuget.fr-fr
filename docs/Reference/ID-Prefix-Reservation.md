@@ -1,26 +1,17 @@
 ---
-title: Préfixe d’identificateur de réservation référence | Documents Microsoft
+title: Référence de réservation de préfixe d’identificateur
+description: Description de fonction de réservation du préfixe d’ID de package et le guide de l’auteur.
 author: diverdan92
 ms.author: diverdan92
-manager: unniravindranathan
+manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Description de fonction de réservation du préfixe d’ID de package et le guide de l’auteur.
-keywords: ID de package NuGet, préfixe, la réservation
-ms.reviewer:
-- ananguar
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 7b1956612bd48a1c59503418f1a4d7d9dee900f5
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: ananguar
+ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation de préfixe ID de package
 
@@ -74,9 +65,9 @@ Si un package proviennent d’un préfixe réservé, vous voyez l’au-dessous d
 
 1. Passez en revue l’acceptation [critères pour la réservation des ID de préfixe](#id-prefix-reservation-criteria).
 
-1. Déterminer les espaces de noms que vous souhaitez réserver, outre les [préfixe réservation scénarios avancés](#advanced-prefix-reservation-scenarios) vous pouvez avoir besoin.
+2. Déterminer les espaces de noms que vous souhaitez réserver, outre les [préfixe réservation scénarios avancés](#advanced-prefix-reservation-scenarios) vous pouvez avoir besoin.
 
-1. Envoyer un message électronique à [ account@nuget.org ](mailto:account@nuget.org) avec le propriétaire du nom d’affichage sur [nuget.org](https://www.nuget.org/), ainsi que tous les préfixes réservés que vous demandez. Si vous déléguez des sous-ensembles de préfixe à plusieurs propriétaires, assurez-vous que vous indiquez tous les noms complets de propriétaire et des sous-ensembles de préfixe.
+3. Envoyer un message électronique à [ account@nuget.org ](mailto:account@nuget.org) avec le propriétaire du nom d’affichage sur [nuget.org](https://www.nuget.org/), ainsi que tous les préfixes réservés que vous demandez. Si vous déléguez des sous-ensembles de préfixe à plusieurs propriétaires, assurez-vous que vous indiquez tous les noms complets de propriétaire et des sous-ensembles de préfixe.
 
 Une fois l’application est envoyée, vous êtes informé de l’acceptation ou rejet (avec les critères qui a provoqué le rejet). Nous devons poser des questions d’identification supplémentaires pour confirmer l’identité du propriétaire.
 

@@ -1,25 +1,16 @@
 ---
-title: Notes de publication NuGet 3.3 | Documents Microsoft
-author: karann-msft
-ms.author: karann-msft
-manager: ghogen
-ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+title: Notes de version 3.3 de NuGet
 description: Notes de publication pour 3.3 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
-keywords: Notes de version 3.3 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ab5e1ca550297c608017cb56dff32f4bd4bbb885
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 11/11/2016
+ms.topic: conceptual
+ms.openlocfilehash: adf193437de237ed32da481e627552a8dba6f656
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-33-release-notes"></a>Notes de version 3.3 de NuGet
 
@@ -48,7 +39,7 @@ ms.lasthandoff: 03/28/2018
 
 Dans cette version, nous avons présenté la `add` et `init` commandes pour initialiser les référentiels basés sur le dossier comme décrit dans la [nuget.exe référence](../tools/nuget-exe-cli-reference.md). Les dépôts qui sont créés et conservés dans ce dossier de la structure sera [offrent des avantages de performances significatifs](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) comme indiqué sur notre blog.
 
-## <a name="contentfiles"></a>ContentFiles
+## <a name="contentfiles"></a>Fichiers
 
 Le contenu est désormais prise en charge dans `project.json` géré des projets à partir de la nouvelle `contentFiles` dossier et `.nuspec` `contentFiles` notation de l’élément.  Ce contenu peut être spécifié directement par l’auteur du package pour les interactions avec les systèmes de projet.  Plus d’informations sur la configuration des fichiers dans un `.nuspec` document se trouve dans le [.nuspec référence](../reference/nuspec.md).
 

@@ -1,22 +1,16 @@
 ---
-title: Notes de version RC de NuGet 3.2 | Documents Microsoft
+title: Notes de version RC de NuGet 3.2
+description: Notes de publication pour RC 3.2 de NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour RC 3.2 de NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de publication NuGet 3.2 RC, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: b19f62217ed79689ce067107dd64dfffe2c59291
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0310bac6fdb3ef92176f9224ace1620a230664af
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-32-rc-release-notes"></a>Notes de version RC de NuGet 3.2
 
@@ -27,7 +21,7 @@ Version release candidate de NuGet 3.2 a été publiée le 2 septembre 2015 comm
 ## <a name="new-features"></a>Nouvelles fonctionnalités
 
 * Les projets qui se trouvent dans le même dossier peuvent désormais avoir différents `project.json` fichiers dans le dossier spécifique à chaque projet.  Pour chaque projet, nommez le `project.json` fichier `{ProjectName}.project.json` et NuGet sera correctement référencer et utiliser ce contenu pour chaque projet en conséquence.  Il prend en charge une nouvelle fonctionnalité [1102](https://github.com/NuGet/Home/issues/1102)
-* `NuGet.Config`prend désormais en charge un globalPackagesFolder comme un chemin d’accès relatif - [1062](https://github.com/NuGet/Home/issues/1062)
+* `NuGet.Config` prend désormais en charge un globalPackagesFolder comme un chemin d’accès relatif - [1062](https://github.com/NuGet/Home/issues/1062)
 
 ## <a name="command-line-updates"></a>Mises à jour de ligne de commande
 
@@ -45,7 +39,7 @@ C’est la première version du client qui prend en charge les serveurs de v3 Nu
 * Correction de commande de restauration de NuGet au retour de 1 lorsqu’une condition d’erreur se produit - [1186](https://github.com/NuGet/Home/issues/1186)
 * Une nouvelle tentative maintenant des connexions réseau chaque 200 ms pour un maximum de 5 tentatives en cas de défaillance de 5xx HTTP - [1120](https://github.com/NuGet/Home/issues/1120)
 * Améliorer le traitement des réponses de redirection du serveur pendant une commande push - [1051](https://github.com/NuGet/Home/issues/1051)
-* `nuget install -source`prend désormais en charge le nom de l’URL ou le référentiel à partir de Nuget.Config en tant qu’argument - [1046](https://github.com/NuGet/Home/issues/1046)
+* `nuget install -source` prend désormais en charge le nom de l’URL ou le référentiel à partir de Nuget.Config en tant qu’argument - [1046](https://github.com/NuGet/Home/issues/1046)
 * Les packages manquants qui n’étaient pas situées sur un référentiel lors d’une restauration sont maintenant signalées comme des erreurs et non des avertissements [1038](https://github.com/NuGet/Home/issues/1038)
 * Correction de la gestion des multipartwebrequest de \r\n pour les scénarios d’Unix/Linux - [776](https://github.com/NuGet/Home/issues/776)
 

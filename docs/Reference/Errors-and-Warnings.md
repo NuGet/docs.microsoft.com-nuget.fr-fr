@@ -1,21 +1,12 @@
 ---
-title: NuGet erreurs et avertissements référence | Documents Microsoft
+title: NuGet erreurs et avertissements référence
+description: Informations de référence complètes pour les avertissements et erreurs émises à partir de NuGet lors de diverses opérations de NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Informations de référence complètes pour les avertissements et erreurs émises à partir de NuGet lors de diverses opérations de NuGet.
-keywords: Erreurs de NuGet, les avertissements de NuGet, les diagnostics
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
+ms.reviewer: anangaur
 f1_keywords:
 - NU1000
 - NU1001
@@ -53,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 020e31dc8646c43b86bcee555f1772e8b1db7761
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="errors-and-warnings"></a>Erreurs et avertissements
 
@@ -181,7 +172,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | | |
 | --- | --- |
 | **Problème** | Impossible de résoudre les contraintes de dépendances entre les packages. |
-| **Exemple de message** | *Conflit de version détecté pour NuGet.Versioning. Référencer le package directement à partir du projet pour résoudre ce problème.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/>  NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
+| **Exemple de message** | *Conflit de version détecté pour NuGet.Versioning. Référencer le package directement à partir du projet pour résoudre ce problème.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
 | **Solution** | Les packages avec des contraintes de dépendance sur les versions exactes ne permettent pas d’autres packages d’augmenter la version, si nécessaire. Ajoutez une référence au projet directement (dans le fichier projet) avec la version exacte requise. |
 
 <a name="nu1108"></a>
@@ -299,7 +290,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | | |
 | --- | --- |
 | **Problème** | Un package de dépendance spécifié une contrainte de version sur une version supérieure d’un package au restauration finalement réduite. Autrement dit, en raison de la « plus proche wins » règle lors de la résolution des packages, un package plus proche dans le graphique peut avoir substitution un package distant. |
-| **Exemple de message** | *Détecté vers une version antérieure du package : NuGet.Versioning de 4.0.0 vers la version 3.5.0. Référencer le package directement à partir du projet pour sélectionner une autre version.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/>  NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
+| **Exemple de message** | *Détecté vers une version antérieure du package : NuGet.Versioning de 4.0.0 vers la version 3.5.0. Référencer le package directement à partir du projet pour sélectionner une autre version.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning 3.5.0<br/> NuGet.Commands 4.0.0 -> NuGet.Configuration 4.0.0 -> NuGet.Versioning 4.0.0* |
 | **Solution** | Ajoutez une référence directe au projet pour la version la plus récente du package que vous souhaitez utiliser. |
 
 ## <a name="resolver-conflict-warnings"></a>Avertissements de conflit de programme de résolution

@@ -1,26 +1,17 @@
 ---
-title: Référence de Version de Package NuGet | Documents Microsoft
+title: Référence de Version de Package NuGet
+description: Détails exacts sur la spécification des numéros de version et de plages pour d’autres packages qui dépend d’un package NuGet, et comment les dépendances sont installées.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 03/23/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Détails exacts sur la spécification des numéros de version et de plages pour d’autres packages qui dépend d’un package NuGet, et comment les dépendances sont installées.
-keywords: le contrôle de version, les dépendances de package NuGet, versions de dépendance de NuGet, les numéros de version de NuGet, version du package NuGet, plages de versions, les spécifications de version, les numéros de version normalisée
-ms.reviewer:
-- anandr
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 678ad79d9106a9f592ae4f47bc93cc117496e2c9
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: d17d964ac73075f05678b9727e90d481a30da62e
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
@@ -96,7 +87,8 @@ Si vous téléchargez un package de v2.0.0 spécifiques SemVer nuget.org, le pac
 - NuGet 4.3.0+
 - Visual Studio 2017 version 15.3 +
 - Visual Studio 2015 avec [NuGet VSIX v3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
-- dotnet.exe (Kit de développement .NET 2.0.0+)
+- dotnet
+  - dotnetcore.exe (Kit de développement .NET 2.0.0+)
 
 Les clients tiers :
 

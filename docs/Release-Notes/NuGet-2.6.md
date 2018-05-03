@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 2.6 | Documents Microsoft
+title: Notes de version 2.6 de NuGet
+description: Notes de publication pour NuGet 2.6.1 pour WebMatrix, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 2.6 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 2.6 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: c2df9721e6941c110948af1a2d4ec4b7aeb476dd
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 39ce6ac3d36464d26966b0dabb0893f09ad4afdc
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-26-release-notes"></a>Notes de version 2.6 de NuGet
 
@@ -53,7 +47,7 @@ Pour tirer parti de la prise en charge XDT de NuGet, les mécanismes de présent
 Fichiers de transformation sont ajoutés au dossier de contenu du package. Toutefois, alors que les transformations de configuration utilisent un seul fichier pour l’installation et la désinstallation, les transformations de XDT permettent un contrôle affiné sur ces deux processus à l’aide de fichiers suivants :
 
 - Web.config.install.xdt
-- Web.config.uninstall.xdt
+- Web.config.Uninstall.xdt
 
 En outre, NuGet utilise le suffixe de fichier pour déterminer le moteur à exécuter pour les transformations, afin de packages à l’aide de la web.config.transforms existants continueront de fonctionner. XDT transformations peuvent également être appliquées à n’importe quel fichier XML (pas seulement le fichier web.config), donc vous pouvez exploiter ceci pour d’autres applications dans votre projet.
 
@@ -71,7 +65,7 @@ NuGet 2.6 étend la logique de configuration NuGet en parcourant la hiérarchie 
 1. %ProgramData%\NuGet\Config\*.config
 2. %ProgramData%\NuGet\Config\{IDE}\*.config
 3. %ProgramData%\NuGet\Config\{IDE}\{Version}\*.config
-4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{SKU}\*.config
+4. %ProgramData%\NuGet\Config\{IDE}\{Version}\{référence (SKU)}\*.config
 
 Dans cette liste, l’espace réservé {IDE} est spécifique à l’IDE dans lequel NuGet est en cours d’exécution, dans le cas de Visual Studio, il est donc « VisualStudio ». La Version {} et des espaces réservés {SKU} sont fournis par l’IDE (par exemple) « 11.0 » et « WDExpress », « VWDExpress » et « Pro », respectivement). Le dossier peut contenir plusieurs fichiers *.config différents.
 Par conséquent, la société de composant ACME peut, dans le cadre de son programme d’installation du produit, ajoutez une source de package personnalisé qui sera visible uniquement dans les versions Professionnel et Édition intégrale de Visual Studio 2012 en créant le chemin d’accès suivant :

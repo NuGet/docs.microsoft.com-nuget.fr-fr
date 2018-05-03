@@ -1,31 +1,25 @@
 ---
-title: Vérifier la commande NuGet CLI | Documents Microsoft
+title: Vérifier la commande NuGet CLI
+description: Informations de référence pour le nuget.exe vérifier la commande
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Informations de référence pour le nuget.exe vérifier la commande
-keywords: vérifier la référence de NuGet, vérifiez la commande
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 4423e491e0ab5dc1e13982440db42bc9b0e85c38
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: c2c31b71358bc50a1fb9aab8905c279cd1235b07
+ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/27/2018
 ---
 # <a name="verify-command-nuget-cli"></a>Vérifiez la commande (NuGet CLI)
 
 **S’applique à :** package consommation &bullet; **versions prises en charge :** 4.6 +
 
 Vérifie un package.
+
+Vérification des packages signés n’est pas encore pris en charge dans .NET Core, sous Mono, ou sur les plateformes non Windows.
 
 ## <a name="usage"></a>Utilisation
 

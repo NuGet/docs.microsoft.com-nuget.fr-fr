@@ -1,25 +1,17 @@
 ---
-title: Commande de connexion NuGet CLI | Documents Microsoft
+title: Commande de connexion NuGet CLI
+description: Référence de la commande de connexion de nuget.exe
 author: dtivel
 ms.author: dtivel
 manager: doronm
 ms.date: 03/06/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Référence de la commande de connexion de nuget.exe
-keywords: référence de connexion NuGet, commande sign
-ms.reviewer:
-- karann
-- rmpablos
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 9c83e5abae0e70cdc62917861c1febfce4f792c7
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: rmpablos
+ms.openlocfilehash: 7e84d794b802cfd69c785f720280fd5c022a46f6
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="sign-command-nuget-cli"></a>commande de connexion (NuGet CLI)
 
@@ -27,7 +19,7 @@ ms.lasthandoff: 03/28/2018
 
 Signe tous les packages de mise en correspondance le premier argument avec un certificat. Le certificat avec la clé privée peut être obtenu à partir d’un fichier ou à partir d’un certificat installé dans un magasin de certificats en fournissant un nom d’objet ou une empreinte numérique.
 
-La signature du package n'est pas encore prise en charge sous Mono ou sur les plateformes non Windows.
+La signature du package n’est pas encore prise en charge dans .NET Core, sous Mono, ou sur les plateformes non Windows.
 
 ## <a name="usage"></a>Utilisation
 
@@ -49,7 +41,7 @@ où `<package(s)>` est un ou plusieurs `.nupkg` fichiers.
 | CertificateSubjectName | Spécifie le nom du sujet du certificat utilisé pour rechercher un magasin de certificats local pour le certificat.  La recherche est une comparaison de chaînes pas la casse à l’aide de la valeur fournie, qui recherche tous les certificats avec le nom d’objet contient cette chaîne, indépendamment des autres valeurs de l’objet.  Le magasin de certificats peut être spécifié par les options CertificateStoreName - et - CertificateStoreLocation. |
 | ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
-| HashAlgorithm | Algorithme de hachage à utiliser pour signer le package. La valeur par défaut est SHA256. |
+| Élément HashAlgorithm Impossible | Algorithme de hachage à utiliser pour signer le package. La valeur par défaut est SHA256. |
 | Help | Affiche l’aide de la commande. |
 | Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
 | OutputDirectory | Spécifie le répertoire où le package signé doit être enregistré. Par défaut, le package d’origine est remplacé par le package signé. |

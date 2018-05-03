@@ -1,26 +1,17 @@
 ---
-title: Recherche, NuGet API | Documents Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Recherche, NuGet API
+description: Le service de recherche permet aux clients pour rechercher les packages par mot clé et de résultats du filtrage sur certains champs de package.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Le service de recherche permet aux clients pour rechercher les packages par mot clé et de résultats du filtrage sur certains champs de package."
-keywords: "API de recherche NuGet, NuGet découvrir les packages, les API pour les packages NuGet de requête, les API pour parcourir les packages NuGet"
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.openlocfilehash: 612ce0f46b654335a29bb36a64b27525994162ed
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.reviewer: kraigb
+ms.openlocfilehash: 76600ee916305ee01ddfb675c83c184e980c5a42
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="search"></a>Rechercher
 
@@ -33,8 +24,8 @@ Les éléments suivants `@type` les valeurs sont utilisées :
 Valeur @type                   | Notes
 ----------------------------- | -----
 SearchQueryService            | La version initiale
-SearchQueryService/3.0.0-beta | Alias de`SearchQueryService`
-SearchQueryService/3.0.0-rc   | Alias de`SearchQueryService`
+SearchQueryService/3.0.0-beta | Alias de `SearchQueryService`
+SearchQueryService/3.0.0-rc   | Alias de `SearchQueryService`
 
 ## <a name="base-url"></a>URL de base
 
@@ -59,7 +50,7 @@ Name        | Vers l'avant     | Type    | Obligatoire | Notes
 q           | URL    | chaîne  | Non       | Les termes de recherche à utiliser pour les packages de filtre
 skip        | URL    | entiers | Non       | Le nombre de résultats à ignorer, pour la pagination
 prendre        | URL    | entiers | Non       | Le nombre de résultats à retourner pour la pagination
-version préliminaire  | URL    | boolean | Non       | `true`ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
+version préliminaire  | URL    | boolean | Non       | `true` ou `false` déterminant s’il faut inclure [préliminaires des packages](../create-packages/prerelease-packages.md)
 semVerLevel | URL    | chaîne  | Non       | Une chaîne de version SemVer 1.0.0 
 
 La requête de recherche `q` est analysé de manière définie par l’implémentation du serveur. NuGet.org prend en charge le filtrage de base sur un [divers champs](../consume-packages/finding-and-choosing-packages.md#search-syntax). Si aucun `q` n’est fourni, tous les packages doivent être retournés dans les limites imposées par skip et take. Ainsi, l’onglet « Parcourir » dans l’expérience de NuGet Visual Studio.
@@ -82,7 +73,7 @@ L’objet JSON racine a les propriétés suivantes :
 
 Name      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-total des accès | entiers          | oui      | Le nombre total de correspondances, ignorant `skip` et`take`
+total des accès | entiers          | oui      | Le nombre total de correspondances, ignorant `skip` et `take`
 Données      | Tableau d’objets | oui      | Les résultats de recherche correspondant à la demande
 
 ### <a name="search-result"></a>résultat de recherche

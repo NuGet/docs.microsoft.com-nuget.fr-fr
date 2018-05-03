@@ -1,29 +1,17 @@
 ---
-title: Package NuGet API métadonnées | Documents Microsoft
-author:
-- joelverhagen
-- kraigb
-ms.author:
-- joelverhagen
-- kraigb
+title: Métadonnées du package NuGet API
+description: L’URL de base de l’inscription de package permet de récupérer les métadonnées à propos des packages.
+author: joelverhagen
+ms.author: jver
 manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: L’URL de base de l’inscription de package permet de récupérer les métadonnées à propos des packages.
-keywords: Métadonnées de package NuGet API, l’inscription NuGet API, les API NuGet packages non listées
-ms.reviewer:
-- karann
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: c7b32e1d2bb9250de1e0b707405a75184b2bd8b4
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: kraigb
+ms.openlocfilehash: 50064e1450232e9cdedcc042a09c08860f802e76
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="package-metadata"></a>Métadonnées du package
 
@@ -115,7 +103,7 @@ Name   | Type             | Obligatoire | Notes
 count  | entiers          | oui      | Le numéro d’enregistrement laisse dans la page
 Éléments  | Tableau d’objets | Non       | Le tableau de feuilles de l’inscription et leurs métadonnées associées
 Inférieure  | chaîne           | oui      | La version la plus basse SemVer 2.0.0 dans la page (incluse)
-parent | chaîne           | Non       | L’URL à l’index de l’enregistrement
+Parent | chaîne           | Non       | L’URL à l’index de l’enregistrement
 supérieur  | chaîne           | oui      | La version la plus récente SemVer 2.0.0 dans la page (incluse)
 
 Le `lower` et `upper` limites de l’objet de la page sont utiles lorsque les métadonnées pour une version de la page spécifique sont nécessaire.
@@ -213,7 +201,7 @@ Name   | Type             | Obligatoire | Notes
 count  | entiers          | oui      | Le numéro d’enregistrement laisse dans la page
 Éléments  | Tableau d’objets | oui      | Le tableau de feuilles de l’inscription et leurs métadonnées associées
 Inférieure  | chaîne           | oui      | La version la plus basse SemVer 2.0.0 dans la page (incluse)
-parent | chaîne           | oui      | L’URL à l’index de l’enregistrement
+Parent | chaîne           | oui      | L’URL à l’index de l’enregistrement
 supérieur  | chaîne           | oui      | La version la plus récente SemVer 2.0.0 dans la page (incluse)
 
 La forme des objets de feuille de l’inscription est le même que dans l’index de l’enregistrement [ci-dessus](#registration-leaf-object-in-a-page).

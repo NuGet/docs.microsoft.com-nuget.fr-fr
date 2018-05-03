@@ -1,26 +1,17 @@
 ---
-title: Références des versions cibles de .NET Framework pour NuGet | Microsoft Docs
+title: Référence des infrastructures de cible pour NuGet
+description: Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/11/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package.
-keywords: ciblage de package NuGet, versions cibles de .NET Framework, versions du .NET Framework
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0a9c45ef31e27c2242edce48e2cf272e5280dcff
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.reviewer: anangaur
+ms.openlocfilehash: 6b7ee3f739847777dda638d8fed083c48ed5812e
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -41,25 +32,25 @@ Un framework est généralement référencé par un moniker du Framework cible o
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 
-| Name           | Abréviation | TFMs/TxMs |
-| -------------  | ------------ | --------- |
-|.NET Framework  | net          | net11     |
-|                |              | net20     |
-|                |              | net35     |
-|                |              | net40     |
-|                |              | net403    |
-|                |              | net45      |
-|                |              | net451     |
-|                |              | net452     |
-|                |              | net46      |
-|                |              | net461     |
-|                |              | net462     |
-|Microsoft Store (Windows Store) | netcore      | netcore [netcore45] |
-|                |              | netcore45 [win, win8] |
-|                |              | netcore451 [win81] |
-|                |              | netcore50 |
-|.NET MicroFramework | netmf    | netmf |
-|Windows         | win          | win [win8, netcore45] |
+| Name | Abréviation | TFMs/TxMs |
+| ------------- | ------------ | --------- |
+|.NET Framework | net | net11 |
+| | | net20 |
+| | | net35 |
+| | | net40 |
+| | | net403 |
+| | | net45 |
+| | | net451 |
+| | | net452 |
+| | | net46 |
+| | | net461 |
+| | | net462 |
+|Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
+| | | netcore45 [win, win8] |
+| | | netcore451 [win81] |
+| | | netcore50 |
+|.NET MicroFramework | netmf | netmf |
+|Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non pris en charge par la plateforme Windows 10) |
@@ -88,6 +79,7 @@ Tizen | tizen | tizen3 |
 | | | tizen4 |
 
 ## <a name="deprecated-frameworks"></a>Frameworks dépréciés
+
 Les frameworks suivants sont dépréciés. Les packages ciblant ces frameworks doivent migrer vers les versions de remplacement indiquées.
 
 | Framework déprécié | Replacement
@@ -114,12 +106,12 @@ Les frameworks suivants sont dépréciés. Les packages ciblant ces frameworks d
 Un certain nombre de frameworks sont liés et compatibles entre eux, mais sans être nécessairement équivalents :
 
 | Framework | Peut utiliser |
-| --- | --- |
+| -- | --- |
 | uap (Plateforme Windows universelle) | win81 |
 | | wpa81 |
 | | netcore50 |
 | win (Microsoft Store) | winrt |
-| | | winrt45 |
+| | |
 
 ## <a name="net-platform-standard"></a>.NET Standard
 

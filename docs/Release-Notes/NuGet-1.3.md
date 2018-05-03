@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 1.3 | Documents Microsoft
+title: Notes de version 1.3 de NuGet
+description: Notes de publication pour 1.3 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 1.3 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 1.3 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 59169be5b39ba4436e13e0935a0ad6efa724e08e
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: c0284fe0afb11bf6465897132cccd160674ea3e1
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-13-release-notes"></a>Notes de version 1.3 de NuGet
 
@@ -30,7 +24,7 @@ NuGet 1.3 a été publiée le 25 avril 2011.
 
 L’équipe NuGet en partenariat avec le personnel à [SymbolSource.org](http://www.symbolsource.org/) pour offrir un moyen simple de la publication de vos sources et les du PDB en même temps que votre package. Cela permet aux consommateurs de votre package de pas à pas détaillé de la source de votre package dans le débogueur. Pour plus d’informations, consultez [création et la publication d’un Package de symbole](../create-packages/symbol-packages.md) la méthode simple pour publier des packages NuGet avec des sources. Vous pouvez également regarder une démonstration en direct de cette fonctionnalité dans le cadre de NuGet en profondeur parler à Mix11. Cette fonctionnalité est pleinement démontrée en commençant à la marque de 20 minutes de la vidéo.
 
-### <a name="open-packagepage-command"></a>`Open-PackagePage`Commande
+### <a name="open-packagepage-command"></a>`Open-PackagePage` Commande
 
 Cette commande facilite l’accès à la page de projet pour un package à partir de la console du Gestionnaire de Package. Il fournit également des options pour ouvrir l’URL de licence et la page du rapport abus pour le package.
 La syntaxe de la commande est :

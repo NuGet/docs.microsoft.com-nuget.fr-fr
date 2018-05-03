@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 3.1 | Documents Microsoft
+title: Notes de version 3.1 de NuGet
+description: Notes de publication pour 3.1 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 3.1 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 3.1 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: a7aa43b8701b3bbef8f6ebce9a5d636ee1bc6abe
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: d14455da6f8af4db92f7105ea1b0e88eb9e71600
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-31-release-notes"></a>Notes de version 3.1 de NuGet
 
@@ -32,7 +26,7 @@ Les problèmes et les fonctionnalités dans cette version sont marquées sur Git
 
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 
-* `project.json`prise en charge pour la prise en charge Windows universelle et ASP.NET 5
+* `project.json` prise en charge pour la prise en charge Windows universelle et ASP.NET 5
 * Installation du package transitive
 
 Description et la définition de ces fonctionnalités peuvent être trouvées ailleurs dans la documentation.
@@ -45,7 +39,7 @@ Les fonctionnalités suivantes ne sont plus disponibles pour Visual Studio 2015�
 
 Les fonctionnalités suivantes ne sont plus disponibles pour Visual Studio 2015 et les projets qui utilisent la `project.json` spécification
 
-* `install.ps1`et `uninstall.ps1` -ces scripts seront ignorés lors de l’installation du package, la restauration, mettre à jour et désinstaller
+* `install.ps1` et `uninstall.ps1` -ces scripts seront ignorés lors de l’installation du package, la restauration, mettre à jour et désinstaller
 * Transformations de configuration seront ignorées.
 * Le contenu sera effectué, mais pas copié dans un projet.
     * L’équipe travaille pour ré-implémenter cette fonctionnalité, suivez la discussion et au niveau de progression : [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)
@@ -68,11 +62,11 @@ Le nouvel emplacement distribuable réside sur l’hôte dist.nuget.org, avec un
 ### <a name="new-features"></a>Nouvelles fonctionnalités
 
 * NuGet.exe peut restaurer et installer des packages dans les projets qui utilisent un `project.json` fichier.
-* NuGet.exe peuvent se connecter à et utiliser le protocole de v3 NuGet au : [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
+* NuGet.exe peut se connecter à et utiliser le protocole v3 NuGet à : [https://api.nuget.org/v3/index.json](https://api.nuget.org/v3/index.json)
 
 ## <a name="known-issues"></a>Problèmes connus ##
 
 1.    Impossible d’exécuter le pack par rapport à un `project.json` fichier - [928](https://github.com/NuGet/Home/issues/928)
 2.    N’est pas pris en charge sur Mono - [1059](https://github.com/NuGet/Home/issues/1059)
 3.    N’est pas localisée - [1058](https://github.com/NuGet/Home/issues/1058), [1057](https://github.com/NuGet/Home/issues/1057)
-4.    N’est pas signé, tout comme le http://nuget.org/nuget.exe existant - [1073](https://github.com/NuGet/Home/issues/1073)
+4.    N’est pas signé, tout comme les existantes http://nuget.org/nuget.exe - [1073](https://github.com/NuGet/Home/issues/1073)

@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 2.8 | Documents Microsoft
+title: Notes de publication NuGet 2.8
+description: Notes de version de NuGet 2.8, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de version de NuGet 2.8, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de publication NuGet 2.8, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: 39b885adc9e23eb815f65639875c4a4c27d61a4c
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 9f472f1370bfedaf04ebe889c0da01155b8aec22
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-28-release-notes"></a>Notes de publication NuGet 2.8
 
@@ -28,21 +22,21 @@ NuGet 2.8 a été publié le 29 janvier 2014.
 
 1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
     - [#3466](https://nuget.codeplex.com/workitem/3466) : lors de la vérification de l’Id de packages de dépendance des packages de livraison.
-1. [Martin Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Martin Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
     - [#2379](https://nuget.codeplex.com/workitem/2379) -supprimer le suffixe $metadata lorsque persistening flux d’informations d’identification.
-1. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
+3. [Filip De Vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
     - [#3538](http://nuget.codeplex.com/workitem/3538) - prise en charge de la spécification de fichier de projet pour la commande de mise à jour de nuget.exe.
-1. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
+4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - [#3536](http://nuget.codeplex.com/workitem/3536) -ne pas passés avec - IncludeReferencedProjects des jetons de remplacement.
-1. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
     - [#3677](http://nuget.codeplex.com/workitem/3677) -résoudre nuget.push lever OutOfMemoryException lors de la distribution du package important.
-1. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
+6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
     - [#3666](http://nuget.codeplex.com/workitem/3666) -chemin d’accès cible incorrect correctif lorsque le projet fait référence à un autre projet CLI/C++.
-1. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+7. [ADAM Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
     - [#3639](https://nuget.codeplex.com/workitem/3639) -autoriser les packages doivent être installés en tant que dépendances de développement par défaut
-1. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
     - [#3717](https://nuget.codeplex.com/workitem/3717) -supprimer implicites mises à niveau vers la dernière version du correctif logiciel
-1. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
+9. [Gregory Vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
     - Plusieurs bogues correctifs et améliorations pour NuGet.Server, la commande de mise en miroir de nuget.exe et d’autres.
     - Ce travail a été effectué sur plusieurs mois, avec Gregory collaboré avec nous sur le minutage de droite à intégrer dans master pour 2.8.
 

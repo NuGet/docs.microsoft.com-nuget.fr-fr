@@ -1,22 +1,16 @@
 ---
-title: "Notes de version bêta de NuGet 3.5 | Documents Microsoft"
+title: Notes de mise à jour de NuGet 3.5 bêta
+description: Notes de publication pour 3.5 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de publication pour 3.5 NuGet, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de version 3.5 de NuGet, des correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: ee78ceb2ff032c05c0f8ef9a6623b94cc56ee0a9
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: cdb540229cae0e6e952ac2a0c00c8801ccbbb28d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-35-release-notes"></a>Notes de version 3.5 de NuGet
 
@@ -80,7 +74,7 @@ ms.lasthandoff: 02/02/2018
 
 * Aucune information n’a été donnée lors de l’appel *.csproj de mise à jour de nuget.exe lors du projet n’a pas un `packages.config`  -  [#1496](https://github.com/NuGet/Home/issues/1496)
 
-* `packages.config`restauration de ne pas de nouvelle tentative sur les codes d’état 5xx à partir de sources de V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
+* `packages.config` restauration de ne pas de nouvelle tentative sur les codes d’état 5xx à partir de sources de V2 - [#1217](https://github.com/NuGet/Home/issues/1217)
 
 * Deux points dans l’attribut src de fichier dans `.nuspec` ne fonctionne pas - [#2947](https://github.com/NuGet/Home/issues/2947)
 
@@ -144,11 +138,11 @@ ms.lasthandoff: 02/02/2018
 
 * Échec de l’installation de NuGet avec toutes les Sources de Package, mais de package manquant à partir de la source de 1, - [#2322](https://github.com/NuGet/Home/issues/2322)
 
-* [PerfWatson] UIDelay: nuget.packagemanagement.visualstudio.dll!NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt;&gt;c__DisplayClass_0+&lt;&lt;AddReference&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
+* [PerfWatson] UIDelay : nuget.packagemanagement.visualstudio.dll ! NuGet.PackageManagement.VisualStudio.VSMSBuildNuGetProjectSystem+*lt ; &gt;c__DisplayClass_0 +&lt;&lt;AddReference&gt;b__&gt;d.MoveNext - [#2285](https://github.com/NuGet/Home/issues/2285)
 
 * Installer des blocs si une seule source échoue autorisation - [#2034](https://github.com/NuGet/Home/issues/2034)
 
-* `.nuspec`version plage doit substituer IncludeReferencedProjects - version - [#1983](https://github.com/NuGet/Home/issues/1983)
+* `.nuspec` version plage doit substituer IncludeReferencedProjects - version - [#1983](https://github.com/NuGet/Home/issues/1983)
 
 * Package de mise à jour lente super - « tentative de collecte des informations de dépendance » - [#1909](https://github.com/NuGet/Home/issues/1909)
 
@@ -226,7 +220,7 @@ ms.lasthandoff: 02/02/2018
 
 * Plug-in d’informations d’identification s’est arrêté avec l’erreur -1 / erreur téléchargement du package lors de l’utilisation de fournisseurs d’informations d’identification avec plusieurs sources - [#2885](https://github.com/NuGet/Home/issues/2885)
 
-* `project.json`NuGet restore entraîne une recompilation en l’absence de modification - [#2817](https://github.com/NuGet/Home/issues/2817)
+* `project.json` NuGet restore entraîne une recompilation en l’absence de modification - [#2817](https://github.com/NuGet/Home/issues/2817)
 
 * Les packages de symboles ne doivent pas être déjà utilisé dans l’installation ou de mise à jour - [#2807](https://github.com/NuGet/Home/issues/2807)
 

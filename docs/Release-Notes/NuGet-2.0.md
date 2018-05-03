@@ -1,22 +1,16 @@
 ---
-title: Notes de publication NuGet 2.0 | Documents Microsoft
+title: Notes de publication NuGet 2.0
+description: Notes de version de NuGet 2.0, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr.
 author: karann-msft
-ms.author: karann-msft
-manager: ghogen
+ms.author: karann
+manager: unnir
 ms.date: 11/11/2016
-ms.topic: article
-ms.prod: nuget
-ms.technology: 
-description: "Notes de version de NuGet 2.0, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et dcr."
-keywords: "Notes de publication NuGet 2.0, les correctifs de bogues, problèmes connus, ajouté des fonctionnalités, DCR"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: eaa3c8db1cce72ff93671a1df63698748cdfab70
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.topic: conceptual
+ms.openlocfilehash: 0e637a953d9d5d10394857a352be96a7f68dc4e8
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="nuget-20-release-notes"></a>Notes de publication NuGet 2.0
 
@@ -27,7 +21,7 @@ NuGet 2.0 a été publiée le 19 juin 2012.
 ## <a name="known-installation-issue"></a>Problème connu d’Installation
 Si vous exécutez Visual Studio 2010 SP1, vous susceptible de rencontrer une erreur d’installation lorsque vous tentez de mettre à niveau NuGet, si vous disposez d’une version plus ancienne est installée.
 
-La solution de contournement consiste à simplement désinstaller NuGet et l’installer à partir de la galerie d’extensions Visual Studio.  Consultez [http://support.microsoft.com/kb/2581019](http://support.microsoft.com/kb/2581019) pour plus d’informations, ou [atteindre directement le correctif logiciel Visual Studio](http://bit.ly/vsixcertfix).
+La solution de contournement consiste à simplement désinstaller NuGet et l’installer à partir de la galerie d’extensions Visual Studio.  Consultez [ http://support.microsoft.com/kb/2581019 ](http://support.microsoft.com/kb/2581019) pour plus d’informations, ou [atteindre directement le correctif logiciel Visual Studio](http://bit.ly/vsixcertfix).
 
 Remarque : Si Visual Studio ne vous autorisent à désinstaller l’extension (le bouton Désinstaller est désactivé), puis il est probable que devez redémarrer Visual Studio à l’aide de « Exécuter en tant qu’administrateur ».
 
@@ -37,7 +31,7 @@ Comme décrit dans cette [publier sur le consentement de restauration de package
 
 ## <a name="group-dependencies-by-target-frameworks"></a>Dépendances de groupe par l’infrastructure cible
 
-Depuis la version 2.0, package de dépendances peuvent varier en fonction du profil de framework du projet cible. Pour cela, à l’aide d’une mise à jour `.nuspec` schéma. Le `<dependencies>` élément peut désormais contenir un ensemble de `<group>` éléments. Chaque groupe contient zéro ou plusieurs `<dependency>` éléments et un `targetFramework` attribut. Toutes les dépendances à l’intérieur d’un groupe sont installées ensemble si le framework cible est compatible avec le profil de framework du projet cible. Exemple :
+Depuis la version 2.0, package de dépendances peuvent varier en fonction du profil de framework du projet cible. Pour cela, à l’aide d’une mise à jour `.nuspec` schéma. Le `<dependencies>` élément peut désormais contenir un ensemble de `<group>` éléments. Chaque groupe contient zéro ou plusieurs `<dependency>` éléments et un `targetFramework` attribut. Toutes les dépendances à l’intérieur d’un groupe sont installées ensemble si le framework cible est compatible avec le profil de framework du projet cible. Par exemple :
 
 ```xml
 <dependencies>
@@ -74,7 +68,7 @@ Notez que la combinaison des deux formats n’est pas autorisé. Par exemple, l�
 
 ## <a name="grouping-content-files-and-powershell-scripts-by-target-framework"></a>Regroupement des fichiers de contenu et des scripts PowerShell par le framework cible
 
-En plus des références d’assembly, les fichiers de contenu et des scripts PowerShell peuvent également être regroupés par le framework cible. La même structure de dossier se trouve dans le `lib` dossier pour la spécification du framework cible peut désormais être appliqué dans la même façon à la `content` et `tools` dossiers. Exemple :
+En plus des références d’assembly, les fichiers de contenu et des scripts PowerShell peuvent également être regroupés par le framework cible. La même structure de dossier se trouve dans le `lib` dossier pour la spécification du framework cible peut désormais être appliqué dans la même façon à la `content` et `tools` dossiers. Par exemple :
 
     \content
         \net11

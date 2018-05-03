@@ -1,25 +1,16 @@
 ---
-title: NuGet CLI de commande update | Documents Microsoft
+title: Commande de mise à jour de NuGet CLI
+description: Référence de la commande de mise à jour de nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/07/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Référence de la commande de mise à jour de nuget.exe
-keywords: référence de mise à jour de NuGet, commande d’un package de mise à jour
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 1ea04f2fa2a753065ee4f17cbb926e37acf129e0
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="update-command-nuget-cli"></a>commande de mise à jour (NuGet CLI)
 

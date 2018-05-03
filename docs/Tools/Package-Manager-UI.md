@@ -1,30 +1,21 @@
 ---
-title: Référence de l’interface utilisateur du Gestionnaire de Package NuGet | Documents Microsoft
+title: Référence de l’interface utilisateur du Gestionnaire de Package NuGet
+description: Instructions sur l’utilisation du Gestionnaire de Package NuGet UI dans Visual Studio pour travailler avec les packages NuGet.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 12/08/2017
-ms.topic: article
-ms.prod: nuget
-ms.technology: ''
+ms.topic: conceptual
 f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-description: Instructions sur l’utilisation du Gestionnaire de Package NuGet UI dans Visual Studio pour travailler avec les packages NuGet.
-keywords: NuGet UI, Gestionnaire de package NuGet UI, NuGet dans Visual Studio, la gestion des packages NuGet, interface utilisateur de NuGet, Gestionnaire de package dans Visual Studio
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: ad36c2ab0c6e62c7fe624b35d92e852303ecfdfb
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 99bd51798460a56cb8515d46791a9e75d9e630cc
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 
@@ -59,7 +50,7 @@ Dans cette rubrique :
     ![Références dans l’Explorateur de solutions](media/References.png)
 
 > [!Tip]
-    > Pour inclure les versions préliminaires dans la recherche et de proposer des versions préliminaires dans la version de liste déroulante, sélectionnez le **inclure la version préliminaire** option.
+> Pour inclure les versions préliminaires dans la recherche et de proposer des versions préliminaires dans la version de liste déroulante, sélectionnez le **inclure la version préliminaire** option.
 
 ## <a name="uninstalling-a-package"></a>Désinstaller un package
 

@@ -1,26 +1,17 @@
 ---
-title: Informations de référence sur le fichier .nuspec pour NuGet | Microsoft Docs
+title: Référence du fichier .nuspec pour NuGet
+description: Le fichier .nuspec contient des métadonnées de package utilisées lors de la création d’un package et pour fournir des informations aux consommateurs de packages.
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 08/29/2017
 ms.topic: reference
-ms.prod: nuget
-ms.technology: ''
-description: Le fichier .nuspec contient des métadonnées de package utilisées lors de la création d’un package et pour fournir des informations aux consommateurs de packages.
-keywords: informations de référence sur nuspec, métadonnées de package NuGet, manifeste de package NuGet, schéma nuspec
-ms.reviewer:
-- anangaur
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 086826b47402bb5e7066c7a10b1e2ff246fd58ea
-ms.sourcegitcommit: ecb598c790d4154366bc92757ec7db1a51c34faf
+ms.reviewer: anangaur
+ms.openlocfilehash: c11b50aa1637c00f0f0e71a6e20ce5d435db402b
+ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 04/28/2018
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -97,14 +88,14 @@ Ces éléments peuvent apparaître dans un élément `<metadata>`.
 | **owners** | Liste des créateurs de packages séparés par des virgules, qui utilisent des noms de profil sur nuget.org. Il s’agit souvent de la même liste que dans `authors` et elle est ignorée lors du chargement du package sur nuget.org. Consultez [Gestion des propriétaires de packages sur nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | URL de la page d’accueil du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. |
 | **licenseUrl** | URL de la licence du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. |
-| **iconUrl** | URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut, comme les URL  *https://github.com/ \<nom d’utilisateur\>/\<référentiel\>/raw/\<branche\> / \<logo.png\>*. |
+| **iconUrl** | URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut, comme les URL  <em>https://github.com/ \<nom d’utilisateur\>/\<référentiel\>/raw/\<branche\> / \<logo.png\></em>. |
 | **requireLicenseAcceptance** | Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à accepter la licence du package avant d’installer le package. |
 | **developmentDependency** | *(2.8+)* Valeur booléenne qui spécifie si le package doit être marqué comme dépendance de développement uniquement, ce qui l’empêche d’être inclus en tant que dépendance dans d’autres packages. |
 | **summary** | Brève description du package pour l’affichage de l’interface utilisateur. Si cet élément est omis, une version tronquée de `description` est utilisée. |
 | **releaseNotes** | *(1.5+)* Description des changements apportés à cette version du package, souvent utilisée dans l’interface utilisateur, par exemple sous l’onglet **Mises à jour** du Gestionnaire de package Visual Studio à la place de la description du package. |
 | **copyright** | *(1.5+)* Détails de copyright pour le package. |
 | **language** | ID de paramètres régionaux du package. Consultez [Création de packages localisés](../create-packages/creating-localized-packages.md). |
-| **tags** | Liste de balises et de mots clés délimités par des espaces, qui décrivent le package et permettent de découvrir les packages grâce à des fonctions de recherche et de filtrage. |
+| **tags**  | Liste de balises et de mots clés délimités par des espaces, qui décrivent le package et permettent de découvrir les packages grâce à des fonctions de recherche et de filtrage. |
 | **serviceable** | *(3.3+)* Uniquement réservé à un usage NuGet interne. |
 
 #### <a name="collection-elements"></a>Éléments de collection
@@ -183,8 +174,8 @@ L’élément `<dependencies>` dans `<metadata>` contient un nombre quelconque d
 
 | Balise include/exclude | Dossiers affectés de la cible |
 | --- | --- |
-| contentFiles | Contenu  |
-| runtime | Runtime, Resources et FrameworkAssemblies  |
+| contentFiles | Contenu |
+| runtime | Runtime, Resources et FrameworkAssemblies |
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
 | natifs | natifs |
