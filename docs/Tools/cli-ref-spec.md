@@ -1,51 +1,45 @@
 ---
-title: Commande spec de NuGet CLI | Documents Microsoft
+title: Commande spec de NuGet CLI
+description: Informations de référence pour la commande spec nuget.exe
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/18/2018
 ms.topic: reference
-ms.prod: nuget
-ms.technology: 
-description: "Informations de référence pour la commande spec nuget.exe"
-keywords: "référence technique de NuGet, commande spec"
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.openlocfilehash: cc7e772e737a0f74929d13e2b126f7796b6d0dc7
-ms.sourcegitcommit: 4651b16a3a08f6711669fc4577f5d63b600f8f58
+ms.openlocfilehash: 68d661030ce7bcff7d7a3a1c96c07e149ad4ffea
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2018
+ms.lasthandoff: 04/26/2018
 ---
-# <a name="spec-command-nuget-cli"></a><span data-ttu-id="0cb77-104">commande spec (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="0cb77-104">spec command (NuGet CLI)</span></span>
+# <a name="spec-command-nuget-cli"></a><span data-ttu-id="68a23-103">commande spec (NuGet CLI)</span><span class="sxs-lookup"><span data-stu-id="68a23-103">spec command (NuGet CLI)</span></span>
 
-<span data-ttu-id="0cb77-105">**S’applique à :** la création de package &bullet; **versions prises en charge :** toutes les</span><span class="sxs-lookup"><span data-stu-id="0cb77-105">**Applies to:** package creation &bullet; **Supported versions:** all</span></span>
+<span data-ttu-id="68a23-104">**S’applique à :** la création de package &bullet; **versions prises en charge :** toutes les</span><span class="sxs-lookup"><span data-stu-id="68a23-104">**Applies to:** package creation &bullet; **Supported versions:** all</span></span>
 
-<span data-ttu-id="0cb77-106">Génère un `.nuspec` fichier pour un nouveau package.</span><span class="sxs-lookup"><span data-stu-id="0cb77-106">Generates a `.nuspec` file for a new package.</span></span> <span data-ttu-id="0cb77-107">Si vous exécutez dans le même dossier dans un fichier de projet (`.csproj`, `.vbproj`, `.fsproj`), `spec` crée un jeton `.nuspec` fichier.</span><span class="sxs-lookup"><span data-stu-id="0cb77-107">If run in the same folder as a project file (`.csproj`, `.vbproj`, `.fsproj`), `spec` creates a tokenized `.nuspec` file.</span></span> <span data-ttu-id="0cb77-108">Pour plus d’informations, consultez [création d’un Package](../create-packages/creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="0cb77-108">For additional information, see [Creating a Package](../create-packages/creating-a-package.md).</span></span>
+<span data-ttu-id="68a23-105">Génère un `.nuspec` fichier pour un nouveau package.</span><span class="sxs-lookup"><span data-stu-id="68a23-105">Generates a `.nuspec` file for a new package.</span></span> <span data-ttu-id="68a23-106">Si vous exécutez dans le même dossier dans un fichier de projet (`.csproj`, `.vbproj`, `.fsproj`), `spec` crée un jeton `.nuspec` fichier.</span><span class="sxs-lookup"><span data-stu-id="68a23-106">If run in the same folder as a project file (`.csproj`, `.vbproj`, `.fsproj`), `spec` creates a tokenized `.nuspec` file.</span></span> <span data-ttu-id="68a23-107">Pour plus d’informations, consultez [création d’un Package](../create-packages/creating-a-package.md).</span><span class="sxs-lookup"><span data-stu-id="68a23-107">For additional information, see [Creating a Package](../create-packages/creating-a-package.md).</span></span>
 
-## <a name="usage"></a><span data-ttu-id="0cb77-109">Utilisation</span><span class="sxs-lookup"><span data-stu-id="0cb77-109">Usage</span></span>
+## <a name="usage"></a><span data-ttu-id="68a23-108">Utilisation</span><span class="sxs-lookup"><span data-stu-id="68a23-108">Usage</span></span>
 
 ```cli
 nuget spec [<packageID>] [options]
 ```
 
-<span data-ttu-id="0cb77-110">où `<packageID>` est un identificateur de package facultatif à enregistrer dans le `.nuspec` fichier.</span><span class="sxs-lookup"><span data-stu-id="0cb77-110">where `<packageID>` is an optional package identifier to save in the `.nuspec` file.</span></span>
+<span data-ttu-id="68a23-109">où `<packageID>` est un identificateur de package facultatif à enregistrer dans le `.nuspec` fichier.</span><span class="sxs-lookup"><span data-stu-id="68a23-109">where `<packageID>` is an optional package identifier to save in the `.nuspec` file.</span></span>
 
-## <a name="options"></a><span data-ttu-id="0cb77-111">Options</span><span class="sxs-lookup"><span data-stu-id="0cb77-111">Options</span></span>
+## <a name="options"></a><span data-ttu-id="68a23-110">Options</span><span class="sxs-lookup"><span data-stu-id="68a23-110">Options</span></span>
 
-| <span data-ttu-id="0cb77-112">Option</span><span class="sxs-lookup"><span data-stu-id="0cb77-112">Option</span></span> | <span data-ttu-id="0cb77-113">Description</span><span class="sxs-lookup"><span data-stu-id="0cb77-113">Description</span></span> |
+| <span data-ttu-id="68a23-111">Option</span><span class="sxs-lookup"><span data-stu-id="68a23-111">Option</span></span> | <span data-ttu-id="68a23-112">Description</span><span class="sxs-lookup"><span data-stu-id="68a23-112">Description</span></span> |
 | --- | --- |
-| <span data-ttu-id="0cb77-114">AssemblyPath</span><span class="sxs-lookup"><span data-stu-id="0cb77-114">AssemblyPath</span></span> | <span data-ttu-id="0cb77-115">Spécifie le chemin d’accès à l’assembly à utiliser pour les métadonnées.</span><span class="sxs-lookup"><span data-stu-id="0cb77-115">Specifies the path to the assembly to use for metadata.</span></span> |
-| <span data-ttu-id="0cb77-116">Force</span><span class="sxs-lookup"><span data-stu-id="0cb77-116">Force</span></span> | <span data-ttu-id="0cb77-117">Remplace l’existant `.nuspec` fichier.</span><span class="sxs-lookup"><span data-stu-id="0cb77-117">Overwrites any existing `.nuspec` file.</span></span> |
-| <span data-ttu-id="0cb77-118">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="0cb77-118">ForceEnglishOutput</span></span> | <span data-ttu-id="0cb77-119">*(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais.</span><span class="sxs-lookup"><span data-stu-id="0cb77-119">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
-| <span data-ttu-id="0cb77-120">Help</span><span class="sxs-lookup"><span data-stu-id="0cb77-120">Help</span></span> | <span data-ttu-id="0cb77-121">Affiche l’aide de la commande.</span><span class="sxs-lookup"><span data-stu-id="0cb77-121">Displays help information for the command.</span></span> |
-| <span data-ttu-id="0cb77-122">Non interactif</span><span class="sxs-lookup"><span data-stu-id="0cb77-122">NonInteractive</span></span> | <span data-ttu-id="0cb77-123">Supprime les invites de saisie utilisateur ou les confirmations.</span><span class="sxs-lookup"><span data-stu-id="0cb77-123">Suppresses prompts for user input or confirmations.</span></span> |
-| <span data-ttu-id="0cb77-124">Commentaires</span><span class="sxs-lookup"><span data-stu-id="0cb77-124">Verbosity</span></span> | <span data-ttu-id="0cb77-125">Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*.</span><span class="sxs-lookup"><span data-stu-id="0cb77-125">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
+| <span data-ttu-id="68a23-113">AssemblyPath</span><span class="sxs-lookup"><span data-stu-id="68a23-113">AssemblyPath</span></span> | <span data-ttu-id="68a23-114">Spécifie le chemin d’accès à l’assembly à utiliser pour les métadonnées.</span><span class="sxs-lookup"><span data-stu-id="68a23-114">Specifies the path to the assembly to use for metadata.</span></span> |
+| <span data-ttu-id="68a23-115">Force</span><span class="sxs-lookup"><span data-stu-id="68a23-115">Force</span></span> | <span data-ttu-id="68a23-116">Remplace l’existant `.nuspec` fichier.</span><span class="sxs-lookup"><span data-stu-id="68a23-116">Overwrites any existing `.nuspec` file.</span></span> |
+| <span data-ttu-id="68a23-117">ForceEnglishOutput</span><span class="sxs-lookup"><span data-stu-id="68a23-117">ForceEnglishOutput</span></span> | <span data-ttu-id="68a23-118">*(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais.</span><span class="sxs-lookup"><span data-stu-id="68a23-118">*(3.5+)* Forces nuget.exe to run using an invariant, English-based culture.</span></span> |
+| <span data-ttu-id="68a23-119">Help</span><span class="sxs-lookup"><span data-stu-id="68a23-119">Help</span></span> | <span data-ttu-id="68a23-120">Affiche l’aide de la commande.</span><span class="sxs-lookup"><span data-stu-id="68a23-120">Displays help information for the command.</span></span> |
+| <span data-ttu-id="68a23-121">Non interactif</span><span class="sxs-lookup"><span data-stu-id="68a23-121">NonInteractive</span></span> | <span data-ttu-id="68a23-122">Supprime les invites de saisie utilisateur ou les confirmations.</span><span class="sxs-lookup"><span data-stu-id="68a23-122">Suppresses prompts for user input or confirmations.</span></span> |
+| <span data-ttu-id="68a23-123">Commentaires</span><span class="sxs-lookup"><span data-stu-id="68a23-123">Verbosity</span></span> | <span data-ttu-id="68a23-124">Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*.</span><span class="sxs-lookup"><span data-stu-id="68a23-124">Specifies the amount of detail displayed in the output: *normal*, *quiet*, *detailed*.</span></span> |
 
-<span data-ttu-id="0cb77-126">Consultez également [variables d’environnement](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="0cb77-126">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
+<span data-ttu-id="68a23-125">Consultez également [variables d’environnement](cli-ref-environment-variables.md)</span><span class="sxs-lookup"><span data-stu-id="68a23-125">Also see [Environment variables](cli-ref-environment-variables.md)</span></span>
 
-## <a name="examples"></a><span data-ttu-id="0cb77-127">Exemples</span><span class="sxs-lookup"><span data-stu-id="0cb77-127">Examples</span></span>
+## <a name="examples"></a><span data-ttu-id="68a23-126">Exemples</span><span class="sxs-lookup"><span data-stu-id="68a23-126">Examples</span></span>
 
 ```cli
 nuget spec
