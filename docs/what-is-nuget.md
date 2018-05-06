@@ -1,25 +1,16 @@
 ---
-title: Présentation et objectifs de NuGet | Microsoft Docs
+title: Présentation et objectifs de NuGet
+description: Une introduction complète à ce qu’est et ce que fait NuGet
 author: kraigb
 ms.author: kraigb
-manager: ghogen
+manager: douge
 ms.date: 01/10/2018
 ms.topic: overview
-ms.prod: nuget
-ms.technology: ''
-description: Une introduction complète à ce qu’est et ce que fait NuGet
-keywords: Gestionnaire de package NuGet, consommation, création de package, hébergement de package, packages .NET, packages .NET Core
-ms.reviewer:
-- karann-msft
-- unniravindranathan
-ms.workload:
-- dotnet
-- aspnet
-ms.openlocfilehash: 0d2094177f919d27b9a8320e60c8d1d75ec18fb6
-ms.sourcegitcommit: beb229893559824e8abd6ab16707fd5fe1c6ac26
+ms.openlocfilehash: 7237db8f3be3d9a1d46b9e6be41bff5c06593a20
+ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
+ms.lasthandoff: 04/26/2018
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
