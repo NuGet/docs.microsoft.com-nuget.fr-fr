@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 871cd05ed010d2a31348151de6b7e225ed2dc915
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e57d17c5bf393a05b8915b9a1a7af0b659a04716
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="nugetconfig-reference"></a>référence de NuGet.config
 
@@ -244,7 +244,7 @@ Vous pouvez utiliser des variables d’environnement dans les valeurs `nuget.con
 
 Par exemple, si la variable d’environnement `HOME` sur Windows a la valeur `c:\users\username`, la valeur `%HOME%\NuGetRepository` dans le fichier de configuration correspond à `c:\users\username\NuGetRepository`.
 
-De même, si `HOME` sur Mac/Linux a la valeur `/home/myStuff`, `$HOME/NuGetRepository` dans le fichier de configuration correspond à `/home/myStuff/NuGetRepository`.
+De même, si `HOME` sur Mac/Linux a la valeur `/home/myStuff`, `%HOME%/NuGetRepository` dans le fichier de configuration correspond à `/home/myStuff/NuGetRepository`.
 
 Si aucune variable d’environnement n’est trouvée, NuGet utilise la valeur littérale du fichier de configuration.
 

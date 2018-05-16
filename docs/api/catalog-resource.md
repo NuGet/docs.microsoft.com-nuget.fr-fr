@@ -7,11 +7,11 @@ manager: skofman
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 464b252ca318a5bd3487c723dbf4c7062e4698a3
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8554f9515b671dbececd94a025ec7e56037c2bd9
+ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/14/2018
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -193,11 +193,11 @@ Détails des éléments de catalogue package ont les propriétés suivantes en p
 Name                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
 authors                 | chaîne                     | Non       |
-created                 | chaîne                     | oui      | Lorsque le package a été créé pour la première horodateur
+created                 | chaîne                     | Non       | Horodateur de création tout d’abord du package. Propriété de secours : `published`.
 dependencyGroups        | Tableau d’objets           | Non       | Même format que le [ressource de métadonnées du package](registration-base-url-resource.md#package-dependency-group)
 Description             | chaîne                     | Non       |
 iconUrl                 | chaîne                     | Non       |
-isPrerelease            | boolean                    | oui      | Indique si la version du package est préliminaire
+isPrerelease            | boolean                    | Non       | Indique si la version du package est préliminaire. Peuvent être détectées de `version`.
 language                | chaîne                     | Non       |
 licenseUrl              | chaîne                     | Non       |
 liste                  | boolean                    | Non       | Indique si le package s’affiche.
