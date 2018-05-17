@@ -13,7 +13,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sign-command-nuget-cli"></a>commande de connexion (NuGet CLI)
+# <a name="sign-command-nuget-cli"></a>sign (commande, NuGet CLI)
 
 **S’applique à :** la création de package &bullet; **versions prises en charge :** 4.6 +
 

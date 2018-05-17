@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="update-package-package-manager-console-in-visual-studio"></a>Package de mise à jour (Console du Gestionnaire de Package dans Visual Studio)
+# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Console du gestionnaire de packages dans Visual Studio)
 
 *Disponible uniquement dans les [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sous Windows.*
 

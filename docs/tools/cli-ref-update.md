@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="update-command-nuget-cli"></a>commande de mise à jour (NuGet CLI)
+# <a name="update-command-nuget-cli"></a>update (commande, NuGet CLI)
 
 **S’applique à :** package consommation &bullet; **versions prises en charge :** toutes les
 

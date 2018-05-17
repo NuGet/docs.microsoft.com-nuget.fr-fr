@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="pack-command-nuget-cli"></a>commande de Pack (NuGet CLI)
+# <a name="pack-command-nuget-cli"></a>pack (commande, NuGet CLI)
 
 **S’applique à :** la création de package &bullet; **versions prises en charge :** 2.7 +
 

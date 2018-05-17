@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="locals-command-nuget-cli"></a>commande de variables locales (NuGet CLI)
+# <a name="locals-command-nuget-cli"></a>locals (commande, NuGet CLI)
 
 **S’applique à :** package consommation &bullet; **versions prises en charge :** 3.3 +
 

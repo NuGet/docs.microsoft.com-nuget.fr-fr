@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="mirror-command-nuget-cli"></a>commande de mise en miroir (NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>mirror (commande, NuGet CLI)
 
 **S’applique à :** la publication du package &bullet; **versions prises en charge :** déconseillée dans 3.2 +
 

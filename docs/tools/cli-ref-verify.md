@@ -13,7 +13,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/27/2018
 ---
-# <a name="verify-command-nuget-cli"></a>Vérifiez la commande (NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>verify (commande, NuGet CLI)
 
 **S’applique à :** package consommation &bullet; **versions prises en charge :** 4.6 +
 

@@ -12,7 +12,7 @@ ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
 ---
-# <a name="sources-command-nuget-cli"></a>commande de sources (NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>sources (commande, NuGet CLI)
 
 **S’applique à :** consommation de package, publication &bullet; **versions prises en charge :** toutes les
 
