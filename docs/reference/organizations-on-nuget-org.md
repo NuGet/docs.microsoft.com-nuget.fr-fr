@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.reviewer:
 - kraigb
 - camsoper
-ms.openlocfilehash: 0e836f5f39620f0b83212c9510735481119ddda2
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 7f40654a08ac221c5ec3a90c86387b6760b28994
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="organization-on-nugetorg"></a>Organisation sur nuget.org
 
@@ -86,7 +86,7 @@ Lorsque vous téléchargez directement un nouveau package sur le [nuget.org tél
 
 ### <a name="using-api-keys"></a>À l’aide de clés de l’API
 
-Pour distribuer un package le `nuget push` ou `dotnet nuget push` commandes CLI, vous devez obtenir une clé d’API requise par ces commandes. Pour plus d’informations, consultez [publier un package](https://docs.microsoft.com/en-us/nuget/quickstart/create-and-publish-a-package-using-visual-studio#publish-the-package).
+Pour distribuer un package le `nuget push` ou `dotnet nuget push` commandes CLI, vous devez obtenir une clé d’API requise par ces commandes. Pour plus d’informations, consultez [publier un package](../quickstart/create-and-publish-a-package-using-visual-studio.md#publish-the-package).
 
 Lorsque vous créez une nouvelle clé d’API, sélectionnez l’organisation appropriée dans le **Package propriétaire** liste déroulante. N’importe quelle touche API que vous créez s’applique uniquement à l’organisation choisie :
 

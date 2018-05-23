@@ -4,7 +4,7 @@ description: Informations de référence complètes pour les avertissements et e
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/06/2018
+ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
 f1_keywords:
@@ -44,11 +44,11 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: dcff20e35adc0a3dbcc7bef482f81a937cf059c5
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
+ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 05/22/2018
 ---
 # <a name="errors-and-warnings"></a>Erreurs et avertissements
 
@@ -122,7 +122,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | Impossible de trouver le package sur des sources. |
 | **Exemple de message** | *Impossible de trouver le package System.Missing. Aucun package n’existe avec cet id de source (s) : dotnet cœur, roslyn-dotnet, nuget.org* |
-| **Solution** | Examinez les dépendances du projet dans Visual Studio afin de vous assurer que vous utilisez le nombre d’identificateur et la version de package approprié. Assurez-vous également que le [configuration NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifie les sources de package votre s’attendre à être à l’aide. Si vous utilisez des packages qui ont [sémantique le contrôle de version 2.0.0](https://docs.microsoft.com/en-us/nuget/reference/package-versioning#semantic-versioning-200), assurez-vous que vous utilisez le [V3 de flux de](https://api.nuget.org/v3/index.json) dans le [configuration NuGet](../consume-packages/Configuring-NuGet-Behavior.md). |
+| **Solution** | Examinez les dépendances du projet dans Visual Studio afin de vous assurer que vous utilisez le nombre d’identificateur et la version de package approprié. Assurez-vous également que le [configuration NuGet](../consume-packages/Configuring-NuGet-Behavior.md) identifie les sources de package votre s’attendre à être à l’aide. Si vous utilisez des packages qui ont [sémantique le contrôle de version 2.0.0](../reference/package-versioning.md#semantic-versioning-200), assurez-vous que vous utilisez la version 3 de flux, `https://api.nuget.org/v3/index.json`, dans le [configuration NuGet](../consume-packages/Configuring-NuGet-Behavior.md). |
 
 ### <a name="nu1102"></a>NU1102
 
