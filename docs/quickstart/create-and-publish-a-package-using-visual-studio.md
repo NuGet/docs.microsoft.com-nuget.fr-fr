@@ -1,20 +1,23 @@
 ---
-title: Guide d’introduction à la création et à la publication de package NuGet .NET Standard avec Visual Studio
-description: Ce didacticiel explique pas à pas comment créer et publier un package NuGet .NET Standard avec Visual Studio 2017.
+title: Créer et publier un package .NET Standard avec Visual Studio sous Windows
+description: Ce didacticiel explique pas à pas comment créer et publier un package NuGet .NET Standard avec Visual Studio 2017 sous Windows.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/18/2018
+ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: c5d58aa6312eae801607ca44a81bc092a7a7c15f
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard)
+# <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
-La création d’un package NuGet à partir d’une bibliothèque de classes .NET Standard dans Visual Studio est un processus simple, de même que sa publication sur nuget.org avec un outil de ligne de commande (CLI).
+La création d’un package NuGet à partir d’une bibliothèque de classes .NET Standard dans Visual Studio sous Windows est un processus simple, de même que sa publication sur nuget.org avec un outil de ligne de commande (CLI).
+
+> [!Note]
+> Ce démarrage rapide s’applique à Visual Studio 2017 pour Windows uniquement. Visual Studio pour Mac n’inclut pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

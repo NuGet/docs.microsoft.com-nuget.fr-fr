@@ -1,20 +1,23 @@
 ---
-title: Guide d’introduction à la création et à la publication de package NuGet .NET Framework avec Visual Studio
-description: Ce didacticiel explique pas à pas comment créer et publier un package NuGet .NET Framework avec Visual Studio 2017.
+title: Créer et publier un package .NET Framework avec Visual Studio sous Windows
+description: Ce tutoriel explique pas à pas comment créer et publier un package NuGet .NET Framework avec Visual Studio 2017 sous Windows.
 author: kraigb
 ms.author: kraigb
 manager: douge
-ms.date: 03/13/2018
+ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 01760034a121b1ff6f227e006415779898c4cf6d
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: ba02b53c6ac0b4172b8611958775980ce401bf9b
+ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 05/22/2018
 ---
-# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework)
+# <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework, Windows)
 
-La création d’un package NuGet à partir d’une bibliothèque de classes .NET Framework implique la création de la DLL dans Visual Studio, puis l’utilisation de l’outil en ligne de commande nuget.exe pour créer et publier le package.
+La création d’un package NuGet à partir d’une bibliothèque de classes .NET Framework implique de créer la DLL dans Visual Studio sous Windows, puis d’utiliser l’outil en ligne de commande nuget.exe pour créer et publier le package.
+
+> [!Note]
+> Ce guide de démarrage rapide s’applique uniquement à Visual Studio 2017 pour Windows. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

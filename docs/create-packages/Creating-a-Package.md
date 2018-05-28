@@ -6,11 +6,11 @@ ms.author: kraigb
 manager: douge
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: c1e3bfd1c7e80c7deb505ef732d73c2edf3e32f7
-ms.sourcegitcommit: 5fcd6d664749aa720359104ef7a66d38aeecadc2
+ms.openlocfilehash: 1657479e1a87f7022caa2fd991127b4ca702cdac
+ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/27/2018
+ms.lasthandoff: 05/16/2018
 ---
 # <a name="creating-nuget-packages"></a>Création de packages NuGet
 
@@ -157,7 +157,7 @@ Vous modifiez ensuite le fichier manuellement afin qu’il décrive le contenu e
 
 ### <a name="from-a-convention-based-working-directory"></a>À partir d’un répertoire de travail basé sur une convention
 
-Étant donné qu’un package NuGet n’est qu’un fichier ZIP renommé avec l’extension `.nupkg`, il est souvent plus facile de créer la structure de dossiers que vous voulez sur le système de fichiers, puis de créer le fichier `.nuspec` directement depuis cette structure. La commande `nuget pack` ajoute alors automatiquement tous les fichiers dans cette structure de dossiers (à l’exclusion des dossiers qui commencent par `.`, ce qui permet de conserver les fichiers privés dans la même structure).
+Dans la mesure où un package NuGet n’est qu’un fichier ZIP renommé avec l’extension `.nupkg`, il est souvent plus facile de créer la structure de dossiers souhaitée sur le système de fichiers local, puis de créer directement le fichier `.nuspec` à partir de cette structure. La commande `nuget pack` ajoute alors automatiquement tous les fichiers dans cette structure de dossiers (à l’exclusion des dossiers qui commencent par `.`, ce qui permet de conserver les fichiers privés dans la même structure).
 
 L’avantage de cette approche est que vous n’avez pas besoin de spécifier, dans le manifeste, les fichiers à inclure dans le package (comme expliqué plus loin dans cette rubrique). Vous pouvez simplement demander à votre processus de génération de produire la structure de dossiers exacte qui est placée dans le package et vous pouvez facilement inclure d’autres fichiers qui ne font peut-être pas partie d’un projet :
 
@@ -361,12 +361,9 @@ Avec NuGet 3.x, les cibles ne sont pas ajoutées au projet, mais accessibles vi
 Les packages qui contiennent des assemblys COM Interop doivent inclure un [fichier de cibles](#including-msbuild-props-and-targets-in-a-package) approprié afin que les bonnes métadonnées `EmbedInteropTypes` soient ajoutées aux projets en utilisant le format PackageReference. Par défaut, les métadonnées `EmbedInteropTypes` sont toujours fausses pour tous les assemblys lorsque PackageReference est utilisé, si bien que le fichier de cibles ajoute ces métadonnées explicitement. Pour éviter les conflits, le nom de la cible doit être unique ; dans l’idéal, utilisez une combinaison du nom de votre package et de l’assembly incorporé, en remplaçant `{InteropAssemblyName}` dans l’exemple ci-dessous par cette valeur. (Consultez également [NuGet.Samples.Interop](https://github.com/NuGet/Samples/tree/master/NuGet.Samples.Interop) pour obtenir un exemple.)
 
 ```xml
-<Target Name="EmbeddingAssemblyNameFromPackageId" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
-  <PropertyGroup>
-    <_InteropAssemblyFileName>{InteropAssemblyName}</_InteropAssemblyFileName>
-  </PropertyGroup>
+<Target Name="Embedding**AssemblyName**From**PackageId**" AfterTargets="ResolveReferences" BeforeTargets="FindReferenceAssembliesForReferences">
   <ItemGroup>
-    <ReferencePath Condition=" '%(FileName)' == '$(_InteropAssemblyFileName)' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
+    <ReferencePath Condition=" '%(FileName)' == '{InteropAssemblyName}' AND '%(ReferencePath.NuGetPackageId)' == '$(MSBuildThisFileName)' ">
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </ReferencePath>
   </ItemGroup>
@@ -381,7 +378,7 @@ De plus, [les ressources de build ne circulent pas de manière transitive](../co
 
 ## <a name="running-nuget-pack-to-generate-the-nupkg-file"></a>Exécution de nuget pack pour générer le fichier .nupkg
 
-Lorsque vous utilisez un assembly ou le répertoire de travail basé sur une convention, créez un package en exécutant `nuget pack` avec votre fichier `.nuspec`, en remplaçant `<manifest-name>` par votre nom de fichier spécifique :
+Lorsque vous utilisez un assembly ou le répertoire de travail basé sur une convention, créez un package en exécutant `nuget pack` avec votre fichier `.nuspec`, en remplaçant `<project-name>` par votre nom de fichier spécifique :
 
 ```cli
 nuget pack <project-name>.nuspec
@@ -444,7 +441,7 @@ Pour les tests automatisés, le processus de base est le suivant :
 1. Copiez le fichier `.nupkg` dans un dossier local.
 1. Ajoutez le dossier à vos sources de package à l’aide de la commande `nuget sources add -name <name> -source <path>` (consultez [Sources nuget](../tools/cli-ref-sources.md)). Notez que vous ne devez définir cette source locale qu’une seule fois sur un ordinateur donné.
 1. Installez le package à partir de cette source en utilisant `nuget install <packageID> -source <name>` où `<name>` correspond au nom de votre source tel qu’il est donné à `nuget sources`. La spécification de la source permet de s’assurer que le package est installé à partir de cette source uniquement.
-1. Examinez le système de fichiers pour vérifier que les fichiers sont correctement installés.
+1. Examinez votre système de fichiers pour vérifier que les fichiers sont correctement installés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
