@@ -1,17 +1,18 @@
 ---
 title: Référence du fichier .nuspec pour NuGet
 description: Le fichier .nuspec contient des métadonnées de package utilisées lors de la création d’un package et pour fournir des informations aux consommateurs de packages.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c0717418e1efcdcaf407bec6ab50f43e5396421e
-ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.openlocfilehash: 2ff83538f9f1cf3bd4ed616ec8f5f1aef3ffd9d6
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818540"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -313,7 +314,7 @@ Si vous suivez les conventions décrites dans [Création d’un package](../crea
 > [!Important]
 > Quand un package est installé dans un projet, NuGet ajoute automatiquement des références d’assembly aux DLL du package, *à l’exclusion* de celles nommées `.resources.dll`, car elles sont supposées être des assemblys satellites localisés. C’est pourquoi vous devez éviter d’utiliser `.resources.dll` pour les fichiers qui contiennent du code de package essentiel.
 
-Pour ignorer ce comportement automatique et contrôler explicitement les fichiers qui sont inclus dans un package, placez un élément `<files>` en tant qu’enfant de `<package>` (et frère de `<metadata>`), identifiant chaque fichier avec un élément `<file>` distinct. Par exemple :
+Pour ignorer ce comportement automatique et contrôler explicitement les fichiers qui sont inclus dans un package, placez un élément `<files>` en tant qu’enfant de `<package>` (et frère de `<metadata>`), identifiant chaque fichier avec un élément `<file>` distinct. Exemple :
 
 ```xml
 <files>
@@ -554,7 +555,7 @@ Le projet de package doit structurer le contenu à l’aide du modèle suivant :
 - `TxM` est n’importe quel moniker du Framework cible légal pris en charge par NuGet (consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md)).
 - Toute structure de dossiers peut être ajoutée à la fin de cette syntaxe.
 
-Par exemple :
+Exemple :
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

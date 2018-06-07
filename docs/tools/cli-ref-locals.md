@@ -1,16 +1,17 @@
 ---
 title: Commande de variables locales NuGet CLI
 description: Référence de la commande de variables locales de nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: ac07dc306bc23c2fedd33c5627e8d34a6098387c
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 90e8c85e7a3e0e9520933e2ddd6dd84447475f2b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818199"
 ---
 # <a name="locals-command-nuget-cli"></a>locals (commande, NuGet CLI)
 
@@ -35,7 +36,7 @@ où `<folder>` est un des `all`, `http-cache`, `packages-cache` *(3.5 et version
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | Liste | Répertorie l’emplacement du dossier spécifié, ou les emplacements de dossiers de tous les cas d’utilisation avec *tous les*. |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)

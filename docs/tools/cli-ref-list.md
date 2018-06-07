@@ -1,16 +1,17 @@
 ---
 title: Commande de liste NuGet CLI
 description: Référence de la commande de liste de nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: f4a44c70937e7cb49e472c53e9857e9f44d269f7
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: b0f144d8abbba7388fe39cd113e4eeddccbca2c6
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818436"
 ---
 # <a name="list-command-nuget-cli"></a>commande de la liste (NuGet CLI)
 
@@ -35,7 +36,7 @@ où les termes de recherche facultatif filtre la liste affichée. Termes de rech
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | IncludeDelisted | *(3.2 +)*  Afficher les packages non listées. |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | Version préliminaire | Inclut les versions préliminaires des packages dans la liste. |
 | Source | Spécifie une liste des sources de packages à rechercher. |
 | Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |

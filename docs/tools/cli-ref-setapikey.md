@@ -1,16 +1,17 @@
 ---
 title: Commande setapikey de NuGet CLI
 description: Référence de la commande setapikey de nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 968e22f32e51659590a6fe1e881bf5a9792a1331
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 66fc62074b4e7c39ff2ed6b515eee9f821530536
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817682"
 ---
 # <a name="setapikey-command-nuget-cli"></a>commande de setapikey (NuGet CLI)
 
@@ -33,7 +34,7 @@ où `<source>` identifie le serveur et `<key>` est la clé ou le mot de passe à
 | ConfigFile | Le fichier de configuration NuGet à appliquer. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)

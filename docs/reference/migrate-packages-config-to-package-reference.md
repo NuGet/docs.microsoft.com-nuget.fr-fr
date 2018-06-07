@@ -6,11 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2b15d60d4f71fb2777e36c6a948ad72b4e2bc594
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e0a4363a2807874ec8e2693c5b1c1a0eb2e8af0e
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818784"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrer à partir de packages.config vers PackageReference
 
@@ -29,6 +30,24 @@ Visual Studio 2017 Version 15.7 Preview 3 et ultérieures prend en charge la mig
 * NuGet PackageReference n’est pas disponible dans Visual Studio 2015 et versions antérieures. Les projets migrés peuvent être ouvert uniquement dans Visual Studio 2017.
 * La migration n’est pas actuellement disponible pour les projets C++ et ASP.NET.
 * Certains packages ne sont peut-être pas entièrement compatibles avec PackageReference. Pour plus d’informations, consultez [des problèmes de compatibilité du package](#package-compatibility-issues).
+
+### <a name="known-issues"></a>Problèmes connus
+
+1. L’option `Migrate packages.config to PackageReference...` n’est pas disponible dans le menu contextuel 
+
+#### <a name="issue"></a>Problème 
+ 
+À la première ouverture d’un projet, il peut arriver que NuGet ne s’initialise pas tant qu’aucune opération NuGet n’a été réalisée. Dans ce cas, l’option de migration ne s’affiche pas dans le menu contextuel sur `packages.config` ou `References`. 
+
+#### <a name="workaround"></a>Solution de contournement 
+
+Effectuez l’une des actions NuGet suivantes : 
+* Ouvrez l’interface utilisateur du Gestionnaire de package : cliquez avec le bouton droit sur `References` et sélectionnez `Manage NuGet Packages...`. 
+* Ouvrez la console du Gestionnaire de package : dans `Tools > NuGet Package Manager`, sélectionnez `Package Manager Console`. 
+* Exécutez la restauration NuGet : cliquez avec le bouton droit sur le nœud de la solution dans l’Explorateur de solutions, puis sélectionnez `Restore NuGet Packages`. 
+* Générez le projet qui déclenche également la restauration NuGet. 
+
+L’option de migration devrait apparaître. Notez qu’elle n’est pas prise en charge et ne s’affiche pas pour les types de projets ASP.NET et C++. 
 
 ## <a name="migration-steps"></a>Étapes de migration
 
@@ -58,7 +77,7 @@ Visual Studio 2017 Version 15.7 Preview 3 et ultérieures prend en charge la mig
 
 1. Fermez le projet migré.
 
-1. Copiez le fichier projet et `packages.config` à partir de la sauvegarde (en général `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) dans le dossier du projet.
+1. Copiez le fichier projet et `packages.config` à partir de la sauvegarde (en général `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) dans le dossier du projet. Supprimez le dossier obj s’il existe dans le répertoire racine du projet.
 
 1. Ouvrez le projet.
 

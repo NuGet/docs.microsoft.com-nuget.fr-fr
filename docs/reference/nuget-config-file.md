@@ -1,16 +1,17 @@
 ---
 title: Référence du fichier NuGet.config
 description: Informations de référence sur le fichier NuGet.Config, notamment les sections config, bindingRedirects, packageRestore, solution et packageSource.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: e57d17c5bf393a05b8915b9a1a7af0b659a04716
-ms.sourcegitcommit: 055248d790051774c892b220eca12015babbd668
+ms.openlocfilehash: 3d6741b2d724b967e76ba65547e84adcd461a521
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818397"
 ---
 # <a name="nugetconfig-reference"></a>référence de NuGet.config
 

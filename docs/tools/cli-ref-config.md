@@ -1,16 +1,17 @@
 ---
 title: Commande config de NuGet CLI
 description: Informations de référence pour la commande config de nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 414eb8386f949347772f33170de881534dc71482
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9deab9fcca740ea99da61b7d54700a29c1813e88
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818163"
 ---
 # <a name="config-command-nuget-cli"></a>commande de configuration (NuGet CLI)
 
@@ -39,7 +40,7 @@ Dans NuGet 3.4 + `<value>` peut utiliser [variables d’environnement](cli-ref-e
 | ConfigFile | Le fichier de configuration NuGet à modifier. Si non spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)

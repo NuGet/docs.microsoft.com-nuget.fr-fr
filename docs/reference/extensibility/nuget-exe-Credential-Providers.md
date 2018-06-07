@@ -1,16 +1,17 @@
 ---
 title: Fournisseurs d’informations d’identification de NuGet.exe
 description: fournisseurs d’informations d’identification de NuGet.exe auprès d’un flux et sont implémentées comme des exécutables de ligne de commande qui suivent les conventions spécifiques.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 494ea83007895e973585395e0cfe05b7226c4c3e
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: ebd3354c298eae8bc8158a987327374ac4a8d4f0
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818758"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Flux de l’authentification avec les fournisseurs d’informations d’identification de nuget.exe
 
@@ -52,7 +53,7 @@ Un fournisseur doit effectuer le des opérations suivantes :
 | Commutateur de paramètre / |Description|
 |----------------|-----------|
 | URI {value} | Le package source des informations d’identification nécessitant des URI.|
-| Non interactif | S’il est présent, le fournisseur n’émet pas invites interactives. |
+| NonInteractive | S’il est présent, le fournisseur n’émet pas invites interactives. |
 | IsRetry | Le cas échéant, indique que cette tentative est une nouvelle tentative d’une tentative ayant échouée précédemment. Fournisseurs utilisent généralement cet indicateur pour vous assurer qu’ils contournent un cache existant et demander de nouvelles informations d’identification, si possible.|
 | Niveau de détail {value} | Le cas échéant, une des valeurs suivantes : « normal », « silencieuse » ou « détaillé ». Si aucune valeur n’est fournie, valeur par défaut est « normal ». Fournisseurs doivent utiliser cela comme une indication du niveau de journalisation facultatives pour émettre le flux d’erreur standard. |
 

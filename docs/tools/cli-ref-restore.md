@@ -1,16 +1,17 @@
 ---
 title: Commande de restauration NuGet CLI
 description: Informations de référence pour la commande restore de nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: dd0a74c9ed9b879643ed24cbddacff87310dfd6b
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 4df7685883fea78428c6744bdbf4c66d83e469bc
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817916"
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (NuGet CLI)
 
@@ -41,7 +42,7 @@ où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.c
 | MSBuildPath | *(4.0 +)*  Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15. Par défaut que le MSBuild dans votre chemin d’accès est sélectionné, sinon la valeur par défaut pour la version installée la plus élevée de MSBuild. |
 | NoCache | NuGet empêche l’utilisation de packages de mise en cache. Consultez [gestion des packages globaux et des dossiers cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | OutputDirectory | Spécifie le dossier dans lequel les packages sont installés. Si aucun dossier n’est spécifié, le dossier actif est utilisé. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `PackagesDirectory` ou `SolutionDirectory` est utilisé.|
 | PackageSaveMode | Spécifie les types de fichiers à enregistrer après l’installation du package : un des `nuspec`, `nupkg`, ou `nuspec;nupkg`. |
 | PackagesDirectory | Comme pour `OutputDirectory`. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `OutputDirectory` ou `SolutionDirectory` est utilisé. |

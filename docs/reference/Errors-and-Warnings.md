@@ -1,9 +1,9 @@
 ---
 title: NuGet erreurs et avertissements référence
 description: Informations de référence complètes pour les avertissements et erreurs émises à partir de NuGet lors de diverses opérations de NuGet.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: anangaur
@@ -44,11 +44,12 @@ f1_keywords:
 - NU3008
 - NU3018
 - NU3028
-ms.openlocfilehash: 748c2746a61886617e2eefe3e6c4a2e2a5b9d4d3
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 368a9554c5caf92b709f9b29e16b8a7cdb264eec
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818514"
 ---
 # <a name="errors-and-warnings"></a>Erreurs et avertissements
 
@@ -173,7 +174,7 @@ Les erreurs et les avertissements répertoriés ici sont uniquement disponibles 
 | --- | --- |
 | **Problème** | Impossible de résoudre les contraintes de dépendances entre les packages. |
 | **Exemple de message** | *Conflit de version détecté pour NuGet.Versioning. Référencer le package directement à partir du projet pour résoudre ce problème.<br/>  NuGet.Packaging 3.5.0 -> NuGet.Versioning (= 3.5.0)<br/> NuGet.Configuration 4.0.0 -> NuGet.Versioning (= 4.0.0)* |
-| **Solution** | Les packages avec des contraintes de dépendance sur les versions exactes ne permettent pas d’autres packages d’augmenter la version, si nécessaire. Ajoutez une référence au projet directement (dans le fichier projet) avec la version exacte requise. |
+| **Solution** | Les packages avec des contraintes de dépendance sur les versions exactes ne permettent pas d’autres packages d’augmenter la version, si nécessaire. Ajoutez une référence au package directement (dans le fichier projet) avec la version exacte requise. |
 
 <a name="nu1108"></a>
 

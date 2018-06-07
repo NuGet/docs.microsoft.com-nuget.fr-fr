@@ -1,16 +1,17 @@
 ---
 title: Commande de mise à jour de NuGet CLI
 description: Référence de la commande de mise à jour de nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e6964d92436ce1bac9e6af85f6dae75fcf40378d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 39e269b10a0cf144d5971d2af9f82a606e0b6904
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817705"
 ---
 # <a name="update-command-nuget-cli"></a>update (commande, NuGet CLI)
 
@@ -43,7 +44,7 @@ où `<configPath>` soit identifie un `packages.config` ou le fichier de solution
 | Id | Spécifie une liste d’ID pour mettre à jour de package. |
 | MSBuildPath | *(4.0 +)*  Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
 | MSBuildVersion | *(3.2 +)*  Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15. Par défaut que le MSBuild dans votre chemin d’accès est sélectionné, sinon la valeur par défaut pour la version installée la plus élevée de MSBuild. |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | Version préliminaire | Permet la mise à jour vers les versions préliminaires. Cet indicateur n’est pas nécessaire lors de la mise à jour des versions préliminaires des packages qui sont déjà installés. |
 | RepositoryPath | Spécifie le dossier local dans lequel les packages sont installés. |
 | Safe | Spécifie qui met à jour uniquement avec la version la plus récente disponible dans la même version majeure et mineure que le package installé sera installé. |

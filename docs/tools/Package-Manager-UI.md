@@ -1,9 +1,9 @@
 ---
 title: Référence de l’interface utilisateur du Gestionnaire de Package NuGet
 description: Instructions sur l’utilisation du Gestionnaire de Package NuGet UI dans Visual Studio pour travailler avec les packages NuGet.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 12/08/2017
 ms.topic: conceptual
 f1_keywords:
@@ -11,11 +11,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1d8cb8186b9cedb29918d48539bdf45b130030c0
-ms.sourcegitcommit: 00c4c809c69c16fcf4d81012eb53ea22f0691d0b
+ms.openlocfilehash: 307416908aff5db12fbf6f419e20acc6e0a9b241
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818839"
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 

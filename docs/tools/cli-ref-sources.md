@@ -1,16 +1,17 @@
 ---
 title: NuGet CLI des sources de commande
 description: Commande des sources de référence pour le nuget.exe
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d588ff09075ad75b76b7dd3645f3cdff29f6f093
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 7c416d92c11328ecb020154981b0ddcc5ba9c5e8
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818345"
 ---
 # <a name="sources-command-nuget-cli"></a>sources (commande, NuGet CLI)
 
@@ -36,7 +37,7 @@ où `<operation>` est un des *liste, ajouter, supprimer, activer, désactiver,* 
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Format | S’applique à la `list` action et peut être `Detailed` (la valeur par défaut) ou `Short`. |
 | Help | Affiche l’aide de la commande. |
-| Non interactif | Supprime les invites de saisie utilisateur ou les confirmations. |
+| NonInteractive | Supprime les invites de saisie utilisateur ou les confirmations. |
 | Mot de passe | Spécifie le mot de passe pour s’authentifier auprès de la source. |
 | StorePasswordInClearText | Indique que le mot de passe en texte non chiffré au lieu du comportement par défaut de stockage sous forme chiffrée. |
 | UserName | Spécifie le nom d’utilisateur pour l’authentification avec la source. |
