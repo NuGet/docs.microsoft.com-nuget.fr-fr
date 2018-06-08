@@ -1,16 +1,17 @@
 ---
 title: Guide pratique pour empaqueter des contrôles IU avec NuGet
 description: Comment créer des packages NuGet qui contiennent des contrôles UWP ou WPF, y compris les métadonnées nécessaires et les fichiers de prise en charge pour les concepteurs Visual Studio et Blend.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: fc6ab9e45d18807a6d69bb50ad5bac94b662a638
-ms.sourcegitcommit: 80c1a37d8794e9219e310a21a6a6885a65d24e53
+ms.openlocfilehash: ab7499c415f63319fd314f33607f74d400b5f957
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/23/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818655"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Créer des contrôles IU en tant que packages NuGet
 

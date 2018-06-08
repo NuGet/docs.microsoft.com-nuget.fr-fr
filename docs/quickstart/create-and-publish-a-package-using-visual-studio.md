@@ -1,23 +1,24 @@
 ---
 title: Créer et publier un package .NET Standard avec Visual Studio sous Windows
 description: Ce didacticiel explique pas à pas comment créer et publier un package NuGet .NET Standard avec Visual Studio 2017 sous Windows.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: f4e6473d307f2f71016f6926abbcdb1295abc7b5
-ms.sourcegitcommit: f0b31af805183cf3a98eabb504e16d9b05223cfe
+ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34818745"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET Standard dans Visual Studio sous Windows est un processus simple, de même que sa publication sur nuget.org avec un outil de ligne de commande (CLI).
 
 > [!Note]
-> Ce démarrage rapide s’applique à Visual Studio 2017 pour Windows uniquement. Visual Studio pour Mac n’inclut pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Ce démarrage rapide s’applique à Visual Studio 2017 pour Windows uniquement. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
