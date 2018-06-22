@@ -11,6 +11,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32044777"
 ---
 # <a name="nuget-35-rc-release-notes"></a>Notes de version RC de NuGet 3.5
 
