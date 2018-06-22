@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31820925"
 ---
 # <a name="nuget-17-release-notes"></a><span data-ttu-id="e51d7-103">Notes de version 1.7 de NuGet</span><span class="sxs-lookup"><span data-stu-id="e51d7-103">NuGet 1.7 Release Notes</span></span>
 

@@ -11,6 +11,7 @@ ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/28/2018
+ms.locfileid: "32045001"
 ---
 # <a name="nuget-25-release-notes"></a><span data-ttu-id="06a4b-103">Notes de publication NuGet 2.5</span><span class="sxs-lookup"><span data-stu-id="06a4b-103">NuGet 2.5 Release Notes</span></span>
 

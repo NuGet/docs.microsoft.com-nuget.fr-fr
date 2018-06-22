@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819373"
 ---
 # <a name="nuget-29-rc-release-notes"></a><span data-ttu-id="5b0bd-103">Notes de publication NuGet 2.9-RC</span><span class="sxs-lookup"><span data-stu-id="5b0bd-103">NuGet 2.9-RC Release Notes</span></span>
 

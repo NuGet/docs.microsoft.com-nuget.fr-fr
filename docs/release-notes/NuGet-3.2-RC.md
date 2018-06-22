@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822043"
 ---
 # <a name="nuget-32-rc-release-notes"></a><span data-ttu-id="86b46-103">Notes de version RC de NuGet 3.2</span><span class="sxs-lookup"><span data-stu-id="86b46-103">NuGet 3.2 RC Release Notes</span></span>
 

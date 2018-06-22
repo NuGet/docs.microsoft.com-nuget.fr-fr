@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822017"
 ---
 # <a name="known-issues-with-nuget"></a><span data-ttu-id="3005f-103">Problèmes connus avec NuGet</span><span class="sxs-lookup"><span data-stu-id="3005f-103">Known Issues with NuGet</span></span>
 

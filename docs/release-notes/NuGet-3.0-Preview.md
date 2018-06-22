@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821312"
 ---
 # <a name="nuget-30-preview-release-notes"></a><span data-ttu-id="e5765-103">Notes de mise à jour de NuGet 3.0 Preview</span><span class="sxs-lookup"><span data-stu-id="e5765-103">NuGet 3.0 Preview Release Notes</span></span>
 

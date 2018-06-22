@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31822342"
 ---
 # <a name="nuget-35-beta2-release-notes"></a><span data-ttu-id="ba4cc-103">Notes de mise à jour de NuGet 3.5 bêta 2</span><span class="sxs-lookup"><span data-stu-id="ba4cc-103">NuGet 3.5 Beta2 Release Notes</span></span>
 
