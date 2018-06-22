@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31819243"
 ---
 # <a name="nuget-341-release-notes"></a><span data-ttu-id="30f6c-103">Notes de mise à jour de NuGet 3.4.1</span><span class="sxs-lookup"><span data-stu-id="30f6c-103">NuGet 3.4.1 Release Notes</span></span>
 

@@ -11,6 +11,7 @@ ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
 ms.translationtype: MT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 04/26/2018
+ms.locfileid: "31821614"
 ---
 # <a name="nuget-32-release-notes"></a><span data-ttu-id="2ae87-103">Notes de version 3.2 de NuGet</span><span class="sxs-lookup"><span data-stu-id="2ae87-103">NuGet 3.2 Release Notes</span></span>
 
