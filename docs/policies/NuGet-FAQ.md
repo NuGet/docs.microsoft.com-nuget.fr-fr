@@ -1,16 +1,17 @@
 ---
 title: Questions fréquentes (FAQ) sur NuGet
 description: Questions courantes et réponses sur l’utilisation de NuGet depuis la ligne de commande et dans Visual Studio et sur l’utilisation de la galerie NuGet.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: bcdb4e8971ee4e742e6cf37f8b662e50a77604f0
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817978"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -160,9 +161,9 @@ Si un package ne spécifie pas les termes du contrat de licence, contactez le pr
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestion des packages sur nuget.org
 
-**Puis-je modifier les métadonnées d’un package après l’avoir chargé ? Pourquoi demandez-vous de modifier le fichier nuspec et de charger un nouveau package pour apporter des modifications aux métadonnées du package ?**
+**Puis-je modifier les métadonnées d’un package après l’avoir chargé ?**
 
-NuGet exige que tous les packages soient signés. Un principe de conception de la signature du package est que le contenu du package signé doit être immuable, ce qui comprend le fichier nuspec. Modifier les métadonnées du package entraîne des modifications du fichier nuspec, invalidant les signatures existantes. Nous vous recommandons de modifier les flux de travail existants de manière à ce qu’il ne soit pas nécessaire de modifier les métadonnées du package une fois ce dernier créé.
+NuGet recommande de signer tous les packages. Un principe de conception de la signature du package est que le contenu du package signé doit être immuable, ce qui comprend le fichier nuspec. Modifier les métadonnées du package entraîne des modifications du fichier nuspec, invalidant les signatures existantes. Nous vous recommandons de modifier les flux de travail existants de manière à ce qu’il ne soit pas nécessaire de modifier les métadonnées du package une fois ce dernier créé.
 
 Notez que les dépendances répertoriées pour votre package sont générées automatiquement à partir du package lui-même et qu’elles ne peuvent pas être modifiées.
 

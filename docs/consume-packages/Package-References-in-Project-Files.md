@@ -1,16 +1,17 @@
 ---
 title: Format PackageReference NuGet (références de package dans des fichiers projet)
 description: Cet article donne des informations détaillées sur le format PackageReference NuGet dans les fichiers projet, pris en charge par NuGet 4.0 (et versions ultérieures), Visual Studio 2017 et .NET Core 2.0.
-author: kraigb
-ms.author: kraigb
-manager: douge
+author: karann-msft
+ms.author: karann
+manager: unnir
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8f277a8af7f988d6fdcfa75c43a10b3792c2ae22
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 61f447877459764906cf9a2b88b32a8bc0553689
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817669"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -45,6 +46,17 @@ Pour spécifier la version d’un package, la convention est la même que pour `
 ```
 
 Dans l’exemple ci-dessus, 3.6.0 correspond à n’importe quelle version supérieure ou égale à 3.6.0, avec une préférence pour la version la plus ancienne, comme décrit dans [Gestion des versions de package](../reference/package-versioning.md#version-ranges-and-wildcards).
+
+## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Utilisation de PackageReference pour un projet sans PackageReferences
+Avancé : Si vous n’avez aucun package installé dans un projet (aucune PackageReferences dans le fichier projet et aucun fichier packages.config), mais que vous souhaitez restaurer le projet en tant que style PackageReference, vous pouvez définir une propriété de projet RestoreProjectStyle avec la valeur PackageReference dans votre fichier projet.
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+    <!--- ... -->
+</PropertyGroup>    
+```
+Cela peut être utile si vous référencez des projets qui sont de style PackageReference (projets csproj ou de style SDK existants). Cela permet aux packages auxquels ces projets font référence d’être référencés « transitivement » par votre projet.
 
 ## <a name="floating-versions"></a>Versions flottantes
 

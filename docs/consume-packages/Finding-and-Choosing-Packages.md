@@ -1,16 +1,17 @@
 ---
 title: Recherche et sélection de packages NuGet
 description: Explique comment rechercher et sélectionner les packages NuGet les mieux adaptés à votre projet, et fournit des informations détaillées sur la syntaxe de recherche NuGet.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 94d851cfbc860e50b02ca99595ca41bbf4ce21ef
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: f1bb145229b0db0e8fdb7fdb31a59aa50bd1d57b
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34817900"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Recherche et sélection des packages NuGet pour votre projet
 
@@ -105,7 +106,7 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 
 La recherche de packages NuGet fonctionne de la même manière sur nuget.org, dans l’interface CLI de NuGet et dans l’extension du gestionnaire de package NuGet de Visual Studio. En règle générale, la recherche s’appuie sur les mots clés et les descriptions des packages.
 
-- **Mots clés** : les packages contenant tous les mots clés fournis sont recherchés. Exemple : `modern UI javascript`
+- **Mots clés** : les packages contenant n’importe lesquels des mots clés fournis sont recherchés. Par exemple : `modern UI` Pour effectuer une recherche dans les packages qui contiennent tous les mots clés fournis, utilisez « + » entre les termes, par exemple `modern+UI`.
 - **Expressions** : saisissez des termes entre guillemets pour obtenir des correspondances exactes non sensibles à la casse. Exemple : `"modern UI" package`
 - **Filtrage** : vous pouvez appliquer un terme de recherche à une propriété spécifique à l’aide de la syntaxe `<property>:<term>`, où `<property>` (non sensible à la casse) peut être `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` ou `owner`. Les termes peuvent être placés entre guillemets si nécessaire, et vous pouvez rechercher plusieurs propriétés en même temps. De plus, les recherches effectuées sur la propriété `id` retournent des correspondances de sous-chaîne, tandis que `packageid` retourne une correspondance exacte. Exemples :
 

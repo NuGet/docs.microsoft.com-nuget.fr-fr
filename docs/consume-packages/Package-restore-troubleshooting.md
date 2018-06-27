@@ -1,16 +1,17 @@
 ---
 title: Résolution des problèmes de restauration de packages NuGet dans Visual Studio
 description: Description des erreurs courantes liées à la restauration des packages NuGet dans Visual Studio et résolution de ces erreurs.
-author: kraigb
-ms.author: kraigb
-manager: douge
-ms.date: 03/16/2018
+author: karann-msft
+ms.author: karann
+manager: unnir
+ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c552941c896d1a7136310c0a8bc6755d5974809a
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 8e817b8e95c53d27120bf56db52b45b69a5ff973
+ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
+ms.lasthandoff: 06/06/2018
+ms.locfileid: "34816968"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Résolution des erreurs de restauration des packages
 
@@ -49,8 +50,11 @@ Cette erreur se produit en cas de tentative de création d’un projet contenant
 
 Cette situation se produit souvent quand vous obtenez le code source d’un projet à partir du contrôle de code source ou d’un autre téléchargement. Les packages sont généralement omis du contrôle de code source ou des téléchargements car ils peuvent être restaurés à partir de flux de packages comme nuget.org. Pour plus d’informations, consultez [Packages et contrôle de code source](Packages-and-Source-Control.md)). Leur inclusion engendrerait l’encombrement du dépôt ou la création inutile de fichiers .zip volumineux.
 
+L’erreur peut également se produire si votre fichier projet contient des chemins absolus vers des emplacements de package, et que vous déplacez le projet.
+
 Utilisez l’une des méthodes suivantes pour restaurer les packages :
 
+- Si vous avez déplacé le fichier projet, modifiez le fichier directement pour mettre à jour les références de package.
 - Dans Visual Studio, activez la restauration des packages. Pour cela, sélectionnez la commande de menu **Outils > Gestionnaire de Package NuGet > Paramètres du Gestionnaire de package**, définissez les deux options sous **Restauration de package**, puis sélectionnez **OK**. Ensuite, regénérez la solution.
 - Pour les projets .NET Core, exécutez `dotnet restore` ou `dotnet build` (qui exécute automatiquement la restauration).
 - Sur la ligne de commande, exécutez `nuget restore` (sauf pour les projets créés avec `dotnet` ; dans ce cas, utilisez `dotnet restore`).
