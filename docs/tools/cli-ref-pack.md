@@ -35,8 +35,8 @@ où `<nuspecPath>` et `<projectPath>` spécifier le `.nuspec` ou le fichier de p
 | Option | Description |
 | --- | --- |
 | BasePath | Définit le chemin d’accès de base des fichiers définis dans le `.nuspec` fichier. |
-| Générer | Spécifie que le projet doit être créé avant de générer le package. |
-| Exclure | Spécifie un ou plusieurs modèles de caractère générique à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur d’exclusion. Consultez l’exemple ci-dessous. |
+| Build | Spécifie que le projet doit être créé avant de générer le package. |
+| Exclude | Spécifie un ou plusieurs modèles de caractère générique à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur d’exclusion. Consultez l’exemple ci-dessous. |
 | ExcludeEmptyDirectories | Empêche l’inclusion de répertoires vides lors de la création du package. |
 | ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
@@ -47,11 +47,11 @@ où `<nuspecPath>` et `<projectPath>` spécifier le `.nuspec` ou le fichier de p
 | NoDefaultExcludes | Empêche l’exclusion par défaut de NuGet package des fichiers et dossiers commençant par un point, tel que `.svn` et `.gitignore`. |
 | NoPackageAnalysis | Spécifie que le pack ne doit pas exécuter d’analyse du package après sa génération. |
 | OutputDirectory | Spécifie le dossier dans lequel est stocké le package créé. Si aucun dossier n’est spécifié, le dossier actif est utilisé. |
-| Propriétés | Doit apparaître en dernier dans la ligne de commande après les autres options. Spécifie une liste de propriétés qui remplacent les valeurs dans le fichier projet ; consultez [propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) des noms de propriétés. L’argument des propriétés est une liste de jeton de paires = valeur, séparés par des points-virgules, où chaque occurrence de `$token$` dans le `.nuspec` fichier est remplacé par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que la propriété « Configuration », la valeur par défaut est « Debug ». Pour attribuer une configuration Release, utilisez `-Properties Configuration=Release`. |
-| Suffixe | *(3.4.4+)*  Ajoute un suffixe au numéro de version généré en interne, généralement utilisé pour l’ajout de la build ou autres identificateurs de version préliminaire. Par exemple, à l’aide de `-suffix nightly` va créer un package avec un type de numéro de version `1.2.3-nightly`. Suffixes doivent commencer par une lettre pour éviter les avertissements, les erreurs et identifier les éventuelles incompatibilités avec différentes versions de NuGet et le Gestionnaire de Package NuGet. |
-| Symboles | Spécifie que le package contient des sources et des symboles. Lorsqu’il est utilisé avec un `.nuspec` fichier, cette opération crée un fichier de package NuGet normal et le package de symboles correspondants. |
-| Outil | Spécifie que les fichiers de sortie du projet doivent être placés dans le `tool` dossier. |
-| Commentaires | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
+| Properties | Doit apparaître en dernier dans la ligne de commande après les autres options. Spécifie une liste de propriétés qui remplacent les valeurs dans le fichier projet ; consultez [propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) des noms de propriétés. L’argument des propriétés est une liste de jeton de paires = valeur, séparés par des points-virgules, où chaque occurrence de `$token$` dans le `.nuspec` fichier est remplacé par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que la propriété « Configuration », la valeur par défaut est « Debug ». Pour attribuer une configuration Release, utilisez `-Properties Configuration=Release`. |
+| Suffix | *(3.4.4+)*  Ajoute un suffixe au numéro de version généré en interne, généralement utilisé pour l’ajout de la build ou autres identificateurs de version préliminaire. Par exemple, à l’aide de `-suffix nightly` va créer un package avec un type de numéro de version `1.2.3-nightly`. Suffixes doivent commencer par une lettre pour éviter les avertissements, les erreurs et identifier les éventuelles incompatibilités avec différentes versions de NuGet et le Gestionnaire de Package NuGet. |
+| Symbols | Spécifie que le package contient des sources et des symboles. Lorsqu’il est utilisé avec un `.nuspec` fichier, cette opération crée un fichier de package NuGet normal et le package de symboles correspondants. |
+| Tool | Spécifie que les fichiers de sortie du projet doivent être placés dans le `tool` dossier. |
+| Verbosity | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 | Version | Remplace le numéro de version à partir de la `.nuspec` fichier. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)
