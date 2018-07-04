@@ -91,8 +91,8 @@ Les balises de métadonnées suivantes permettent de contrôler les ressources d
 
 | Balise | Description | Valeur par défaut |
 | --- | --- | --- |
-| IncludeAssets | Ces ressources sont consommées. | toutes les |
-| ExcludeAssets | Ces ressources ne sont pas consommées. | aucun |
+| IncludeAssets | Ces ressources sont consommées. | all |
+| ExcludeAssets | Ces ressources ne sont pas consommées. | none |
 | PrivateAssets | Ces ressources sont consommées, mais ne sont pas acheminées vers le projet parent. | contentfiles;analyzers;build |
 
 Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multiples doivent être séparées par un point-virgule, à l’exception de `all` et de `none` qui doivent s’afficher seules) :
@@ -104,9 +104,9 @@ Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multipl
 | contentFiles | Contenu du dossier `contentfiles` |
 | build | Propriétés et cibles du dossier `build` |
 | analyzers | Analyseurs .NET |
-| natifs | Contenu du dossier `native` |
-| aucun | Aucune des valeurs ci-dessus n’est utilisée. |
-| toutes les | Toutes les valeurs ci-dessus sont utilisées (sauf `none`) |
+| native | Contenu du dossier `native` |
+| none | Aucune des valeurs ci-dessus n’est utilisée. |
+| all | Toutes les valeurs ci-dessus sont utilisées (sauf `none`) |
 
 Dans l’exemple suivant, tout (à l’exception des fichiers de contenu du package) est consommé par le projet et tout (à l’exception des fichiers de contenu et des analyseurs) est acheminé vers le projet parent.
 
