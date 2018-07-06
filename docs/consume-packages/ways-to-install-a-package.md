@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 02/12/2018
 ms.topic: overview
-ms.openlocfilehash: 5f71ce6217071efc3d483cde4cf36c5585808167
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f59c3b7f1e32ae34889921c13d15074ef5c1260
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34816921"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843379"
 ---
 # <a name="different-ways-to-install-a-nuget-package"></a>Différentes méthodes d’installer un package NuGet
 
@@ -39,7 +39,7 @@ Le processus général se décompose ainsi :
 
    - Si le package ne se trouve pas dans le cache, tentez de le télécharger parmi les sources listées dans la configuration. Si un package est téléchargé, « GET » et « OK » apparaissent en sortie.
 
-   - Si aucune source ne permet de récupérer le package, l’installation échoue à ce stade, avec une erreur du type [NU1103](../reference/errors-and-warnings.md#nu1103). Notez que les erreurs des commandes `nuget.exe` affichent uniquement la dernière source vérifiée, mais implique que le package n’était disponible dans aucune source.
+   - Si aucune source ne permet de récupérer le package, l’installation échoue à ce stade, avec une erreur du type [NU1103](../reference/errors-and-warnings/NU1103.md). Notez que les erreurs des commandes `nuget.exe` affichent uniquement la dernière source vérifiée, mais implique que le package n’était disponible dans aucune source.
 
    Lors de l’acquisition du package, l’ordre des sources de la configuration NuGet peut s’appliquer :
 

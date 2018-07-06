@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 2ff83538f9f1cf3bd4ed616ec8f5f1aef3ffd9d6
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 142f82386395b8ab2ed1d57218db9bc1d2e98638
+ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818540"
+ms.lasthandoff: 07/05/2018
+ms.locfileid: "37843444"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -89,7 +89,7 @@ Ces éléments peuvent apparaître dans un élément `<metadata>`.
 | **owners** | Liste des créateurs de packages séparés par des virgules, qui utilisent des noms de profil sur nuget.org. Il s’agit souvent de la même liste que dans `authors` et elle est ignorée lors du chargement du package sur nuget.org. Consultez [Gestion des propriétaires de packages sur nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). |
 | **projectUrl** | URL de la page d’accueil du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. |
 | **licenseUrl** | URL de la licence du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. |
-| **iconUrl** | URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut, comme les URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
+| **iconUrl** | URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut comme URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. |
 | **requireLicenseAcceptance** | Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à accepter la licence du package avant d’installer le package. |
 | **developmentDependency** | *(2.8+)* Valeur booléenne qui spécifie si le package doit être marqué comme dépendance de développement uniquement, ce qui l’empêche d’être inclus en tant que dépendance dans d’autres packages. |
 | **summary** | Brève description du package pour l’affichage de l’interface utilisateur. Si cet élément est omis, une version tronquée de `description` est utilisée. |
@@ -98,6 +98,7 @@ Ces éléments peuvent apparaître dans un élément `<metadata>`.
 | **language** | ID de paramètres régionaux du package. Consultez [Création de packages localisés](../create-packages/creating-localized-packages.md). |
 | **tags**  | Liste de balises et de mots clés délimités par des espaces, qui décrivent le package et permettent de découvrir les packages grâce à des fonctions de recherche et de filtrage. |
 | **serviceable** | *(3.3+)* Uniquement réservé à un usage NuGet interne. |
+| **référentiel** | Métadonnées du référentiel, composé de quatre attributs facultatifs : *type* et *url* *(4.0 +)*, et *branche* et  *validation* *(4.6 +)*. Ces attributs permettent de mapper le fichier .nupkg vers le référentiel qui, générés avec la possibilité d’obtenir aussi détaillée que la branche individuel ou de la validation qui a créé le package. |
 
 #### <a name="collection-elements"></a>Éléments de collection
 
@@ -138,7 +139,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 | Token | Source de valeur | Value
 | --- | --- | ---
-| **$id$** | Fichier projet | Nom de l’assembly (titre) à partir du fichier de projet |
+| **$id$** | Fichier projet | AssemblyName (titre) à partir du fichier de projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
 | **$title$** | AssemblyInfo | AssemblyTitle |
@@ -179,9 +180,9 @@ L’élément `<dependencies>` dans `<metadata>` contient un nombre quelconque d
 | runtime | Runtime, Resources et FrameworkAssemblies |
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
-| natifs | natifs |
-| aucun | Aucun dossier |
-| toutes les | Tous les dossiers |
+| native | native |
+| none | Aucun dossier |
+| all | Tous les dossiers |
 
 Par exemple, les lignes suivantes indiquent les dépendances sur `PackageA` version 1.1.0 ou ultérieure, et `PackageB` version 1.x.
 
@@ -540,7 +541,7 @@ Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comm
 | **include** | (Obligatoire) Emplacement du ou des fichiers à inclure, soumis à des exclusions définies par l’attribut `exclude`. Le chemin est relatif au fichier `.nuspec` sauf si un chemin absolu est spécifié. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **exclude** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **buildAction** | Action de génération à affecter à l’élément de contenu pour MSBuild, comme `Content`, `None`, `Embedded Resource`, `Compile`, etc. La valeur par défaut est `Compile`. |
-| **copyToOutput** | Valeur booléenne qui indique s’il faut copier des éléments de contenu à la build (ou publier) dossier de sortie. La valeur par défaut est false. |
+| **copyToOutput** | Valeur booléenne indiquant s’il faut copier des éléments de contenu à la build (ou publiez) dossier de sortie. La valeur par défaut est false. |
 | **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |
 
 Lors de l’installation d’un package, NuGet applique les éléments enfants de `<contentFiles>` de haut en bas. Si plusieurs entrées correspondent au même fichier, toutes les entrées sont appliquées. L’entrée supérieure remplace les entrées inférieures s’il existe un conflit pour le même attribut.
