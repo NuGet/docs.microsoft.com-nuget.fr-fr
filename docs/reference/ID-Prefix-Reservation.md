@@ -1,93 +1,97 @@
 ---
 title: Référence de réservation de préfixe d’identificateur
-description: Description de fonction de réservation du préfixe d’ID de package et le guide de l’auteur.
+description: Description de fonction de réservation de préfixe d’ID de package et le guide de l’auteur.
 author: diverdan92
 ms.author: diverdan92
 manager: unnir
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 63f442ae25b92aacbbf5af7d9b3ea1a5dafe5fc9
-ms.sourcegitcommit: a6ca160b1e7e5c58b135af4eba0e9463127a59e8
+ms.openlocfilehash: 10d017d67cf2bd49812c5d54f9fca063f32cc052
+ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32044846"
+ms.lasthandoff: 07/10/2018
+ms.locfileid: "37948393"
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation de préfixe ID de package
 
-Les propriétaires de package peuvent de réserver et protéger leur identité en réservant ID préfixes. Les consommateurs de package sont fournis avec des informations supplémentaires lors de l’utilisation de packages qui le package qu’ils consomment ne sont pas trompeurs dans leurs propriétés d’identification. 
+Propriétaires de packages peuvent de réserver et de protéger leur identité par les préfixes d’ID de réservation. Consommateurs de packages sont fournis avec des informations supplémentaires lors de la consommation des packages qui le package qu’ils consomment ne sont pas trompeurs dans leurs propriétés d’identification. 
 
-[NuGet.org](https://www.nuget.org/) et Visual Studio 2017 15.4 ou version ultérieure afficher un indicateur visuel pour le modèle d’affectation de noms du préfixe de packages qui sont envoyés par les propriétaires avec un préfixe d’ID de package réservé, tant que le package correspond à l’ID réservé. Le ci-dessous référence explique ce qui implique la réservation du préfixe ID, et comment il peut appliquer un propriétaire pour un préfixe d’identificateur.
+[NuGet.org](https://www.nuget.org/) et Visual Studio 2017 version 15.4 ou ultérieure afficher un indicateur visuel pour le modèle d’affectation de noms du préfixe de packages qui sont soumises par les propriétaires avec un préfixe d’ID de package réservé, tant que le package correspond à l’ID réservé. Le ci-dessous référence explique ce qui implique la réservation de préfixe d’ID, et comment il peut appliquer un propriétaire pour un préfixe d’identificateur.
 
 ## <a name="id-prefix-reservation-details"></a>Détails de la réservation préfixe ID
 
-Lorsqu’un préfixe d’ID de package est réservé, plusieurs choses se produisent sur le [nuget.org](https://www.nuget.org/) galerie, ainsi que dans Visual Studio. En outre, il sont des scénarios avancés qui sont pris en charge par les réservations de préfixe d’ID, telles que la définition d’un préfixe sous la forme 'public', déléguer des sous-ensembles de préfixe à plusieurs propriétaires.
+Lorsqu’un préfixe d’ID de package est réservé, plusieurs choses se produisent sur le [nuget.org](https://www.nuget.org/) galerie, ainsi que dans Visual Studio. En outre, il existe des scénarios sont pris en charge par les réservations de préfixe d’ID, telles que la définition d’un préfixe sous la forme 'public', déléguer des sous-ensembles de préfixe à plusieurs propriétaires.
 
-### <a name="id-prefix-reservation-on-nugetorg"></a>Réservation de préfixe d’ID sur nuget.org
+### <a name="id-prefix-reservation-on-nugetorg"></a>Réservation du préfixe ID sur nuget.org
 
-Lorsqu’un préfixe est réservé dans [nuget.org](https://www.nuget.org/), les éléments suivants se produit :
+Quand un préfixe est réservé sur [nuget.org](https://www.nuget.org/), ce qui suit se produit :
 
-1. Une réservation de préfixe est associée un propriétaire ou un ensemble de propriétaires sur [nuget.org](https://www.nuget.org/).
+1. Une réservation de préfixe est associée à un propriétaire ou un ensemble de propriétaires sur [nuget.org](https://www.nuget.org/).
 
-1. Chaque fois qu’un lot est soumis au [nuget.org](https://www.nuget.org/) avec un ID qui correspond le préfixe d’identificateur réservé, le package est rejeté, sauf si elle provenance l’ou les propriétaires qui a réservé le préfixe d’ID.
+1. Chaque fois qu’un package est soumis à [nuget.org](https://www.nuget.org/) avec un ID qui correspond au préfixe d’identificateur réservé, le package est rejeté, sauf si elle provient de propriétaires qui a réservé le préfixe d’ID.
 
-1. N’importe quel package qui correspond le préfixe d’identificateur réservé et de provient l’ou les propriétaires qui a réservé le préfixe d’ID aura un indicateur visuel dans Visual Studio 2017 15.4 ou version ultérieure et sur [nuget.org](https://www.nuget.org/) indiquant que le package se trouve sous un préfixe d’identificateur réservé. Cela est vrai pour les nouvelles demandes de package ainsi que des packages existants sous l’ou les propriétaires. **Remarque :** l’indicateur dans Visual Studio apparaît uniquement si un flux unique est sélectionné comme source du package.
+1. N’importe quel package qui correspond le préfixe d’identificateur réservé et provient de propriétaires qui a réservé le préfixe d’ID aura un indicateur visuel dans Visual Studio 2017 version 15.4 ou ultérieure et sur [nuget.org](https://www.nuget.org/) indiquant que le package est sous un préfixe d’identificateur réservé. Cela est vrai pour les nouvelles soumissions de package ainsi que des packages existants sous les propriétaires. **Remarque :** l’indicateur dans Visual Studio apparaît uniquement si un flux unique est sélectionné comme source du package.
 
-1. Tous les packages existants qui correspondent au préfixe d’ID réservé, mais sont *pas* appartenant au propriétaire de réservée préfixe reste inchangé (ils ne seront pas non répertoriées, mais ils ne disposeront également l’indicateur visuel). En outre, les propriétaires de ces packages sera en mesure de présenter les nouvelles versions du package.
+1. Tous les packages existants qui correspondent au préfixe d’ID réservé, mais sont *pas* appartenant au propriétaire de réservée préfixe restera inchangé (ils ne seront pas retirée de la liste, mais ils ne disposeront également l’indicateur visuel). En outre, les propriétaires de ces packages sera toujours en mesure de soumettre de nouvelles versions du package.
 
-Ces modifications sont basées sur les conditions suivantes et imposent des restrictions supplémentaires plusieurs :
+Ces modifications sont basées sur les conditions suivantes et imposent plusieurs restrictions supplémentaires :
 
-- Qu’un seul propriétaire d’un package doit avoir le préfixe réservé pour l’indicateur visuel à afficher (pour les packages avec les propriétaires de multiple).
+- Qu’un seul propriétaire d’un package doit avoir le préfixe réservé pour l’indicateur visuel à afficher (pour les packages avec les propriétaires de plusieurs).
 
-- S’il existe plusieurs propriétaires d’un package dans lequel un ou plusieurs propriétaires a le préfixe réservé et un ou plusieurs propriétaires n’a pas le préfixe réservé, l’ou les propriétaires uniquement par le préfixe réservé peut supprimer les autres concernée par un préfixe réservé. Les propriétaires qui n’ont pas le préfixe réservé ne peut pas supprimer les propriétaires par le préfixe réservé. Ils peuvent toujours supprimer des propriétaires qui également, n’ont pas le préfixe réservé.
+- S’il existe plusieurs propriétaires d’un package dans lequel un ou plusieurs propriétaires a le préfixe réservé et un ou plusieurs propriétaires n’a pas le préfixe réservé, propriétaires uniquement par le préfixe réservé peuvent supprimer les autres propriétaires avec un préfixe réservé. Les propriétaires qui n’ont pas le préfixe réservé ne peut pas supprimer des propriétaires avec le préfixe réservé. Ils peuvent toujours supprimer les autres propriétaires qui n’ont pas le préfixe réservé.
 
-- Une fois qu’un package a l’indicateur visuel, il doit *toujours* ont l’indicateur visuel (ce qui garantit qu’au moins un propriétaire par le préfixe réservé demeure un propriétaire)
+- Une fois qu’un package a l’indicateur visuel, il le devrait *toujours* ont l’indicateur visuel (ce qui garantit qu’au moins un propriétaire par le préfixe réservé restera toujours un propriétaire)
 
 ### <a name="advanced-prefix-reservation-scenarios"></a>Scénarios de réservation de préfixe avancées
 
-Il existe plusieurs scénarios de réservation préfixe plus avancées décrites ci-dessous, y compris subprefix délégation et des préfixes de marquage comme étant public. Vous trouverez ci-dessous les réservations de préfixe plus avancées qui peuvent être effectuées. 
+Il existe plusieurs scénarios de réservation préfixe plus avancées décrites ci-dessous, y compris la délégation de subprefix et des préfixes de marquage comme étant public. Voici les réservations de préfixe plus avancées qui peuvent être apportées. 
 
-- Au cours de la réservation du préfixe, le propriétaire peut demander la délégation des sous-ensembles de préfixe (ou le préfixe) aux autres propriétaires. Par exemple, si «[Microsoft](https://www.nuget.org/profiles/microsoft)' possède ' Microsoft.\*', mais '[aspnet](https://www.nuget.org/profiles/aspnet)' souhaite réserver ' Microsoft.AspNet.\*','[Microsoft](https://www.nuget.org/profiles/microsoft)' peut choisir de déléguer ' Microsoft.AspNet. \*' pour le [aspnet](https://www.nuget.org/profiles/aspnet) compte.
+- Au cours de la réservation du préfixe, le propriétaire peut demander délégation de sous-ensembles de préfixe (ou le préfixe) aux autres propriétaires. Par exemple, si «[Microsoft](https://www.nuget.org/profiles/microsoft)' possède ' Microsoft.\*', mais '[aspnet](https://www.nuget.org/profiles/aspnet)' souhaite réserver ' Microsoft.AspNet.\*','[Microsoft](https://www.nuget.org/profiles/microsoft)' peut choisir de déléguer ' Microsoft.AspNet. \*» à la [aspnet](https://www.nuget.org/profiles/aspnet) compte.
 
-- Au cours de la réservation du préfixe, le propriétaire peut choisir rendre un préfixe public. Cela sera toujours leur donner l’indicateur visuel montrant que le package provient d’un préfixe réservé, mais il sera **pas** bloquer les soumissions futures du préfixe pour n’importe quel propriétaire. Cela est utile pour les projets open source avec nombreux collaborateurs - les contributeurs haut ou core peuvent avoir le préfixe réservé, mais il peut toujours être ouvert à tous les collaborateurs. 
+- Au cours de la réservation du préfixe, le propriétaire peut choisir de rendre un préfixe public. Cela sera toujours leur donner l’indicateur visuel montrant que le package provient d’un préfixe réservé, mais il sera **pas** bloquer soumissions ultérieures du package sur le préfixe pour n’importe quel propriétaire. Cela est utile pour les projets open source avec de nombreux contributeurs : les contributeurs de haut ou core peuvent avoir le préfixe réservé, mais il peut toujours être ouverte à tous les collaborateurs. 
 
-### <a name="prefix-reservation-visual-indicator"></a>Indicateur visuel de réservation du préfixe
+### <a name="prefix-reservation-visual-indicator"></a>Indicateur visuel de réservation de préfixe
 
-Si un package proviennent d’un préfixe réservé, vous voyez l’au-dessous des indicateurs visuels sur le [nuget.org](https://www.nuget.org/) la galerie et dans Visual Studio 2017 15.4 ou version ultérieure :
+Si un package proviennent d’un préfixe réservé, vous voyez le dessous des indicateurs visuels sur le [nuget.org](https://www.nuget.org/) galerie et dans Visual Studio 2017 version 15.4 ou ultérieure :
 
-**Galerie de NuGet.org**
-![nuget.org galerie](media/nuget-gallery-reserved-prefix.png)
+**Galerie NuGet.org**
+![galerie nuget.org](media/nuget-gallery-reserved-prefix.png)
 
 **Visual Studio**
 ![Visual Studio](media/visual-studio-reserved-prefix.png)
 
 ## <a name="id-prefix-reservation-application-process"></a>Processus d’application ID préfixe réservation
 
-1. Passez en revue l’acceptation [critères pour la réservation des ID de préfixe](#id-prefix-reservation-criteria).
+1. Passez en revue l’acceptation [critères pour la réservation du préfixe ID](#id-prefix-reservation-criteria).
 
-2. Déterminer les espaces de noms que vous souhaitez réserver, outre les [préfixe réservation scénarios avancés](#advanced-prefix-reservation-scenarios) vous pouvez avoir besoin.
+2. Déterminer les espaces de noms que vous souhaitez réserver, en plus [des scénarios de réservation de préfixe avancés](#advanced-prefix-reservation-scenarios) vous pouvez avoir besoin.
 
-3. Envoyer un message électronique à [ account@nuget.org ](mailto:account@nuget.org) avec le propriétaire du nom d’affichage sur [nuget.org](https://www.nuget.org/), ainsi que tous les préfixes réservés que vous demandez. Si vous déléguez des sous-ensembles de préfixe à plusieurs propriétaires, assurez-vous que vous indiquez tous les noms complets de propriétaire et des sous-ensembles de préfixe.
+3. Envoyer un e-mail à [ account@nuget.org ](mailto:account@nuget.org) avec le propriétaire du nom d’affichage sur [nuget.org](https://www.nuget.org/), ainsi que tous les préfixes réservés que vous demandez. Si vous déléguez des sous-ensembles de préfixe à plusieurs propriétaires, assurez-vous que vous indiquez tous les noms complets de propriétaire et des sous-ensembles de préfixe.
 
-Une fois l’application est envoyée, vous êtes informé de l’acceptation ou rejet (avec les critères qui a provoqué le rejet). Nous devons poser des questions d’identification supplémentaires pour confirmer l’identité du propriétaire.
+Une fois l’application est envoyée, vous êtes informé de l’acceptation ou le rejet (avec les critères qui a provoqué le rejet). Nous devons poser des questions d’identification pour confirmer l’identité du propriétaire.
 
 ### <a name="id-prefix-reservation-criteria"></a>Critères de réservation de préfixe ID
 
-Lors de la consultation de toute application de réservation du préfixe ID, le [nuget.org](https://www.nuget.org/) équipe évaluera l’application contre les ci-dessous les critères. Pas tous les critères doit être remplie pour un préfixe à réserver, mais l’application peut être refusée s’il n’est pas une preuve importante des critères respectés (avec une explication donnée) :
+Lors de la révision de toute application de réservation de préfixe d’ID, le [nuget.org](https://www.nuget.org/) équipe évaluera l’application contre les critères ci-dessous. Pas tous les critères doit être remplie pour un préfixe à réserver, mais l’application peut être refusée si on n'a pas les critères respectés (avec une explication donnée) :
 
-1. Le préfixe d’ID de package correctement et clairement identifie le propriétaire du lot ?
+1. Le préfixe d’ID de package correctement et clairement identifie le propriétaire du package ?
 
-1. Sont un nombre important des packages qui ont déjà été soumis par le propriétaire sous le préfixe d’ID de package ?
+1. Sont un nombre important des packages qui ont déjà été soumises par le propriétaire sous le préfixe d’ID de package ?
 
-1. Est le préfixe d’ID de package commun ne doit pas appartenir à n’importe quel propriétaire individuel ou l’organisation ?
+1. Est le préfixe d’ID de package commun qui ne doivent pas appartenir à n’importe quel propriétaire individuel ou une organisation ?
 
-1. Serait *pas* réserver le préfixe d’ID de package entraînent une ambiguïté et toute confusion pour la Communauté ?
+1. Voulez-vous *pas* réservant le préfixe d’ID de package entraînent une ambiguïté et source de confusion pour la Communauté ?
 
-1. Sont les propriétés d’identification des packages qui correspondent au préfixe de ID de package clair et cohérent (notamment l’auteur du package) ?
+1. Sont les propriétés d’identification des packages qui correspondent au préfixe de ID de package clair et cohérent (en particulier l’auteur du package) ?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénarios de fournisseur de flux de tiers
 
-Si un tiers fournisseur de flux est intéressé par l’implémentation de leur propre service pour fournir les réservations de préfixe, vous pouvez effectuer afin d’en modifiant le service de recherche dans la NuGet V3 flux fournisseurs. L’ajout du service de recherche de flux consiste à ajouter la *vérifié* propriété, avec des exemples de flux V3 ci-dessous. Le client NuGet ne prendra pas en charge la propriété ajoutée dans le flux de V2.
+Si un tiers fournisseur de flux est souhaitent implémenter leur propre service pour fournir les réservations de préfixe, vous pouvez le faire en modifiant le service de recherche dans le NuGet V3 flux fournisseurs. L’ajout dans le service de recherche de flux consiste à ajouter le *vérifié* propriété, avec des exemples pour les flux V3 ci-dessous. Le client NuGet ne prendra pas en charge l’ajout de la propriété dans le flux de V2.
 
-Pour plus d’informations, consultez la [plus d’informations sur le service de recherche de l’API](../api/search-query-service-resource.md).
+Pour plus d’informations, consultez le [documentation sur le service de recherche de l’API](../api/search-query-service-resource.md).
+
+## <a name="package-id-prefix-reservation-dispute-policy"></a>Stratégie de litige de réservation de préfixe d’identificateur de package
+Si vous pensez qu’un propriétaire sur [NuGet.org](https://www.nuget.org) a été affectée à une réservation de préfixe des ID de package qui va à l’encontre des critères listés ci-dessus, ou enfreint sur les marques déposées ou les droits d’auteur, veuillez e-mail [ support@nuget.org ](mailto:support@nuget.org)avec le préfixe d’ID en question, le propriétaire du préfixe d’ID et la raison pour contester la réservation du préfixe attribué.
+
