@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 03/27/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1ca97e1c2dfba876aefe6b06eab10def67b8d848
-ms.sourcegitcommit: 8e3546ab630a24cde8725610b6a68f8eb87afa47
+ms.openlocfilehash: 4f42403abbf07c2c48ce13c70c49f7f3c15c40e4
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37843392"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39072364"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrer à partir de packages.config vers PackageReference
 
@@ -58,7 +58,7 @@ L’option de migration devrait apparaître. Notez qu’elle n’est pas prise e
 
 1. Dans **l’Explorateur de solutions**, avec le bouton droit sur le **références** nœud ou le `packages.config` fichier et sélectionnez **migrer packages.config vers PackageReference...** .
 
-1. L’utilitaire de migration analyse les références de package NuGet du projet et tente de les classer dans **dépendances de niveau supérieur** (ce répertoire vous avez installé les packages NuGet) et **dépendances transitives**(les packages qui ont été installés en tant que dépendances de packages de niveau supérieur).
+1. L’utilitaire de migration analyse les références de package NuGet du projet et tente de les classer dans **dépendances de niveau supérieur** (packages NuGet que vous avez installé directement) et **dépendances transitives** (les packages qui ont été installés en tant que dépendances de packages de niveau supérieur.)
 
    > [!Note]
    > PackageReference prend en charge de la restauration de package transitives et résout les dépendances de façon dynamique, ce qui signifie que les dépendances transitives ne doivent pas être installés de manière explicite.
