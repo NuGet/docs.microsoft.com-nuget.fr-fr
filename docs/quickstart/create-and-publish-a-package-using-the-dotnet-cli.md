@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 01/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: c50c92f966cd68477cd3f29ab99857911299b7ea
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 0f71da0be27369712f718a7ab80d952a467aff2a
+ms.sourcegitcommit: a76ecc58f41c2c5b3536ff4a3f3fcbdf5258177c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818449"
+ms.lasthandoff: 07/17/2018
+ms.locfileid: "39069672"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
@@ -35,7 +35,7 @@ Vous pouvez utiliser un projet de bibliothèque de classes .NET existant pour le
 
 Chaque package NuGet a besoin d’un manifeste décrivant son contenu et ses dépendances. Dans un package final, il s’agit d’un fichier `.nuspec` généré à partir des propriétés de métadonnées NuGet incluses dans le fichier projet.
 
-1. Ouvrez votre fichier projet (`.csproj`) et ajoutez les propriétés minimales suivantes à l’intérieur de la balise de fin `<PropertyGroup>`, en adaptant les valeurs :
+1. Ouvrez votre fichier projet (`.csproj`) et ajoutez les propriétés minimales suivantes à l’intérieur de la balise `<PropertyGroup>` existante, en adaptant les valeurs :
 
     ```xml
     <PackageId>AppLogger</PackageId>
