@@ -1,6 +1,6 @@
 ---
-title: Taux de limites, NuGet API
-description: Les APIs NuGet sera ont appliqué les limites de taux pour prévenir les abus.
+title: Limites, NuGet API du taux
+description: Les APIs NuGet sera ont appliqué les limites de débit pour empêcher les abus.
 author: cmanu
 ms.author: cmanu
 manager: skofman
@@ -10,16 +10,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: c5d3cf68ac6a96a6c14eb5e652bcf72698b6a8e8
-ms.sourcegitcommit: 8f0bb8bb9cb91d27d660963ed9b0f32642f420fe
+ms.openlocfilehash: a55eb49318b766028d1579a4d33618617bbd8801
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34225942"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508125"
 ---
 # <a name="rate-limits"></a>Limites du débit
 
-L’API NuGet.org applique la limitation du débit pour prévenir les abus. Requêtes qui dépassent la limite du taux renvoient l’erreur suivante : 
+L’API de NuGet.org applique la limitation du débit pour empêcher les abus. Requêtes qui dépassent la limite de débit renvoient l’erreur suivante : 
 
   ~~~
     {
@@ -28,24 +28,33 @@ L’API NuGet.org applique la limitation du débit pour prévenir les abus. Requ
     }
   ~~~
 
-Les tableaux suivants répertorient les limites de taux pour l’API NuGet.org.
+En plus de la demande à l’aide des limites de taux de limitation, certaines API également appliquent des quotas. Requêtes qui dépassent le quota renvoient l’erreur suivante :
+
+  ~~~
+    {
+      "statusCode": 403,
+      "message": "Quota exceeded."
+    }
+  ~~~
+
+Les tableaux suivants répertorient les limites de taux pour l’API de NuGet.org.
 
 ## <a name="package-search"></a>Recherche de package
 
 > [!Note]
-> Nous vous recommandons d’utiliser des NuGet.org [V3 API](https://docs.microsoft.com/nuget/api/search-query-service-resource) pour la recherche est performant et n’avez aucune limite actuellement. Pour V1 et V2 les API de recherche, les limites followins s’appliquent :
+> Nous recommandons l’utilisation de NuGet.org [V3 API](https://docs.microsoft.com/nuget/api/search-query-service-resource) pour recherche performante et n’avez aucune limite actuellement. API de recherche pour V1 et V2, les limites followins s’appliquent :
 
 
-| API | Type de limite | Valeur limite | API usecase |
+| API | Type de limite | Valeur de la limite | API CasUtilisation |
 |:---|:---|:---|:---|
-**TÉLÉCHARGER** `/api/v1/Packages` | IP | 1000 / minute | Interroger les métadonnées de package NuGet via v1 OData `Packages` collection |
-**TÉLÉCHARGER** `/api/v1/Search()` | IP | 3000 / minute | Rechercher les packages NuGet via le point de terminaison recherche v1 | 
-**TÉLÉCHARGER** `/api/v2/Packages` | IP | 20000 / minute | Interroger les métadonnées de package NuGet via v2 OData `Packages` collection | 
-**TÉLÉCHARGER** `/api/v2/Packages/$count` | IP | 100 / minute | Nombre de package NuGet via v2 OData de requête `Packages` collection | 
+**TÉLÉCHARGER** `/api/v1/Packages` | IP | 1000 / minute | Interroger les métadonnées de package NuGet via OData de v1 `Packages` collection |
+**TÉLÉCHARGER** `/api/v1/Search()` | IP | 3000 / minute | Rechercher des packages NuGet via le point de terminaison v1 recherche | 
+**TÉLÉCHARGER** `/api/v2/Packages` | IP | 20000 / minute | Interroger les métadonnées de package NuGet via OData de v2 `Packages` collection | 
+**TÉLÉCHARGER** `/api/v2/Packages/$count` | IP | 100 / minute | Interroger le nombre de packages NuGet via OData de v2 `Packages` collection | 
 
-## <a name="package-push-and-unlist"></a>Package Push et de retrait de la liste
+## <a name="package-push-and-unlist"></a>Package Push et de retirer de la liste
 
-| API | Type de limite | Valeur limite | API usecase | 
+| API | Type de limite | Valeur de la limite | API CasUtilisation | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Clé API | 250 / heure | Téléchargez un nouveau package NuGet (version) via le point de terminaison par émission de données v2 
-**SUPPRIMER** `/api/v2/package/{id}/{version}` | Clé API | 250 / heure | Retrait de la liste un package NuGet (version) via le point de terminaison v2 
+**PUT** `/api/v2/package` | Clé API | 250 / heure | Charger un nouveau package NuGet (version) via le point de terminaison v2 push 
+**SUPPRIMER** `/api/v2/package/{id}/{version}` | Clé API | 250 / heure | Retirer de la liste un package NuGet (version) via le point de terminaison v2 
