@@ -30,7 +30,7 @@ Vous pouvez télécharger l’extension VSIX et nuget.exe [ici](https://dist.nug
 ### <a name="changes"></a>Modifications
 
 - Améliorations du Pack : Les améliorations à la compression des symboles, de livraison avec `project.json` plus [ \#606](https://github.com/NuGet/NuGet.Client/pull/606)
-- Afficher l’exception lors de l’échec de recherche de projets dans la commande de mise à jour [\#605] ()https://github.com/NuGet/NuGet.Client/pull/605
+- Afficher l’exception lors de l’échec de recherche de projets dans la commande de mise à jour [\#605](https://github.com/NuGet/NuGet.Client/pull/605)
 - Lire le type de package à partir de l’entrée `.nuspec` et `project.json` lors de la livraison [ \#603](https://github.com/NuGet/NuGet.Client/pull/603)
 - Vérifiez NuGet.Shared pas un projet. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
 - Utilisez le délai d’attente de transmission en tant que le délai d’attente de la réponse HTTP [ \#599](https://github.com/NuGet/NuGet.Client/pull/599)
