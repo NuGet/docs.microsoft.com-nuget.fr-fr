@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 9900db1970a89de129d9074e5900e0aa048101de
-ms.sourcegitcommit: 8127dd73ff8481a1a01acd9b7004dd131a9d84e7
+ms.openlocfilehash: 8bbbc785a50e49530bbbd4e88bbd71a8a7bfe911
+ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/22/2018
-ms.locfileid: "34449602"
+ms.lasthandoff: 08/03/2018
+ms.locfileid: "39508177"
 ---
 # <a name="signing-nuget-packages"></a>Signature de packages NuGet
 
@@ -44,7 +44,7 @@ Comme décrit dans la référence des commandes, vous pouvez utiliser un certifi
 - Le serveur d’horodatage ne répond pas aux exigences du certificat.
 
 > [!Note]
-> Les packages signés doivent inclure un horodatage pour vérifier que la signature est valide après expiration du certificat de signature. L’opération de signature produit un [avertissement NU3002](../reference/Errors-and-Warnings.md#nu3002) en l’absence d’horodatage.
+> Les packages signés doivent inclure un horodatage pour vérifier que la signature est valide après expiration du certificat de signature. L’opération de signature produit un [avertissement NU3002](../reference/errors-and-warnings/NU3002.md) en l’absence d’horodatage.
 
 ## <a name="verify-a-signed-package"></a>Vérifier un package signé
 
@@ -56,7 +56,7 @@ nuget verify -signature MyPackage.nupkg
 
 ## <a name="install-a-signed-package"></a>Installer un package signé
 
-L’installation de packages signés ne nécessite aucune action spécifique. Toutefois, si le contenu a été modifié après sa signature, l’installation est bloquée et produit une [erreur NU3008](../reference/Errors-and-Warnings.md#nu3008).
+L’installation de packages signés ne nécessite aucune action spécifique. Toutefois, si le contenu a été modifié après sa signature, l’installation est bloquée et produit une [erreur NU3008](../reference/errors-and-warnings/NU3008.md).
 
 > [!Warning]
 > Les packages signés avec des certificats non approuvés sont considérés comme non signés et installés sans avertissements ni erreurs, comme n’importe quel package non signé.

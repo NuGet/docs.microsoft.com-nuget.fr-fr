@@ -1,5 +1,5 @@
 ---
-title: Signaler un abus NuGet API, modèle d’URL
+title: Signaler un abus API NuGet, modèle d’URL
 description: Le modèle d’URL de rapport abus permet aux clients d’afficher un lien Signaler un abus dans leur interface utilisateur.
 author: joelverhagen
 ms.author: jver
@@ -7,18 +7,18 @@ manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 15cf0953391489d9dd9b5d609c3f4c8f66748f19
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31818465"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020438"
 ---
-# <a name="report-abuse-url-template"></a>Modèle d’URL de rapport abus
+# <a name="report-abuse-url-template"></a>Modèle d’URL de rapport un abus
 
-Il est possible pour un client générer une URL qui peut être utilisée par l’utilisateur pour signaler un abus sur un package spécifique. Cela est utile lorsqu’une source de package souhaite activer toutes les expériences client (même 3e partie) déléguer les rapports d’abus à la source du package.
+Il est possible pour un client générer une URL qui peut être utilisée par l’utilisateur pour signaler un abus sur un package spécifique. Cela est utile lorsqu’une source de package souhaite activer toutes les expériences client (même 3e partie) déléguer les rapports d’abus pour la source du package.
 
-La ressource utilisée pour extraire le contenu du package est le `ReportAbuseUriTemplate` ressource trouvée dans le [index service](service-index.md).
+La ressource utilisée pour la création de cette URL est la `ReportAbuseUriTemplate` ressource trouvée dans le [index de service](service-index.md).
 
 ## <a name="versioning"></a>Gestion de version
 
@@ -35,27 +35,27 @@ L’URL de l’API suivante est la valeur de la `@id` propriété associée à u
 
 ## <a name="http-methods"></a>Méthodes HTTP
 
-Bien que le client n’est pas destiné à effectuer des demandes à l’URL d’abus de rapports pour le compte de l’utilisateur, la page web doit prendre en charge la `GET` méthode pour autoriser les URL où vous avez cliquée pour être ouvert dans un navigateur web.
+Bien que le client n’est pas destiné à effectuer des demandes à l’URL d’abus de rapports pour le compte de l’utilisateur, la page web doit prendre en charge la `GET` méthode pour autoriser une URL consultée être ouvert dans un navigateur web.
 
 ## <a name="construct-the-url"></a>Construire l’URL
 
-Étant donné un ID de package connus et la version, l’implémentation du client permet de construire une URL utilisée pour accéder à une interface web. L’implémentation cliente doit afficher cette URL construite (ou un lien cliquable) à l’utilisateur qui permet de les ouvrir un navigateur web à l’URL et que n’importe quel rapport abus nécessaires. L’implémentation de la forme de rapport abus est déterminée par l’implémentation du serveur.
+Étant donné un ID de package connus et la version, l’implémentation du client permettre construire une URL utilisée pour accéder à une interface web. L’implémentation cliente doit afficher cette URL construit (ou un lien interactif) pour l’utilisateur leur permettant d’ouvrir un navigateur web à l’URL et que n’importe quel rapport abus nécessaire. L’implémentation de la forme de rapports d’abus est déterminée par l’implémentation du serveur.
 
-La valeur de la `@id` est une chaîne d’URL contenant l’un des jetons d’espace réservé suivant :
+La valeur de la `@id` est une chaîne d’URL contenant un jeton d’espace réservé suivant :
 
-### <a name="url-placeholders"></a>Espaces réservés d’URL
+### <a name="url-placeholders"></a>Espace réservé d’URL
 
 Name        | Type    | Obligatoire | Notes
 ----------- | ------- | -------- | -----
 `{id}`      | chaîne  | Non       | L’ID de package pour signaler un abus pour
 `{version}` | chaîne  | Non       | La version du package pour signaler un abus pour
 
-Le `{id}` et `{version}` valeurs interprétée par l’implémentation de serveur doivent être insensible à la casse et n’ont aucune incidence si la version est normalisé.
+Le `{id}` et `{version}` valeurs interprétée par l’implémentation de serveur doivent être de la casse et pas la casse pour que la version est normalisée.
 
-Par exemple, le modèle d’abus nuget.org rapport ressemble à ceci :
+Par exemple, modèle d’abus de nuget.org rapport ressemble à ceci :
 
     https://www.nuget.org/packages/{id}/{version}/ReportAbuse
 
-Si l’implémentation cliente doit afficher un lien vers le formulaire d’abus de rapport pour NuGet.Versioning 4.3.0, il génère l’URL suivante et fournir à l’utilisateur :
+Si l’implémentation cliente doit afficher un lien vers le formulaire d’abus de rapport pour NuGet.Versioning 4.3.0, il serait génère l’URL suivante et fournit à l’utilisateur :
 
     https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse

@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d190d9fdb26d76fa8e46b7d283c1857cfab26e9
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 110d1aa29fc7238f1a82c1a81ec6431dfe437420
+ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508034"
+ms.lasthandoff: 08/09/2018
+ms.locfileid: "40020451"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -56,20 +56,18 @@ Pour obtenir une représentation visuelle claire du schéma, ouvrez le fichier d
 
 ![Explorateur de schémas Visual Studio avec nuspec.xsd ouvert](media/SchemaExplorer.png)
 
-### <a name="metadata-attributes"></a>Attributs de métadonnées
-
 ### <a name="required-metadata-elements"></a>Éléments de métadonnées requis
 
-Bien que les éléments suivants correspondent à la configuration minimale requise pour un package, vous devez envisager d’ajouter les [éléments de métadonnées facultatifs](#optional-metadata-elements) afin d’améliorer l’expérience globale des développeurs avec votre package.
+Bien que les éléments suivants correspondent à la configuration minimale requise pour un package, vous devez envisager d’ajouter les [éléments de métadonnées facultatifs](#optional-metadata-elements) afin d’améliorer l’expérience globale des développeurs avec votre package. 
 
 Ces éléments doivent apparaître dans un élément `<metadata>`.
 
-| Élément | Description |
-| --- | --- |
-| **ID** | Identificateur de package ne respectant pas la casse, qui doit être unique dans nuget.org ou dans toute autre galerie susceptible d’héberger le package. Les ID ne peuvent pas contenir d’espaces ni de caractères qui ne sont pas valides pour une URL et suivent généralement les règles d’espace de noms .NET. Pour obtenir des conseils, consultez [Choix d’un identificateur de package unique](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). |
-| **version** | Version du package, selon le modèle *version_principale.version_secondaire.version_corrective*. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../reference/package-versioning.md#pre-release-versions). |
-| **description** | Description longue du package pour l’affichage de l’interface utilisateur. |
-| **authors** | Liste séparée par des virgules des auteurs de packages, qui correspondent aux noms de profil sur nuget.org. Ceux-ci sont affichés dans la galerie NuGet sur nuget.org et servent à croiser les références des packages de mêmes auteurs. |
+#### <a name="id"></a>ID 
+Identificateur de package ne respectant pas la casse, qui doit être unique dans nuget.org ou dans toute autre galerie susceptible d’héberger le package. Les ID ne peuvent pas contenir d’espaces ni de caractères qui ne sont pas valides pour une URL et suivent généralement les règles d’espace de noms .NET. Pour obtenir des conseils, consultez [Choix d’un identificateur de package unique](../create-packages/creating-a-package.md#choosing-a-unique-package-identifier-and-setting-the-version-number). ### version de la version du package, selon le *major.minor.patch* modèle. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../reference/package-versioning.md#pre-release-versions). 
+#### <a name="description"></a>Description
+Description longue du package pour l’affichage de l’interface utilisateur. 
+#### <a name="authors"></a>authors
+Liste séparée par des virgules des auteurs de packages, qui correspondent aux noms de profil sur nuget.org. Ceux-ci sont affichés dans la galerie NuGet sur nuget.org et servent à croiser les références des packages de mêmes auteurs. 
 
 ### <a name="optional-metadata-elements"></a>Éléments de métadonnées facultatifs
 
@@ -101,7 +99,8 @@ Liste de balises et de mots clés délimités par des espaces, qui décrivent le
 #### <a name="serviceable"></a>pièce remplaçable par 
 *(3.3+)* Uniquement réservé à un usage NuGet interne.
 #### <a name="repository"></a>dépôt
-Métadonnées du référentiel, composé de quatre attributs facultatifs : *type* et *url* *(4.0 +)*, et *branche* et  *validation* *(4.6 +)*. Ces attributs permettent de mapper le fichier .nupkg vers le référentiel qui, générés avec la possibilité d’obtenir aussi détaillée que la branche individuel ou de la validation qui a créé le package. Ce doit être une url accessible au public qui peut être appelé directement par un logiciel de contrôle de version. Il ne doit pas être une page html comme cela est destiné à l’ordinateur. Pour un lien vers la page de projet, utilisez le `projectUrl` champ, à la place. |
+Métadonnées du référentiel, composé de quatre attributs facultatifs : *type* et *url* *(4.0 +)*, et *branche* et *validation* *(4.6 +)*. Ces attributs permettent de mapper le fichier .nupkg vers le référentiel qui, générés avec la possibilité d’obtenir aussi détaillée que la branche individuel ou de la validation qui a créé le package. Ce doit être une url accessible au public qui peut être appelé directement par un logiciel de contrôle de version. Il ne doit pas être une page html comme cela est destiné à l’ordinateur. Pour un lien vers la page de projet, utilisez le `projectUrl` champ, à la place. |
+
 #### <a name="minclientversion"></a>MinClientVersion
 Spécifie la version minimale du client NuGet qui peut installer ce package, appliquée par nuget.exe et le gestionnaire de package Visual Studio. Cet attribut est utilisé chaque fois que le package dépend de fonctionnalités spécifiques du fichier `.nuspec` qui ont été ajoutées dans une version particulière du client NuGet. Par exemple, un package utilisant l’attribut `developmentDependency` doit spécifier « 2.8 » pour `minClientVersion`. De même, un package utilisant l’élément `contentFiles` (consultez la section suivante) doit affecter à `minClientVersion` la valeur « 3.3 ». Notez également que, comme les clients NuGet antérieurs à 2.5 ne reconnaissent pas cet indicateur, ils refusent *toujours* d’installer le package, quel que soit le contenu de `minClientVersion`.
 
