@@ -1,6 +1,6 @@
 # [Qu’est-ce que NuGet ?](what-is-nuget.md)
 # [Installer les outils clients NuGet](install-nuget-client-tools.md)
-# Démarrages rapides
+# Guides de démarrage rapide
 ## [Installer et utiliser un package (interface CLI dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Installer et utiliser un package (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
 ## [Créer et publier un package NET Standard (interface CLI dotnet)](quickstart/create-and-publish-a-package-using-the-dotnet-cli.md)
@@ -161,6 +161,7 @@
 ## [Métadonnées de package](api/registration-base-url-resource.md)
 ## [Contenu de package](api/package-base-address-resource.md)
 ## [URL pour signaler un abus](api/report-abuse-resource.md)
+## [Signatures de référentiel](api/repository-signatures-resource.md)
 ## [Catalogue](api/catalog-resource.md)
 ## [Limites du débit](api/rate-limits.md)
 ## [Protocoles nuget.org](api/nuget-protocols.md)
