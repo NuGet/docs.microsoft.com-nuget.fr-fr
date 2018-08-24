@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 05/18/2018
 ms.topic: quickstart
-ms.openlocfilehash: e97773d79b22db1f08d868190895a9417b12c924
-ms.sourcegitcommit: 6cffa6ef59b922df2d87aa9c24034d00542983cd
+ms.openlocfilehash: af6e6e015f2e4adccd99171abb37e7291551351c
+ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37963085"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42794097"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
@@ -149,6 +149,26 @@ Cette étape aboutit au même résultat que `nuget.exe`.
 ### <a name="manage-the-published-package"></a>Gérer le package publié
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
+
+## <a name="adding-a-readme-and-other-files"></a>Ajout d’un fichier Lisez-moi et d’autres fichiers
+
+Pour spécifier directement les fichiers à inclure dans le package, modifiez le fichier projet et utilisez la propriété `content` :
+
+```xml
+<ItemGroup>
+  <Content Include="readme.txt">
+    <Pack>true</Pack>
+    <PackagePath>\</PackagePath>
+  </Content>
+</ItemGroup>
+```
+
+Cela inclut un fichier nommé `readme.txt` dans la racine du package. Visual Studio affiche le contenu de ce fichier sous forme de texte brut immédiatement après avoir installé le package directement. (Les fichiers Lisez-moi ne s’affichent pas pour les packages installés en tant que dépendances). Par exemple, voici comment s’affiche le fichier Lisez-moi du package HtmlAgilityPack :
+
+![Affichage d’un fichier Lisez-moi pour un package NuGet lors de l’installation](../create-packages/media/Create_01-ShowReadme.png)
+
+> [!Note]
+> Le simple ajout du fichier readme.txt à la racine du projet ne permet pas de l’ajouter dans le package résultant.
 
 ## <a name="related-topics"></a>Rubriques connexes
 

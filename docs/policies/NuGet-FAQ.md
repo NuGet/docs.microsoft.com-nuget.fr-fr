@@ -6,12 +6,12 @@ ms.author: karann
 manager: unnir
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: e3c52f1e49a53b89d7e5c0728c02a7915db2aeb9
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 3fe59ef03632053182b034052e93a5f2e6f444bd
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817978"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42792947"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -210,7 +210,7 @@ Tout d’abord, veillez à utiliser les dernières versions de NuGet. Si cette v
 - Votre zone géographique
 - Version de votre système d’exploitation
 - Configuration de la machine (processeur, réseau, disque dur)
-- Si votre machine se trouve derrière un pare-feu ou proxy
+- Si votre machine se trouve derrière un pare-feu ou un proxy
 - Versions de .NET installées sur la machine
 - Versions des outils multiplateformes telles que l’interface de ligne de commande .NET ou DNU que vous utilisez
 
