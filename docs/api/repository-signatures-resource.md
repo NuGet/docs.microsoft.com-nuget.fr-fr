@@ -16,12 +16,12 @@ keywords: Signatures de référentiel d’API NuGet, nuget.org signature des cer
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 27c572a482fef791f19b3d32e816a41d8dc40b53
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: 32dd2ee19261488a2b1b92724095a11ced69ae68
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020556"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793288"
 ---
 # <a name="repository-signatures"></a>Signatures de référentiel
 
@@ -59,7 +59,7 @@ L’index de signatures de référentiel contient deux informations :
 
 La plupart des cas, la liste des certificats uniquement jamais est ajoutée à. Nouveaux certificats étaient être ajoutés à la liste lorsque le certificat de signature précédent a expiré et la source du package a besoin commencer à utiliser un certificat de signature. Si un certificat est supprimé de la liste, ce qui signifie que toutes les signatures de package créés avec le certificat de signature supprimé doivent plus être considérés comme valides par le client. Dans ce cas, la signature du package (mais pas nécessairement le package) n’est pas valide. Une stratégie du client peut-être autoriser l’installation du package comme étant non signés.
 
-Dans le cas de la révocation de certificats (par exemple, clé compromise), la source du package doit signer à nouveau tous les packages signés par le certificat en question. En outre, la source du package doit supprimer le certificat en question à partir de la liste de certificats de signature.
+Dans le cas de la révocation de certificats (par exemple, clé compromise), la source du package est prévue pour signer à nouveau tous les packages signés par le certificat en question. En outre, la source du package doit supprimer le certificat en question à partir de la liste de certificats de signature.
 
 La requête suivante extrait l’index de signatures de référentiel.
 

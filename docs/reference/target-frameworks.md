@@ -1,5 +1,5 @@
 ---
-title: Référence des infrastructures de cible pour NuGet
+title: Référence de Frameworks cible pour NuGet
 description: Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package.
 author: karann-msft
 ms.author: karann
@@ -7,12 +7,12 @@ manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 87000ce95ffeef36d9f792e9e8fdad6878488773
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: c9267945b8055b536cf35911c36a066981ef67b6
+ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818319"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42793218"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -46,6 +46,9 @@ Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. 
 | | | net46 |
 | | | net461 |
 | | | net462 |
+| | | net47 |
+| | | net471 |
+| | | net472 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -76,6 +79,7 @@ Plateforme Windows universelle | uap | uap [uap10.0] |
 Application .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
+| | | netcoreapp2.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -125,7 +129,7 @@ La série `dotnet` des monikers doit être utilisée dans NuGet 3.3 et versions 
 ## <a name="portable-class-libraries"></a>Bibliothèques de classes portables
 
 > [!Warning]
-> **Les bibliothèques de classes portables ne sont pas recommandées**. Même si elles sont prises en charge, les auteurs de packages doivent prendre en charge netstandard à la place. Est une évolution du PCLs et le représente la portabilité binaire entre les plateformes à l’aide d’un moniker unique qui n’est pas lié à une bibliothèque statique, par exemple la plateforme .NET Standard *portable-a + b + c* monikers.
+> **Les bibliothèques de classes portables ne sont pas recommandées**. Même si elles sont prises en charge, les auteurs de packages doivent prendre en charge netstandard à la place. La plateforme .NET Standard est une évolution des bibliothèques de classes portables et représente la portabilité binaire entre plateformes via un moniker unique qui n’est pas lié à une bibliothèque statique comme *portable-a + b + c* monikers.
 
 Pour définir une version cible de .NET Framework qui fait référence à plusieurs frameworks-cibles-enfants, le mot clé `portable` est utilisé pour préfixer la liste des frameworks référencés. Évitez d’inclure artificiellement des frameworks supplémentaires qui ne sont pas directement compilés, car cela peut aboutir à des effets secondaires inattendus dans ces frameworks.
 
