@@ -3,16 +3,15 @@ title: Référence de Frameworks cible pour NuGet
 description: Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c9267945b8055b536cf35911c36a066981ef67b6
-ms.sourcegitcommit: c643dd2c44e085601551ff7079d696bcc3ad2b49
+ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42793218"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547257"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 

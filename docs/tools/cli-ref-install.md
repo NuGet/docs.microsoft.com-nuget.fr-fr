@@ -3,15 +3,14 @@ title: Commande d’installation NuGet CLI
 description: Référence pour la commande d’installation nuget.exe
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: e609b01bc14083ce212f6d4d4c6d3412f0ee316b
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508320"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549134"
 ---
 # <a name="install-command-nuget-cli"></a>install (commande, NuGet CLI)
 
@@ -47,7 +46,7 @@ où `<packageID>` désigne le package à installer (à l’aide de la dernière 
 | DisableParallelProcessing | Désactive l’installation de plusieurs packages en parallèle. |
 | ExcludeVersion | Installe le package dans un dossier nommé avec uniquement le nom du package et pas le numéro de version. |
 | FallbackSource | *(3.2 +)*  Une liste des sources de package à utiliser comme solutions de secours dans le cas où le package n’est pas trouvé dans le réplica principal ou source par défaut. |
-| ForceEnglishOutput | *(3.5 +)*  Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
+| ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Framework | *(4.4 +)*  Framework cible utilisé pour sélectionner les dépendances. Valeur par défaut est 'Any' Si non spécifié. |
 | Help | Affiche l’aide de la commande. |
 | NoCache | Empêche NuGet d’utiliser les packages mis en cache. Consultez [gérer les packages globaux et les dossiers de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |

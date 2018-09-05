@@ -3,15 +3,14 @@ title: Fournisseurs d’informations d’identification NuGet pour Visual Studio
 description: Fournisseurs d’informations d’identification NuGet s’authentifier avec des flux en implémentant l’interface IVsCredentialProvider dans une extension Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: e8d8ae22300b55b93badb65864163d959105dca2
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: abe009fee5863c55a188f4d7c71ed0924dd067ff
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42793901"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547952"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>L’authentification de flux dans Visual Studio avec les fournisseurs d’informations d’identification NuGet
 

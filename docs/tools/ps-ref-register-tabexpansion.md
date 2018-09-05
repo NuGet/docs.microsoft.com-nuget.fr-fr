@@ -3,21 +3,20 @@ title: Référence de PowerShell NuGet Register-TabExpansion
 description: Référence de commande Register-TabExpansion PowerShell dans la Console du Gestionnaire de Package NuGet dans Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 8011c0e6aa951a32114d460803c493810964a7e0
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 98171c598bd4a3468bd23e2d6060e267c38021b4
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818411"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546603"
 ---
 # <a name="register-tabexpansion-package-manager-console-in-visual-studio"></a>Register-TabExpansion (Console du Gestionnaire de Package dans Visual Studio)
 
-*Disponible uniquement dans les [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sous Windows.*
+*Disponible uniquement dans le [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sur Windows.*
 
-Inscrit une tabulation pour les paramètres de la commande spécifiée, telle que lorsque l’onglet est utilisé lorsque vous entrez une commande, les valeurs de développé s’affichent en tant que les options disponibles pour le paramètre en question. Les expansions précédentes de la commande sont remplacées.
+Inscrit une tabulation pour les paramètres de la commande spécifiée, telle que lors de l’onglet est utilisé lorsque vous entrez une commande, les valeurs de développé s’affichent en tant qu’options disponibles pour le paramètre en question. Les expansions précédentes de la commande sont remplacées.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -29,25 +28,25 @@ Register-TabExpansion [-Name] <String> [-Definition] <Object> [<CommonParameters
 
 | Paramètre | Description |
 | --- | --- |
-| Name | (Obligatoire) La commande pour laquelle inscrire les expansions. -Nom de commutateur lui-même est facultative. |
-| Définition | (Obligatoire) Un objet qui décrit l’argument dans la syntaxe `@{'<parameter>' = {'<value1>', '<value2>', ...}}` où `<parameter>` est le nom de paramètre à modifier et à chaque `<value>` fournit une extension spécifique. Les guillemets simples et doubles sont acceptés. |
+| Name | (Obligatoire) La commande pour laquelle inscrire les expansions. -Nom du commutateur proprement dit est facultatif. |
+| Définition | (Obligatoire) Objet décrivant l’argument dans la syntaxe `@{'<parameter>' = {'<value1>', '<value2>', ...}}` où `<parameter>` est le nom du paramètre à modifier et chacun `<value>` fournit une expansion spécifique. Les guillemets simples et doubles sont acceptés. |
 
-Aucun de ces paramètres accepter pipeline entrée ni les caractères génériques.
+Aucun de ces paramètres accepter les caractères d’entrée ou de caractère générique de pipeline.
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Register-TabExpansion` prend en charge les [les paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Register-TabExpansion` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 
-Adoptez une solution qui contient trois noms de projets Gestionnaire d’événements, des utilitaires et SpecialParser. Le développeur utilise fréquemment la `Update-Package` commande à différents moments avec chacun de ces projets. Elle trouve utile d’avoir le `Update-Package` commande fournissent des extensions de la saisie semi-automatique pour le `-ProjectName` argument afin qu’elle n’a pas besoin de taper un nom de projet chaque fois. 
+Envisagez une solution qui contient trois noms de projets EventManager, d’utilitaires et SpecialParser. Le développeur utilise fréquemment la `Update-Package` commande à des moments différents avec chacun de ces projets. Elle estime qu’il est utile de disposer la `Update-Package` commande fournir des expansions de la saisie semi-automatique pour le `-ProjectName` argument afin qu’elle n’a pas besoin de taper un nom de projet chaque fois. 
 
-La commande suivante, enregistre ensuite, ces noms de trois projet comme une extension pour le `-ProjectName` paramètre :
+La commande suivante, inscrit ensuite, ces noms de trois projet comme une extension pour le `-ProjectName` paramètre :
 
 ```ps
 Register-TabExpansion Update-Package @{'ProjectName' = {'EventManager', 'Utilities', 'SpecialParser'}}    
 ```
 
-Le développeur peut puis tapez `Update-Package -ProjectName `, appuyez sur Tab et consultez les expansions proposées comme options de saisie semi-automatique :
+Le développeur peut puis tapez `Update-Package -ProjectName `, appuyez sur Tab et consultez les expansions proposées comme options de la saisie semi-automatique :
 
-![Exemple d’utilisation de TabExpansion de Registre](media/Register-TabExpansion-Example.png)
+![Exemple d’utilisation de Register-TabExpansion](media/Register-TabExpansion-Example.png)

@@ -3,16 +3,15 @@ title: Signaler un abus API NuGet, modèle d’URL
 description: Le modèle d’URL de rapport abus permet aux clients d’afficher un lien Signaler un abus dans leur interface utilisateur.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b1fd65b12590a6c5eeb23d946eec6ca4a1c661bc
-ms.sourcegitcommit: e9c58dbfc1af2876337dcc37b1b070e8ddec0388
+ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40020438"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549337"
 ---
 # <a name="report-abuse-url-template"></a>Modèle d’URL de rapport un abus
 

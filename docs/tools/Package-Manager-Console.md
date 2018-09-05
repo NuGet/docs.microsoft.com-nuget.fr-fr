@@ -1,19 +1,18 @@
 ---
 title: Guide de la Console Gestionnaire de Package NuGet
-description: Instructions pour à l’aide de la Console du Gestionnaire de Package NuGet dans Visual Studio pour l’utilisation de packages.
+description: Instructions sur l’utilisation de la Console du Gestionnaire de Package NuGet dans Visual Studio pour travailler avec des packages.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 01/23/2018
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 06c525cab2dac61c92c4596533173f1d93493d9a
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 88979c67ea7f073f2ea5a02c445186642f77f210
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817656"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546876"
 ---
 # <a name="package-manager-console"></a>Console du Gestionnaire de package
 
@@ -21,9 +20,9 @@ La Console du Gestionnaire de packages NuGet est intégrée à Visual Studio sur
 
 La console vous permet d’utiliser les [commandes NuGet dans PowerShell](../tools/powershell-reference.md) pour rechercher, installer, désinstaller et mettre à jour les packages NuGet. L’utilisation de la console est nécessaire dans les cas où le Gestionnaire de packages UI ne fournit pas d’une façon d’effectuer une opération. Pour utiliser les commandes `nuget.exe` dans la console, consultez [à l’aide de l’interface CLI de nuget.exe dans la console](#using-the-nugetexe-cli-in-the-console).
 
-Par exemple, rechercher et installer un package s’effectue en trois étapes simples :
+Par exemple, la recherche et l’installation d’un package s’effectue en trois étapes simples :
 
-1. Ouvrez le projet ou la solution dans Visual Studio, puis ouvrez la console à l’aide de la **Outils > Gestionnaire de Package NuGet > Package Manager Console** commande.
+1. Ouvrez le projet ou la solution dans Visual Studio, puis ouvrez la console à l’aide de la **Outils > Gestionnaire de Package NuGet > Console du Gestionnaire de Package** commande.
 
 1. Recherchez le package que vous souhaitez installer. Si vous connaissez déjà cela, passez à l’étape 3.
 
@@ -40,16 +39,16 @@ Par exemple, rechercher et installer un package s’effectue en trois étapes si
     ```
 
 > [!Important]
-> Toutes les opérations qui sont disponibles dans la console peuvent également être effectuées avec la [NuGet CLI](../tools/nuget-exe-cli-reference.md). Toutefois, les commandes de la console fonctionnent dans le contexte de Visual Studio et une projet/solution enregistrée et souvent accomplir plus de leurs commandes CLI équivalentes. Par exemple, l’installation d’un package via la console ajoute une référence au projet n’est pas le cas de la commande CLI. Pour cette raison, les développeurs qui travaillent dans Visual Studio en général, préfèrent à l’aide de la console pour l’interface CLI.
+> Toutes les opérations qui sont disponibles dans la console peuvent également être effectuées avec la [NuGet CLI](../tools/nuget-exe-cli-reference.md). Toutefois, les commandes de la console fonctionnent dans le contexte de Visual Studio et une projet/solution enregistrée et souvent accomplir plus de leurs commandes CLI équivalentes. Par exemple, installation d’un package via la console ajoute une référence au projet n’est pas le cas de la commande CLI. Pour cette raison, les développeurs qui travaillent dans Visual Studio en général, préfèrent à l’aide de la console à l’interface CLI.
 
 > [!Tip]
-> Nombre d’opérations console dépend de disposer d’une solution ouverte dans Visual Studio avec un nom de chemin d’accès connu. Si vous avez une solution non enregistrée, ou aucune solution, vous pouvez voir l’erreur, « Solution est pas ouvert ou non enregistrée. Vérifiez que vous avez une solution ouverte et enregistrée. » Cela indique que la console ne peut pas déterminer le dossier de solution. L’enregistrement d’une solution non enregistrée, ou en créant et en enregistrant une solution si vous n’en avez pas ouvert, devrait corriger l’erreur.
+> De nombreuses opérations de console dépendent de disposer d’une solution ouverte dans Visual Studio avec un nom de chemin d’accès connus. Si vous avez une solution non enregistrée, ou aucune solution, vous pouvez voir l’erreur, « Solution est pas ouvert ou non enregistrée. Vérifiez que vous disposez d’une solution ouverte et enregistrée. » Cela indique que la console ne peut pas déterminer le dossier de solution. L’enregistrement d’une solution non enregistrée, ou en créant et en enregistrant une solution si vous n’en avez pas ouvert, devrait corriger l’erreur.
 
 ## <a name="opening-the-console-and-console-controls"></a>Utiliser la console et les contrôles de la console
 
 1. Ouvrez la console dans Visual Studio en utilisant la commande **Outils > Gestionnaire de Package NuGet > Package Manager Console**. La console est une fenêtre de Visual Studio qui peut être organisée et positionnée comme vous le souhaitez (voir [Personnaliser des dispositions de fenêtres dans Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
-1. Par défaut, les commandes de la console fonctionnent par rapport à un projet et la source du package spécifique défini dans le contrôle en haut de la fenêtre :
+1. Par défaut, les commandes de la console fonctionnent par rapport à un projet et la source du package spécifique tel que défini dans le contrôle en haut de la fenêtre :
 
     ![Contrôles de la Console du Gestionnaire de package pour le projet et de la source du package](media/PackageManagerConsoleControls1.png)
 
@@ -75,9 +74,9 @@ Install-Package Elmah -ProjectName UtilitiesLib
 
 Voir aussi [Install-Package](../tools/ps-ref-install-package.md).
 
-Installation d’un package dans la console effectue les mêmes étapes comme décrit dans [que se passe-t-il lorsqu’un package est installé](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), avec les ajouts suivants :
+Installation d’un package dans la console effectue les mêmes étapes comme décrit sur [que se passe-t-il lorsqu’un package est installé](../consume-packages/ways-to-install-a-package.md#what-happens-when-a-package-is-installed), avec les ajouts suivants :
 
-- La Console affiche les termes du contrat de licence applicable dans sa fenêtre avec un accord implicite. Si vous n’acceptez pas les termes du contrat, vous devez désinstaller le package immédiatement.
+- La Console affiche les termes du contrat de licence applicable dans sa fenêtre avec un contrat implicite. Si vous n’acceptez pas les termes du contrat, vous devez désinstaller le package immédiatement.
 - Également une référence au package est ajoutée au fichier projet et apparaît dans **l’Explorateur de solutions** sous le **références** nœud, vous devez enregistrer le projet pour voir les modifications dans le fichier projet directement.
 
 ## <a name="uninstalling-a-package"></a>Désinstaller un package
@@ -97,7 +96,7 @@ Consultez la section [Uninstall-Package](../tools/ps-ref-uninstall-package.md). 
 
 La désinstallation d’un package effectue les actions suivantes :
 
-- Supprime les références au package du projet (et le format de gestion est en cours d’utilisation). Les références n’apparaissent plus dans **l’Explorateur de solutions**. (Vous devrez peut-être régénérer le projet pour voir s’il est supprimé du dossier **Bin**.)
+- Supprime la référence au package dans le projet (et le format de gestion est en cours d’utilisation). Références n’apparaissent plus dans **l’Explorateur de solutions**. (Vous devrez peut-être régénérer le projet pour voir s’il est supprimé du dossier **Bin**.)
 - Annule les modifications apportées à `app.config` ou `web.config` lorsque le package a été installé.
 - Supprime les dépendances précédemment installées si aucun paquet restant n'utilise ces dépendances.
 
@@ -144,13 +143,13 @@ Dans Visual Studio 2017, NuGet et le Gestionnaire de package NuGet sont install�
 
 En outre, si vous n'avez pas le Gestionnaire de package NuGet dans Visual Studio 2015 et versions antérieures, vérifiez **Outils > Extensions et mises à jour...** et recherchez l’extension du Gestionnaire de package NuGet. Si vous ne parvenez pas à utiliser le programme d’installation des extensions dans Visual Studio, vous pouvez télécharger l’extension directement à partir de [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 
-La Console du Gestionnaire de Package n’est pas actuellement disponible dans Visual Studio pour Mac. Toutefois, les commandes équivalentes, sont disponibles via le [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio pour Mac possède une interface utilisateur pour la gestion des packages NuGet. Consultez [package, y compris un NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
+La Console du Gestionnaire de Package n’est pas actuellement disponible avec Visual Studio pour Mac. Toutefois, les commandes équivalentes, sont disponibles via le [NuGet CLI](nuget-exe-CLI-reference.md). Visual Studio pour Mac a une interface utilisateur pour la gestion des packages NuGet. Consultez [, y compris un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
 
 La Console du Gestionnaire de Package n’est pas incluse avec Visual Studio Code.
 
 ## <a name="extending-the-package-manager-console"></a>Etendre la Console du Gestionnaire de package
 
-Certains packages installent de nouvelles commandes de la console. Par exemple, `MvcScaffolding` crée des commandes telles que `Scaffold` illustré ci-dessous, qui génère les contrôleurs ASP.NET MVC et les vues :
+Certains packages installent les nouvelles commandes de la console. Par exemple, `MvcScaffolding` crée des commandes telles que `Scaffold` illustré ci-dessous, qui génère les contrôleurs MVC ASP.NET et des vues :
 
 ![Installation et l’utilisation de MvcScaffold](media/PackageManagerConsoleInstall.png)
 
@@ -167,7 +166,7 @@ $profile
 C:\Users\<user>\Documents\WindowsPowerShell\NuGet_profile.ps1
 ```
 
-Pour plus d’informations, reportez-vous à [les profils Windows PowerShell](https://technet.microsoft.com/library/bb613488.aspx).
+Pour plus d’informations, reportez-vous à [Windows PowerShell profils](https://technet.microsoft.com/library/bb613488.aspx).
 
 ## <a name="using-the-nugetexe-cli-in-the-console"></a>Utiliser l’interface CLI de nuget.exe dans la console
 

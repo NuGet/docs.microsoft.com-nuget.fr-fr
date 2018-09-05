@@ -3,21 +3,20 @@ title: Référence de PowerShell Get-projet NuGet
 description: Référence de commande GetProject PowerShell dans la Console du Gestionnaire de Package NuGet dans Visual Studio.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: afdf9f762bbd34531f9d9093238a2fed27e3f4d3
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 849261711fafcadbab38bf6fe99340c4b79e1e21
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817754"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43550435"
 ---
 # <a name="get-project-package-manager-console-in-visual-studio"></a>Get-Project (Console du gestionnaire de packages dans Visual Studio)
 
-*Disponible uniquement dans les [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sous Windows.*
+*Disponible uniquement dans le [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sur Windows.*
 
-Affiche des informations sur la valeur par défaut ou le projet spécifié. `Get-Project` spécifiquement, retourne une référence à l’objet DTE (environnement d’outils de développement) de Visual Studio pour le projet.
+Affiche des informations sur la valeur par défaut ou le projet spécifié. `Get-Project` en particulier, retourne un référent à l’objet DTE (Development Tools Environment) de Visual Studio pour le projet.
 
 ## <a name="syntax"></a>Syntaxe
 
@@ -29,14 +28,14 @@ Get-Project [[-Name] <string>] [-All] [<CommonParameters>]
 
 | Paramètre | Description |
 | --- | --- |
-| Name | Spécifie le projet à afficher, par défaut pour le projet par défaut sélectionné dans la Console du Gestionnaire de Package. -Nom de commutateur est facultatif. |
-| Tous | Affiche des informations pour chaque projet dans la solution ; l’ordre des projets n’est pas déterministe. |
+| Name | Spécifie le projet à afficher, par défaut pour le projet par défaut sélectionné dans la Console du Gestionnaire de Package. -Nom du commutateur est lui-même est facultatif. |
+| Tous | Affiche des informations pour chaque projet dans la solution. l’ordre des projets n’est pas déterministe. |
 
-Aucun de ces paramètres accepter pipeline entrée ni les caractères génériques.
+Aucun de ces paramètres accepter les caractères d’entrée ou de caractère générique de pipeline.
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Get-Project` prend en charge les [les paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Debug, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Get-Project` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 

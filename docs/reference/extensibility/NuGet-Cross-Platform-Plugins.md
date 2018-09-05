@@ -3,15 +3,14 @@ title: NuGet entre les plug-ins de la plateforme
 description: NuGet cross plug-ins de la plateforme pour NuGet.exe, dotnet.exe, msbuild.exe et Visual Studio
 author: nkolev92
 ms.author: nikolev
-manager: rrelyea
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: cf2c4fb484703b034a8569d053f2417fe58e41ff
-ms.sourcegitcommit: 8d5121af528e68789485405e24e2100fda2868d6
+ms.openlocfilehash: fdefc5b6189051fd83b2de644080284c09dd85f4
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42794178"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548204"
 ---
 # <a name="nuget-cross-platform-plugins"></a>NuGet entre les plug-ins de la plateforme
 

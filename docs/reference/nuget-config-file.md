@@ -3,17 +3,16 @@ title: Référence du fichier NuGet.config
 description: Informations de référence sur le fichier NuGet.Config, notamment les sections config, bindingRedirects, packageRestore, solution et packageSource.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: 3d6741b2d724b967e76ba65547e84adcd461a521
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 504a48224051265164f9ab183e63fa5e7f5867e6
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818397"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43546913"
 ---
-# <a name="nugetconfig-reference"></a>référence de NuGet.config
+# <a name="nugetconfig-reference"></a>référence sur NuGet.config
 
 Le comportement de NuGet est contrôlé par des paramètres dans différents fichiers `NuGet.Config` comme décrit dans [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
@@ -43,7 +42,7 @@ Dans cette rubrique :
 
 Contient des paramètres de configuration divers, qui peuvent être définis à l’aide de la [commande `nuget config`](../tools/cli-ref-config.md).
 
-`dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets à l’aide de `packages.config`. `globalPackagesFolder` s’applique uniquement aux projets en utilisant le format PackageReference.
+`dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets utilisant `packages.config`. `globalPackagesFolder` s’applique uniquement aux projets utilisant le format PackageReference.
 
 | Touche | Value |
 | --- | --- |
@@ -124,7 +123,7 @@ Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json
 
 ### <a name="packagesources"></a>packageSources
 
-Répertorie toutes les sources de packages connues. L’ordre est ignoré pendant les opérations de restauration et aucun projet utilisant le format PackageReference. NuGet respecte l’ordre des sources pour installer et mettre à jour des opérations avec des projets à l’aide de `packages.config`.
+Répertorie toutes les sources de packages connues. L’ordre est ignoré pendant les opérations de restauration et avec n’importe quel projet en utilisant le format PackageReference. NuGet respecte l’ordre des sources pour installer et mettre à jour des opérations avec des projets à l’aide de `packages.config`.
 
 | Touche | Value |
 | --- | --- |
