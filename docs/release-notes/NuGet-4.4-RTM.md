@@ -3,16 +3,15 @@ title: Notes de publication de NuGet 4.4 RTM
 description: Notes de publication de NuGet 4.4 RTM, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3e969274e69de03ca9851d31a627919dcc46bb7d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 9ea11ad5476b02940b171fdc69ac0bf56598418d
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821666"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43548412"
 ---
 # <a name="nuget-44-rtm-release-notes"></a>Notes de publication de NuGet 4.4 RTM
 

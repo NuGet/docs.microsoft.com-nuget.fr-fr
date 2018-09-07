@@ -3,15 +3,14 @@ title: Informations de référence sur le fichier project.json pour NuGet
 description: Dans certains types de projets, project.json gère la liste des packages NuGet utilisés dans le projet.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e558bdb969d4c70f85a3c89a426f1c7b11525402
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34817123"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43547782"
 ---
 # <a name="projectjson-reference"></a>Documentation de référence sur project.json
 
@@ -75,9 +74,9 @@ Les ressources des dépendances qui sont transférées dans le projet de niveau 
 | runtime | Runtime, Resources et FrameworkAssemblies  |
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
-| natifs | natifs |
-| aucun | Aucun dossier |
-| toutes les | Tous les dossiers |
+| native | native |
+| none | Aucun dossier |
+| all | Tous les dossiers |
 
 Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`.
 

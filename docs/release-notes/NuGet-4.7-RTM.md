@@ -3,15 +3,14 @@ title: Notes de publication de NuGet 4.7 RTM
 description: Notes de publication de NuGet 4.7.0, avec notamment les problèmes connus, les résolutions de bogues, les fonctionnalités ajoutées et les DCR.
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 79be74f9c54e27bf2c08e83c7adf81d1f96ce79a
-ms.sourcegitcommit: 4d139cb54a46616ae48d1768fa108ae3bf450d5b
+ms.openlocfilehash: 4ecbdc5475837b1aa1e723a94c2c6c3e8460f9ef
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39508161"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43549426"
 ---
 # <a name="nuget-47-rtm-release-notes"></a>Notes de publication de NuGet 4.7 RTM
 

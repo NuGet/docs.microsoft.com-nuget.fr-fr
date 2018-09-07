@@ -3,16 +3,15 @@ title: Rechercher à l’aide d’une requête tous les packages publiés sur nu
 description: À l’aide de l’API NuGet, vous pouvez rechercher au moyen d’une requête tous les packages publiés sur nuget.org et rester à jour au fil du temps.
 author: joelverhagen
 ms.author: jver
-manager: skofman
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 4190cfb500127f117ea1067f0679e5c248bffb3d
-ms.sourcegitcommit: 3eab9c4dd41ea7ccd2c28bb5ab16f6fbbec13708
+ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/26/2018
-ms.locfileid: "31821367"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43551076"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Rechercher à l’aide d’une requête tous les packages publiés sur nuget.org
 

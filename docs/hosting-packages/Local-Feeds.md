@@ -3,15 +3,14 @@ title: Configuration de flux NuGet locaux
 description: Guide pratique pour créer un flux local pour les packages NuGet en utilisant des dossiers sur votre réseau local
 author: karann-msft
 ms.author: karann
-manager: unnir
 ms.date: 12/06/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5d86657bdf26452d027593b953168e28694acf82
-ms.sourcegitcommit: 2a6d200012cdb4cbf5ab1264f12fecf9ae12d769
+ms.openlocfilehash: 91c072c8895ab4267c64fd04deae010ae5af4d37
+ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34818683"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43545450"
 ---
 # <a name="local-feeds"></a>Flux locaux
 
