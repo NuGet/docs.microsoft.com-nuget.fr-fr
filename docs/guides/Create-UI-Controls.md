@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: ce5ad07209a06010150b14092aa1b15ee6f84146
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dd36987e020c2daa02bb875aa9dbd69c85bba4d3
+ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548736"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49951744"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Créer des contrôles IU en tant que packages NuGet
 
@@ -87,7 +87,9 @@ Dans l’exemple suivant, le contrôle implémenté dans `ManagedPackage.winmd` 
 
 ## <a name="add-custom-icons-to-your-controls"></a>Ajouter des icônes personnalisées à vos contrôles
 
-Pour afficher une icône personnalisée dans la boîte à outils ou le volet Composants, ajoutez une image à votre projet ou au projet `design.dll` correspondant portant le nom « Namespace.ControlName.extension » et définissez l’action de génération sur « Ressource incorporée ». Les formats pris en charge sont `.png`, `.jpg`, `.jpeg`, `.gif` et `.bmp`. La taille d’image recommandée est 64 pixels par 64 pixels.
+Pour afficher une icône personnalisée dans la boîte à outils ou le volet Composants, ajoutez une image à votre projet ou au projet `design.dll` correspondant portant le nom « Namespace.ControlName.extension » et définissez l’action de génération sur « Ressource incorporée ». Vous devez également vous assurer que le `AssemblyInfo.cs` associé spécifie l’attribut ProvideMetadata : `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Consultez cet [exemple](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+
+Les formats pris en charge sont `.png`, `.jpg`, `.jpeg`, `.gif` et `.bmp`. La taille d’image recommandée est 64 pixels par 64 pixels.
 
 Dans l’exemple ci-dessous, le projet contient un fichier image nommé « ManagedPackage.MyCustomControl.png ».
 

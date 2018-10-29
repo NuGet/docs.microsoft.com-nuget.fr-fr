@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9ae8e8dc4e7e901acacffed8b7dfb4162c5ad2b6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
+ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551388"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44516202"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -18,7 +18,7 @@ Les références de package utilisent le nœud `PackageReference` pour gérer le
 
 Avec PackageReference, vous pouvez aussi utiliser des conditions MSBuild pour choisir des références de package par version cible de .NET Framework, configuration, plateforme ou autre type de regroupement. Elle permet également de mieux contrôler les dépendances et les flux de contenu. Pour plus d’informations, consultez [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md).
 
-Par défaut, PackageReference est utilisé pour les projets .NET Core, les projets .NET Standard et les projets UWP ciblant Windows 10 Build 15063 (Creators Update) et version ultérieure, excepté les projets C++ UWP. Les projets .NET Framework Full prennent en charge PackageReference, mais utilisent par défaut `packages.config`. Pour utiliser PackageReference, migrez les dépendances de `packages.config` dans votre fichier projet, puis supprimez packages.config.
+Par défaut, PackageReference est utilisé pour les projets .NET Core, les projets .NET Standard et les projets UWP ciblant Windows 10 Build 15063 (Creators Update) et version ultérieure, excepté les projets C++ UWP. Les projets .NET Framework prennent en charge PackageReference, mais utilisent par défaut `packages.config`. Pour utiliser PackageReference, migrez les dépendances de `packages.config` dans votre fichier projet, puis supprimez packages.config.
 
 ## <a name="adding-a-packagereference"></a>Ajout d’un PackageReference
 
