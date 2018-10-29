@@ -60,10 +60,6 @@ Pour plus d’informations, commencez par les articles [Workflow de création de
 
 La facilité à s’appuyer sur le travail des autres est l’un des aspects les plus puissants d’un système de gestion des packages. En conséquence, la plus grande partie du travail effectué par NuGet consiste à gérer cette arborescence ou ce « graphique » de dépendance pour chaque projet. Autrement dit, vous devez vous préoccuper seulement des packages que vous utilisez directement dans un projet. Si l’un d’entre eux utilise lui-même d’autres packages (et ainsi de suite), NuGet se charge de toutes ces dépendances des niveaux inférieurs.
 
-L’illustration suivante montre un projet qui dépend de cinq packages, qui à leur tour dépendent de plusieurs autres.
-
-![Exemple de graphe des dépendances NuGet pour un projet .NET](media/dependency-graph.png)
-
 Notez que certains packages apparaissent plusieurs fois dans le graphe des dépendances. Par exemple, il existe trois consommateurs différents du package B, et chaque consommateur peut également spécifier une version différente pour ce package (non représenté). C’est un cas courant, en particulier pour les packages les plus utilisés. Heureusement, NuGet se charge de tout le travail en identifiant exactement la version du package B qui convient à tous les consommateurs. NuGet fait ensuite de même pour tous les autres packages, quelle que soit la profondeur du graphique de dépendance.
 
 Pour plus d’informations sur la façon dont NuGet réalise ce service, consultez [Résolution des dépendances](consume-packages/dependency-resolution.md).
@@ -73,8 +69,6 @@ Pour plus d’informations sur la façon dont NuGet réalise ce service, consult
 Compte tenu de la simplicité de déplacement de projets entre différents ordinateurs de développeurs, référentiels de contrôle de code source, serveurs de builds, etc., il est très peu pratique de conserver les assemblys binaires de packages NuGet directement liés à un projet. Cela aurait pour effet d’encombrer inutilement chacune des copies du projet (et ainsi de gaspiller de l’espace dans les référentiels de contrôle de code source). Il serait également très difficile de mettre à jour les fichiers binaires des packages, car la nouvelle version devrait s’appliquer à toutes les copies du projet.
 
 NuGet gère plutôt une simple liste de références des packages dont dépend le projet, qui englobe les dépendances de niveau supérieur et de niveau inférieur. Autrement dit, lorsque un package est installé dans un projet à partir d’un hôte, NuGet enregistre l’identificateur et le numéro de version du package dans cette liste de références. (La désinstallation d’un package supprime bien sûr celui-ci de la liste.) NuGet offre un moyen de restaurer tous les packages référencés à la demande, comme le décrit la section [Restauration de packages](consume-packages/package-restore.md).
-
-![Une liste des références NuGet est créée à l’installation du package et elle peut être utilisée pour restaurer des packages ailleurs.](media/nuget-restore.png)
 
 Avec seulement la liste des références, NuGet peut à tout moment réinstaller &mdash; autrement dit, *restaurer* &mdash; tous ces packages à partir d’hôtes publics et privés. Pour valider un projet dans le contrôle de code source ou le partager par un autre moyen, il suffit d’inclure la liste des références et d’exclure les fichiers binaires des packages (consultez la section [Packages et contrôle de code source](consume-packages/packages-and-source-control.md).)
 
