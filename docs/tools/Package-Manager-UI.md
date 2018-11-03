@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 651bbe63ec95fcedb8e9504022d08d6ba7f9219e
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551755"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981182"
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 
@@ -70,7 +70,11 @@ Dans cette rubrique :
 
     ![Mettre à jour un package](media/UpdatePackages.png)
 
-1. <a name="implicit_reference"></a>Pour certains packages, les **mise à jour** bouton est désactivé et un message s’affiche indiquant qu’il est « implicitement référencé par un SDK » (ou « AutoReferenced »). Le message indique que le package, telles que Microsoft.NETCore.App ou Microsoft.NETStandard.Library, fait partie d’un framework plus grand ou le Kit de développement logiciel et ne doit-elle pas être mis à jour indépendamment. (Ces packages sont signalés en interne par `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Pour mettre à jour le package, mettez à jour le Kit de développement logiciel auquel il appartient, déduire le Kit de développement de conteneur à partir du nom de package. Par exemple, un package comme Microsoft.NETCore.App fait partie du SDK .NET Core, par conséquent, vous devez mettre à jour votre installation du SDK .NET Core.
+1. <a name="implicit_reference"></a>Pour certains packages, les **mise à jour** bouton est désactivé et un message s’affiche indiquant qu’il est « implicitement référencé par un SDK » (ou « AutoReferenced »). Ce message indique que le package fait partie d’un framework plus grand ou le Kit de développement logiciel et ne doit-elle pas être mis à jour indépendamment. (Ces packages sont signalés en interne par `<IsImplicitlyDefined>True</IsImplicitlyDefined>`.) Par exemple, `Microsoft.NETCore.App` fait partie du SDK .NET Core, et la version du package n’est pas identique à la version de l’infrastructure du runtime utilisée par l’application. Vous devez [mettre à jour votre installation de .NET Core](https://aka.ms/dotnet-download) pour obtenir de nouvelles versions du runtime ASP.NET Core et .NET Core. [Consultez ce document pour plus d’informations sur les métapackages .NET Core et le contrôle de version](/dotnet/core/packages). Cela s’applique aux packages couramment utilisées suivantes :
+    * Microsoft.AspNetCore.All
+    * Microsoft.AspNetCore.App
+    * Microsoft.NETCore.App
+    * NETStandard.Library
 
     ![Exemple de package la mention implicitement références ou AutoReferenced](media/PackageManagerUIAutoReferenced.png)
 

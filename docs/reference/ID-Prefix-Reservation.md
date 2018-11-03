@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 0711f3ee00b4a387d676ca43c98a9467effed90a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546588"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981000"
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation de préfixe ID de package
 
@@ -65,7 +65,7 @@ Si un package proviennent d’un préfixe réservé, vous voyez le dessous des i
 
 1. Passez en revue l’acceptation [critères pour la réservation du préfixe ID](#id-prefix-reservation-criteria).
 
-2. Déterminer les espaces de noms que vous souhaitez réserver, en plus [des scénarios de réservation de préfixe avancés](#advanced-prefix-reservation-scenarios) vous pouvez avoir besoin.
+2. Déterminer les préfixes que vous souhaitez réserver, en plus [des scénarios de réservation de préfixe avancés](#advanced-prefix-reservation-scenarios) vous pouvez avoir besoin.
 
 3. Envoyer un e-mail à [ account@nuget.org ](mailto:account@nuget.org) avec le propriétaire du nom d’affichage sur [nuget.org](https://www.nuget.org/), ainsi que tous les préfixes réservés que vous demandez. Si vous déléguez des sous-ensembles de préfixe à plusieurs propriétaires, assurez-vous que vous indiquez tous les noms complets de propriétaire et des sous-ensembles de préfixe.
 

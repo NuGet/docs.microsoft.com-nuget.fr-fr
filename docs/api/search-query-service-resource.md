@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f04c6a62fc3b5056ad82930447b8ba46a8797fd2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548089"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981130"
 ---
 # <a name="search"></a>Rechercher
 
@@ -21,7 +21,7 @@ Il est possible de rechercher des packages disponibles sur une source de package
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur @type                   | Notes
+Valeur@type                    | Notes
 ----------------------------- | -----
 SearchQueryService            | La version initiale
 SearchQueryService/3.0.0-beta | Alias de `SearchQueryService`
@@ -99,7 +99,7 @@ titre          | chaîne                     | Non       |
 totalDownloads | entiers                    | Non       | Cette valeur peut être déduite par la somme des téléchargements dans le `versions` tableau
 vérifié       | boolean                    | Non       | Une valeur JSON booléenne indiquant si le package est [vérifié](../reference/id-prefix-reservation.md)
 
-Sur nuget.org, un package vérifié est celui qui a un ID de package correspondant à un préfixe d’identificateur réservé et détenues par un des propriétaires de l’espace de noms réservé. Pour plus d’informations, consultez le [documentation sur la réservation du préfixe ID](../reference/id-prefix-reservation.md).
+Sur nuget.org, un package vérifié est celui qui a un ID de package correspondant à un préfixe d’identificateur réservé et détenues par un des propriétaires du préfixe réservé. Pour plus d’informations, consultez le [documentation sur la réservation du préfixe ID](../reference/id-prefix-reservation.md).
 
 Les métadonnées contenues dans l’objet de résultat de recherche sont effectuée à partir de la dernière version de package. Chaque élément dans le `versions` tableau est un objet JSON avec les propriétés suivantes :
 
