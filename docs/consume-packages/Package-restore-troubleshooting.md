@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11acb90b45af73137faac1ec6bc403b109e6e808
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dacc95c557af016f535bc1b758473d7062f2ad3f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549598"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981013"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Résolution des erreurs de restauration des packages
 
@@ -44,7 +44,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Cette erreur se produit en cas de tentative de création d’un projet contenant des références à un ou plusieurs packages NuGet qui ne sont pas installés sur l’ordinateur ou dans le projet.
 
-- Si le format de gestion PackageReference est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier *global-packages*, comme l’explique la page [Gérer les dossiers de packages globaux et de cache](managing-the-global-packages-and-cache-folders.md).
+- Si le format de gestion PackageReference est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier *global-packages*, comme l’explique l’article [Gérer les dossiers de packages globaux et de cache](managing-the-global-packages-and-cache-folders.md).
 - Si `packages.config` est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier `packages` à la racine de la solution.
 
 Cette situation se produit souvent quand vous obtenez le code source d’un projet à partir du contrôle de code source ou d’un autre téléchargement. Les packages sont généralement omis du contrôle de code source ou des téléchargements car ils peuvent être restaurés à partir de flux de packages comme nuget.org. Pour plus d’informations, consultez [Packages et contrôle de code source](Packages-and-Source-Control.md)). Leur inclusion engendrerait l’encombrement du dépôt ou la création inutile de fichiers .zip volumineux.

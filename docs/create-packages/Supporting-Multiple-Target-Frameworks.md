@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0b22d48b9151b903a5307beafa5ccef14e5fecf3
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551704"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981143"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Prise en charge de plusieurs versions de .NET Framework
 
@@ -65,7 +65,13 @@ Si vous avez des assemblys propres à une architecture, autrement dit, des assem
             \native
             \lib\uap10.0
 
+Ces assemblys sont disponibles uniquement au moment de l’exécution. Si vous souhaitez fournir l’assembly correspondant au moment de la compilation, indiquez l’assembly `AnyCPU` dans le dossier `/ref{tfm}`. 
+
+Notez que NuGet choisit toujours ces ressources de compilation ou d’exécution dans un seul dossier. Si des ressources compatibles se trouvent dans `/ref`, `/lib` est donc ignoré lors de l’ajout d’assemblys au moment de la compilation. De même, si des ressources compatibles se trouvent dans `/runtime`, `/lib` est ignoré pour l’exécution.
+
 Consultez [Créer des packages UWP](../guides/create-uwp-packages.md) pour obtenir un exemple de référencement de ces fichiers dans le manifeste `.nuspec`.
+
+Consultez également [Empaquetage d’un composant d’application Windows Store avec NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2).
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Correspondance entre les versions d’assembly et la version cible de .Net Framework dans un projet
 

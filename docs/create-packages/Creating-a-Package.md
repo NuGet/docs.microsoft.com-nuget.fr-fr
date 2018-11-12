@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 37c2208f0942b12428dba9d664f25e7e4f3c0b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547372"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981169"
 ---
 # <a name="creating-nuget-packages"></a>Création de packages NuGet
 
@@ -170,8 +170,9 @@ Les conventions de dossier sont les suivantes :
 | Dossier | Description | Action à l’installation du package |
 | --- | --- | --- |
 | (racine) | Emplacement du fichier Lisez-moi.txt | Visual Studio affiche un fichier Lisez-moi.txt à la racine du package lorsque le package est installé. |
-| lib/{tfm} | Fichiers d’assembly (`.dll`), de documentation (`.xml`) et de symbole (`.pdb`) du TFM (moniker de la version cible de .NET Framework) donné | Les assemblys sont ajoutés en tant que références ; `.xml` et `.pdb` sont copiés dans les dossiers du projet. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md) pour créer des sous-dossiers propres à la cible du framework. |
-| runtimes | Fichiers d’assemblies propres à l’architecture (`.dll`), de symboles (`.pdb`) et de ressources natives (`.pri`) | Les assemblys sont ajoutés en tant que références ; les autres fichiers sont copiés dans les dossiers du projet. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md). |
+| lib/{tfm} | Fichiers d’assembly (`.dll`), de documentation (`.xml`) et de symbole (`.pdb`) du TFM (moniker de la version cible de .NET Framework) donné | Les assemblys sont ajoutés comme références pour la compilation et l’exécution. `.xml` et `.pdb` sont copiés dans les dossiers du projet. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md) pour créer des sous-dossiers propres à la cible du framework. |
+| ref/{tfm} | Fichiers d’assembly (`.dll`) et de symbole (`.pdb`) du TFM (moniker de framework cible) donné | Les assemblys étant uniquement ajoutés comme références pour la compilation, rien n’est copié dans le dossier bin du projet. |
+| runtimes | Fichiers d’assemblies propres à l’architecture (`.dll`), de symboles (`.pdb`) et de ressources natives (`.pri`) | Les assemblys sont uniquement ajoutés comme références pour l’exécution. Les autres fichiers sont copiés dans les dossiers du projet. Il doit toujours y avoir un assembly spécifique à `AnyCPU` (TFM) correspondant sous le dossier `/ref/{tfm}` pour fournir l’assembly correspondant au moment de la compilation. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md). |
 | contenu | Fichiers arbitraires | Le contenu est copié à la racine du projet. Considérez que le dossier **content** est la racine de l’application cible qui consomme le package en définitive. Pour que le package ajoute une image dans le dossier */images* de l’application, placez-le dans le dossier *content/images* du package. |
 | build | Fichiers `.targets` et `.props` MSBuild | Automatiquement insérés dans le fichier projet ou `project.lock.json` (NuGet 3.x+). |
 | outils | Scripts PowerShell et programmes accessibles à partir de la console du gestionnaire de package | Le dossier `tools` est ajouté à la variable d’environnement `PATH` de la console du gestionnaire de package uniquement (et *non* à `PATH` comme défini pour MSBuild lors de la génération du projet). |

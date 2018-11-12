@@ -5,16 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 648b2679538e38b2451d7857beb5d070deeef7c5
-ms.sourcegitcommit: 47858da1103848cc1b15bdc00ac7219c0ee4a6a0
+ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
+ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44516202"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981026"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
-Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’affecte pas les autres aspects de NuGet. Par exemple, les paramètres des fichiers `NuGet.Config` (notamment les sources de package) continuent d’être appliqués, comme expliqué dans [Configuration du comportement de NuGet](configuring-nuget-behavior.md).
+Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’affecte pas les autres aspects de NuGet. Par exemple, les paramètres des fichiers NuGet.
+
+
+
+
+
+fig (dont les sources de package) continuent d’être appliqués, comme l’explique l’article [Configuration du comportement de NuGet](configuring-nuget-behavior.md).
 
 Avec PackageReference, vous pouvez aussi utiliser des conditions MSBuild pour choisir des références de package par version cible de .NET Framework, configuration, plateforme ou autre type de regroupement. Elle permet également de mieux contrôler les dépendances et les flux de contenu. Pour plus d’informations, consultez [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md).
 
@@ -153,3 +159,85 @@ Les conditions peuvent également être appliquées au niveau d’un `ItemGroup`
     <!-- ... -->
 </ItemGroup>
 ```
+
+## <a name="locking-dependencies"></a>Verrouillage des dépendances
+*Cette fonctionnalité est disponible avec NuGet **4.9** ou ultérieur, et avec Visual Studio 2017 **15.9 Preview 5** ou ultérieur.*
+
+L’entrée de la restauration NuGet est un ensemble de références de package provenant du fichier de projet (dépendances de niveau supérieur ou directes). La sortie est une fermeture complète de toutes les dépendances de package, notamment les dépendances transitives. NuGet s’efforce toujours de produire la même fermeture complète des dépendances de package si la liste PackageReference d’entrée ne change pas. Toutefois, tous les scénarios ne s’y prêtent pas. Exemple :
+
+* Quand vous utilisez des versions flottantes comme `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. L’intention ici est de flotter vers la dernière version à chaque restauration de package. Mais dans certains scénarios, les utilisateurs peuvent exiger le verrouillage du graphe à une version récente donnée et son flottement vers une version ultérieure, si celle-ci est disponible, à la suite d’un mouvement explicite.
+* Une version plus récente du package correspondant aux exigences de version de PackageReference est publiée. Par exemple, 
+
+  * Premier jour : Vous spécifiez `<PackageReference Include="My.Sample.Lib" Version="4.0.0"/>`, mais les versions disponibles sur les dépôts NuGet sont 4.1.0, 4.2.0 et 4.3.0. Dans ce cas, NuGet résout la version en 4.1.0 (la plus proche de la version minimale).
+
+  * Deuxième jour : La version 4.0.0 est publiée. NuGet trouve désormais la correspondance exacte et commence à résoudre la version en 4.0.0.
+
+* Une version de package donnée est supprimée du dépôt. Bien que nuget.org n’autorise pas la suppression de packages, d’autres dépôts de packages n’ont pas cette contrainte. NuGet trouve donc la meilleure correspondance quand la version supprimée rend impossible la résolution.
+
+### <a name="enabling-lock-file"></a>Activation du fichier de verrouillage
+Pour rendre persistante la fermeture complète des dépendances de package, vous pouvez choisir d’utiliser la fonctionnalité de fichier de verrouillage en définissant la propriété MSBuild `RestorePackagesWithLockFile` pour votre projet :
+
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+    <!--- ... -->
+</PropertyGroup>    
+```
+
+Si cette propriété est définie, la restauration NuGet génère un fichier de verrouillage (`packages.lock.json`) au niveau du répertoire racine du projet qui liste toutes les dépendances du package. 
+
+> [!Note]
+> Quand un projet a un fichier `packages.lock.json` dans son répertoire racine, le fichier de verrouillage est toujours utilisé avec la restauration, même si la propriété `RestorePackagesWithLockFile` n’est pas définie. Une autre façon de choisir cette fonctionnalité consiste à créer un fichier `packages.lock.json` vide factice dans le répertoire racine du projet.
+
+### <a name="restore-behavior-with-lock-file"></a>Comportement de `restore` avec fichier de verrouillage
+Si un fichier de verrouillage est présent pour le projet, NuGet utilise ce fichier de verrouillage pour exécuter `restore`. NuGet effectue une vérification rapide pour voir si les dépendances de package ont changé, comme indiqué dans le fichier projet (ou les fichiers des projets dépendants). Si aucun changement n’est détecté, il restaure simplement les packages mentionnés dans le fichier de verrouillage. Les dépendances de package ne sont pas réévaluées.
+
+Si NuGet détecte un changement dans les dépendances définies indiquées dans le ou les fichiers projet, il réévalue le graphe du package et met à jour le fichier de verrouillage pour refléter la nouvelle fermeture de package du projet.
+
+Dans CI/CD et d’autres scénarios où vous ne voulez pas changer les dépendances de package à la volée, vous pouvez définir `lockedmode` avec la valeur `true` :
+
+Pour dotnet.exe, exécutez :
+```
+> dotnet.exe restore --locked-mode
+```
+
+Pour msbuild.exe, exécutez :
+```
+> msbuild.exe /t:restore /p:RestoreLockedMode=true
+```
+
+Vous pouvez également définir cette propriété MSBuild conditionnelle dans votre fichier projet :
+```xml
+<PropertyGroup>
+    <!--- ... -->
+    <RestoreLockedMode>true</RestoreLockedMode>
+    <!--- ... -->
+</PropertyGroup> 
+```
+
+Si le mode verrouillé est `true`, soit la restauration restaure les packages exacts figurant dans la liste du fichier de verrouillage, soit elle échoue si vous avez mis à jour les dépendances de package définies pour le projet une fois le fichier de verrouillage créé.
+
+### <a name="make-lock-file-part-of-your-source-repository"></a>Intégrer le fichier de verrouillage dans votre dépôt source
+Si vous générez un exécutable d’application et que le projet en question se trouve à la fin de la chaîne de dépendance, archivez le fichier de verrouillage dans le dépôt de code source pour que NuGet puisse l’utiliser durant la restauration.
+
+Toutefois, si votre projet est un projet de bibliothèque que vous ne prévoyez pas de distribuer ou un projet de code commun dont dépendent d’autres projets, **n’archivez pas** le fichier de verrouillage dans le cadre de votre code source. Le fait de conserver le fichier de verrouillage ne pose aucun risque. Toutefois, vous ne pouvez pas utiliser les dépendances de package verrouillées pour le projet de code commun, qui figurent dans la liste du fichier de verrouillage, durant la restauration/génération d’un projet qui dépend de ce projet de code commun.
+
+Par exemple :
+```
+ProjectA
+  |------> PackageX 2.0.0
+  |------> ProjectB
+             |------>PackageX 1.0.0
+```
+Si `ProjectA` a une dépendance à un `PackageX` version `2.0.0` et qu’il référence également `ProjectB` qui dépend de `PackageX` version `1.0.0`, le fichier de verrouillage pour `ProjectB` liste une dépendance à `PackageX` version `1.0.0`. Toutefois, quand `ProjectA` est généré, son fichier de verrouillage contient une dépendance à `PackageX` version **`2.0.0`** et **non à** `1.0.0` (qui figure dans la liste du fichier de verrouillage pour `ProjectB`). Le fichier de verrouillage d’un projet de code commun a donc peu de contrôle sur les packages résolus pour les projets qui en dépendent.
+
+### <a name="lock-file-extensibility"></a>Extensibilité du fichier de verrouillage
+Vous pouvez contrôler divers comportements de restauration avec un fichier de verrouillage, comme décrit ci-dessous :
+
+| Option | Option MSBuild équivalente | 
+|:---  |:--- |
+| `--use-lock-file` | Utilisation par les démarrages d’un fichier de verrouillage pour un projet. Vous pouvez également définir la propriété `RestorePackagesWithLockFile` dans le fichier projet. | 
+| `--locked-mode` | Active le mode verrouillé pour la restauration. Ceci est utile dans les scénarios CI/CD dans lesquels vous souhaitez obtenir les builds renouvelables. Vous pouvez obtenir le même résultat en définissant la propriété MSBuild `RestoreLockedMode` avec la valeur `true`. |  
+| `--force-evaluate` | Cette option est utile avec des packages dont la version flottante est définie dans le projet. Par défaut, la restauration NuGet ne met pas automatiquement à jour la version du package à chaque restauration, sauf si vous exécutez la restauration avec l’option `--force-evaluate`. |
+| `--lock-file-path` | Définit un emplacement de fichier de verrouillage personnalisé pour un projet. Vous pouvez obtenir le même résultat en définissant la propriété MSBuild `NuGetLockFilePath`. Par défaut, NuGet prend en charge `packages.lock.json` au niveau du répertoire racine. Si vous avez plusieurs projets dans le même répertoire, NuGet prend en charge le fichier de verrouillage `packages.<project_name>.lock.json` spécifique au projet. |
