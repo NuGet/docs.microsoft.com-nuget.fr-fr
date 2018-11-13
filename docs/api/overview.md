@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 770173d6b84048cf42a5da46cbc474d8cf604a08
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547501"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580335"
 ---
 # <a name="nuget-api"></a>API NuGet
 
@@ -49,16 +49,17 @@ Modifications des protocoles sans rupture ont été apportées à l’API depuis
 
 Le **index de service** décrit une variété de ressources. L’ensemble actuel des ressources prises en charge sont les suivantes :
 
-Nom de la ressource                                                          | Obligatoire | Description
----------------------------------------------------------------------- | -------- | -----------
+Nom de la ressource                                                           | Obligatoire | Description
+----------------------------------------------------------------------  | -------- | -----------
 [`PackagePublish`](package-publish-resource.md)                        | oui      | Push et supprimer ou retirer de la liste packages.
 [`SearchQueryService`](search-query-service-resource.md)               | oui      | Filtrer et rechercher des packages par mot clé.
 [`RegistrationsBaseUrl`](registration-base-url-resource.md)            | oui      | Obtenir les métadonnées de package.
 [`PackageBaseAddress`](package-base-address-resource.md)               | oui      | Obtenir le contenu du package (fichier .nupkg).
 [`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Non       | Découvrir les ID de package et les versions à la sous-chaîne.
 [`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Non       | Construire une URL pour accéder à une page web de « signaler un abus ».
-[`RepositorySignatures`](repository-signatures-resource.md)            | Non       | Obtenir les certificats utilisés pour la signature du référentiel.
-[`Catalog`](catalog-resource.md)                                       | Non       | Enregistrement complet de tous les événements de package.
+[`RepositorySignatures`](repository-signatures-resource.md)             | Non      | Obtenir les certificats utilisés pour la signature du référentiel.
+[`Catalog`](catalog-resource.md)                                         | Non      | Enregistrement complet de tous les événements de package.
+[`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Non      | Envoyez des packages de symboles.
 
 En règle générale, toutes les données non binaires renvoyées par une ressource d’API sont sérialisées à l’aide de JSON. Le schéma de réponse retourné par chaque ressource dans l’index de service est défini individuellement pour cette ressource. Pour plus d’informations sur chaque ressource, consultez les rubriques répertoriées ci-dessus.
 
