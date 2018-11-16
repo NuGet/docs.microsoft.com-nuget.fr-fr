@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b95c4462a214a78452f9dbe35936620636c4f60b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548770"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580296"
 ---
 # <a name="package-restore"></a>Restauration des packages
 
@@ -62,9 +62,9 @@ La restauration du package est généralement activée via **Outils > Options > 
         </packageRestore>
     </configuration>
     ```
-    <br/>
-    > [!Note]
-    >  Le paramètre `packageRestore/enabled` peut être remplacé globalement en définissant une variable d’environnement appelée **EnableNuGetPackageRestore** sur la valeur TRUE ou FALSE, avant le lancement de Visual Studio ou le démarrage d’une génération.
+
+> [!Note]
+>  Le paramètre `packageRestore/enabled` peut être remplacé globalement en définissant une variable d’environnement appelée **EnableNuGetPackageRestore** sur la valeur TRUE ou FALSE, avant le lancement de Visual Studio ou le démarrage d’une génération.
 
 - **Rechercher automatiquement les packages manquants pendant la génération dans Visual Studio** : contrôle la restauration automatique en changeant la valeur du paramètre `packageRestore/automatic` dans le fichier `NuGet.Config`, comme indiqué ci-dessous (`%AppData%\NuGet\NuGet.Config` sur Windows, `~/.nuget/NuGet/NuGet.Config` sur Mac/Linux). Quand cette option est définie, l’exécution d’une build à partir de Visual Studio restaure automatiquement tous les packages manquants. L’option n’affecte pas les builds exécutées à partir de la ligne de commande avec MSBuild.
 
