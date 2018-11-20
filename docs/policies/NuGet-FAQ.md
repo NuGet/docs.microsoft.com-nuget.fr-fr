@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/11/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c63abc9971623e0732ae8d973fafcd04c5d9f48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c136a3dffac38a68b80f730de1e4c3a3a9c8bd5d
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548802"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580355"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -166,7 +166,7 @@ NuGet recommande de signer tous les packages. Un principe de conception de la si
 
 Notez que les dépendances répertoriées pour votre package sont générées automatiquement à partir du package lui-même et qu’elles ne peuvent pas être modifiées.
 
-De plus, le chargement d’un package sur [staging.nuget.org](http://staging.nuget.org) est un excellent moyen de le tester et de le valider sans le mettre à disposition dans la galerie publique.
+De plus, le chargement d’un package sur [int.nugettest.org](https://int.nugettest.org) constitue un excellent moyen de le tester et de le valider sans le mettre à disposition dans la galerie publique.
 
 **Est-il possible de réserver des noms pour les packages destinés à être publiés ?**
 
@@ -182,9 +182,9 @@ Nous invitons la communauté NuGet à collaborer afin de résoudre les litiges p
 
 **Est-il recommandé de charger mes packages de test sur nuget.org ?**
 
-À des fins de test, vous pouvez utiliser [staging.nuget.org](http://staging.nuget.org), ou d’autres serveurs NuGet publics comme [myget.org](https://myget.org) ou [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
+À des fins de test, vous pouvez utiliser [int.nugettest.org](https://int.nugettest.org) ou d’autres serveurs NuGet publics tels que [myget.org](https://myget.org) ou [Visual Studio Team Services](https://blogs.msdn.microsoft.com/visualstudioalm/2015/08/27/announcing-package-management-support-for-vsotfs/).
 
-Notez que les packages chargés sur staging.nuget.org ne sont pas nécessairement conservés. Consultez [Goodbye preview](http://blog.nuget.org/20130419/goodbye-preview.html).
+Notez que les packages chargés sur int.nugettest.org ne sont pas nécessairement conservés.
 
 **Quelle est la taille maximale des packages que je peux charger sur nuget.org ?**
 

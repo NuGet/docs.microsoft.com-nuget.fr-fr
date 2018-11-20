@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 48f56ec5f042f6e78e38a202f0879c6949e7ee11
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
+ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580391"
+ms.lasthandoff: 11/19/2018
+ms.locfileid: "51944078"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -79,7 +79,49 @@ Liste des créateurs de packages séparés par des virgules, qui utilisent des n
 #### <a name="projecturl"></a>projectUrl
 URL de la page d’accueil du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. 
 #### <a name="licenseurl"></a>licenseUrl
+> [!Important]
+> licenseUrl est déconseillé. Utilisez à la place des licences.
+
 URL de la licence du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org.
+#### <a name="license"></a>licence
+SPDX licence expression ou chemin d’accès à un fichier de licence dans le package, souvent affiché dans l’interface utilisateur, ainsi que sur nuget.org. Si vous activez votre licence du package sous une licence courants tels que BSD-2-Clause ou MIT, utilisez l’identificateur de licence SPDX associé.<br>Par exemple :`<license type="expression">MIT</license>`
+
+Voici la liste complète des [identificateurs de licence SPDX](https://spdx.org/licenses/). NuGet.org accepte uniquement OSI ou expression de type de licence lors de l’utilisation des licences FSF approuvée.
+
+Si votre package est concédé sous licence selon plusieurs licences courantes, vous pouvez spécifier une licence composite à l’aide de la [SPDX version 2.0 de la syntaxe expression](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Par exemple :`<license type="expression">BSD-2-Clause OR MIT</license>`
+
+Si vous utilisez une licence qui n’a pas été attribuée à un identificateur SPDX, ou il s’agit d’une licence personnalisée, vous pouvez empaqueter un fichier avec le texte de la licence. Exemple :
+```xml
+<package>
+  <metadata>
+    ...
+    <license type="file">LICENSE.txt</license>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="licenses\LICENSE.txt" target="" />
+    ...
+  </files>
+</package>
+```
+La syntaxe exacte des expressions de licence de NuGet est décrite ci-dessous dans [ABNF](https://tools.ietf.org/html/rfc5234).
+```cli
+license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
+
+license-exception-id  = <short form license exception identifier from https://spdx.org/spdx-specification-21-web-version#h.ruv3yl8g6czd>
+
+simple-expression = license-id / license-id”+”
+
+compound-expression =  1*1(simple-expression /
+                simple-expression "WITH" license-exception-id /
+                compound-expression "AND" compound-expression /
+                compound-expression "OR" compound-expression ) /                
+                "(" compound-expression ")" )
+
+license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
+```
+
 #### <a name="iconurl"></a>iconUrl
 URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image à partir de GitHub, utilisez le fichier brut comme URL <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
 
@@ -614,7 +656,7 @@ Les dossiers vides peuvent utiliser `.` pour choisir de ne pas fournir de conten
         <description>Sample exists only to show a sample .nuspec file.</description>
         <language>en-US</language>
         <projectUrl>http://xunit.codeplex.com/</projectUrl>
-        <licenseUrl>http://xunit.codeplex.com/license</licenseUrl>
+        <license type="expression">MIT</license>
     </metadata>
 </package>
 ```

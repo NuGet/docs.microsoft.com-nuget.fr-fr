@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1bc67927ddc463dcc3a0abe80fe20e625e188e63
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 1221631b22eed7d2d8e58bd08ff120d91231d49b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981169"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580392"
 ---
 # <a name="creating-nuget-packages"></a>Création de packages NuGet
 
@@ -51,7 +51,7 @@ Propriétés obligatoires :
 
 - Identificateur du package, qui doit être unique dans toute la galerie qui héberge le package.
 - Numéro de version spécifique au format *version_principale.version_secondaire.version_corrective [-suffixe]* où *-suffixe* identifie les [préversions](prerelease-packages.md).
-- Titre du package tel qu’il doit apparaître sur l’hôte (par exemple, nuget.org).
+- Titre du package tel qu’il doit apparaître sur l’hôte (par exemple nuget.org)
 - Informations sur l’auteur et le propriétaire.
 - Longue description du package.
 
@@ -157,7 +157,7 @@ Vous modifiez ensuite le fichier manuellement afin qu’il décrive le contenu e
 
 ### <a name="from-a-convention-based-working-directory"></a>À partir d’un répertoire de travail basé sur une convention
 
-Dans la mesure où un package NuGet n’est qu’un fichier ZIP renommé avec l’extension `.nupkg`, il est souvent plus facile de créer la structure de dossiers souhaitée sur le système de fichiers local, puis de créer directement le fichier `.nuspec` à partir de cette structure. La commande `nuget pack` ajoute alors automatiquement tous les fichiers dans cette structure de dossiers (à l’exclusion des dossiers qui commencent par `.`, ce qui permet de conserver les fichiers privés dans la même structure).
+Dans la mesure où un package NuGet n’est qu’un fichier ZIP renommé avec l’extension `.nupkg`, il est souvent plus simple de créer la structure de dossiers souhaitée sur le système de fichiers local, puis de créer directement le fichier `.nuspec` à partir de cette structure. La commande `nuget pack` ajoute alors automatiquement tous les fichiers dans cette structure de dossiers (à l’exclusion des dossiers qui commencent par `.`, ce qui vous permet de conserver les fichiers privés dans la même structure).
 
 L’avantage de cette approche est que vous n’avez pas besoin de spécifier, dans le manifeste, les fichiers à inclure dans le package (comme expliqué plus loin dans cette rubrique). Vous pouvez simplement demander à votre processus de génération de produire la structure de dossiers exacte qui est placée dans le package et vous pouvez facilement inclure d’autres fichiers qui ne font peut-être pas partie d’un projet :
 
@@ -177,7 +177,7 @@ Les conventions de dossier sont les suivantes :
 | build | Fichiers `.targets` et `.props` MSBuild | Automatiquement insérés dans le fichier projet ou `project.lock.json` (NuGet 3.x+). |
 | outils | Scripts PowerShell et programmes accessibles à partir de la console du gestionnaire de package | Le dossier `tools` est ajouté à la variable d’environnement `PATH` de la console du gestionnaire de package uniquement (et *non* à `PATH` comme défini pour MSBuild lors de la génération du projet). |
 
-Étant donné que la structure de dossiers peut contenir n’importe quel nombre d’assemblys pour n’importe quel nombre de versions cibles de .Net Framework, cette méthode est nécessaire pour créer des packages qui prennent en charge plusieurs frameworks. 
+Dans la mesure où la structure de dossiers peut contenir n’importe quel nombre d’assemblys pour n’importe quel nombre de frameworks cibles, cette méthode est nécessaire pour créer des packages qui prennent en charge plusieurs frameworks.
 
 Dans tous les cas, une fois que la structure de dossiers voulue est en place, exécutez la commande suivante dans ce dossier pour créer le fichier `.nuspec` :
 
@@ -321,7 +321,7 @@ Lorsque vous incluez un fichier nommé `readme.txt` à la racine du package, Vis
 
 Vous pouvez être amené à ajouter des cibles ou propriétés de build personnalisées dans les projets qui utilisent votre package, comme dans le cas de l’exécution d’un processus ou outil personnalisé pendant la génération. Pour cela, vous placez les fichiers sous la forme de `<package_id>.targets` ou `<package_id>.props` (par exemple, `Contoso.Utility.UsefulStuff.targets`) dans le dossier `\build` du projet.
 
-Les fichiers inclus dans le dossier `\build` racine sont considérés comme appropriés à toutes les versions cibles de .Net Framework. Pour fournir des fichiers propres au framework, commencez par les placer dans les sous-dossiers appropriés, comme les suivants :
+Les fichiers inclus dans le dossier `\build` racine sont considérés comme appropriés à toutes les versions cibles de .Net Framework. Pour fournir des fichiers spécifiques au framework, commencez par les placer dans les sous-dossiers appropriés, notamment :
 
     \build
         \netstandard1.4

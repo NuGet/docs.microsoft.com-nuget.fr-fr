@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: a5807a6895a76a7d6660d218b29e1d3a2802ca28
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5f52b00e0c45882fb7a4bd1c1a80022192f3be6b
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545046"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580244"
 ---
 # <a name="package-consumption-workflow"></a>Flux de travail de la consommation des packages
 
@@ -18,7 +18,7 @@ Entre nuget.org et les galeries privées de packages que votre organisation peut
 
 ![Procédure comprenant l’accès à une source de package, la recherche d’un package, l’installation du package dans un projet, l’ajout d’une instruction using et les appels à l’API du package](media/Overview-01-GeneralFlow.png)
 
-\* _Visual Studio et dotnet.ex uniquement. La commande nuget install ne modifie pas les fichiers projet ou packages.config ; les entrées doivent être gérées manuellement._
+\* _Visual Studio et `dotnet.exe` uniquement. La commande `nuget install` ne change pas les fichiers projet, ni le fichier `packages.config`. Les entrées doivent être gérées manuellement._
 
 Pour plus d’informations, consultez les pages [Trouver et choisir des packages](../consume-packages/finding-and-choosing-packages.md) et [Différentes façons d’installer un package NuGet](ways-to-install-a-package.md).
 

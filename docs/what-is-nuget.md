@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: 0b7105ea5d183d139c8bac915378924ba9c0874a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
+ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548817"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51580322"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
@@ -24,7 +24,7 @@ NuGet prenant en charge à la fois les hôtes privés et l’hôte nuget.org pub
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Flux des packages entre les créateurs, les hôtes et les consommateurs
 
-Dans son rôle d’hôte public, NuGet gère lui-même le référentiel central de plus de 100 000 packages différents, sur [nuget.org](https://www.nuget.org). Ces packages sont utilisés chaque jour par des millions de développeurs .NET/.NET Core. NuGet permet également d’héberger des packages à titre privé dans le cloud (par exemple, dans Visual Studio Team Services), sur un réseau privé ou tout simplement sur un système de fichiers local. Ces packages sont ainsi réservés aux développeurs qui ont accès à l’hôte, ce qui permet de les mettre à la disposition d’un groupe spécifique de consommateurs. Les options sont expliquées dans [Hébergement de vos propres flux NuGet](hosting-packages/overview.md). Les options de configuration permettent également de choisir précisément quels hôtes seront accessibles à chaque ordinateur, ce qui garantit que les packages proviendront de sources spécifiques plutôt que d’un référentiel public comme nuget.org.
+Dans son rôle d’hôte public, NuGet gère lui-même le référentiel central de plus de 100 000 packages différents, sur [nuget.org](https://www.nuget.org). Ces packages sont utilisés chaque jour par des millions de développeurs .NET/.NET Core. NuGet vous permet également d’héberger des packages à titre privé dans le cloud (par exemple sur Azure DevOps), sur un réseau privé ou même seulement sur votre système de fichiers local. Ces packages sont ainsi réservés aux développeurs qui ont accès à l’hôte, ce qui permet de les mettre à la disposition d’un groupe spécifique de consommateurs. Les options sont expliquées dans [Hébergement de vos propres flux NuGet](hosting-packages/overview.md). Les options de configuration permettent également de choisir précisément quels hôtes seront accessibles à chaque ordinateur, ce qui garantit que les packages proviendront de sources spécifiques plutôt que d’un référentiel public comme nuget.org.
 
 Quelle que soit sa nature, un hôte sert de point de connexion entre les *créateurs* et les *consommateurs* de packages. Les créateurs produisent des packages NuGet pratiques et les publient sur un hôte. Les consommateurs recherchent des packages pratiques et compatibles sur les hôtes accessibles, les téléchargent et incluent ces packages dans leurs projets. Une fois installés dans un projet, les API des packages sont disponibles pour le reste du code du projet.
 
@@ -78,7 +78,7 @@ NuGet gère plutôt une simple liste de références des packages dont dépend l
 
 Avec seulement la liste des références, NuGet peut à tout moment réinstaller &mdash; autrement dit, *restaurer* &mdash; tous ces packages à partir d’hôtes publics et privés. Pour valider un projet dans le contrôle de code source ou le partager par un autre moyen, il suffit d’inclure la liste des références et d’exclure les fichiers binaires des packages (consultez la section [Packages et contrôle de code source](consume-packages/packages-and-source-control.md).)
 
-L’ordinateur qui reçoit un projet, par exemple un serveur de builds obtenant une copie du projet dans le cadre d’un système de déploiement automatisé, demande simplement à NuGet de restaurer les dépendances quand elles sont nécessaires. Les systèmes de génération, comme Visual Studio Team Services, fournissent des étapes de « restauration NuGet » à cette fin. De même, lorsque les développeurs récupèrent une copie d’un projet (par exemple, en clonant un référentiel), ils peuvent appeler une commande du type `nuget restore` (interface CLI NuGet), `dotnet restore` (interface CLI dotnet) ou `Install-Package` (console du Gestionnaire de package) pour avoir tous les packages nécessaires. Visual Studio, pour sa part, restaure automatiquement les packages lors de la création d’un projet (tant que la restauration automatique est activée, comme l’explique la page [Restauration de package](consume-packages/package-restore.md)).
+L’ordinateur qui reçoit un projet, par exemple un serveur de builds obtenant une copie du projet dans le cadre d’un système de déploiement automatisé, demande simplement à NuGet de restaurer les dépendances quand elles sont nécessaires. Les systèmes de build, comme Azure DevOps, fournissent des étapes de « restauration NuGet » à cette fin. De même, lorsque les développeurs récupèrent une copie d’un projet (par exemple, en clonant un référentiel), ils peuvent appeler une commande du type `nuget restore` (interface CLI NuGet), `dotnet restore` (interface CLI dotnet) ou `Install-Package` (console du Gestionnaire de package) pour avoir tous les packages nécessaires. Visual Studio, pour sa part, restaure automatiquement les packages lors de la création d’un projet (tant que la restauration automatique est activée, comme l’explique la page [Restauration de package](consume-packages/package-restore.md)).
 
 Le rôle principal de NuGet pour les développeurs est clairement de gérer cette liste de références pour le compte de votre projet, et de fournir les moyens de restaurer efficacement (et de mettre à jour) les packages référencés. Cette liste est gérée dans un des deux *formats de gestion des packages*, nommés :
 
