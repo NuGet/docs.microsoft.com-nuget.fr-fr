@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d4c13200494ed3c6fa897ce0083a52c13688b44b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547391"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453583"
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -27,7 +27,7 @@ Le **catalogue** est une ressource qui enregistre toutes les opérations de pack
 
 Ce qui suit `@type` valeur est utilisée :
 
-Valeur @type   | Notes
+Valeur@type    | Notes
 ------------- | -----
 Catalog/3.0.0 | La version initiale
 
@@ -213,7 +213,7 @@ résumé                 | chaîne                     | Non       |
 titre                   | chaîne                     | Non       |
 verbatimVersion         | chaîne                     | Non       | La chaîne de version, tel qu’il se trouve à l’origine dans le fichier .nuspec
 
-Le package `version` propriété est la chaîne de version complète et normalisée. Cela signifie que les données de build de SemVer 2.0.0 peuvent être incluses ici.
+Le package `version` propriété est la chaîne de version complète après la normalisation. Cela signifie que les données de build de SemVer 2.0.0 peuvent être incluses ici.
 
 Le `created` timestamp est lorsque le package a été tout d’abord reçu par la source du package, qui est généralement un court délai avant l’horodateur de validation de l’élément de catalogue.
 
