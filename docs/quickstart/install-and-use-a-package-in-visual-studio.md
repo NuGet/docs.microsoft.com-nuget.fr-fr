@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 7b30fce4a2d9ad0bd7bc2b97f69b8d5d25101b72
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545224"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671173"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Démarrage rapide : Installer et utiliser un package dans Visual Studio
 
@@ -64,7 +64,7 @@ Pour installer le package, vous pouvez utiliser l’interface utilisateur du Ges
 
     ![Recherche du package Newtonsoft.Json](media/QS_Use-08-Console1.png)
 
-1. Entrez la commande `Install-Package Newtonsoft.json` (consultez [Install-Package](../tools/ps-ref-install-package.md)). La fenêtre de la console affiche la sortie de la commande. Les erreurs indiquent généralement que le package n’est pas compatible avec le framework cible du projet.
+1. Entrez la commande `Install-Package Newtonsoft.Json` (consultez [Install-Package](../tools/ps-ref-install-package.md)). La fenêtre de la console affiche la sortie de la commande. Les erreurs indiquent généralement que le package n’est pas compatible avec le framework cible du projet.
 
 ## <a name="use-the-newtonsoftjson-api-in-the-app"></a>Utiliser l’API Newtonsoft.Json dans l’application
 
@@ -107,7 +107,7 @@ Le package Newtonsoft.Json étant dans le projet, vous pouvez appeler sa méthod
 1. Bien que vous ayez ajouté le package Newtonsoft.Json au projet, des tildes rouges s’affichent sous `JsonConvert`, car vous avez besoin d’une instruction `using` en haut du fichier de code :
 
     ```cs
-    using Newtonsoft.json;
+    using Newtonsoft.Json;
     ```
 
 1. Générez et exécutez l’application en appuyant sur F5 ou en sélectionnant **Déboguer > Démarrer le débogage** :

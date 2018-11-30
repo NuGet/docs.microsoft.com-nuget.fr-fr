@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: f911e24da76880410f8dfaa2891b609c7beb4a61
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6b41b23df115c45e830404afcf9defa23615bd7c
+ms.sourcegitcommit: ce97dded7715f217ec44f6c8368ab0df19c38342
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547887"
+ms.lasthandoff: 11/29/2018
+ms.locfileid: "52615754"
 ---
 # <a name="package-creation-workflow"></a>Flux de travail de la création de packages
 
@@ -36,7 +36,7 @@ Pour apprendre et comprendre le processus de création, commencez par [Création
 - [Création de packages localisés](../create-packages/creating-localized-packages.md) décrit comment structurer un package avec plusieurs ressources linguistiques et comment utiliser des packages satellites localisés distincts.
 - [Packages en préversion](../create-packages/prerelease-packages.md) montre comment publier des packages alpha, bêta et rc pour les clients intéressés.
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md) décrit comment effectuer des remplacements unilatéraux de jetons dans les fichiers ajoutés à un projet et modifier `web.config` et `app.config` avec des paramètres qui s’annulent à la désinstallation du package.
-- [Packages de symboles](../create-packages/symbol-packages.md) propose des conseils pour fournir des symboles relatifs à votre bibliothèque visant à permettre aux consommateurs de parcourir votre code pendant le débogage.
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md) propose des conseils pour fournir des symboles relatifs à votre bibliothèque visant à permettre aux consommateurs de parcourir votre code pendant le débogage.
 - [Gestion des versions de package](../reference/package-versioning.md) explique comment identifier les versions exactes que vous autorisez pour vos dépendances (autres packages que vous consommez à partir de votre package).
 - [Packages natifs](../create-packages/native-packages.md) décrit le processus de création d’un package pour les consommateurs C++.
 - [Signature de packages](../create-packages/sign-a-package.md) décrit le processus d’ajout d’une signature numérique à un package.
