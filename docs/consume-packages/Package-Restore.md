@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: da69181aebe3bebcea6acd6e15fde6b77dd33452
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 9acb87a5f5731fb33c91a1ae9b106c6df492ddcd
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580296"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453531"
 ---
 # <a name="package-restore"></a>Restauration des packages
 
@@ -39,7 +39,7 @@ La restauration du package est déclenchée comme suit :
 
 - **Interface CLI NuGet** : utilisez la commande [nuget restore](../tools/cli-ref-restore.md), qui restaure les packages listés dans le fichier projet ou dans `packages.config`. Vous pouvez également spécifier un fichier solution.
 
-- **MSBuild** : utilisez la commande [msbuild /t:restore](../reference/msbuild-targets.md#restore-target), qui restaure les packages listés dans le fichier projet (PackageReference uniquement). Disponible uniquement dans NuGet 4.x+ et MSBuild 15.1+, inclus avec Visual Studio 2017. `nuget restore` et `dotnet restore` utilisent cette commande pour les projets applicables.
+- **MSBuild** : utilisez la commande [msbuild -t:restore](../reference/msbuild-targets.md#restore-target), qui restaure les packages listés dans le fichier projet (PackageReference uniquement). Disponible uniquement dans NuGet 4.x+ et MSBuild 15.1+, inclus avec Visual Studio 2017. `nuget restore` et `dotnet restore` utilisent cette commande pour les projets applicables.
 
 - **Visual Studio Team Services** : lorsque vous créez une définition de build dans Team Services, incluez la tâche [Restauration NuGet](/vsts/build-release/tasks/package/nuget#restore-nuget-packages) ou [Restauration .NET Core](/vsts/build-release/tasks/build/dotnet-core#restore-nuget-packages) avant de procéder à toute tâche de génération. Cette tâche est incluse par défaut dans plusieurs modèles de build.
 

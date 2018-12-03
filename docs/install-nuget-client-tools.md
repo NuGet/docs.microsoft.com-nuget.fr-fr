@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 04/09/2018
 ms.topic: quickstart
-ms.openlocfilehash: b3be75a5af85bd3048c8b0eb71d90238b9349e09
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e8aa2250c6fc2843f74a925c56f953be5d48221
+ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549720"
+ms.lasthandoff: 11/30/2018
+ms.locfileid: "52671134"
 ---
 # <a name="installing-nuget-client-tools"></a>Installation des outils clients NuGet
 
@@ -75,27 +75,25 @@ Installation :
 | Fonctionnalité | Interface CLI dotnet | Interface CLI NuGet (Windows) | Interface CLI NuGet (Mono) | Visual Studio (Windows) | Visual Studio pour Mac |
 | --- | --- | --- | --- | --- | --- |
 | Rechercher des packages |  | &#10004; | &#10004; | &#10004; | &#10004; |
-| Installer/désinstaller des packages | &#10004;(1) | &#10004;(2) | &#10004; | &#10004; | &#10004; |
+| Installer/désinstaller des packages | &#10004; | &#10004;(1) | &#10004; | &#10004; | &#10004; |
 | Mettre à jour des packages | &#10004; | &#10004; | | &#10004; | &#10004; |
-| Restaurer des packages | &#10004; | &#10004; | &#10004;(3) | &#10004; | &#10004; |
+| Restaurer des packages | &#10004; | &#10004; | &#10004;(2) | &#10004; | &#10004; |
 | Gérer des flux de packages (sources) | | &#10004; | &#10004; | &#10004; | &#10004; |
-| Gérer des packages sur un flux | &#10004;(1) | &#10004; | &#10004; | | |
+| Gérer des packages sur un flux | &#10004; | &#10004; | &#10004; | | |
 | Définir des clés d’API pour des flux | | &#10004; | &#10004; | | |
-| Créer des packages(4) | &#10004; | &#10004; | &#10004;(5) | &#10004; | |
-| Publier des packages | &#10004;(1) | &#10004; | &#10004; | &#10004; |  |
+| Créer des packages(3) | &#10004; | &#10004; | &#10004;(4) | &#10004; | |
+| Publier des packages | &#10004; | &#10004; | &#10004; | &#10004; |  |
 | Répliquer des packages |  | &#10004; | &#10004; | | |
 | Gérer les dossiers *global-package* et cache | &#10004; | &#10004; | &#10004; | | |
 | Gérer la configuration NuGet | | &#10004; | &#10004; | | |
 
-(1) Packages sur nuget.org uniquement
+(1) N’affecte pas les fichiers projet ; utilisez `dotnet.exe` à la place.
 
-(2) N’affecte pas les fichiers projet ; utilisez `dotnet.exe` à la place.
+(2) Fonctionne uniquement avec un fichier `packages.config` et non avec des fichiers (`.sln`) de solution.
 
-(3) Fonctionne uniquement avec un fichier `packages.config` et non avec des fichiers (`.sln`) de solution.
+(3) Différentes fonctionnalités de package avancées sont disponibles via l’interface CLI uniquement si elles ne sont pas représentées dans les outils de l’interface utilisateur Visual Studio.
 
-(4) Différentes fonctionnalités de package avancées sont disponibles via l’interface CLI uniquement si elles ne sont pas représentées dans les outils de l’interface utilisateur Visual Studio.
-
-(5) Fonctionne avec des fichiers `.nuspec`, mais pas avec des fichiers projet.
+(4) Fonctionne avec des fichiers `.nuspec`, mais pas avec des fichiers projet.
 
 ### <a name="related-topics"></a>Rubriques connexes
 

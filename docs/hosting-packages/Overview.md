@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 80f9354e149129fff043b470d833f348df15c0a7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4741d780afa4fbe11001aed49a9f72bf608d96d9
+ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545489"
+ms.lasthandoff: 11/26/2018
+ms.locfileid: "52303561"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hébergement de vos propres flux NuGet
 
@@ -32,6 +32,7 @@ Il existe également plusieurs autres produits d’hébergement NuGet qui prenne
 - [NuGet Server (Open Source)](http://nuget-server.net) : implémentation open source similaire à NuGet Server d’Inedo
 - [LiGet](https://github.com/ai-traders/liget), une implémentation open source du serveur NuGet V2 qui s’exécute sur Kestrel dans Docker
 - [BaGet](https://github.com/loic-sharma/BaGet), implémentation open source du serveur NuGet V3 reposant sur ASP.NET Core
+- [Sleet](https://github.com/emgarten/sleet), un générateur de flux statique NuGet V3 open source
 - [Artifactory](https://www.jfrog.com/artifactory/) de JFrog
 - [Nexus](http://www.sonatype.org/nexus/) de Sonatype
 - [TeamCity](https://www.jetbrains.com/teamcity/) de JetBrains

@@ -5,22 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 71ab5bb464d1513df89ab53e119d9768e880e4e5
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d4f0177183ee3edf595c4ce10d1f26cbaca5755d
+ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981026"
+ms.lasthandoff: 11/28/2018
+ms.locfileid: "52453570"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
-Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’affecte pas les autres aspects de NuGet. Par exemple, les paramètres des fichiers NuGet.
-
-
-
-
-
-fig (dont les sources de package) continuent d’être appliqués, comme l’explique l’article [Configuration du comportement de NuGet](configuring-nuget-behavior.md).
+Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’affecte pas les autres aspects de NuGet. Par exemple, les paramètres des fichiers `NuGet.config` (notamment les sources de package) continuent d’être appliqués, comme expliqué dans [Configuration du comportement de NuGet](configuring-nuget-behavior.md).
 
 Avec PackageReference, vous pouvez aussi utiliser des conditions MSBuild pour choisir des références de package par version cible de .NET Framework, configuration, plateforme ou autre type de regroupement. Elle permet également de mieux contrôler les dépendances et les flux de contenu. Pour plus d’informations, consultez [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md).
 
@@ -204,7 +198,7 @@ Pour dotnet.exe, exécutez :
 
 Pour msbuild.exe, exécutez :
 ```
-> msbuild.exe /t:restore /p:RestoreLockedMode=true
+> msbuild.exe -t:restore -p:RestoreLockedMode=true
 ```
 
 Vous pouvez également définir cette propriété MSBuild conditionnelle dans votre fichier projet :
