@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b3fc72ddd3ad6c9185c2bd0f2563df59e77f1c8
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
+ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453544"
+ms.lasthandoff: 12/04/2018
+ms.locfileid: "52831018"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -192,7 +192,7 @@ Si un fichier de type Compile est en dehors du dossier de projet, il est simplem
 ### <a name="packing-a-license-expression-or-a-license-file"></a>Une expression de licence ou d’un fichier de licence de livraison
 
 Lorsque vous utilisez une expression de la licence, la propriété PackageLicenseExpression doit être utilisée. 
-[Exemple d’expression de licence](#https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+[Exemple d’expression de licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
 
 Lors de la compression d’un fichier de licence, vous devez utiliser PackageLicenseFile propriété pour spécifier le chemin du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Exemple :
 
@@ -205,7 +205,7 @@ Lors de la compression d’un fichier de licence, vous devez utiliser PackageLic
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
 </ItemGroup>
 ```
-[Exemple de durée de vie de licence](#https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
+[Exemple de fichier de licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
 
