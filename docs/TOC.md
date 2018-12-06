@@ -10,6 +10,7 @@
 ## [Vue d’ensemble et flux de travail](consume-packages/overview-and-workflow.md)
 ## [Recherche et sélection des packages](consume-packages/finding-and-choosing-packages.md)
 ## [Installation de packages](consume-packages/ways-to-install-a-package.md)
+###[Packages signés](consume-packages/installing-signed-packages.md)
 ## [Restauration de packages](consume-packages/package-restore.md)
 ### [Résolution des problèmes](consume-packages/package-restore-troubleshooting.md)
 ## [Réinstallation et mise à jour des packages](consume-packages/reinstalling-and-updating-packages.md)
