@@ -8,12 +8,12 @@ description: La ressource de signatures de référentiel permet aux clients de s
 ms.reviewer:
 - karann
 - unniravindranathan
-ms.openlocfilehash: 50f309b99d4bf59e14f3e29b6b0421d8c3e8aa5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 81d32a7011268e45136e00cdb7345a95070aae06
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547979"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248440"
 ---
 # <a name="repository-signatures"></a>Signatures de référentiel
 
@@ -21,16 +21,14 @@ Si une source de package prend en charge l’ajout des signatures de référenti
 
 La ressource utilisée pour récupérer ces informations de signature du référentiel est la `RepositorySignatures` ressource trouvée dans le [index de service](service-index.md).
 
-> [!Note]
-> NuGet.org démarrera annonce la `RepositorySignatures` ressource dans un avenir proche.
-
 ## <a name="versioning"></a>Gestion de version
 
 Ce qui suit `@type` valeur est utilisée :
 
-Valeur @type                | Notes
+Valeur@type                 | Notes
 -------------------------- | -----
 RepositorySignatures/4.7.0 | La version initiale
+RepositorySignatures/4.9.0 | Autorise l’activation `allRepositorySigned`
 
 ## <a name="base-url"></a>URL de base
 
@@ -59,12 +57,15 @@ La requête suivante extrait l’index de signatures de référentiel.
 
 L’index de signature de référentiel est un document JSON qui contient un objet avec les propriétés suivantes :
 
-Name                | Type             | Obligatoire
-------------------- | ---------------- | --------
-allRepositorySigned | boolean          | oui
-signingCertificates | tableau d’objets | oui
+Name                | Type             | Obligatoire | Notes
+------------------- | ---------------- | -------- | -----
+allRepositorySigned | boolean          | oui      | Doit être `false` sur 4.7.0 ressource
+signingCertificates | tableau d’objets | oui      | 
 
 Le `allRepositorySigned` valeur booléenne est définie sur false si la source du package a certains packages ayant aucune signature de référentiel. Si la valeur booléenne est définie sur true, tous les packages disponibles sur la source doit avoir une signature de référentiel produite par un des certificats de signature mentionnés dans `signingCertificates`.
+
+> [!Warning]
+> Le `allRepositorySigned` booléenne doit avoir la valeur false sur la 4.7.0 ressource. Les clients v4.7 et v4.8 NuGet ne peut pas installer les packages à partir de sources qui ont `allRepositorySigned` défini sur true.
 
 Il doit y avoir un ou plusieurs certificats de signature dans le `signingCertificates` tableau si le `allRepositorySigned` valeur booléenne est définie sur true. Si le tableau est vide et `allRepositorySigned` est définie sur true, tous les packages à partir de la source doivent être considéré comme non valides, même si une stratégie de client peut autorise toujours la consommation de packages. Chaque élément de ce tableau est un objet JSON avec les propriétés suivantes.
 

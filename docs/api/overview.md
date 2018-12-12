@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 7bb5e83b29d1d7e4bf06accfccb73db3aa9ee025
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
+ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580335"
+ms.lasthandoff: 12/11/2018
+ms.locfileid: "53248427"
 ---
 # <a name="nuget-api"></a>API NuGet
 
@@ -62,6 +62,8 @@ Nom de la ressource                                                           | 
 [`SymbolPackagePublish`](symbol-package-publish-resource.md)            | Non      | Envoyez des packages de symboles.
 
 En règle générale, toutes les données non binaires renvoyées par une ressource d’API sont sérialisées à l’aide de JSON. Le schéma de réponse retourné par chaque ressource dans l’index de service est défini individuellement pour cette ressource. Pour plus d’informations sur chaque ressource, consultez les rubriques répertoriées ci-dessus.
+
+À l’avenir, comme le protocole évolue, les nouvelles propriétés peuvent être ajoutées à réponses JSON. Pour le client puisse être durable, l’implémentation ne doit pas supposer que le schéma de réponse est définitive et ne peut pas inclure les données supplémentaires. L’implémentation ne comprend pas toutes les propriétés doivent être ignorées.
 
 > [!Note]
 > Quand une source n’implémente pas `SearchAutocompleteService` tout comportement de saisie semi-automatique doit être désactivé en douceur. Lorsque `ReportAbuseUriTemplate` n’est pas implémentée, la repasse de client NuGet officiel à nuget.org signaler un abus URL (suivies par [NuGet/accueil #4924](https://github.com/NuGet/Home/issues/4924)). Autres clients peuvent choisir de simplement afficher une URL d’abus de rapport à l’utilisateur.
