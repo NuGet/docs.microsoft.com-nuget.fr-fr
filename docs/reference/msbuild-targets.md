@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9427d87f69a2e942a9802fbdae5193eead1c724
-ms.sourcegitcommit: af58d59669674c3bc0a230d5764e37020a9a3f1e
+ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
+ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52831018"
+ms.lasthandoff: 12/20/2018
+ms.locfileid: "53645670"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -65,7 +65,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Url/du référentiel | RepositoryUrl | vide | URL du référentiel utilisé pour cloner ou extraire le code source. Exemple : *https://github.com/NuGet/NuGet.Client.git* |
 | / Type de référentiel | RepositoryType | vide | Type de référentiel. Exemples : *git*, *tfs*. |
 | / Branche du référentiel | RepositoryBranch | vide | Informations de branche de référentiel facultatif. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *master* (4.7.0+ NuGet) |
-| Référentiel/validation | RepositoryCommit | vide | Validation du référentiel facultatif ou l’ensemble de modifications pour indiquer à qui la source du package a été créé. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (4.7.0+ NuGet) |
+| Référentiel/validation | RepositoryCommit | vide | Validation du référentiel facultatif ou l’ensemble de modifications pour indiquer à qui la source du package a été créé. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (4.7.0+ NuGet) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Récapitulatif | Non pris en charge | | |
 
@@ -117,8 +117,8 @@ Dans le cadre de la modification pour [NuGet problème 352](https://github.com/N
 
 Il existe deux propriétés MSBuild que vous pouvez utiliser dans votre fichier projet ou ligne de commande pour contrôler la destination des assemblys de sortie :
 
-- `IncludeBuildOutput` : valeur booléenne qui détermine si les assemblys de sortie de génération doivent être inclus dans le package.
-- `BuildOutputTargetFolder` : spécifie le dossier dans lequel les assemblys de sortie doivent être placés. Les assemblys de sortie (et les autres fichiers de sortie) sont copiés dans les dossiers de leur framework respectif.
+- `IncludeBuildOutput`: Valeur booléenne qui détermine si les assemblys de sortie de génération doivent être inclus dans le package.
+- `BuildOutputTargetFolder`: Spécifie le dossier dans lequel les assemblys de sortie doivent être placés. Les assemblys de sortie (et les autres fichiers de sortie) sont copiés dans les dossiers de leur framework respectif.
 
 ### <a name="package-references"></a>Références de package
 
@@ -202,7 +202,7 @@ Lors de la compression d’un fichier de licence, vous devez utiliser PackageLic
 </PropertyGroup>
 
 <ItemGroup>
-    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath="$(PackageLicenseFile)"/>
+    <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
 [Exemple de fichier de licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
@@ -217,7 +217,7 @@ Vous pouvez utiliser un `.nuspec` fichier à compresser votre projet, sous rése
 
 1. `NuspecFile` : chemin relatif ou absolu du fichier `.nuspec` utilisé pour la compression.
 1. `NuspecProperties` : liste de paires clé=valeur séparées par un point-virgule. En raison du mode de fonctionnement de l’analyse de ligne de commande MSBuild, plusieurs propriétés doivent être spécifiées comme suit : `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
-1. `NuspecBasePath` : chemin de base pour le fichier `.nuspec`.
+1. `NuspecBasePath`: Chemin de base pour le `.nuspec` fichier.
 
 Si vous utilisez `dotnet.exe` pour compresser votre projet, utilisez une commande semblable à la suivante :
 
@@ -252,15 +252,15 @@ Un exemple d’un fichier csproj pour compresser un fichier nuspec est :
 
 Le `pack` cible fournit deux points d’extension qui s’exécutent dans la build spécifique du framework cible interne,. Les points d’extension prise en charge inclusion de contenu spécifique du framework cible et les assemblys dans un package :
 
-- `TargetsForTfmSpecificBuildOutput` cible : utilisation de fichiers à l’intérieur de la `lib` dossier ou un dossier spécifié à l’aide `BuildOutputTargetFolder`.
-- `TargetsForTfmSpecificContentInPackage` cible : utilisation de fichiers en dehors de la `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` cible : Utilisation des fichiers à l’intérieur de la `lib` dossier ou un dossier spécifié à l’aide `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` cible : Utilisation des fichiers en dehors de la `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
 Écrire une cible personnalisée et spécifiez-le comme valeur de la `$(TargetsForTfmSpecificBuildOutput)` propriété. Pour tous les fichiers qui doivent passer dans le `BuildOutputTargetFolder` (lib par défaut), la cible doit écrire ces fichiers dans un ItemGroup `BuildOutputInPackage` et définissez les deux valeurs de métadonnées suivantes :
 
 - `FinalOutputPath`: Le chemin d’accès absolu du fichier ; Si n’est fourni, l’identité est utilisée pour évaluer le chemin d’accès source.
-- `TargetPath`: (Facultatif) défini quand le fichier doit aller dans un sous-dossier au sein de `lib\<TargetFramework>` , tels que les assemblys satellites disponibles vont dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
+- `TargetPath`:  (Facultatif) Défini quand le fichier doit aller dans un sous-dossier au sein de `lib\<TargetFramework>` , tels que les assemblys satellites disponibles vont dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
 
 Exemple :
 
