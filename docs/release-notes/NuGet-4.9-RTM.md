@@ -5,32 +5,32 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3da1056f64b76f27afa662d879ef9f85868e2a07
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 7dcb2e430ad80815f716f5567b511ff08acfe31b
+ms.sourcegitcommit: a9babe261f67da0f714d168d04ea54a66628974b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453771"
+ms.lasthandoff: 12/21/2018
+ms.locfileid: "53735134"
 ---
 # <a name="nuget-49-release-notes"></a>Notes de publication NuGet 4.9
 
-[Visual Studio 2017 15.9.0 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) est fourni avec NuGet 4.9.0.
+Véhicules de distribution NuGet :
 
+| Version de NuGet | Disponible dans la version Visual Studio| Disponible dans les SDK .NET|
+|:---|:---|:---|
+| **4.9.0** | Visual Studio 2017 version 15.9.0 | 2.1.500, 2.2.100 |
+| **4.9.1** | N/A | N/A |
+| [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 version 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
-Des versions en ligne de commande offrant les mêmes fonctionnalités sont également disponibles :
-* NuGet.exe 4.9.x - [nuget.org/downloads](https://nuget.org/downloads)
-* dotnet.exe - [.NET Core SDK 2.1.500](https://www.microsoft.com/net/download/visual-studio-sdks)
+## <a name="summary-whats-new-in-490"></a>Résumé : Nouveautés de la version 4.9.0
 
+* Signature : configure ClientPolicies pour exiger l’utilisation d’un groupe d’auteurs et de référentiels de confiance répertoriés dans NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961), [billet de blog](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
-## <a name="summary-whats-new-in-490"></a>Récapitulatif : Nouveautés de la version 4.9.0
-
-* Signature : configure ClientPolicies pour exiger l’utilisation d’un groupe d’auteurs et de référentiels de confiance répertoriés dans NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961)
-
-* Création de fichiers « .snupkg » qui contiennent les symboles dans un pack ; push amélioré pour comprendre le protocole nuget afin d’accepter les fichiers snupkg pour le serveur de symboles - [#6878](https://github.com/NuGet/Home/issues/6878)
+* Création de fichiers « .snupkg » qui contiennent les symboles dans un pack ; push amélioré pour comprendre le protocole nuget afin d’accepter les fichiers snupkg pour le serveur de symboles - [#6878](https://github.com/NuGet/Home/issues/6878), [billet de blog](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
 * Plug-in d’informations d’identification NuGet V2 - [#6642](https://github.com/NuGet/Home/issues/6642)
 
-* Licence de packages NuGet autonomes - [#4628](https://github.com/NuGet/Home/issues/4628)
+* Licence de packages NuGet autonomes - [#4628](https://github.com/NuGet/Home/issues/4628), [annonce](https://github.com/NuGet/Announcements/issues/32)
 
 * Possibilité d’activer les métadonnées « GeneratePathProperty » sur un objet PackageReference pour générer une propriété MSBuild par pack dans le répertoire Foo.Bar\1.0\" - [#6949](https://github.com/NuGet/Home/issues/6949)
 
@@ -80,7 +80,7 @@ Des versions en ligne de commande offrant les mêmes fonctionnalités sont égal
 
 [Liste de tous les problèmes résolus dans cette version 4.9.0](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>Récapitulatif : Nouveautés de la version 4.9.1
+## <a name="summary-whats-new-in-491"></a>Résumé : Nouveautés de la version 4.9.1
 
 * Ajout de la prise en charge de la lecture d’une écriture dans le fichier nuget.config via une nouvelle commande trusted-signers - [#7480](https://github.com/NuGet/Home/issues/7480)
 
@@ -94,15 +94,19 @@ Des versions en ligne de commande offrant les mêmes fonctionnalités sont égal
 
 [Liste de tous les problèmes résolus dans cette version 4.9.1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
+## <a name="summary-whats-new-in-492"></a>Résumé : Nouveautés de la version 4.9.2
+
+### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
+
+* La restauration VS/dotnet.exe/nuget.exe/msbuild.exe n’utilise pas les informations d’identification lorsque le nom de la source contient un blanc - [#7517](https://github.com/NuGet/Home/issues/7517)
+
+* Problèmes d’accessibilité LicenseAcceptanceWindow et LicenseFileWindow - [#7452](https://github.com/NuGet/Home/issues/7452)
+
+* Correction de FormatException dans DateTime.Parse à partir de DateTimeConverter - [#7539](https://github.com/NuGet/Home/issues/7539)
+
+[Liste de tous les problèmes résolus dans cette version 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
+
 ## <a name="known-issues"></a>Problèmes connus
-
-### <a name="dotnetexenugetexe-doesnt-use-credentials-when-source-name-contains-a-whitespace---7517httpsgithubcomnugethomeissues7517"></a>dotnet.exe/nuget.exe n’utilise pas les informations d’identification lorsque le nom de la source contient un blanc - [#7517](https://github.com/NuGet/Home/issues/7517)
-
-#### <a name="issue"></a>Problème
-Si le nom de la source contient un espace, nuget.exe affiche une erreur de type `The ' ' character, hexadecimal value 0x20, cannot be included in a name.`
-
-#### <a name="workaround"></a>Solution de contournement
-Modifiez le nom de la source pour supprimer tout espace.
 
 ### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive génère une erreur sur Mac. - [#7519](https://github.com/NuGet/Home/issues/7519)
 
@@ -111,14 +115,6 @@ L’argument `--interactive` n’est pas transféré par l’interface CLI dotne
 
 #### <a name="workaround"></a>Solution de contournement
 Exécutez une autre commande dotnet avec l’option interactive, par exemple `dotnet restore --interactive` et identifiez-vous. L’authentification peut-être mise en cache par le fournisseur des informations d’identification. Exécutez ensuite `dotnet nuget push`.
-
-### <a name="licenseacceptancewindow-and-licensefilewindow-accessibility-issues---7452httpsgithubcomnugethomeissues7452"></a>Problèmes d’accessibilité LicenseAcceptanceWindow et LicenseFileWindow - [#7452](https://github.com/NuGet/Home/issues/7452)
-
-#### <a name="issue"></a>Problème
-La fenêtre d’acceptation de la licence et la fenêtre du fichier de licence présentent des problèmes d’accessibilité avec la navigation au clavier et la narration avec le lecteur d’écran et JAWS.
-
-#### <a name="workaround"></a>Solution de contournement
-Aucune solution de contournement.
 
 ### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Les packages dans FallbackFolders ont été installés de façon personnalisée par le kit SDK .NET Core et la validation de la signature échoue. - [#7414](https://github.com/NuGet/Home/issues/7414)
 
