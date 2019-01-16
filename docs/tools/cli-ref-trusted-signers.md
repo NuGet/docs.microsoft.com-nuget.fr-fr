@@ -6,16 +6,16 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ffd0cf5d50a2deed16e1722b32e43047bc81df2f
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303685"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324706"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>commande signataires approuvé (CLI NuGet)
 
-**S’applique à :** la consommation de package &bullet; **versions prises en charge :** 4.9 +
+**S’applique à :** la consommation de package &bullet; **versions prises en charge :** 4.9.1+
 
 Obtient ou définit les signataires approuvés à la configuration de NuGet. Pour une utilisation supplémentaire, consultez [configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur la façon dont le schéma de nuget.config ressemble, reportez-vous à la [référence du fichier de configuration NuGet](../reference/nuget-config-file.md).
 
@@ -80,7 +80,7 @@ En fournissant les deux `-Author` et `-Repository` en même temps n’est pas pr
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Remarque_: cette option n’ajoute des référentiels approuvés. 
+_Remarque_ : Cette option n’ajoute des référentiels approuvés. 
 
 | Option | Description |
 | --- | --- |
@@ -94,7 +94,7 @@ _Remarque_: cette option n’ajoute des référentiels approuvés.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Remarque_: si un signataire approuvé portant le nom spécifié existe déjà, l’élément de certificat est ajouté pour que le signataire. Sinon, un auteur approuvé sera créé avec un élément de certificat à partir des informations de certificat spécifiées.
+_Remarque_ : Si un signataire approuvé portant le nom spécifié existe déjà, l’élément de certificat est ajouté pour que le signataire. Sinon, un auteur approuvé sera créé avec un élément de certificat à partir des informations de certificat spécifiées.
 
 | Option | Description |
 | --- | --- |
@@ -110,7 +110,7 @@ Supprime les signataires approuvés qui correspondent au nom donné.
 
 Demande la dernière liste des certificats utilisés dans un référentiel actuellement approuvé pour mettre à jour le la liste de certificats existants dans le signataire approuvé.
 
-_Remarque_: ce mouvement supprime la liste actuelle des certificats et les remplacer par une liste à jour à partir du référentiel.
+_Remarque_ : Ce mouvement supprime la liste actuelle des certificats et les remplacer par une liste à jour à partir du référentiel.
 
 ## <a name="options"></a>Options
 

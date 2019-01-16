@@ -6,29 +6,29 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 047ede14c7935844cb4f6d0315772c2a1190e5b8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0c76ea43e871009223cc4328449e21e5d02129bb
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547257"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324875"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
 NuGet utilise les références des versions cibles de .NET Framework à de nombreux endroits pour identifier et isoler spécifiquement les composants dépendants du framework d’un package :
 
-- [Manifeste .nuspec](../reference/nuspec.md) : un package peut désigner des packages distincts à inclure dans un projet en fonction de la version cible de .NET Framework du projet.
-- [Nom du dossier .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) : les dossiers à l’intérieur du dossier `lib` d’un package peuvent être nommés en fonction de la version cible de .NET Framework, chacun contenant les DLL et tout autre contenu appropriés pour ce framework.
-- [packages.config](../reference/packages-config.md) : l’attribut `targetframework` d’une dépendance spécifie la variante d’un package à installer.
+- [manifeste .nuspec](../reference/nuspec.md): Un package peut désigner des packages distincts à inclure dans un projet en fonction du framework cible du projet.
+- [nom du dossier .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Les dossiers à l’intérieur d’un package `lib` dossier peut être nommé en fonction de l’infrastructure cible, chacun d’eux contient les DLL et autres contenus appropriés pour ce framework.
+- [packages.config](../reference/packages-config.md): Le `targetframework` attribut d’une dépendance spécifie la variante d’un package à installer.
 
 > [!Note]
 > Le code source du client NuGet qui calcule les tableaux ci-dessous se trouve aux emplacements suivants :
-> - Noms des frameworks pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Priorité des frameworks et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Noms de framework pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Frameworks pris en charge
 
-Un framework est généralement référencé par un moniker du Framework cible ou TFM court. Dans .NET Standard, ceci est également généralisé sous la forme *TxM* pour permettre une référence unique à plusieurs frameworks.
+Un framework est généralement référencé par un moniker du Framework cible ou TFM court. Dans .NET Standard cela est également généralisé *TxM* pour permettre une référence unique à plusieurs frameworks.
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 

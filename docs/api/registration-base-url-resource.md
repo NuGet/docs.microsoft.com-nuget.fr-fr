@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ba47d6fdeeaa4ee9de83ef4dd990707bd4928063
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453557"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324862"
 ---
 # <a name="package-metadata"></a>Métadonnées du package
 
@@ -103,7 +103,7 @@ Name   | Type             | Obligatoire | Notes
 count  | entiers          | oui      | Le numéro d’inscription laisse dans la page
 éléments  | tableau d’objets | Non       | Le tableau des feuilles de l’inscription et leurs métadonnées associer
 inférieur  | chaîne           | oui      | La version SemVer 2.0.0 plus bas dans la page (incluse)
-Parent | chaîne           | Non       | L’URL à l’index de l’inscription
+parent | chaîne           | Non       | L’URL à l’index de l’inscription
 supérieur  | chaîne           | oui      | La version la plus récente de SemVer 2.0.0 dans la page (incluse)
 
 Le `lower` et `upper` limites de l’objet de page sont utiles lorsque les métadonnées pour une version spécifique de page sont nécessaire.
@@ -141,9 +141,10 @@ dependencyGroups         | tableau d’objets           | Non       | Les dépen
 Description              | chaîne                     | Non       | 
 iconUrl                  | chaîne                     | Non       | 
 ID                       | chaîne                     | oui      | L’ID du package
-licenseUrl               | chaîne                     | Non       | 
+licenseUrl               | chaîne                     | Non       |
+licenseExpression        | chaîne                     | Non       | 
 liste                   | boolean                    | Non       | Doit être considérée comme répertoriée s’il est absent
-MinClientVersion         | chaîne                     | Non       | 
+minClientVersion         | chaîne                     | Non       | 
 projectUrl               | chaîne                     | Non       | 
 Publié                | chaîne                     | Non       | Chaîne contenant un horodatage ISO8601 de quand le package a été publié
 requireLicenseAcceptance | boolean                    | Non       | 
@@ -155,6 +156,8 @@ version                  | chaîne                     | oui      | La chaîne d
 Le package `version` propriété est la chaîne de version complète après la normalisation. Cela signifie que les données de build de SemVer 2.0.0 peuvent être incluses ici.
 
 Le `dependencyGroups` propriété est un tableau d’objets représentant les dépendances du package, regroupées par le framework cible. Si le package n’a aucune dépendance, le `dependencyGroups` manquant dans la propriété, un tableau vide, ou le `dependencies` propriété de tous les groupes est vide ou manquant.
+
+La valeur de la `licenseExpression` propriété respecte [syntaxe d’expression de licence NuGet](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license).
 
 #### <a name="package-dependency-group"></a>Groupe de dépendances de package
 
@@ -203,7 +206,7 @@ Name   | Type             | Obligatoire | Notes
 count  | entiers          | oui      | Le numéro d’inscription laisse dans la page
 éléments  | tableau d’objets | oui      | Le tableau des feuilles de l’inscription et leurs métadonnées associer
 inférieur  | chaîne           | oui      | La version SemVer 2.0.0 plus bas dans la page (incluse)
-Parent | chaîne           | oui      | L’URL à l’index de l’inscription
+parent | chaîne           | oui      | L’URL à l’index de l’inscription
 supérieur  | chaîne           | oui      | La version la plus récente de SemVer 2.0.0 dans la page (incluse)
 
 La forme des objets de feuille d’inscription est le même que dans l’index de l’inscription [ci-dessus](#registration-leaf-object-in-a-page).

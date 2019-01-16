@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e8d4ed1f3fe4394d084a5847200901b23a1b7b39
-ms.sourcegitcommit: c825eb7e222d4a551431643f5b5617ae868ebe0a
+ms.openlocfilehash: 009be99a1c6623a00b4bdbe6db3164ca70782212
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51944078"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324901"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -105,6 +105,9 @@ Si vous utilisez une licence qui n’a pas été attribuée à un identificateur
   </files>
 </package>
 ```
+
+Pour l’équivalent MSBuild, examinons [une expression de licence ou d’un fichier de licence de livraison](msbuild-targets.md#packing-a-license-expression-or-a-license-file).
+
 La syntaxe exacte des expressions de licence de NuGet est décrite ci-dessous dans [ABNF](https://tools.ietf.org/html/rfc5234).
 ```cli
 license-id            = <short form license identifier from https://spdx.org/spdx-specification-21-web-version#h.luq9dgcle9mo>
@@ -144,12 +147,12 @@ Liste de balises et de mots clés délimités par des espaces, qui décrivent le
 #### <a name="repository"></a>dépôt
 Métadonnées du référentiel, composé de quatre attributs facultatifs : *type* et *url* *(4.0 +)*, et *branche* et  *validation* *(4.6 +)*. Ces attributs permettent de mapper le fichier .nupkg vers le référentiel qui, générés avec la possibilité d’obtenir aussi détaillée que la branche individuel ou de la validation qui a créé le package. Ce doit être une url accessible au public qui peut être appelé directement par un logiciel de contrôle de version. Il ne doit pas être une page html comme cela est destiné à l’ordinateur. Pour un lien vers la page de projet, utilisez le `projectUrl` champ, à la place.
 
-#### <a name="minclientversion"></a>MinClientVersion
+#### <a name="minclientversion"></a>minClientVersion
 Spécifie la version minimale du client NuGet qui peut installer ce package, appliquée par nuget.exe et le gestionnaire de package Visual Studio. Cet attribut est utilisé chaque fois que le package dépend de fonctionnalités spécifiques du fichier `.nuspec` qui ont été ajoutées dans une version particulière du client NuGet. Par exemple, un package utilisant l’attribut `developmentDependency` doit spécifier « 2.8 » pour `minClientVersion`. De même, un package utilisant l’élément `contentFiles` (consultez la section suivante) doit affecter à `minClientVersion` la valeur « 3.3 ». Notez également que, comme les clients NuGet antérieurs à 2.5 ne reconnaissent pas cet indicateur, ils refusent *toujours* d’installer le package, quel que soit le contenu de `minClientVersion`.
 
 #### <a name="collection-elements"></a>Éléments de collection
 
-#### <a name="packagetypes"></a>PackageTypes
+#### <a name="packagetypes"></a>packageTypes
 *(3.5+)* Collection de zéro ou plusieurs éléments `<packageType>` spécifiant le type du package s’il est différent du package de dépendances classique. Chaque élément packageType a des attributs *name* et *version*. Consultez [Définition d’un type de package](../create-packages/creating-a-package.md#setting-a-package-type).
 #### <a name="dependencies"></a>dépendances
 Collection de zéro ou plusieurs éléments `<dependency>` spécifiant les dépendances du package. Chaque dépendance a des attributs *id*, *version*, *include* (3.x+) et *exclude* (3.x+). Consultez [Dépendances](#dependencies-element) ci-dessous.
@@ -250,7 +253,7 @@ Les lignes suivantes indiquent les dépendances sur les mêmes packages, mais sp
 </dependencies>
 ```
 
-Remarque : Quand vous créez un fichier `.nuspec` à partir d’un projet avec `nuget spec`, les dépendances qui existent dans le projet sont automatiquement incluses dans le fichier `.nuspec` obtenu.
+Remarque : Lorsque vous créez un `.nuspec` à partir d’un projet `nuget spec`, dépendances qui existent dans le projet sont automatiquement incluses dans résultant `.nuspec` fichier.
 
 ### <a name="dependency-groups"></a>Groupes de dépendances
 

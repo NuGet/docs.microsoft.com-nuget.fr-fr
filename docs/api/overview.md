@@ -6,18 +6,18 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: bb47c72768b0698d8e712c8261321ff38bba2764
-ms.sourcegitcommit: be9c51b4b095aea40ef41bbea7e12ef0a194ee74
+ms.openlocfilehash: 39b710c483ce4b3f2da30df6bb5b6842f9ee1fca
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53248427"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324836"
 ---
 # <a name="nuget-api"></a>API NuGet
 
 L’API NuGet est un ensemble de points de terminaison HTTP qui peut être utilisé pour télécharger les packages, extraire des métadonnées, publier de nouveaux packages et effectuer la plupart des opérations disponibles dans les clients NuGet officielles.
 
-Cette API est utilisée par le client NuGet dans Visual Studio, nuget.exe et l’interface CLI .NET pour effectuer des opérations NuGet comme [ `dotnet restore` ](/dotnet/articles/core/preview3/tools/dotnet-restore), recherche dans l’interface utilisateur de Visual Studio, et [ `nuget.exe push` ](../tools/cli-ref-push.md).
+Cette API est utilisée par le client NuGet dans Visual Studio, nuget.exe et l’interface CLI .NET pour effectuer des opérations NuGet comme [ `dotnet restore` ](/dotnet/core/tools/dotnet-restore?tabs=netcore2x), recherche dans l’interface utilisateur de Visual Studio, et [ `nuget.exe push` ](../tools/cli-ref-push.md).
 
 Notez dans certains cas, nuget.org a des spécifications supplémentaires qui ne sont pas appliquées par d’autres sources de package. Ces différences sont documentées par le [protocoles nuget.org](nuget-protocols.md).
 
@@ -43,7 +43,7 @@ Les clients plus anciens (tels que nuget.exe 2.x) ne sont pas en charge les API 
 
 L’API V3 de NuGet est nommé en tant que tel, car il est le successeur de l’API V2, qui était le protocole basé sur OData est implémenté par la version 2.x du client NuGet officiel. L’API V3 a été tout d’abord pris en charge par la version 3.0 du client NuGet officiel et est toujours la version de la dernière version majeure protocole pris en charge par le client NuGet, 4.0 et sur. 
 
-Modifications des protocoles sans rupture ont été apportées à l’API depuis sa première version.
+Modifications des protocoles sans rupture ont été apportées à l’API depuis sa commercialisation tout d’abord.
 
 ## <a name="resources-and-schema"></a>Ressources et schéma
 

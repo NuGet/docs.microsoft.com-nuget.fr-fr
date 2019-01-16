@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 878fb582a31667c84f3ae306b554718de72eca7a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645670"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324849"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -65,13 +65,14 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Url/du référentiel | RepositoryUrl | vide | URL du référentiel utilisé pour cloner ou extraire le code source. Exemple : *https://github.com/NuGet/NuGet.Client.git* |
 | / Type de référentiel | RepositoryType | vide | Type de référentiel. Exemples : *git*, *tfs*. |
 | / Branche du référentiel | RepositoryBranch | vide | Informations de branche de référentiel facultatif. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *master* (4.7.0+ NuGet) |
-| Référentiel/validation | RepositoryCommit | vide | Validation du référentiel facultatif ou l’ensemble de modifications pour indiquer à qui la source du package a été créé. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (4.7.0+ NuGet) |
+| Référentiel/validation | RepositoryCommit | vide | Validation du référentiel facultatif ou l’ensemble de modifications pour indiquer à qui la source du package a été créé. *RepositoryUrl* doit également être spécifié pour cette propriété à inclure. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0+) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Récapitulatif | Non pris en charge | | |
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
 
 - IsPackable
+- SuppressDependenciesWhenPacking
 - PackageVersion
 - PackageId
 - Auteurs
@@ -106,6 +107,10 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 - NuspecProperties
 
 ## <a name="pack-scenarios"></a>Scénarios avec pack
+
+### <a name="suppress-dependencies"></a>Supprimer les dépendances
+
+Pour supprimer les dépendances de package à partir du package NuGet généré, affectez `SuppressDependenciesWhenPacking` à `true` pour vous permettre d’ignore toutes les dépendances de fichier nupkg généré.
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -193,6 +198,14 @@ Si un fichier de type Compile est en dehors du dossier de projet, il est simplem
 
 Lorsque vous utilisez une expression de la licence, la propriété PackageLicenseExpression doit être utilisée. 
 [Exemple d’expression de licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseExpressionExample).
+
+```xml
+<PropertyGroup>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+</PropertyGroup>
+```
+
+[En savoir plus sur les expressions de licence et les licences qui sont acceptées par NuGet.org](nuspec.md#license).
 
 Lors de la compression d’un fichier de licence, vous devez utiliser PackageLicenseFile propriété pour spécifier le chemin du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Exemple :
 

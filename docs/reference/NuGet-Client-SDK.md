@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e612d9f86bcffc99870c5541aa6091e678db512
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 97ed3ec7d41d2847c0521af69373a1871eb585dd
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547087"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324680"
 ---
 # <a name="nuget-client-sdk"></a>SDK du Client NuGet
 
@@ -29,10 +29,14 @@ Le code source est publié sur GitHub dans le projet [NuGet/NuGet.Client](https:
 
 Vous trouverez des exemples et documentation pour certaines API dans la série du blog par Dave Glick, publié 2016 :
 
-- [Explorer les bibliothèques NuGet v3, partie 1 : présentation et concepts](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
-- [Explorer les bibliothèques NuGet v3, partie 2 : recherche des packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Explorer les bibliothèques NuGet v3, partie 3 : installation des packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Explorer les bibliothèques NuGet v3, partie 1 : Présentation et concepts](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
+- [Explorer les bibliothèques NuGet v3, partie 2 : Recherche des packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
+- [Explorer les bibliothèques NuGet v3, partie 3 : Installation des packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Ces billets de blog ont été écrits peu après le **3.4.3** version de NuGet packages du Kit de développement logiciel client ont été publiées.
 > Les versions plus récentes des packages peuvent être incompatibles avec les informations contenues dans les billets de blog.
+
+Martin Björkström fait un billet de blog de suivi pour la série de blogs de Dave Glick où il présente une approche différente sur l’utilisation du kit SDK du Client NuGet pour installer les packages NuGet :
+
+- [Nouvelle exploration des bibliothèques NuGet v3](https://martinbjorkstrom.com/posts/2018-09-19-revisiting-nuget-client-libraries)

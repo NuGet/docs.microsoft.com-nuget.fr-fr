@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: a5ccbba5fbc189eb59acfdeb86a4a03dcf907a9a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 0a8db9f6c55b7e79f9b338119e0b3ac6cb7a1e35
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547629"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324797"
 ---
 # <a name="analyzer-nuget-formats"></a>Formats NuGet des analyseurs
 
-.NET Compiler Platform (également appelé « Roslyn ») permettent aux développeurs de créer [analyseurs](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) qui examinent l’arborescence de syntaxe et la sémantique du code comme il est en cours d’écriture. Les développeurs ont ainsi un moyen de créer des outils d’analyse spécifiques au domaine, tels que ceux qui peuvent vous aider à utiliser une API ou une bibliothèque particulière. Vous trouverez plus d’informations sur le Wiki GitHub [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consultez également l’article [Utilisez Roslyn pour développer un analyseur de code dynamique pour votre API](https://msdn.microsoft.com/magazine/dn879356.aspx) dans MSDN Magazine.
+.NET Compiler Platform (également appelé « Roslyn ») permet aux développeurs de créer [analyseurs](https://github.com/dotnet/roslyn/wiki/How-To-Write-a-C%23-Analyzer-and-Code-Fix) qui examinent l’arborescence de syntaxe et la sémantique du code comme il est en cours d’écriture. Cela fournit aux développeurs un moyen de créer des outils d’analyse de domaine spécifiques, telles que celles qui permettraient de guideront l’utilisation d’une API particulière ou une bibliothèque. Vous trouverez plus d’informations sur le Wiki GitHub [.NET/Roslyn](https://github.com/dotnet/roslyn/wiki). Consultez également l’article [Utilisez Roslyn pour développer un analyseur de code dynamique pour votre API](https://msdn.microsoft.com/magazine/dn879356.aspx) dans MSDN Magazine.
 
 Les analyseurs proprement dits sont généralement empaquetés et distribués en tant que partie des packages NuGet qui implémentent l’API ou la bibliothèque en question.
 
@@ -46,13 +46,13 @@ L’emploi du dossier `analyzers` est similaire à celui utilisé pour les [vers
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
 - **nom_.NET_Framework** : surface d’exposition d’API *facultative* du .NET Framework que les DLL qu’il contient doivent exécuter. `dotnet` est actuellement la seule valeur valide, car Roslyn est le seul hôte qui peut exécuter des analyseurs. Si aucune cible n’est spécifiée, les DLL sont censées s’appliquer à *toutes* les cibles.
-- **langage_pris_en_charge** : langage pour lequel la DLL s’applique, entre `cs` (C#) et `vb` (Visual Basic), et `fs` (F#). Le langage indique que l’analyseur doit être chargé uniquement pour un projet utilisant ce langage. Si aucun langage n’est spécifié, la DLL est censée s’appliquer à *tous* les langages qui prennent en charge des analyseurs.
+- **langage_pris_en_charge** : langage pour lequel la DLL s’applique, entre `cs` (C#) et `vb` (Visual Basic), et `fs` (F#). Le langage indique que l’analyseur doit être chargé uniquement pour un projet utilisant ce langage. Si aucune langue n’est spécifiée, puis la DLL est censée se pour appliquer à *toutes les* langues qui prennent en charge des analyseurs.
 - **nom_analyseur** : spécifie les DLL de l’analyseur. Si vous avez besoin de fichiers supplémentaires en plus des DLL, ils doivent être inclus via des fichiers de propriétés ou de cibles.
 
 
 ## <a name="install-and-uninstall-scripts"></a>Scripts d’installation et de désinstallation
 
-Si le projet de l’utilisateur utilise `packages.config`, le script MSBuild qui récupère l’analyseur n’intervient pas et vous devez donc utiliser `install.ps1` et `uninstall.ps1` dans le dossier `tools` avec le contenu qui est décrit ci-dessous.
+Si le projet de l’utilisateur utilise `packages.config`, le script MSBuild qui Récupère l’analyseur n’intervient pas, donc vous devez placer `install.ps1` et `uninstall.ps1` dans le `tools` dossier avec le contenu qui sont décrites ci-dessous.
 
 **contenu du fichier install.ps1**
 
