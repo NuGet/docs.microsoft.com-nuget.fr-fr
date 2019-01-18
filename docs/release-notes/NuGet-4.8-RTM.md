@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 641304059c90e360fae4d0956d7b922e34bc6501
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: cf15c4f6a2e3e9f6ce7b6acb2304648041043685
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981117"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324823"
 ---
 # <a name="nuget-48-rtm-release-notes"></a>Notes de publication de NuGet 4.8 RTM
 
@@ -22,9 +22,9 @@ Des versions en ligne de commande offrant les mêmes fonctionnalités sont égal
 * DotNet.exe - [SDK .NET Core 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-this-release"></a>Résumé : Nouveautés de cette version release
+## <a name="summary-whats-new-in-this-release"></a>Résumé : Nouveautés de cette version
 * NuGet.exe prend désormais en charge les noms de fichiers longs sur Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
-* Les plug-ins d’authentification sont désormais compatibles avec MsBuild, DotNet.exe, NuGet.exe et Visual Studio, y compris en multiplateforme. La première génération de plug-ins d’authentification n’était pas prise en charge par MsBuild et DotNet.exe. Remarque : Un plug-in d’authentification VSTS est inclus dans les builds Visual Studio 2017 15.9 Preview. [#6486](https://github.com/NuGet/Home/issues/6486)
+* Les plug-ins d’authentification sont désormais compatibles avec MsBuild, DotNet.exe, NuGet.exe et Visual Studio, y compris en multiplateforme. La première génération de plug-ins d’authentification n’était pas prise en charge par MsBuild et DotNet.exe. Remarque : Un plug-in d’authentification VSTS est inclus dans les builds Visual Studio 2017 15.9 Preview. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Le programme de résolution du SDK MsBuild fait désormais partie de NuGet, et est installé avec les outils NuGet pour Visual Studio. De cette façon, les versions restent toujours synchronisées. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference prend désormais en charge les métadonnées DevelopmentDependency - [#4125](https://github.com/NuGet/Home/issues/4125)
 
@@ -56,13 +56,13 @@ Effectuez l’une des actions NuGet suivantes :
 * Générez le projet qui déclenche également la restauration NuGet.
 
 L’option de migration devrait apparaître. Notez qu’elle n’est pas prise en charge et ne s’affiche pas pour les types de projets ASP.NET et C++.
-Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
+Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
 
 ## <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
 ### <a name="bugs"></a>Bogues
 #### <a name="signing"></a>Signature
-* Signature : Installation d’un package signé dans un environnement hors connexion [#7008](https://github.com/NuGet/Home/issues/7008) -- Corrigé dans la version 4.8.1
+* Signature : Installation d’un package signé dans un environnement hors connexion [#7008](https://github.com/NuGet/Home/issues/7008) -- Corrigé dans la version 4.8.1
 * Signature : Vérification d’URL incorrecte - [#7174](https://github.com/NuGet/Home/issues/7174)
 * Signature : Vérifier l’intégrité du package dans RepositorySignatureVerifier lorsque le package est contresigné par le référentiel - [#6926](https://github.com/NuGet/Home/issues/6926)
 * Le message « La vérification de l’intégrité du package a échoué » doit inclure un ID de package (et un code d’erreur) - [#6944](https://github.com/NuGet/Home/issues/6944)
@@ -72,7 +72,7 @@ Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
 * La mémoire n’est pas valide lors de l’ajout de l’horodatage à la contresignature, dans le cadre de la mise à jour des informations sur les signataires - [#6840](https://github.com/NuGet/Home/issues/6840)
 * Signature : Supprimer les exceptions de liste de certificats de confiance - [#6794](https://github.com/NuGet/Home/issues/6794)
 * Signature : contentUrl doit être HTTPS - [#6777](https://github.com/NuGet/Home/issues/6777)
-* Signature : SignedPackageVerifierSettings.VSClientDefaultPolicy n’est pas utilisé - [#6601](https://github.com/NuGet/Home/issues/6601)
+* Signature :  SignedPackageVerifierSettings.VSClientDefaultPolicy n’est pas utilisé - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Compression

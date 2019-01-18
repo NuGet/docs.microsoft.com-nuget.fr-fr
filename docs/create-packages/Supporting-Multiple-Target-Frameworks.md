@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/27/2017
 ms.topic: conceptual
-ms.openlocfilehash: c59839240935e2a6c590dea3adf623313f79f02f
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
+ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981143"
+ms.lasthandoff: 01/16/2019
+ms.locfileid: "54324810"
 ---
 # <a name="supporting-multiple-net-framework-versions"></a>Prise en charge de plusieurs versions de .NET Framework
 
@@ -116,17 +116,17 @@ NuGet prend également en charge le ciblage d’un profil de framework spécifiq
 
 Les profils pris en charge sont les suivants :
 
-- `client` : Client Profile
-- `full` : Full Profile
-- `wp` : Windows Phone
-- `cf` : Compact Framework
+- `client`: Profil client
+- `full`: Profil complet
+- `wp`: Windows Phone
+- `cf`: Compact Framework
 
 ## <a name="determining-which-nuget-target-to-use"></a>Détermination de la cible NuGet à utiliser
 
 Lorsque vous empaquetez des bibliothèques ciblant la bibliothèque de classes portable, il peut être difficile de déterminer quelle cible NuGet vous devez utiliser dans vos noms de dossier et votre fichier `.nuspec`, en particulier si vous ciblez uniquement un sous-ensemble de la bibliothèque de classes portable. Les ressources externes suivantes peuvent vous aider à la déterminer :
 
 - [Profils de framework dans .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [Profils de la bibliothèque de classes portable](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co) : tableau qui énumère les profils de la bibliothèque de classes portable et leurs cibles NuGet équivalentes
+- [Profils de bibliothèque de classes portables](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co) : Tableau qui énumère les profils de la bibliothèque de classes portable et leurs cibles NuGet équivalentes
 - [Outil des profils de la bibliothèque de classes portable](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com) : outil en ligne de commande permettant de déterminer les profils de la bibliothèque de classes portable disponibles sur votre système
 
 ## <a name="content-files-and-powershell-scripts"></a>Fichiers de contenu et scripts PowerShell
@@ -134,7 +134,7 @@ Lorsque vous empaquetez des bibliothèques ciblant la bibliothèque de classes p
 > [!Warning]
 > Des fichiers de contenu mutables et une exécution des scripts sont disponibles au format `packages.config` uniquement ; ils sont dépréciés avec tous les autres des formats et ne doivent pas être utilisés pour de nouveaux packages.
 
-Avec `packages.config`, il est possible de regrouper les fichiers de contenu et les scripts PowerShell par version cible de .Net Framework en utilisant la même convention de dossier à l’intérieur des dossiers `content` et `tools`. Exemple :
+Avec `packages.config`, il est possible de regrouper les fichiers de contenu et les scripts PowerShell par version cible de .Net Framework en utilisant la même convention de dossier à l’intérieur des dossiers `content` et `tools`. Par exemple :
 
     \content
         \net46
