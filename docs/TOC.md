@@ -246,6 +246,7 @@
 ## [Suppression de packages](policies/deleting-packages.md)
 # Notes de publication
 ## [Problèmes connus](release-notes/known-issues.md)
+## [NuGet 5.0 Preview](release-notes/NuGet-5.0-preview.md)
 ## [NuGet 4.9 RTM](release-notes/NuGet-4.9-RTM.md)
 ## [NuGet 4.8 RTM](release-notes/NuGet-4.8-RTM.md)
 ## [NuGet 4.7 RTM](release-notes/NuGet-4.7-RTM.md)
