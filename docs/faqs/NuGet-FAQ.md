@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbdd171321c2560adc06feccbd60fc4e84dcf0a3
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
+ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403210"
+ms.lasthandoff: 02/01/2019
+ms.locfileid: "55648268"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -235,10 +235,17 @@ Remarque : Il peut être nécessaire de définir la variable d’environnement `
 
 Si cette opération échoue, essayez les [conseils mentionnés dans ce billet de StackOverflow](http://stackoverflow.com/questions/21049908/using-fiddler-to-sniff-visual-studio-2013-requests-proxy-firewall).
 
-**Quels sont les points de terminaison d’API pour nuget.org ?**
+## <a name="what-is-the-api-endpoint-for-nugetorg"></a>Quel est le point de terminaison d’API pour nuget.org ?
 
-- V3 : `https://api.nuget.org/v3/index.json`
-- V2 : `https://www.nuget.org/api/v2/` (Notez que l’API V2 est dépréciée et ne fonctionne pas avec NuGet 4+.)
+Pour utiliser nuget.org comme référentiel de packages avec les clients NuGet, vous devez utiliser le point de terminaison de l’API V3 suivant : 
+
+**`https://api.nuget.org/v3/index.json`**
+
+Les clients plus anciens peuvent toujours utiliser le protocole v2 pour atteindre nuget.org. Toutefois, veuillez noter que les clients NuGet version 3.0 ou ultérieure qui utilisent le protocole v2 ont un service plus lent et moins fiable :
+
+`https://www.nuget.org/api/v2/` (DÉPRÉCIÉ !!!) **Remarque :** Le « www. » est important.
+
+Par ailleurs, la *liste NuGet.exe* fonctionne seulement avec le protocole v2.
 
 ## <a name="nugetorg-account-management"></a>Gestion de compte nuget.org
 
