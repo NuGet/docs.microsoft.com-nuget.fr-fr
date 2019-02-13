@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: fc34550b3669d83466318645987cfd3078bc3c18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545098"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145603"
 ---
 # <a name="update-command-nuget-cli"></a>update (commande, NuGet CLI)
 
@@ -42,7 +42,7 @@ où `<configPath>` soit identifie un `packages.config` ou le fichier de solution
 | Help | Affiche l’aide de la commande. |
 | Id | Spécifie une liste d’ID pour mettre à jour de package. |
 | MSBuildPath | *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15. Par défaut que le MSBuild dans votre chemin d’accès est récupéré, sinon il est par défaut à la version installée la plus élevée de MSBuild. |
+| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Par défaut que le MSBuild dans votre chemin d’accès est récupéré, sinon il est par défaut à la version installée la plus élevée de MSBuild. |
 | NonInteractive | Supprime les invites pour l’entrée de l’utilisateur ou de confirmations. |
 | Version préliminaire | Permet la mise à jour aux versions préliminaires. Cet indicateur n’est pas nécessaire lors de la mise à jour des packages de version préliminaire qui sont déjà installés. |
 | RepositoryPath | Spécifie le dossier local dans lequel les packages sont installés. |

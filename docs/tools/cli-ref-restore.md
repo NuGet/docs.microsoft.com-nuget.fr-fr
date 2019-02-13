@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 06e3a26863761b7e7a42752866e7fe369f5be4ef
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550350"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145629"
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (CLI NuGet)
 
-**S’applique à :** la consommation de package &bullet; **versions prises en charge :** 2.7 +
+**S’applique à :** la consommation de package &bullet; **versions prises en charge :** 2.7+
 
 Télécharge et installe tous les packages manquants à partir de la `packages` dossier. Lorsqu’il est utilisé avec NuGet 4.0 + et le format PackageReference, génère un `<project>.nuget.props` fichier, le cas échéant, dans le `obj` dossier. (Le fichier peut être omis à partir du contrôle de code source).
 
@@ -39,7 +39,7 @@ où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.c
 | ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche l’aide de la commande. |
 | MSBuildPath | *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15. Par défaut que le MSBuild dans votre chemin d’accès est récupéré, sinon il est par défaut à la version installée la plus élevée de MSBuild. |
+| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Par défaut que le MSBuild dans votre chemin d’accès est récupéré, sinon il est par défaut à la version installée la plus élevée de MSBuild. |
 | NoCache | Empêche NuGet d’utiliser les packages mis en cache. Consultez [gérer les packages globaux et les dossiers de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | NonInteractive | Supprime les invites pour l’entrée de l’utilisateur ou de confirmations. |
 | OutputDirectory | Spécifie le dossier dans lequel les packages sont installés. Si aucun dossier n’est spécifié, le dossier actif est utilisé. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `PackagesDirectory` ou `SolutionDirectory` est utilisé.|

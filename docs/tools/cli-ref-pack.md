@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: d39ec8caf94caa767b6c502cc475e278aa718b95
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324784"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145642"
 ---
 # <a name="pack-command-nuget-cli"></a>pack (commande, NuGet CLI)
 
@@ -43,7 +43,7 @@ où `<nuspecPath>` et `<projectPath>` spécifier le `.nuspec` ou projet de fichi
 | IncludeReferencedProjects | Indique que le package généré doit inclure les projets référencés en tant que dépendances ou en tant que partie du package. Si un projet référencé est associée à une `.nuspec` fichier ayant le même nom que le projet, ce projet référencé est ajouté en tant que dépendance. Sinon, le projet référencé est ajouté en tant que partie du package. |
 | MinClientVersion | Définir le *minClientVersion* attribut du package. Cette valeur remplace la valeur existants *minClientVersion* attribut (le cas échéant) dans le `.nuspec` fichier. |
 | MSBuildPath | *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
-| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15. Par défaut que le MSBuild dans votre chemin d’accès est récupéré, sinon il est par défaut à la version installée la plus élevée de MSBuild. |
+| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Valeurs prises en charge sont 4, 12, 14, 15.1, 15.3, 15.4, 15.5, 15.6, 15.7, 15.8, 15.9. Par défaut que le MSBuild dans votre chemin d’accès est récupéré, sinon il est par défaut à la version installée la plus élevée de MSBuild. |
 | NoDefaultExcludes | Empêche d’exclusion par défaut de NuGet package des fichiers et dossiers commençant par un point, tel que `.svn` et `.gitignore`. |
 | NoPackageAnalysis | Spécifie que le pack ne doit pas exécuter d’analyse du package après sa génération. |
 | OutputDirectory | Spécifie le dossier dans lequel le package créé est stocké. Si aucun dossier n’est spécifié, le dossier actif est utilisé. |
