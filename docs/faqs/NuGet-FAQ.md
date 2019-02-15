@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 290055a306306e944695d3a6ac970819882ee0c6
-ms.sourcegitcommit: 046717af2eba9ff6f619a0533844dee56a600d1c
+ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
+ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648268"
+ms.lasthandoff: 02/12/2019
+ms.locfileid: "56145681"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -241,11 +241,9 @@ Pour utiliser nuget.org comme référentiel de packages avec les clients NuGet, 
 
 **`https://api.nuget.org/v3/index.json`**
 
-Les clients plus anciens peuvent toujours utiliser le protocole v2 pour atteindre nuget.org. Toutefois, veuillez noter que les clients NuGet version 3.0 ou ultérieure qui utilisent le protocole v2 ont un service plus lent et moins fiable :
+Les clients plus anciens peuvent toujours utiliser le protocole V2 pour atteindre nuget.org. Toutefois, notez que les clients NuGet 3.0 ou ultérieur qui utilisent le protocole V2 ont un service plus lent et moins fiable :
 
-`https://www.nuget.org/api/v2/` (DÉPRÉCIÉ !!!) **Remarque :** Le « www. » est important.
-
-Par ailleurs, la *liste NuGet.exe* fonctionne seulement avec le protocole v2.
+`https://www.nuget.org/api/v2` (DÉPRÉCIÉ !!!) **Remarque :** Utilisez « www. » pour une meilleure fiabilité.
 
 ## <a name="nugetorg-account-management"></a>Gestion de compte nuget.org
 
