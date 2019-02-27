@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 08/16/2018
 ms.topic: conceptual
 ms.reviewer: kraigb
-ms.openlocfilehash: 6184fe8e987e0637cb912999f2e3fa3a3dc9b4ba
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 003139abac7808dbdaef4aa66119e09772db2b4f
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546933"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852531"
 ---
 # <a name="toolsjson-for-discovering-nugetexe-versions"></a>Tools.JSON de détection des versions de nuget.exe
 
@@ -45,14 +45,14 @@ Chaque objet dans le `nuget.exe` tableau présente les propriétés suivantes :
 
 Name     | Type   | Obligatoire | Notes
 -------- | ------ | -------- | -----
-version  | chaîne | oui      | Une chaîne de SemVer 2.0.0
-url      | chaîne | oui      | Une URL absolue pour le téléchargement de cette version de nuget.exe
-Étape    | chaîne | oui      | Une chaîne d’enum
-téléchargé | chaîne | oui      | Un horodatage approximatif de lorsque la version mise à disposition
+version  | string | oui      | Une chaîne de SemVer 2.0.0
+url      | string | oui      | Une URL absolue pour le téléchargement de cette version de nuget.exe
+Étape    | string | oui      | Une chaîne d’enum
+uploaded | string | oui      | Un horodatage ISO 8601 approximatif de lorsque la version mise à disposition
 
-Les éléments dans le tableau doit être triées, SemVer 2.0.0 par ordre décroissant. Cette garantie est destinée à alléger le fardeau sur un client recherche de la dernière version. 
+Les éléments dans le tableau doit être triées, SemVer 2.0.0 par ordre décroissant. Cette garantie est destinée à réduire la charge d’un client qui s’intéresse à un numéro de version le plus élevé. Toutefois, cela ne signifie que la liste n’est pas triée dans l’ordre chronologique. Par exemple, si une version majeure inférieur est pris en charge à une date ultérieure à une version majeure supérieure, cette version pris en charge n’apparaîtra pas en haut de la liste. Si vous souhaitez que la dernière version publiée par *timestamp*, il suffit de trier le tableau par le `uploaded` chaîne. Cela fonctionne parce que le `uploaded` timestamp est exprimé en le [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) format qui peut être trié par ordre chronologique à l’aide d’un tri lexicographique (autrement dit, un tri simple chaîne).
 
-Le `stage` propriété indique le mode vettect cette version de l’outil. 
+Le `stage` propriété indique maintenant comment cette version de l’outil. 
 
 Étape              | Signification
 ------------------ | ------
@@ -60,7 +60,7 @@ EarlyAccessPreview | Pas encore visible sur le [web page de téléchargement](ht
 Final           | Disponible sur le site de téléchargement, mais n’est pas encore recommandé pour la consommation généralisée
 ReleasedAndBlessed | Disponible sur le site de téléchargement et est recommandée pour la consommation
 
-Une approche simple pour avoir la dernière version, la version recommandée est à prendre la première version dans la liste qui possède le `stage` valeur `ReleasedAndBlessed`.
+Une approche simple pour avoir la dernière version, la version recommandée est à prendre la première version dans la liste qui possède le `stage` valeur `ReleasedAndBlessed`. Cela fonctionne car les versions sont triées par ordre de SemVer 2.0.0.
 
 Le `NuGet.CommandLine` package sur nuget.org est généralement uniquement mis à jour avec `ReleasedAndBlessed` versions.
 

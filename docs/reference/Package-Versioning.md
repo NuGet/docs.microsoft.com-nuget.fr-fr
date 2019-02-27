@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: b980c1084fe8e31573053a4dcf38bbfa6146e6de
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549771"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852466"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
@@ -29,9 +29,9 @@ Dans cette rubrique :
 
 Un numéro de version spécifique se présente sous la forme *version_principale.version_secondaire.version_corrective [-suffixe]*, où les composants ont les significations suivantes :
 
-- *Principales*: modifications avec rupture
-- *Mineure*: nouvelles fonctionnalités, mais offre une compatibilité descendante
-- *Correctif*: uniquement les correctifs de bogues offre une compatibilité descendante
+- *Principales*: Modifications avec rupture
+- *Mineure*: Nouvelles fonctionnalités, offrant néanmoins une compatibilité descendante
+- *Correctif*: Correctifs de bogues à compatibilité descendante uniquement
 - *-Suffixe* (facultatif) : un trait d’union suivie d’une chaîne qui dénote une version préliminaire (suivant la [convention Semver ou SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
 
 **Exemples :**
@@ -51,8 +51,8 @@ Techniquement parlant, créateurs de package peuvent utiliser n’importe quelle
 Ceci dit, les développeurs de packages suivent généralement les conventions de nommage reconnues :
 
 - `-alpha`: Version alpha, généralement utilisée pour les travaux en cours et l’expérimentation.
-- `-beta`: version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
-- `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
+- `-beta`: Version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
+- `-rc`: Version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
 > Prend en charge de NuGet 4.3.0 [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de version préliminaire avec la notation à points, comme dans *1.0.1-build.23*. La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un format similaire à *1.0.1-build23*.
@@ -187,9 +187,6 @@ Le `version` d’attribut dans un `<dependency>` élément décrit les versions 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
 <dependency id="ExamplePackage" version="6.1" />
-
-<!-- Accepts any 6.x.y version. -->
-<dependency id="ExamplePackage" version="6.*" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
      used to guarantee a dependency with a specific bug fix. -->
