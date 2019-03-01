@@ -16,14 +16,16 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 1fbb243a7b3518307a393b5f371feae1edb7623a
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645657"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852440"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
+
+Les packages de symboles vous permettent d’améliorer le débogage de vos packages NuGet.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,22 +33,28 @@ ms.locfileid: "53645657"
 
 ## <a name="creating-a-symbol-package"></a>Création d’un package de symboles
 
-Vous pouvez créer un package de symboles snupkg à partir d’un fichier .nuspec ou d’un fichier .csproj. NuGet.exe et dotnet.exe sont tous deux pris en charge. Quand vous utilisez les options ```-Symbols -SymbolPackageFormat snupkg``` avec la commande pack de nuget.exe, un fichier .snupkg est créé en plus du fichier .nupkg.
+Vous pouvez créer un package de symboles snupkg à l’aide de dotnet.exe, NuGet.exe ou MSBuild. Si vous choisissez NuGet.exe, vous pouvez utiliser les commandes suivantes pour créer un fichier .snupkg, en plus du fichier .nupkg :
 
-Exemples de commandes permettant de créer des fichiers .snupkg
 ```
-dotnet pack MyPackage.csproj --include-symbols -p:SymbolPackageFormat=snupkg
-
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
-
-msbuild -t:pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 ```
 
-Les `.snupkgs` ne sont pas produits par défaut. Vous devez passer la propriété `SymbolPackageFormat` avec `-Symbols` si vous utilisez nuget.exe, `--include-symbols` si vous utilisez dotnet.exe, ou `-p:IncludeSymbols` si vous utilisez msbuild.
+Si vous choisissez dotnet.exe ou MSBuild, effectuez les étapes suivantes pour créer un fichier .snupkg, en plus du fichier .nupkg :
 
-La propriété SymbolPackageFormat peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si SymbolPackageFormat n’est pas spécifié, la valeur par défaut est `symbols.nupkg`, et un package de symboles hérité est créé.
+1. Ajoutez les propriétés suivantes à votre fichier .csproj :
+
+    ```xml
+    <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols>
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    </PropertyGroup>
+    ```
+
+1. Compressez votre projet avec `dotnet pack MyPackage.csproj` ou `msbuild -t:pack MyPackage.csproj`.
+
+La propriété `SymbolPackageFormat` peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si la propriété `SymbolPackageFormat` n’est pas spécifiée, la valeur par défaut est `symbols.nupkg`, et un package de symboles hérité est créé.
 
 > [!Note]
 > Le format hérité `.symbols.nupkg` est toujours pris en charge, mais uniquement pour des raisons de compatibilité (consultez [Packages de symboles hérités](Symbol-Packages.md)). Le serveur de symboles NuGet.org accepte uniquement le nouveau format de package de symboles - `.snupkg`.

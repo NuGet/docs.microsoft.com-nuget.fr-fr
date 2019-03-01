@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f15639c883241c328b5fc0a4bf5617540b52b7ee
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
+ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145681"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56852544"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -166,7 +166,7 @@ NuGet recommande de signer tous les packages. Un principe de conception de la si
 
 Notez que les dépendances répertoriées pour votre package sont générées automatiquement à partir du package lui-même et qu’elles ne peuvent pas être modifiées.
 
-De plus, le chargement d’un package sur [int.nugettest.org](https://int.nugettest.org) constitue un excellent moyen de le tester et de le valider sans le mettre à disposition dans la galerie publique.
+De plus, le chargement d’un package sur [int.nugettest.org](https://int.nugettest.org) constitue un excellent moyen de le tester et de le valider sans le mettre à disposition dans la galerie publique. Point de terminaison d’API : https://apiint.nugettest.org/v3/index.json
 
 **Est-il possible de réserver des noms pour les packages destinés à être publiés ?**
 
