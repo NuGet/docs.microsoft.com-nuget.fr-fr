@@ -6,12 +6,12 @@ ms.author: diverdan92
 ms.date: 10/09/2017
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 32f83bede42f7643a9a4fed593643eefea0453c1
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: e8b902c89427333afb7a27ee9de0eeb99a92f391
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981000"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225873"
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation de préfixe ID de package
 
@@ -31,7 +31,7 @@ Quand un préfixe est réservé sur [nuget.org](https://www.nuget.org/), ce qui 
 
 1. Chaque fois qu’un package est soumis à [nuget.org](https://www.nuget.org/) avec un ID qui correspond au préfixe d’identificateur réservé, le package est rejeté, sauf si elle provient de propriétaires qui a réservé le préfixe d’ID.
 
-1. N’importe quel package qui correspond le préfixe d’identificateur réservé et provient de propriétaires qui a réservé le préfixe d’ID aura un indicateur visuel dans Visual Studio 2017 version 15.4 ou ultérieure et sur [nuget.org](https://www.nuget.org/) indiquant que le package est sous un préfixe d’identificateur réservé. Cela est vrai pour les nouvelles soumissions de package ainsi que des packages existants sous les propriétaires. **Remarque :** l’indicateur dans Visual Studio apparaît uniquement si un flux unique est sélectionné comme source du package.
+1. N’importe quel package qui correspond le préfixe d’identificateur réservé et provient de propriétaires qui a réservé le préfixe d’ID aura un indicateur visuel dans Visual Studio 2017 version 15.4 ou ultérieure et sur [nuget.org](https://www.nuget.org/) indiquant que le package est sous un préfixe d’identificateur réservé. Cela est vrai pour les nouvelles soumissions de package ainsi que des packages existants sous les propriétaires. **Remarque :** L’indicateur dans Visual Studio apparaît uniquement si un flux unique est sélectionné comme source du package.
 
 1. Tous les packages existants qui correspondent au préfixe d’ID réservé, mais sont *pas* appartenant au propriétaire de réservée préfixe restera inchangé (ils ne seront pas retirée de la liste, mais ils ne disposeront également l’indicateur visuel). En outre, les propriétaires de ces packages sera toujours en mesure de soumettre de nouvelles versions du package.
 
@@ -84,6 +84,8 @@ Lors de la révision de toute application de réservation de préfixe d’ID, le
 1. Voulez-vous *pas* réservant le préfixe d’ID de package entraînent une ambiguïté et source de confusion pour la Communauté ?
 
 1. Sont les propriétés d’identification des packages qui correspondent au préfixe de ID de package clair et cohérent (en particulier l’auteur du package) ?
+
+1. Les packages ont une licence (à l’aide de la [licence](https://docs.microsoft.com/en-us/nuget/reference/nuspec#license) métadonnées élément et licenseUrl pas devenu obsolète) ?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénarios de fournisseur de flux de tiers
 

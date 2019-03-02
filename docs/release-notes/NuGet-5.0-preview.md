@@ -5,26 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 1/25/2019
 ms.topic: conceptual
-ms.openlocfilehash: 57b66b347ac47a3d05907a4bb237002de8981ecc
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 4b05dcb9a2960c1e3231e81d4b4c122d3a518753
+ms.sourcegitcommit: 571644118e3c5a2fd818891d305b4b8de8ef21de
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196198"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57225886"
 ---
 # <a name="nuget-50-preview-release-notes"></a>Notes de publication de NuGet 5.0 Preview
 
 ## <a name="nuget-50-preview-releases"></a>Préversions 5.0 NuGet
 
-* Le 27 février 2010 - [NuGet 5.0 Preview 4](#summary-whats-new-in-50-preview-4)
-* Le 13 février 2019 - [NuGet 5.0 Preview 3](#summary-whats-new-in-50-preview-3)
-* Le 23 janvier 2019 - [NuGet 5.0 Preview 2](#summary-whats-new-in-50-preview-2)
+* Le 27 février 2019 - [NuGet 5.0 Preview 4](#whats-new-in-nuget-50-preview-4)
+* Le 13 février 2019 - [NuGet 5.0 Preview 3](#whats-new-in-nuget-50-preview-3)
+* Le 23 janvier 2019 - [NuGet 5.0 Preview 2](#whats-new-in-nuget-50-preview-2)
 
-## <a name="summary-whats-new-in-nuget-50-preview-4"></a>Résumé : Quelles sont les nouveautés dans NuGet 5.0 Preview 4
+## <a name="whats-new-in-nuget-50-preview-4"></a>Quelles sont les nouveautés dans NuGet 5.0 Preview 4
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
-**Bogues :**
+**Bogues**
 
 * NuGet.VisualStudio.IVsPackageInstaller - appel sur un projet avec aucun package fait référence à toujours utilise packages.config, même si la valeur par défaut est définie sur PackageReference - [#7005](https://github.com/NuGet/Home/issues/7005)
 
@@ -48,7 +48,7 @@ ms.locfileid: "57196198"
 
 * Préférez le chemin d’accès pour la découverte de msbuild si l’utilisateur n’a pas demander une version de msbuild spécifiques - [#7786](https://github.com/NuGet/Home/issues/7786)
 
-**DCR :**
+**DCRs**
 
 * limiter le nombre de demande http par source via NuGet.Config - [#4538](https://github.com/NuGet/Home/issues/4538)
 
@@ -61,11 +61,11 @@ ms.locfileid: "57196198"
 * Ajouter la prise en charge netstandard2.0 aux packages de NuGet.* - [#6516](https://github.com/NuGet/Home/issues/6516)
 
 
-## <a name="summary-whats-new-in-nuget-50-preview-3"></a>Résumé : Quelles sont les nouveautés dans NuGet 5.0 Preview 3
+## <a name="whats-new-in-nuget-50-preview-3"></a>Quelles sont les nouveautés dans NuGet 5.0 Preview 3
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version 
 
-**Bogues :**
+**Bogues**
 
 * nuget.exe /? doit répertorier les versions de msbuild correct - [#7794](https://github.com/NuGet/Home/issues/7794)
 
@@ -81,18 +81,18 @@ ms.locfileid: "57196198"
 
 * niveau de détail MSBuild/t : Restore minimal doit être plus minimal - [#4695](https://github.com/NuGet/Home/issues/4695)
 
-**DCR :**
+**DCRs**
 
 * Permettre aux auteurs de package définir le comportement transitive de build actifs - [#6091](https://github.com/NuGet/Home/issues/6091)
 
 * Activer la restauration dans Visual Studio pour réussir si un projet ne fait pas partie de la solution ou n’est pas chargé, mais a été précédemment restauré - [#5820](https://github.com/NuGet/Home/issues/5820)
 
 
-## <a name="summary-whats-new-in-50-preview-2"></a>Résumé : Nouveautés de la version 5.0 Preview 2
+## <a name="whats-new-in-nuget-50-preview-2"></a>Quelles sont les nouveautés dans NuGet 5.0 Preview 2
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
-**Bogues :**
+**Bogues**
 
 * Visual Studio de 16.0 NuGet UI comporte des onglets illisibles en raison de problèmes de couleur - [#7735](https://github.com/NuGet/Home/issues/7735)
 
@@ -134,7 +134,7 @@ ms.locfileid: "57196198"
 
 * restauration de dotnet échoue en raison de la machine désactivé large flux - [#5410](https://github.com/NuGet/Home/issues/5410)
 
-**DCR :**
+**DCRs**
 
 * Assemblys de NuGet 5.0 nécessitent .NET 4.7.2 (via la modification du moniker du Framework cible) - [#7510](https://github.com/NuGet/Home/issues/7510)
 
