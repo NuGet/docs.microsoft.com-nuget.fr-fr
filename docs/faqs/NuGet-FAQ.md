@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 03223e949eeeadd7eaa6e392297ba79d28eed2f2
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852544"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196211"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -158,7 +158,7 @@ Chaque package est régi par les conditions qu’il inclut. Vous devez examiner 
 
 Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **Contact owners** (Contacter les propriétaires) sur la page des packages nuget.org. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
 
-## <a name="managing-packages-on-nugetorg"></a>Gestion des packages sur nuget.org
+## <a name="managing-packages-on-nugetorg"></a>Gestion des packages sur NuGet.org
 
 **Puis-je modifier les métadonnées d’un package après l’avoir chargé ?**
 
@@ -167,6 +167,10 @@ NuGet recommande de signer tous les packages. Un principe de conception de la si
 Notez que les dépendances répertoriées pour votre package sont générées automatiquement à partir du package lui-même et qu’elles ne peuvent pas être modifiées.
 
 De plus, le chargement d’un package sur [int.nugettest.org](https://int.nugettest.org) constitue un excellent moyen de le tester et de le valider sans le mettre à disposition dans la galerie publique. Point de terminaison d’API : https://apiint.nugettest.org/v3/index.json
+
+**Puis-je supprimer un package déjà publié sur NuGet.org ?**
+
+En règle générale, nous ne prenons pas en charge la suppression des packages qui ont été publiés sur NuGet.org. Pour en savoir plus, consultez notre [stratégie sur la suppression des packages](../policies/deleting-packages).
 
 **Est-il possible de réserver des noms pour les packages destinés à être publiés ?**
 

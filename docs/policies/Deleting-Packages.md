@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 901eb09711a6e32740c70829028da66b782870a0
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 833f4a67bc75c5d650e85180b52ecd8f69218f15
+ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548126"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57196185"
 ---
 # <a name="deleting-packages"></a>Suppression de packages
 
@@ -23,7 +23,7 @@ NuGet.org prend en charge *la suppression d’un package de la liste*, opératio
 
 ## <a name="exceptions"></a>Exceptions
 
-Dans des situations exceptionnelles, comme la violation de droits d’auteur et la présence de contenu potentiellement dangereux, les packages peuvent être supprimés manuellement par l’équipe NuGet. Envoyez une demande de support par le biais de la [Galerie NuGet](http://www.nuget.org) pour démarrer la procédure.
+Dans des situations exceptionnelles, comme la violation de droits d’auteur et la présence de contenu potentiellement dangereux, les packages peuvent être supprimés manuellement par l’équipe NuGet. Vous pouvez signaler un package à l’aide du bouton « Signaler un abus » disponible dans la page Détails du package sur NuGet.org. Si vous êtes le propriétaire du package, connectez-vous à votre compte NuGet.org pour accéder à la prise en charge de NuGet. Pour cela, utilisez le bouton « Contacter le support » disponible dans la page Détails du package sur NuGet.org.
 
 ## <a name="prohibited-use"></a>Utilisation interdite
 
