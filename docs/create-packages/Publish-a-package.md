@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: bd19bc402ff9d66d7e2baa4f326d75f0ed444f30
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852570"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432541"
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
@@ -74,7 +74,7 @@ Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4
 
 #### <a name="publish-signed-packages"></a>Publier les paquets signés
 
-Pour pouvoir envoyer les packages signés, vous devez tout d’abord [inscrire le certificat](../reference/Signed-Packages-Reference.md#register-certificate-on-nugetorg) utilisé pour signer les packages. 
+Pour pouvoir envoyer les packages signés, vous devez tout d’abord [inscrire le certificat](../create-packages/Sign-a-Package.md#register-the-certificate-on-nugetorg) utilisé pour signer les packages. 
 
 > [!Warning]
 > nuget.org rejette les packages qui ne répondent pas aux [exigences des packages signés](../reference/Signed-Packages-Reference.md#signature-requirements-on-nugetorg).
@@ -83,7 +83,7 @@ Pour pouvoir envoyer les packages signés, vous devez tout d’abord [inscrire l
 
 Les packages envoyés sur nuget.org passent par plusieurs validations, notamment des contrôles antivirus. (Tous les packages présents sur nuget.org sont analysés régulièrement.)
 
-. Lorsque le package a satisfait à tous les contrôles de validation, son indexation peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Une fois que l’indexation est terminée, vous recevez un e-mail de confirmation que le package a été correctement publié. Si le package ne satisfait pas à un contrôle de validation, la page des détails du package se met à jour pour afficher l’erreur associée et vous recevez aussi un e-mail vous en informant.
+Lorsque le package a satisfait à tous les contrôles de validation, son indexation peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Une fois que l’indexation est terminée, vous recevez un e-mail de confirmation que le package a été correctement publié. Si le package ne satisfait pas à un contrôle de validation, la page des détails du package se met à jour pour afficher l’erreur associée et vous recevez aussi un e-mail vous en informant.
 
 La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si nuget.org rencontre des interruptions. Si tous les systèmes sont opérationnels et que le package n’a pas été correctement publié dans l’heure, connectez-vous à nuget.org et contactez-nous à l’aide du lien permettant de contacter le support disponible dans la page du package.
 
