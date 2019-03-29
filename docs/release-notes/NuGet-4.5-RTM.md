@@ -5,16 +5,26 @@ author: anangaur
 ms.author: anangaur
 ms.date: 12/4/2017
 ms.topic: conceptual
-ms.openlocfilehash: 01ecd8c7de1a0f713766e3c413d889038522bac7
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 321aedb471bc6f86e9c03878093b199267e31195
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548294"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432502"
 ---
-# <a name="nuget-45-rtm-release-notes"></a>Notes de publication de NuGet 4.5 RTM
+# <a name="nuget-45-release-notes"></a>Notes de publication de NuGet 4.5
 
 [Visual Studio 2017 15.5 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) est fourni avec [NuGet 4.5 RTM](https://dist.nuget.org/win-x86-commandline/v4.5.0/nuget.exe).
+
+## <a name="summary-whats-new-in-450"></a>Résumé : Nouveautés de la version 4.5.0
+
+## <a name="summary-whats-new-in-452"></a>Résumé : Nouveautés de la version 4.5.2
+
+* Correctif de sécurité : Les autorisations sur les fichiers créés dans ~/.nuget sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+
+## <a name="summary-whats-new-in-453"></a>Résumé : Nouveautés de la version 4.5.3
+
+* Correctif de sécurité : Les fichiers dans les NUPKG peuvent avoir un chemin relatif au-dessus du répertoire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -62,7 +72,7 @@ Pour plus d’informations sur les problèmes résolus dans NuGet 4.4 RTM, consu
 
 ### <a name="bugs"></a>Bogues
 
-- [Régression] dans 15.5p1 : Portable0.0 est ignoré - [#6105](https://github.com/NuGet/Home/issues/6105)
+- [Régression] dans 15.5p1 : Portable0.0 est ignoré - [#6105](https://github.com/NuGet/Home/issues/6105)
 - Les ressources des packages sont manquantes après restauration - [#5995](https://github.com/NuGet/Home/issues/5995)
 - Les fournisseurs d’informations d’identification de plug-in ne fonctionnent pas avec les URI contenant des espaces - [#5982](https://github.com/NuGet/Home/issues/5982)
 - Si la restauration de package a échoué, l’erreur devrait s’imprimer en sortie, même si le niveau de détail minimal est activé - [#5658](https://github.com/NuGet/Home/issues/5658)

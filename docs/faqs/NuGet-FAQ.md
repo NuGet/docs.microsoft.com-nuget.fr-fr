@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 01/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1c838116f9737b01ea3f9ca17f5d5002f6548044
-ms.sourcegitcommit: 85bf94e0efcfcee1f914650bdc142309ef3e06d9
+ms.openlocfilehash: 3b6257287c1f8c6345765e0a081bac11b34e05cb
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57196211"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432580"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -346,8 +346,8 @@ Effectuez les étapes mentionnées dans la section [Impossible d’utiliser la c
 ### <a name="unable-to-use-microsoft-login-how-do-i-recover-my-nugetorg-account"></a>Impossible d’utiliser la connexion Microsoft. Comment récupérer mon compte nuget.org ?
 
 Si vous avez essayé d’utiliser l’[aide relative à la connexion](#which-microsoft-account-is-linked-to-my-nugetorg-account) et que vous n’avez pas accès au compte Microsoft associé à votre compte nuget.org, effectuez les étapes ci-dessous pour lier un nouveau compte Microsoft à votre compte nuget.org.
-1. **Exigence** : Vous devez disposer d’un accès à un compte Microsoft (qui n’est associé à aucun compte nuget.org existant). Si vous n’en avez pas, vous pouvez en [créer](https://signup.live.com) un.
-2. Suivez les [étapes permettant de récupérer votre mot de passe de connexion](#how-to-recover-nugetorg-password-login). Si vous avez le mot de passe de connexion, ignorez cette étape.
+1. **Exigence** : Vous devez avoir accès à un compte Microsoft qui n’est associé à aucun compte nuget.org existant. Si vous n’en avez pas, vous pouvez en [créer](https://signup.live.com) un.
+2. Si vous avez oublié votre nom d’utilisateur et le mot de passe associés à votre compte nuget.org, suivez ces [étapes pour récupérer votre mot de passe de connexion](#how-to-recover-nugetorg-password-login).
 3. [Connectez-vous à nuget.org](https://www.nuget.org/users/account/LogOnNuGetAccount) à l’aide du nom d’utilisateur/mot de passe de connexion.
 4. Une fois que vous êtes connecté, une boîte de dialogue contextuelle semblable à celle ci-dessous s’affiche. Il s’agit de la boîte de dialogue de suspension du mot de passe.
 5. **REMARQUE** : Ignorez l’instruction de connexion avec le compte Microsoft spécifié. Vous pouvez maintenant lier votre compte nuget.org à n’importe quelle autre connexion Microsoft.

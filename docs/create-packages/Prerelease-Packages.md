@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d6925df63daf3096455a8205d6aeb07b4475f715
-ms.sourcegitcommit: 5c5f0f0e1f79098e27d9566dd98371f6ee16f8b5
+ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
+ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53645631"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58432450"
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
 
@@ -56,7 +56,7 @@ Par défaut, NuGet n’inclut pas de préversions dans le cadre de l’utilisati
 
 ## <a name="semantic-versioning"></a>Gestion sémantique des versions
 
-La [gestion sémantique des versions ou convention SemVer](http://semver.org/spec/v1.0.0.html) décrit la manière d’utiliser des chaînes dans les numéros de version pour qu’elles indiquent la signification du code sous-jacent.
+La [gestion sémantique de version ou convention SemVer](http://semver.org/spec/v1.0.0.html) décrit la manière d’utiliser des chaînes dans les numéros de version pour qu’elles indiquent la signification du code sous-jacent.
 
 Dans cette convention, chaque version se compose de trois parties, `Major.Minor.Patch`, avec la signification suivante :
 
