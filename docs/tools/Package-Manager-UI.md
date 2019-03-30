@@ -10,12 +10,12 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 1de6ddeca6295c621a90409807af198bc3c7a068
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981182"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637621"
 ---
 # <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
 
@@ -127,7 +127,7 @@ Pour gérer les sources de package :
 1. Pour modifier une source de package, sélectionnez-le, apporter des modifications dans le **nom** et **Source** cases, puis sélectionnez **mise à jour**.
 1. Pour désactiver une source de package, désactivez la case à gauche du nom dans la liste.
 1. Pour supprimer une source de package, sélectionnez-le, puis le **X** bouton.
-1. Utilisez le haut et flèche bas pour modifier l’ordre de priorité des sources de package. Visual Studio recherche ces sources dans l’ordre de priorité lors de la restauration des packages pour un projet. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md).
+1. À l’aide de haut et flèche vers le bas les boutons ne changent pas l’ordre de priorité des sources de package. Visual Studio ignore l’ordre des sources de packages, utilise le package à partir de la première source à répondre aux demandes. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md).
 
 > [!Tip]
 > Si une source de package s’affiche de nouveau après l’avoir supprimée, devrait être répertoriée dans au niveau de l’ordinateur ou le niveau de l’utilisateur `NuGet.Config` fichiers. Consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md) pour l’emplacement de ces fichiers, puis supprimer la source en modifiant les fichiers manuellement ou en utilisant le [nuget sources commande](../tools/nuget-exe-CLI-reference.md).

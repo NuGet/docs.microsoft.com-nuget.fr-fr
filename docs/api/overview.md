@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5d0d60cbcf6516d24efeb04f8262902da69d92d1
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: bb15b4decef104f1aefe37fd18f3358181a848af
+ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145655"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58637660"
 ---
 # <a name="nuget-api"></a>API NuGet
 
@@ -49,17 +49,18 @@ Modifications des protocoles sans rupture ont été apportées à l’API depuis
 
 Le **index de service** décrit une variété de ressources. L’ensemble actuel des ressources prises en charge sont les suivantes :
 
-Nom de la ressource                                                          | Obligatoire | Description
----------------------------------------------------------------------- | -------- | -----------
-[`PackagePublish`](package-publish-resource.md)                        | oui      | Push et supprimer ou retirer de la liste packages.
-[`SearchQueryService`](search-query-service-resource.md)               | oui      | Filtrer et rechercher des packages par mot clé.
-[`RegistrationsBaseUrl`](registration-base-url-resource.md)            | oui      | Obtenir les métadonnées de package.
-[`PackageBaseAddress`](package-base-address-resource.md)               | oui      | Obtenir le contenu du package (fichier .nupkg).
-[`SearchAutocompleteService`](search-autocomplete-service-resource.md) | Non       | Découvrir les ID de package et les versions à la sous-chaîne.
-[`ReportAbuseUriTemplate`](report-abuse-resource.md)                   | Non       | Construire une URL pour accéder à une page web de « signaler un abus ».
-[`RepositorySignatures`](repository-signatures-resource.md)            | Non       | Obtenir les certificats utilisés pour la signature du référentiel.
-[`Catalog`](catalog-resource.md)                                       | Non       | Enregistrement complet de tous les événements de package.
-[`SymbolPackagePublish`](symbol-package-publish-resource.md)           | Non       | Envoyez des packages de symboles.
+Nom de la ressource                                                        | Obligatoire | Description
+-------------------------------------------------------------------- | -------- | -----------
+[Catalogue](catalog-resource.md)                                       | Non       | Enregistrement complet de tous les événements de package.
+[PackageBaseAddress](package-base-address-resource.md)               | oui      | Obtenir le contenu du package (fichier .nupkg).
+[PackageDetailsUriTemplate](package-details-template-resource.md)    | Non       | Construire une URL pour accéder à une page web de détails du package.
+[PackagePublish](package-publish-resource.md)                        | oui      | Push et supprimer ou retirer de la liste packages.
+[RegistrationsBaseUrl](registration-base-url-resource.md)            | oui      | Obtenir les métadonnées de package.
+[ReportAbuseUriTemplate](report-abuse-resource.md)                   | Non       | Construire une URL pour accéder à une page web d’abus état.
+[RepositorySignatures](repository-signatures-resource.md)            | Non       | Obtenir les certificats utilisés pour la signature du référentiel.
+[SearchAutocompleteService](search-autocomplete-service-resource.md) | Non       | Découvrir les ID de package et les versions à la sous-chaîne.
+[SearchQueryService](search-query-service-resource.md)               | oui      | Filtrer et rechercher des packages par mot clé.
+[SymbolPackagePublish](symbol-package-publish-resource.md)           | Non       | Envoyez des packages de symboles.
 
 En règle générale, toutes les données non binaires renvoyées par une ressource d’API sont sérialisées à l’aide de JSON. Le schéma de réponse retourné par chaque ressource dans l’index de service est défini individuellement pour cette ressource. Pour plus d’informations sur chaque ressource, consultez les rubriques répertoriées ci-dessus.
 
@@ -118,12 +119,14 @@ Dans le cas d’un code d’état de niveau 500, le client peut implémenter un 
 
 ## <a name="http-request-headers"></a>En-têtes de requête HTTP
 
-Name                     | Description
+Nom                     | Description
 ------------------------ | -----------
 X-NuGet-ApiKey           | Obligatoire pour les push et delete, consultez [ `PackagePublish` ressource](package-publish-resource.md)
 X-NuGet-Client-Version   | **Déconseillé** et remplacée par `X-NuGet-Protocol-Version`
 X-NuGet-Protocol-Version | Obligatoire dans certains cas que sur nuget.org, voir [protocoles nuget.org](NuGet-Protocols.md)
-X-NuGet-Session-Id       | *Facultatif*. NuGet clients version 4.7 + identifient les requêtes HTTP qui font partie de la même session de client NuGet. Pour `PackageReference` il les opérations de restauration est un id de session unique, pour d’autres scénarios tels que de saisie semi-automatique, et `packages.config` restauration qu’il peut y avoir plusieurs différents id de session en raison de la façon dont le code est pris en compte.
+X-NuGet-Session-Id       | *Facultatif*. NuGet clients version 4.7 + identifient les requêtes HTTP qui font partie de la même session de client NuGet.
+
+Le `X-NuGet-Session-Id` a une valeur unique pour toutes les opérations liées à une restauration unique dans `PackageReference`. Pour d’autres scénarios tels que la saisie semi-automatique et `packages.config` restauration qu’il peut y avoir plusieurs autre session ID en raison de la façon dont le code est pris en compte.
 
 ## <a name="authentication"></a>Authentification
 
