@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 2d2b20c1ea439ec0a3225cf983d9a4d2eedb0333
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: fdc3ad8aa239a42d8a4c169a757715e856bdcb41
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324758"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911047"
 ---
 # <a name="autocomplete"></a>Saisie semi-automatique
 
@@ -45,13 +45,13 @@ Un package avec uniquement les versions non listées n’apparaîtra pas dans le
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name        | Vers l'avant     | Type    | Obligatoire | Notes
+Nom        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | chaîne  | Non       | La chaîne à comparer à l’ID de package
+q           | URL    | string  | Non       | La chaîne à comparer à l’ID de package
 skip        | URL    | entiers | Non       | Le nombre de résultats à ignorer, pour la pagination
 Take        | URL    | entiers | Non       | Le nombre de résultats à retourner pour la pagination
 version préliminaire  | URL    | boolean | Non       | `true` ou `false` déterminer s’il faut inclure [packages de préversion](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | chaîne  | Non       | Une chaîne de version SemVer 1.0.0 
+semVerLevel | URL    | string  | Non       | Une chaîne de version SemVer 1.0.0 
 
 La requête de la saisie semi-automatique `q` est analysé d’une manière qui est définie par l’implémentation du serveur. NuGet.org prend en charge l’interrogation d’origine pour le préfixe de jetons d’ID de package, qui sont des éléments de l’ID de produit par fractionnement par des caractères de cas et le symbole mixte.
 
@@ -71,7 +71,7 @@ La réponse est document JSON contenant jusqu'à `take` les résultats de la sai
 
 L’objet JSON racine a les propriétés suivantes :
 
-Name      | Type             | Obligatoire | Notes
+Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
 totalHits | entiers          | oui      | Le nombre total de correspondances, en ignorant `skip` et `take`
 Données      | tableau de chaînes | oui      | Les ID mis en correspondance par la demande de package
@@ -94,11 +94,11 @@ Une version de package n’est pas répertoriée n’apparaîtra pas dans les r�
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name        | Vers l'avant     | Type    | Obligatoire | Notes
+Nom        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
-ID          | URL    | chaîne  | oui      | L’ID de package pour extraire les versions pour
+ID          | URL    | string  | oui      | L’ID de package pour extraire les versions pour
 version préliminaire  | URL    | boolean | Non       | `true` ou `false` déterminer s’il faut inclure [packages de préversion](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | chaîne  | Non       | Une chaîne de version SemVer 2.0.0 
+semVerLevel | URL    | string  | Non       | Une chaîne de version SemVer 2.0.0 
 
 Si `prerelease` n’est pas fourni, packages de préversion sont exclus.
 
@@ -110,11 +110,11 @@ La réponse est un document JSON contenant toutes les versions de package de l�
 
 L’objet JSON racine a la propriété suivante :
 
-Name      | Type             | Obligatoire | Notes
+Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
 Données      | tableau de chaînes | oui      | Les versions de package correspondance à la demande
 
-Les versions de package dans le `data` tableau peut contenir des métadonnées de build de SemVer 2.0.0 (par exemple, `1.0.0+metadata`) si le `semVerLevel=2.0.0` a été fourni dans la chaîne de requête.
+Les versions de package dans le `data` tableau peut-être contenir des métadonnées de build de SemVer 2.0.0 (par exemple, `1.0.0+metadata`) si le `semVerLevel=2.0.0` est fourni dans la chaîne de requête.
 
 ### <a name="sample-request"></a>Exemple de demande
 

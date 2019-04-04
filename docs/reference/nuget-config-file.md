@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: c294e4c188db2e90e6bcb62b60f71ed5529977fe
-ms.sourcegitcommit: a1846edf70ddb2505d58e536e08e952d870931b0
+ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
+ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52303517"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58911086"
 ---
-# <a name="nugetconfig-reference"></a>référence sur NuGet.config
+# <a name="nugetconfig-reference"></a>nuget.config reference
 
 Le comportement de NuGet est contrôlé par des paramètres dans différents fichiers `NuGet.Config` comme décrit dans [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
-`nuget.config` est un fichier XML contenant un nœud `<configuration>` de niveau supérieur qui comprend à son tour les éléments de section décrits dans cette rubrique. Chaque section contient zéro ou plusieurs éléments. Consultez [l’exemple de fichier config](#example-config-file). Les noms de paramètre ne respectent pas la casse et les valeurs peuvent utiliser des [variables d’environnement](#using-environment-variables).
+`nuget.config` est un fichier XML contenant un niveau supérieur `<configuration>` nœud qui contient les éléments de section décrits dans cette rubrique. Chaque section contient zéro ou plusieurs éléments. Consultez [l’exemple de fichier config](#example-config-file). Les noms de paramètre ne respectent pas la casse et les valeurs peuvent utiliser des [variables d’environnement](#using-environment-variables).
 
 Dans cette rubrique :
 
@@ -221,7 +221,7 @@ Identifie les sources actuellement désactivées. Peut être vide.
 
 ### <a name="activepackagesource"></a>activePackageSource
 
-*(2.x uniquement ; déprécié dans 3.x+)*
+*(2.x uniquement ; déprécié dans 3.x +)*
 
 Identifie la source actuellement active ou indique l’agrégat de toutes les sources.
 
