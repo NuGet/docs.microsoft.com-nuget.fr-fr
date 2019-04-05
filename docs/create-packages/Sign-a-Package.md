@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: e8955f9d46bab235c8755d5654814a4291d542d6
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8ff92e5a3ab2d5c13ee02a9e49709866e2ac0e87
+ms.sourcegitcommit: 8793f528a11bd8e8fb229cd12e9abba50d61e104
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977561"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58921570"
 ---
 # <a name="signing-nuget-packages"></a>Signature de packages NuGet
 
@@ -29,7 +29,7 @@ Vous pouvez utiliser des certificats auto-émis à des fins de test. Cependant, 
 
   ![Assistant Exportation de certificat](../reference/media/CertificateExportWizard.png)
 
-* Vous pouvez également exporter le certificat avec la [commande PowerShell Export-Certificate](/powershell/module/pkiclient/export-certificate.md).
+* Vous pouvez également exporter le certificat avec la [commande PowerShell Export-Certificate](/powershell/module/pkiclient/export-certificate).
 
 ## <a name="sign-the-package"></a>Signer le package
 
@@ -39,8 +39,11 @@ Vous pouvez utiliser des certificats auto-émis à des fins de test. Cependant, 
 Signez le package avec [nuget sign](../tools/cli-ref-sign.md) :
 
 ```cli
-nuget sign MyPackage.nupkg -CertificateFilePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
+nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper <TimestampServiceURL>
 ```
+
+> [!Tip]
+> Le fournisseur de certificats fournit souvent l’URL d’un serveur d’horodatage que vous pouvez utiliser pour l’argument facultatif `Timestamper` indiqué ci-dessus. Consultez la documentation et/ou contactez le support de votre fournisseur pour obtenir cette URL de service.
 
 * Vous pouvez utiliser un certificat disponible dans le magasin de certificats ou utiliser un certificat provenant d’un fichier. Consultez les informations de référence sur CLI pour [nuget sign](../tools/cli-ref-sign.md).
 * Les packages signés doivent inclure un horodatage pour vérifier que la signature est valide après expiration du certificat de signature. Sinon, l’opération de signature produit un [avertissement](../reference/errors-and-warnings/NU3002.md).
@@ -67,7 +70,7 @@ Vous êtes maintenant prêt à publier le package sur NuGet.org. Consultez [Publ
 
 ## <a name="create-a-test-certificate"></a>Créer un certificat de test
 
-Vous pouvez utiliser des certificats auto-émis à des fins de test. Pour créer un certificat auto-émis, utilisez la [commande PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate.md).
+Vous pouvez utiliser des certificats auto-émis à des fins de test. Pour créer un certificat auto-émis, utilisez la [commande PowerShell New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate).
 
 ```ps
 New-SelfSignedCertificate -Subject "CN=NuGet Test Developer, OU=Use for testing purposes ONLY" `
