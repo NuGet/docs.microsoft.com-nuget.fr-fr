@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/29/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 21678cc36fd9bf1ed49143bee3f35208640fc8a7
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: ebb1dd929042a1fcd269d0ac50154ae6b8234be2
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637647"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59509099"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -84,11 +84,13 @@ URL de la page d’accueil du package, souvent affichée dans l’interface util
 
 URL de la licence du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org.
 #### <a name="license"></a>licence
-Expression de licence SPDX ou chemin d’accès à un fichier de licence dans le package, souvent affiché dans l’interface utilisateur, ainsi que sur nuget.org. Si vous activez votre licence du package sous une licence courants tels que BSD-2-Clause ou MIT, utilisez l’identificateur de licence SPDX associé.<br>Par exemple :`<license type="expression">MIT</license>`
+Expression de licence SPDX ou chemin d’accès à un fichier de licence dans le package, souvent affiché dans l’interface utilisateur, ainsi que sur nuget.org. Si vous activez votre licence du package sous une licence courants tels que BSD-2-Clause ou MIT, utilisez l’identificateur de licence SPDX associé.<br>Exemple :
+`<license type="expression">MIT</license>`
 
 Voici la liste complète des [identificateurs de licence SPDX](https://spdx.org/licenses/). NuGet.org n’accepte que les licences approuvées OSI et FSF avec une expression de type licence.
 
-Si votre package est concédé sous licence selon plusieurs licences courantes, vous pouvez spécifier une licence composite à l’aide de la [SPDX version 2.0 de la syntaxe expression](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Par exemple :`<license type="expression">BSD-2-Clause OR MIT</license>`
+Si votre package est concédé sous licence selon plusieurs licences courantes, vous pouvez spécifier une licence composite à l’aide de la [SPDX version 2.0 de la syntaxe expression](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60).<br>Exemple :
+`<license type="expression">BSD-2-Clause OR MIT</license>`
 
 Si vous utilisez une licence qui n’a pas été attribuée à un identificateur SPDX, ou il s’agit d’une licence personnalisée, vous pouvez empaqueter un fichier (uniquement `.txt` ou `.md`) avec le texte de la licence. Exemple :
 ```xml
@@ -159,7 +161,7 @@ Collection de zéro ou plusieurs éléments `<dependency>` spécifiant les dépe
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
 *(1.2 +)* Collection de zéro ou plusieurs éléments `<frameworkAssembly>` identifiant les références d’assembly .NET Framework nécessaires à ce package, ce qui garantit que les références sont ajoutées à des projets utilisant le package. Chaque élément frameworkAssembly a des attributs *assemblyName* et *targetFramework*. Consultez [Références d’assembly Framework](#specifying-framework-assembly-references-gac) ci-dessous. |
 #### <a name="references"></a>Références
-*(1.5+)* Collection de zéro ou plusieurs éléments `<reference>` nommant des assemblys dans le dossier `lib` du package qui sont ajoutés en tant que références de projet. Chaque référence a un attribut *file*. `<references>` peut également contenir un élément `<group>` avec un attribut *targetFramework* qui contient à son tour des éléments `<reference>`. Si cet élément est omis, toutes les références dans `lib` sont incluses. Consultez [Références d’assembly explicite](#specifying-explicit-assembly-references) ci-dessous.
+*(1.5+)* Collection de zéro ou plusieurs éléments `<reference>` nommant des assemblys dans le dossier `lib` du package qui sont ajoutés en tant que références de projet. Chaque référence a un attribut *file*. `<references>` peut également contenir un `<group>` élément avec un *targetFramework* attribut, qui contient alors `<reference>` éléments. Si cet élément est omis, toutes les références dans `lib` sont incluses. Consultez [Références d’assembly explicite](#specifying-explicit-assembly-references) ci-dessous.
 #### <a name="contentfiles"></a>contentFiles
 *(3.3+)* Collection d’éléments `<files>` qui identifient les fichiers de contenu à inclure dans le projet de consommation. Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comment ils doivent être utilisés dans le système de projet. Consultez [Inclusion des fichiers d’assembly](#specifying-files-to-include-in-the-package) ci-dessous.
 #### <a name="files"></a>fichiers  
@@ -257,7 +259,7 @@ Remarque : Lorsque vous créez un `.nuspec` à partir d’un projet `nuget spec
 
 ### <a name="dependency-groups"></a>Groupes de dépendances
 
-*Version 2.0+*
+*Version 2.0 et versions ultérieures*
 
 Comme alternative à une liste plate unique, les dépendances peuvent être spécifiées selon le profil de framework du projet cible avec les éléments `<group>` dans `<dependencies>`.
 
@@ -401,7 +403,7 @@ Chaque élément `<file>` spécifie les attributs suivants :
     Packaged result:
         lib\library.dll
 
-**Assembly unique spécifique à une version cible de .NET Framework**
+**Assembly unique spécifique à un framework cible**
 
     Source file:
         library.dll
@@ -412,7 +414,7 @@ Chaque élément `<file>` spécifie les attributs suivants :
     Packaged result:
         lib\net40\library.dll
 
-**Ensemble de DLL avec un caractère générique**
+**Ensemble de DLL à l’aide d’un caractère générique**
 
     Source files:
         bin\release\libraryA.dll
@@ -498,7 +500,7 @@ Pour les fichiers de contenu, utilisez simplement le même format que pour les f
         content\css\mobile\wp7\style.css
         content\css\browser\style.css
 
-**Fichier de contenu spécifique à une version cible de .NET Framework**
+**Fichier de contenu spécifique à un framework cible**
 
     Source file:
         css\cool\style.css
@@ -509,7 +511,7 @@ Pour les fichiers de contenu, utilisez simplement le même format que pour les f
     Packaged result:
         content\style.css
 
-**Fichier de contenu copié vers un dossier avec un point dans le nom**
+**Copié vers un dossier avec un point dans le nom de fichier de contenu**
 
 Dans ce cas, NuGet détecte que l’extension dans `target` ne correspond pas à l’extension dans `src` et traite par conséquent cette partie du nom dans `target` en tant que dossier :
 
@@ -550,7 +552,7 @@ Dans ce cas, étant donné que les extensions de fichier de la source et de la c
     Packaged result:
         content\css\cool\style.css
 
-**Modification du nom d’un fichier de contenu dans le package**
+**Renommer un fichier de contenu dans le package**
 
     Source file:
         ie\css\style.css
@@ -593,7 +595,7 @@ Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comm
 | **exclude** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **buildAction** | Action de génération à affecter à l’élément de contenu pour MSBuild, comme `Content`, `None`, `Embedded Resource`, `Compile`, etc. La valeur par défaut est `Compile`. |
 | **copyToOutput** | Valeur booléenne indiquant s’il faut copier des éléments de contenu à la build (ou publiez) dossier de sortie. La valeur par défaut est false. |
-| **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |
+| **aplatir** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |
 
 Lors de l’installation d’un package, NuGet applique les éléments enfants de `<contentFiles>` de haut en bas. Si plusieurs entrées correspondent au même fichier, toutes les entrées sont appliquées. L’entrée supérieure remplace les entrées inférieures s’il existe un conflit pour le même attribut.
 
@@ -603,8 +605,8 @@ Le projet de package doit structurer le contenu à l’aide du modèle suivant :
 
     /contentFiles/{codeLanguage}/{TxM}/{any?}
 
-- `codeLanguages` peut être `cs`, `vb`, `fs`, `any`, ou l’équivalent en minuscules d’un élément `$(ProjectLanguage)` donné.
-- `TxM` est n’importe quel moniker du Framework cible légal pris en charge par NuGet (consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md)).
+- `codeLanguages` peut être `cs`, `vb`, `fs`, `any`, ou l’équivalent en minuscule d’une donnée `$(ProjectLanguage)`
+- `TxM` est n’importe quel moniker du framework cible légal qui prend en charge de NuGet (consultez [cibles de .NET Framework](../reference/target-frameworks.md)).
 - Toute structure de dossiers peut être ajoutée à la fin de cette syntaxe.
 
 Exemple :
@@ -647,7 +649,7 @@ Les dossiers vides peuvent utiliser `.` pour choisir de ne pas fournir de conten
 
 ## <a name="example-nuspec-files"></a>Exemples de fichiers nuspec
 
-**Fichier `.nuspec` simple qui ne spécifie pas de dépendances ni de fichiers**
+**Une simple `.nuspec` qui ne spécifie pas de dépendances ou des fichiers**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -664,7 +666,7 @@ Les dossiers vides peuvent utiliser `.` pour choisir de ne pas fournir de conten
 </package>
 ```
 
-**Fichier `.nuspec` avec des dépendances**
+**Un `.nuspec` avec des dépendances**
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -681,7 +683,7 @@ Les dossiers vides peuvent utiliser `.` pour choisir de ne pas fournir de conten
 </package>
 ```
 
-**Fichier `.nuspec` avec des fichiers**
+**Un `.nuspec` avec des fichiers**
 
 ```xml
 <?xml version="1.0"?>
@@ -699,7 +701,7 @@ Les dossiers vides peuvent utiliser `.` pour choisir de ne pas fournir de conten
 </package>
 ```
 
-**Fichier `.nuspec` avec des assemblys Framework**
+**Un `.nuspec` avec des assemblys de framework**
 
 ```xml
 <?xml version="1.0"?>
@@ -726,7 +728,6 @@ Les dossiers vides peuvent utiliser `.` pour choisir de ne pas fournir de conten
 Dans cet exemple, les éléments suivants sont installés pour les cibles de projets spécifiques :
 
 - .NET4 -> `System.Web`, `System.Net`
-- .NET4 Client Profile -> `System.Net`
+- . NET4 -> de profil Client `System.Net`
 - Silverlight 3 -> `System.Json`
-- Silverlight 4 -> `System.Windows.Controls.DomainServices`
 - WindowsPhone -> `Microsoft.Devices.Sensors`
