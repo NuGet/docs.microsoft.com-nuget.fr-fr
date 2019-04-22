@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8f96bf289e8121fd25262fb95c2f36dfc89045c5
-ms.sourcegitcommit: 9f94e00428d83aef4a7a87db679129eff7720c59
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58911034"
 ---
 # <a name="nuget-client-sdk"></a>SDK du Client NuGet
@@ -31,7 +31,7 @@ Vous trouverez des exemples et documentation pour certaines API dans la série d
 
 - [Explorer les bibliothèques NuGet v3, partie 1 : Présentation et concepts](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-1)
 - [Explorer les bibliothèques NuGet v3, partie 2 : Recherche des packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-2)
-- [Explorer les bibliothèques NuGet v3, partie 3 : Installation de packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
+- [Explorer les bibliothèques NuGet v3, partie 3 : Installation des packages](http://daveaglick.com/posts/exploring-the-nuget-v3-libraries-part-3)
 
 > [!Note]
 > Ces billets de blog ont été écrits peu après le **3.4.3** version de NuGet packages du Kit de développement logiciel client ont été publiées.
