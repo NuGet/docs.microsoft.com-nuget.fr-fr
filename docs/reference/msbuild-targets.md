@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8132595cbfaf553736fbcc81aada283a44d6cdbf
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1e89aeb46f2538d46c013561a51a41702b2472d8
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324849"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59932097"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -322,7 +322,7 @@ Voici un exemple :
 
 1. Lire toutes les références entre projets
 1. Lire les propriétés du projet pour trouver le dossier intermédiaire et les versions cibles de .NET Framework
-1. Passer des données msbuild à NuGet.Build.Tasks.dll
+1. Passer des données MSBuild à NuGet.Build.Tasks.dll
 1. Exécuter la restauration
 1. Télécharger les packages
 1. Écrire le fichier de ressources, les cibles et les propriétés
@@ -341,9 +341,14 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 | RestoreConfigFile | Chemin à un fichier `Nuget.Config` à appliquer. |
 | RestoreNoCache | Si la valeur est true, permet d’éviter l’utilisation de packages de mise en cache. Consultez [gérer les packages globaux et les dossiers de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md). |
 | RestoreIgnoreFailedSources | Si la valeur est true, ignore les sources de packages défectueuses ou manquantes. |
+| RestoreFallbackFolders | Dossiers de secours, utilisé dans la même façon les packages utilisateur dossier est utilisé. |
+| RestoreAdditionalProjectSources | Sources supplémentaires à utiliser pendant la restauration. |
+| RestoreAdditionalProjectFallbackFolders | Dossiers de secours supplémentaires à utiliser pendant la restauration. |
+| RestoreAdditionalProjectFallbackFoldersExcludes | Exclut les dossiers de secours spécifiés dans `RestoreAdditionalProjectFallbackFolders` |
 | RestoreTaskAssemblyFile | Chemin d’accès à `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Liste de projets à restaurer séparés par un point-virgule, qui doit contenir des chemins absolus. |
-| RestoreOutputPath | Dossier de sortie qui est par défaut le dossier `obj`. |
+| RestoreUseSkipNonexistentTargets  | Lorsque les projets sont collectées par le biais de MSBuild, il détermine si elles sont collectées à l’aide de la `SkipNonexistentTargets` l’optimisation. Si ne pas la valeur, valeur par défaut est `true`. La conséquence est un comportement d’échec rapide lorsque les cibles d’un projet ne peut pas être importés. |
+| MSBuildProjectExtensionsPath | Dossier de sortie, la valeur par défaut : `BaseIntermediateOutputPath` et `obj` dossier. |
 
 #### <a name="examples"></a>Exemples
 
@@ -370,6 +375,23 @@ La restauration crée les fichiers suivants dans le dossier `obj` de build :
 | `project.assets.json` | Contient le graphique de dépendance de toutes les références de package. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Références à des propriétés MSBuild contenues dans des packages |
 | `{projectName}.projectFileExtension.nuget.g.targets` | Références à des cibles MSBuild contenues dans des packages |
+
+### <a name="restoring-and-building-with-one-msbuild-command"></a>Restauration et la création d’une commande MSBuild
+
+Dû au fait que NuGet peut restaurer des packages capables de réduire les propriétés et des cibles de MSBuild, la restauration et les évaluations de build sont exécutées avec des propriétés globales différentes.
+Cela signifie que les éléments suivants ont un comportement imprévisible et souvent incorrect.
+
+```cli
+msbuild -t:restore,build
+```
+
+ Au lieu de cela, l’approche recommandée est :
+
+```cli
+msbuild -t:build -restore
+```
+
+La même logique s’applique aux autres cibles similaire à `build`.
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 

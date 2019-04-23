@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: adf97196f50f2a55d6b8ceed93d53ff12b67657b
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
+ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145629"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59931993"
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (CLI NuGet)
 
