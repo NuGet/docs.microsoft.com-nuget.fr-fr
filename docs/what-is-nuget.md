@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/10/2018
 ms.topic: overview
-ms.openlocfilehash: d688aecaa73cecbfee184e3b13801ed22326a852
-ms.sourcegitcommit: ffbdf147f84f8bd60495d3288dff9a5275491c17
+ms.openlocfilehash: 87f7494ea97a4fa65be04b2692d7b894938c3fe5
+ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51580322"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59509124"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
@@ -82,7 +82,7 @@ L’ordinateur qui reçoit un projet, par exemple un serveur de builds obtenant 
 
 Le rôle principal de NuGet pour les développeurs est clairement de gérer cette liste de références pour le compte de votre projet, et de fournir les moyens de restaurer efficacement (et de mettre à jour) les packages référencés. Cette liste est gérée dans un des deux *formats de gestion des packages*, nommés :
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0+)* Un fichier XML qui gère une liste plate de toutes les dépendances du projet, y compris les dépendances des autres packages installés. Les packages installés ou restaurés sont stockés dans un dossier `packages`.
+- [`packages.config`](reference/packages-config.md) : *(NuGet 1.0+)* Fichier XML qui gère une liste plate de toutes les dépendances du projet, notamment les dépendances des autres packages installés. Les packages installés ou restaurés sont stockés dans un dossier `packages`.
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (ou « Références des packages dans les fichiers projet ») : *(NuGet 4.0+)* Gère la liste des dépendances de niveau supérieur d’un projet directement dans le fichier projet ; aucun fichier distinct n’est nécessaire. Un fichier associé, `obj/project.assets.json`, est généré dynamiquement pour gérer le graphique de dépendance global des packages utilisés par un projet, ainsi que toutes les dépendances de bas niveau. PackageReference est toujours utilisé par les projets .NET Core.
 
