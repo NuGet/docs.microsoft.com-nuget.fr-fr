@@ -7,7 +7,7 @@ ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5bdd2aa5621eead9ce79794052663cc2f8a63d45
 ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 09/04/2018
 ms.locfileid: "43549520"
@@ -47,7 +47,7 @@ Il existe un nombre de correctifs aux problèmes rencontrés par les différente
 
 * Commande push n’effectue plus une commande GET avant une opération PUT sur une source de package - [1237](https://github.com/NuGet/Home/issues/1237)
 * Liste commande répète ne sont plus des numéros de version - [1185](https://github.com/NuGet/Home/issues/1185)
-* Pack avec-argument build désormais correctement prend en charge c# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
+* Pack avec-argument build désormais correctement prend en charge C# 6.0 - [1107](https://github.com/NuGet/Home/issues/1107)
 * Problèmes corrigés, tentative de compression d’un projet F # généré avec Visual Studio 2015 - [1048](https://github.com/NuGet/Home/issues/1048)
 * Restaurer maintenant ne fait rien, lorsqu’il existe déjà des packages - [1040](https://github.com/NuGet/Home/issues/1040)
 * Messages d’erreur amélioré quand `packages.config` fichier est incorrect - [1034](https://github.com/NuGet/Home/issues/1034)
