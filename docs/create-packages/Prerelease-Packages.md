@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 150fc61e51fe10622fe6b369b60dfc61a9ac916f
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
+ms.openlocfilehash: 696f51905198defdbfd475ba7d010ac3e27ac557
+ms.sourcegitcommit: 3fc93f7a64be040699fe12125977dd25a7948470
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432450"
+ms.lasthandoff: 04/29/2019
+ms.locfileid: "64877941"
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
 
@@ -22,7 +22,7 @@ Une version stable est une version considérée comme suffisamment fiable pour �
 
 Pour prendre en charge le cycle de vie de publication du logiciel, NuGet 1.6 et ultérieur permet de distribuer des packages en préversion, où le numéro de version inclut un suffixe de gestion des versions sémantique comme `-alpha`, `-beta` ou `-rc`. Pour plus d’informations, consultez [Gestion des versions de package](../reference/package-versioning.md#pre-release-versions).
 
-Vous pouvez spécifier ces versions de deux manières :
+Vous pouvez spécifier ces versions de trois façons :
 
 - Fichier `.nuspec` : incluez le suffixe de version sémantique dans l’élément `version` :
 
@@ -30,7 +30,15 @@ Vous pouvez spécifier ces versions de deux manières :
     <version>1.0.1-alpha</version>
     ```
 
-- Attributs d’assembly : lors de la création d’un package à partir d’un projet Visual Studio (`.csproj` ou `.vbproj`), utilisez `AssemblyInformationalVersionAttribute` pour spécifier la version :
+- Fichier `.csproj` : incluez le suffixe de version sémantique dans l’élément `PackageVersion` :
+
+    ```xml
+    <PropertyGroup>
+        <PackageVersion>1.0.1-alpha</PackageVersion>
+    </PropertyGroup>
+    ```
+
+- Attributs d’assembly : spécifiez la version avec `AssemblyInformationalVersionAttribute` :
 
     ```cs
     [assembly: AssemblyInformationalVersion("1.0.1-beta")]
