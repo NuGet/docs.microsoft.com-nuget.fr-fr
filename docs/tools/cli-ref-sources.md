@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7ef856f783c8e11cdb40edb0d1c1458730d87262
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 94134b87f83e057d5d11a2722d9067fb76cc8e21
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548106"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610624"
 ---
 # <a name="sources-command-nuget-cli"></a>sources (commande, NuGet CLI)
 
@@ -26,7 +26,7 @@ Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-où `<operation>` est un des *liste, ajouter, supprimer, activer, désactiver,* ou *mise à jour*, `<name>` est le nom de la source, et `<source>` est l’URL de la source.
+où `<operation>` est un des *liste, ajouter, supprimer, activer, désactiver,* ou *mise à jour*, `<name>` est le nom de la source, et `<source>` est l’URL de la source. Vous pouvez utiliser qu’une seule source à la fois.
 
 ## <a name="options"></a>Options
 
@@ -54,7 +54,7 @@ nuget sources Add -Name "MyServer" -Source \\myserver\packages
 
 nuget sources Disable -Name "MyServer"
 
-nuget source Enable -Name "nuget.org"
+nuget sources Enable -Name "nuget.org"
 
 nuget sources add -name foo.bar -source C:\NuGet\local -username foo -password bar -StorePasswordInClearText -configfile %AppData%\NuGet\my.config
 ```

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c74a128c87a7700232a4fbddb73ff7c8f1984a29
-ms.sourcegitcommit: 885973352d31808e3ddbb45da6d6e54d1e4fca9d
+ms.openlocfilehash: 0b2a4fe45d0311b7540c73b481d6821357c723af
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56224955"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610650"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -32,7 +32,7 @@ Un framework est généralement référencé par un moniker du Framework cible o
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 
-| Name | Abréviation | TFMs/TxMs |
+| Nom | Abréviation | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -48,6 +48,7 @@ Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. 
 | | | net47 |
 | | | net471 |
 | | | net472 |
+| | | net48 |
 |Microsoft Store (Windows Store) | netcore | netcore [netcore45] |
 | | | netcore45 [win, win8] |
 | | | netcore451 [win81] |
@@ -80,6 +81,7 @@ Application .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
+| | | netcoreapp2.2 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -280,7 +282,7 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
 
 De plus, les packages NuGet ciblant Xamarin peuvent utiliser d’autres frameworks définis par Xamarin. Consultez [Création de packages NuGet pour Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Name | Description | .NET Standard |
+| Nom | Description | .NET Standard |
 | --- | --- | ---
 | monoandroid | Prise en charge mono pour le système d’exploitation Android | netstandard1.4 |
 | monotouch | Prise en charge mono pour iOS | netstandard1.4 |
