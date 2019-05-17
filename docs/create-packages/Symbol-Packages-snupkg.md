@@ -16,12 +16,12 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 43f346dc64ebbc59d02b9c7875b04205d8c5d83a
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 18d54e28d77f2bdcfea70ff9ae9def05278cb26c
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852440"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610557"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
@@ -54,7 +54,7 @@ Si vous choisissez dotnet.exe ou MSBuild, effectuez les étapes suivantes pour c
 
 1. Compressez votre projet avec `dotnet pack MyPackage.csproj` ou `msbuild -t:pack MyPackage.csproj`.
 
-La propriété `SymbolPackageFormat` peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si la propriété `SymbolPackageFormat` n’est pas spécifiée, la valeur par défaut est `symbols.nupkg`, et un package de symboles hérité est créé.
+La propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si la propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) n’est pas spécifiée, un package de symboles hérité est créé.
 
 > [!Note]
 > Le format hérité `.symbols.nupkg` est toujours pris en charge, mais uniquement pour des raisons de compatibilité (consultez [Packages de symboles hérités](Symbol-Packages.md)). Le serveur de symboles NuGet.org accepte uniquement le nouveau format de package de symboles - `.snupkg`.
@@ -80,6 +80,9 @@ La propriété `SymbolPackageFormat` peut avoir l’une des deux valeurs suivant
     ```
 
 NuGet publie les deux packages sur nuget.org. `MyPackage.nupkg` sera publié en premier, suivi de `MyPackage.snupkg`.
+
+> [!Note]
+> Si le package de symboles n’est pas publié, vérifiez que vous avez configuré la source NuGet.org comme `https://api.nuget.org/v3/index.json`. La publication du package de symboles est uniquement prise en charge par [l’API NuGet V3](../api/overview.md#versioning).
 
 ## <a name="nugetorg-symbol-server"></a>Serveur de symboles NuGet.org
 

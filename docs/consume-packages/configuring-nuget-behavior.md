@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: c23b464ca39fd8d872f21846a7d6d34edf9dce93
-ms.sourcegitcommit: 1bd72dca2f85b4267b9924236f1d23dd7b0ed733
+ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
+ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50088915"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65610570"
 ---
 # <a name="configuring-nuget-behavior"></a>Configuration du comportement de NuGet
 
@@ -186,13 +186,13 @@ Fichier D. disk_drive_2/Project2/NuGet.Config :
 
 Ensuite, NuGet charge et applique les paramètres de la manière suivante, en fonction de l’emplacement où ils sont appelés :
 
-- **Appelés à partir de disk_drive_1/users** : seul le référentiel par défaut répertorié dans le fichier de configuration défini au niveau de l’utilisateur (A) est utilisé, car il s’agit du seul fichier trouvé à l’emplacement disk_drive_1.
+- **Appelés à partir de disk_drive_1/users** : Seul le référentiel par défaut répertorié dans le fichier de configuration défini au niveau de l’utilisateur (A) est utilisé, car il s’agit du seul fichier trouvé à l’emplacement disk_drive_1.
 
-- **Appelés à partir de disk_drive_2/ ou de disk_drive_/tmp** : le fichier défini au niveau de l’utilisateur (A) est chargé en premier, puis NuGet accède à la racine de disk_drive_2 et trouve le fichier (B). NuGet recherche également un fichier de configuration dans le répertoire /tmp, sans en trouver un. Par conséquent, le référentiel par défaut de nuget.org est utilisé, la restauration de package est activée et les packages sont développés dans disk_drive_2/tmp.
+- **Appelés à partir de disk_drive_2/ ou de disk_drive_/tmp** : Le fichier défini au niveau de l’utilisateur (A) est chargé en premier, puis NuGet accède à la racine de disk_drive_2 et trouve le fichier (B). NuGet recherche également un fichier de configuration dans le répertoire /tmp, sans en trouver un. Par conséquent, le référentiel par défaut de nuget.org est utilisé, la restauration de package est activée et les packages sont développés dans disk_drive_2/tmp.
 
-- **Appelés à partir de disk_drive_2/Project1 ou de disk_drive_2/Project1/Source** : le fichier défini au niveau de l’utilisateur (A) est chargé en premier, puis NuGet charge le fichier (B) à partir de la racine de disk_drive_2, suivi du fichier (C). Les paramètres du fichier (C) remplacent ceux des fichiers (B) et (A). Par conséquent, le `repositoryPath` où les packages sont installés est disk_drive_2/Project1/External/Packages et non *disk_drive_2/tmp*. De plus, étant donné que (C) efface `<packageSources>`, nuget.org n’est plus disponible en tant que source, ce qui laisse uniquement `https://MyPrivateRepo/ES/nuget`.
+- **Appelés à partir de disk_drive_2/Project1 ou de disk_drive_2/Project1/Source** : Le fichier défini au niveau de l’utilisateur (A) est chargé en premier, puis NuGet charge le fichier (B) à partir de la racine de disk_drive_2, suivi du fichier (C). Les paramètres du fichier (C) remplacent ceux des fichiers (B) et (A). Par conséquent, le `repositoryPath` où les packages sont installés est disk_drive_2/Project1/External/Packages et non *disk_drive_2/tmp*. De plus, étant donné que (C) efface `<packageSources>`, nuget.org n’est plus disponible en tant que source, ce qui laisse uniquement `https://MyPrivateRepo/ES/nuget`.
 
-- **Appelés à partir de disk_drive_2/Project2 ou de disk_drive_2/Project2/Source** : le fichier défini au niveau de l’utilisateur (A) est chargé en premier, suivi du fichier (B) et du fichier (D). Étant donné que `packageSources` n’est pas effacé, `nuget.org` et `https://MyPrivateRepo/DQ/nuget` sont disponibles en tant que sources. Les packages sont développés dans disk_drive_2/tmp, comme spécifié dans le fichier (B).
+- **Appelés à partir de disk_drive_2/Project2 or disk_drive_2/Project2/Source** : Le fichier défini au niveau de l’utilisateur (A) est chargé en premier, suivi du fichier (B) et du fichier (D). Étant donné que `packageSources` n’est pas effacé, `nuget.org` et `https://MyPrivateRepo/DQ/nuget` sont disponibles en tant que sources. Les packages sont développés dans disk_drive_2/tmp, comme spécifié dans le fichier (B).
 
 ## <a name="nuget-defaults-file"></a>Fichier de valeurs par défaut de NuGet
 
