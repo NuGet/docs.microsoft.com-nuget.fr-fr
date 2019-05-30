@@ -1,4 +1,15 @@
+---
+ms.openlocfilehash: 1f65939493cf423a76c024607264acee6c7e9050
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66271544"
+---
 #### <a name="windows"></a>Windows
+
+> [!Note]
+> NuGet.exe 5.0 et les versions ultérieures exigent .NET Framework 4.7.2 ou une version ultérieure pour s’exécuter.
 
 1. Visitez [nuget.org/downloads](https://nuget.org/downloads) et sélectionnez NuGet 3.3 ou une version ultérieure (2.8.6 n’est pas compatible avec Mono). La version la plus récente est toujours recommandée, et 4.1.0 ou une version ultérieure est requise pour publier des packages sur nuget.org.
 1. Chaque téléchargement est le fichier `nuget.exe` directement. Demandez à votre navigateur d’enregistrer le fichier dans un dossier de votre choix. Le fichier n’est *pas* un programme d’installation ; vous ne verrez rien si vous l’exécutez directement à partir du navigateur.

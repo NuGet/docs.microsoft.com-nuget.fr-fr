@@ -6,16 +6,16 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: fd5188c92f8154391359b8da5c8a32f4d5d6f2c0
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453583"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266356"
 ---
 # <a name="catalog"></a>Catalogue
 
-Le **catalogue** est une ressource qui enregistre toutes les opérations de package sur une source de package, telles que les créations et suppressions. La ressource de catalogue a le `Catalog` tapez dans le [index de service](service-index.md).
+Le **catalogue** est une ressource qui enregistre toutes les opérations de package sur une source de package, telles que les créations et suppressions. La ressource de catalogue a le `Catalog` tapez dans le [index de service](service-index.md). Vous pouvez utiliser cette ressource pour [de requête pour tous les packages publiés](../guides/api/query-for-all-published-packages.md).
 
 > [!Note]
 > Étant donné que le catalogue n’est pas utilisé par le client NuGet officiel, pas toutes les sources de package implémentent le catalogue.
@@ -67,10 +67,10 @@ La requête suivante extrait l’index du catalogue.
 
 L’index du catalogue est un document JSON qui contient un objet avec les propriétés suivantes :
 
-Name            | Type             | Obligatoire | Notes
+Nom            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
-commitId        | chaîne           | oui      | Un ID unique associé à la validation la plus récente
-commitTimeStamp | chaîne           | oui      | Un horodatage de la validation la plus récente
+commitId        | string           | oui      | Un ID unique associé à la validation la plus récente
+commitTimeStamp | string           | oui      | Un horodatage de la validation la plus récente
 count           | entiers          | oui      | Le nombre de pages dans l’index
 éléments           | tableau d’objets | oui      | Un tableau d’objets, chaque objet qui représente une page
 
@@ -84,11 +84,11 @@ Comme les éléments sont ajoutés à, l’index du catalogue `commitId` changer
 
 Les objets de la page catalogue trouvés dans l’index de catalogue `items` propriété ont les propriétés suivantes :
 
-Name            | Type    | Obligatoire | Notes
+Nom            | Type    | Obligatoire | Notes
 --------------- | ------- | -------- | -----
-@id             | chaîne  | oui      | L’URL de page de catalogue fetch
-commitId        | chaîne  | oui      | Un ID unique associé à la validation la plus récente de cette page
-commitTimeStamp | chaîne  | oui      | Un horodatage de la validation la plus récente de cette page
+@id             | string  | oui      | L’URL de page de catalogue fetch
+commitId        | string  | oui      | Un ID unique associé à la validation la plus récente de cette page
+commitTimeStamp | string  | oui      | Un horodatage de la validation la plus récente de cette page
 count           | entiers | oui      | Le nombre d’éléments dans la page catalogue
 
 Contrairement à la [ressource des métadonnées du package](registration-base-url-resource.md) qui, dans certains cas incorporations laisse dans l’index, les feuilles de catalogue ne sont jamais inline dans l’index et doivent toujours être extraite à l’aide de la page `@id` URL.
@@ -109,13 +109,13 @@ Nouveaux éléments de catalogue sont ajoutés à la page dans l’index du cata
 
 Le document de page de catalogue est un objet JSON avec les propriétés suivantes :
 
-Name            | Type             | Obligatoire | Notes
+Nom            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
-commitId        | chaîne           | oui      | Un ID unique associé à la validation la plus récente de cette page
-commitTimeStamp | chaîne           | oui      | Un horodatage de la validation la plus récente de cette page
+commitId        | string           | oui      | Un ID unique associé à la validation la plus récente de cette page
+commitTimeStamp | string           | oui      | Un horodatage de la validation la plus récente de cette page
 count           | entiers          | oui      | Le nombre d’éléments dans la page
 éléments           | tableau d’objets | oui      | Les éléments de catalogue dans cette page
-Parent          | chaîne           | oui      | Une URL vers l’index du catalogue
+parent          | string           | oui      | Une URL vers l’index du catalogue
 
 Chaque élément dans le `items` tableau est un objet avec un minimum de détails sur l’élément de catalogue. Ces objets d’élément ne contiennent pas toutes les données de l’élément de catalogue. L’ordre des éléments dans la page `items` tableau n’est pas défini. Éléments peuvent être commandés par le client dans la mémoire à l’aide de leurs `commitTimeStamp` propriété.
 
@@ -129,14 +129,14 @@ Comme les éléments sont ajoutés à la page, le `commitId` modifications et la
 
 Les objets d’élément de catalogue trouvant dans la page catalogue `items` propriété ont les propriétés suivantes :
 
-Name            | Type    | Obligatoire | Notes
+Nom            | Type    | Obligatoire | Notes
 --------------- | ------- | -------- | -----
-@id             | chaîne  | oui      | L’URL pour récupérer l’élément de catalogue
-@type           | chaîne  | oui      | Le type de l’élément de catalogue
-commitId        | chaîne  | oui      | L’ID de validation associé à cet élément de catalogue
-commitTimeStamp | chaîne  | oui      | L’horodateur de validation de cet élément de catalogue
-NuGet:ID        | chaîne  | oui      | L’ID de package qui concerne cette feuille
-NuGet:version   | chaîne  | oui      | La version du package associé à cette feuille
+@id             | string  | oui      | L’URL pour récupérer l’élément de catalogue
+@type           | string  | oui      | Le type de l’élément de catalogue
+commitId        | string  | oui      | L’ID de validation associé à cet élément de catalogue
+commitTimeStamp | string  | oui      | L’horodateur de validation de cet élément de catalogue
+NuGet:ID        | string  | oui      | L’ID de package qui concerne cette feuille
+nuget:version   | string  | oui      | La version du package associé à cette feuille
 
 Le `@type` aura l’une des deux valeurs suivantes :
 
@@ -159,14 +159,14 @@ La feuille de catalogue contient des métadonnées sur un ID de package spécifi
 
 Le document de feuille de catalogue est un objet JSON avec les propriétés suivantes :
 
-Name                    | Type                       | Obligatoire | Notes
+Nom                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
 @type                   | chaîne ou tableau de chaînes | oui      | L’ou les types de l’élément de catalogue
-catalogue : commitId        | chaîne                     | oui      | Un ID de validation associé à cet élément de catalogue
-catalogue : commitTimeStamp | chaîne                     | oui      | L’horodateur de validation de cet élément de catalogue
-ID                      | chaîne                     | oui      | L’ID de package de l’élément de catalogue
-Publié               | chaîne                     | oui      | La date de publication de l’élément de catalogue du package
-version                 | chaîne                     | oui      | La version du package de l’élément de catalogue
+catalog:commitId        | string                     | oui      | Un ID de validation associé à cet élément de catalogue
+catalog:commitTimeStamp | string                     | oui      | L’horodateur de validation de cet élément de catalogue
+ID                      | string                     | oui      | L’ID de package de l’élément de catalogue
+Publié               | string                     | oui      | La date de publication de l’élément de catalogue du package
+version                 | string                     | oui      | La version du package de l’élément de catalogue
 
 ### <a name="item-types"></a>Types d’éléments
 
@@ -190,28 +190,28 @@ Les clients de consommer les éléments de catalogue ne devraient pas essayer d�
 
 Détails des éléments de catalogue package ont les propriétés suivantes en plus de ceux [inclus sur toutes les feuilles de catalogue](#catalog-leaf).
 
-Name                    | Type                       | Obligatoire | Notes
+Nom                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
-authors                 | chaîne                     | Non       |
-created                 | chaîne                     | Non       | Un horodatage de date de création tout d’abord le package. Propriété de secours : `published`.
+authors                 | string                     | Non       |
+created                 | string                     | Non       | Un horodatage de date de création tout d’abord le package. Propriété de secours : `published`.
 dependencyGroups        | tableau d’objets           | Non       | Même format que le [ressource des métadonnées du package](registration-base-url-resource.md#package-dependency-group)
-Description             | chaîne                     | Non       |
-iconUrl                 | chaîne                     | Non       |
+Description             | string                     | Non       |
+iconUrl                 | string                     | Non       |
 isPrerelease            | boolean                    | Non       | Indique si la version du package est préliminaire. Peut être détectée à partir de `version`.
-language                | chaîne                     | Non       |
-licenseUrl              | chaîne                     | Non       |
+language                | string                     | Non       |
+licenseUrl              | string                     | Non       |
 liste                  | boolean                    | Non       | Le package est répertorié ou non
-MinClientVersion        | chaîne                     | Non       |
-packageHash             | chaîne                     | oui      | Le hachage du package, à l’aide de codage [base 64 standard](https://tools.ietf.org/html/rfc4648#section-4)
-packageHashAlgorithm    | chaîne                     | oui      |
-taille du colis             | entiers                    | oui      | La taille de la .nupkg package en octets
-projectUrl              | chaîne                     | Non       |
-releaseNotes            | chaîne                     | Non       |
+minClientVersion        | string                     | Non       |
+packageHash             | string                     | oui      | Le hachage du package, à l’aide de codage [base 64 standard](https://tools.ietf.org/html/rfc4648#section-4)
+packageHashAlgorithm    | string                     | oui      |
+packageSize             | entiers                    | oui      | La taille de la .nupkg package en octets
+projectUrl              | string                     | Non       |
+releaseNotes            | string                     | Non       |
 requireLicenseAgreement | boolean                    | Non       | Supposons que `false` si exclu
-résumé                 | chaîne                     | Non       |
+résumé                 | string                     | Non       |
 étiquettes                    | tableau de chaînes           | Non       |
-titre                   | chaîne                     | Non       |
-verbatimVersion         | chaîne                     | Non       | La chaîne de version, tel qu’il se trouve à l’origine dans le fichier .nuspec
+titre                   | string                     | Non       |
+verbatimVersion         | string                     | Non       | La chaîne de version, tel qu’il se trouve à l’origine dans le fichier .nuspec
 
 Le package `version` propriété est la chaîne de version complète après la normalisation. Cela signifie que les données de build de SemVer 2.0.0 peuvent être incluses ici.
 
@@ -306,7 +306,7 @@ Par exemple, sur nuget.org un package qui vient d’être publié ne doit pas ap
 
 Étant donné que les deux ressources sont créées sur le catalogue, le curseur du client de catalogue qui met à jour de la ressource de recherche *ne doit pas dépasser* le curseur du client de catalogue de métadonnées de package.
 
-#### <a name="algorithm"></a>algorithme
+#### <a name="algorithm"></a>Algorithme
 
 Pour implémenter cette restriction, modifiez simplement l’algorithme ci-dessus pour être :
 
