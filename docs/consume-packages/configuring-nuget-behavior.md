@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: db968189e892723c8fd080cb01a7222696c9d3f3
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 963d1d59ea7e65e3d75bc7105b8864e3e4045938
+ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610570"
+ms.lasthandoff: 05/28/2019
+ms.locfileid: "66266339"
 ---
 # <a name="configuring-nuget-behavior"></a>Configuration du comportement de NuGet
 
@@ -20,7 +20,7 @@ Le comportement de NuGet est contrôlé par les paramètres qui sont définis da
 
 | Portée | Emplacement du fichier NuGet.Config | Description |
 | --- | --- | --- |
-| Projet | Dossier actuel (dossier du projet) ou tout dossier pouvant être situé jusqu’à la racine du lecteur.| Dans un dossier de projet, les paramètres s’appliquent uniquement au projet en question. Dans les dossiers parents qui contiennent plusieurs dossiers de projets, les paramètres s’appliquent à tous les projets des sous-dossiers. |
+| Solution | Dossier actuel (dossier de solution) ou tout dossier pouvant être situé jusqu’à la racine du lecteur.| Dans un dossier de solution, les paramètres s’appliquent à tous les projets dans les sous-dossiers. Notez que si un fichier config est situé dans un dossier de projet, il n’a aucun effet sur ce projet. |
 | Utilisateur | Windows : `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux : `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (en fonction de la distribution du système d’exploitation) | Les paramètres s’appliquent à toutes les opérations. Toutefois, ils sont substitués par tout paramètre défini au niveau du projet. |
 | Ordinateur | Windows : `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux : `$XDG_DATA_HOME`. Si `$XDG_DATA_HOME` est null ou vide, `~/.local/share` ou `/usr/local/share` seront utilisés (en fonction de la distribution du système d’exploitation)  | Les paramètres s’appliquent à toutes les opérations effectuées sur l’ordinateur. Toutefois, ils sont remplacés par tout paramètre défini au niveau de l’utilisateur ou du projet. |
 
