@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 16e19be0356bc1d2734ade5cd593ca3ef05bbe5a
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a4c609b3390748099d85a73f7d168ebe4de2676a
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546419"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812946"
 ---
 # <a name="create-uwp-packages"></a>Créer des packages UWP
 
@@ -26,7 +26,7 @@ Dans cette procédure pas à pas, vous créez un package NuGet avec un composant
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Créer un composant Windows Runtime UWP
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C++ > Windows > Universel**, sélectionnez le modèle **Composant Windows Runtime (Windows universel)**, changez le nom en ImageEnhancer, puis cliquez sur OK. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C++ > Windows > Universel**, sélectionnez le modèle **Composant Windows Runtime (Windows universel)** , changez le nom en ImageEnhancer, puis cliquez sur OK. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
 
     ![Création d’un projet de composant Windows Runtime UWP](media/UWP-NewProject.png)
 
@@ -34,7 +34,7 @@ Dans cette procédure pas à pas, vous créez un package NuGet avec un composant
 
     ![Ajout d’un nouvel élément Contrôle basé sur un modèle XAML au projet](media/UWP-NewXAMLControl.png)
 
-1. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, puis sélectionnez Propriétés. Dans la page Propriétés, développez **Propriétés de configuration > C/C++**, puis cliquez sur **Fichiers de sortie**. Dans le volet droit, définissez **Génération de fichiers de documentation XML** sur Oui :
+1. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, puis sélectionnez Propriétés. Dans la page Propriétés, développez **Propriétés de configuration > C/C++** , puis cliquez sur **Fichiers de sortie**. Dans le volet droit, définissez **Génération de fichiers de documentation XML** sur Oui :
 
     ![Définition de Génération de fichiers de documentation XML sur Oui](media/UWP-GenerateXMLDocFiles.png)
 
@@ -138,6 +138,9 @@ Au sein de votre composant, la logique principale du type ImageEnhancer est en c
         <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm\native"/>
         <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm\native"/>
 
+        <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm64\native"/>
+        <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm64\native"/>
+
         <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x64\native"/>
         <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-x64\native"/>
 
@@ -150,7 +153,7 @@ Au sein de votre composant, la logique principale du type ImageEnhancer est en c
 
 ### <a name="adding-targets"></a>Ajout d’un fichier .targets
 
-Ensuite, les projets C++ et JavaScript susceptibles de consommer votre package NuGet ont besoin d’un fichier .targets pour identifier les fichiers winmd et d’assembly nécessaires. (Les projets C# et Visual Basic effectuent cette opération automatiquement.) Créez ce fichier en copiant le texte ci-dessous dans `ImageEnhancer.targets` et enregistrez-le dans le même dossier que le fichier `.nuspec`. _Remarque_ : Ce fichier `.targets` doit avoir le même nom que l’ID de package (par exemple, l’élément `<Id>` du fichier `.nupspec`) :
+Ensuite, les projets C++ et JavaScript susceptibles de consommer votre package NuGet ont besoin d’un fichier .targets pour identifier les fichiers winmd et d’assembly nécessaires. (Les projets C# et Visual Basic effectuent cette opération automatiquement.) Créez ce fichier en copiant le texte ci-dessous dans `ImageEnhancer.targets` et enregistrez-le dans le même dossier que le fichier `.nuspec`. _Remarque_ : Ce fichier `.targets` doit avoir le même nom que l’ID de package (par exemple, l’élément `<Id>` du fichier `.nupspec`) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -216,6 +219,8 @@ Votre fichier `.nuspec` final doit maintenant ressembler au code ci-après, où 
     <!-- DLLs and resources -->
     <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm\native"/>
     <file src="..\ARM\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm\native"/>
+    <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-arm64\native"/>
+    <file src="..\ARM64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-arm64\native"/>     
     <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x64\native"/>
     <file src="..\x64\Debug\ImageEnhancer\ImageEnhancer.pri" target="runtimes\win10-x64\native"/>
     <file src="..\Debug\ImageEnhancer\ImageEnhancer.dll" target="runtimes\win10-x86\native"/>

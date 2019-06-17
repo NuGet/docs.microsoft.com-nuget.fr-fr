@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 15268ae33d56042a765420e5076dac49db6cce04
-ms.sourcegitcommit: 1591bb230e106b94162a87dd1d86fe427366730a
+ms.openlocfilehash: 8cfb7bd31c37847d83ffe31f11ba61eadc717eb8
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52671173"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812909"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio"></a>Démarrage rapide : Installer et utiliser un package dans Visual Studio
 
@@ -19,7 +19,7 @@ Les packages NuGet contiennent du code réutilisable que les autres développeur
 Une fois le package installé, faites-y référence dans le code avec `using <namespace>`, où \<namespace\> est propre au package que vous utilisez. Une fois la référence effectuée, vous pouvez appeler le package par le biais de son API.
 
 > [!Tip]
-> **Commencez par nuget.org** : les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
+> **Prise en main de nuget.org** : Les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -28,11 +28,13 @@ Une fois le package installé, faites-y référence dans le code avec `using <na
 
 Vous pouvez installer l’édition Community 2017 gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/), ou utiliser l’édition Professional ou Enterprise.
 
+Si vous utilisez Visual Studio pour Mac, consultez [Inclure un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
+
 ## <a name="create-a-project"></a>Créer un projet
 
 Les packages NuGet peuvent être installés dans n’importe quel projet .NET, à condition qu’ils prennent en charge la même version cible de .NET Framework que le projet.
 
-Dans cette procédure pas à pas, utilisez une application Windows universelle (UWP) simple. Créez un projet dans Visual Studio en sélectionnant le menu **Fichier > Nouveau projet...** puis **Windows universel > Application vide (Universal Windows)**. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
+Dans cette procédure pas à pas, utilisez une application Windows universelle (UWP) simple. Créez un projet dans Visual Studio en sélectionnant le menu **Fichier > Nouveau projet...** puis **Windows universel > Application vide (Universal Windows)** . À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
 
 ## <a name="add-the-newtonsoftjson-nuget-package"></a>Ajouter le package NuGet Newtonsoft.Json
 

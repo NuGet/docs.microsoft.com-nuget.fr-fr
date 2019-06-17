@@ -3,25 +3,31 @@ title: Guide pratique pour créer un package NuGet
 description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
 author: karann-msft
 ms.author: karann
-ms.date: 12/12/2017
+ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: f0d9667b752caf7831278ac3fd63cfd67f7d34a4
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 5e362673acfab4b31c8a2e02a521afd8b19d2754
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610588"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812919"
 ---
 # <a name="creating-nuget-packages"></a>Création de packages NuGet
 
-Quel que soit la fonction de votre package ou le code qu’il contient, vous utilisez `nuget.exe` pour empaqueter cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Pour installer `nuget.exe`, consultez [Installer l’interface de ligne de commande NuGet](../install-nuget-client-tools.md#nugetexe-cli). Notez que Visual Studio n’inclut pas automatiquement `nuget.exe`.
+Quel que soit la fonction de votre package ou le code qu’il contient, vous utilisez l’un des outils CLI, `nuget.exe` ou `dotnet.exe`, pour empaqueter cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Pour installer les outils CLI NuGet, consultez [Installer les outils clients NuGet](../install-nuget-client-tools.md). Notez que Visual Studio n’inclut pas automatiquement d’outil CLI.
+
+- Pour les projets .NET Core et .NET Standard qui utilisent le format de style SDK ([Attribut SDK](/dotnet/core/tools/csproj#additions)), et tout autre projet de style SDK, NuGet utilise les informations dans le fichier projet directement pour créer un package. Pour plus d’informations, consultez [Créer des packages .NET standard avec Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) et [Commandes NuGet pack et restore en tant que cibles MSBuild](../reference/msbuild-targets.md).
+
+- Pour les projets qui ne sont pas de style SDK, suivez les étapes décrites dans cet article pour créer un package.
+
+- Pour les projets migrés à partir de `packages.config` vers [PackageReference](../consume-packages/package-references-in-project-files.md), utilisez [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Techniquement parlant, un package NuGet n’est qu’un fichier ZIP renommé avec l’extension `.nupkg` et dont le contenu correspond à certaines conventions. Cette rubrique décrit le processus détaillé de création d’un package qui répond à ces conventions. Pour consulter une procédure pas à pas ciblée, reportez-vous à [Démarrage rapide : créer et publier un package](../quickstart/create-and-publish-a-package.md).
 
 L’empaquetage commence par le code compilé (assemblys), les symboles et/ou d’autres fichiers à remettre sous forme de package (consultez [Vue d’ensemble et flux de travail](overview-and-workflow.md)). Ce processus est indépendant de la compilation ou de la génération des fichiers destinés au package, même si vous pouvez tirer des informations contenues dans un fichier projet pour maintenir synchronisés les assemblys et packages compilés.
 
 > [!Note]
-> Cette rubrique s’applique aux types de projet autres que les projets .NET Core utilisant Visual Studio 2017 et NuGet 4.0+. Dans ces projets .NET Core, NuGet utilise des informations contenues dans le fichier projet directement. Pour plus d’informations, consultez [Créer des packages .NET standard avec Visual Studio 2017](../guides/create-net-standard-packages-vs2017.md) et [Commandes NuGet pack et restore en tant que cibles MSBuild](../reference/msbuild-targets.md).
+> Cette rubrique concerne les projets qui ne sont pas de style SDK, en général les projets autres que .NET Core et .NET Standard utilisant Visual Studio 2017 et NuGet 4.0+.
 
 ## <a name="deciding-which-assemblies-to-package"></a>Déterminer quels assemblys empaqueter
 

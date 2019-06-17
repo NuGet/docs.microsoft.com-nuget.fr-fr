@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 506a093ff4d62c10c896246f746e6765f64f33f4
-ms.sourcegitcommit: a801052aa728a3a137225ca3ef3ff89f2d1c6b76
+ms.openlocfilehash: 556683e5a24c57a6c32d8b4e368bfdccd4d19b48
+ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54403162"
+ms.lasthandoff: 06/07/2019
+ms.locfileid: "66812863"
 ---
 # <a name="package-consumption-workflow"></a>Flux de travail de la consommation des packages
 
@@ -22,7 +22,7 @@ Entre nuget.org et les galeries privées de packages que votre organisation peut
 
 Pour plus d’informations, consultez les pages [Trouver et choisir des packages](../consume-packages/finding-and-choosing-packages.md) et [Différentes façons d’installer un package NuGet](ways-to-install-a-package.md).
 
-NuGet se souvient de l’identité et du numéro de version de chaque package installé. Il les enregistre dans [`packages.config`](../reference/packages-config.md) ou dans le fichier projet (avec [PackageReference](../consume-packages/package-references-in-project-files.md)), selon le type du projet et la version de NuGet. Avec NuGet 4.0 +, PackageReference est recommandé, bien que cela soit configurable dans Visual Studio au moyen des [options de l’interface utilisateur du Gestionnaire de package](../tools/package-manager-ui.md). Dans tous les cas, vous pouvez rechercher dans le fichier approprié à tout moment pour voir la liste complète des dépendances de votre projet.
+NuGet se souvient de l’identité et du numéro de version de chaque package installé. Il les enregistre le fichier projet (avec [PackageReference](../consume-packages/package-references-in-project-files.md)) ou dans [`packages.config`](../reference/packages-config.md), selon le type du projet et la version de NuGet. Avec NuGet 4.0 +, PackageReference est recommandé, bien que cela soit configurable dans Visual Studio au moyen des [options de l’interface utilisateur du Gestionnaire de package](../tools/package-manager-ui.md). Dans tous les cas, vous pouvez rechercher dans le fichier approprié à tout moment pour voir la liste complète des dépendances de votre projet.
 
 > [!Tip]
 > Il est préférable de toujours vérifier la licence pour chaque package que vous souhaitez utiliser dans votre logiciel. Pour vérifier la licence, sur Nuget.org, cliquez sur le lien **License Info** situé à droite, dans la page de description de chaque package. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide de du lien **Contact owners** (Contacter les propriétaires) dans la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
