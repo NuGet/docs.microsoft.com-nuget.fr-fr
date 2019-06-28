@@ -1,5 +1,5 @@
 ---
-title: Référence de l’interface utilisateur du Gestionnaire de Package NuGet
+title: Installer et gérer les packages NuGet dans Visual Studio
 description: Instructions sur l’utilisation de l’UI Gestionnaire de Package NuGet dans Visual Studio pour travailler avec les packages NuGet.
 author: karann-msft
 ms.author: karann
@@ -10,30 +10,21 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.general
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
-ms.openlocfilehash: 422faf99e58e058d86db774a8f3c1c576b3dc393
-ms.sourcegitcommit: 2af17c8bb452a538977794bf559cdd78d58f2790
+ms.openlocfilehash: 97e5de3f07199cd3c6a645749c8f2f1603ca630e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58637621"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426236"
 ---
-# <a name="nuget-package-manager-ui"></a>Interface utilisateur du Gestionnaire de Package NuGet
+# <a name="install-and-manage-packages-in-visual-studio"></a>Installer et gérer des packages dans Visual Studio
 
 Le Gestionnaire de Package NuGet UI dans Visual Studio sur Windows vous permet facilement installer, désinstaller et mettre à jour les packages NuGet dans les projets et solutions. Pour une expérience dans Visual Studio pour Mac, consultez [, y compris un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough). Le Gestionnaire de Package UI n’est pas inclus avec Visual Studio Code.
 
-Dans cette rubrique :
-
-- [Recherche et installation d’un package (onglet Parcourir)](#finding-and-installing-a-package)
-- [Désinstallation d’un package (onglet installé)](#uninstalling-a-package)
-- [La mise à jour d’un package (onglets installé et les mises à jour)](#updating-a-package) (inclut le [« Référencée implicitement par un SDK » ou « AutoReferenced » message](#implicit_reference))
-- [La gestion des packages pour la solution](#managing-packages-for-the-solution) (travailler avec plusieurs projets en même temps).
-- [Sources de package](#package-sources)
-- [Contrôlent les Options du Gestionnaire de package](#package-manager-options-control)
-
-> [!Note]
+> [!NOTE]
 > Si vous êtes pas le Gestionnaire de Package NuGet dans Visual Studio 2015, consultez **Outils > Extensions et mises à jour...**  et recherchez le *Gestionnaire de Package NuGet* extension. Si vous ne parvenez pas à utiliser le programme d’installation des extensions dans Visual Studio, téléchargez l’extension directement à partir de [ https://dist.nuget.org/index.html ](https://dist.nuget.org/index.html).
 >
-> Visual Studio 2017, NuGet et le Gestionnaire de Package NuGet sont installées automatiquement avec n’importe quelle. Charges de travail liées NET. Installer individuellement en sélectionnant le **composants individuels > Outils de Code > Gestionnaire de package NuGet** option dans le programme d’installation de Visual Studio 2017.
+> À partir de Visual Studio 2017, NuGet et le Gestionnaire de Package NuGet sont automatiquement installés avec n’importe quelle. Charges de travail liées NET. Installer individuellement en sélectionnant le **composants individuels > Outils de Code > Gestionnaire de package NuGet** option dans le programme d’installation de Visual Studio.
 
 ## <a name="finding-and-installing-a-package"></a>Recherche et installation d’un package
 
@@ -123,14 +114,14 @@ Pour gérer les sources de package :
 
     ![Options de Sources de package](media/options.png)
 
-1. Pour ajouter une source, sélectionnez **+**, modifiez le nom, entrez l’URL ou le chemin d’accès dans le **Source** contrôler, puis sélectionnez **mise à jour**. La source apparaît maintenant dans le sélecteur de liste déroulante.
+1. Pour ajouter une source, sélectionnez **+** , modifiez le nom, entrez l’URL ou le chemin d’accès dans le **Source** contrôler, puis sélectionnez **mise à jour**. La source apparaît maintenant dans le sélecteur de liste déroulante.
 1. Pour modifier une source de package, sélectionnez-le, apporter des modifications dans le **nom** et **Source** cases, puis sélectionnez **mise à jour**.
 1. Pour désactiver une source de package, désactivez la case à gauche du nom dans la liste.
 1. Pour supprimer une source de package, sélectionnez-le, puis le **X** bouton.
 1. À l’aide de haut et flèche vers le bas les boutons ne changent pas l’ordre de priorité des sources de package. Visual Studio ignore l’ordre des sources de packages, utilise le package à partir de la première source à répondre aux demandes. Pour plus d’informations, consultez [restauration des packages](../consume-packages/package-restore.md).
 
 > [!Tip]
-> Si une source de package s’affiche de nouveau après l’avoir supprimée, devrait être répertoriée dans au niveau de l’ordinateur ou le niveau de l’utilisateur `NuGet.Config` fichiers. Consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md) pour l’emplacement de ces fichiers, puis supprimer la source en modifiant les fichiers manuellement ou en utilisant le [nuget sources commande](../tools/nuget-exe-CLI-reference.md).
+> Si une source de package s’affiche de nouveau après l’avoir supprimée, devrait être répertoriée dans au niveau de l’ordinateur ou le niveau de l’utilisateur `NuGet.Config` fichiers. Consultez [les configurations courantes NuGet](../consume-packages/configuring-nuget-behavior.md) pour l’emplacement de ces fichiers, puis supprimer la source en modifiant les fichiers manuellement ou en utilisant le [nuget sources commande](../tools/nuget-exe-CLI-reference.md).
 
 ## <a name="package-manager-options-control"></a>Contrôlent les Options du Gestionnaire de package
 

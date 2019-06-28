@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: cfcb52ba7689f1b392c782b4ad42ba820a76c8bf
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
+ms.openlocfilehash: d462b289c39c2dd1418304dabcad47d0d4217f82
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50981130"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426734"
 ---
 # <a name="search"></a>Rechercher
 
@@ -21,7 +21,7 @@ Il est possible de rechercher des packages disponibles sur une source de package
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur@type                    | Notes
+Valeur@type                   | Notes
 ----------------------------- | -----
 SearchQueryService            | La version initiale
 SearchQueryService/3.0.0-beta | Alias de `SearchQueryService`
@@ -45,13 +45,13 @@ Un package retirée de la liste ne doit jamais apparaître dans les résultats d
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name        | Vers l'avant     | Type    | Obligatoire | Notes
+Nom        | Vers l'avant     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | chaîne  | Non       | Les termes de recherche à utiliser pour les packages de filtre
+q           | URL    | string  | Non       | Les termes de recherche à utiliser pour les packages de filtre
 skip        | URL    | entiers | Non       | Le nombre de résultats à ignorer, pour la pagination
 Take        | URL    | entiers | Non       | Le nombre de résultats à retourner pour la pagination
 version préliminaire  | URL    | boolean | Non       | `true` ou `false` déterminer s’il faut inclure [packages de préversion](../create-packages/prerelease-packages.md)
-semVerLevel | URL    | chaîne  | Non       | Une chaîne de version SemVer 1.0.0 
+semVerLevel | URL    | string  | Non       | Une chaîne de version SemVer 1.0.0 
 
 La requête de recherche `q` est analysé d’une manière qui est définie par l’implémentation du serveur. NuGet.org prend en charge le filtrage de base sur un [divers champs](../consume-packages/finding-and-choosing-packages.md#search-syntax). Si aucun `q` n’est fourni, tous les packages doivent être retournées dans les limites imposées par skip et take. Ainsi, l’onglet « Browse » dans l’expérience NuGet Visual Studio.
 
@@ -71,9 +71,9 @@ La réponse est document JSON contenant jusqu'à `take` résultats de la recherc
 
 L’objet JSON racine a les propriétés suivantes :
 
-Name      | Type             | Obligatoire | Notes
+Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-total des accès | entiers          | oui      | Le nombre total de correspondances, en ignorant `skip` et `take`
+totalHits | entiers          | oui      | Le nombre total de correspondances, en ignorant `skip` et `take`
 Données      | tableau d’objets | oui      | Les résultats de recherche correspondant à la demande
 
 ### <a name="search-result"></a>Résultat de la recherche
@@ -81,32 +81,32 @@ Données      | tableau d’objets | oui      | Les résultats de recherche corr
 Chaque élément dans le `data` tableau est un objet JSON composé d’un groupe de versions de package partage le même ID de package.
 L’objet a les propriétés suivantes :
 
-Name           | Type                       | Obligatoire | Notes
+Nom           | Type                       | Obligatoire | Notes
 -------------- | -------------------------- | -------- | -----
-ID             | chaîne                     | oui      | L’ID du package de mise en correspondance
-version        | chaîne                     | oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de build)
-Description    | chaîne                     | Non       | 
+ID             | string                     | oui      | L’ID du package de mise en correspondance
+version        | string                     | oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de build)
+Description    | string                     | Non       | 
 versions       | tableau d’objets           | oui      | Toutes les versions de la mise en correspondance le `prerelease` paramètre
 authors        | chaîne ou tableau de chaînes | Non       | 
-iconUrl        | chaîne                     | Non       | 
-licenseUrl     | chaîne                     | Non       | 
+iconUrl        | string                     | Non       | 
+licenseUrl     | string                     | Non       | 
 owners         | chaîne ou tableau de chaînes | Non       | 
-projectUrl     | chaîne                     | Non       | 
-inscription   | chaîne                     | Non       | L’URL absolue à associé [index de l’inscription](registration-base-url-resource.md#registration-index)
-résumé        | chaîne                     | Non       | 
+projectUrl     | string                     | Non       | 
+inscription   | string                     | Non       | L’URL absolue à associé [index de l’inscription](registration-base-url-resource.md#registration-index)
+résumé        | string                     | Non       | 
 étiquettes           | chaîne ou tableau de chaînes | Non       | 
-titre          | chaîne                     | Non       | 
+titre          | string                     | Non       | 
 totalDownloads | entiers                    | Non       | Cette valeur peut être déduite par la somme des téléchargements dans le `versions` tableau
-vérifié       | boolean                    | Non       | Une valeur JSON booléenne indiquant si le package est [vérifié](../reference/id-prefix-reservation.md)
+vérifié       | boolean                    | Non       | Une valeur JSON booléenne indiquant si le package est [vérifié](../nuget-org/id-prefix-reservation.md)
 
 Sur nuget.org, un package vérifié est celui qui a un ID de package correspondant à un préfixe d’identificateur réservé et détenues par un des propriétaires du préfixe réservé. Pour plus d’informations, consultez le [documentation sur la réservation du préfixe ID](../reference/id-prefix-reservation.md).
 
 Les métadonnées contenues dans l’objet de résultat de recherche sont effectuée à partir de la dernière version de package. Chaque élément dans le `versions` tableau est un objet JSON avec les propriétés suivantes :
 
-Name      | Type    | Obligatoire | Notes
+Nom      | Type    | Obligatoire | Notes
 --------- | ------- | -------- | -----
-@id       | chaîne  | oui      | L’URL absolue à associé [feuille d’inscription](registration-base-url-resource.md#registration-leaf)
-version   | chaîne  | oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de build)
+@id       | string  | oui      | L’URL absolue à associé [feuille d’inscription](registration-base-url-resource.md#registration-leaf)
+version   | string  | oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de build)
 Téléchargements | entiers | oui      | Le nombre de téléchargements pour cette version de package spécifique
 
 ### <a name="sample-request"></a>Exemple de demande

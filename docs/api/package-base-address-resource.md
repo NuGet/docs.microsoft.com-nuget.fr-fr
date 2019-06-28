@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 740defc34077793b81fb35db73a2eee393ae3bac
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 2f0f93e0cee78ea03cbd53194cdc2a10871fd7e1
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547152"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426766"
 ---
 # <a name="package-content"></a>Contenu du package
 
@@ -23,7 +23,7 @@ Cette ressource est communément soit « package adresse de base » ou « con
 
 Ce qui suit `@type` valeur est utilisée :
 
-Valeur @type              | Notes
+Valeur@type              | Notes
 ------------------------ | -----
 PackageBaseAddress/3.0.0 | La version initiale
 
@@ -46,9 +46,9 @@ Si le client connaît un ID de package et qu’il souhaite découvrir que le pac
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name     | Vers l'avant     | Type    | Obligatoire | Notes
+Nom     | Vers l'avant     | Type    | Obligatoire | Notes
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | chaîne  | oui      | L’ID de package, en minuscules
+LOWER_ID | URL    | string  | oui      | L’ID de package, en minuscules
 
 Le `LOWER_ID` valeur est l’ID de package souhaité minuscule en utilisant les règles implémentées par. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 
@@ -58,7 +58,7 @@ Si la source du package n’existe aucune version de l’ID de package fourni, u
 
 Si la source du package a une ou plusieurs versions, un code de 200 état est retourné. Le corps de réponse est un objet JSON avec la propriété suivante :
 
-Name     | Type             | Obligatoire | Notes
+Nom     | Type             | Obligatoire | Notes
 -------- | ---------------- | -------- | -----
 versions | tableau de chaînes | oui      | Le package d’ID disponibles
 
@@ -82,10 +82,10 @@ Si le client connaît un ID de package et une version et souhaite télécharger 
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name          | Vers l'avant     | Type   | Obligatoire | Notes
+Nom          | Vers l'avant     | Type   | Obligatoire | Notes
 ------------- | ------ | ------ | -------- | -----
-LOWER_ID      | URL    | chaîne | oui      | L’ID de package, en minuscules
-LOWER_VERSION | URL    | chaîne | oui      | La version du package, normalisées et minuscule
+LOWER_ID      | URL    | string | oui      | L’ID de package, en minuscules
+LOWER_VERSION | URL    | string | oui      | La version du package, normalisées et minuscule
 
 Les deux `LOWER_ID` et `LOWER_VERSION` sont minuscule à l’aide des règles implémentées par. NET [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant)
 .
@@ -114,10 +114,10 @@ Si le client connaît un ID de package et une version et souhaite télécharger 
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name          | Vers l'avant     | Type    | Obligatoire | Notes
-------------- | ------ | ------- | -------- | -----
-LOWER_ID      | URL    | chaîne  | oui      | L’ID de package, en minuscules
-LOWER_VERSION | URL    | entiers | oui      | La version du package, normalisées et minuscule
+Nom          | Vers l'avant     | Type   | Obligatoire | Notes
+------------- | ------ | ------ | -------- | -----
+LOWER_ID      | URL    | string | oui      | L’ID de package, en minuscules
+LOWER_VERSION | URL    | string | oui      | La version du package, normalisées et minuscule
 
 Les deux `LOWER_ID` et `LOWER_VERSION` sont minuscule à l’aide des règles implémentées par. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 

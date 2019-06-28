@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: ded9b571324d810c2f0e1a46ea76375a28940406
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: a242d02a54fd86899cbe274ab63538b53307c1bb
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145603"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425917"
 ---
 # <a name="update-command-nuget-cli"></a>update (commande, NuGet CLI)
 
@@ -48,7 +48,7 @@ où `<configPath>` soit identifie un `packages.config` ou le fichier de solution
 | RepositoryPath | Spécifie le dossier local dans lequel les packages sont installés. |
 | Safe | Spécifie qui met à jour uniquement avec la version la plus récente disponible au sein de la même version majeure et mineure comme le package installé sera installé. |
 | Self | Nuget.exe mises à jour vers la dernière version ; tous les autres arguments sont ignorés. |
-| Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour les mises à jour. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md). |
+| Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour les mises à jour. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [les configurations courantes NuGet](../consume-packages/configuring-nuget-behavior.md). |
 | Verbosity | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 | Version | Lorsqu’il est utilisé avec un ID de package, spécifie la version du package à mettre à jour. |
 

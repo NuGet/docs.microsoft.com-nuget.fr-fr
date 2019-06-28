@@ -6,18 +6,18 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: ee4ffaa7e250cdbf313476fd794a8d87c80b69f9
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: c22c7f0a6b6878bec4f8396e02e2d97998170455
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324706"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425982"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>commande signataires approuvé (CLI NuGet)
 
 **S’applique à :** la consommation de package &bullet; **versions prises en charge :** 4.9.1+
 
-Obtient ou définit les signataires approuvés à la configuration de NuGet. Pour une utilisation supplémentaire, consultez [configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur la façon dont le schéma de nuget.config ressemble, reportez-vous à la [référence du fichier de configuration NuGet](../reference/nuget-config-file.md).
+Obtient ou définit les signataires approuvés à la configuration de NuGet. Pour une utilisation supplémentaire, consultez [les configurations courantes NuGet](../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur la façon dont le schéma de nuget.config ressemble, reportez-vous à la [référence du fichier de configuration NuGet](../reference/nuget-config-file.md).
 
 ## <a name="usage"></a>Utilisation
 

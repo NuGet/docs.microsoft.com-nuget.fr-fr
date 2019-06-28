@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: bce04864224a66019a52cdfff8355f68dc424204
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+ms.openlocfilehash: b4f73e2b816d8a93e123d6de83ad0a15fbb24d18
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65975004"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425933"
 ---
 # <a name="push-command-nuget-cli"></a>commande push (CLI NuGet)
 
@@ -21,7 +21,7 @@ ms.locfileid: "65975004"
 
 Exécute un push d’un package à une source de package et le publie.
 
-Configuration par défaut de NuGet est obtenue en chargeant `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), puis en chargeant tout `Nuget.Config` ou `.nuget\Nuget.Config` fichiers à partir de la racine du lecteur et de fin dans le répertoire actif (consultez [configuration Comportement de NuGet](../consume-packages/configuring-nuget-behavior.md))
+Configuration par défaut de NuGet est obtenue en chargeant `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), puis en chargeant tout `Nuget.Config` ou `.nuget\Nuget.Config` fichiers à partir de la racine du lecteur et de fin dans le répertoire actif (consultez [NuGet courantes configurations](../consume-packages/configuring-nuget-behavior.md))
 
 ## <a name="usage"></a>Utilisation
 
@@ -43,7 +43,7 @@ où `<packagePath>` identifie le package à envoyer au serveur.
 | NonInteractive | Supprime les invites pour l’entrée de l’utilisateur ou de confirmations. |
 | NoSymbols | *(3.5 +)*  Si un package de symboles existe, il n’est pas adressée à un serveur de symboles. |
 | Source | Spécifie l’URL du serveur. NuGet identifie un chemin UNC ou une source de dossier local et copie simplement le fichier au lieu d’envoyer à l’aide de HTTP.  En outre, à partir de NuGet 3.4.2, ce paramètre est obligatoire, sauf si le `NuGet.Config` fichier Spécifie un *DefaultPushSource* valeur (consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md)). |
-| SkipDuplicate | Si un package et la version existe déjà, ignorer et continuer avec le package suivant dans la notification push, le cas échéant. |
+| SkipDuplicate | *(5.1 +)*  Si un package et la version existe déjà, ignorer et continuer avec le package suivant dans la notification push, le cas échéant. |
 | SymbolSource | *(3.5 +)*  Spécifie l’URL du serveur de symboles ; nuget.smbsrc.net est utilisé lors de l’envoi sur nuget.org |
 | SymbolApiKey | *(3.5 +)*  Spécifie la clé API pour l’URL spécifiée dans `-SymbolSource`. |
 | Délai | Spécifie le délai d’attente, en secondes, pour envoyer vers un serveur. La valeur par défaut est 300 secondes (5 minutes). |

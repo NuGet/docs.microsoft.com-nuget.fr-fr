@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 486bf4032e156168f9b2fef57ccdae0c372b2eff
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977509"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426175"
 ---
 # <a name="signed-packages"></a>Packages signés
 
@@ -20,7 +20,7 @@ ms.locfileid: "52977509"
 Les packages NuGet peuvent inclure une signature numérique qui fournit une protection contre le contenu falsifiée. Cette signature est générée à partir d’un certificat X.509 qui ajoute également des preuves d’authenticité à l’origine réelle du package.
 
 Les packages signés fournissent la validation de bout en bout plus forte. Il existe deux types de signatures de NuGet :
-- **Créer la Signature**. Une signature de l’auteur garantit que le package n’a pas été modifié depuis l’auteur a signé le package, non quel que soit à partir de laquelle le dépôt ou ce que le package est remis de méthode de transport. En outre, les packages signés par auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être inscrit à l’avance. Pour plus d’informations, consultez [enregistrer des certificats](#register-certificate-on-nugetorg).
+- **Créer la Signature**. Une signature de l’auteur garantit que le package n’a pas été modifié depuis l’auteur a signé le package, non quel que soit à partir de laquelle le dépôt ou ce que le package est remis de méthode de transport. En outre, les packages signés par auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être inscrit à l’avance. Pour plus d’informations, consultez [enregistrer des certificats](#signature-requirements-on-nugetorg).
 - **Signature de référentiel**. Les signatures de référentiel offrent la garantie d’intégrité pour **tous les** dans un référentiel de packages qu’ils soient auteur signé ou non, même si ces packages sont obtenues à partir d’un emplacement autre que le dépôt d’origine où ils se trouvaient signé.   
 
 Pour plus d’informations sur la création d’un package signé auteur, consultez [signature de Packages](../create-packages/Sign-a-package.md) et [commande de connexion nuget](../tools/cli-ref-sign.md).
@@ -56,5 +56,5 @@ NuGet.org a des exigences supplémentaires pour l’acceptation d’un package s
   
 ## <a name="related-articles"></a>Articles connexes
 
-- [Signature de Packages NuGet](../create-packages/Sign-a-Package.md)
-- [L’installation de packages signés](../consume-packages/installing-signed-packages.md)
+- [Signature de packages NuGet](../create-packages/Sign-a-Package.md)
+- [Gérer les limites d’approbation de package](../consume-packages/installing-signed-packages.md)

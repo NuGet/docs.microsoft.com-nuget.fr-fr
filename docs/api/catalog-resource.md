@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 4884de71151ee1ae3c0a78b803c9222f9c1d86ec
-ms.sourcegitcommit: ef08f376688f0191a8d3d873b6a4386afd799373
+ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66266356"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426787"
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -27,7 +27,7 @@ Le **catalogue** est une ressource qui enregistre toutes les opérations de pack
 
 Ce qui suit `@type` valeur est utilisée :
 
-Valeur@type    | Notes
+Valeur@type   | Notes
 ------------- | -----
 Catalog/3.0.0 | La version initiale
 
@@ -236,8 +236,8 @@ TÉLÉCHARGER https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windows
 
 Éléments avec le type de catalogue `PackageDelete` contiennent un ensemble minimal des informations indiquant aux clients du catalogue qu’un package a été supprimé de la source du package et n’est plus disponible pour toute opération de package (telles que la restauration).
 
-> [!Note]
-> Il est possible pour un package à supprimer et à l’aide republié plus tard le même ID de package et la version. Sur nuget.org, c’est un cas très rare car cela rompt l’hypothèse du client officiel qu’un ID de package et une version impliquent un contenu de package spécifique. Pour plus d’informations sur la suppression du package sur nuget.org, consultez [notre stratégie](../policies/deleting-packages.md).
+> [!NOTE]
+> Il est possible pour un package à supprimer et à l’aide republié plus tard le même ID de package et la version. Sur nuget.org, c’est un cas très rare car cela rompt l’hypothèse du client officiel qu’un ID de package et une version impliquent un contenu de package spécifique. Pour plus d’informations sur la suppression du package sur nuget.org, consultez [notre stratégie](../nuget-org/policies/deleting-packages.md).
 
 Supprimer des éléments de catalogue package n’ont aucune propriété supplémentaire en plus de ceux [inclus sur toutes les feuilles de catalogue](#catalog-leaf).
 

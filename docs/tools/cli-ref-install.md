@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 8261cdb83af72d9d9379124f4c446c7cd2a50299
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 8088c6dcb7d453650950c219e1cc4dd047a64417
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549134"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425993"
 ---
 # <a name="install-command-nuget-cli"></a>install (commande, NuGet CLI)
 
@@ -21,7 +21,7 @@ Télécharge et installe un package dans un projet, par défaut le dossier actue
 > [!Tip]
 > Pour télécharger un package directement à l’extérieur du contexte d’un projet, visitez la page du package sur [nuget.org](https://www.nuget.org) et sélectionnez le **télécharger** lien.
 
-Si aucune source n’est spécifiées, ceux répertoriés dans le fichier de configuration globale, `%appdata%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), sont utilisés. Consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md) pour plus d’informations.
+Si aucune source n’est spécifiées, ceux répertoriés dans le fichier de configuration globale, `%appdata%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux), sont utilisés. Consultez [les configurations courantes NuGet](../consume-packages/configuring-nuget-behavior.md) pour plus d’informations.
 
 Si aucun des packages spécifiques ne sont spécifiés, `install` installe tous les packages répertoriés dans le projet `packages.config` fichier, rendant similaire à [ `restore` ](cli-ref-restore.md).
 
@@ -56,7 +56,7 @@ où `<packageID>` désigne le package à installer (à l’aide de la dernière 
 | Version préliminaire | Permet à installer des packages de version préliminaire. Cet indicateur n’est pas requis lors de la restauration des packages avec `packages.config`. |
 | RequireConsent | Vérifie que la restauration des packages est activé avant de télécharger et installer les packages. Pour plus d’informations, consultez [la restauration des packages](../consume-packages/package-restore.md). |
 | SolutionDirectory | Spécifie le dossier racine de la solution pour lequel restaurer les packages. |
-| Source | Spécifie la liste des sources de package (en tant qu’URL) pour utiliser. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md). |
+| Source | Spécifie la liste des sources de package (en tant qu’URL) pour utiliser. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [les configurations courantes NuGet](../consume-packages/configuring-nuget-behavior.md). |
 | Verbosity | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 | Version | Spécifie la version du package à installer. |
 

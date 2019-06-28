@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9964186dcbfedfbf2415a57102f8f019a1eef23a
-ms.sourcegitcommit: 6b71926f062ecddb8729ef8567baf67fd269642a
+ms.openlocfilehash: 3d7a4188de4fb6f812ca19e7f9e302a5a133c58b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59931993"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67425972"
 ---
 # <a name="restore-command-nuget-cli"></a>commande de restauration (CLI NuGet)
 
@@ -50,7 +50,7 @@ où `<projectPath>` Spécifie l’emplacement d’une solution ou un `packages.c
 | RequireConsent | Vérifie que la restauration des packages est activé avant de télécharger et installer les packages. Pour plus d’informations, consultez [la restauration des packages](../consume-packages/package-restore.md). |
 | SolutionDirectory | Spécifie le dossier de solution. Non valide lors de la restauration des packages pour une solution. Requis lors de la restauration avec un `packages.config` de fichiers, sauf si `PackagesDirectory` ou `OutputDirectory` est utilisé. |
 | Source | Spécifie la liste des sources de package (en tant qu’URL) à utiliser pour la restauration. Si omis, la commande utilise les sources fournies dans les fichiers de configuration, consultez [du comportement de NuGet configuration](../consume-packages/configuring-nuget-behavior.md). |
-| Verbosity |> Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
+| Verbosity | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 
 Consultez également [variables d’environnement](cli-ref-environment-variables.md)
 

@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6c545ddeddb0c5909f57e879912eaeed744e42d5
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: e4c57c0580fe9018703291c08d60e559f95183dc
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812926"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426206"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -85,7 +85,7 @@ Liste séparée par des virgules des auteurs de packages, qui correspondent aux 
 #### <a name="title"></a>titre
 Titre convivial du package, généralement utilisé dans les affichages de l’interface utilisateur comme sur nuget.org et dans le gestionnaire de package de Visual Studio. Si non spécifié, l’ID de package est utilisé. 
 #### <a name="owners"></a>owners
-Liste des créateurs de packages séparés par des virgules, qui utilisent des noms de profil sur nuget.org. Il s’agit souvent de la même liste que dans `authors` et elle est ignorée lors du chargement du package sur nuget.org. Consultez [Gestion des propriétaires de packages sur nuget.org](../create-packages/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Liste des créateurs de packages séparés par des virgules, qui utilisent des noms de profil sur nuget.org. Il s’agit souvent de la même liste que dans `authors` et elle est ignorée lors du chargement du package sur nuget.org. Consultez [Gestion des propriétaires de packages sur nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 #### <a name="projecturl"></a>projectUrl
 URL de la page d’accueil du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. 
 #### <a name="licenseurl"></a>licenseUrl
@@ -300,7 +300,7 @@ L’exemple suivant illustre différentes variantes de l’élément `<group>` :
 
 ## <a name="explicit-assembly-references"></a>Références d’assembly explicite
 
-L’élément `<references>` spécifie explicitement les assemblys que le projet cible doit référencer lors de l’utilisation du package. Quand cet élément est présent, NuGet n’ajoute des références qu’aux assemblys répertoriés ; il n’ajoute de références pour aucun autre assembly dans le dossier `lib` du package.
+Le `<references>` élément est utilisé par les projets à l’aide de `packages.config` pour spécifier explicitement les assemblys que le projet cible doit référencer lors de l’utilisation du package. Des références explicites sont généralement utilisées pour les assemblys uniquement au moment du design. Pour plus d’informations, consultez la page sur [en sélectionnant les assemblys référencés par les projets](../create-packages/select-assemblies-referenced-by-projects.md) pour plus d’informations.
 
 Par exemple, l’élément `<references>` suivant demande à NuGet d’ajouter des références à `xunit.dll` et `xunit.extensions.dll` uniquement même s’il existe d’autres assemblys dans le package :
 
@@ -310,10 +310,6 @@ Par exemple, l’élément `<references>` suivant demande à NuGet d’ajouter d
     <reference file="xunit.extensions.dll" />
 </references>
 ```
-
-Des références explicites sont généralement utilisées pour les assemblys uniquement au moment du design. Quand vous utilisez des [contrats de code](/dotnet/framework/debug-trace-profile/code-contracts), par exemple, les assemblys de contrat doivent être en regard des assemblys de runtime qu’ils augmentent afin que Visual Studio puisse les trouver, mais les assemblys de contrat n’ont pas à être référencés par le projet ni copiés dans le dossier `bin` du projet.
-
-De même, des références explicites peuvent servir pour les frameworks de tests unitaires, tels que XUnit,dont les assemblys d’outils doivent être situés en regard des assemblys de runtime, mais qui n’ont pas besoin d’être inclus comme références de projet.
 
 ### <a name="reference-groups"></a>Groupes de référence
 
@@ -376,7 +372,7 @@ Si vous suivez les conventions décrites dans [Création d’un package](../crea
 > [!Important]
 > Quand un package est installé dans un projet, NuGet ajoute automatiquement des références d’assembly aux DLL du package, *à l’exclusion* de celles nommées `.resources.dll`, car elles sont supposées être des assemblys satellites localisés. C’est pourquoi vous devez éviter d’utiliser `.resources.dll` pour les fichiers qui contiennent du code de package essentiel.
 
-Pour ignorer ce comportement automatique et contrôler explicitement les fichiers qui sont inclus dans un package, placez un élément `<files>` en tant qu’enfant de `<package>` (et frère de `<metadata>`), identifiant chaque fichier avec un élément `<file>` distinct. Exemple :
+Pour ignorer ce comportement automatique et contrôler explicitement les fichiers qui sont inclus dans un package, placez un élément `<files>` en tant qu’enfant de `<package>` (et frère de `<metadata>`), identifiant chaque fichier avec un élément `<file>` distinct. Par exemple :
 
 ```xml
 <files>
@@ -617,7 +613,7 @@ Le projet de package doit structurer le contenu à l’aide du modèle suivant :
 - `TxM` est n’importe quel moniker du Framework cible légal pris en charge par NuGet (consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md)).
 - Toute structure de dossiers peut être ajoutée à la fin de cette syntaxe.
 
-Exemple :
+Par exemple :
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: reference
-ms.openlocfilehash: d7c943c1f13edf782dabe4afee9d19a1a42bd42a
-ms.sourcegitcommit: 573af6133a39601136181c1d98c09303f51a1ab2
+ms.openlocfilehash: 2eceb6e94a353cb29b83aea114c6cea2acbac266
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58911086"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426144"
 ---
 # <a name="nugetconfig-reference"></a>nuget.config reference
 
-Le comportement de NuGet est contrôlé par des paramètres dans différents fichiers `NuGet.Config` comme décrit dans [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md).
+Comportement de NuGet est contrôlé par les paramètres dans différents `NuGet.Config` comme décrit dans les fichiers [les configurations courantes NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` est un fichier XML contenant un nœud `<configuration>` de niveau supérieur qui comprend à son tour les éléments de section décrits dans cette rubrique. Chaque section contient zéro ou plusieurs éléments. Consultez [l’exemple de fichier config](#example-config-file). Les noms de paramètre ne respectent pas la casse et les valeurs peuvent utiliser des [variables d’environnement](#using-environment-variables).
 

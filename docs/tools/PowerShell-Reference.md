@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 45c8be9956ceaab844bdcd89f1b96adc256f805c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 977e06d36962366abd69f1c7f21ef33eca4e5029
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546662"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426121"
 ---
-# <a name="powershell-reference"></a>Référence de PowerShell
+# <a name="powershell-reference"></a>Informations de référence sur PowerShell
 
-La Console du Gestionnaire de Package fournit une interface de PowerShell dans Visual Studio sur Windows pour interagir avec NuGet via les commandes spécifiques répertoriées ci-dessous. (La console n’est pas actuellement disponible dans Visual Studio pour Mac.) Pour un guide d’utilisation de la console, consultez le [Console du Gestionnaire de Package](../tools/package-manager-console.md) rubrique.
+La Console du Gestionnaire de Package fournit une interface de PowerShell dans Visual Studio sur Windows pour interagir avec NuGet via les commandes spécifiques répertoriées ci-dessous. (La console n’est pas actuellement disponible dans Visual Studio pour Mac.) Pour un guide d’utilisation de la console, consultez [installer et gérer des packages à l’aide de PowerShell](../tools/package-manager-console.md) rubrique.
 
 > [!Tip]
 > Toutes les commandes PowerShell se rapportent uniquement à la consommation de package. Aucune commande PowerShell sont liées à la création et publication de packages à l’exception dans la mesure où un package peut également être un consommateur d’autres packages.
