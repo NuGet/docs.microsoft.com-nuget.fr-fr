@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: d47e1978ab7d827e0b8b97cd4e7237019185b50f
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5b5a11ee11d9e2cf6a90d56ac63b1f7bad750ea
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546074"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496490"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Console du gestionnaire de packages dans Visual Studio)
 
@@ -46,7 +46,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | Réinstallation | Packages de Resintalls à l’aide de leurs versions actuellement installées. Consultez [Réinstallation et mise à jour des packages](../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | L’action à entreprendre lorsque vous êtes invité à écraser ou ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *remplacer, ignorer, None, OverwriteAll*, et *IgnoreAll* (3.0 +). |
 | DependencyVersion | La version des packages de dépendance à utiliser, ce qui peut prendre l’une des opérations suivantes :<br/><ul><li>*La plus basse* (valeur par défaut) : la version la plus basse</li><li>*HighestPatch*: la version du correctif plus bas majeure, mineure la plus basse, le plus élevé</li><li>*HighestMinor*: la version avec le plus bas principales, des correctifs mineurs, la plus élevée le plus élevé</li><li>*La plus élevée* (valeur par défaut pour le Package de mise à jour sans paramètres) : la version la plus récente</li></ul>Vous pouvez définir la valeur par défaut en utilisant le [ `dependencyVersion` ](../reference/nuget-config-file.md#config-section) définition dans le `Nuget.Config` fichier. |
-| ToHighestPatch | Contraint les mises à niveau uniquement aux versions avec la même version mineure que le package actuellement installée. |
+| ToHighestPatch | équivalent - Safe. |
 | ToHighestMinor | Contraint les mises à niveau uniquement aux versions avec la même version principale que le package actuellement installée. |
 | WhatIf | Montre ce qui se passerait lors de l’exécution de la commande sans réellement effectuer la mise à jour. |
 
@@ -54,7 +54,7 @@ Aucun de ces paramètres accepter les caractères d’entrée ou de caractère g
 
 ### <a name="common-parameters"></a>Paramètres communs
 
-`Update-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Update-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ### <a name="examples"></a>Exemples
 

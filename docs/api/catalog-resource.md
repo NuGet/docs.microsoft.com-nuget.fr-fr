@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 34c205e7dac60c7abfb6323b4dc45bf4f074d46a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 8e4fb376e471a207333d241aeb414da7d5c3571e
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426787"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496541"
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -194,7 +194,8 @@ Nom                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
 authors                 | string                     | Non       |
 created                 | string                     | Non       | Un horodatage de date de création tout d’abord le package. Propriété de secours : `published`.
-dependencyGroups        | tableau d’objets           | Non       | Même format que le [ressource des métadonnées du package](registration-base-url-resource.md#package-dependency-group)
+dependencyGroups        | tableau d’objets           | Non       | Les dépendances du package, regroupées par le framework cible ([même format que la ressource de métadonnées de package](registration-base-url-resource.md#package-dependency-group))
+Dépréciation             | object                     | Non       | La désapprobation associée au package ([même format que la ressource de métadonnées de package](registration-base-url-resource.md#package-deprecation))
 Description             | string                     | Non       |
 iconUrl                 | string                     | Non       |
 isPrerelease            | boolean                    | Non       | Indique si la version du package est préliminaire. Peut être détectée à partir de `version`.

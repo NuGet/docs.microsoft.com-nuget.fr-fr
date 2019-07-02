@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 19a1f48164f65f1ff805e036e55abb110247aa72
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 0b35e2bbdde63f7f7a5298bd035c180389cd345d
+ms.sourcegitcommit: 2a9d149bc6f5ff76b0b657324820bd0429cddeef
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324862"
+ms.lasthandoff: 07/01/2019
+ms.locfileid: "67496497"
 ---
-# <a name="package-metadata"></a>Métadonnées du package
+# <a name="package-metadata"></a>Métadonnées de package
 
 Il est possible d’extraire des métadonnées sur les packages disponibles sur une source de package à l’aide de l’API V3 de NuGet. Ces métadonnées peuvent être extraites à l’aide de la `RegistrationsBaseUrl` ressource trouvée dans le [index de service](service-index.md).
 
@@ -23,7 +23,7 @@ La collection de documents trouvés sous `RegistrationsBaseUrl` sont souvent app
 
 Les éléments suivants `@type` les valeurs sont utilisées :
 
-Valeur@type                      | Notes
+Valeur@type                     | Notes
 ------------------------------- | -----
 RegistrationsBaseUrl            | La version initiale
 RegistrationsBaseUrl/3.0.0-beta | Alias de `RegistrationsBaseUrl`
@@ -76,9 +76,9 @@ L’heuristique nuget.org utilise est comme suit : s’il existe 128 ou de plus
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name     | Vers l'avant     | Type    | Obligatoire | Notes
+Nom     | Vers l'avant     | Type    | Obligatoire | Notes
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | chaîne  | oui      | L’ID de package, minuscule
+LOWER_ID | URL    | string  | oui      | L’ID de package, minuscule
 
 Le `LOWER_ID` valeur est l’ID de package souhaité minuscule en utilisant les règles implémentées par. NET [ `System.String.ToLowerInvariant()` ](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) (méthode).
 
@@ -86,7 +86,7 @@ Le `LOWER_ID` valeur est l’ID de package souhaité minuscule en utilisant les 
 
 La réponse est un document JSON qui a un objet racine avec les propriétés suivantes :
 
-Name  | Type             | Obligatoire | Notes
+Nom  | Type             | Obligatoire | Notes
 ----- | ---------------- | -------- | -----
 count | entiers          | oui      | Le nombre de pages d’inscription dans l’index
 éléments | tableau d’objets | oui      | Le tableau de pages d’inscription
@@ -97,14 +97,14 @@ Chaque élément dans l’objet index `items` tableau est un objet JSON qui repr
 
 L’objet de page d’inscription trouvé dans l’index de l’enregistrement a les propriétés suivantes :
 
-Name   | Type             | Obligatoire | Notes
+Nom   | Type             | Obligatoire | Notes
 ------ | ---------------- | -------- | -----
-@id    | chaîne           | oui      | L’URL vers la page d’inscription
+@id    | string           | oui      | L’URL vers la page d’inscription
 count  | entiers          | oui      | Le numéro d’inscription laisse dans la page
 éléments  | tableau d’objets | Non       | Le tableau des feuilles de l’inscription et leurs métadonnées associer
-inférieur  | chaîne           | oui      | La version SemVer 2.0.0 plus bas dans la page (incluse)
-parent | chaîne           | Non       | L’URL à l’index de l’inscription
-supérieur  | chaîne           | oui      | La version la plus récente de SemVer 2.0.0 dans la page (incluse)
+inférieur  | string           | oui      | La version SemVer 2.0.0 plus bas dans la page (incluse)
+parent | string           | Non       | L’URL à l’index de l’inscription
+supérieur  | string           | oui      | La version la plus récente de SemVer 2.0.0 dans la page (incluse)
 
 Le `lower` et `upper` limites de l’objet de page sont utiles lorsque les métadonnées pour une version spécifique de page sont nécessaire.
 Ces limites peuvent être utilisés pour extraire la page d’inscription uniquement nécessitée. Respectent les chaînes de version [les règles de version de NuGet](../reference/package-versioning.md). Les chaînes de version sont normalisées et n’incluent pas de métadonnées de build. Comme avec toutes les versions de l’écosystème NuGet, comparaison de chaînes de version est implémenté à l’aide de [règles de priorité de version SemVer 2.0.0's](http://semver.org/spec/v2.0.0.html#spec-item-11).
@@ -121,11 +121,11 @@ Chaque élément dans l’objet page `items` tableau est un objet JSON qui repr�
 
 L’objet de feuille de l’inscription trouvé dans une page d’inscription a les propriétés suivantes :
 
-Name           | Type   | Obligatoire | Notes
+Nom           | Type   | Obligatoire | Notes
 -------------- | ------ | -------- | -----
-@id            | chaîne | oui      | L’URL à la feuille d’inscription
+@id            | string | oui      | L’URL à la feuille d’inscription
 catalogEntry   | object | oui      | L’entrée de catalogue qui contient les métadonnées du package
-packageContent | chaîne | oui      | L’URL pour le contenu du package (fichier .nupkg)
+packageContent | string | oui      | L’URL pour le contenu du package (fichier .nupkg)
 
 Chaque objet de feuille de l’inscription représente les données associées à une version de package unique.
 
@@ -133,25 +133,26 @@ Chaque objet de feuille de l’inscription représente les données associées �
 
 Le `catalogEntry` propriété de l’objet de feuille de l’enregistrement a les propriétés suivantes :
 
-Name                     | Type                       | Obligatoire | Notes
+Nom                     | Type                       | Obligatoire | Notes
 ------------------------ | -------------------------- | -------- | -----
-@id                      | chaîne                     | oui      | L’URL utilisée pour produire cet objet de document
+@id                      | string                     | oui      | L’URL utilisée pour produire cet objet de document
 authors                  | chaîne ou tableau de chaînes | Non       | 
 dependencyGroups         | tableau d’objets           | Non       | Les dépendances du package, regroupées par le framework cible
-Description              | chaîne                     | Non       | 
-iconUrl                  | chaîne                     | Non       | 
-ID                       | chaîne                     | oui      | L’ID du package
-licenseUrl               | chaîne                     | Non       |
-licenseExpression        | chaîne                     | Non       | 
+Dépréciation              | object                     | Non       | La désapprobation associée au package
+Description              | string                     | Non       | 
+iconUrl                  | string                     | Non       | 
+ID                       | string                     | oui      | L’ID du package
+licenseUrl               | string                     | Non       |
+licenseExpression        | string                     | Non       | 
 liste                   | boolean                    | Non       | Doit être considérée comme répertoriée s’il est absent
-minClientVersion         | chaîne                     | Non       | 
-projectUrl               | chaîne                     | Non       | 
-Publié                | chaîne                     | Non       | Chaîne contenant un horodatage ISO8601 de quand le package a été publié
+minClientVersion         | string                     | Non       | 
+projectUrl               | string                     | Non       | 
+Publié                | string                     | Non       | Chaîne contenant un horodatage ISO8601 de quand le package a été publié
 requireLicenseAcceptance | boolean                    | Non       | 
-résumé                  | chaîne                     | Non       | 
+résumé                  | string                     | Non       | 
 étiquettes                     | chaîne ou tableau de chaînes  | Non       | 
-titre                    | chaîne                     | Non       | 
-version                  | chaîne                     | oui      | La chaîne de version complète après normalisation
+titre                    | string                     | Non       | 
+version                  | string                     | oui      | La chaîne de version complète après normalisation
 
 Le package `version` propriété est la chaîne de version complète après la normalisation. Cela signifie que les données de build de SemVer 2.0.0 peuvent être incluses ici.
 
@@ -163,9 +164,9 @@ La valeur de la `licenseExpression` propriété respecte [syntaxe d’expression
 
 Chaque objet de dépendance de groupe a les propriétés suivantes :
 
-Name            | Type             | Obligatoire | Notes
+Nom            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
-targetFramework | chaîne           | Non       | Le framework cible que ces dépendances sont applicables à
+targetFramework | string           | Non       | Le framework cible que ces dépendances sont applicables à
 dépendances    | tableau d’objets | Non       |
 
 Le `targetFramework` chaîne utilise le format implémenté par la bibliothèque de .NET de NuGet [NuGet.Frameworks](https://www.nuget.org/packages/NuGet.Frameworks/). Si aucun `targetFramework` est spécifié, le groupe de dépendance s’applique à toutes les infrastructures cibles.
@@ -176,13 +177,33 @@ Le `dependencies` propriété est un tableau d’objets, représentant chacun un
 
 Chaque dépendance de package a les propriétés suivantes :
 
-Name         | Type   | Obligatoire | Notes
+Nom         | Type   | Obligatoire | Notes
 ------------ | ------ | -------- | -----
-ID           | chaîne | oui      | L’ID de la dépendance de package
+ID           | string | oui      | L’ID de la dépendance de package
 range        | object | Non       | Autorisées [plage de versions](../reference/package-versioning.md#version-ranges-and-wildcards) de la dépendance
-inscription | chaîne | Non       | L’URL à l’index de l’inscription de cette dépendance
+inscription | string | Non       | L’URL à l’index de l’inscription de cette dépendance
 
 Si le `range` propriété est exclue ou une chaîne vide, le client doit utiliser par défaut la plage de versions `(, )`. Autrement dit, n’importe quelle version de la dépendance est autorisée.
+
+#### <a name="package-deprecation"></a>Désapprobation de package
+
+Désapprobation de chaque package a les propriétés suivantes :
+
+Nom             | Type             | Obligatoire | Notes
+---------------- | ---------------- | -------- | -----
+raisons          | tableau de chaînes | oui      | Les raisons pourquoi le package a été déconseillé
+message          | string           | Non       | Les détails supplémentaires sur cette utilisation déconseillée
+alternatePackage | object           | Non       | La dépendance de package qui doit être utilisée à la place
+
+Le `reasons` propriété doit contenir au moins une chaîne et doit contenir seulement des chaînes dans le tableau suivant :
+
+Raison       | Description             
+------------ | -----------
+Hérité       | Le package n’est pas conservé
+CriticalBugs | Le package comporte des bogues qui le rendent inapproprié pour l’utilisation
+Autre        | Le package est déconseillé en raison d’une raison pas sur cette liste
+
+Si le `reasons` propriété contient des chaînes qui ne sont pas à partir de l’ensemble connu, ils doivent être ignorés. Les chaînes respectent la casse, de sorte que `legacy` doit être traité comme `Legacy`. Il n’existe aucune restriction de classement dans le groupe, afin des chaînes peuvent être organisés dans n’importe quel ordre arbitraire. En outre, si la propriété contient uniquement les chaînes qui ne sont pas à partir de l’ensemble connu, il doit être traité comme s’il ne contenait la chaîne « Autre ».
 
 ### <a name="sample-request"></a>Exemple de demande
 
@@ -200,14 +221,14 @@ La page d’inscription contient des feuilles de l’inscription. L’URL pour r
 
 Lorsque le `items` tableau n’est pas fourni dans l’index de l’inscription, une requête HTTP GET de la `@id` valeur retournera un document JSON qui a un objet en tant que sa racine. L’objet a les propriétés suivantes :
 
-Name   | Type             | Obligatoire | Notes
+Nom   | Type             | Obligatoire | Notes
 ------ | ---------------- | -------- | -----
-@id    | chaîne           | oui      | L’URL vers la page d’inscription
+@id    | string           | oui      | L’URL vers la page d’inscription
 count  | entiers          | oui      | Le numéro d’inscription laisse dans la page
 éléments  | tableau d’objets | oui      | Le tableau des feuilles de l’inscription et leurs métadonnées associer
-inférieur  | chaîne           | oui      | La version SemVer 2.0.0 plus bas dans la page (incluse)
-parent | chaîne           | oui      | L’URL à l’index de l’inscription
-supérieur  | chaîne           | oui      | La version la plus récente de SemVer 2.0.0 dans la page (incluse)
+inférieur  | string           | oui      | La version SemVer 2.0.0 plus bas dans la page (incluse)
+parent | string           | oui      | L’URL à l’index de l’inscription
+supérieur  | string           | oui      | La version la plus récente de SemVer 2.0.0 dans la page (incluse)
 
 La forme des objets de feuille d’inscription est le même que dans l’index de l’inscription [ci-dessus](#registration-leaf-object-in-a-page).
 
@@ -227,14 +248,14 @@ L’URL pour récupérer une feuille d’inscription est obtenu à partir de la 
 
 La feuille d’inscription est un document JSON avec un objet racine avec les propriétés suivantes :
 
-Name           | Type    | Obligatoire | Notes
+Nom           | Type    | Obligatoire | Notes
 -------------- | ------- | -------- | -----
-@id            | chaîne  | oui      | L’URL à la feuille d’inscription
-catalogEntry   | chaîne  | Non       | L’URL à l’entrée de catalogue qui a produit ces feuille
+@id            | string  | oui      | L’URL à la feuille d’inscription
+catalogEntry   | string  | Non       | L’URL à l’entrée de catalogue qui a produit ces feuille
 liste         | boolean | Non       | Doit être considérée comme répertoriée s’il est absent
-packageContent | chaîne  | Non       | L’URL pour le contenu du package (fichier .nupkg)
-Publié      | chaîne  | Non       | Chaîne contenant un horodatage ISO8601 de quand le package a été publié
-inscription   | chaîne  | Non       | L’URL à l’index de l’inscription
+packageContent | string  | Non       | L’URL pour le contenu du package (fichier .nupkg)
+Publié      | string  | Non       | Chaîne contenant un horodatage ISO8601 de quand le package a été publié
+inscription   | string  | Non       | L’URL à l’index de l’inscription
 
 > [!Note]
 > Sur nuget.org, le `published` a la valeur année 1900 lorsque le package n’est pas répertorié.
