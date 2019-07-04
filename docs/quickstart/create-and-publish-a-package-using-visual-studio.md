@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: d30e89473b5f00895136b75a90d8d95b7645a100
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: c75785d361f25564c8a59d7a2d85924c570a7b9a
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812977"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467812"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
@@ -29,7 +29,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 
    * Pour la CLI `nuget.exe`, téléchargez-la à partir de [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe), en enregistrant le fichier `.exe` dans un dossier approprié et en ajoutant ce dossier à votre variable d’environnement PATH. L’interface CLI nuget.exe est utilisée pour les bibliothèques .NET Standard au format non SDK.
 
-1. [Créez un compte gratuit sur nuget.org](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) si vous n’avez pas encore de compte. La création d’un compte envoie un e-mail de confirmation. Vous devez confirmer le compte avant de pouvoir charger un package.
+1. [Créez un compte gratuit sur nuget.org](https://docs.microsoft.com/en-us/nuget/nuget-org/individual-accounts#add-a-new-individual-account) si vous n’avez pas encore de compte. La création d’un compte envoie un e-mail de confirmation. Vous devez confirmer le compte avant de pouvoir charger un package.
 
 ## <a name="create-a-class-library-project"></a>Créer un projet de bibliothèque de classes
 
@@ -174,7 +174,7 @@ Cela inclut un fichier nommé `readme.txt` dans la racine du package. Visual Stu
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Créer un package](../create-packages/creating-a-package.md)
-- [Publier un package](../create-packages/publish-a-package.md)
+- [Publier un package](../nuget-org/publish-a-package.md)
 - [Packages de préversion](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Gestion des versions de package](../reference/package-versioning.md)
