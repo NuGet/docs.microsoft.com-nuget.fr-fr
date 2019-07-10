@@ -1,16 +1,16 @@
 ---
 title: Créer et publier un package .NET Framework avec Visual Studio sous Windows
-description: Ce tutoriel explique pas à pas comment créer et publier un package NuGet .NET Framework avec Visual Studio 2017 sous Windows.
+description: Ce tutoriel explique pas à pas comment créer et publier un package NuGet .NET Framework avec Visual Studio dans Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 68593211da1a34649c7050753a5db0f3a03cb41b
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: efdaa0128d47f948c86c3cc83d6a332410cbf99f
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549626"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426337"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework, Windows)
 
@@ -31,7 +31,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 
 Vous pouvez utiliser un projet de bibliothèque de classes .NET Framework existant pour le code à empaqueter, ou bien en créer un de la façon suivante :
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, sélectionnez le nœud **Visual C#**, sélectionnez le modèle « Bibliothèque de classes (.NET Framework) », nommez le projet AppLogger, puis cliquez sur **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, sélectionnez le nœud **Visual C#** , sélectionnez le modèle « Bibliothèque de classes (.NET Framework) », nommez le projet AppLogger, puis cliquez sur **OK**.
 
 1. Cliquez avec le bouton droit sur le fichier projet résultant et sélectionnez **Générer** pour être sûr que le projet a été créé correctement. La DLL se trouve dans le dossier Debug (ou Release si vous générez cette configuration).
 
@@ -175,7 +175,7 @@ Voir [nuget push](../tools/cli-ref-push.md).
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Créer un package](../create-packages/creating-a-package.md)
-- [Publier un package](../create-packages/publish-a-package.md)
+- [Publier un package](../nuget-org/publish-a-package.md)
 - [Packages de préversion](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Gestion des versions de package](../reference/package-versioning.md)

@@ -1,18 +1,18 @@
 ---
-title: Installer un package NuGet signé
+title: Gérer les limites d’approbation de package
 description: Décrit le processus d’installation de packages NuGet signés et de configuration des paramètres d’approbation des signatures de package.
 author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 11ffaee96b6f6a9260f38c534328b6631cd96abf
-ms.sourcegitcommit: 673e580ae749544a4a071b4efe7d42fd2bb6d209
+ms.openlocfilehash: 8da57dc295ea78f2eb183226fc9b2f4a37e3f5db
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52977833"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426635"
 ---
-# <a name="install-a-signed-package"></a>Installer un package signé
+# <a name="manage-package-trust-boundaries"></a>Gérer les limites d’approbation de package
 
 L’installation de packages signés ne nécessite aucune action spécifique. Cependant, si le contenu a été modifié après sa signature, l’installation est bloquée avec une erreur [NU3008](../reference/errors-and-warnings/NU3008.md).
 
@@ -24,7 +24,7 @@ L’installation de packages signés ne nécessite aucune action spécifique. Ce
 > [!Note]
 > Nécessite NuGet 4.9.0+ et Visual Studio version 15.9 et ultérieure sur Windows
 
-Vous pouvez configurer la façon dont les clients NuGet valident les signatures de package en définissant `signatureValidationMode` sur `require` dans le fichier [nuget.config](../reference/nuget-config-file) avec la commande [`nuget config`](../tools/cli-ref-config).
+Vous pouvez configurer la façon dont les clients NuGet valident les signatures de package en définissant `signatureValidationMode` sur `require` dans le fichier [nuget.config](../reference/nuget-config-file.md) avec la commande [`nuget config`](../tools/cli-ref-config.md).
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -40,7 +40,7 @@ Ce mode vérifie que tous les packages sont signés par un des certificats appro
 
 ### <a name="trust-package-author"></a>Approuver un auteur de package
 
-Pour approuver des packages en fonction de la signature de l’auteur, utilisez la commande [`trusted-signers`](..tools/cli-ref-trusted-signers) pour définir la propriété `author` dans le fichier nuget.config.
+Pour approuver des packages en fonction de la signature de l’auteur, utilisez la commande [`trusted-signers`](../tools/cli-ref-trusted-signers.md) pour définir la propriété `author` dans le fichier nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,7 +55,7 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
->Utilisez la [commande verify](https://docs.microsoft.com/en-us/nuget/tools/cli-ref-verify) de `nuget.exe` pour obtenir la valeur `SHA256` de l’empreinte du certificat.
+>Utilisez la [commande verify](../tools/cli-ref-verify.md) de `nuget.exe` pour obtenir la valeur `SHA256` de l’empreinte du certificat.
 
 
 ### <a name="trust-all-packages-from-a-repository"></a>Approuver tous les packages d’un dépôt
@@ -95,14 +95,13 @@ Dans certaines situations, vous souhaitez activer la vérification avec des cert
 
 ### <a name="sync-repository-certificates"></a>Synchroniser des certificats de dépôt
 
-Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](https://docs.microsoft.com/en-us/nuget/api/service-index). Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire. Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté. Vous pouvez facilement mettre à niveau les signataires approuvés associés à un dépôt avec la [commande trusted-signers sync](/nuget/tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) de `nuget.exe`.
+Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](../api/service-index.md). Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire. Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté. Vous pouvez facilement mettre à niveau les signataires approuvés associés à un dépôt avec la [commande trusted-signers sync](../tools/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) de `nuget.exe`.
 
 ### <a name="schema-reference"></a>Informations de référence sur le schéma
 
-Vous trouverez les informations de référence complètes sur le schéma pour les stratégies clientes dans les [informations de référence sur nuget.config](/nuget/reference/nuget-config-file#trustedsigners-section)
+Vous trouverez les informations de référence complètes sur le schéma pour les stratégies clientes dans les [informations de référence sur nuget.config](../reference/nuget-config-file.md#trustedsigners-section)
 
 ## <a name="related-articles"></a>Articles connexes
 
-- [Les différentes façons d’installer un package NuGet](ways-to-install-a-package.md)
 - [Signature de packages NuGet](../create-packages/Sign-a-Package.md)
 - [Informations de référence sur les packages signés](../reference/Signed-Packages-Reference.md)

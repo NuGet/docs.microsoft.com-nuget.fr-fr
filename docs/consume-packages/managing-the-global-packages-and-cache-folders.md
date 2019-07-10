@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: c547ae1d46079d040d7c3aa4c7678e70cd199dce
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548011"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426613"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gérer les dossiers de packages globaux, les dossiers de cache et les dossiers temporaires
 
@@ -30,7 +30,7 @@ Les dossiers *global-packages* et cache dispensent en général NuGet de téléc
 
 Pour récupérer un package, NuGet commence par regarder dans le dossier *global-packages*. Si la version exacte du package n’y figure pas, il vérifie toutes les sources de packages non HTTP. S’il ne trouve toujours pas le package, il le recherche dans *http-cache*, sauf si vous spécifiez `--no-cache` avec des commandes `dotnet.exe` ou `-NoCache` avec des commandes `nuget.exe`. Si le package ne se trouve pas dans le cache ou que le cache n’est pas utilisé, NuGet le récupère sur HTTP.
 
-Pour plus d’informations, consultez la section [Processus d’installation d’un package](ways-to-install-a-package.md#what-happens-when-a-package-is-installed).
+Pour plus d’informations, consultez [Processus d’installation d’un package](../concepts/package-installation-process.md).
 
 ## <a name="viewing-folder-locations"></a>Afficher l’emplacement des dossiers
 
@@ -100,7 +100,7 @@ nuget locals all -clear
 
 Les packages utilisés par des projets actuellement ouverts dans Visual Studio ne sont pas effacés du dossier *global-packages*.
 
-Dans Visual Studio 2017, utilisez la commande de menu **Outils > Gestionnaire de package NuGet > Paramètres du Gestionnaire de package**, puis sélectionnez **Effacer tous les caches NuGet**. À l’heure actuelle, la gestion du cache n’est pas disponible avec la console du Gestionnaire de package. Dans Visual Studio 2015, utilisez plutôt les commandes CLI.
+À compter de Visual Studio 2017, utilisez la commande de menu **Outils > Gestionnaire de package NuGet > Paramètres du Gestionnaire de package**, puis sélectionnez **Effacer tous les caches NuGet**. À l’heure actuelle, la gestion du cache n’est pas disponible avec la console du Gestionnaire de package. Dans Visual Studio 2015, utilisez plutôt les commandes CLI.
 
 ![Commande d’option NuGet pour effacer les caches](media/options-clear-caches.png)
 
@@ -116,6 +116,6 @@ Les erreurs suivantes risquent de se produire avec `nuget locals` ou `dotnet nug
 
     Vous n’avez pas l’autorisation de supprimer des fichiers du cache. Modifiez les autorisations du dossier, si possible, puis réessayez. Sinon, contactez votre administrateur système.
 
-- *Erreur : Le chemin d’accès ou le nom de fichier spécifié est trop long. Le nom complet du fichier doit être inférieur à 260 caractères, et le nom du répertoire à 248 caractères.*
+- *Erreur : Le chemin d’accès et/ou le nom de fichier spécifiés sont trop longs. Le nom complet du fichier doit être inférieur à 260 caractères, et le nom du répertoire à 248 caractères.*
 
     Raccourcissez le nom des dossiers, puis réessayez.

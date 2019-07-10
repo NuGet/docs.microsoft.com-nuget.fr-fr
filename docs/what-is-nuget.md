@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 4ab87f072bdace9dd18cecc4100de52b3547136d
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66813010"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426141"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
 Il est essentiel pour toute plateforme de développement moderne de proposer un mécanisme permettant aux développeurs de créer, de partager et d’exploiter le code qui leur est utile. Souvent, ce code est groupé en « packages » contenant le code compilé (sous forme de DLL) ainsi que tout le contenu nécessaire aux projets qui les utilisent.
 
-Dans le cas de .NET (y compris .NET Core), le mécanisme de partage de code géré par Microsoft est **NuGet**, qui définit la façon dont les packages .NET sont créés, hébergés et utilisés, et qui propose des outils pour chacun de ces rôles.
+Dans le cas de .NET (y compris .NET Core), le mécanisme de partage de code pris en charge par Microsoft est **NuGet**. Il définit la façon dont les packages .NET sont créés, hébergés et utilisés, et [fournit des outils](install-nuget-client-tools.md) pour chacun de ces rôles.
 
 Pour faire simple, un package NuGet est un fichier ZIP avec l’extension `.nupkg`, qui contient du code compilé (des DLL), d’autres fichiers liés à ce code et un manifeste descriptif qui inclut des informations comme le numéro de version du package. Les développeurs qui ont du code à partager créent des packages et les publient sur un hôte public ou privé. Les consommateurs récupèrent ces packages auprès des hôtes correspondants, les ajoutent à leurs projets, puis appellent leurs fonctionnalités dans le code de leur projet. NuGet gère ensuite lui-même tous les détails intermédiaires.
 
@@ -45,8 +45,8 @@ En plus de la prise en charge de l’hébergement, NuGet fournit également diff
 
 | Outil | Plateformes | Scénarios applicables | Description |
 | --- | --- | --- | --- |
-| [Interface CLI .NET](tools/dotnet-Commands.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI NuGet, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
-| [Interface CLI de nuget.exe](tools/nuget-exe-cli-reference.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
+| [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI NuGet, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
+| [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
 | [Console du Gestionnaire de package](tools/package-manager-console.md) | Visual Studio sur Windows | Consommation | Propose des [commandes PowerShell](tools/Powershell-Reference.md) permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur du Gestionnaire de package](tools/package-manager-ui.md) | Visual Studio sur Windows | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur de gestion de NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio pour Mac | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Mac. |

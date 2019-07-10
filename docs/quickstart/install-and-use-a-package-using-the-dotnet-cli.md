@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 4b593cc215ad68629e5a93d1f17c90e53c0b4f4f
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: 1060d98278fed89ac63ee17c1896ae8bdce72a9e
+ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324628"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67426164"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Démarrage rapide : Installer et utiliser un package à l’aide de l’interface CLI dotnet
 
@@ -103,7 +103,7 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
 
 ## <a name="related-articles"></a>Articles connexes
 
+- [Installer et utiliser des packages à l’aide de l’interface CLI dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
 - [Vue d’ensemble et flux de travail de consommation de package](../consume-packages/overview-and-workflow.md)
 - [Recherche et sélection des packages](../consume-packages/finding-and-choosing-packages.md)
-- [Méthodes d’installation d’un package](../consume-packages/ways-to-install-a-package.md)
-- [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md)
+- [Configurations courantes de NuGet](../consume-packages/configuring-nuget-behavior.md)

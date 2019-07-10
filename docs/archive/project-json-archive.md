@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: aa5cd1a2f3e3a6707a9d68204306db85651b0a18
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
+ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545198"
+ms.lasthandoff: 06/28/2019
+ms.locfileid: "67467783"
 ---
 # <a name="projectjson-archive"></a>Archive project.json
 
@@ -38,9 +38,9 @@ Fonctionne avec `project.json`.
 
 ## <a name="constraining-package-versions-with-restore"></a>Restriction des versions de package avec la restauration
 
-*À l’origine dans [Restauration de packages](../consume-packages/package-restore.md#constraining-package-versions-with-restore).*
+*À l’origine dans [Restauration de packages](../consume-packages/package-restore.md#constrain-package-versions-with-restore).*
 
-- `project.json` : permet de spécifier une plage de versions directement avec le numéro de version de la dépendance. Exemple :
+- `project.json`: permet de spécifier une plage de versions directement avec le numéro de version de la dépendance. Par exemple :
 
     ```json
     "Newtonsoft.json": "[6, 7)"
@@ -50,7 +50,7 @@ Fonctionne avec `project.json`.
 
 - `nuget install` ne fonctionne pas avec `project.json`.
 - `nuget restore` : avec des projets qui utilisent `project.json`, génère un fichier `project.lock.json` et un fichier `<project>.nuget.props`, si nécessaire. (Les deux fichiers ne doivent pas obligatoirement figurer dans le contrôle de code source.) L’argument `<projectPath>` peut pointer vers un fichier `project.json` ; il a le même comportement que s’il pointait vers un fichier `packages.config` ou un fichier projet. Dans l’ordre de priorité des dossiers de packages, `%userprofile%\.nuget\packages` est parcouru en premier lorsque `project.json` est utilisé.
-- `nuget update` : sur Mono, cette commande ne fonctionne pas avec les projets qui utilisent `project.json`.
+- `nuget update`: sur Mono, cette commande ne fonctionne pas avec les projets qui utilisent `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Résolution des dépendances avec PackageReference
 
@@ -93,7 +93,7 @@ Voici un autre moyen de résoudre les erreurs :
 
 *À l’origine dans [Versions cibles de .NET Framework](../reference/target-frameworks.md).*
 
-- [project.json](project-json.md) : le nœud `frameworks` spécifie les versions cibles de .NET Framework avec lesquelles le projet peut être compilé.
+- [project.json](project-json.md) : le nœud `frameworks` spécifie les versions de framework avec lesquelles le projet peut être compilé.
 
 ## <a name="creating-a-package"></a>Créer un package
 
@@ -105,7 +105,7 @@ Avec .NET Core 1.x, lors de l’installation d’un package DotnetCliTool, Visua
 
 Les types de package sont définis dans `project.json`.
 
-- `project.json` : indique le type de package dans un json de propriété `packOptions.packageType` :
+- `project.json`: indique le type de package dans un json de propriété `packOptions.packageType` :
 
     ```json
     {
