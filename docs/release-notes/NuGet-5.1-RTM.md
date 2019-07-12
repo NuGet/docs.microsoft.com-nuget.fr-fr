@@ -1,10 +1,16 @@
 ---
-ms.openlocfilehash: 48306e77a017c11fa7dc0d695e0177edf4e79d1e
-ms.sourcegitcommit: 69b5eb1494a1745a4b1a7f320a91255d5d8356a9
+title: Notes de version 5.1 RTM de NuGet
+description: Notes de publication pour 5.1 NuGet, y compris les nouvelles fonctionnalités, les correctifs de bogues et les dcr.
+author: karann-msft
+ms.author: karann
+ms.date: 05/21/2019
+ms.topic: conceptual
+ms.openlocfilehash: 384145947b19af6577dc1255985df1a361c72bb5
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65975833"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842577"
 ---
 # <a name="nuget-51-release-notes"></a>Notes de publication NuGet 5.1
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: a28b29614dfe5abdeb24438b3451d96634a120db
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: d0d25cb6e21f6d0d42389e08340b6f1e1baf8a64
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551440"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842514"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Console du gestionnaire de packages dans Visual Studio)
 
-*Cette rubrique décrit la commande dans le [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sur Windows. Pour la commande PowerShell Get-Package générique, consultez la [PowerShell PackageManagement référence](/powershell/module/packagemanagement/?view=powershell-6).*
+*Cette rubrique décrit la commande dans le [Console du Gestionnaire de Package](package-manager-console.md) dans Visual Studio sur Windows. Pour la commande PowerShell Get-Package générique, consultez la [PowerShell PackageManagement référence](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Récupère la liste des packages installés dans le référentiel local, répertorie les packages disponibles à partir d’une source de package lorsqu’il est utilisé avec le commutateur - ListAvailable ou répertorie les mises à jour disponibles lorsqu’il est utilisé avec le commutateur - mise à jour.
 
@@ -32,12 +32,12 @@ Sans paramètres, `Get-Package` affiche la liste des packages installés dans le
 
 | Paramètre | Description |
 | --- | --- |
-| Source | Le chemin d’accès URL ou un dossier pour le package. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Get-Package` recherche la source du package actuellement sélectionnée. Lorsqu’il est utilisé avec - ListAvailable, par défaut sur nuget.org. |
+| source | Le chemin d’accès URL ou un dossier pour le package. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Get-Package` recherche la source du package actuellement sélectionnée. Lorsqu’il est utilisé avec - ListAvailable, par défaut sur nuget.org. |
 | ListAvailable | Répertorie les packages disponibles à partir d’une source de package, par défaut sur nuget.org. Affiche une valeur par défaut des 50 packages, sauf si - PageSize et/ou - premier est spécifié. |
 | Mises à jour | Répertorie les packages qui ont une mise à jour est disponible à partir de la source du package. |
 | Nom_projet | Le projet à partir duquel obtenir les packages installés. Si omis, retourne installées projets pour la solution entière. |
-| Filtre | Une chaîne de filtre utilisée pour limiter la liste des packages en l’appliquant à l’ID de package, la description et les balises. |
-| First | Le nombre de packages à retourner à partir du début de la liste. Si non spécifié, par défaut est 50. |
+| Filtrer | Une chaîne de filtre utilisée pour limiter la liste des packages en l’appliquant à l’ID de package, la description et les balises. |
+| Première | Le nombre de packages à retourner à partir du début de la liste. Si non spécifié, par défaut est 50. |
 | Ignorer | Omet le premier &lt;int&gt; packages à partir de la liste affichée.  |
 | AllVersions | Affiche toutes les versions disponibles de chaque package plutôt que seule la dernière version. |
 | IncludePrerelease | Inclut les packages de version préliminaire dans les résultats. |
@@ -47,7 +47,7 @@ Aucun de ces paramètres accepter les caractères d’entrée ou de caractère g
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Get-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Get-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 

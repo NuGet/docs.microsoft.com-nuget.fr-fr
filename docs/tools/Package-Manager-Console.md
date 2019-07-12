@@ -1,5 +1,5 @@
 ---
-title: Installer et gérer les packages NuGet à l’aide de PowerShell dans Visual Studio
+title: Installer et gérer les packages NuGet à l’aide de la console dans Visual Studio
 description: Instructions sur l’utilisation de la Console du Gestionnaire de Package NuGet dans Visual Studio pour travailler avec des packages.
 author: karann-msft
 ms.author: karann
@@ -7,14 +7,14 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 11ec25598d3110ba84dec5044642e205e13346af
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 91ab3859994e5ae738c6637219681ebbfc92d420
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426215"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842596"
 ---
-# <a name="install-and-manage-packages-using-powershell-in-visual-studio"></a>Installer et gérer des packages à l’aide de PowerShell dans Visual Studio
+# <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installer et gérer des packages avec la Console du Gestionnaire de Package dans Visual Studio (PowerShell)
 
 La Console du Gestionnaire de Package NuGet vous permet d’utiliser [commandes NuGet PowerShell](../tools/powershell-reference.md) pour rechercher, installer, désinstaller et mettre à jour les packages NuGet. L’utilisation de la console est nécessaire dans les cas où le Gestionnaire de packages UI ne fournit pas d’une façon d’effectuer une opération. Pour utiliser `nuget.exe` commandes CLI dans la console, consultez [à l’aide de l’interface CLI de nuget.exe dans la console](#using-the-nugetexe-cli-in-the-console).
 

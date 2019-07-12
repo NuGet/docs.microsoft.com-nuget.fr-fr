@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: dec7db04c5cf239863b9c00e9f5bc0dde42c7e47
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: a5f318ddfb2bb8498ab3e608f8036be05dcb0706
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551655"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842537"
 ---
 # <a name="add-bindingredirect-package-manager-console-in-visual-studio"></a>Add-BindingRedirect (Console du gestionnaire de packages dans Visual Studio)
 
-*Disponible uniquement dans le [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sur Windows.*
+*Disponible uniquement dans le [Console du Gestionnaire de Package](package-manager-console.md) dans Visual Studio sur Windows.*
 
 Examine tous les assemblys dans le chemin de sortie pour un projet et ajoute des redirections de liaison au fichier de configuration web ou application lorsque cela est nécessaire. Cette commande est exécutée automatiquement quand vous installez un package.
 
@@ -36,7 +36,7 @@ Aucun de ces paramètres accepter les caractères d’entrée ou de caractère g
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Add-BindingRedirect` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Add-BindingRedirect` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 

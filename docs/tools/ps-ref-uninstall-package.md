@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: ae60473fbb716b23f40b0605be8aaa8515802315
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: c95479103be2cba3b4eb6964ea761870477863bd
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551641"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842470"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (Console du gestionnaire de packages dans Visual Studio)
 
-*Cette rubrique décrit la commande dans le [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sur Windows. Pour la commande PowerShell Uninstall-Package générique, consultez la [PowerShell PackageManagement référence](/powershell/module/packagemanagement/?view=powershell-6).*
+*Cette rubrique décrit la commande dans le [Console du Gestionnaire de Package](package-manager-console.md) dans Visual Studio sur Windows. Pour la commande PowerShell Uninstall-Package générique, consultez la [PowerShell PackageManagement référence](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Supprime un package à partir d’un projet, éventuellement de supprimer ses dépendances. Si d’autres packages dépendent de ce package, la commande échoue, sauf si – Force l’option est spécifiée.
 
@@ -42,7 +42,7 @@ Aucun de ces paramètres accepter les caractères d’entrée ou de caractère g
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Uninstall-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Uninstall-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 

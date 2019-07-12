@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: e7ddf9ad97cbb4ec9cfc8b01f366511239f41416
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 755c87bbc68d3b688c81e16edbc1faabdc9e0520
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546024"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842501"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (Console du gestionnaire de packages dans Visual Studio)
 
-*Cette rubrique décrit la commande dans le [Console du Gestionnaire de Package NuGet](package-manager-console.md) dans Visual Studio sur Windows. Pour la commande PowerShell Install-Package générique, consultez la [PowerShell PackageManagement référence](/powershell/module/packagemanagement/?view=powershell-6).*
+*Cette rubrique décrit la commande dans le [Console du Gestionnaire de Package](package-manager-console.md) dans Visual Studio sur Windows. Pour la commande PowerShell Install-Package générique, consultez la [PowerShell PackageManagement référence](/powershell/module/packagemanagement/?view=powershell-6).*
 
 Installe un package et ses dépendances dans un projet.
 
@@ -36,10 +36,10 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Paramètre | Description |
 | --- | --- |
-| Id | (Obligatoire) L’identificateur du package à installer. (*3.0 +*) l’identificateur peut être un chemin d’accès ou l’URL d’un `packages.config` fichier ou un `.nupkg` fichier. -Id commutateur proprement dit est facultatif. |
+| Id | (Obligatoire) L’identificateur du package à installer. (*3.0 +* ) l’identificateur peut être un chemin d’accès ou l’URL d’un `packages.config` fichier ou un `.nupkg` fichier. -Id commutateur proprement dit est facultatif. |
 | IgnoreDependencies | Installer uniquement ce package et pas ses dépendances. |
 | Nom_projet | Le projet dans lequel installer le package, par défaut pour le projet par défaut. |
-| Source | Le chemin d’accès URL ou un dossier pour la source du package à rechercher. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Install-Package` recherche la source du package actuellement sélectionnée. |
+| source | Le chemin d’accès URL ou un dossier pour la source du package à rechercher. Chemins d’accès du dossier local peuvent être absolu ou relatif du dossier actif. Si omis, `Install-Package` recherche la source du package actuellement sélectionnée. |
 | Version | La version du package à installer, par défaut vers la dernière version. |
 | IncludePrerelease | Prend en compte pour l’installation des packages de version préliminaire. Si omis, seuls les packages stables sont considérés comme. |
 | FileConflictAction | L’action à entreprendre lorsque vous êtes invité à écraser ou ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *remplacer, ignorer, None, OverwriteAll*, et *(3.0 +)* *IgnoreAll*. |
@@ -50,7 +50,7 @@ Aucun de ces paramètres accepter les caractères d’entrée ou de caractère g
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Install-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Install-Package` prend en charge les éléments suivants [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216): Débogage, Action d’erreur, ErrorVariable, OutBuffer, OutVariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 

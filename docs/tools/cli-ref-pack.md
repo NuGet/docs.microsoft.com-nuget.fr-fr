@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 9db24b2dd6ced0869ac84b25f9796ded5df10f86
-ms.sourcegitcommit: d5a35a097e6b461ae791d9f66b3a85d5219d7305
+ms.openlocfilehash: c3a01b7747be96f02f7b93b3bf66f5d1783ceed7
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56145642"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842555"
 ---
 # <a name="pack-command-nuget-cli"></a>pack (commande, NuGet CLI)
 
@@ -21,7 +21,7 @@ Crée un package NuGet en fonction du `.nuspec` ou fichier projet. Le `dotnet pa
 > [!Important]
 > Création d’un package à partir d’un fichier de projet sous Mono, n’est pas pris en charge. Vous devez également ajuster les chemins d’accès non locale dans le `.nuspec` de fichiers pour les chemins de style Unix comme nuget.exe ne convertit pas les chemins d’accès de Windows lui-même.
 
-## <a name="usage"></a>Utilisation
+## <a name="usage"></a>Usage
 
 ```cli
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
@@ -33,13 +33,13 @@ où `<nuspecPath>` et `<projectPath>` spécifier le `.nuspec` ou projet de fichi
 
 | Option | Description |
 | --- | --- |
-| BasePath | Définit le chemin d’accès de base des fichiers définis dans le `.nuspec` fichier. |
+| Chemin de base | Définit le chemin d’accès de base des fichiers définis dans le `.nuspec` fichier. |
 | Build | Spécifie que le projet doit être généré avant de générer le package. |
 | Exclude | Spécifie un ou plusieurs modèles de caractère générique à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’exclusion indicateur-. Voir l’exemple ci-dessous. |
 | ExcludeEmptyDirectories | Empêche l’inclusion de répertoires vides lors de la création du package. |
 | ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | ConfigFile | Spécifiez le fichier de configuration de la commande pack. |
-| Help | Affiche l’aide de la commande. |
+| Aide | Affiche l’aide de la commande. |
 | IncludeReferencedProjects | Indique que le package généré doit inclure les projets référencés en tant que dépendances ou en tant que partie du package. Si un projet référencé est associée à une `.nuspec` fichier ayant le même nom que le projet, ce projet référencé est ajouté en tant que dépendance. Sinon, le projet référencé est ajouté en tant que partie du package. |
 | MinClientVersion | Définir le *minClientVersion* attribut du package. Cette valeur remplace la valeur existants *minClientVersion* attribut (le cas échéant) dans le `.nuspec` fichier. |
 | MSBuildPath | *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
@@ -50,6 +50,7 @@ où `<nuspecPath>` et `<projectPath>` spécifier le `.nuspec` ou projet de fichi
 | Properties | Doit apparaître en dernier sur la ligne de commande après les autres options. Spécifie une liste de propriétés qui substituent des valeurs dans le fichier projet ; consultez [propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pour les noms de propriété. L’argument des propriétés est une liste de jeton paires = valeur, séparées par des points-virgules, où chaque occurrence de `$token$` dans le `.nuspec` fichier sera remplacé par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que pour la propriété « Configuration », la valeur par défaut est « Debug ». Pour modifier une configuration Release, utilisez `-Properties Configuration=Release`. |
 | Suffix | *(3.4.4+)* Ajoute un suffixe au numéro de version généré en interne, généralement utilisé pour l’ajout de la build ou autres identificateurs de version préliminaire. Par exemple, à l’aide de `-suffix nightly` va créer un package avec un type de numéro de version `1.2.3-nightly`. Suffixes doivent commencer par une lettre pour éviter les avertissements, les erreurs et identifier les éventuelles incompatibilités avec différentes versions de NuGet et le Gestionnaire de Package NuGet. |
 | Symbols | Spécifie que le package contient des sources et des symboles. Lorsqu’il est utilisé avec un `.nuspec` fichier, cela crée un fichier de package NuGet normal et le package de symboles correspondants. Par défaut, il crée un [package de symboles hérités](../create-packages/Symbol-Packages.md). Le nouveau format recommandé pour les packages de symboles est .snupkg. Consultez [Création de packages de symboles (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
+| SymbolPackageFormat | Spécifie le format du package de symboles : *symbols.nupkg* (hérités) ou *snupkg* (recommandé). Par défaut, il crée un [package de symboles hérités](../create-packages/Symbol-Packages.md). Consultez [Création de packages de symboles (.snupkg)](../create-packages/Symbol-Packages-snupkg.md). |
 | Tool | Spécifie que les fichiers de sortie du projet doivent être placés dans le `tool` dossier. |
 | Verbosity | Spécifie la quantité de détails affichés dans la sortie : *normal*, *silencieux*, *détaillées*. |
 | Version | Remplace le numéro de version à partir de la `.nuspec` fichier. |
