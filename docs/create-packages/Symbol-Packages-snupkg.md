@@ -16,12 +16,12 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0d82cf8614b88247bc3a3ba3019c11bf1b5e2593
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 9f9cdd188cf2ec678bc9047604e618f1af9124ae
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426800"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842463"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
@@ -54,7 +54,7 @@ Si vous choisissez dotnet.exe ou MSBuild, effectuez les étapes suivantes pour c
 
 1. Compressez votre projet avec `dotnet pack MyPackage.csproj` ou `msbuild -t:pack MyPackage.csproj`.
 
-La propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si la propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj.md#symbolpackageformat) n’est pas spécifiée, un package de symboles hérité est créé.
+La propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si la propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) n’est pas spécifiée, un package de symboles hérité est créé.
 
 > [!Note]
 > Le format hérité `.symbols.nupkg` est toujours pris en charge, mais uniquement pour des raisons de compatibilité (consultez [Packages de symboles hérités](Symbol-Packages.md)). Le serveur de symboles NuGet.org accepte uniquement le nouveau format de package de symboles - `.snupkg`.
