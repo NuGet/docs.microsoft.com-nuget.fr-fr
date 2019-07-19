@@ -1,74 +1,74 @@
 ---
-title: NuGet cross plug-in d’authentification de plateforme
-description: NuGet cross plug-ins de plateforme d’authentification pour NuGet.exe, dotnet.exe, msbuild.exe et Visual Studio
+title: Plug-in d’authentification multiplateforme NuGet
+description: Plug-ins d’authentification inter-plateforme NuGet pour NuGet. exe, dotnet. exe, MSBuild. exe et Visual Studio
 author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: b76fab1028ec9a4172d2390083fbf9adb4290a6c
-ms.sourcegitcommit: 0c5a49ec6e0254a4e7a9d8bca7daeefb853c433a
+ms.openlocfilehash: a716737343ea826d28da6de46c32ca73aef590bd
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52453505"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317277"
 ---
-# <a name="nuget-cross-platform-authentication-plugin"></a>NuGet cross plug-in d’authentification de plateforme
+# <a name="nuget-cross-platform-authentication-plugin"></a>Plug-in d’authentification multiplateforme NuGet
 
-Dans la version 4.8 +, NuGet tous les clients (NuGet.exe, Visual Studio, dotnet.exe et MSBuild.exe) peuvent utiliser un plug-in d’authentification créé par-dessus la [NuGet entre les plug-ins de la plateforme](NuGet-Cross-Platform-Plugins.md) modèle.
+Dans la version 4.8 +, tous les clients NuGet (NuGet. exe, Visual Studio, dotnet. exe et MSBuild. exe) peuvent utiliser un plug-in d’authentification basé sur le modèle de [plug-ins inter-plateforme NuGet](NuGet-Cross-Platform-Plugins.md) .
 
-## <a name="authentication-in-dotnetexe"></a>Authentification dans dotnet.exe
+## <a name="authentication-in-dotnetexe"></a>Authentification dans dotnet. exe
 
-Visual Studio et NuGet.exe sont par défaut interactive. NuGet.exe contiendra un commutateur pour le rendre [non interactive](../../tools/nuget-exe-CLI-Reference.md).
-En outre, les plug-ins NuGet.exe et Visual Studio invitent l’utilisateur pour l’entrée.
-Dans dotnet.exe il n’existe aucune invite et la valeur par défaut est non interactif.
+Visual Studio et NuGet. exe sont interactifs par défaut. NuGet. exe contient un commutateur pour le rendre [non interactif](../nuget-exe-CLI-Reference.md).
+En outre, les plug-ins NuGet. exe et Visual Studio invitent l’utilisateur à entrer des données.
+Dans dotnet. exe, il n’y a aucune invite et la valeur par défaut est non interactive.
 
-Le mécanisme d’authentification dans dotnet.exe est un flux de l’appareil. Lors de la restauration ou ajouter l’opération de package est exécutée de manière interactive, les blocs de l’opération et les instructions à l’utilisateur comment à complète les authentifications doivent être fournies sur la ligne de commande.
-Lorsque l’utilisateur termine l’authentification de l’opération continue.
+Le mécanisme d’authentification dans dotnet. exe est le workflow de l’appareil. Lorsque l’opération de restauration ou d’ajout de package est exécutée de manière interactive, l’opération se bloque et les instructions de l’utilisateur sur la façon d’effectuer les authentifications sont fournies sur la ligne de commande.
+Lorsque l’utilisateur termine l’authentification, l’opération se poursuit.
 
-Pour effectuer l’opération interactive, un doit passer `--interactive`.
-Actuellement uniquement l’explicite `dotnet restore` et `dotnet add package` commandes prennent en charge un commutateur interactif.
-Il n’existe aucun commutateur interactive sur `dotnet build` et `dotnet publish`.
+Pour que l’opération soit interactive, l’une `--interactive`d’elles doit réussir.
+Actuellement, seules les `dotnet restore` commandes `dotnet add package` explicites et explicites prennent en charge un commutateur interactif.
+Il n’existe aucun commutateur interactif `dotnet build` sur `dotnet publish`et.
 
 ## <a name="authentication-in-msbuild"></a>Authentification dans MSBuild
 
-Semblable à dotnet.exe, MSBuild.exe par défaut est non qu'interactive, le mécanisme d’authentification MSBuild.exe est flux d’appareil.
-Pour permettre la restauration interrompre et attendre que l’authentification, appelez la restauration avec `msbuild -t:restore -p:NuGetInteractive="true"`.
+À l’instar de dotnet. exe, MSBuild. exe est par défaut non interactif. le mécanisme d’authentification MSBuild. exe est le workflow de l’appareil.
+Pour permettre à la restauration de s’interrompre et d’attendre l’authentification, `msbuild -t:restore -p:NuGetInteractive="true"`appelez Restore with.
 
-## <a name="creating-a-cross-platform-authentication-plugin"></a>Création d’un plug-in d’authentification d’inter-plateformes
+## <a name="creating-a-cross-platform-authentication-plugin"></a>Création d’un plug-in d’authentification multiplateforme
 
-Vous trouverez un exemple d’implémentation dans [plug-in du fournisseur d’informations d’identification Microsoft](https://github.com/Microsoft/artifacts-credprovider).
+Vous trouverez un exemple d’implémentation dans le [plug-in du fournisseur d’informations d’identification Microsoft](https://github.com/Microsoft/artifacts-credprovider).
 
-Il est très important que les plug-ins est conforme aux exigences de sécurité définies par les outils clients NuGet.
-Le minimum nécessaire est la version pour un plug-in être un plug-in d’authentification *2.0.0*.
-NuGet effectue la négociation avec le plug-in et la requête pour les revendications de l’opération prise en charge.
-Reportez-vous à NuGet entre plug-in de la plateforme [messages de protocole](NuGet-Cross-Platform-Plugins.md#protocol-messages-index) pour plus d’informations sur les messages spécifiques.
+Il est très important que les plug-ins soient conformes aux exigences de sécurité stipulées par les outils clients NuGet.
+La version minimale requise pour qu’un plug-in soit un plug-in d’authentification est *2.0.0*.
+NuGet effectue le protocole de transfert avec le plug-in et la requête pour les revendications d’opération prises en charge.
+Pour plus d’informations sur les messages spécifiques, reportez-vous aux [messages de protocole](NuGet-Cross-Platform-Plugins.md#protocol-messages-index) du plug-in NuGet Cross Platform.
 
-NuGet définit le niveau de journalisation et fournissent des informations de proxy pour le plug-in, le cas échéant.
-Journalisation dans le package NuGet console n’est acceptable une fois que NuGet a défini le niveau de journalisation sur le plug-in.
+NuGet définit le niveau de journalisation et fournit les informations de proxy au plug-in, le cas échéant.
+La journalisation dans la console NuGet n’est acceptable qu’une fois que NuGet a défini le niveau de journalisation sur le plug-in.
 
-- Comportement de .NET framework plug-in d’authentification
+- Comportement d’authentification du plug-in .NET Framework
 
-Dans .NET Framework, les plug-ins sont autorisés à inviter un utilisateur pour l’entrée, sous la forme d’une boîte de dialogue.
+Dans .NET Framework, les plug-ins sont autorisés à inviter un utilisateur à entrer des données, sous la forme d’une boîte de dialogue.
 
-- Comportement de .NET core plug-in d’authentification
+- Comportement d’authentification du plug-in .NET Core
 
-Dans .NET Core, une boîte de dialogue ne peut pas être affiché. Les plug-ins doivent utiliser des flux de l’appareil pour s’authentifier.
-Le plug-in peut envoyer des messages de journal à NuGet avec des instructions pour l’utilisateur.
-Notez que la journalisation est disponible une fois que le niveau de journal a été défini pour le plug-in.
-NuGet ne prendra aucune entrée interactive à partir de la ligne de commande.
+Dans .NET Core, une boîte de dialogue ne peut pas être affichée. Les plug-ins doivent utiliser le workflow de l’appareil pour s’authentifier.
+Le plug-in peut envoyer des messages de journal à NuGet avec des instructions à l’utilisateur.
+Notez que la journalisation est disponible une fois que le niveau de journalisation a été défini sur le plug-in.
+NuGet n’effectue aucune entrée interactive à partir de la ligne de commande.
 
-Lorsque le client appelle le plug-in avec une authentification obtenir d’informations d’identification, les plug-ins doivent sont conformes au commutateur interactivité et respectent le commutateur de la boîte de dialogue. 
+Lorsque le client appelle le plug-in avec des informations d’identification d’authentification, les plug-ins doivent être conformes au commutateur d’interactivité et respecter le commutateur de boîte de dialogue. 
 
-Le tableau suivant résume comment le plug-in doit se comporter pour toutes les combinaisons.
+Le tableau suivant résume la façon dont le plug-in doit se comporter pour toutes les combinaisons.
 
-| IsNonInteractive | CanShowDialog | Comportement de plug-in |
+| IsNonInteractive | CanShowDialog | Comportement du plug-in |
 | ---------------- | ------------- | --------------- |
-| true | true | Le commutateur IsNonInteractive est prioritaire sur le commutateur de la boîte de dialogue. Le plug-in n’est pas autorisé à afficher une boîte de dialogue. Cette combinaison est valide uniquement pour les plug-ins de .NET Framework |
-| true | False | Le commutateur IsNonInteractive est prioritaire sur le commutateur de la boîte de dialogue. Le plug-in n’est pas autorisé à bloquer. Cette combinaison est uniquement valide pour plug-ins .NET Core |
-| False | true | Le plug-in doit afficher une boîte de dialogue. Cette combinaison est valide uniquement pour les plug-ins de .NET Framework |
-| False | False | Le plug-in doit/peut pas afficher une boîte de dialogue. Le plug-in doit utiliser des flux de l’appareil pour l’authentification en se connectant à un message d’instruction par le biais de l’enregistreur d’événements. Cette combinaison est uniquement valide pour plug-ins .NET Core |
+| true | true | Le commutateur IsNonInteractive est prioritaire sur le commutateur de boîte de dialogue. Le plug-in n’est pas autorisé à dépiler une boîte de dialogue. Cette combinaison est uniquement valide pour les plug-ins .NET Framework |
+| true | false | Le commutateur IsNonInteractive est prioritaire sur le commutateur de boîte de dialogue. Le plug-in n’est pas autorisé à bloquer. Cette combinaison est uniquement valide pour les plug-ins .NET Core |
+| false | true | Le plug-in doit afficher une boîte de dialogue. Cette combinaison est uniquement valide pour les plug-ins .NET Framework |
+| false | false | Le plug-in ne peut pas afficher une boîte de dialogue. Le plug-in doit utiliser le workflow de l’appareil pour s’authentifier en consignant un message d’instruction via l’enregistreur d’événements. Cette combinaison est uniquement valide pour les plug-ins .NET Core |
 
-Avant d’écrire un plug-in, consultez les spécifications suivantes.
+Pour plus d’informations sur l’écriture d’un plug-in, reportez-vous aux spécifications suivantes.
 
-- [Plug-in de téléchargement de Package NuGet](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
-- [NuGet cross plat plug-in d’authentification](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)
+- [Plug-in de téléchargement de package NuGet](https://github.com/NuGet/Home/wiki/NuGet-Package-Download-Plugin)
+- [Plug-in d’authentification Cross plat NuGet](https://github.com/NuGet/Home/wiki/NuGet-cross-plat-authentication-plugin)

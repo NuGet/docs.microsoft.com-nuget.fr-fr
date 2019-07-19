@@ -1,57 +1,57 @@
 ---
 title: Packages signés
-description: Configuration requise pour la signature du package NuGet.
+description: Configuration requise pour la signature de package NuGet.
 author: rido-min
 ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 952256a24246543ecd4c37285cd001622aa2bc46
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e02b2a241008b1b7096f20b351173fd3df7ed172
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426175"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317515"
 ---
 # <a name="signed-packages"></a>Packages signés
 
-*4.6.0+ de NuGet et Visual Studio 2017 version 15.6 et versions ultérieure*
+*NuGet 4.6.0 + et Visual Studio 2017 version 15,6 et versions ultérieures*
 
-Les packages NuGet peuvent inclure une signature numérique qui fournit une protection contre le contenu falsifiée. Cette signature est générée à partir d’un certificat X.509 qui ajoute également des preuves d’authenticité à l’origine réelle du package.
+Les packages NuGet peuvent inclure une signature numérique qui offre une protection contre le contenu falsifié. Cette signature est générée à partir d’un certificat X. 509 qui ajoute également des preuves d’authenticité à l’origine réelle du package.
 
-Les packages signés fournissent la validation de bout en bout plus forte. Il existe deux types de signatures de NuGet :
-- **Créer la Signature**. Une signature de l’auteur garantit que le package n’a pas été modifié depuis l’auteur a signé le package, non quel que soit à partir de laquelle le dépôt ou ce que le package est remis de méthode de transport. En outre, les packages signés par auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être inscrit à l’avance. Pour plus d’informations, consultez [enregistrer des certificats](#signature-requirements-on-nugetorg).
-- **Signature de référentiel**. Les signatures de référentiel offrent la garantie d’intégrité pour **tous les** dans un référentiel de packages qu’ils soient auteur signé ou non, même si ces packages sont obtenues à partir d’un emplacement autre que le dépôt d’origine où ils se trouvaient signé.   
+Les packages signés fournissent la validation de bout en bout la plus puissante. Il existe deux types différents de signatures NuGet:
+- **Signature**de l’auteur. Une signature d’auteur garantit que le package n’a pas été modifié depuis que l’auteur a signé le package, quel que soit le référentiel ou la méthode de transport que le package est remis. En outre, les packages signés par l’auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être enregistré à l’avance. Pour plus d’informations, consultez [inscrire des certificats](#signature-requirements-on-nugetorg).
+- **Signature du référentiel**. Les signatures de référentiel fournissent une garantie d’intégrité pour **tous les** packages d’un référentiel, qu’ils soient signés ou non, même si ces packages sont obtenus à partir d’un emplacement différent de celui dans lequel ils ont été signés.   
 
-Pour plus d’informations sur la création d’un package signé auteur, consultez [signature de Packages](../create-packages/Sign-a-package.md) et [commande de connexion nuget](../tools/cli-ref-sign.md).
+Pour plus d’informations sur la création d’un package signé par l’auteur, consultez [signature de packages](../create-packages/Sign-a-package.md) et la [commande NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> La signature du package est actuellement pris en charge uniquement à l’aide de nuget.exe sur Windows. Vérification des packages signés est actuellement pris en charge uniquement lorsque vous utilisez nuget.exe ou Visual Studio sur Windows.
+> La signature du package n’est actuellement prise en charge que lors de l’utilisation de NuGet. exe sur Windows. La vérification des packages signés n’est actuellement prise en charge que lors de l’utilisation de NuGet. exe ou de Visual Studio sur Windows.
 
 ## <a name="certificate-requirements"></a>Conditions de certificat
 
-La signature du package nécessite un code de signature de certificat, qui est un type spécial de certificat est valide pour le `id-kp-codeSigning` usage [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une publique longueur de clé RSA de 2 048 bits ou une version ultérieure.
+La signature de package requiert un certificat de signature de code, qui est un type spécial de certificat qui `id-kp-codeSigning` est valide pour la fonction [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
 
-## <a name="timestamp-requirements"></a>Configuration requise d’horodatage
+## <a name="timestamp-requirements"></a>Exigences relatives aux horodateurs
 
-Packages signés doivent inclure un horodatage RFC 3161 pour garantir la validité de signature au-delà de la période de validité du certificat de signature du package. Le certificat utilisé pour signer l’horodateur doit être valide pour le `id-kp-timeStamping` usage [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une publique longueur de clé RSA de 2 048 bits ou une version ultérieure.
+Les packages signés doivent inclure un horodateur RFC 3161 pour garantir la validité des signatures au-delà de la période de validité du certificat de signature du package. Le certificat utilisé pour signer l’horodateur doit être valide pour la `id-kp-timeStamping` fonction [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
 
-Vous trouverez des informations techniques dans le [les spécifications techniques de signature du package](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
+Des détails techniques supplémentaires sont disponibles dans les [spécifications techniques des signatures de packages](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 
-## <a name="signature-requirements-on-nugetorg"></a>Exigences de signature sur NuGet.org
+## <a name="signature-requirements-on-nugetorg"></a>Spécifications de signature sur NuGet.org
 
-NuGet.org a des exigences supplémentaires pour l’acceptation d’un package signé :
+nuget.org a des exigences supplémentaires pour accepter un package signé:
 
-- La signature principale doit être une signature de l’auteur.
-- La signature principale doit avoir un seul horodateur valid.
-- Les certificats X.509 pour la signature de l’auteur et sa signature d’horodatage :
-  - Doit avoir une clé publique de RSA 2 048 bits ou supérieur.
-  - Doit être au sein de sa période de validité par heure UTC actuelle au moment de la validation du package sur nuget.org.
-  - Doit être lié à une autorité racine approuvée qui est approuvée par défaut sur Windows. Les packages signés avec les certificats auto-émis sont rejetées.
-  - Doit être valide pour sa fonction : 
-    - L’auteur du certificat de signature doit être valide pour la signature de code.
-    - Le certificat d’horodatage doit être valide pour le service d’horodatage.
-  - Il ne doit pas être révoqué à l’heure de signature. (Cela ne peut pas être qui peuvent être connue au moment de l’envoi, donc nuget.org vérifie périodiquement l’état de révocation).
+- La signature principale doit être une signature d’auteur.
+- La signature principale doit avoir un seul horodateur valide.
+- Les certificats X. 509 pour la signature de l’auteur et la signature d’horodatage:
+  - Doit avoir une clé publique RSA 2048 bits ou une version ultérieure.
+  - Doit être dans sa période de validité par heure UTC actuelle au moment de la validation du package sur nuget.org.
+  - Doit être lié à une autorité racine approuvée qui est approuvée par défaut sur Windows. Les packages signés avec des certificats auto-émis sont rejetés.
+  - Doit être valide dans son but: 
+    - Le certificat de signature d’auteur doit être valide pour la signature de code.
+    - Le certificat d’horodatage doit être valide pour l’horodatage.
+  - Ne doit pas être révoqué au moment de la signature. (Cela peut ne pas être knowable au moment de l’envoi, de sorte que nuget.org revérifie régulièrement l’état de révocation).
   
   
 ## <a name="related-articles"></a>Articles connexes
