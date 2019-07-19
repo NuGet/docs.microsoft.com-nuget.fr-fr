@@ -1,0 +1,35 @@
+---
+title: commandes NuGet CLI dotnet
+description: Référence concise pour les commandes liées à NuGet à l’aide de l’interface de ligne de commande dotnet.
+author: karann-msft
+ms.author: karann
+ms.date: 06/24/2019
+ms.topic: conceptual
+ms.openlocfilehash: ff011e60d3de3b0999db56e1e30e97e538bd9fb4
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68327486"
+---
+# <a name="dotnet-cli-commands"></a><span data-ttu-id="adf7e-103">commandes CLI dotnet</span><span class="sxs-lookup"><span data-stu-id="adf7e-103">dotnet CLI commands</span></span>
+
+<span data-ttu-id="adf7e-104">L' `dotnet` interface de ligne de commande (CLI), qui s’exécute sous Windows, Mac OS X et Linux, fournit un certain nombre de commandes essentielles, telles que l’installation, la restauration et la publication de packages.</span><span class="sxs-lookup"><span data-stu-id="adf7e-104">The `dotnet` command-line interface (CLI), which runs on Windows, Mac OS X, and Linux, provides a number of essential commands such as installing, restoring, and publishing packages.</span></span> <span data-ttu-id="adf7e-105">Si dotnet répond à vos besoins, il n’est pas nécessaire d' `nuget.exe`utiliser.</span><span class="sxs-lookup"><span data-stu-id="adf7e-105">If dotnet satisfies your needs, it's not necessary to use `nuget.exe`.</span></span>
+
+<span data-ttu-id="adf7e-106">Pour obtenir des exemples d’utilisation de ces commandes pour consommer des packages, consultez [installer et gérer des packages à l’aide de l’interface CLI dotnet](../consume-packages/install-use-packages-dotnet-cli.md).</span><span class="sxs-lookup"><span data-stu-id="adf7e-106">For examples of using these commands to consume packages, see [Install and manage packages using the dotnet CLI](../consume-packages/install-use-packages-dotnet-cli.md).</span></span> <span data-ttu-id="adf7e-107">Pour obtenir des exemples d’utilisation de ces commandes pour créer des packages, consultez [créer et publier un package à l’aide de l’interface CLI dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md).</span><span class="sxs-lookup"><span data-stu-id="adf7e-107">For examples of using these commands to create packages, see [Create and publish a package using the dotnet CLI](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md).</span></span>
+
+<span data-ttu-id="adf7e-108">Pour obtenir une référence complète sur `dotnet` les commandes CLI, consultez outils de l' [interface de ligne de commande (CLI) .net Core](/dotnet/core/tools/?tabs=netcore2x).</span><span class="sxs-lookup"><span data-stu-id="adf7e-108">For the complete command reference on `dotnet` CLI, see [.NET Core command-line interface (CLI) tools](/dotnet/core/tools/?tabs=netcore2x).</span></span>
+
+## <a name="package-consumption"></a><span data-ttu-id="adf7e-109">Consommation des packages</span><span class="sxs-lookup"><span data-stu-id="adf7e-109">Package consumption</span></span>
+
+- <span data-ttu-id="adf7e-110">[**Ajouter un package dotnet**](/dotnet/core/tools/dotnet-add-package): Ajoute une référence de package au fichier projet, puis exécute `dotnet restore` pour installer le package.</span><span class="sxs-lookup"><span data-stu-id="adf7e-110">[**dotnet add package**](/dotnet/core/tools/dotnet-add-package): Adds a package reference to the project file, then runs `dotnet restore` to install the package.</span></span>
+- <span data-ttu-id="adf7e-111">[**supprimer le package de dotnet**](/dotnet/core/tools/dotnet-remove-package): Supprime une référence de package du fichier projet.</span><span class="sxs-lookup"><span data-stu-id="adf7e-111">[**dotnet remove package**](/dotnet/core/tools/dotnet-remove-package): Removes a package reference from the project file.</span></span>
+- <span data-ttu-id="adf7e-112">[**dotnet Restore**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): Restaure les dépendances et les outils d’un projet.</span><span class="sxs-lookup"><span data-stu-id="adf7e-112">[**dotnet restore**](/dotnet/core/tools/dotnet-restore?tabs=netcore2x): Restores the dependencies and tools of a project.</span></span> <span data-ttu-id="adf7e-113">À compter de NuGet 4.0, cette commande exécute le même code que `nuget restore`.</span><span class="sxs-lookup"><span data-stu-id="adf7e-113">As of NuGet 4.0, this runs the same code as `nuget restore`.</span></span>
+- <span data-ttu-id="adf7e-114">[**locales dotnet NuGet**](/dotnet/core/tools/dotnet-nuget-locals): Répertorie les emplacements des dossiers *Global-packages*, *http-cache*et *temp* et efface le contenu de ces dossiers.</span><span class="sxs-lookup"><span data-stu-id="adf7e-114">[**dotnet nuget locals**](/dotnet/core/tools/dotnet-nuget-locals): Lists locations of the *global-packages*, *http-cache*, and *temp* folders and clears the contents of those folders.</span></span>
+- <span data-ttu-id="adf7e-115">[**dotnet New nugetconfig**](/dotnet/core/tools/dotnet-new): Crée un [`nuget.config`](../reference/nuget-config-file.md) fichier pour configurer le comportement de NuGet.</span><span class="sxs-lookup"><span data-stu-id="adf7e-115">[**dotnet new nugetconfig**](/dotnet/core/tools/dotnet-new): Creates a [`nuget.config`](../reference/nuget-config-file.md) file to configure NuGet's behavior.</span></span>
+
+## <a name="package-creation"></a><span data-ttu-id="adf7e-116">Création de package</span><span class="sxs-lookup"><span data-stu-id="adf7e-116">Package creation</span></span>
+
+- <span data-ttu-id="adf7e-117">[**dotnet Pack**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x): Compresse le code dans un package NuGet.</span><span class="sxs-lookup"><span data-stu-id="adf7e-117">[**dotnet pack**](/dotnet/core/tools/dotnet-pack?tabs=netcore2x): Packs the code into a NuGet package.</span></span>
+- <span data-ttu-id="adf7e-118">[**dotnet NuGet Push**](/dotnet/core/tools/dotnet-nuget-push): Publie un package sur un serveur NuGet.</span><span class="sxs-lookup"><span data-stu-id="adf7e-118">[**dotnet nuget push**](/dotnet/core/tools/dotnet-nuget-push): Publishes a package to a NuGet server.</span></span> <span data-ttu-id="adf7e-119">Applicable aux [serveurs nuget](../hosting-packages/overview.md)nuget.org, Azure artifacts et tiers.</span><span class="sxs-lookup"><span data-stu-id="adf7e-119">Applicable to nuget.org, Azure Artifacts, and [third-party NuGet servers](../hosting-packages/overview.md).</span></span>
+- <span data-ttu-id="adf7e-120">[**dotnet NuGet Delete**](/dotnet/core/tools/dotnet-nuget-delete): Supprime ou déliste un package d’un serveur NuGet.</span><span class="sxs-lookup"><span data-stu-id="adf7e-120">[**dotnet nuget delete**](/dotnet/core/tools/dotnet-nuget-delete): Deletes or unlists a package from a NuGet server.</span></span> <span data-ttu-id="adf7e-121">Applicable aux [serveurs nuget](../hosting-packages/overview.md)nuget.org, Azure artifacts et tiers.</span><span class="sxs-lookup"><span data-stu-id="adf7e-121">Applicable to nuget.org, Azure Artifacts, and [third-party NuGet servers](../hosting-packages/overview.md).</span></span>
