@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: acf80a9f919a56c9a9f21a9c8850dc5c1c67df33
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: b450a5bfa3dcf70056c99a951f51a78845ef8438
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317206"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342451"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -226,7 +226,9 @@ Lors de l’utilisation de `MSBuild -t:pack -p:IsTool=true`, tous les fichiers d
 
 ### <a name="packing-using-a-nuspec"></a>Compression à l’aide d’un fichier .nuspec
 
-Vous pouvez utiliser un `.nuspec` fichier pour compresser votre projet, à condition que vous disposiez d' `NuGet.Build.Tasks.Pack.targets` un fichier de projet SDK à importer pour pouvoir exécuter la tâche Pack. Vous devez toujours restaurer le projet avant de pouvoir compresser un fichier NuSpec. La version cible du .NET Framework du fichier projet n’est pas pertinente et n’est pas utilisée lors de la compression d’un NuSpec. Les trois propriétés MSBuild suivantes sont pertinentes lors de la compression à l’aide d’un fichier `.nuspec` :
+Bien qu’il soit recommandé d’inclure à la place [toutes les propriétés](../reference/msbuild-targets.md#pack-target) qui se `.nuspec` trouvent généralement dans le fichier du fichier projet, vous pouvez choisir d' `.nuspec` utiliser un fichier pour compresser votre projet. Pour un projet de type non-SDK qui utilise `PackageReference`, vous devez effectuer `NuGet.Build.Tasks.Pack.targets` l’importation afin que la tâche Pack puisse être exécutée. Vous devez toujours restaurer le projet avant de pouvoir compresser un fichier NuSpec. (Un projet de type SDK comprend les cibles Pack par défaut.)
+
+La version cible du .NET Framework du fichier projet n’est pas pertinente et n’est pas utilisée lors de la compression d’un NuSpec. Les trois propriétés MSBuild suivantes sont pertinentes lors de la compression à l’aide d’un fichier `.nuspec` :
 
 1. `NuspecFile` : chemin relatif ou absolu du fichier `.nuspec` utilisé pour la compression.
 1. `NuspecProperties` : liste de paires clé=valeur séparées par un point-virgule. En raison du mode de fonctionnement de l’analyse de ligne de commande MSBuild, plusieurs propriétés doivent être spécifiées comme suit : `-p:NuspecProperties=\"key1=value1;key2=value2\"`.  
@@ -246,7 +248,7 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 
 Notez que le compactage d’un NuSpec à l’aide de dotnet. exe ou de MSBuild permet également de générer le projet par défaut. Cela peut être évité en passant ```--no-build``` la propriété à dotnet. exe, qui est l’équivalent du ```<NoBuild>true</NoBuild> ``` paramètre dans votre fichier projet, ainsi que ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` le paramètre dans le fichier projet.
 
-Voici un exemple de fichier csproj pour compresser un fichier NuSpec:
+Voici un exemple de fichier *. csproj* pour compresser un fichier NuSpec:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
