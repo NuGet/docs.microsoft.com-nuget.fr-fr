@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: 087bb043ba4b388b9de6d94cd838915a2e7247f4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: e11eed5c614a7634fa578ebc84c3ab2068522fe2
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426141"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842202"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
@@ -45,8 +45,8 @@ En plus de la prise en charge de l’hébergement, NuGet fournit également diff
 
 | Outil | Plateformes | Scénarios applicables | Description |
 | --- | --- | --- | --- |
-| [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI NuGet, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
-| [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
+| [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les [projets de style SDK](resources/check-project-format.md) qui ciblent le .NET Framework. Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI NuGet, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
+| [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les [projets qui ne sont pas de style SDK](resources/check-project-format.md) ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
 | [Console du Gestionnaire de package](tools/package-manager-console.md) | Visual Studio sur Windows | Consommation | Propose des [commandes PowerShell](tools/Powershell-Reference.md) permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur du Gestionnaire de package](tools/package-manager-ui.md) | Visual Studio sur Windows | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur de gestion de NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio pour Mac | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Mac. |

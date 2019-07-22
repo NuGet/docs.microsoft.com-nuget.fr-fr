@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: c2fc11c0f5dd5d98c40c8b97f9d5a72c4a334b79
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: fd846632e7a1f5c49fa72d75b18e51cfc7539949
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427284"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841959"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet.org
 
@@ -252,13 +252,15 @@ Suivez les étapes indiquées dans la section relative à la [suppression de vot
 
 Pour supprimer votre compte, notez que nous vous recommandons de transférer la propriété de tous les packages dont vous êtes l’unique propriétaire. Pour savoir comment procéder, lisez la section relative à la [gestion des propriétaires de packages](https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Cela nous permettra également d’accélérer votre demande.
 
+Si vous envisagez de transformer votre compte en organisation, suivez les étapes indiquées dans [transformer mon compte nuget.org en organisation.](#how-to-transform-my-nugetorg-account-to-an-organization)
+
 > [!Important]
 > La suppression de l’utilisateur a les conséquences suivantes :
+>  1. Votre nom d’utilisateur sera réservé et personne ne pourra l’utiliser à nouveau pour créer un compte individuel ou un compte d’organisation
 >  1. Révocation des clés API associées. 
->  2. Suppression du compte en tant que propriétaire des packages enfants.
->  3. Dissociation de toutes les réservations de préfixe d’ID précédemment existantes avec ce compte.
->  4. Suppression du compte en tant que membre d’une organisation.
->  5. Votre nom d’utilisateur sera réservé et personne ne pourra le réutiliser sans notre autorisation.
+>  1. Suppression du compte en tant que propriétaire des packages enfants.
+>  1. Dissociation de toutes les réservations de préfixe d’ID précédemment existantes avec ce compte.
+>  1. Suppression du compte en tant que membre d’une organisation.
 
 Effectuez les étapes suivantes pour procéder à la suppression du compte.
 1. [Connectez-vous à nuget.org](https://www.nuget.org/users/account/LogOn) avec le compte que vous voulez supprimer.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: a285650034c99026e34fcda398ca7ced4855e40a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67425719"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67842399"
 ---
 # <a name="package-creation-workflow"></a>Flux de travail de la création de packages
 
@@ -21,9 +21,7 @@ Un package peut également servir à uniquement extraire d’autres dépendances
 > [!Note]
 > Lorsque vous créez un package pour qu’il soit utilisé par d’autres développeurs, il est important de comprendre que ceux-ci deviennent dépendants de votre travail. C’est pourquoi la création et la publication d’un package impliquent aussi de s’engager à corriger les bogues et à apporter d’autres mises à jour, ou tout du moins, à rendre le package disponible en open source afin que d’autres puissent participer à sa maintenance.
 
-Dans tous les cas, la création d’un package commence par déterminer quels assemblys et autres fichiers doivent être empaquetés. Ensuite, vous créez un fichier manifeste, appelé fichier `.nuspec`, pour décrire le contenu du package, ainsi que son identificateur, son numéro de version, ses informations de copyright, ses cibles et propriétés MSBuild, etc.
-
-Lorsque vous avez préparé tous les fichiers nécessaires dans les dossiers appropriés et que vous avez créé le fichier `.nuspec` approprié, utilisez la commande `nuget pack` (ou la [cible MSBuild pack](../reference/msbuild-targets.md)) pour tout placer dans un fichier `.nupkg`. Ensuite, vous êtes prêt à déployer le package sur l’hôte qui le met à la disposition d’autres développeurs.
+Quel que soit le cas, la création d’un package commence par déterminer son identificateur, son numéro de version, sa licence, les informations de copyright et tout autre contenu nécessaire. Une fois que vous avez terminé, vous pouvez utiliser la commande « pack » pour placer tous les éléments dans un fichier `.nupkg`. Ce fichier peut être publié dans un flux NuGet, comme nuget.org.
 
 > [!Tip]
 > Un package NuGet portant l’extension `.nupkg` n’est qu’un fichier ZIP. Pour examiner facilement le contenu d’un package, remplacez l’extension par `.zip` et développez son contenu comme d’habitude. Veillez simplement à remodifier l’extension en `.nupkg` avant d’essayer de charger le package sur un hôte.

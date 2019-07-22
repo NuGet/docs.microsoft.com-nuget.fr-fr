@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6e3011493b7b89bc43cd9a267aea7fd32d668cec
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: a4a3f5509792e56c09d18b3da98588d17f4756ee
+ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426568"
+ms.lasthandoff: 07/12/2019
+ms.locfileid: "67841939"
 ---
 # <a name="install-nuget-client-tools"></a>Installer les outils clients NuGet
 
@@ -20,8 +20,8 @@ Pour utiliser NuGet en tant que consommateur ou créateur de packages, vous pouv
 
 | Outil&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Description | Télécharger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |
 |:------------- |:-------------|:-----|
-| [dotnet.exe](#dotnetexe-cli) | Outil CLI pour les bibliothèques .NET Core et .NET Standard et tout projet de style SDK comme celui ciblant le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Inclus avec le kit SDK .NET Core et fournit des fonctionnalités NuGet de base sur toutes les plateformes. | [SDK .NET Core](https://www.microsoft.com/net/download/) |
-| [nuget.exe](#nugetexe-cli) | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités NuGet sous Windows et la plupart des fonctionnalités sous Mac et Linux en cas d’exécution sous Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
+| [dotnet.exe](#dotnetexe-cli) | Outil CLI pour les bibliothèques .NET Core et .NET Standard et tout [projet de style SDK](resources/check-project-format.md) comme celui ciblant le .NET Framework. Inclus avec le kit SDK .NET Core et fournit des fonctionnalités NuGet de base sur toutes les plateformes. (À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.)| [SDK .NET Core](https://www.microsoft.com/net/download/) |
+| [nuget.exe](#nugetexe-cli) | Outil CLI pour les bibliothèques .NET Framework et les [projets qui ne sont pas de style SDK](resources/check-project-format.md) ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités NuGet sous Windows et la plupart des fonctionnalités sous Mac et Linux en cas d’exécution sous Mono. | [nuget.exe](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) |
 | [Visual Studio](#visual-studio) | Sous Windows, fournit des fonctionnalités NuGet par le biais de l’interface utilisateur et de la console du Gestionnaire de package ; avec des charges de travail liées à .NET. Sous Mac, fournit certaines fonctionnalités par le biais de l’interface utilisateur. Dans Visual Studio Code, les fonctionnalités NuGet sont fournies sous la forme d’extensions. | [Visual Studio 2017](https://www.visualstudio.com/downloads/) |
 
 L’[interface CLI MSBuild](reference/msbuild-targets.md) offre également la possibilité de restaurer et de créer des packages, ce qui est surtout utile sur les serveurs de build. MSBuild n’est pas un outil à usage général pour NuGet.
@@ -31,7 +31,7 @@ L’[interface CLI MSBuild](reference/msbuild-targets.md) offre également la po
 Les deux outils de l’interface CLI NuGet sont `dotnet.exe` et `nuget.exe`. Consultez la [disponibilité des fonctionnalités](#feature-availability) pour obtenir une comparaison.
 
 * Pour cibler .NET Core ou .NET Standard, utilisez l’interface CLI dotnet. L’interface CLI dotnet est requise pour le format de projet de style SDK, qui utilise [l’attribut SDK](/dotnet/core/tools/csproj#additions).
-* Pour cibler le .NET Framework (projet n’étant pas de style SDK uniquement), utilisez `nuget.exe CLI`. Si le projet est migré vers `packages.config`, utilisez l’interface CLI dotnet.
+* Pour cibler le .NET Framework (projet n’étant pas de style SDK uniquement), utilisez `nuget.exe CLI`. Si le projet est migré de `packages.config` vers PackageReference, utilisez la CLI dotnet.
 
 ### <a name="dotnetexe-cli"></a>Interface CLI de dotnet.exe
 
@@ -39,7 +39,7 @@ L’interface CLI de .NET Core 2.0, `dotnet.exe`, qui fonctionne sur toutes les 
 
 Installation :
 
-- Sur les ordinateurs des développeurs, installez le [kit SDK .NET Core](https://aka.ms/dotnetcoregs).
+- Sur les ordinateurs des développeurs, installez le [kit SDK .NET Core](https://aka.ms/dotnetcoregs). À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 - Pour les serveurs de build, suivez les instructions de la rubrique [Utilisation du SDK et des outils .NET Core avec l’intégration continue](/dotnet/core/tools/using-ci-with-cli).
 
 Pour savoir comment utiliser les commandes de base avec l’interface CLI dotnet, consultez [Installer et utiliser des packages à l’aide de l’interface CLI dotnet](consume-packages/install-use-packages-dotnet-cli.md).
@@ -48,14 +48,14 @@ Pour savoir comment utiliser les commandes de base avec l’interface CLI dotnet
 
 L’interface CLI `nuget.exe`, `nuget.exe`, est l’utilitaire de ligne de commande pour Windows qui offre toutes les fonctionnalités NuGet. Elle peut également s’exécuter sous Mac OS X et Linux à l’aide de [Mono](http://www.mono-project.com/docs/getting-started/install/), avec certaines limitations.
 
+Pour savoir comment utiliser les commandes de base avec l’interface CLI `nuget.exe`, consultez [Installer et utiliser des packages à l’aide de l’interface CLI nuget.exe](consume-packages/install-use-packages-nuget-cli.md).
+
 Installation :
 
 [!INCLUDE [install-cli](includes/install-cli.md)]
 
 > [!Tip]
 > Utilisez `nuget update -self` sur Windows pour mettre à jour un nuget.exe existant vers la dernière version.
-
-Pour savoir comment utiliser les commandes de base avec l’interface CLI `nuget.exe`, consultez [Installer et utiliser des packages à l’aide de l’interface CLI nuget.exe](consume-packages/install-use-packages-nuget-cli.md).
 
 > [!Note]
 > La dernière interface CLI de NuGet est toujours disponible à l’adresse `https://dist.nuget.org/win-x86-commandline/latest/nuget.exe`. Pour des raisons de compatibilité avec d’anciens systèmes d’intégration continue, une URL précédente, `https://nuget.org/nuget.exe`, fournit actuellement [l’outil CLI 2.8.6 déconseillé](https://github.com/NuGet/NuGetGallery/issues/5381).
@@ -103,7 +103,7 @@ Pour savoir comment utiliser les commandes de base avec l’interface CLI `nuget
 ### <a name="related-topics"></a>Rubriques connexes
 
 - [Installer et gérer des packages à l’aide de Visual Studio](tools/package-manager-ui.md)
-- [Installer et gérer des packages à l’aide de PowerShell](tools/package-manager-console.md)
+- [Installer et gérer des packages à l’aide de la Console du Gestionnaire de package](tools/package-manager-console.md)
 - [Installer et gérer des packages à l’aide de l’interface CLI dotnet](consume-packages/install-use-packages-dotnet-cli.md)
 - [Installer et gérer des packages à l’aide de l’interface CLI nuget.exe](consume-packages/install-use-packages-nuget-cli.md)
 - [Informations de référence sur la console du Gestionnaire de package (version PowerShell)](tools/powershell-reference.md)
