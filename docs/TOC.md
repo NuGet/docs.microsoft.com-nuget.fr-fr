@@ -31,12 +31,14 @@
 ### [packages.config](reference/packages-config.md)
 # Créer des packages
 ## [Vue d’ensemble et flux de travail](create-packages/overview-and-workflow.md)
-## [Créer un package](create-packages/creating-a-package.md)
+## [Créer un package (CLI dotnet)](create-packages/creating-a-package-dotnet-cli.md)
+## [Créer un package (CLI nuget.exe)](create-packages/creating-a-package.md)
 ## [Créer un package avec MSBuild](reference/msbuild-targets.md)
-## [Prendre en charge plusieurs frameworks cibles](create-packages/supporting-multiple-target-frameworks.md)
+## [Prendre en charge plusieurs frameworks cibles dans votre fichier projet](create-packages/multiple-target-frameworks-project-file.md)
 ## [Créer un package de préversion](create-packages/prerelease-packages.md)
 ## [Créer un package de symboles](create-packages/symbol-packages-snupkg.md)
 ## Tâches avancées
+### [Prendre en charge plusieurs frameworks cibles](create-packages/supporting-multiple-target-frameworks.md)
 ### [Modifier les fichiers de code source et de configuration](create-packages/source-and-config-file-transformations.md)
 ### [Sélectionner des assemblys référencés par les projets](create-packages/select-assemblies-referenced-by-projects.md)
 ### [Définir un type de package](create-packages/set-package-type.md)
