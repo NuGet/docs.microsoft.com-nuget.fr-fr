@@ -1,34 +1,34 @@
 ---
-title: Migration de package.config vers les formats PackageReference
-description: Pour plus d’informations sur la façon de migrer un projet à partir du format de gestion package.config vers PackageReference pris en charge par NuGet 4.0 + et Visual Studio 2017 et .NET Core 2.0
+title: Migration de package. config vers les formats PackageReference
+description: Détails sur la migration d’un projet à partir du format de gestion package. config vers PackageReference, comme pris en charge par NuGet 4.0 + et VS2017 et .NET Core 2,0
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 09d132aeaf00d2a1d095b9638b455cc23de91f2c
-ms.sourcegitcommit: b8c63744252a5a37a2843f6bc1d5917496ee40dd
+ms.openlocfilehash: d1c32f4a926f1f688db3ea6a9ca2eed1a21b2dec
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66812880"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433288"
 ---
-# <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrer à partir de packages.config vers PackageReference
+# <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrer de packages. config vers PackageReference
 
-Visual Studio 2017 Version 15.7 et ultérieures prend en charge la migration d’un projet à partir de la [packages.config](./packages-config.md) format de gestion pour le [PackageReference](../consume-packages/Package-References-in-Project-Files.md) format.
+Visual Studio 2017 version 15,7 et les versions ultérieures prennent en charge la migration d’un projet à partir du format de gestion [packages. config](./packages-config.md) vers le format [PackageReference](../consume-packages/Package-References-in-Project-Files.md) .
 
 ## <a name="benefits-of-using-packagereference"></a>Avantages de l’utilisation de PackageReference
 
-* **Gérer toutes les dépendances de projet au même endroit**: Références entre projets et références d’assembly, comme package NuGet fait référence (à l’aide de la `PackageReference` nœud) sont gérés directement dans les fichiers de projet, plutôt que d’utiliser un fichier packages.config distincts.
-* **Vue ne soit pas encombré de dépendances de niveau supérieur**: Contrairement à packages.config, PackageReference répertorie uniquement les packages NuGet que vous avez installé directement dans le projet. Par conséquent, le Gestionnaire de Package NuGet UI et le fichier projet ne sont pas encombrés de dépendances de bas niveau.
-* **Améliorations des performances**: Lorsque vous utilisez PackageReference, les packages sont conservés dans le *global-packages* dossier (tel que décrit sur [gérer les packages globaux et les dossiers de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md) plutôt que dans un `packages` dossier au sein de la solution. Par conséquent, PackageReference s’exécute plus rapidement et consomme moins d’espace disque.
-* **Un meilleur contrôle sur les flux de contenu et les dépendances**: À l’aide des fonctionnalités existantes de MSBuild vous permet de [référencer conditionnellement un package NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) et choisir des références de package par le framework cible, de configuration, de plateforme ou d’autres tableaux croisés dynamiques.
-* **PackageReference est en cours de développement**: Consultez [PackageReference émet sur GitHub](https://aka.ms/nuget-pr-improvements). packages.config n’est plus en cours de développement.
+* **Gérer toutes les dépendances de projet à un seul emplacement**: Tout comme les références de projet à projet et les références d’assembly, les `PackageReference` références de package NuGet (à l’aide du nœud) sont gérées directement dans les fichiers projet plutôt que d’utiliser un fichier Packages. config distinct.
+* **Affichage des dépendances de niveau supérieur non encombré**: Contrairement à packages. config, PackageReference répertorie uniquement les packages NuGet que vous avez installés directement dans le projet. Par conséquent, l’interface utilisateur du gestionnaire de package NuGet et le fichier projet ne sont pas encombrés par des dépendances de niveau inférieure.
+* **Améliorations des performances**: Lorsque vous utilisez PackageReference, les packages sont conservés dans le dossier *Global-packages* (comme décrit dans [gestion des dossiers de packages globaux et](../consume-packages/managing-the-global-packages-and-cache-folders.md) de `packages` cache plutôt que dans un dossier dans la solution. Par conséquent, PackageReference fonctionne plus rapidement et consomme moins d’espace disque.
+* **Contrôle précis sur les dépendances et le workflow de contenu**: L’utilisation des fonctionnalités existantes de MSBuild vous permet de référencer de manière [conditionnelle un package NuGet](../consume-packages/Package-References-in-Project-Files.md#adding-a-packagereference-condition) et de choisir des références de package par Framework cible, configuration, plate-forme ou d’autres tableaux croisés dynamiques.
+* **PackageReference est en cours de développement actif**: Consultez [problèmes PackageReference sur GitHub](https://aka.ms/nuget-pr-improvements). Packages. config n’est plus en cours de développement actif.
 
-### <a name="limitations"></a>Limitations
+### <a name="limitations"></a>Limites
 
-* NuGet PackageReference n’est pas disponible dans Visual Studio 2015 et versions antérieures. Les projets migrés peuvent être ouverts que dans Visual Studio 2017.
-* Migration n’est pas actuellement disponible pour les projets C++ et ASP.NET.
-* Certains packages ne sont peut-être pas entièrement compatibles avec PackageReference. Pour plus d’informations, consultez [les problèmes de compatibilité du package](#package-compatibility-issues).
+* NuGet PackageReference n’est pas disponible dans Visual Studio 2015 et versions antérieures. Les projets migrés ne peuvent être ouverts que dans Visual Studio 2017 et versions ultérieures.
+* La migration n’est actuellement pas possible pour les projets C++ et ASP.NET.
+* Certains Packages peuvent ne pas être entièrement compatibles avec PackageReference. Pour plus d’informations, consultez [problèmes de compatibilité des packages](#package-compatibility-issues).
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -48,41 +48,41 @@ Effectuez l’une des actions NuGet suivantes :
 
 L’option de migration devrait apparaître. Notez qu’elle n’est pas prise en charge et ne s’affiche pas pour les types de projets ASP.NET et C++. 
 
-## <a name="migration-steps"></a>Étapes de migration
+## <a name="migration-steps"></a>Étapes de la migration
 
 > [!Note]
-> Avant de commencer la migration, Visual Studio crée une sauvegarde du projet afin que vous puissiez [restaurer packages.config](#how-to-roll-back-to-packagesconfig) si nécessaire.
+> Avant le début de la migration, Visual Studio crée une sauvegarde du projet pour vous permettre de revenir [à packages. config](#how-to-roll-back-to-packagesconfig) si nécessaire.
 
-1. Ouvrez une solution contenant le projet à l’aide `packages.config`.
+1. Ouvrez une solution contenant un projet `packages.config`à l’aide de.
 
-1. Dans **l’Explorateur de solutions**, avec le bouton droit sur le **références** nœud ou le `packages.config` fichier et sélectionnez **migrer packages.config vers PackageReference...** .
+1. Dans **Explorateur de solutions**, cliquez avec le bouton droit  sur le nœud Références `packages.config` ou le fichier, puis sélectionnez **migrer packages. config vers PackageReference...** .
 
-1. L’utilitaire de migration analyse les références de package NuGet du projet et tente de les classer dans **dépendances de niveau supérieur** (packages NuGet que vous avez installé directement) et **dépendances transitives** (les packages qui ont été installés en tant que dépendances de packages de niveau supérieur.)
+1. L’utilitaire de migration analyse les références de package NuGet du projet et tente de les classer dans des dépendances de **niveau supérieur** (packages NuGet que vous avez installées directement) et des **dépendances transitives** (les packages qui ont été installés en tant que dépendances des packages de niveau supérieur).
 
    > [!Note]
-   > PackageReference prend en charge de la restauration de package transitives et résout les dépendances de façon dynamique, ce qui signifie que les dépendances transitives ne doivent pas être installés de manière explicite.
+   > PackageReference prend en charge la restauration transitive des packages et résout les dépendances de manière dynamique, ce qui signifie que les dépendances transitives n’ont pas besoin d’être installées de manière explicite.
 
-1. (Facultatif) Vous pouvez choisir de traiter un package NuGet classé comme une dépendance transitive comme une dépendance de niveau supérieur en sélectionnant le **niveau supérieur** option pour le package. Cette option est définie automatiquement pour les packages contenant des ressources qui ne sont pas acheminées de manière transitive (ceux de la `build`, `buildCrossTargeting`, `contentFiles`, ou `analyzers` dossiers) et ceux marqués comme une dépendance de développement (`developmentDependency = "true"`).
+1. Facultatif Vous pouvez choisir de traiter un package NuGet classé comme une dépendance transitive en tant que dépendance de niveau supérieur en sélectionnant l’option de **niveau supérieur** pour le package. Cette option est automatiquement définie pour les packages contenant des ressources qui ne circulent pas de manière `build`transitive `contentFiles`(celles `analyzers` des dossiers, `buildCrossTargeting`, ou) et celles marquées`developmentDependency = "true"`comme dépendance de développement ().
 
-1. Passez en revue les [les problèmes de compatibilité du package](#package-compatibility-issues).
+1. Examinez les éventuels [problèmes de compatibilité des packages](#package-compatibility-issues).
 
 1. Sélectionnez **OK** pour commencer la migration.
 
-1. À la fin de la migration, Visual Studio fournit un rapport avec un chemin d’accès à la sauvegarde, la liste des packages installés (dépendances de niveau supérieur), une liste des packages référencés en tant que dépendances transitives et une liste de problèmes de compatibilité identifiés au début de migration. Le rapport est enregistré dans le dossier de sauvegarde.
+1. À la fin de la migration, Visual Studio fournit un rapport avec un chemin d’accès à la sauvegarde, la liste des packages installés (dépendances de niveau supérieur), une liste de packages référencés en tant que dépendances transitives et une liste des problèmes de compatibilité identifiés au début de passage. Le rapport est enregistré dans le dossier de sauvegarde.
 
-1. Vérifiez que la solution génère et s’exécute. Si vous rencontrez des problèmes, [signaler un problème sur GitHub](https://github.com/NuGet/Home/issues/).
+1. Vérifiez que la solution est générée et exécutée. Si vous rencontrez des problèmes, [envoyez un problème sur GitHub](https://github.com/NuGet/Home/issues/).
 
-## <a name="how-to-roll-back-to-packagesconfig"></a>Comment revenir à packages.config
+## <a name="how-to-roll-back-to-packagesconfig"></a>Comment revenir à packages. config
 
 1. Fermez le projet migré.
 
-1. Copiez le fichier de projet et `packages.config` à partir de la sauvegarde (généralement `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`) au dossier du projet. Supprimer le dossier obj, s’il existe dans le répertoire racine du projet.
+1. Copiez le fichier projet `packages.config` et à partir de la `<solution_root>\MigrationBackup\<unique_guid>\<project_name>\`sauvegarde (en général) dans le dossier du projet. Supprimez le dossier obj s’il existe dans le répertoire racine du projet.
 
 1. Ouvrez le projet.
 
-1. Ouvrez la Console du Gestionnaire de Package à l’aide de la **Outils > Gestionnaire de Package NuGet > Console du Gestionnaire de Package** commande de menu.
+1. Ouvrez la console du gestionnaire de package à l’aide des **outils > gestionnaire de package NuGet >** commande de menu de la console du gestionnaire de package.
 
-1. Dans la Console, exécutez la commande suivante :
+1. Exécutez la commande suivante dans la console:
 
    ```ps
    update-package -reinstall
@@ -90,40 +90,40 @@ L’option de migration devrait apparaître. Notez qu’elle n’est pas prise e
 
 ## <a name="create-a-package-after-migration"></a>Créer un package après la migration
 
-Une fois la migration terminée, nous vous recommandons d’ajouter une référence à la [nuget.build.tasks.pack](https://www.nuget.org/packages/nuget.build.tasks.pack) nuget package, puis l’utiliser [pack msbuild](../reference/msbuild-targets.md#pack-target) pour créer le package. Bien que dans certains scénarios, vous pouvez utiliser `dotnet.exe pack` au lieu de `msbuild pack`, il n’est pas recommandé.
+Une fois la migration terminée, nous vous recommandons d’ajouter une référence au package NuGet [NuGet. Build. Tasks. Pack](https://www.nuget.org/packages/nuget.build.tasks.pack) , puis d’utiliser [msbuild-t:Pack](../reference/msbuild-targets.md#pack-target) pour créer le package. Toutefois, dans certains scénarios, vous `dotnet.exe pack` pouvez utiliser `msbuild -t:pack`au lieu de, mais ce n’est pas recommandé.
 
-## <a name="package-compatibility-issues"></a>Problèmes de compatibilité de package
+## <a name="package-compatibility-issues"></a>Problèmes de compatibilité des packages
 
-Certains aspects qui étaient pris en charge dans packages.config ne sont pas pris en charge dans PackageReference. L’utilitaire de migration analyse et détecte ces problèmes. N’importe quel package qui comporte un ou plusieurs des problèmes suivants peuvent ne pas fonctionner comme prévu après la migration.
+Certains aspects pris en charge dans les packages. config ne sont pas pris en charge dans PackageReference. L’outil de migration analyse et détecte de tels problèmes. Tout package ayant un ou plusieurs des problèmes suivants peut ne pas se comporter comme prévu après la migration.
 
-### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>scripts de « Install.ps1 » sont ignorés lorsque le package est installé après la migration
-
-| | |
-| --- | --- |
-| **Description** | Avec PackageReference, des scripts PowerShell Install.ps1 et uninstall.ps1 ne sont pas exécutées pendant l’installation ou désinstallation d’un package. |
-| **Impact potentiel** | Les packages qui dépendent de ces scripts pour configurer un comportement dans le projet de destination ne peuvent pas fonctionner comme prévu. |
-
-### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>ressources de « content » ne sont pas disponibles lorsque le package est installé après la migration
+### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>les scripts «install. ps1» sont ignorés lors de l’installation du package après la migration
 
 | | |
 | --- | --- |
-| **Description** | Ressources dans d’un package `content` dossier ne sont pas pris en charge avec PackageReference et sont ignorés. PackageReference ajoute la prise en charge de `contentFiles` pour avoir une meilleure prise en charge transitive et contenu partagé.  |
-| **Impact potentiel** | Ressources dans `content` ne sont pas copiés dans le projet et le projet de code qui dépend de la présence de ces ressources nécessite de refactorisation.  |
+| **Description** | Avec PackageReference, les scripts PowerShell install. ps1 et uninstall. ps1 ne sont pas exécutés lors de l’installation ou de la désinstallation d’un package. |
+| **Impact potentiel** | Les packages qui dépendent de ces scripts pour configurer un comportement dans le projet de destination peuvent ne pas fonctionner comme prévu. |
+
+### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>les ressources «contenu» ne sont pas disponibles lors de l’installation du package après la migration
+
+| | |
+| --- | --- |
+| **Description** | Les ressources dans le dossier `content` d’un package ne sont pas prises en charge avec PackageReference et sont ignorées. PackageReference ajoute la prise `contentFiles` en charge de à pour offrir un meilleur support transitif et du contenu partagé.  |
+| **Impact potentiel** | Les éléments `content` multimédias de ne sont pas copiés dans le projet et le code de projet qui dépend de la présence de ces ressources requiert une refactorisation.  |
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Les transformations XDT ne sont pas appliquées lorsque le package est installé après la mise à niveau
 
 | | |
 | --- | --- |
-| **Description** | Les transformations XDT ne sont pas pris en charge avec PackageReference et `.xdt` fichiers sont ignorés lors de l’installation ou désinstallation d’un package.   |
-| **Impact potentiel** | Les transformations XDT ne sont pas appliquées à tous les fichiers projet XML, le plus souvent, `web.config.install.xdt` et `web.config.uninstall.xdt`, ce qui signifie que le projet` web.config` fichier n’est pas mis à jour lorsque le package est installé ou désinstallé. |
+| **Description** | Les transformations xdt ne sont pas prises en `.xdt` charge avec PackageReference et les fichiers sont ignorés lors de l’installation ou de la désinstallation d’un package.   |
+| **Impact potentiel** | Les transformations xdt ne sont pas appliquées aux fichiers XML de projet, le `web.config.install.xdt` plus `web.config.uninstall.xdt`souvent, et, ce qui` web.config` signifie que le fichier du projet n’est pas mis à jour lors de l’installation ou de la désinstallation du package. |
 
-### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Assemblys à la racine de lib sont ignorés lorsque le package est installé après la migration
+### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Les assemblys dans la racine lib sont ignorés lors de l’installation du package après la migration
 
 | | |
 | --- | --- |
-| **Description** | Avec PackageReference, assemblys présentent à la racine de `lib` dossier sans un target framework sous-dossier spécifique sont ignorés. NuGet recherche un sous-dossier correspondant le moniker du framework cible (TFM) correspondant à la version du projet cible et installe les assemblys correspondants dans le projet. |
-| **Impact potentiel** | Les packages qui n’ont pas un sous-dossier correspondant le moniker du framework cible (TFM) correspondant à la version du projet cible ne peuvent pas se comporter comme prévu après la transition et Échec de l’installation lors de la migration |
+| **Description** | Avec PackageReference, les assemblys présents à la racine `lib` du dossier sans un sous-dossier spécifique au Framework cible sont ignorés. NuGet recherche un sous-dossier correspondant au moniker du Framework cible (TFM) correspondant au Framework cible du projet et installe les assemblys correspondants dans le projet. |
+| **Impact potentiel** | Les packages qui n’ont pas de sous-dossier correspondant au moniker du Framework cible (TFM) correspondant au Framework cible du projet peuvent ne pas se comporter comme prévu après la transition ou l’échec de l’installation pendant la migration |
 
-## <a name="found-an-issue-report-it"></a>Rencontré un problème ? Signalez-le !
+## <a name="found-an-issue-report-it"></a>Vous avez rencontré un problème? Rapport!
 
-Si vous rencontrez un problème lors de la migration, veuillez [signaler un problème sur le dépôt NuGet GitHub](https://github.com/NuGet/Home/issues/).
+Si vous rencontrez un problème avec l’expérience de migration, veuillez [Envoyer un problème sur le dépôt github NuGet](https://github.com/NuGet/Home/issues/).
