@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 9b2a7b299a0cb944ad9045684e14cc7b83e1cff4
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426666"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68316975"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Réinstallation et mise à jour des packages
 
@@ -61,7 +61,7 @@ Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du p
 
 ## <a name="using-update-package"></a>Utilisation d’Update-Package
 
-Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../Tools/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils**  >  **Gestionnaire de package NuGet** > **Console du gestionnaire de package**) :
+Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils**  >  **Gestionnaire de package NuGet** > **Console du gestionnaire de package**) :
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -97,7 +97,7 @@ Update-Package
 
 La mise à jour des packages d’un projet ou d’une solution à l’aide de [PackageReference](../Consume-Packages/Package-References-in-Project-Files.md) est toujours effectuée vers la version la plus récente du package (à l’exclusion des packages de préversion). Les projets qui utilisent `packages.config` peuvent, si vous le souhaitez, limiter les versions de mise à jour, comme décrit ci-dessous dans [Restriction des versions de mise à niveau](#constraining-upgrade-versions).
 
-Pour plus d’informations sur la commande, consultez la référence relative à [Update-Package](../Tools/ps-ref-update-package.md).
+Pour plus d’informations sur la commande, consultez la référence relative à [Update-Package](../reference/ps-reference/ps-ref-update-package.md).
 
 ### <a name="considerations"></a>Éléments à prendre en considération
 

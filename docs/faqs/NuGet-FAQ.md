@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 20a55c6ba89478e70d8e6837aaebc1b7b7754a93
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 9094d6b4a2dbd6ea1899b4470624948ce7c21f43
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842434"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317622"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -36,9 +36,9 @@ Pour plus d’informations, consultez [Recherche et sélection des packages](../
 
 **Comment NuGet est-il pris en charge dans les différents produits Visual Studio ?**
 
-- Visual Studio sur Windows prend en charge [l’interface utilisateur du Gestionnaire de package](../tools/package-manager-ui.md) et la [console du Gestionnaire de package](../tools/package-manager-console.md).
+- Visual Studio sur Windows prend en charge [l’interface utilisateur du Gestionnaire de package](../consume-packages/install-use-packages-visual-studio.md) et la [console du Gestionnaire de package](../consume-packages/install-use-packages-powershell.md).
 - Visual Studio pour Mac offre des fonctionnalités NuGet intégrées, comme décrit dans [Inclusion d’un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
-- Visual Studio Code (toutes les plateformes) n’a pas d’intégration directe de NuGet. Utilisez [l’interface de ligne de commande NuGet](../tools/nuget-exe-cli-reference.md) ou [l’interface de ligne de commande dotnet](../tools/dotnet-commands.md).
+- Visual Studio Code (toutes les plateformes) n’a pas d’intégration directe de NuGet. Utilisez [l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md) ou [l’interface de ligne de commande dotnet](../reference/dotnet-commands.md).
 - Azure DevOps fournit [une étape de la génération pour restaurer des packages NuGet](/vsts/build-release/tasks/package/nuget). Vous pouvez également [héberger des flux de packages NuGet privés sur Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
 **Comment vérifier la version exacte des outils NuGet qui sont installés ?**
@@ -59,13 +59,13 @@ NuGet prend totalement en charge de nombreux modèles de projet tels que Windows
 
 **Comment mettre à jour les packages qui font partie de modèles Visual Studio ?**
 
-Accédez à l’onglet **Mises à jour** dans l’interface utilisateur du Gestionnaire de package et sélectionnez **Mettre à jour tout**, ou utilisez la [commande `Update-Package`](../tools/ps-ref-update-package.md) à partir de la console du Gestionnaire de package.
+Accédez à l’onglet **Mises à jour** dans l’interface utilisateur du Gestionnaire de package et sélectionnez **Mettre à jour tout**, ou utilisez la [commande `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) à partir de la console du Gestionnaire de package.
 
 Pour mettre à jour le modèle lui-même, vous devez mettre à jour manuellement le dépôt du modèle. Consultez le [blog de Xavier Decoster](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) à ce sujet. Notez que cette opération est effectuée à vos risques et périls, étant donné que les mises à jour manuelles peuvent endommager le modèle si les dernières versions de toutes les dépendances ne sont pas compatibles entre elles.
 
 **Puis-je utiliser NuGet en dehors de Visual Studio ?**
 
-Oui, NuGet fonctionne directement à partir de la ligne de commande. Consultez le [guide d’installation](../install-nuget-client-tools.md) et les [informations de référence sur l’interface de ligne de commande](../tools/nuget-exe-cli-reference.md).
+Oui, NuGet fonctionne directement à partir de la ligne de commande. Consultez le [guide d’installation](../install-nuget-client-tools.md) et les [informations de référence sur l’interface de ligne de commande](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="nuget-command-line"></a>Ligne de commande NuGet
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8cd7529c4a1ecf659abde03fb1632e26431aebf3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 3af29e2f9b09ba5bd82779f9aacf314bd8933436
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426752"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317027"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Recherche et sélection des packages NuGet pour votre projet
 
@@ -40,7 +40,7 @@ Certains packages répertorient les frameworks qu’ils prennent en charge direc
 
 Heureusement, il existe d’autres moyens de déterminer les frameworks pris en charge :
 
-1. Essayez d’installer un package dans un projet à l’aide de la commande [`Install-Package`](../tools/ps-ref-install-package.md), dans la console du gestionnaire de package NuGet. Si le package est incompatible, cette commande affiche les frameworks qui sont pris en charge par le package.
+1. Essayez d’installer un package dans un projet à l’aide de la commande [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md), dans la console du gestionnaire de package NuGet. Si le package est incompatible, cette commande affiche les frameworks qui sont pris en charge par le package.
 
 1. Téléchargez le package sur nuget.org, en cliquant sur le lien **Manual download** (Téléchargement manuel) situé sous **Info**. Remplacez l’extension `.nupkg` par `.zip`, puis ouvrez le fichier pour examiner le contenu de son dossier `lib`. Vous voyez les sous-dossiers de chacun des frameworks pris en charge, où chaque sous-dossier est nommé avec un moniker de version cible de .NET Framework (TFM, consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md)). Si vous ne voyez aucun sous-dossier sous `lib`, mais seulement une DLL, essayez d’installer le package dans votre projet pour voir s’il est compatible.
 
@@ -58,9 +58,9 @@ Par défaut, NuGet n’inclut pas les préversions dans Visual Studio, lorsque l
 
     ![Case à cocher Inclure la préversion dans Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console du Gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../tools/powershell-reference.md).
+- **Console du Gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
 
-- **Interface CLI nuget.exe** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../tools/nuget-exe-cli-reference.md).
+- **Interface CLI nuget.exe** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
 
 - **Interface CLI dotnet.exe** : spécifiez la préversion exacte à l’aide de l’argument `-v`. Consultez la [référence dotnet Ajouter un package](/dotnet/core/tools/dotnet-add-package).
 

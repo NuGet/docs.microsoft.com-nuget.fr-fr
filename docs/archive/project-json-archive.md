@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: d43f002b740b669de13f5872844ac0df97fc8fdc
-ms.sourcegitcommit: b9a134a6e10d7d8502613f389f7d5f9b9e206ec8
+ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67467783"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317014"
 ---
 # <a name="projectjson-archive"></a>Archive project.json
 
@@ -142,7 +142,7 @@ L’élément `<contentFiles>` est utilisé à la place de `<files>` avec `proje
 
 ### <a name="package-manager-options-control"></a>Contrôle des options du Gestionnaire de package
 
-*À l’origine dans [Informations de référence sur l’interface utilisateur du Gestionnaire de package](../tools/package-manager-ui.md).*
+*À l’origine dans [Informations de référence sur l’interface utilisateur du Gestionnaire de package](../consume-packages/install-use-packages-visual-studio.md).*
 
 Les projets qui utilisent le format de gestion `project.json` présentent uniquement l’option **Afficher la fenêtre d’aperçu**.
 

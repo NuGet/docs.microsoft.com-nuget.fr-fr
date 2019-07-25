@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: e99d42744ec860976ae098be94e747ec4bc9a7c6
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 734f0a609f243c7bdb218a53ed664de68c707dd7
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551954"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317646"
 ---
 # <a name="nugetserver"></a>NuGet.Server
 
@@ -76,7 +76,7 @@ Si vous omettez la clé `packagesPath` ou la laissez vide, le dossier Packages e
 
 ## <a name="adding-packages-to-the-feed-externally"></a>Ajouter des packages au flux de façon externe
 
-Une fois qu’un site NuGet.Server est en cours d’exécution, vous pouvez ajouter des packages à l’aide de [nuget push](../tools/cli-ref-push.md), à condition de définir une valeur de clé API dans `web.config`.
+Une fois qu’un site NuGet.Server est en cours d’exécution, vous pouvez ajouter des packages à l’aide de [nuget push](../reference/cli-reference/cli-ref-push.md), à condition de définir une valeur de clé API dans `web.config`.
 
 Une fois le package NuGet.Server installé, `web.config` contient une valeur `appSetting/apiKey` vide :
 
@@ -104,7 +104,7 @@ Si votre serveur est déjà sécurisé ou que vous n’exigez pas de clé API (p
 
 ## <a name="removing-packages-from-the-feed"></a>Suppression de packages à partir du flux
 
-Avec NuGet.Server, la commande [nuget delete](../tools/cli-ref-delete.md) supprime un package du référentiel à condition que la clé API soit incluse avec le commentaire.
+Avec NuGet.Server, la commande [nuget delete](../reference/cli-reference/cli-ref-delete.md) supprime un package du référentiel à condition que la clé API soit incluse avec le commentaire.
 
 Si vous souhaitez changer le comportement pour retirer le package d’une liste (le rendant ainsi disponible pour la restauration de package), affectez à la clé `enableDelisting` dans `web.config` la valeur true.
 

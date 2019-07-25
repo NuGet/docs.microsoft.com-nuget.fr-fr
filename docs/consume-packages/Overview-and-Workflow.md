@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4cfc2fde08b240288851b87a391dc42c1ac8ecaf
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 0b3ecb535c07459bff517102b3cf6f4e6dc42195
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842317"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317057"
 ---
 # <a name="package-consumption-workflow"></a>Flux de travail de la consommation des packages
 
@@ -22,7 +22,7 @@ Entre nuget.org et les galeries privées de packages que votre organisation peut
 
 Pour plus d’informations, consultez [Trouver et choisir des packages](../consume-packages/finding-and-choosing-packages.md) et [Processus d’installation d’un package](../concepts/package-installation-process.md).
 
-NuGet se souvient de l’identité et du numéro de version de chaque package installé. Il les enregistre le fichier projet (avec [PackageReference](../consume-packages/package-references-in-project-files.md)) ou dans [`packages.config`](../reference/packages-config.md), selon le type du projet et la version de NuGet. Avec NuGet 4.0+, PackageReference est recommandé, bien que cela soit configurable dans Visual Studio à l’aide de l’[interface utilisateur du Gestionnaire de package](../tools/package-manager-ui.md). Dans tous les cas, vous pouvez rechercher dans le fichier approprié à tout moment pour voir la liste complète des dépendances de votre projet.
+NuGet se souvient de l’identité et du numéro de version de chaque package installé. Il les enregistre le fichier projet (avec [PackageReference](../consume-packages/package-references-in-project-files.md)) ou dans [`packages.config`](../reference/packages-config.md), selon le type du projet et la version de NuGet. Avec NuGet 4.0+, PackageReference est recommandé, bien que cela soit configurable dans Visual Studio à l’aide de l’[interface utilisateur du Gestionnaire de package](install-use-packages-visual-studio.md). Dans tous les cas, vous pouvez rechercher dans le fichier approprié à tout moment pour voir la liste complète des dépendances de votre projet.
 
 > [!Tip]
 > Il est préférable de toujours vérifier la licence pour chaque package que vous souhaitez utiliser dans votre logiciel. Pour vérifier la licence, sur Nuget.org, cliquez sur le lien **License Info** situé à droite, dans la page de description de chaque package. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide de du lien **Contact owners** (Contacter les propriétaires) dans la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
@@ -48,6 +48,6 @@ Les packages NuGet peuvent être téléchargés et installés à l’aide des m�
 | Outil | Description |
 | --- | --- |
 | [Interface CLI dotnet.exe](install-use-packages-dotnet-cli.md) | (Toutes les plateformes) Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut Sdk](/dotnet/core/tools/csproj#additions)). Récupère le package identifié par \<package_name\> et ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
-| Visual Studio | (Windows et Mac) Fournit une interface utilisateur permettant de parcourir, de sélectionner et d’installer des packages et leurs dépendances dans un projet à partir d’une source de package donnée. Ajoute des références aux packages installés dans le fichier projet.<ul><li>[Installer et gérer des packages à l’aide de Visual Studio](../tools/package-manager-ui.md)</li><li>[Inclusion d’un package NuGet dans votre projet (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Console du Gestionnaire de package dans Visual Studio](../tools/package-manager-console.md) | (Windows uniquement) Récupère et installe le package identifié par \<package_name\> dans un projet spécifié au sein de la solution à partir d’une source donnée, puis ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
-| [Interface CLI de nuget.exe](install-use-packages-dotnet-cli.md) | (Toutes les plateformes) Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Récupère le package identifié par \<package_name\> et développe son contenu dans un dossier du répertoire actif. Peut également récupérer tous les packages listés dans un fichier `packages.config`. Récupère et installe également les dépendances, mais n’apporte aucune modification aux fichiers projet ni à `packages.config`. |
+| Visual Studio | (Windows et Mac) Fournit une interface utilisateur permettant de parcourir, de sélectionner et d’installer des packages et leurs dépendances dans un projet à partir d’une source de package donnée. Ajoute des références aux packages installés dans le fichier projet.<ul><li>[Installer et gérer des packages à l’aide de Visual Studio](install-use-packages-visual-studio.md)</li><li>[Inclusion d’un package NuGet dans votre projet (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Console du Gestionnaire de package (Visual Studio)](install-use-packages-powershell.md) | (Windows uniquement) Récupère et installe le package identifié par \<package_name\> dans un projet spécifié au sein de la solution à partir d’une source donnée, puis ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
+| [Interface CLI de nuget.exe](install-use-packages-nuget-cli.md) | (Toutes les plateformes) Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Récupère le package identifié par \<package_name\> et développe son contenu dans un dossier du répertoire actif. Peut également récupérer tous les packages listés dans un fichier `packages.config`. Récupère et installe également les dépendances, mais n’apporte aucune modification aux fichiers projet ni à `packages.config`. |
