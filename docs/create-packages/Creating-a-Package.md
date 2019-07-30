@@ -1,24 +1,24 @@
 ---
-title: Guide pratique pour créer un package NuGet
+title: Créer un package NuGet à l’aide de l’interface CLI nuget.exe
 description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
 author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1dce8556448131c36680167fdc3605e4378b9178
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 894a39e9e67508234295db128928b09da7f468f0
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842307"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419813"
 ---
-# <a name="create-nuget-packages"></a>Créer des packages NuGet
+# <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
 
 Quel que soit la fonction de votre package ou le code qu’il contient, vous utilisez l’un des outils CLI, `nuget.exe` ou `dotnet.exe`, pour empaqueter cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Pour installer les outils CLI NuGet, consultez [Installer les outils clients NuGet](../install-nuget-client-tools.md). Notez que Visual Studio n’inclut pas automatiquement d’outil CLI.
 
-- Pour les projets .NET Core et .NET Standard qui utilisent le [format de style SDK](../resources/check-project-format.md), et tout autre projet de style SDK, NuGet utilise les informations dans le fichier projet directement pour créer un package. Pour plus d’informations, consultez [Créer des packages .NET Standard avec la CLI dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md), [Créer des packages .NET Standard avec Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md) ou [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md).
+- Pour les projets qui ne sont pas de style SDK, généralement des projets .NET Framework, suivez les étapes décrites dans cet article pour créer un package. Pour obtenir des instructions pas à pas à l’aide de Visual Studio et de l’interface CLI `nuget.exe`, consultez [Créer et publier un package .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md).
 
-- Pour les projets qui ne sont pas de style SDK, généralement des projets .NET Framework, suivez les étapes décrites dans cet article pour créer un package. Vous pouvez également suivre les étapes dans [Créer et publier un package .NET Framework](../quickstart/create-and-publish-a-package-using-visual-studio-net-framework.md) pour créer un package à l’aide de la CLI `nuget.exe` et de Visual Studio.
+- Pour les projets .NET Core et .NET Standard qui utilisent le [format SDK-style](../resources/check-project-format.md), et tout autre projet SDK-style, consultez [Créer un package NuGet avec l’interface CLI dotnet](creating-a-package-dotnet-cli.md).
 
 - Pour les projets migrés à partir de `packages.config` vers [PackageReference](../consume-packages/package-references-in-project-files.md), utilisez [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -65,7 +65,7 @@ Propriétés facultatives communes :
 
 - Notes de publication
 - Informations de copyright
-- Brève description de l’[interface utilisateur du gestionnaire de package dans Visual Studio](../tools/package-manager-ui.md)
+- Brève description de l’[interface utilisateur du gestionnaire de package dans Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID de paramètres régionaux
 - URL du projet
 - Licence comme expression ou fichier (`licenseUrl` est en cours de dépréciation, utilisez l’élément de métadonnées nuspec [ `license` ](../reference/nuspec.md#license))
@@ -369,7 +369,7 @@ Une fois que `nuget pack` réussit, vous avez un fichier `.nupkg` que vous pouve
 
 ### <a name="additional-options"></a>Options supplémentaires
 
-Vous pouvez utiliser divers commutateurs de ligne de commande avec `nuget pack` pour exclure des fichiers, remplacer le numéro de version dans le manifeste et modifier le dossier de sortie, entre autres fonctionnalités. Pour en obtenir la liste complète, reportez-vous aux [informations de référence sur la commande pack](../tools/cli-ref-pack.md).
+Vous pouvez utiliser divers commutateurs de ligne de commande avec `nuget pack` pour exclure des fichiers, remplacer le numéro de version dans le manifeste et modifier le dossier de sortie, entre autres fonctionnalités. Pour en obtenir la liste complète, reportez-vous aux [informations de référence sur la commande pack](../reference/cli-reference/cli-ref-pack.md).
 
 Les options suivantes figurent parmi les quelques options communes aux projets Visual Studio :
 
@@ -404,7 +404,7 @@ Vous pouvez tester des installations manuellement dans Visual Studio ou à parti
 Pour les tests automatisés, le processus de base est le suivant :
 
 1. Copiez le fichier `.nupkg` dans un dossier local.
-1. Ajoutez le dossier à vos sources de package à l’aide de la commande `nuget sources add -name <name> -source <path>` (consultez [Sources nuget](../tools/cli-ref-sources.md)). Notez que vous ne devez définir cette source locale qu’une seule fois sur un ordinateur donné.
+1. Ajoutez le dossier à vos sources de package à l’aide de la commande `nuget sources add -name <name> -source <path>` (consultez [Sources nuget](../reference/cli-reference/cli-ref-sources.md)). Notez que vous ne devez définir cette source locale qu’une seule fois sur un ordinateur donné.
 1. Installez le package à partir de cette source en utilisant `nuget install <packageID> -source <name>` où `<name>` correspond au nom de votre source tel qu’il est donné à `nuget sources`. La spécification de la source permet de s’assurer que le package est installé à partir de cette source uniquement.
 1. Examinez votre système de fichiers pour vérifier que les fichiers sont correctement installés.
 

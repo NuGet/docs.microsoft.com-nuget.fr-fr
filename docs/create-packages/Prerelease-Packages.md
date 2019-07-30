@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 845f0ea84bcb92fedf9e5f4fb2b1deee1462a004
-ms.sourcegitcommit: 4ea46498aee386b4f592b5ebba4af7f9092ac607
+ms.openlocfilehash: 726f983c2522fdb538dfce858fdf2371ec0ce188
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65610497"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433337"
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
 
@@ -50,9 +50,9 @@ Par défaut, NuGet n’inclut pas de préversions dans le cadre de l’utilisati
 
     Le fait de cocher ou décocher cette case actualise l’interface utilisateur du gestionnaire de package et la liste des versions disponibles que vous pouvez installer.
 
-- **Console du Gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../tools/powershell-reference.md).
+- **Console du Gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
 
-- **Interface de ligne de commande NuGet** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../tools/nuget-exe-cli-reference.md).
+- **Interface de ligne de commande NuGet** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="semantic-versioning"></a>Gestion sémantique des versions
 
@@ -81,10 +81,12 @@ Quels que soient les suffixes que vous utilisez, toutefois, NuGet leur donne la 
     1.0.1-zzz
     1.0.1-rc
     1.0.1-open
-    1.0.1-beta12
-    1.0.1-beta05
+    1.0.1-beta.12
+    1.0.1-beta.5
     1.0.1-beta
-    1.0.1-alpha2
+    1.0.1-alpha.2
     1.0.1-alpha
 
-Comme indiqué, la version sans aucun suffixe est toujours prioritaire par rapport aux préversions. Notez également que si vous utilisez des suffixes numériques avec des balises en préversion susceptibles d’utiliser des nombres à deux chiffres (ou plus), utilisez des zéros non significatifs comme dans beta01 et beta05 pour pouvoir les trier correctement quand ces numéros s’allongent.
+Comme indiqué, la version sans aucun suffixe est toujours prioritaire par rapport aux préversions.
+
+Les zéros de début ne sont pas nécessaires avec semver2, mais ils le sont avec l’ancien schéma de version. Si vous utilisez des suffixes numériques avec des balises en version préliminaire susceptibles d’utiliser des nombres à deux chiffres (ou plus), utilisez des zéros non significatifs comme dans beta.01 et beta.05 pour pouvoir les trier correctement quand ces numéros s’allongent. Cette recommandation s’applique uniquement à l’ancien schéma de version.

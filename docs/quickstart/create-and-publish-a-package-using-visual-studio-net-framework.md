@@ -1,16 +1,16 @@
 ---
-title: Créer et publier un package .NET Framework avec Visual Studio sous Windows
+title: Créer et publier un package .NET Framework NuGet avec Visual Studio sur Windows
 description: Ce tutoriel explique pas à pas comment créer et publier un package NuGet .NET Framework avec Visual Studio dans Windows.
 author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: bf561d36a06bf42c029eb96ff1b7930abffa4c0a
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 75160bf2b01f6d4707162e019a6263ddc64a6f5e
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842038"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342523"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework, Windows)
 
@@ -162,7 +162,7 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
     Your package was pushed.
     ```
 
-Voir [nuget push](../tools/cli-ref-push.md).
+Voir [nuget push](../reference/cli-reference/cli-ref-push.md).
 
 ### <a name="publish-errors"></a>Erreurs de publication
 
@@ -172,9 +172,15 @@ Voir [nuget push](../tools/cli-ref-push.md).
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>Rubriques connexes
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un package](../create-packages/creating-a-package.md)
+Félicitations pour la création de votre premier package NuGet !
+
+> [!div class="nextstepaction"]
+> [Créer un package](../create-packages/creating-a-package.md)
+
+Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
+
 - [Publier un package](../nuget-org/publish-a-package.md)
 - [Packages de préversion](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)

@@ -3,22 +3,22 @@ title: Multiciblage pour les packages NuGet
 description: Description des différentes méthodes pour cibler plusieurs versions de .NET Framework à partir d’un seul package NuGet.
 author: karann-msft
 ms.author: karann
-ms.date: 09/27/2017
+ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: a755438c1f63d33271f636cb663cc5b51a5aecbc
-ms.sourcegitcommit: 6ea2ff8aaf7743a6f7c687c8a9400b7b60f21a52
+ms.openlocfilehash: d12b12c4670f5dcb4c1e7e475d77926bd5d3935b
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54324810"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342499"
 ---
-# <a name="supporting-multiple-net-framework-versions"></a>Prise en charge de plusieurs versions de .NET Framework
+# <a name="support-multiple-net-versions"></a>Prendre en charge plusieurs versions de .NET
 
-*Pour les projets .NET Core qui utilisent NuGet 4.0 +, consultez [Commandes NuGet pack et restore en tant que cibles MSBuild](../reference/msbuild-targets.md) pour plus d’informations sur le ciblage croisé.*
+De nombreuses bibliothèques ciblent une version spécifique de .NET Framework. Par exemple, vous pouvez avoir une première version de votre bibliothèque propre à la plateforme Windows universelle (UWP) et une autre version qui exploite les fonctionnalités de .NET Framework 4.6. Pour ce faire, NuGet prend en charge le placement de plusieurs versions de la même bibliothèque dans un package unique.
 
-De nombreuses bibliothèques ciblent une version spécifique de .NET Framework. Par exemple, vous pouvez avoir une première version de votre bibliothèque propre à la plateforme Windows universelle (UWP) et une autre version qui exploite les fonctionnalités de .NET Framework 4.6.
+Cet article décrit la disposition d’un package NuGet, quelle que soit la façon dont le package ou les assemblys sont créés (ce qui signifie que la disposition est la même, que vous utilisiez plusieurs fichiers *.csproj* non-SDK-style et un fichier *.nuspec* personnalisé, ou un fichier *.csproj* multicible unique SDK-style). Pour un projet SDK-style, les [cibles de packs](../reference/msbuild-targets.md) NuGet savent comment le package doit être disposé, automatisent le placement des assemblys dans les dossiers de bibliothèque corrects et créent des groupes de dépendances pour chaque framework cible (TFM). Pour des instructions détaillées, consultez [Prendre en charge plusieurs versions de .NET Framework](multiple-target-frameworks-project-file.md) dans votre fichier projet.
 
-Pour en tenir compte, NuGet prend en charge le placement de plusieurs versions de la même bibliothèque dans un même package dans le cadre de l’utilisation de la méthode de répertoire de travail basée sur une convention décrite dans [Création d’un package](../create-packages/creating-a-package.md#from-a-convention-based-working-directory).
+Vous devez disposer manuellement le package comme décrit dans cet article lorsque vous utilisez la méthode de répertoire de travail basée sur une convention décrite dans [Création d’un package](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Pour un projet SDK-style, la méthode automatisée est recommandée, mais vous pouvez également choisir de disposer manuellement le package comme décrit dans cet article.
 
 ## <a name="framework-version-folder-structure"></a>Structure de dossiers de la version du framework
 

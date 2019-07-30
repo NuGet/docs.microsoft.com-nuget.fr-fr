@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: fc338ba3810a125f638a937cf14456bf519a24a8
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b104eb39ddeacd9ca1ea45937cf98ad57531112a
+ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548472"
+ms.lasthandoff: 07/18/2019
+ms.locfileid: "68317145"
 ---
 # <a name="known-issues-with-nuget"></a>Problèmes connus avec NuGet
 
@@ -29,7 +29,7 @@ $PAT = « Votre jeton d’accès personnel » $Feed =« Votre url » .\nuget.exe
 
 **Solution de contournement :**
 
-Stockez les mots de passe en texte clair à l’aide de l’option [-StorePasswordInClearText](../tools/cli-ref-sources.md).
+Stockez les mots de passe en texte clair à l’aide de l’option [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md).
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>Erreur d’installation de packages avec NuGet 3.4, 3.4.1
 
@@ -75,7 +75,7 @@ Pour plus d’informations sur cette erreur, consultez cet [élément de travail
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Échec de la build après la mise à jour de package dans Visual Studio 2012
 
-Le problème : vous utilisez Visual Studio 2012 RTM. Lors de la mise à jour de packages NuGet, vous recevez ce message : « Un ou plusieurs packages n’ont pas pu être désinstallés complètement. » et vous êtes invité à redémarrer Visual Studio. Après le redémarrage de Visual Studio, vous obtenez des erreurs de build étranges.
+Problème : Vous utilisez Visual Studio 2012 RTM. Lors de la mise à jour des packages NuGet, vous recevez le message suivant : « Un ou plusieurs packages n’ont pas pu être désinstallés ». et vous êtes invité à redémarrer Visual Studio. Après le redémarrage de Visual Studio, vous obtenez des erreurs de build étranges.
 
 Elles sont dues au fait que certains fichiers dans les anciens packages sont verrouillés par un processus MSBuild en arrière-plan. Même après le redémarrage de Visual Studio, le processus MSBuild en arrière-plan utilise toujours les fichiers des anciens packages, ce qui provoque les échecs de build.
 
@@ -134,7 +134,7 @@ ou
 
 Nous avons contacté l’auteur du complément dans l’espoir de trouver une solution.
 
-<p class="info">Mise à jour : Nous avons confirmé que la dernière version de Reflector, 6.5, ne provoquait plus cette exception dans la console.</p>
+<p class="info">Mise à jour : Nous avons vérifié que la dernière version de Reflector, 6.5, ne provoquait plus cette exception dans la console.</p>
 
 ## <a name="opening-package-manager-console-fails-with-objectsecurity-exception"></a>L’ouverture de la console du Gestionnaire de package échoue avec l’exception ObjectSecurity
 

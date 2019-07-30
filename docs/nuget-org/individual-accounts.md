@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e1e31e0534706dab43f8d7b1b0db059cd6f29b80
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: c88b88015bd6d5bae4789765126c0a3dec527e24
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427134"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419860"
 ---
 # <a name="individual-accounts"></a>Comptes individuels
 
@@ -45,3 +45,27 @@ Pour créer un compte NuGet.org, vous devez disposer d’un compte Microsoft per
 1. Cliquez sur le bouton **Inscrire**.
 
 Vous disposez maintenant d’un compte NuGet.org. Vous pouvez effectuer la gestion des comptes dans la page des [paramètres du compte](https://www.nuget.org/account).
+
+## <a name="enable-two-factor-authentication-2fa"></a>Activer l’authentification à 2 facteurs (2FA)
+
+Pour mieux protéger votre compte, activez l’authentification à 2 facteurs (recommandé).
+
+1. Une fois connecté à votre compte, ouvrez votre profil et choisissez **Activer** sous **Compte de connexion**.
+
+   ![Activer la 2FA](media/nuget-org-register-2fa.png)
+
+   Vous voyez un message vous indiquant que la prochaine fois que vous vous connecterez *à nuget.org*, vous serez invité à fournir des informations d’identification supplémentaires.
+
+2. Pour terminer l’authentification à ce stade, déconnectez-vous, puis reconnectez-vous.
+
+3. Quand vous vous connectez, choisissez le texte ou le courrier électronique comme deuxième forme d’authentification.
+
+   Vérifiez le numéro de téléphone ou l’adresse e-mail qui est déjà associée à votre compte Microsoft. Vous devrez peut-être entrer un nouveau numéro de téléphone ou une nouvelle adresse e-mail pour votre compte. Dans ce cas, entrez les informations requises comme indiqué, puis cliquez sur **Suivant**.
+
+   ![Activer la 2FA](media/nuget-org-sign-in-2fa.png)
+
+4. Vérifiez votre appareil ou votre compte de messagerie, puis entrez le code que vous venez de recevoir.
+
+   ![Activer la 2FA](media/nuget-org-enter-code-2fa.png)
+
+5. Suivez les instructions supplémentaires pour terminer l’authentification à 2 deux facteurs.

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: a2aed3950b3e19e30d9d026ad1b9bdaef44c9d37
-ms.sourcegitcommit: 1ab750ff17e55c763d646c50e7630138804ce8b8
+ms.openlocfilehash: 178af1975fc4e6fcde8988d773812820f1f1bb84
+ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56247644"
+ms.lasthandoff: 07/24/2019
+ms.locfileid: "68433357"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Comment NuGet résout les dépendances de package
 
@@ -24,9 +24,10 @@ Lorsque plusieurs packages partagent une même dépendance, le même ID de packa
 
 Lorsque des packages sont installés dans un projet au format PackageReference, NuGet ajoute des références à un graphique de packages plat dans le fichier correspondant, et résout les conflits à l’avance. Ce processus est appelé *restauration transitive*. Les processus de réinstallation et de restauration des packages reviennent donc à télécharger les packages répertoriés dans le graphique, ce qui permet d’obtenir des builds plus prévisibles, plus rapidement. Vous pouvez également tirer parti des versions génériques (flottantes), telles que 2.8.\*, afin d’éviter les appels à `nuget update` (qui sont coûteux et sujets aux erreurs) sur les ordinateurs clients et les serveurs de builds.
 
-Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Le fichier de ressources se trouve à l’emplacement `MSBuildProjectExtensionsPath` qui, par défaut, est le dossier « obj » du projet. MSBuild lit alors ce fichier et le convertit en un ensemble de dossiers pouvant contenir des références, puis les ajoute à l’arborescence de projets en mémoire.
+Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Il écrit également les dépendances résolues dans un fichier de verrouillage nommé `packages.lock.json` si la [fonctionnalité de verrouillage de fichier est activée](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Le fichier de ressources se trouve à l’emplacement `MSBuildProjectExtensionsPath` qui, par défaut, est le dossier « obj » du projet. MSBuild lit alors ce fichier et le convertit en un ensemble de dossiers pouvant contenir des références, puis les ajoute à l’arborescence de projets en mémoire.
 
-Le fichier de verrouillage est temporaire et ne doit pas être ajouté au contrôle de code source. Ce fichier est répertorié par défaut dans `.gitignore` et `.tfignore`. Consultez [Packages et contrôle de code source](packages-and-source-control.md).
+Le fichier `project.assets.json` est temporaire et ne doit pas être ajouté au contrôle de code source. Ce fichier est répertorié par défaut dans `.gitignore` et `.tfignore`. Consultez [Packages et contrôle de code source](packages-and-source-control.md).
 
 ### <a name="dependency-resolution-rules"></a>Règles de résolution des dépendances
 

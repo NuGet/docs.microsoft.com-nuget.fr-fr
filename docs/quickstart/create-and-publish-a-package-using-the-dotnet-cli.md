@@ -1,16 +1,16 @@
 ---
-title: Création et publication d’un package NuGet avec l’interface CLI dotnet
+title: Créer et publier un package NuGet avec l’interface CLI dotnet
 description: Ce didacticiel explique pas à pas comment créer et publier un package NuGet avec l’interface de ligne de commande (CLI) .NET Core, dotnet.
 author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4e96d9969c8b4570ee69501d6529986f891ea4dc
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 30a77b427fe0a33b41262c5784045e5a6b10852f
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842604"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419983"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
@@ -101,12 +101,18 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="related-topics"></a>Rubriques connexes
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer un package](../create-packages/creating-a-package.md)
+Félicitations pour la création de votre premier package NuGet !
+
+> [!div class="nextstepaction"]
+> [Créer un package](../create-packages/creating-a-package-dotnet-cli.md)
+
+Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
+
 - [Publier un package](../nuget-org/publish-a-package.md)
 - [Packages de préversion](../create-packages/Prerelease-Packages.md)
-- [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
+- [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
 - [Gestion des versions de package](../reference/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Création de packages de symboles](../create-packages/symbol-packages-snupkg.md)

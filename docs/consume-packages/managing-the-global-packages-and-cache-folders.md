@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4b365488c8dd0e081449552b06451e7b40b5223b
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: f5d418fd5b6b9bb88958d6b7e9e3034f40485a7d
+ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426613"
+ms.lasthandoff: 07/23/2019
+ms.locfileid: "68419962"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gérer les dossiers de packages globaux, les dossiers de cache et les dossiers temporaires
 
@@ -18,7 +18,7 @@ Chaque fois que vous installez, mettez à jour ou restaurez un package, NuGet g�
 
 | Name | Description et emplacement (par utilisateur)|
 | --- | --- |
-| global&#8209;packages | C’est dans le dossier *global-packages* que NuGet installe les packages téléchargés. Chaque package est entièrement développé dans un sous-dossier qui correspond à son identificateur et à son numéro de version. Les projets au format PackageReference utilisent toujours les packages directement dans ce dossier. Si `packages.config` est utilisé, les packages sont installés dans le dossier *global-packages*, puis copiés dans le dossier `packages` du projet.<br/><ul><li>Windows : `%userprofile%\.nuget\packages`</li><li>Mac/Linux : `~/.nuget/packages`</li><li>Écrasez avec la variable d’environnement NUGET_PACKAGES, les [paramètres de configuration](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` ou `repositoryPath` (respectivement pour PackageReference et `packages.config`) ou la propriété MSBuild `RestorePackagesPath` (MSBuild uniquement). La variable d’environnement a la priorité sur le paramètre de configuration.</li></ul> |
+| global&#8209;packages | C’est dans le dossier *global-packages* que NuGet installe les packages téléchargés. Chaque package est entièrement développé dans un sous-dossier qui correspond à son identificateur et à son numéro de version. Les projets au format [PackageReference](package-references-in-project-files.md) utilisent toujours les packages directement dans ce dossier. Lorsque [packages.config](../reference/packages-config.md) est utilisé, les packages sont installés dans le dossier *global-packages*, puis copiés dans le dossier `packages` du projet.<br/><ul><li>Windows : `%userprofile%\.nuget\packages`</li><li>Mac/Linux : `~/.nuget/packages`</li><li>Écrasez avec la variable d’environnement NUGET_PACKAGES, les [paramètres de configuration](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` ou `repositoryPath` (respectivement pour PackageReference et `packages.config`) ou la propriété MSBuild `RestorePackagesPath` (MSBuild uniquement). La variable d’environnement a la priorité sur le paramètre de configuration.</li></ul> |
 | http&#8209;cache | Le Gestionnaire de Package de Visual Studio (NuGet 3.x+) et l’outil `dotnet` stockent une copie des packages téléchargés dans ce cache (sous la forme de fichiers `.dat`), dans un sous-dossier par source de package. Les packages ne sont pas développés, et le cache a un délai d’expiration de 30 minutes.<br/><ul><li>Windows : `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux : `~/.local/share/NuGet/v3-cache`</li><li>Écrasez avec la variable d’environnement NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Il s’agit du dossier dans lequel NuGet stocke les fichiers temporaires pendant ses différentes opérations.<br/><li>Windows : `%temp%\NuGetScratch`</li><li>Mac/Linux : `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | Il s’agit du dossier dans lequel NuGet stocke les résultats de la demande de revendications de l’opération.<br/><ul><li>Windows : `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux : `~/.local/share/NuGet/plugins-cache`</li><li>Remplacez par la variable d’environnement NUGET_PLUGINS_CACHE_PATH.</li></ul> |
@@ -34,7 +34,7 @@ Pour plus d’informations, consultez [Processus d’installation d’un package
 
 ## <a name="viewing-folder-locations"></a>Afficher l’emplacement des dossiers
 
-Vous pouvez voir les emplacements avec la [commande nuget locals](../tools/cli-ref-locals.md) :
+Vous pouvez voir les emplacements avec la [commande nuget locals](../reference/cli-reference/cli-ref-locals.md) :
 
 ```cli
 # Display locals for all folders: global-packages, http cache, temp and plugins cache

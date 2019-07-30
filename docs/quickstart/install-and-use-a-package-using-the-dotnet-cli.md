@@ -1,16 +1,16 @@
 ---
-title: Guide d’introduction à l’utilisation des packages NuGet via l’infrastructure CLI dotnet
+title: Installer et utiliser un package NuGet à l’aide de l’interface CLI dotnet
 description: Didacticiel décrivant la procédure pas à pas permettant d’installer et d’utiliser un package NuGet dans un projet .NET Core.
 author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 0d637c441cf9f36e8e3e04e47b524b2defecae52
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: ee456fd49675db37fee78dc14502a897d84a2b99
+ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67841672"
+ms.lasthandoff: 07/19/2019
+ms.locfileid: "68342460"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Démarrage rapide : Installer et utiliser un package à l’aide de l’interface CLI dotnet
 
@@ -101,9 +101,15 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
     }
     ```
 
-## <a name="related-articles"></a>Articles connexes
+## <a name="next-steps"></a>Étapes suivantes
 
-- [Installer et utiliser des packages à l’aide de l’interface CLI dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
+Félicitations pour l’installation et l’utilisation de votre premier package NuGet !
+
+> [!div class="nextstepaction"]
+> [Installer et utiliser des packages à l’aide de l’interface CLI dotnet](../consume-packages/install-use-packages-dotnet-cli.md)
+
+Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
+
 - [Vue d’ensemble et flux de travail de consommation de package](../consume-packages/overview-and-workflow.md)
 - [Recherche et sélection des packages](../consume-packages/finding-and-choosing-packages.md)
-- [Configurations courantes de NuGet](../consume-packages/configuring-nuget-behavior.md)
+- [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md)
