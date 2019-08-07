@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8e662194fffc031d0cfc0aa129a5a15b555a4231
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 8403ae38b5d2e907c6f06b162a18cdcd5425565b
+ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420012"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68817520"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -18,7 +18,7 @@ ms.locfileid: "68420012"
 
 Avec le format [PackageReference](../consume-packages/package-references-in-project-files.md) , NuGet 4.0 + peut stocker toutes les métadonnées de manifeste directement dans un fichier projet plutôt que `.nuspec` d’utiliser un fichier séparé.
 
-Avec MSBuild 15.1+, NuGet est également un citoyen MSBuild de première classe avec les cibles `pack` et `restore` comme décrit ci-dessous. Ces cibles vous permettent d’utiliser NuGet comme vous utiliseriez toute autre tâche ou cible MSBuild. (Pour NuGet 3.x et versions antérieures, vous utilisez les commandes [pack](../reference/cli-reference/cli-ref-pack.md) et [restore](../reference/cli-reference/cli-ref-restore.md) via l’interface de ligne de commande NuGet à la place.)
+Avec MSBuild 15.1+, NuGet est également un citoyen MSBuild de première classe avec les cibles `pack` et `restore` comme décrit ci-dessous. Ces cibles vous permettent d’utiliser NuGet comme vous utiliseriez toute autre tâche ou cible MSBuild. Pour obtenir des instructions sur la création d’un package NuGet à l’aide de MSBuild, consultez [créer un package NuGet à l’aide de MSBuild](../create-packages/creating-a-package-msbuild.md). (Pour NuGet 3.x et versions antérieures, vous utilisez les commandes [pack](../reference/cli-reference/cli-ref-pack.md) et [restore](../reference/cli-reference/cli-ref-restore.md) via l’interface de ligne de commande NuGet à la place.)
 
 ## <a name="target-build-order"></a>Ordre de génération des cibles
 
@@ -55,8 +55,8 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Description | Description | « Description du package » | |
 | Copyright | Copyright | vide | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| Licence | PackageLicenseExpression | vide | Correspond à`<license type="expression">` |
-| Licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devrez peut-être compresser explicitement le fichier de licence référencé. |
+| licence | PackageLicenseExpression | vide | Correspond à`<license type="expression">` |
+| licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devrez peut-être compresser explicitement le fichier de licence référencé. |
 | LicenseUrl | PackageLicenseUrl | vide | `licenseUrl`est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | vide | |
 | IconUrl | PackageIconUrl | vide | |
