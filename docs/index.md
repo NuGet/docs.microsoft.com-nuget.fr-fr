@@ -7,12 +7,12 @@ ms.date: 02/12/2018
 ms.topic: hub-page
 layout: HubPage
 hide_bc: true
-ms.openlocfilehash: cdd032a5a7268a7ffddff5141229fd021ec275a5
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 8f4fca447d61b6f435399a24ef4151604d43291d
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817542"
+ms.locfileid: "68833363"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -122,13 +122,16 @@ ms.locfileid: "68817542"
                             <a href="create-packages/overview-and-workflow.md">Workflow (vue d’ensemble)</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package-dotnet-cli.md">Créer un package - CLI dotnet</a>
+                            <a href="quickstart/create-and-publish-a-package-using-visual-studio.md">Utiliser Visual Studio</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Créer un package - CLI nuget.exe</a>
+                            <a href="create-packages/creating-a-package-dotnet-cli.md">Utiliser la CLI dotnet</a>
                         </p>
                         <p>
-                            <a href="create-packages/creating-a-package.md">Créer un package - MSBuild</a>
+                            <a href="create-packages/creating-a-package.md">Utiliser la CLI nuget.exe</a>
+                        </p>
+                        <p>
+                            <a href="create-packages/creating-a-package.md">Utiliser MSBuild</a>
                         </p>
                         <p>
                             <a href="create-packages/multiple-target-frameworks-project-file.md">Prendre en charge plusieurs frameworks cibles</a>
@@ -210,6 +213,8 @@ ms.locfileid: "68817542"
                         <p>
                             <a href="consume-packages/package-references-in-project-files.md">Références de package</a>
                         </p>
+                        <p>
+                            <a href="reference/msbuild-targets.md">pack et restore NuGet comme cibles MSBuild</a>
                         </p>
                         <p>
                             <a href="reference/nuspec.md">.nuspec</a>
