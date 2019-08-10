@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 5b9be55b593890127d8fe0ad1a9357b89527a09a
-ms.sourcegitcommit: f9e39ff9ca19ba4a26e52b8a5e01e18eb0de5387
+ms.openlocfilehash: 9c608c5455bc83874b670b7f2b9a0ceeeafdc8e5
+ms.sourcegitcommit: dec3fa44547c6a00d0ae6cbb6c64cdc65660d808
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68433369"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68912573"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -94,7 +94,7 @@ URL de la page d’accueil du package, souvent affichée dans l’interface util
 
 URL de la licence du package, souvent présentée dans des interfaces utilisateur telles que nuget.org.
 
-#### <a name="license"></a>Licence
+#### <a name="license"></a>licence
 Une expression de licence SPDX ou un chemin d’accès à un fichier de licence dans le package, souvent affiché dans des interfaces utilisateur telles que nuget.org. Si vous configurez le package sous une licence commune, comme MIT ou BSD-2-clause, utilisez l' [identificateur de licence SPDX](https://spdx.org/licenses/)associé. Par exemple :
 
 `<license type="expression">MIT</license>`
@@ -228,7 +228,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| Token | Source de la valeur | Valeur
+| Token | Source de la valeur | `Value`
 | --- | --- | ---
 | **$id$** | Fichier projet | AssemblyName (titre) à partir du fichier projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
@@ -293,7 +293,8 @@ Les lignes suivantes indiquent les dépendances sur les mêmes packages, mais sp
 </dependencies>
 ```
 
-Remarque : Lors de la `.nuspec` création d’un à `nuget spec`partir d’un projet à l’aide de, les dépendances qui `.nuspec` existent dans ce projet sont automatiquement incluses dans le fichier résultant.
+> [!Important]
+> Lors de la `.nuspec` création d’un à `nuget spec`partir d’un projet à l’aide de, les dépendances qui existent `.nuspec` dans ce projet ne sont pas automatiquement incluses dans le fichier résultant. Au lieu de `nuget pack myproject.csproj`cela, utilisez et récupérez le fichier *. NuSpec* à partir du fichier *. nupkg* généré. This *. NuSpec* contient les dépendances.
 
 ### <a name="dependency-groups"></a>Groupes de dépendances
 
