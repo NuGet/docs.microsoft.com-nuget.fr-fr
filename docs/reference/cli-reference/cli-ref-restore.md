@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 82113d460f7f5ff467b0a0552cc49283de95de25
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 211f24ff67c06da00d6a014e679cc422d493d6d5
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327636"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959743"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore, commande (interface CLI NuGet)
 
@@ -35,7 +35,7 @@ où `<projectPath>` spécifie l’emplacement d’une solution ou `packages.conf
 | ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est `%AppData%\NuGet\NuGet.Config` pas spécifié, ( `~/.nuget/NuGet/NuGet.Config` Windows) ou (Mac/Linux) est utilisé.|
 | DirectDownload | *(4.0 +)* Télécharge les packages directement sans remplir les caches avec des binaires ou des métadonnées. |
 | DisableParallelProcessing | Désactive la restauration de plusieurs packages en parallèle. |
-| FallbackSource | *(3.2 +)* Liste de sources de packages à utiliser comme secours si le package est introuvable dans la source principale ou par défaut. |
+| FallbackSource | *(3.2 +)* Liste de sources de packages à utiliser comme secours si le package est introuvable dans la source principale ou par défaut. Utilisez un point-virgule pour séparer les entrées de liste. |
 | ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | Help | Affiche des informations d’aide pour la commande. |
 | MSBuildPath | *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande prioritaire `-MSBuildVersion`. |
@@ -49,7 +49,7 @@ où `<projectPath>` spécifie l’emplacement d’une solution ou `packages.conf
 | Récursive | *(4.0 +)* Restaure tous les projets de référence pour les projets UWP et .NET Core. Ne s’applique pas aux projets `packages.config`qui utilisent. |
 | RequireConsent | Vérifie que la restauration des packages est activée avant de télécharger et d’installer les packages. Pour plus d’informations, consultez [restauration de packages](../../consume-packages/package-restore.md). |
 | SolutionDirectory | Spécifie le dossier de la solution. Non valide lors de la restauration de packages pour une solution. Obligatoire lors de la restauration `packages.config` avec un `PackagesDirectory` fichier `OutputDirectory` , sauf si ou est utilisé. |
-| source | Spécifie la liste des sources de packages (sous forme d’URL) à utiliser pour la restauration. En cas d’omission, la commande utilise les sources fournies dans les fichiers de configuration, consultez [configuration du comportement de NuGet](../../consume-packages/configuring-nuget-behavior.md). |
+| source | Spécifie la liste des sources de packages (sous forme d’URL) à utiliser pour la restauration. En cas d’omission, la commande utilise les sources fournies dans les fichiers de configuration, consultez [configuration du comportement de NuGet](../../consume-packages/configuring-nuget-behavior.md). Utilisez un point-virgule pour séparer les entrées de liste. |
 | Commentaires | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)

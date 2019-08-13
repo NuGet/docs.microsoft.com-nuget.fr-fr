@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 076d7a480e2f07149e4ec7ac58c7ab37040e7a8f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327666"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959711"
 ---
 # <a name="mirror-command-nuget-cli"></a>mirror (commande, NuGet CLI)
 
@@ -19,7 +19,7 @@ ms.locfileid: "68327666"
 Met en miroir un package et ses dépendances à partir des dépôts source spécifiés vers le référentiel cible.
 
 > [!NOTE]
-> Pour activer cette commande pour les versions de NuGet antérieures à 3,2 [https://nuget.codeplex.com/releases](https://nuget.codeplex.com/releases), accédez à, sélectionnez la version stable `NuGet.ServerExtensions.dll` la `Nuget-Signed.exe` plus récente, téléchargez et `nuget.exe` sur votre `Nuget-Signed.exe` disque local et renommez-la.
+> NuGet. ServerExtensions. dll et NuGet-Signed. exe qui prenait déjà en charge cette commande dans NuGet 2. x (en renommant NuGet-Signed. exe en NuGet. exe) ne sont plus disponibles au téléchargement. Pour utiliser une commande similaire à celle-ci, essayez [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
 
 ## <a name="usage"></a>Usage
 

@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0e12944bdd5d43b8b9e84908be480a5249dd924f
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
+ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327656"
+ms.lasthandoff: 08/12/2019
+ms.locfileid: "68959725"
 ---
 # <a name="pack-command-nuget-cli"></a>pack (commande, NuGet CLI)
 
 **S’applique à:** &bullet; **versions prises en charge** pour la création de package: 2.7+
 
-Crée un package NuGet basé sur le fichier `.nuspec` ou le fichier projet spécifié. La `dotnet pack` commande (consultez les [commandes dotnet](../dotnet-Commands.md)) `msbuild -t:pack` et (voir [cibles MSBuild](../msbuild-targets.md)) peut être utilisée comme variantes.
+Crée un package NuGet basé sur le fichier [. NuSpec](../nuspec.md) ou le fichier projet spécifié. La `dotnet pack` commande (consultez les [commandes dotnet](../dotnet-Commands.md)) `msbuild -t:pack` et (voir [cibles MSBuild](../msbuild-targets.md)) peut être utilisée comme variantes.
 
 > [!Important]
 > Sous mono, la création d’un package à partir d’un fichier projet n’est pas prise en charge. Vous devez également ajuster les chemins d’accès non locaux dans `.nuspec` le fichier aux chemins d’accès de type UNIX, car NuGet. exe ne convertit pas les chemins d’accès Windows eux-mêmes.
@@ -33,7 +33,7 @@ où `<nuspecPath>` `.nuspec` et `<projectPath>` spécifient respectivement le fi
 
 | Option | Description |
 | --- | --- |
-| Chemin de base | Définit le chemin d’accès de base des fichiers définis `.nuspec` dans le fichier. |
+| Chemin de base | Définit le chemin d’accès de base des fichiers définis dans le fichier [. NuSpec](../nuspec.md) . |
 | Build | Spécifie que le projet doit être généré avant de générer le package. |
 | Exclude | Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l’exemple ci-dessous. |
 | ExcludeEmptyDirectories | Empêche l’inclusion de répertoires vides lors de la génération du package. |
