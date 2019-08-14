@@ -1,27 +1,29 @@
 ---
-title: Créer un package NuGet à l’aide de l’interface CLI dotnet
+title: Créer un package NuGet avec MSBuild
 description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
 author: karann-msft
 ms.author: karann
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8222e1edfa13951d2fda9a2384d93bba38ef4979
+ms.openlocfilehash: a0db6dc95ffa5ad73741ae53a6be9d6f937c1dbf
 ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833289"
+ms.locfileid: "68833232"
 ---
-# <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Créer un package NuGet à l’aide de l’interface CLI dotnet
+# <a name="create-a-nuget-package-using-msbuild"></a>Créer un package NuGet avec MSBuild
 
-Quel que soit la fonction de votre package ou le code qu’il contient, vous utilisez l’un des outils CLI, `nuget.exe` ou `dotnet.exe`, pour empaqueter cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Cet article décrit comment créer un package à l’aide de l’interface CLI dotnet. Pour installer l’interface CLI `dotnet`, consultez [Installer les outils clients NuGet](../install-nuget-client-tools.md). À compter de Visual Studio 2017, l’interface CLI dotnet est incluse dans les charges de travail .NET Core.
+Lorsque vous créez un package NuGet à partir de votre code, vous compressez cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Cet article décrit comment créer un package à l’aide de MSBuild. MSBuild est préinstallé avec chaque charge de travail Visual Studio qui contient NuGet. Vous pouvez également utiliser MSBuild via l’interface CLI dotnet avec [dotnet msbuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild)
 
-Pour les projets .NET Core et .NET Standard qui utilisent le [format de style SDK](../resources/check-project-format.md), et tout autre projet de style SDK, NuGet utilise les informations dans le fichier projet directement pour créer un package. Pour des didacticiels pas à pas, consultez [Créer des packages .NET Standard avec l’interface CLI dotnet](../quickstart/create-and-publish-a-package-using-the-dotnet-cli.md) ou [Créer des packages .NET Standard avec Visual Studio](../quickstart/create-and-publish-a-package-using-visual-studio.md).
+Pour les projets .NET Core et .NET Standard qui utilisent le [format de style SDK](../resources/check-project-format.md), et tout autre projet de style SDK, NuGet utilise les informations dans le fichier projet directement pour créer un package.  Pour un projet de style non SDK qui utilise `<PackageReference>`, NuGet utilise également le fichier projet pour créer un package.
 
-`msbuild -t:pack` est fonctionnellement équivalent à `dotnet pack`. Pour générer avec MSBuild, consultez [Créer un package NuGet avec MSBuild](creating-a-package-msbuild.md).
+La fonctionnalité de compression est disponible par défaut dans les projets de style SDK. Pour les projets PackageReference de style non SDK, vous devez ajouter le package NuGet.Build.Tasks.Pack aux dépendances du projet. Pour plus d’informations sur les cibles de pack MSBuild, consultez [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md).
+
+La commande qui crée un package, `msbuild -t:pack`, est équivalente à `dotnet pack`.
 
 > [!IMPORTANT]
-> Cette rubrique s’applique aux projets [SDK-style](../resources/check-project-format.md), qui sont généralement des projets .net Core et .NET Standard.
+> Cette rubrique concerne les projets de [style SDK](../resources/check-project-format.md), en général les projets .NET Core et .NET Standard, et aux projets de style non SDK qui utilisent PackageReference.
 
 ## <a name="set-properties"></a>Définir des propriétés
 
@@ -33,11 +35,11 @@ Les propriétés suivantes sont requises pour créer un package.
 - `Authors`, informations sur l’auteur et le propriétaire. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
 - `Company`, le nom de votre entreprise. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
 
-Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez aussi définir directement ces propriétés dans les fichiers projet (`.csproj`).
+Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez également définir directement ces propriétés dans les fichiers projet ( *.csproj*).
 
 ```xml
 <PropertyGroup>
-  <PackageId>AppLogger</PackageId>
+  <PackageId>ClassLibDotNetStandard</PackageId>
   <Version>1.0.0</Version>
   <Authors>your_name</Authors>
   <Company>your_company</Company>
@@ -47,13 +49,13 @@ Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du pr
 > [!Important]
 > Donnez au package un identificateur unique sur nuget.org ou dans la source de package que vous utilisez.
 
-L’exemple suivant montre un fichier projet simple et complet avec ces propriétés incluses. (Vous pouvez créer un nouveau projet par défaut à l’aide de la commande `dotnet new classlib`.)
+L’exemple suivant montre un fichier projet simple et complet avec ces propriétés incluses.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>AppLogger</PackageId>
+    <PackageId>ClassLibDotNetStandard</PackageId>
     <Version>1.0.0</Version>
     <Authors>your_name</Authors>
     <Company>your_company</Company>
@@ -72,35 +74,82 @@ Pour plus d’informations sur la déclaration des dépendances et la spécifica
 
 [!INCLUDE [choose-package-id](includes/choose-package-id.md)]
 
-## <a name="run-the-pack-command"></a>Exécuter la commande pack
+## <a name="add-the-nugetbuildtaskspack-package"></a>Ajouter le package NuGet.Build.Tasks.Pack
 
-Pour créer un package NuGet (fichier `.nupkg`) à partir du projet, exécutez la commande `dotnet pack`, qui génère également le projet automatiquement :
+Si vous utilisez MSBuild avec un projet de style non SDK et PackageReference, ajoutez le package NuGet.Build.Tasks.Pack à votre projet.
 
-```cli
+1. Ouvrez le fichier projet et ajoutez ce qui suit après l’élément `<PropertyGroup>` :
+
+   ```xml
+   <ItemGroup>
+     <!-- ... -->
+     <PackageReference Include="NuGet.Build.Tasks.Pack" Version="5.2.0"/>
+     <!-- ... -->
+   </ItemGroup>
+   ```
+
+2. Ouvrez une invite de commandes développeur (dans la zone **Rechercher**, saisissez **Invite de commandes développeur**).
+
+   Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu **Démarrer**, car elle est configurée avec tous les chemins nécessaires pour MSBuild.
+
+3. Basculez vers le dossier contenant le fichier projet et saisissez la commande suivante pour installer le package NuGet.Build.Tasks.Pack.
+
+   ```cmd
+   # Uses the project file in the current folder by default
+   msbuild -t:restore
+   ```
+
+   Assurez-vous que la sortie MSBuild indique que la génération s’est terminée avec succès.
+
+## <a name="run-the-msbuild--tpack-command"></a>Exécuter la commande msbuild -t:pack
+
+Pour créer un package NuGet (fichier `.nupkg`) à partir du projet, exécutez la commande `msbuild -t:pack`, qui génère également le projet automatiquement :
+
+À l’invite de commandes développeur, saisissez la commande suivante :
+
+```cmd
 # Uses the project file in the current folder by default
-dotnet pack
+msbuild -t:pack
 ```
 
 La sortie affiche le chemin d’accès du fichier `.nupkg`.
 
 ```output
-Microsoft (R) Build Engine version 15.5.180.51428 for .NET Core
+Microsoft (R) Build Engine version 16.1.76+g14b0a930a7 for .NET Framework
 Copyright (C) Microsoft Corporation. All rights reserved.
 
-  Restore completed in 29.91 ms for D:\proj\AppLoggerNet\AppLogger\AppLogger.csproj.
-  AppLogger -> D:\proj\AppLoggerNet\AppLogger\bin\Debug\netstandard2.0\AppLogger.dll
-  Successfully created package 'D:\proj\AppLoggerNet\AppLogger\bin\Debug\AppLogger.1.0.0.nupkg'.
+Build started 8/5/2019 3:09:15 PM.
+Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" on node 1 (pack target(s)).
+GenerateTargetFrameworkMonikerAttribute:
+Skipping target "GenerateTargetFrameworkMonikerAttribute" because all output files are up-to-date with respect to the input files.
+CoreCompile:
+  ...
+CopyFilesToOutputDirectory:
+  Copying file from "C:\Users\username\source\repos\ClassLib_DotNetStandard\obj\Debug\netstandard2.0\ClassLib_DotNetStandard.dll" to "C:\Use
+  rs\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.dll".
+  ClassLib_DotNetStandard -> C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.dll
+  Copying file from "C:\Users\username\source\repos\ClassLib_DotNetStandard\obj\Debug\netstandard2.0\ClassLib_DotNetStandard.pdb" to "C:\Use
+  rs\username\source\repos\ClassLib_DotNetStandard\bin\Debug\netstandard2.0\ClassLib_DotNetStandard.pdb".
+GenerateNuspec:
+  Successfully created package 'C:\Users\username\source\repos\ClassLib_DotNetStandard\bin\Debug\AppLogger.1.0.0.nupkg'.
+Done Building Project "C:\Users\username\source\repos\ClassLib_DotNetStandard\ClassLib_DotNetStandard.csproj" (pack target(s)).
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:01.21
 ```
 
 ### <a name="automatically-generate-package-on-build"></a>Générer automatiquement le package à la création
 
-Pour exécuter automatiquement `dotnet pack` pendant l’exécution de `dotnet build`, ajoutez la ligne suivante à votre fichier projet au sein de `<PropertyGroup>` :
+Pour exécuter automatiquement `msbuild -t:pack` pendant la création ou la restauration du projet, ajoutez la ligne suivante à votre fichier projet au sein de `<PropertyGroup>` :
 
 ```xml
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Lorsque vous exécutez `dotnet pack` sur une solution, cela compresse tous les projets de la solution qui peuvent être compressés (la propriété [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) a la valeur `true`).
+Lorsque vous exécutez `msbuild -t:pack` sur une solution, cela compresse tous les projets de la solution qui peuvent être compressés (la propriété [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) a la valeur `true`).
 
 > [!NOTE]
 > Lorsque vous créez automatiquement le package, le délai d’attente augmente la durée de création de votre projet.
@@ -120,6 +169,7 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
+- [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md)
 - [Gestion des versions de package](../reference/package-versioning.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: e8e806e0a893d62d9d3189396dc47250ae9c8cf3
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: f16cc6f66bc12727a4ec8eb5da4ff44a9eeb1764
+ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68420030"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68833330"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
@@ -34,7 +34,7 @@ Quelle que soit sa nature, un hôte sert de point de connexion entre les *créat
 
 Un package « compatible » est un package qui contient des assemblies créés pour au moins une version cible de .NET Framework compatible avec celle du projet qui utilise le package. Les développeurs peuvent soit créer des packages propres à une version, comme avec les contrôles UWP, soit prendre en charge un éventail plus large de versions cibles. Pour optimiser la compatibilité d’un package, ils ciblent [.NET Standard](/dotnet/standard/net-standard), que tous les projets .NET et .NET Core peuvent exploiter. C’est le moyen le plus efficace tant pour les créateurs que pour les consommateurs, car un package unique (qui contient généralement un seul assembly) fonctionne pour tous les projets.
 
-Les développeurs de packages qui ont besoin d’API extérieures à .NET Standard, quant à eux, créent un assembly distinct pour chacune des versions cibles de .NET Framework qu’ils souhaitent prendre en charge, et les intègrent tous dans le même package (« ciblage multiple »). Lorsque un consommateur installe un package de ce type, NuGet extrait seulement les assemblies nécessaires au projet. Ceci réduit l’encombrement du package dans l’application finale et/ou dans les assemblys produits par ce projet. Un package à ciblage multiple est, bien sûr, plus difficile à gérer pour son créateur.
+Les développeurs de packages qui ont besoin d’API extérieures à .NET Standard, quant à eux, créent un assembly distinct pour chacune des versions cibles de .NET Framework qu’ils souhaitent prendre en charge, et les intègrent tous dans le même package (« ciblage multiple »). Lorsqu’un consommateur installe un package de ce type, NuGet extrait seulement les assemblies nécessaires au projet. Ceci réduit l’encombrement du package dans l’application finale et/ou dans les assemblys produits par ce projet. Un package à ciblage multiple est, bien sûr, plus difficile à gérer pour son créateur.
 
 > [!Note]
 > L’approche consistant à cibler .NET Standard remplace la précédente, qui impliquait d’utiliser différentes versions cibles de bibliothèques de classes portables (PCL). Cette documentation se concentre donc sur la création de packages pour .NET Standard.
@@ -72,7 +72,7 @@ Pour plus d’informations sur la façon dont NuGet réalise ce service, consult
 
 Compte tenu de la simplicité de déplacement de projets entre différents ordinateurs de développeurs, référentiels de contrôle de code source, serveurs de builds, etc., il est très peu pratique de conserver les assemblys binaires de packages NuGet directement liés à un projet. Cela aurait pour effet d’encombrer inutilement chacune des copies du projet (et ainsi de gaspiller de l’espace dans les référentiels de contrôle de code source). Il serait également très difficile de mettre à jour les fichiers binaires des packages, car la nouvelle version devrait s’appliquer à toutes les copies du projet.
 
-NuGet gère plutôt une simple liste de références des packages dont dépend le projet, qui englobe les dépendances de niveau supérieur et de niveau inférieur. Autrement dit, lorsque un package est installé dans un projet à partir d’un hôte, NuGet enregistre l’identificateur et le numéro de version du package dans cette liste de références. (La désinstallation d’un package supprime bien sûr celui-ci de la liste.) NuGet offre un moyen de restaurer tous les packages référencés à la demande, comme le décrit la section [Restauration de packages](consume-packages/package-restore.md).
+NuGet gère plutôt une simple liste de références des packages dont dépend le projet, qui englobe les dépendances de niveau supérieur et de niveau inférieur. Autrement dit, lorsqu’un package est installé dans un projet à partir d’un hôte, NuGet enregistre l’identificateur et le numéro de version du package dans cette liste de références. (La désinstallation d’un package supprime bien sûr celui-ci de la liste.) NuGet offre un moyen de restaurer tous les packages référencés à la demande, comme le décrit la section [Restauration de packages](consume-packages/package-restore.md).
 
 ![Une liste des références NuGet est créée à l’installation du package et elle peut être utilisée pour restaurer des packages ailleurs.](media/nuget-restore.png)
 
@@ -105,7 +105,7 @@ Pour que ces processus fonctionnent efficacement, NuGet effectue certaines optim
 
 Pour un projet donné, NuGet gère le graphique de dépendance global, ce qui implique de résoudre à nouveau des références multiples à différentes versions du même package. Il est fréquent qu’un projet ait une dépendance d’un ou plusieurs packages qui ont eux-mêmes les mêmes dépendances. Par exemple, certains des packages utilitaires les plus pratiques de nuget.org sont utilisés par beaucoup d’autres packages. Pris dans sa totalité, le graphique de dépendance peut facilement comporter dix références distinctes à des versions différentes du même package. Pour éviter d’importer plusieurs versions de ce package dans l’application elle-même, NuGet repère la version utilisable par tout le monde. (Pour plus d’informations, consultez la page [Résolution des dépendances](consume-packages/dependency-resolution.md).)
 
-De plus, NuGet gère toutes les spécifications liées à la façon dont les packages sont structurés (notamment la [localisation](create-packages/creating-localized-packages.md) et les [symboles de débogage](create-packages/symbol-packages.md)) et dont ils sont référencés (notamment les [plages de versions](reference/package-versioning.md#version-ranges-and-wildcards) et les [préversions](create-packages/prerelease-packages.md).) NuGet propose également différentes API permettant d’interagir par programme avec ses services, et offre un support aux développeurs qui écrivent des modèles de projet et des extensions Visual Studio.
+De plus, NuGet gère toutes les spécifications liées à la façon dont les packages sont structurés (notamment la [localisation](create-packages/creating-localized-packages.md) et les [symboles de débogage](create-packages/symbol-packages.md)) et dont ils sont [référencés](consume-packages/package-references-in-project-files.md) (notamment les [plages de versions](reference/package-versioning.md#version-ranges-and-wildcards) et les [préversions](create-packages/prerelease-packages.md).) NuGet propose également différentes API permettant d’interagir par programme avec ses services, et offre un support aux développeurs qui écrivent des modèles de projet et des extensions Visual Studio.
 
 Prenez un moment pour parcourir la table des matières de cette documentation : toutes ces fonctionnalités y sont représentées, ainsi que des notes de publication remontant aux débuts de NuGet.
 

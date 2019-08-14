@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: quickstart
-ms.openlocfilehash: 86e71460094de9b799384db83456a68db57647af
-ms.sourcegitcommit: e65180e622f6233b51bb0b41d0e919688083eb26
+ms.openlocfilehash: 0fc3b15c6d5ffa93eb6e26660f71cea2286ba77d
+ms.sourcegitcommit: aed04cc04b0902403612de6736a900d41c265afd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68419919"
+ms.lasthandoff: 08/06/2019
+ms.locfileid: "68821423"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
@@ -99,17 +99,24 @@ namespace AppLogger
     ========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
     ```
 
-### <a name="alternate-option-pack-with-msbuild"></a>Autre option : pack avec MSBuild
+### <a name="optional-generate-package-on-build"></a>(Facultatif) Générer le package à la création
+
+Vous pouvez configurer Visual Studio pour générer automatiquement le package NuGet lorsque vous générez le projet.
+
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet et choisissez **Propriétés**.
+
+2. Dans l’onglet **Package**, sélectionnez **Générer le package NuGet à la création**.
+
+   ![Générer automatiquement le package à la création](media/qs_create-vs-05-generate-on-build.png)
+
+> [!NOTE]
+> Lorsque vous créez automatiquement le package, le délai d’attente augmente la durée de création de votre projet.
+
+### <a name="optional-pack-with-msbuild"></a>(Facultatif) Compresser avec MSBuild
 
 En guise d’alternative à l’utilisation de la commande de menu **Pack**, NuGet 4.x+ et MSBuild 15.1+ prennent en charge une cible `pack` quand le projet contient les données de package nécessaires. Ouvrez une invite de commandes, accédez au dossier de votre projet et exécutez la commande suivante. (Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu Démarrer, car elle est configurée avec tous les chemins nécessaires pour MSBuild.)
 
-```cli
-msbuild -t:pack -p:Configuration=Release
-```
-
-Vous trouverez alors le package dans le dossier `bin\Release`.
-
-Pour plus d’options avec `msbuild -t:pack`, consultez [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md#pack-target).
+Pour plus d’informations, consultez [Créer un package avec MSBuild](../create-packages/creating-a-package-msbuild.md).
 
 ## <a name="publish-the-package"></a>Publier le package
 
