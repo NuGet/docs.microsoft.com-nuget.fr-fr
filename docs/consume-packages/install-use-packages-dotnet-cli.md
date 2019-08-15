@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: a796c7a7537c3052259c7cf3f17d60981a495442
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: d9e9f0026e4c907351b4b0cd0adced28a4670575
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317716"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860591"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installer et gérer des packages à l’aide de l’interface CLI dotnet
 
@@ -94,12 +94,4 @@ NuGet installe la dernière version du package quand vous utilisez la commande `
 
 ## <a name="restore-packages"></a>Restaurer des packages
 
-Utilisez la commande [dotnet restore](/dotnet/core/tools/dotnet-restore?tabs=netcore2x) pour restaurer les packages listés dans le fichier projet (consultez [PackageReference](../consume-packages/package-references-in-project-files.md)). Avec .NET Core 2.0 et versions ultérieures, la restauration est effectuée automatiquement avec `dotnet build` et `dotnet run`. À compter de NuGet 4.0, cette commande exécute le même code que `nuget restore`.
-
-Comme avec les autres commandes CLI `dotnet`, ouvrez d’abord une ligne de commande et accédez au répertoire contenant votre fichier projet.
-
-Pour restaurer un package à l’aide de la commande `dotnet restore` :
-
-```cli
-dotnet restore 
-```
+[!INCLUDE [restore-dotnet-cli](includes/restore-dotnet-cli.md)]
