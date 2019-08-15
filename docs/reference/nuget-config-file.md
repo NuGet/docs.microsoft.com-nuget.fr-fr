@@ -3,36 +3,20 @@ title: informations de référence sur le fichier NuGet. config
 description: Informations de référence sur le fichier NuGet.Config, notamment les sections config, bindingRedirects, packageRestore, solution et packageSource.
 author: karann-msft
 ms.author: karann
-ms.date: 10/25/2017
+ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: b03bb8da0191a679671e5898ac70fff2024d52f2
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: a2955617b899bfadab42d1ae98dd20c8fc6ddca9
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317217"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020050"
 ---
 # <a name="nugetconfig-reference"></a>informations de référence sur NuGet. config
 
 Le comportement de NuGet est contrôlé par des `NuGet.Config` paramètres dans des fichiers différents, comme décrit dans [configurations courantes de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 `nuget.config` est un fichier XML contenant un nœud `<configuration>` de niveau supérieur qui comprend à son tour les éléments de section décrits dans cette rubrique. Chaque section contient zéro ou plusieurs éléments. Consultez [l’exemple de fichier config](#example-config-file). Les noms de paramètre ne respectent pas la casse et les valeurs peuvent utiliser des [variables d’environnement](#using-environment-variables).
-
-Dans cette rubrique :
-
-- [Section config](#config-section)
-- [Section bindingRedirects](#bindingredirects-section)
-- [Section packageRestore](#packagerestore-section)
-- [Section solution](#solution-section)
-- [Sections sur les sources de packages](#package-source-sections) :
-  - [packageSources](#packagesources)
-  - [packageSourceCredentials](#packagesourcecredentials)
-  - [apikeys](#apikeys)
-  - [disabledPackageSources](#disabledpackagesources)
-  - [activePackageSource](#activepackagesource)
-- [section trustedSigners](#trustedsigners-section)
-- [Utilisation de variables d’environnement](#using-environment-variables)
-- [Exemple de fichier config](#example-config-file)
 
 <a name="dependencyVersion"></a>
 <a name="globalPackagesFolder"></a>
@@ -70,7 +54,7 @@ Contient des paramètres de configuration divers, qui peuvent être définis à 
 
 Définit si NuGet effectue des redirections de liaisons automatiques quand un package est installé.
 
-| Clé | `Value` |
+| Clé | Valeur |
 | --- | --- |
 | skip | Valeur booléenne indiquant s’il faut ignorer les redirections de liaisons automatiques. La valeur par défaut est false. |
 
@@ -188,7 +172,7 @@ Lors de l’utilisation de mots de passe non chiffrés :
 
 Stocke les clés pour les sources qui utilisent l’authentification de clé API, comme défini avec la [commande `nuget setapikey`](../reference/cli-reference/cli-ref-setapikey.md).
 
-| Clé | `Value` |
+| Clé | Valeur |
 | --- | --- |
 | (URL source) | Clé API chiffrée. |
 
@@ -204,7 +188,7 @@ Stocke les clés pour les sources qui utilisent l’authentification de clé API
 
 Identifie les sources actuellement désactivées. Peut être vide.
 
-| Clé | `Value` |
+| Clé | Valeur |
 | --- | --- |
 | (nom de source) | Valeur booléenne indiquant si la source est désactivée. |
 
@@ -225,7 +209,7 @@ Identifie les sources actuellement désactivées. Peut être vide.
 
 Identifie la source actuellement active ou indique l’agrégat de toutes les sources.
 
-| Clé | `Value` |
+| Clé | Valeur |
 | --- | --- |
 | (nom de source) ou `All` | Si la clé est le nom d’une source, la valeur est le chemin ou l’URL de la source. Si la clé est `All`, la valeur doit être `(Aggregate source)` pour combiner toutes les sources de packages qui ne sont pas autrement désactivées. |
 
@@ -240,6 +224,7 @@ Identifie la source actuellement active ou indique l’agrégat de toutes les so
     <add key="All" value="(Aggregate source)" />
 </activePackageSource>
 ```
+
 ## <a name="trustedsigners-section"></a>section trustedSigners
 
 Stocke les signataires approuvés utilisés pour autoriser le package lors de l’installation ou de la restauration. Cette liste ne peut pas être vide lorsque l' `signatureValidationMode` utilisateur `require`affecte à la valeur. 
@@ -268,6 +253,50 @@ Si un `certificate` `allowUntrustedRoot` spécifie `true` en tant que certificat
         <owners>microsoft;aspnet;nuget</owners>
     </repository>
 </trustedSigners>
+```
+
+## <a name="fallbackpackagefolders-section"></a>section fallbackPackageFolders
+
+*(3.5 +)* Fournit un moyen de préinstaller des packages afin qu’aucun travail ne doive être effectué si le package se trouve dans les dossiers de secours. Les dossiers de package de secours ont exactement la même structure de dossiers et de fichiers que le dossier de package global: *. nupkg* est présent et tous les fichiers sont extraits.
+
+La logique de recherche pour cette configuration est la suivante:
+
+- Recherchez dans le dossier de package global pour voir si le package/la version est déjà téléchargé.
+
+- Recherchez dans les dossiers de secours un package/version correspondant.
+
+Si une recherche est réussie, aucun téléchargement n’est nécessaire.
+
+Si aucune correspondance n’est trouvée, NuGet vérifie les sources de fichiers, puis les sources http, puis télécharge les packages.
+
+| Clé | Valeur |
+| --- | --- |
+| (nom du dossier de secours) | Chemin d’accès au dossier de secours. |
+
+**Exemple**:
+
+```xml
+<fallbackPackageFolders>
+   <add key="XYZ Offline Packages" value="C:\somePath\someFolder\"/>
+</fallbackPackageFolders>
+```
+
+## <a name="packagemanagement-section"></a>packageManagement (section)
+
+Définit le format de gestion de package par défaut, *packages. config* ou PackageReference. Les projets de style SDK utilisent toujours PackageReference.
+
+| Clé | `Value` |
+| --- | --- |
+| format | Valeur booléenne qui indique le format de gestion des packages par défaut. Si `1`, format est PackageReference. Si `0`la forme est, le format est *packages. config*. |
+| désactivés | Valeur booléenne indiquant s’il faut afficher l’invite de sélection d’un format de package par défaut lors de la première installation de package. `False`masque l’invite. |
+
+**Exemple**:
+
+```xml
+<packageManagement>
+   <add key="format" value="1" />
+   <add key="disabled" value="False" />
+</packageManagement>
 ```
 
 ## <a name="using-environment-variables"></a>Utilisation de variables d’environnement

@@ -1,38 +1,38 @@
 ---
-title: Référence de Version de Package NuGet
-description: Obtenir des détails précis sur la spécification des numéros de version et de plages pour les autres packages qui dépend d’un package NuGet, et comment les dépendances sont installées.
+title: Référence de version du package NuGet
+description: Des détails précis sur la spécification des numéros de version et des plages pour d’autres packages dont dépend un package NuGet et sur la façon dont les dépendances sont installées.
 author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6407cd2ea5e5e7a9c9e2be679764a8a0d5dd9260
-ms.sourcegitcommit: b6efd4b210d92bf163c67e412ca9a5a018d117f0
+ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56852466"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69019994"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
-Un package spécifique est toujours appelé à l’aide de son identificateur de package et un numéro de version exact. Par exemple, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) sur nuget.org a plusieurs dizaines des packages spécifiques disponibles, allant de version *4.1.10311* vers la version *6.1.3* (la dernière stable mise en production) et une variété de versions préliminaires comme *6.2.0-beta1*.
+Un package spécifique est toujours référencé à l’aide de son identificateur de package et d’un numéro de version exact. Par exemple, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) sur NuGet.org dispose de plusieurs douzaines de packages spécifiques disponibles, allant de la version *4.1.10311* à la version *6.1.3* (la dernière version stable) et à une variété de versions préliminaires comme *6.2.0-beta1* .
 
-Lorsque vous créez un package, vous affectez un numéro de version spécifique avec un suffixe facultatif en version préliminaire. En revanche, lors de l’utilisation des packages, vous pouvez spécifier un numéro de version exact ou une plage de versions acceptables.
+Lorsque vous créez un package, vous affectez un numéro de version spécifique avec un suffixe de texte en préversion facultatif. En revanche, lors de l’utilisation de packages, vous pouvez spécifier un numéro de version exact ou une plage de versions acceptables.
 
 Dans cette rubrique :
 
-- [Principes de base version](#version-basics) , y compris des suffixes de la version préliminaire.
-- [Caractères génériques et les plages de versions](#version-ranges-and-wildcards)
-- [Numéros de version normalisée](#normalized-version-numbers)
+- [Notions de base](#version-basics) sur les versions, y compris les suffixes de préversion.
+- [Plages de versions et caractères génériques](#version-ranges-and-wildcards)
+- [Numéros de version normalisés](#normalized-version-numbers)
 
-## <a name="version-basics"></a>Principes fondamentaux de version
+## <a name="version-basics"></a>Notions de base sur les versions
 
-Un numéro de version spécifique se présente sous la forme *version_principale.version_secondaire.version_corrective [-suffixe]*, où les composants ont les significations suivantes :
+Un numéro de version spécifique se présente sous la forme *major. minor. patch [-suffixe]* , où les composants ont les significations suivantes:
 
-- *Principales*: Modifications avec rupture
+- *Principal*: Modifications avec rupture
 - *Mineure*: Nouvelles fonctionnalités, offrant néanmoins une compatibilité descendante
 - *Correctif*: Correctifs de bogues à compatibilité descendante uniquement
-- *-Suffixe* (facultatif) : un trait d’union suivie d’une chaîne qui dénote une version préliminaire (suivant la [convention Semver ou SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
+- *-Suffixe* (facultatif): trait d’Union suivi d’une chaîne désignant une préversion (selon le contrôle de [version sémantique ou la Convention SemVer 1,0](http://semver.org/spec/v1.0.0.html)).
 
 **Exemples :**
 
@@ -42,22 +42,22 @@ Un numéro de version spécifique se présente sous la forme *version_principale
     2.2.44-beta1
 
 > [!Important]
-> NuGet.org rejette tout chargement du package qui ne dispose pas d’un numéro de version exact. La version doit être spécifiée dans le `.nuspec` ou le fichier projet utilisé pour créer le package.
+> nuget.org rejette tout téléchargement de package qui ne dispose pas d’un numéro de version exact. La version doit être spécifiée dans le `.nuspec` fichier projet ou utilisé pour créer le package.
 
 ### <a name="pre-release-versions"></a>Versions préliminaires
 
-Techniquement parlant, créateurs de package peuvent utiliser n’importe quelle chaîne comme suffixe pour désigner une version préliminaire, que NuGet traite n’importe quelle version de ce type en tant que version préliminaire et aucune autre interprétation a fait. Autrement dit, NuGet les affiche la version complète de chaîne dans toute l’interface utilisateur est impliquée, en laissant toute interprétation du sens du suffixe au consommateur.
+Techniquement parlant, les créateurs de packages peuvent utiliser n’importe quelle chaîne comme suffixe pour désigner une préversion, car NuGet traite une telle version comme une version préliminaire et n’effectue aucune autre interprétation. Autrement dit, NuGet affiche la chaîne de version complète dans n’importe quelle interface utilisateur, en laissant toute interprétation de la signification du suffixe au consommateur.
 
-Ceci dit, les développeurs de packages suivent généralement les conventions de nommage reconnues :
+Cela dit, les développeurs de packages suivent généralement les conventions de nommage reconnues:
 
 - `-alpha`: Version alpha, généralement utilisée pour les travaux en cours et l’expérimentation.
 - `-beta`: Version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
 - `-rc`: Version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
-> Prend en charge de NuGet 4.3.0 [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de version préliminaire avec la notation à points, comme dans *1.0.1-build.23*. La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un format similaire à *1.0.1-build23*.
+> NuGet 4.3.0 + prend en charge [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de préversion avec la notation par points, comme dans la version *1.0.1-Build. 23*. La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un formulaire comme *1.0.1-build23*.
 
-Lors de la résolution des références de package et de plusieurs versions de package diffèrent uniquement par le suffixe, NuGet choisit une version sans suffixe tout d’abord, puis applique la priorité pour les versions préliminaires dans l’ordre alphabétique inverse. Par exemple, les versions suivantes seraient choisies dans l’ordre exact indiqué :
+Lors de la résolution des références de package et que plusieurs versions de package diffèrent uniquement par le suffixe, NuGet choisit une version sans suffixe en premier, puis applique la précédence aux versions préliminaires dans l’ordre alphabétique inversé. Par exemple, les versions suivantes sont choisies dans l’ordre exact indiqué:
 
     1.0.1
     1.0.1-zzz
@@ -68,62 +68,62 @@ Lors de la résolution des références de package et de plusieurs versions de p
     1.0.1-alpha
     1.0.1-aaa
 
-## <a name="semantic-versioning-200"></a>Semver 2.0.0
+## <a name="semantic-versioning-200"></a>Contrôle de version de sémantique 2.0.0
 
-Avec NuGet 4.3.0 et Visual Studio 2017 version 15.3 +, NuGet prend en charge [Semver 2.0.0](http://semver.org/spec/v2.0.0.html).
+Avec NuGet 4.3.0 + et Visual Studio 2017 version 15.3 +, NuGet prend en charge le contrôle de [version sémantique 2.0.0](http://semver.org/spec/v2.0.0.html).
 
-Les clients plus anciens ne prend pas en charge certaine sémantique de version de SemVer 2.0.0. NuGet prend en compte une version de package à être SemVer v2.0.0 spécifique si une des affirmations suivantes est vraie :
+Certaines sémantiques de SemVer v 2.0.0 ne sont pas prises en charge dans les clients plus anciens. NuGet considère qu’une version de package est spécifique à SemVer v 2.0.0 si l’une des affirmations suivantes est vraie:
 
-- L’étiquette de version préliminaire est séparé par un point, par exemple, *1.0.0-alpha.1*
-- La version a des métadonnées de la build, par exemple, *1.0.0+githash*
+- L’étiquette de préversion est séparée par des points, par exemple, *1.0.0-alpha. 1*
+- La version comporte des métadonnées de build, par exemple, *1.0.0 + githash*
 
-Pour nuget.org, un package est défini comme un package de version 2.0.0 SemVer si une des affirmations suivantes est vraie :
+Pour nuget.org, un package est défini en tant que package SemVer v 2.0.0 si l’une des affirmations suivantes est vraie:
 
-- La version du package est v2.0.0 SemVer conforme mais pas SemVer v1.0.0 conforme, tel que défini ci-dessus.
-- Une des plages de versions de dépendance du package a une version minimale ou maximale est SemVer v2.0.0 conforme mais pas SemVer v1.0.0 conforme, défini ci-dessus ; par exemple, *[1.0.0-alpha.1,)*.
+- La version du package est conforme à SemVer v 2.0.0, mais pas à SemVer v 1.0.0 conforme, comme défini ci-dessus.
+- Les plages de versions de dépendance du package ont une version minimale ou maximale qui est conforme à SemVer v 2.0.0, mais pas à SemVer v 1.0.0 conforme, définie ci-dessus. par exemple, *[1.0.0-alpha. 1,)* .
 
-Si vous téléchargez un package spécifique à la version 2.0.0 de SemVer sur nuget.org, le package est invisible aux clients plus anciens et disponible pour seulement les clients NuGet suivants :
+Si vous chargez un package spécifique à SemVer v 2.0.0 sur nuget.org, le package est invisible pour les clients plus anciens et n’est disponible que pour les clients NuGet suivants:
 
-- NuGet 4.3.0
+- NuGet 4.3.0 +
 - Visual Studio 2017 version 15.3 +
-- Visual Studio 2015 avec [v3.6.0 d’extension VSIX NuGet](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
+- Visual Studio 2015 avec [NUGET VSIX v 3.6.0](https://dist.nuget.org/visualstudio-2015-vsix/latest/NuGet.Tools.vsix)
 - dotnet
-  - dotnetcore.exe (Kit de développement logiciel .NET 2.0.0+)
+  - dotnetcore. exe (kit de développement logiciel (SDK) .NET 2.0.0 +)
 
-Les clients tiers :
+Clients tiers:
 
-- Avenant de JetBrains
-- Paket version 5.0 et versions ultérieures
+- Avenant JetBrains
+- Paket version 5.0 +
 
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>Caractères génériques et les plages de versions
+## <a name="version-ranges-and-wildcards"></a>Plages de versions et caractères génériques
 
-Lorsque vous faites référence aux dépendances de package, NuGet prend en charge à l’aide de la notation de l’intervalle pour la spécification de plages de versions, résumées comme suit :
+Lorsque vous faites référence à des dépendances de package, NuGet prend en charge l’utilisation de la notation d’intervalle pour spécifier les plages de versions, résumée comme suit:
 
 | Notation | Règle appliquée | Description |
 |----------|--------------|-------------|
-| 1.0 | x ≥ 1.0 | Version minimale, inclusive |
-| (1.0,) | x > 1.0 | Version minimale, exclusive |
-| [1.0] | x == 1.0 | Correspondance de la version exacte |
-| (,1.0] | x ≤ 1.0 | Version maximale, inclusive |
-| (,1.0) | x < 1.0 | Version maximale, exclusive |
-| [1.0,2.0] | 1.0 ≤ x ≤ 2.0 | Plage exacte, inclusif |
-| (1.0,2.0) | 1.0 < x < 2.0 | Plage exacte, exclusif |
-| [1.0,2.0) | 1.0 ≤ x < 2.0 | Mixte inclusive minimale et exclusive version maximale |
+| 1.0 | x ≥ 1,0 | Version minimale, incluse |
+| (1.0,) | x > 1,0 | Version minimale, exclusive |
+| [1.0] | x = = 1,0 | Correspondance de version exacte |
+| (,1.0] | x ≤ 1,0 | Version maximale, inclusive |
+| (,1.0) | x < 1,0 | Version maximale, exclusive |
+| [1.0,2.0] | 1,0 ≤ x ≤ 2,0 | Plage exacte, inclusive |
+| (1.0,2.0) | 1,0 < x < 2,0 | Plage exacte, exclusive |
+| [1.0,2.0) | 1,0 ≤ x < 2,0 | Version maximale et minimale inclusive mixte |
 | (1.0)    | non valide | non valide |
 
-Lorsque vous utilisez le format PackageReference, NuGet prend également en charge à l’aide d’une notation de caractère générique, \*, pour majeure, mineure, correctifs et des parties de suffixe de version préliminaire du nombre. Les caractères génériques ne sont pas pris en charge avec le `packages.config` format.
+Lors de l’utilisation du format PackageReference, NuGet prend également en charge l' \*utilisation d’une notation générique,, pour les parties de suffixe majeure, mineure, de correctif et de préversion du nombre. Les caractères génériques ne sont pas pris `packages.config` en charge avec le format.
 
 > [!Note]
-> Versions préliminaires ne sont pas incluses lors de la résolution des plages de versions. Versions préliminaires *sont* inclus lorsque vous utilisez un caractère générique (\*). La plage de versions *[1.0,2.0]*, par exemple, n’inclut pas 2.0 bêta, mais la notation de caractère générique _2.0-*_ est. Consultez [émettre 912](https://github.com/NuGet/Home/issues/912) pour obtenir des informations sur les caractères génériques en version préliminaire.
+> Les plages de versions dans PackageReference incluent des versions préliminaires. Par défaut, les versions flottantes ne résolvent pas les versions préliminaires sauf si elles sont activées. Pour connaître l’état de la demande de fonctionnalité associée, consultez le [problème 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).
 
 ### <a name="examples"></a>Exemples
 
-Spécifiez toujours une version ou une plage de versions de dépendances de package dans les fichiers de projet, `packages.config` fichiers, et `.nuspec` fichiers. Sans une version ou une plage de versions, NuGet 2.8.x et précédemment choisit la dernière version de package disponibles lors de la résolution d’une dépendance, tandis que NuGet 3.x et versions ultérieures choisit la plus ancienne version de package. Spécification d’une version ou plage évite cette incertitude.
+Spécifiez toujours une version ou une plage de versions pour les dépendances `packages.config` de package dans `.nuspec` les fichiers projet, les fichiers et les fichiers. Sans une version ou une plage de versions, NuGet 2.8. x et les versions antérieures sélectionnent la dernière version disponible du package lors de la résolution d’une dépendance, tandis que NuGet 3. x et versions ultérieures sélectionnent la version de package la plus basse. La spécification d’une version ou d’une plage de versions évite cette incertitude.
 
-#### <a name="references-in-project-files-packagereference"></a>Références dans les fichiers de projet (PackageReference)
+#### <a name="references-in-project-files-packagereference"></a>Références dans les fichiers projet (PackageReference)
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -149,9 +149,9 @@ Spécifiez toujours une version ou une plage de versions de dépendances de pack
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
 
-**Les références dans `packages.config`:**
+**Références dans `packages.config`:**
 
-Dans `packages.config`, chaque dépendance est répertorié avec un exacte `version` attribut qui est utilisé lors de la restauration des packages. Le `allowedVersions` attribut est utilisé uniquement pendant les opérations de mise à jour pour limiter les versions à laquelle le package peut être mis à jour.
+Dans `packages.config`, chaque dépendance est indiquée avec un attribut `version` exact qui est utilisé lors de la restauration des packages. L' `allowedVersions` attribut est utilisé uniquement pendant les opérations de mise à jour pour limiter les versions vers lesquelles le package peut être mis à jour.
 
 ```xml
 <!-- Install/restore version 6.1.0, accept any version 6.1.0 and above on update. -->
@@ -180,9 +180,9 @@ Dans `packages.config`, chaque dépendance est répertorié avec un exacte `vers
 <package id="ExamplePackage" version="1.3.5" allowedVersions="[1.3.2,1.5)" />
 ```
 
-**Les références dans `.nuspec` fichiers**
+**Références dans `.nuspec` les fichiers**
 
-Le `version` d’attribut dans un `<dependency>` élément décrit les versions de plage qui sont acceptables pour une dépendance.
+L' `version` attribut d’un `<dependency>` élément décrit les versions de plage acceptables pour une dépendance.
 
 ```xml
 <!-- Accepts any version 6.1 and above. -->
@@ -204,14 +204,14 @@ Le `version` d’attribut dans un `<dependency>` élément décrit les versions 
 <dependency id="ExamplePackage" version="[1.3.2,1.5)" />
 ```
 
-## <a name="normalized-version-numbers"></a>Numéros de version normalisée
+## <a name="normalized-version-numbers"></a>Numéros de version normalisés
 
 > [!Note]
-> Il s’agit d’une modification avec rupture pour NuGet 3.4 et versions ultérieures.
+> Il s’agit d’une modification avec rupture pour NuGet 3,4 et versions ultérieures.
 
-Lors de l’obtention des packages à partir d’un référentiel lors de l’installation, réinstaller, opérations ou de restauration, NuGet 3.4 + traite les numéros de version comme suit :
+Lors de l’obtention de packages à partir d’un référentiel pendant les opérations d’installation, de réinstallation ou de restauration, NuGet 3.4 + traite les numéros de version comme suit:
 
-- Les zéros non significatifs sont supprimés de numéros de version :
+- Les zéros non significatifs sont supprimés des numéros de version:
 
         1.00 is treated as 1.0
         1.01.1 is treated as 1.1.1
@@ -222,6 +222,6 @@ Lors de l’obtention des packages à partir d’un référentiel lors de l’in
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
 
-Cette normalisation n’affecte pas les numéros de version dans les packages eux-mêmes ; elle affecte uniquement comment NuGet correspond aux versions lors de la résolution des dépendances.
+`pack`et `restore` les opérations normalisent les versions chaque fois que cela est possible. Pour les packages déjà générés, cette normalisation n’affecte pas les numéros de version dans les packages eux-mêmes. elle affecte uniquement la manière dont NuGet correspond aux versions lors de la résolution des dépendances.
 
-Toutefois, les référentiels de packages NuGet doivent traiter ces valeurs dans la même façon que NuGet pour éviter la duplication de version de package. Par conséquent, un référentiel qui contient la version *1.0* d’un package ne doit également héberger version *1.0.0* sous forme de package distincte et différente.
+Toutefois, les dépôts de packages NuGet doivent traiter ces valeurs de la même façon que NuGet pour empêcher la duplication de version de package. Par conséquent, un référentiel qui contient la version *1,0* d’un package ne doit pas héberger également la version *1.0.0* comme un package distinct et différent.
