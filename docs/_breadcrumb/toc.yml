@@ -6,30 +6,45 @@
       tocHref: /nuget/
       topicHref: /nuget
       items:
-        - name: Démarrage rapide
+        - name: Prise en main
           tocHref: /nuget/quickstart/
           topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
-        - name: Repères
-          tocHref: /nuget/guides/
-          topicHref: /nuget/guides/create-net-standard-packages-vs2017
-        - name: Créer des packages
-          tocHref: /nuget/create-packages/
-          topicHref: /nuget/create-packages/overview-and-workflow
         - name: Consommer des packages
           tocHref: /nuget/consume-packages/
           topicHref: /nuget/consume-packages/overview-and-workflow
+        - name: Créer des packages
+          tocHref: /nuget/create-packages/
+          topicHref: /nuget/create-packages/overview-and-workflow
+        - name: Repères
+          tocHref: /nuget/guides/
+          topicHref: /nuget/guides/create-net-standard-packages-vs2017
+        - name: Concepts
+          tocHref: /nuget/concepts/
+          topicHref: /nuget/concepts/package-installation-process
         - name: Référence
           tocHref: /nuget/reference/
           topicHref: /nuget/reference/nuspec
+        - name: API
+          tocHref: /nuget/api/
+          topicHref: /nuget/api/overview
+        - name: Extensibilité
+          tocHref: /nuget/reference/extensibility
+          topicHref: /nuget/reference/extensibility/nuget-cross-platform-plugins
         - name: "Extensibilité de Visual\_Studio"
           tocHref: /nuget/visual-studio-extensibility/
           topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
+        - name: Publier
+          tocHref: /nuget/hosting-packages/
+          topicHref: /nuget/hosting-packages/overview
         - name: Stratégies
           tocHref: /nuget/policies/
           topicHref: /nuget/policies/governance
         - name: Notes de publication
           tocHref: /nuget/release-notes/
-          topicHref: /nuget/release-notes/index
+          topicHref: /nuget/release-notes/known-issues
+        - name: Ressources
+          tocHref: /nuget/resources/
+          topicHref: /nuget/resources/nuget-faq
         - name: NuGet.org
           tocHref: /nuget/nuget-org/
           topicHref: /nuget/nuget-org/organizations-on-nuget-org
