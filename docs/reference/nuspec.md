@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 67bc95135f746c4a4685773808756df399cbf01e
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959704"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488682"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -36,7 +36,7 @@ Dans cette rubrique :
 
    Si vous créez un package à l' `dotnet.exe pack` aide `msbuild pack target`de ou de, nous vous recommandons d’inclure à la place [toutes les propriétés](../reference/msbuild-targets.md#pack-target) qui se trouvent généralement dans le `.nuspec` fichier du fichier projet. Toutefois, vous pouvez choisir d' [utiliser un `.nuspec` fichier à compresser à `msbuild pack target`l’aide `dotnet.exe` de ou ](../reference/msbuild-targets.md#packing-using-a-nuspec)de.
 
-- Pour les projets migrés `packages.config` de vers [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` un fichier n’est pas requis pour créer le package. Utilisez plutôt [msbuild-t:Pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Pour les projets migrés `packages.config` de vers [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` un fichier n’est pas requis pour créer le package. Utilisez plutôt [msbuild-t:Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Forme générale et schéma
 
@@ -74,7 +74,7 @@ Ces éléments doivent apparaître dans un élément `<metadata>`.
 #### <a name="id"></a>id 
 Identificateur de package ne respectant pas la casse, qui doit être unique dans nuget.org ou dans toute autre galerie susceptible d’héberger le package. Les ID ne peuvent pas contenir d’espaces ni de caractères qui ne sont pas valides pour une URL et suivent généralement les règles d’espace de noms .NET. Pour obtenir des conseils, consultez [Choix d’un identificateur de package unique](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number).
 #### <a name="version"></a>version
-Version du package, selon le modèle *version_principale.version_secondaire.version_corrective*. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../reference/package-versioning.md#pre-release-versions). 
+Version du package, selon le modèle *version_principale.version_secondaire.version_corrective*. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>description
 Description longue du package pour l’affichage de l’interface utilisateur. 
 #### <a name="authors"></a>authors
@@ -248,7 +248,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| Token | Source de la valeur | Valeur
+| Token | Source de la valeur | `Value`
 | --- | --- | ---
 | **$id$** | Fichier projet | AssemblyName (titre) à partir du fichier projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
@@ -281,7 +281,7 @@ L’élément `<dependencies>` dans `<metadata>` contient un nombre quelconque d
 | Attribut | Description |
 | --- | --- |
 | `id` | (Obligatoire) ID de package de la dépendance, tel que « EntityFramework » et « NUnit », qui est le nom du package nuget.org affiché sur une page de package. |
-| `version` | (Obligatoire) Plage de versions acceptables en tant que dépendance. Consultez [Gestion de versions des packages](../reference/package-versioning.md#version-ranges-and-wildcards) pour connaître la syntaxe exacte. Les versions génériques (flottantes) ne sont pas prises en charge. |
+| `version` | (Obligatoire) Plage de versions acceptables en tant que dépendance. Consultez [Gestion de versions des packages](../concepts/package-versioning.md#version-ranges-and-wildcards) pour connaître la syntaxe exacte. Les versions génériques (flottantes) ne sont pas prises en charge. |
 | include | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à inclure dans le package final. La valeur par défaut est `all`. |
 | exclude | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à exclure dans le package final. La valeur `build,analyzers` par défaut peut être trop écrite. Mais `content/ ContentFiles` sont également implicitement exclus dans le package final qui ne peut pas être trop écrit. Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`. |
 

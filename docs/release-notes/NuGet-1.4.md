@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: de76cf610e580a36014be9274b9c2c762b1015ac
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 5f1d3ed6a1b20fb07437f1718faafaac0a193773
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317161"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488706"
 ---
 # <a name="nuget-14-release-notes"></a>Notes de publication de NuGet 1,4
 
@@ -60,7 +60,7 @@ Pour plus d’informations, consultez la rubrique relative à la [gestion des pa
 Par défaut, lorsque vous exécutez `Update-Package` la commande sur un package (ou mettez à jour le package à l’aide de la boîte de dialogue), elle est mise à jour vers la version la plus récente dans le flux. Avec la nouvelle prise en charge de la mise à jour de tous les packages, il peut arriver que vous souhaitiez verrouiller un package à une plage de versions spécifique. Par exemple, vous savez peut-être à l’avance que votre application ne fonctionnera qu’avec la version 2. * d’un package, mais pas avec 3,0 et versions ultérieures. Afin d’éviter la mise à jour accidentelle du package vers 3, NuGet 1,4 ajoute la prise en charge de la limitation de la plage de versions vers laquelle les packages peuvent être mis à `packages.config` niveau, en modifiant `allowedVersions` manuellement le fichier à l’aide du nouvel attribut.
 
 Par exemple, l’exemple suivant montre comment verrouiller `SomePackage` le package dans la plage de versions 2,0-3,0 (exclusive).
-L' `allowedVersions` attribut accepte des valeurs à l’aide du [format de plage de versions](../reference/package-versioning.md#version-ranges-and-wildcards).
+L' `allowedVersions` attribut accepte des valeurs à l’aide du [format de plage de versions](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
