@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 32b01e6066cf60f7a0942508e640fdd5658b4444
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: bc077220e05b14180baac9611fda9234675ad640
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68316975"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860527"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Réinstallation et mise à jour des packages
 
 Il existe plusieurs situations (décrites ci-dessous dans [Quand réinstaller un package](#when-to-reinstall-a-package)), dans lesquelles les références à un package peuvent être rompues dans un projet Visual Studio. Dans ce cas, désinstaller et réinstaller la même version du package permet de restaurer ces références. Mettre à jour un package signifie simplement installer une version mise à jour, ce qui, souvent, permet de restaurer un package.
+
+Dans Visual Studio, la console du gestionnaire de package fournit de nombreuses options flexibles pour la mise à jour et la réinstallation des packages.
 
 La mise à jour et la réinstallation des packages s’effectuent de la façon suivante :
 
@@ -25,7 +27,7 @@ La mise à jour et la réinstallation des packages s’effectuent de la façon s
 | Interface CLI de nuget.exe | Commande `nuget update` | Pour tous les packages, supprimez le dossier de package, puis exécutez `nuget install`. S’il n’y a qu’un seul package, supprimez le dossier de package et utilisez `nuget install <id>` pour réinstaller le même package. |
 
 > [!NOTE]
-> Si vous utilisez l’interface CLI dotnet, la procédure équivalente n’est pas nécessaire. Dans un scénario similaire, vous pouvez [restaurer les packages à l’aide de l’interface CLI dotnet](../consume-packages/install-use-packages-dotnet-cli.md#restore-packages).
+> Si vous utilisez l’interface CLI dotnet, la procédure équivalente n’est pas nécessaire. Dans un scénario similaire, vous pouvez [restaurer les packages à l’aide de l’interface CLI dotnet](package-restore.md#restore-using-the-dotnet-cli).
 
 Dans cet article :
 
@@ -61,7 +63,7 @@ Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du p
 
 ## <a name="using-update-package"></a>Utilisation d’Update-Package
 
-Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils**  >  **Gestionnaire de package NuGet** > **Console du gestionnaire de package**) :
+Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils**  >  **Gestionnaire de package NuGet** > **Console du gestionnaire de package**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

@@ -5,16 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 287237cf4041870c562a6a7f48f233d8fdc8ef33
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: a1f9f1d03e9a6e58466fa92426bd655d5e8ed83d
+ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842385"
+ms.lasthandoff: 08/09/2019
+ms.locfileid: "68860626"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Résolution des erreurs de restauration des packages
 
-Cet article aborde les erreurs rencontrées couramment pendant la restauration de packages, ainsi que les étapes de résolution. Pour plus d’informations sur la restauration des packages, consultez [Restauration de packages](../consume-packages/package-restore.md#enable-and-disable-package-restore-visual-studio).
+Cet article aborde les erreurs rencontrées couramment pendant la restauration de packages, ainsi que les étapes de résolution. 
+
+La restauration du package tente d’installer toutes les dépendances de package dans l’état correct correspondant aux références de votre fichier projet ( *. csproj* ) ou de votre fichier *packages. config*. (Dans Visual Studio, les références s’affichent dans l’Explorateur de solutions sous **Dependencies \ NuGet** ou sous le nœud **Références**.) Pour suivre les étapes nécessaires à la restauration des packages, consultez [Restaurer les packages](../consume-packages/package-restore.md#restore-packages). Si les références de package dans votre fichier projet ( *.csproj*) ou votre fichier *packages.config* sont incorrectes (elles ne correspondent pas à l’état souhaité après la restauration du package), vous devez installer ou mettre à jour les packages au lieu d’utiliser la restauration des packages.
 
 Si les instructions présentées ici ne fonctionnent pas, [soumettez un problème sur GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) pour que nous puissions examiner plus attentivement votre situation. N’utilisez pas le contrôle « Cette page est-elle utile ? » qui peut apparaître dans cette page, car celui-ci ne nous permet pas de vous contacter pour obtenir plus d’informations.
 
@@ -44,8 +46,8 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Cette erreur se produit quand vous tentez de générer un projet contenant des références à un ou plusieurs packages NuGet qui ne sont pas installés sur l’ordinateur ou dans le projet.
 
-- Si le format de gestion PackageReference est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier *global-packages*, comme l’explique l’article [Gérer les dossiers de packages globaux et de cache](managing-the-global-packages-and-cache-folders.md).
-- Si `packages.config` est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier `packages` à la racine de la solution.
+- Si le format de gestion [PackageReference](package-references-in-project-files.md) est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier *global-packages* comme l’explique l’article [Gérer les dossiers de packages globaux et de cache](managing-the-global-packages-and-cache-folders.md).
+- Si [ packages.config](../reference/packages-config.md) est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier `packages` à la racine de la solution.
 
 Cette situation se produit souvent quand vous obtenez le code source d’un projet à partir du contrôle de code source ou d’un autre téléchargement. Les packages sont généralement omis du contrôle de code source ou des téléchargements car ils peuvent être restaurés à partir de flux de packages comme nuget.org. Pour plus d’informations, consultez [Packages et contrôle de code source](Packages-and-Source-Control.md)). Leur inclusion engendrerait l’encombrement du dépôt ou la création inutile de fichiers .zip volumineux.
 
@@ -54,10 +56,12 @@ L’erreur peut également se produire si votre fichier projet contient des chem
 Utilisez l’une des méthodes suivantes pour restaurer les packages :
 
 - Si vous avez déplacé le fichier projet, modifiez le fichier directement pour mettre à jour les références de package.
-- (Visual Studio) Activez la restauration des packages. Pour cela, sélectionnez la commande de menu **Outils > Gestionnaire de Package NuGet > Paramètres du Gestionnaire de package**, définissez les deux options sous **Restauration de package**, puis sélectionnez **OK**. Ensuite, regénérez la solution.
-- (CLI dotnet) Dans la ligne de commande, basculez vers le dossier qui contient votre projet, puis exécutez `dotnet restore` ou `dotnet build` (qui exécute automatiquement la restauration).
-- (CLI nuget.exe) Dans la ligne de commande, basculez vers le dossier qui contient votre projet, puis exécutez `nuget restore` (sauf pour les projets créés avec la CLI `dotnet`, auquel cas utilisez `dotnet restore`).
-- (Projets migrés vers PackageReference) Sur la ligne de commande, exécutez `msbuild -t:restore`.
+- [Visual Studio](package-restore.md#restore-using-visual-studio) ([restauration automatique](package-restore.md#restore-packages-automatically-using-visual-studio) ou [restauration manuelle](package-restore.md#restore-packages-manually-using-visual-studio))
+- [Interface CLI .NET](package-restore.md#restore-using-the-dotnet-cli)
+- [Interface CLI de nuget.exe](package-restore.md#restore-using-the-nugetexe-cli)
+- [MSBuild](package-restore.md#restore-using-msbuild)
+- [Azure Pipelines](package-restore.md#restore-using-azure-pipelines)
+- [Azure DevOps Server](package-restore.md#restore-using-azure-devops-server)
 
 Après une restauration réussie, le package devrait être présent dans le dossier *global-packages*. Dans le cas des projets utilisant PackageReference, la restauration devrait recréer le fichier `obj/project.assets.json` ; en ce qui concerne les projets utilisant `packages.config`, le package devrait apparaître dans le dossier `packages` du projet. Le projet doit à présent être généré. Si ce n’est pas le cas, [soumettez un problème sur GitHub](https://github.com/NuGet/docs.microsoft.com-nuget/issues) pour que nous puissions vous contacter.
 

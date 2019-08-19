@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16a14a72f8bb2e5d5a56f6c3c277f0988869273d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
+ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426696"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020009"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -105,7 +105,9 @@ Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multipl
 | compile | Contenu du dossier `lib` et contrôles permettant de déterminer si votre projet peut être compilé avec les assemblys dans le dossier |
 | runtime | Contenu des dossiers `lib` et `runtimes` contrôles permettant de déterminer si ces assemblys seront copiés vers le répertoire de sortie de build |
 | contentFiles | Contenu du dossier `contentfiles` |
-| build | Propriétés et cibles du dossier `build` |
+| build | `.props` et `.targets` dans le dossier `build` |
+| buildMultitargeting | `.props` et `.targets` dans le dossier `buildMultitargeting`, pour le ciblage multi-infrastructures |
+| buildTransitive | *(5.0 +)* `.props` et `.targets` dans le dossier `buildTransitive`, pour les ressources qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analyzers | Analyseurs .NET |
 | native | Contenu du dossier `native` |
 | none | Aucune des valeurs ci-dessus n’est utilisée. |

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: b7870bb6aac39f0865d88efc8c16751fdbecc3a8
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
+ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
+ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616780"
+ms.lasthandoff: 08/14/2019
+ms.locfileid: "69020058"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Prendre en charge plusieurs versions de .NET Framework dans votre fichier projet
 
@@ -27,9 +27,13 @@ Pour les projets SDK-style, vous pouvez configurer la prise en charge de plusieu
 
    Nous vous recommandons de créer une bibliothèque de classes .NET Standard pour une meilleure compatibilité.
 
-2. Modifiez le fichier *.csproj* pour prendre en charge les frameworks cibles.
-
-   Par exemple, remplacez `<TargetFramework>netstandard2.0</TargetFramework>` par `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`.
+2. Modifiez le fichier *.csproj* pour prendre en charge les frameworks cibles. Par exemple, changez
+   
+   `<TargetFramework>netstandard2.0</TargetFramework>`
+   
+   à :
+   
+   `<TargetFrameworks>netstandard2.0;net45</TargetFrameworks>`
 
    Veillez à modifier l’élément XML mis au pluriel (ajoutez des «s» aux balises d’ouverture et de fermeture).
 
