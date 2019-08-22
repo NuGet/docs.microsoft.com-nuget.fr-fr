@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5676239bedb7f8fbe9f74725864afd297405d5c1
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 69ef02e3c935287759b4012aadcfb1cb9811367c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842332"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488450"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>Processus d’installation d’un package NuGet
 
@@ -39,7 +39,7 @@ Le processus général se décompose ainsi :
 
 4. S’il a été téléchargé, installez le package dans le dossier *global-packages* de l’utilisateur. NuGet crée un sous-dossier par identificateur de package, puis un sous-dossier par version installée du package.
 
-5. NuGet installe les dépendances de package nécessaires. Ce processus est susceptible de mettre à jour les versions de package, comme l’explique la page [Résolution de dépendances](../consume-packages/dependency-resolution.md).
+5. NuGet installe les dépendances de package nécessaires. Ce processus est susceptible de mettre à jour les versions de package, comme l’explique la page [Résolution de dépendances](../concepts/dependency-resolution.md).
 
 6. Mettez à jour les dossiers et les fichiers projet :
 

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: e8949e9964ed19d342df53f08f59bb0f89e5feb0
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
+ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817483"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488970"
 ---
 L’identificateur de package et le numéro de version sont les deux valeurs les plus importantes dans le projet, car ils identifient de façon unique le code exact contenu dans le package.
 
@@ -17,9 +17,9 @@ L’identificateur de package et le numéro de version sont les deux valeurs les
 **Bonnes pratiques en matière de version de package :**
 
 - En général, définissez la version du package pour qu’elle corresponde au projet (ou à l’assembly), bien que cela ne soit pas strictement obligatoire. C’est simple lorsque vous limitez un package à un assembly unique. Globalement, n’oubliez pas que NuGet lui-même traire les versions de package lors de la résolution des dépendances, pas les versions d’assembly.
-- Lorsque vous utilisez un schéma de version non standard, veillez à prendre en compte les règles de gestion de versions NuGet, comme expliqué dans [Gestion des versions de package](../../reference/package-versioning.md). NuGet est la plupart du temps [conforme à SemVer 2](../../reference/package-versioning.md#semantic-versioning-200).
+- Lorsque vous utilisez un schéma de version non standard, veillez à prendre en compte les règles de gestion de versions NuGet, comme expliqué dans [Gestion des versions de package](../../concepts/package-versioning.md). NuGet est la plupart du temps [conforme à SemVer 2](../../concepts/package-versioning.md#semantic-versioning-200).
 
-> Pour plus d’informations sur la résolution des dépendances, consultez [Résolution des dépendances avec PackageReference](../../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference). Pour obtenir des informations plus anciennes qui peuvent également aider à mieux comprendre le contrôle de version, consultez cette série de billets de blog.
+> Pour plus d’informations sur la résolution des dépendances, consultez [Résolution des dépendances avec PackageReference](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Pour obtenir des informations plus anciennes qui peuvent également aider à mieux comprendre le contrôle de version, consultez cette série de billets de blog.
 >
 > - [Partie 1 : Affronter les difficultés liées aux DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [Partie 2 : L’algorithme principal](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)

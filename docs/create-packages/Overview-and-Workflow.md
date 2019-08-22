@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/26/2017
 ms.topic: conceptual
-ms.openlocfilehash: 58ad05cb854c8f7233d90d03c1b320f8797ca2ab
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: e4b9f6dae3a4be69e523888cc9bd2f212b45829c
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842399"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488844"
 ---
 # <a name="package-creation-workflow"></a>Flux de travail de la création de packages
 
@@ -35,8 +35,8 @@ Pour apprendre et comprendre le processus de création, commencez par [Création
 - [Packages en préversion](../create-packages/prerelease-packages.md) montre comment publier des packages alpha, bêta et rc pour les clients intéressés.
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md) décrit comment effectuer des remplacements unilatéraux de jetons dans les fichiers ajoutés à un projet et modifier `web.config` et `app.config` avec des paramètres qui s’annulent à la désinstallation du package.
 - [Packages de symboles](../create-packages/symbol-packages-snupkg.md) propose des conseils pour fournir des symboles relatifs à votre bibliothèque visant à permettre aux consommateurs de parcourir votre code pendant le débogage.
-- [Gestion des versions de package](../reference/package-versioning.md) explique comment identifier les versions exactes que vous autorisez pour vos dépendances (autres packages que vous consommez à partir de votre package).
-- [Packages natifs](../create-packages/native-packages.md) décrit le processus de création d’un package pour les consommateurs C++.
+- [Gestion des versions de package](../concepts/package-versioning.md) explique comment identifier les versions exactes que vous autorisez pour vos dépendances (autres packages que vous consommez à partir de votre package).
+- [Packages natifs](../guides/native-packages.md) décrit le processus de création d’un package pour les consommateurs C++.
 - [Signature de packages](../create-packages/sign-a-package.md) décrit le processus d’ajout d’une signature numérique à un package.
 
 Lorsque vous êtes prêt à publier un package sur nuget.org, suivez le processus simple décrit dans [Publier un package](../nuget-org/publish-a-package.md).

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 92b42f0a6133565844d0b6df2cb50770793055ec
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: a965a3049f46af59efcfad2ecf19e0923fda413b
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860636"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488953"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Créer un package NuGet avec MSBuild
 
@@ -68,7 +68,7 @@ Vous pouvez également définir les propriétés optionnelles, telles que `Title
 > [!NOTE]
 > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags**, car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
 
-Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md) et [Gestion des versions de package](../reference/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `<IncludeAssets>` et `<ExcludeAssets>`. Pour plus d’informations, consultez [Contrôle des ressources des dépendances](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md) et [Gestion des versions de package](../concepts/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `<IncludeAssets>` et `<ExcludeAssets>`. Pour plus d’informations, consultez [Contrôle des ressources des dépendances](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Choisir un identificateur de package unique et définir le numéro de version
 
@@ -170,7 +170,7 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
 - [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md)
-- [Gestion des versions de package](../reference/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
@@ -180,5 +180,5 @@ Vous pouvez également étendre les fonctionnalités de votre package ou prendre
 
 Enfin, il existe d’autres types de package à connaître :
 
-- [Packages natifs](../create-packages/native-packages.md)
+- [Packages natifs](../guides/native-packages.md)
 - [Packages de symboles](../create-packages/symbol-packages.md)

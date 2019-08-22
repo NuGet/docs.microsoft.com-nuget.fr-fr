@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: e4d8b5b9ab4605516827ead8939f278d110c7a48
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547782"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488287"
 ---
 # <a name="projectjson-reference"></a>Documentation de référence sur project.json
 
@@ -47,7 +47,7 @@ Répertorie les dépendances de package NuGet de votre projet sous la forme suiv
 "PackageID" : "version_constraint"
 ```
 
-Exemple :
+Par exemple :
 
 ```json
 "dependencies": {
@@ -62,7 +62,7 @@ L’ID du package correspond à l’ID du package sur nuget.org, identique à l�
 
 Lors de la restauration de packages, la contrainte de version `"5.0.0"` implique `>= 5.0.0`. Autrement dit, si 5.0.0 n’est pas disponible sur le serveur mais que 5.0.1 l’est, NuGet installe 5.0.1 et vous informe de la mise à niveau. NuGet récupère sinon la version la plus ancienne possible sur le serveur correspondant à la contrainte.
 
-Consultez [Résolution des dépendances](../consume-packages/dependency-resolution.md) pour plus d’informations sur les règles de résolution.
+Consultez [Résolution des dépendances](../concepts/dependency-resolution.md) pour plus d’informations sur les règles de résolution.
 
 ### <a name="managing-dependency-assets"></a>Gestion des ressources de dépendance
 

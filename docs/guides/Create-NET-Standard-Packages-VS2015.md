@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 1198a781543e581f55740cc0ae5a212d3f8a8b61
-ms.sourcegitcommit: 0dea3b153ef823230a9d5f38351b7cef057cb299
+ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67842444"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488972"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Créer des packages .NET Standard et .NET Framework avec Visual Studio 2015
 
@@ -125,7 +125,7 @@ Si vous avez des dépendances sur d’autres packages NuGet, répertoriez-les da
 </dependencies>
 ```
 
-La syntaxe de l’attribut *version* indique ici que la version 8.0.3 ou supérieure est acceptable. Pour spécifier des plages de versions différentes, consultez [Gestion de version des packages](../reference/package-versioning.md).
+La syntaxe de l’attribut *version* indique ici que la version 8.0.3 ou supérieure est acceptable. Pour spécifier des plages de versions différentes, consultez [Gestion de version des packages](../concepts/package-versioning.md).
 
 ### <a name="adding-a-readme"></a>Ajout d’un fichier readme
 
@@ -170,6 +170,6 @@ Notez que `pack` nécessite Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur le
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Packages de symboles](../create-packages/symbol-packages.md)
-- [Gestion des versions de package](../reference/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
 - [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)

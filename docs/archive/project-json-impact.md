@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8c85c1a89469c491c6be1f81961197450744349c
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43545571"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488194"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impact de project.json lors de la création de packages
 
@@ -25,7 +25,7 @@ Les packages NuGet traditionnels prennent en charge un ensemble de fonctionnalit
 
 ### <a name="install-and-uninstall-scripts-are-ignored"></a>Les scripts d’installation et de désinstallation sont ignorés
 
-Le modèle de restauration transitif, décrit dans la [résolution des dépendances](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference), n’a pas le concept d’« heure d’installation du package ». Un package est soit présent, soit absent, mais il n’existe aucun processus cohérent qui se produit lorsqu’un package est installé.
+Le modèle de restauration transitif, décrit dans la [résolution des dépendances](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference), n’a pas le concept d’« heure d’installation du package ». Un package est soit présent, soit absent, mais il n’existe aucun processus cohérent qui se produit lorsqu’un package est installé.
 
 De plus, les scripts d’installation étaient pris en charge uniquement dans Visual Studio. Les environnements de développement intégrés (IDE) devaient simuler l’API d’extensibilité de Visual Studio pour essayer de prendre en charge de tels scripts, et aucune prise en charge n’était disponible dans les éditeurs courants et les outils en ligne de commande.
 

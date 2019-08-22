@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8d732e87f01c55bde87da0a2e382fd6d509886a3
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 87116669c1e685ffd0dbe4142c2f7e357c413497
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317014"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488243"
 ---
 # <a name="projectjson-archive"></a>Archive project.json
 
@@ -54,19 +54,19 @@ Fonctionne avec `project.json`.
 
 ## <a name="dependency-resolution-with-packagereference"></a>Résolution des dépendances avec PackageReference
 
-*À l’origine dans [Résolution des dépendances](../consume-packages/dependency-resolution.md#dependency-resolution-with-packagereference).*
+*À l’origine dans [Résolution des dépendances](../concepts/dependency-resolution.md#dependency-resolution-with-packagereference).*
 
 Le comportement de PackageReference s’applique également à `project.json`. La restauration NuGet écrit le graphique de dépendance dans un fichier nommé `project.lock.json` à côté de `project.json`.
 
 ## <a name="managing-dependency-assets"></a>Gestion des ressources de dépendance
 
-*À l’origine dans [Résolution des dépendances](../consume-packages/dependency-resolution.md#managing-dependency-assets).*
+*À l’origine dans [Résolution des dépendances](../concepts/dependency-resolution.md#managing-dependency-assets).*
 
 Le format `project.json` permet de choisir les ressources des dépendances qui seront acheminées dans le projet de niveau supérieur. Pour plus d’informations, consultez la section [project.json](project-json.md).
 
 ## <a name="excluding-references"></a>Exclusion de références
 
-*À l’origine dans [Résolution des dépendances](../consume-packages/dependency-resolution.md#excluding-references).*
+*À l’origine dans [Résolution des dépendances](../concepts/dependency-resolution.md#excluding-references).*
 
 - `project.json` : ajoutez `"exclude" : "all"` dans la dépendance au Package C :
 
@@ -83,7 +83,7 @@ Le format `project.json` permet de choisir les ressources des dépendances qui s
 
 ## <a name="resolving-incompatible-package-errors"></a>Résolution des erreurs de package incompatible
 
-*À l’origine dans [Résolution des dépendances](../consume-packages/dependency-resolution.md#resolving-incompatible-package-errors).*
+*À l’origine dans [Résolution des dépendances](../concepts/dependency-resolution.md#resolving-incompatible-package-errors).*
 
 Voici un autre moyen de résoudre les erreurs :
 
@@ -124,7 +124,7 @@ Quand vous utilisez `project.json`, les cibles ne sont pas ajoutées au projet, 
 
 ### <a name="package-versioning"></a>Contrôle de version des packages
 
-*À l’origine dans [Contrôle de version des packages](../reference/package-versioning.md).*
+*À l’origine dans [Contrôle de version des packages](../concepts/package-versioning.md).*
 
 Lorsque le format `project.json` est utilisé, NuGet prend également en charge la notation avec le caractère générique \* pour le suffixe du chiffre correspondant aux versions majeure, mineure, corrective et préversion.
 
