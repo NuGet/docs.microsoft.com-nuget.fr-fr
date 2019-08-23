@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5bf75bb724846f652725bfcf636908c34adc174f
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
+ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68860682"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488805"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurer des packages avec la restauration de packages
 
@@ -181,7 +181,7 @@ Quand NuGet restaure des packages avec l’une des méthodes disponibles, il res
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
     ```
 
-Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du package](../reference/package-versioning.md).
+Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du package](../concepts/package-versioning.md).
 
 ## <a name="force-restore-from-package-sources"></a>Forcer la restauration à partir de sources de packages
 
