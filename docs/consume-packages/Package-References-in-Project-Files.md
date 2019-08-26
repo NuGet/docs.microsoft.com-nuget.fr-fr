@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 05ece5f36ff7ae5920960c42cfde8b271dc3e712
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: ae80206117eed639140a0c7977043d8330bc37bb
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020009"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564567"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -20,7 +20,7 @@ Avec PackageReference, vous pouvez aussi utiliser des conditions MSBuild pour ch
 
 ## <a name="project-type-support"></a>Prise en charge de type de projet
 
-Par défaut, PackageReference est utilisé pour les projets .NET Core, les projets .NET Standard et les projets UWP ciblant Windows 10 Build 15063 (Creators Update) et version ultérieure, excepté les projets C++ UWP. Les projets .NET Framework prennent en charge PackageReference, mais utilisent par défaut `packages.config`. Pour utiliser PackageReference, [migrez](../reference/migrate-packages-config-to-package-reference.md) les dépendances de `packages.config` dans votre fichier projet, puis supprimez packages.config.
+Par défaut, PackageReference est utilisé pour les projets .NET Core, les projets .NET Standard et les projets UWP ciblant Windows 10 Build 15063 (Creators Update) et version ultérieure, excepté les projets C++ UWP. Les projets .NET Framework prennent en charge PackageReference, mais utilisent par défaut `packages.config`. Pour utiliser PackageReference, [migrez](../consume-packages/migrate-packages-config-to-package-reference.md) les dépendances de `packages.config` dans votre fichier projet, puis supprimez packages.config.
 
 Les applications ASP.NET ciblant le .NET Framework incluent uniquement une [prise en charge limitée](https://github.com/NuGet/Home/issues/5877) pour PackageReference. Les types de projets C++ et JavaScript ne sont pas pris en charge.
 
@@ -48,7 +48,7 @@ Pour spécifier la version d’un package, la convention est la même que pour `
 </ItemGroup>
 ```
 
-Dans l’exemple ci-dessus, 3.6.0 correspond à n’importe quelle version supérieure ou égale à 3.6.0, avec une préférence pour la version la plus ancienne, comme décrit dans [Gestion des versions de package](../reference/package-versioning.md#version-ranges-and-wildcards).
+Dans l’exemple ci-dessus, 3.6.0 correspond à n’importe quelle version supérieure ou égale à 3.6.0, avec une préférence pour la version la plus ancienne, comme décrit dans [Gestion des versions de package](../concepts/package-versioning.md#version-ranges-and-wildcards).
 
 ## <a name="using-packagereference-for-a-project-with-no-packagereferences"></a>Utilisation de PackageReference pour un projet sans PackageReferences
 Avancé : Si vous n’avez aucun package installé dans un projet (aucune PackageReferences dans le fichier projet et aucun fichier packages.config), mais que vous souhaitez restaurer le projet en tant que style PackageReference, vous pouvez définir une propriété de projet RestoreProjectStyle avec la valeur PackageReference dans votre fichier projet.
@@ -63,7 +63,7 @@ Cela peut être utile si vous référencez des projets qui sont de style Package
 
 ## <a name="floating-versions"></a>Versions flottantes
 
-Les [versions flottantes](../consume-packages/dependency-resolution.md#floating-versions) peuvent être utilisées avec `PackageReference` :
+Les [versions flottantes](../concepts/dependency-resolution.md#floating-versions) peuvent être utilisées avec `PackageReference` :
 
 ```xml
 <ItemGroup>
@@ -106,7 +106,7 @@ Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multipl
 | runtime | Contenu des dossiers `lib` et `runtimes` contrôles permettant de déterminer si ces assemblys seront copiés vers le répertoire de sortie de build |
 | contentFiles | Contenu du dossier `contentfiles` |
 | build | `.props` et `.targets` dans le dossier `build` |
-| buildMultitargeting | `.props` et `.targets` dans le dossier `buildMultitargeting`, pour le ciblage multi-infrastructures |
+| buildMultitargeting | *(4.0)* `.props` et `.targets` dans le dossier `buildMultitargeting`, pour le ciblage multi-infrastructures |
 | buildTransitive | *(5.0 +)* `.props` et `.targets` dans le dossier `buildTransitive`, pour les ressources qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analyzers | Analyseurs .NET |
 | native | Contenu du dossier `native` |
@@ -130,6 +130,9 @@ Dans l’exemple suivant, tout (à l’exception des fichiers de contenu du pack
 ```
 
 Étant donné que `build` n’est pas inclus dans `PrivateAssets`, les cibles et les propriétés *sont acheminées* vers le projet parent. Imaginons, par exemple, que la référence ci-dessus soit utilisée dans un projet qui crée un package NuGet appelé AppLogger. AppLogger peut consommer les cibles et les propriétés de `Contoso.Utility.UsefulStuff`, tout comme les projets peuvent consommer AppLogger.
+
+> [!NOTE]
+> Si la propriété `developmentDependency` est définie sur `true` dans un fichier `.nuspec`, elle marque un package comme dépendance de développement uniquement, ce qui l’empêche d’être inclus en tant que dépendance dans d’autres packages. Avec PackageReference *(NuGet 4.8+)* , cet indicateur signifie également que la propriété exclura les ressources de la compilation. Pour plus d'informations, voir [Prise en charge de DevelopmentDependency pour PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference).
 
 ## <a name="adding-a-packagereference-condition"></a>Ajout d’une condition PackageReference
 

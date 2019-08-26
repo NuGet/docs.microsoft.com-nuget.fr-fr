@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: b1c2511c1fbafc7f52029c23521fa55671b0b5c5
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: dbc3781bd17f815c6b32fc70b275469337148f41
+ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43546893"
+ms.lasthandoff: 08/15/2019
+ms.locfileid: "69488833"
 ---
 # <a name="creating-localized-nuget-packages"></a>Création de packages NuGet localisés
 
@@ -101,7 +101,7 @@ Un assembly satellite utilise alors la convention de nommage `{identifier}.{lang
 
 Comme il s’agit d’un package distinct, il possède son propre fichier `.nuspec` qui contient des métadonnées localisées. N’oubliez pas que la langue dans le fichier `.nuspec` **doit** correspond à celle utilisée dans le nom de fichier.
 
-L’assembly satellite **doit** également déclarer une version exacte du package principal en tant que dépendance, à l’aide de la notation de version [] \(consultez [Gestion des versions de package](../reference/package-versioning.md)). Par exemple, `ContosoUtilities.de.1.0.0.nupkg` doit déclarer une dépendance vis-à-vis de `ContosoUtilities.1.0.0.nupkg` à l’aide de la notation `[1.0.0]`. Le package satellite peut, bien entendu, avoir un numéro de version différent de celui du package principal.
+L’assembly satellite **doit** également déclarer une version exacte du package principal en tant que dépendance, à l’aide de la notation de version [] \(consultez [Gestion des versions de package](../concepts/package-versioning.md)). Par exemple, `ContosoUtilities.de.1.0.0.nupkg` doit déclarer une dépendance vis-à-vis de `ContosoUtilities.1.0.0.nupkg` à l’aide de la notation `[1.0.0]`. Le package satellite peut, bien entendu, avoir un numéro de version différent de celui du package principal.
 
 La structure du package satellite doit alors inclure l’assembly de ressources et le fichier XML IntelliSense dans un sous-dossier qui correspond à `{language}` dans le nom de fichier du package :
 

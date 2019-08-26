@@ -12,12 +12,12 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: e62d1872497e0e5e703bf7c49a87249ce9a996c7
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959674"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564533"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
@@ -118,7 +118,7 @@ Le fichier .nupkg est exactement le même qu’aujourd’hui. Toutefois, le fich
 
 4) Si un auteur décide d’utiliser un nuspec personnalisé pour générer ses nupkg et snupkg, le snupkg doit avoir la même hiérarchie de dossiers et les mêmes fichiers que ceux décrits dans 2).
 5) Les champs ```authors``` et ```owners``` sont exclus du nuspec de snupkg.
-6) N'utilisez pas l’élément <license> . Un fichier .snupkg est couvert par la même licence que le fichier .nupk correspondant.
+6) N'utilisez pas l’élément <license> . Un fichier .snupkg est couvert par la même licence que le fichier .nupkg correspondant.
 
 ## <a name="see-also"></a>Voir aussi
 

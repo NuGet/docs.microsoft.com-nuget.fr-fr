@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: a9224ce4e515cf98893a7134077c90a47df1862a
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
+ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
+ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020071"
+ms.lasthandoff: 08/17/2019
+ms.locfileid: "69564577"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
 
@@ -20,7 +20,7 @@ Quel que soit la fonction de votre package ou le code qu’il contient, vous uti
 
 - Pour les projets .NET Core et .NET Standard qui utilisent le [format SDK-style](../resources/check-project-format.md), et tout autre projet SDK-style, consultez [Créer un package NuGet avec l’interface CLI dotnet](creating-a-package-dotnet-cli.md).
 
-- Pour les projets migrés à partir de `packages.config` vers [PackageReference](../consume-packages/package-references-in-project-files.md), utilisez [msbuild -t:pack](../reference/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Pour les projets migrés à partir de `packages.config` vers [PackageReference](../consume-packages/package-references-in-project-files.md), utilisez [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 Techniquement parlant, un package NuGet n’est qu’un fichier ZIP renommé avec l’extension `.nupkg` et dont le contenu correspond à certaines conventions. Cette rubrique décrit le processus détaillé de création d’un package qui répond à ces conventions.
 
@@ -138,7 +138,7 @@ Voici un fichier `.nuspec` classique (mais fictif), avec des commentaires décri
 </package>
 ```
 
-Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [packages.config](../reference/packages-config.md) et [Gestion des versions de package](../reference/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `include` et `exclude` sur l’élément `dependency`. Consultez [Informations de référence sur le fichier .nuspec - Dépendances](../reference/nuspec.md#dependencies).
+Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [packages.config](../reference/packages-config.md) et [Gestion des versions de package](../concepts/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `include` et `exclude` sur l’élément `dependency`. Consultez [Informations de référence sur le fichier .nuspec - Dépendances](../reference/nuspec.md#dependencies).
 
 Étant donné que le manifeste est inclus dans le package à partir duquel il est créé, vous pouvez en trouver de nombreux autres exemples en examinant les packages existants. Le dossier *global-packages*, sur votre ordinateur, représente une bonne source ; son emplacement est retourné par la commande suivante :
 
@@ -184,8 +184,8 @@ Les conventions de dossier sont les suivantes :
 | ref/{tfm} | Fichiers d’assembly (`.dll`) et de symbole (`.pdb`) du TFM (moniker de framework cible) donné | Les assemblys étant uniquement ajoutés comme références pour la compilation, rien n’est copié dans le dossier bin du projet. |
 | runtimes | Fichiers d’assemblies propres à l’architecture (`.dll`), de symboles (`.pdb`) et de ressources natives (`.pri`) | Les assemblys sont uniquement ajoutés comme références pour l’exécution. Les autres fichiers sont copiés dans les dossiers du projet. Il doit toujours y avoir un assembly spécifique à `AnyCPU` (TFM) correspondant sous le dossier `/ref/{tfm}` pour fournir l’assembly correspondant au moment de la compilation. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md). |
 | contenu | Fichiers arbitraires | Le contenu est copié à la racine du projet. Considérez que le dossier **content** est la racine de l’application cible qui consomme le package en définitive. Pour que le package ajoute une image dans le dossier */images* de l’application, placez-le dans le dossier *content/images* du package. |
-| build | Fichiers `.targets` et `.props` MSBuild | Automatiquement insérés dans le projet (NuGet 3.x+). |
-| buildMultiTargeting | Les fichiers `.targets` et `.props` MSBuild du ciblage multi-infrastructure | Automatiquement insérés dans le projet. |
+| build | Fichiers *(3.x+)* MSBuild `.targets` et `.props` | Automatiquement insérés dans le projet. |
+| buildMultiTargeting | Les fichiers *(4.0+)* MSBuild `.targets` et `.props` du ciblage multi-infrastructure | Automatiquement insérés dans le projet. |
 | buildTransitive | Fichiers *(5.0 +)* MSBuild `.targets` et `.props` qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Automatiquement insérés dans le projet. |
 | outils | Scripts PowerShell et programmes accessibles à partir de la console du gestionnaire de package | Le dossier `tools` est ajouté à la variable d’environnement `PATH` de la console du gestionnaire de package uniquement (et *non* à `PATH` comme défini pour MSBuild lors de la génération du projet). |
 
@@ -226,9 +226,8 @@ Si vous avez des dépendances de package à inclure dans *.nuspec*, utilisez plu
 # Use in a folder containing a project file <project-name>.csproj or <project-name>.vbproj
 nuget pack myproject.csproj
 ```
-```
 
-A token is delimited by `$` symbols on both sides of the project property. For example, the `<id>` value in a manifest generated in this way typically appears as follows:
+Un jeton est délimité par des symboles `$` des deux côtés de la propriété de projet. Par exemple, la valeur `<id>` dans un manifeste généré de cette manière se présente généralement comme suit :
 
 ```xml
 <id>$id$</id>
@@ -273,7 +272,7 @@ L’identificateur de package (élément `<id>`) et le numéro de version (élé
 **Bonnes pratiques en matière de version de package :**
 
 - En général, définissez la version du package pour qu’elle corresponde à la bibliothèque, bien que cela ne soit pas strictement obligatoire. C’est très simple lorsque vous limitez un package à un seul assembly, comme décrit précédemment dans [Déterminer quels assemblys empaqueter](#decide-which-assemblies-to-package). Globalement, n’oubliez pas que NuGet lui-même traire les versions de package lors de la résolution des dépendances, pas les versions d’assembly.
-- Lorsque vous utilisez un schéma de version non standard, veillez à prendre en compte les règles de gestion de versions NuGet, comme expliqué dans [Gestion des versions de package](../reference/package-versioning.md).
+- Lorsque vous utilisez un schéma de version non standard, veillez à prendre en compte les règles de gestion de versions NuGet, comme expliqué dans [Gestion des versions de package](../concepts/package-versioning.md).
 
 > Les séries suivantes de courts billets de blog s’avèrent également utiles pour comprendre la gestion de versions :
 >
@@ -424,7 +423,7 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
-- [Gestion des versions de package](../reference/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
@@ -434,5 +433,5 @@ Vous pouvez également étendre les fonctionnalités de votre package ou prendre
 
 Enfin, il existe d’autres types de package à connaître :
 
-- [Packages natifs](../create-packages/native-packages.md)
+- [Packages natifs](../guides/native-packages.md)
 - [Packages de symboles](../create-packages/symbol-packages.md)
