@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f931ed297a6a1e9e24ce5eb30a8158f59925bb39
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 29c52b6684dff252e9c45bf5365d83b6a3fe5201
+ms.sourcegitcommit: c65e7a889ddf64a8e2ff7bc59ec08edb308e16ca
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488682"
+ms.lasthandoff: 08/27/2019
+ms.locfileid: "70060245"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -76,7 +76,7 @@ Identificateur de package ne respectant pas la casse, qui doit être unique dans
 #### <a name="version"></a>version
 Version du package, selon le modèle *version_principale.version_secondaire.version_corrective*. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>description
-Description longue du package pour l’affichage de l’interface utilisateur. 
+Description du package pour l’affichage de l’interface utilisateur.
 #### <a name="authors"></a>authors
 Liste séparée par des virgules des auteurs de packages, qui correspondent aux noms de profil sur nuget.org. Ceux-ci sont affichés dans la galerie NuGet sur nuget.org et servent à croiser les références des packages de mêmes auteurs. 
 
@@ -152,6 +152,9 @@ Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à acc
 *(2.8+)* Valeur booléenne qui spécifie si le package doit être marqué comme dépendance de développement uniquement, ce qui l’empêche d’être inclus en tant que dépendance dans d’autres packages. Avec PackageReference (NuGet 4.8 +), cet indicateur signifie également qu’il exclura les éléments multimédias de compilation de la compilation. Voir [prise en charge de DevelopmentDependency pour PackageReference](https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference)
 
 #### <a name="summary"></a>résumé
+> [!Important]
+> `summary`est déconseillé. Utilisez plutôt `description`.
+
 Brève description du package pour l’affichage de l’interface utilisateur. Si cet élément est omis, une version tronquée de `description` est utilisée.
 
 #### <a name="releasenotes"></a>releaseNotes
@@ -248,7 +251,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| Token | Source de la valeur | `Value`
+| Token | Source de la valeur | Valeur
 | --- | --- | ---
 | **$id$** | Fichier projet | AssemblyName (titre) à partir du fichier projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
