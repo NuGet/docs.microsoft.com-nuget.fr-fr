@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: dfe5f2ef4f0ababd81b91073938752aab2bdc01e
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 93a94a5468b48179d27b89825cebf2447657c8f2
+ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488805"
+ms.lasthandoff: 08/23/2019
+ms.locfileid: "69999982"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurer des packages avec la restauration de packages
 
@@ -44,7 +44,7 @@ La restauration du package tente d’installer toutes les dépendances de packag
 
    Pour les projets utilisant PackageReference, après une restauration réussie le package doit se trouver dans le dossier *global-packages* et le fichier `obj/project.assets.json` est recréé. Pour les projets qui utilisent `packages.config`, le package doit apparaître dans le dossier `packages` du projet. Le projet doit à présent être généré. 
 
-2. Après l’exécution de la restauration du package, si vous faites toujours face à des packages manquants ou à des erreurs liées aux packages (telles que des icônes d’erreur dans l’Explorateur de solutions de Visual Studio), vous devrez peut-être [Réinstaller et mettre à jour les packages](../consume-packages/reinstalling-and-updating-packages.md).
+2. Après l’exécution de la restauration du package, si vous faites toujours face à des packages manquants ou à des erreurs liées aux packages (comme des icônes d’erreur dans l’Explorateur de solutions de Visual Studio), vous devrez peut-être suivre les instructions fournies dans [Résolution des erreurs de restauration des packages](package-restore-troubleshooting.md) ou bien [réinstaller et mettre à jour les packages](../consume-packages/reinstalling-and-updating-packages.md).
 
    Dans Visual Studio, la console du gestionnaire de package fournit plusieurs options flexibles pour la réinstallation des packages. Consultez [Utilisation de la mise à jour de package](reinstalling-and-updating-packages.md#using-update-package).
 
