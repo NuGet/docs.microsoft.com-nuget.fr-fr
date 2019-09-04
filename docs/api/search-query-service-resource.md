@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: b898b389ee6c962831ce789a7c304c75e6bd8774
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: be25e9bf72b9115de8ae55f6296195fed3152f10
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488212"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235123"
 ---
 # <a name="search"></a>Rechercher
 
@@ -19,7 +19,7 @@ Il est possible de rechercher des packages disponibles sur une source de package
 
 ## <a name="versioning"></a>Gestion de version
 
-Les valeurs `@type` suivantes sont utilisées:
+Les valeurs `@type` suivantes sont utilisées :
 
 Valeur@type                   | Notes
 ----------------------------- | -----
@@ -45,7 +45,7 @@ Un package non répertorié ne doit jamais apparaître dans les résultats de la
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Nom        | Dans     | Type    | Obligatoire | Notes
+Name        | Dans     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
 q           | URL    | string  | Non       | Termes de recherche à utiliser pour filtrer les packages
 skip        | URL    | integer | Non       | Nombre de résultats à ignorer pour la pagination
@@ -53,7 +53,7 @@ prendre        | URL    | integer | Non       | Nombre de résultats à retourne
 version préliminaire  | URL    | booléenne | Non       | `true`ou `false` déterminer s’il faut inclure [les packages](../create-packages/prerelease-packages.md) de préversion
 semVerLevel | URL    | string  | Non       | Chaîne de version SemVer 1.0.0 
 
-La requête `q` de recherche est analysée d’une manière définie par l’implémentation du serveur. nuget.org prend en charge le filtrage de base sur un [large éventail de champs](../consume-packages/finding-and-choosing-packages.md#search-syntax). Si aucun `q` package n’est fourni, tous les packages doivent être retournés, dans les limites imposées par Skip et Take. Cela active l’onglet «Parcourir» dans l’expérience NuGet Visual Studio.
+La requête `q` de recherche est analysée d’une manière définie par l’implémentation du serveur. nuget.org prend en charge le filtrage de base sur un [large éventail de champs](../consume-packages/finding-and-choosing-packages.md#search-syntax). Si aucun `q` package n’est fourni, tous les packages doivent être retournés, dans les limites imposées par Skip et Take. Cela active l’onglet « Parcourir » dans l’expérience NuGet Visual Studio.
 
 La `skip` valeur par défaut du paramètre est 0.
 
@@ -69,7 +69,7 @@ Si `semVerLevel=2.0.0` est fourni, les packages compatibles SemVer 1.0.0 et SemV
 
 La réponse est un document JSON contenant les `take` résultats de recherche. Les résultats de la recherche sont regroupés par ID de package.
 
-L’objet JSON racine a les propriétés suivantes:
+L’objet JSON racine a les propriétés suivantes :
 
 Name      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
@@ -79,9 +79,9 @@ data      | Tableau d’objets | oui      | Résultats de la recherche correspon
 ### <a name="search-result"></a>Résultat de la recherche
 
 Chaque élément `data` du tableau est un objet JSON constitué d’un groupe de versions de packages partageant le même ID de package.
-L’objet a les propriétés suivantes:
+L’objet a les propriétés suivantes :
 
-Nom           | Type                       | Obligatoire | Notes
+Name           | Type                       | Obligatoire | Notes
 -------------- | -------------------------- | -------- | -----
 id             | string                     | oui      | ID du package mis en correspondance
 version        | string                     | oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de Build)
@@ -99,9 +99,9 @@ title          | string                     | Non       |
 totalDownloads | integer                    | Non       | Cette valeur peut être déduite par la somme des téléchargements dans `versions` le tableau.
 verifi       | booléenne                    | Non       | Valeur booléenne JSON indiquant si le package est [vérifié](../nuget-org/id-prefix-reservation.md)
 
-Sur nuget.org, un package vérifié est un package dont l’ID de package correspond à un préfixe d’ID réservé et qui appartient à l’un des propriétaires du préfixe réservé. Pour plus d’informations, consultez la [documentation relative à la réservation](../reference/id-prefix-reservation.md)du préfixe d’ID.
+Sur nuget.org, un package vérifié est un package dont l’ID de package correspond à un préfixe d’ID réservé et qui appartient à l’un des propriétaires du préfixe réservé. Pour plus d’informations, consultez la [documentation relative à la réservation du préfixe d’ID](../reference/id-prefix-reservation.md).
 
-Les métadonnées contenues dans l’objet de résultat de la recherche proviennent de la dernière version du package. Chaque élément `versions` du tableau est un objet JSON avec les propriétés suivantes:
+Les métadonnées contenues dans l’objet de résultat de la recherche proviennent de la dernière version du package. Chaque élément `versions` du tableau est un objet JSON avec les propriétés suivantes :
 
 Nom      | Type    | Obligatoire | Notes
 --------- | ------- | -------- | -----
@@ -111,7 +111,7 @@ disponibles | integer | oui      | Nombre de téléchargements pour cette versio
 
 ### <a name="sample-request"></a>Exemple de requête
 
-    GET https://api-v2v3search-0.nuget.org/query?q=NuGet.Versioning&prerelease=false
+    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
 
 ### <a name="sample-response"></a>Exemple de réponse
 
