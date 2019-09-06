@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: a2be42aeb322cfd0ab43c9cec6ad1b063cbc3089
-ms.sourcegitcommit: f291ff91561a6b58c2aec41c624d798e00ce41fa
-ms.translationtype: HT
+ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
+ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68462529"
+ms.lasthandoff: 09/03/2019
+ms.locfileid: "70235080"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Démarrage rapide : Installer et utiliser un package dans Visual Studio (Windows uniquement)
 
@@ -27,9 +27,9 @@ Une fois le package installé, faites-y référence dans le code avec `using <na
 
 Vous pouvez installer l’édition Community 2019 gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/), ou utiliser l’édition Professional ou Enterprise.
 
-Si vous utilisez Visual Studio pour Mac, consultez [Inclure un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
+Si vous utilisez Visual Studio pour Mac, consultez [installer et utiliser un package dans Visual Studio pour Mac](install-and-use-a-package-in-visual-studio-mac.md).
 
-## <a name="create-a-project"></a>Créer un projet
+## <a name="create-a-project"></a>Création d’un projet
 
 Les packages NuGet peuvent être installés dans n’importe quel projet .NET, à condition qu’ils prennent en charge la même version cible de .NET Framework que le projet.
 
@@ -41,7 +41,7 @@ Visual Studio crée le projet qui s’ouvre dans l’Explorateur de solutions.
 
 Pour installer le package, vous pouvez utiliser l’interface utilisateur du gestionnaire de package NuGet ou la console du gestionnaire de package. Quand vous installez un package, NuGet enregistre la dépendance dans votre fichier projet ou dans un fichier `packages.config` (en fonction du format du projet). Pour plus d’informations, consultez [Vue d’ensemble et flux de consommation des packages](../consume-packages/Overview-and-Workflow.md).
 
-### <a name="nuget-package-manager"></a>NuGet Package Manager
+### <a name="nuget-package-manager"></a>Gestionnaire de package NuGet
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références** et choisissez **Gérer les packages NuGet**.
 

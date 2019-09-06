@@ -1,57 +1,57 @@
 ---
 title: Fournisseurs d’informations d’identification NuGet pour Visual Studio
-description: Fournisseurs d’informations d’identification NuGet s’authentifier avec des flux en implémentant l’interface IVsCredentialProvider dans une extension Visual Studio.
+description: Les fournisseurs d’informations d’identification NuGet s’authentifient avec des flux en implémentant l’interface IVsCredentialProvider dans une extension Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: abe009fee5863c55a188f4d7c71ed0924dd067ff
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4e781a2462871bceeb1c7f02220320daabdab98a
+ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547952"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70384427"
 ---
-# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>L’authentification de flux dans Visual Studio avec les fournisseurs d’informations d’identification NuGet
+# <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentification de flux dans Visual Studio avec des fournisseurs d’informations d’identification NuGet
 
-L’Extension NuGet Visual Studio 3.6 et + prend en charge les fournisseurs d’informations d’identification, qui permettent de NuGet travailler avec les flux authentifiés.
-Après avoir installé un fournisseur d’informations d’identification NuGet pour Visual Studio, l’extension NuGet Visual Studio va automatiquement acquérir et actualiser les informations d’identification pour les flux authentifiés en fonction des besoins.
+L’extension Visual Studio NuGet 3.6 + prend en charge les fournisseurs d’informations d’identification, ce qui permet à NuGet de fonctionner avec les flux authentifiés.
+Après l’installation d’un fournisseur d’informations d’identification NuGet pour Visual Studio, l’extension NuGet Visual Studio acquière et actualise automatiquement les informations d’identification pour les flux authentifiés si nécessaire.
 
 Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
-En commençant par 4.8 + NuGet dans Visual Studio prend en charge les nouvelles inter-plateformes authentification plug-ins également, mais ils ne sont pas l’approche recommandée pour des raisons de performances.
+À compter de la section 4.8 + NuGet dans Visual Studio prend également en charge les nouveaux plug-ins d’authentification multiplateforme, mais ce n’est pas l’approche recommandée pour des raisons de performances.
 
 > [!Note]
-> Fournisseurs d’informations d’identification NuGet pour Visual Studio doit être installés comme une extension de Visual Studio standard et nécessitera [Visual Studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) ou version ultérieure.
+> Les fournisseurs d’informations d’identification NuGet pour Visual Studio doivent être installés en tant qu’extension Visual Studio standard et nécessitent [Visual studio 2017](http://aka.ms/vs/15/release/vs_enterprise.exe) ou version ultérieure.
 >
-> Fournisseurs d’informations d’identification NuGet pour Visual Studio fonctionnent uniquement dans Visual Studio (pas dans la restauration de dotnet ou nuget.exe). Pour les fournisseurs d’informations d’identification avec nuget.exe, consultez [nuget.exe fournisseurs d’informations d’identification](nuget-exe-Credential-providers.md).
-> Pour les informations d’identification fournisseurs dans dotnet et msbuild consultez [NuGet entre les plug-ins de la plateforme](nuget-cross-platform-authentication-plugin.md)
+> Les fournisseurs d’informations d’identification NuGet pour Visual Studio fonctionnent uniquement dans Visual Studio (pas dans dotnet restore ou NuGet. exe). Pour obtenir des fournisseurs d’informations d’identification avec NuGet. exe, consultez [fournisseurs d’informations d’identification NuGet. exe](nuget-exe-Credential-providers.md).
+> Pour les fournisseurs d’informations d’identification dans dotnet et MSBuild, consultez [plug-ins inter-plateforme NuGet](nuget-cross-platform-authentication-plugin.md)
 
 ## <a name="available-nuget-credential-providers-for-visual-studio"></a>Fournisseurs d’informations d’identification NuGet disponibles pour Visual Studio
 
-Il existe un fournisseur d’informations d’identification intégré à l’extension de Visual Studio NuGet pour prendre en charge de Visual Studio Team Services.
+Un fournisseur d’informations d’identification est intégré à l’extension NuGet de Visual Studio pour prendre en charge Visual Studio Team Services.
 
-L’Extension NuGet Visual Studio utilise un interne `VsCredentialProviderImporter` qui analyse également pour les fournisseurs de plug-in informations d’identification. Ces fournisseurs d’informations d’identification de plug-in doivent être détectables en tant qu’une exportation MEF de type `IVsCredentialProvider`.
+L’extension Visual Studio NuGet utilise une interne `VsCredentialProviderImporter` qui recherche également les fournisseurs d’informations d’identification de plug-in. Ces fournisseurs d’informations d’identification de plug-in doivent être détectables comme une exportation `IVsCredentialProvider`MEF de type.
 
-Fournisseurs d’informations d’identification de plug-in disponibles sont les suivantes :
+Les fournisseurs d’informations d’identification de plug-in disponibles sont les suivants :
 
-- [Fournisseur d’informations d’identification MyGet pour Visual Studio 2017](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
+- [Fournisseur d’informations d’identification MyGet pour Visual Studio](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Création d’un fournisseur d’informations d’identification NuGet pour Visual Studio
 
-L’Extension NuGet Visual Studio 3.6 et + implémente un CredentialService interne qui est utilisée pour obtenir des informations d’identification. Le CredentialService a une liste de fournisseurs d’informations d’identification intégrés et plug-in. Chaque fournisseur est testé séquentiellement jusqu'à ce que les informations d’identification sont acquis.
+L’extension Visual Studio NuGet 3.6 + implémente un CredentialService interne qui est utilisé pour obtenir les informations d’identification. Le CredentialService contient une liste de fournisseurs d’informations d’identification intégrés et de plug-in. Chaque fournisseur est essayé séquentiellement jusqu’à ce que les informations d’identification soient acquises.
 
-Pendant l’acquisition d’informations d’identification, le service d’informations d’identification va tenter de fournisseurs d’informations d’identification dans l’ordre suivant, l’arrêt dès que les informations d’identification sont acquis :
+Lors de l’acquisition des informations d’identification, le service d’informations d’identification essaiera les fournisseurs d’informations d’identification dans l’ordre suivant, en arrêtant dès que les informations d’identification sont acquises :
 
-1. Informations d’identification seront extraites à partir des fichiers de configuration NuGet (à l’aide intégrée `SettingsCredentialProvider`).
-1. Si la source du package se trouve sur Visual Studio Team Services, le `VisualStudioAccountProvider` sera utilisé.
-1. Tous les autres fournisseurs d’informations d’identification Visual Studio plug-in seront tentées de manière séquentielle.
-1. Essayez d’utiliser tous les NuGet entre les fournisseurs d’informations d’identification de plateforme séquentiellement.
-1. Si aucune information d’identification n’ont été acquis, l’utilisateur demandera les informations d’identification à l’aide d’une boîte de dialogue de l’authentification de base standard.
+1. Les informations d’identification sont extraites à partir des fichiers de configuration NuGet (à `SettingsCredentialProvider`l’aide de l’intégré).
+1. Si la source du package se trouve sur Visual Studio Team Services `VisualStudioAccountProvider` , sera utilisé.
+1. Tous les autres fournisseurs d’informations d’identification Visual Studio du plug-in seront essayés séquentiellement.
+1. Essayez d’utiliser tous les fournisseurs d’informations d’identification inter-plateforme NuGet de manière séquentielle.
+1. Si aucune information d’identification n’a encore été acquise, l’utilisateur est invité à fournir des informations d’identification à l’aide d’une boîte de dialogue d’authentification de base standard.
 
-### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implémentation IVsCredentialProvider.GetCredentialsAsync
+### <a name="implementing-ivscredentialprovidergetcredentialsasync"></a>Implémentation de IVsCredentialProvider. GetCredentialsAsync
 
-Pour créer un fournisseur d’informations d’identification NuGet pour Visual Studio, créez une Extension Visual Studio qui expose une publique exportation MEF qui implémente le `IVsCredentialProvider` tapez, adhère aux principes énoncés ci-dessous.
+Pour créer un fournisseur d’informations d’identification NuGet pour Visual Studio, créez une extension Visual Studio qui expose une exportation MEF `IVsCredentialProvider` publique qui implémente le type et qui adhère aux principes énoncés ci-dessous.
 
 ```cs
 public interface IVsCredentialProvider
@@ -70,20 +70,20 @@ Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProv
 
 Chaque fournisseur d’informations d’identification NuGet pour Visual Studio doit :
 
-1. Déterminer si elle peut fournir des informations d’identification pour l’URI cible avant de lancer l’acquisition des informations d’identification. Si le fournisseur ne peut pas fournir les informations d’identification pour la source ciblée, elle doit retourner `null`.
-1. Si le fournisseur gère les demandes pour l’URI cible, mais ne peut pas fournir les informations d’identification, une exception doit être levée.
+1. Déterminez si elle peut fournir des informations d’identification pour l’URI ciblé avant de lancer l’acquisition des informations d’identification. Si le fournisseur ne peut pas fournir d’informations d’identification pour la source ciblée `null`, il doit retourner.
+1. Si le fournisseur gère les demandes pour l’URI ciblé, mais ne peut pas fournir d’informations d’identification, une exception doit être levée.
 
-Un fournisseur d’informations d’identification NuGet personnalisé pour Visual Studio doit implémenter le `IVsCredentialProvider` interface disponible dans le [NuGet.VisualStudio package](https://www.nuget.org/packages/NuGet.VisualStudio/).
+Un fournisseur d’informations d’identification NuGet personnalisé pour Visual Studio `IVsCredentialProvider` doit implémenter l’interface disponible dans le [package NuGet. VisualStudio](https://www.nuget.org/packages/NuGet.VisualStudio/).
 
 #### <a name="getcredentialasync"></a>GetCredentialAsync
 
 | Paramètre d’entrée |Description|
 | ----------------|-----------|
-| Uri de l’URI | L’Uri de source de package pour lequel les informations d’identification sont demandées.|
-| IWebProxy proxy | Proxy Web à utiliser lors de la communication sur le réseau. Null s’il n’existe aucune authentification de proxy configurée. |
-| bool isProxyRequest | True si cette demande est pour obtenir des informations d’identification de l’authentification de proxy. Si l’implémentation n’est pas valide pour l’acquisition des informations d’identification de proxy, null doit être retourné. |
-| bool isRetry | True si les informations d’identification ont été précédemment demandées pour cet Uri, mais les informations d’identification fournies ne permettait pas d’accès autorisé. |
-| bool non interactive | Si la valeur est true, le fournisseur d’informations d’identification doit supprimer toutes les invites utilisateur et utilisez à la place des valeurs par défaut. |
-| CancellationToken cancellationToken | Ce jeton d’annulation doit être vérifié pour déterminer si les informations d’identification demandeur d’opération a été annulée. |
+| URI de l’URI | URI source du package pour lequel les informations d’identification sont demandées.|
+| Proxy IWebProxy | Proxy Web à utiliser lors de la communication sur le réseau. NULL si aucune authentification du proxy n’est configurée. |
+| bool isProxyRequest | True si cette demande doit obtenir les informations d’identification de l’authentification du proxy. Si l’implémentation n’est pas valide pour l’acquisition des informations d’identification du proxy, la valeur null doit être retournée. |
+| bool isRetry | True si les informations d’identification ont été précédemment demandées pour cet URI, mais que les informations d’identification fournies n’autorisent pas l’accès autorisé. |
+| bool non interactif | Si la valeur est true, le fournisseur d’informations d’identification doit supprimer toutes les invites utilisateur et utiliser les valeurs par défaut à la place. |
+| CancellationToken cancellationToken | Ce jeton d’annulation doit être vérifié pour déterminer si l’opération qui demande des informations d’identification a été annulée. |
 
-**Valeur de retour**: un objet informations d’identification qui implémente le [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Valeur de retour**: Objet d’informations d’identification implémentant l' [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).

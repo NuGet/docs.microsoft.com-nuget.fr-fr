@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: d8d1b2ef0185381d16c1bb73035588fe90bcfd14
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
+ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959694"
+ms.lasthandoff: 09/05/2019
+ms.locfileid: "70385903"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -60,14 +60,15 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | licence | PackageLicenseExpression | vide | Correspond à`<license type="expression">` |
 | licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devrez peut-être compresser explicitement le fichier de licence référencé. |
-| LicenseUrl | PackageLicenseUrl | vide | `licenseUrl`est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
+| LicenseUrl | PackageLicenseUrl | vide | `PackageLicenseUrl`est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | vide | |
-| IconUrl | PackageIconUrl | vide | |
+| Icône | PackageIcon | vide | Vous devrez peut-être compresser explicitement le fichier image icône référencé.|
+| IconUrl | PackageIconUrl | vide | `PackageIconUrl`est déconseillé, utilisez la propriété PackageIcon |
 | Balises | PackageTags | vide | Les balises sont séparées par un point-virgule. |
 | ReleaseNotes | PackageReleaseNotes | vide | |
 | Référentiel/URL | RepositoryUrl | vide | URL du référentiel utilisée pour cloner ou récupérer le code source. Tels *https://github.com/NuGet/NuGet.Client.git* |
-| Dépôt/type | RepositoryType | vide | Type de référentiel. Exemples: *git*, *tfs*. |
-| Référentiel/branche | RepositoryBranch | vide | Informations de branche de référentiel facultatives. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple: *Master* (NuGet 4.7.0 +) |
+| Dépôt/type | RepositoryType | vide | Type de référentiel. Exemples : *git*, *tfs*. |
+| Référentiel/branche | RepositoryBranch | vide | Informations de branche de référentiel facultatives. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *Master* (NuGet 4.7.0 +) |
 | Dépôt/validation | RepositoryCommit | vide | Validation ou ensemble de modifications de référentiel facultatif pour indiquer la source à partir de laquelle le package a été généré. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
 | Récapitulatif | Non pris en charge | | |
@@ -117,7 +118,32 @@ Pour supprimer les dépendances de package du package NuGet `SuppressDependencie
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-Dans le cadre de la modification du [problème NuGet 352](https://github.com/NuGet/Home/issues/352), `PackageIconUrl` sera finalement remplacé par `PackageIconUri` et peut être le chemin d’accès relatif à un fichier icône qui sera inclus à la racine du package résultant.
+> [!Important]
+> PackageIconUrl est déconseillé. Utilisez [PackageIcon](#packing-an-icon-image-file) à la place.
+
+### <a name="packing-an-icon-image-file"></a>Compression d’un fichier image d’icône
+
+Lors de la compression d’un fichier image icône, vous devez utiliser la propriété PackageIcon pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 64x64.
+
+Par exemple :
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageIcon>icon.png</PackageIcon>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="images\icon.png" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+[Exemple d’icône de package](https://github.com/NuGet/Samples/tree/master/PackageIconExample).
+
+Pour l’équivalent NuSpec, consultez la [référence NuSpec pour l’icône](nuspec.md#icon).
 
 ### <a name="output-assemblies"></a>Assemblys de sortie
 
@@ -221,6 +247,7 @@ Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propri
     <None Include="licenses\LICENSE.txt" Pack="true" PackagePath=""/>
 </ItemGroup>
 ```
+
 [Exemple de fichier de licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
 ### <a name="istool"></a>IsTool
@@ -251,7 +278,7 @@ msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:Nu
 
 Notez que le compactage d’un NuSpec à l’aide de dotnet. exe ou de MSBuild permet également de générer le projet par défaut. Cela peut être évité en passant ```--no-build``` la propriété à dotnet. exe, qui est l’équivalent du ```<NoBuild>true</NoBuild> ``` paramètre dans votre fichier projet, ainsi que ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` le paramètre dans le fichier projet.
 
-Voici un exemple de fichier *. csproj* pour compresser un fichier NuSpec:
+Voici un exemple de fichier *. csproj* pour compresser un fichier NuSpec :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -268,16 +295,16 @@ Voici un exemple de fichier *. csproj* pour compresser un fichier NuSpec:
 
 ### <a name="advanced-extension-points-to-create-customized-package"></a>Points d’extension avancés pour créer un package personnalisé
 
-La `pack` cible fournit deux points d’extension qui s’exécutent dans la build interne du Framework cible. Les points d’extension prennent en charge l’inclusion de contenu et d’assemblys spécifiques au Framework cible dans un package:
+La `pack` cible fournit deux points d’extension qui s’exécutent dans la build interne du Framework cible. Les points d’extension prennent en charge l’inclusion de contenu et d’assemblys spécifiques au Framework cible dans un package :
 
 - `TargetsForTfmSpecificBuildOutput`Indicatif Utilisez pour les fichiers contenus `lib` dans le dossier ou dans un `BuildOutputTargetFolder`dossier spécifié à l’aide de.
 - `TargetsForTfmSpecificContentInPackage`Indicatif Utilisez pour les `BuildOutputTargetFolder`fichiers en dehors de.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
-Écrivez une cible personnalisée et spécifiez-la comme valeur de `$(TargetsForTfmSpecificBuildOutput)` la propriété. Pour tous les fichiers qui doivent être placés dans `BuildOutputTargetFolder` (lib par défaut), la cible doit écrire ces fichiers dans ItemGroup `BuildOutputInPackage` et définir les deux valeurs de métadonnées suivantes:
+Écrivez une cible personnalisée et spécifiez-la comme valeur de `$(TargetsForTfmSpecificBuildOutput)` la propriété. Pour tous les fichiers qui doivent être placés dans `BuildOutputTargetFolder` (lib par défaut), la cible doit écrire ces fichiers dans ItemGroup `BuildOutputInPackage` et définir les deux valeurs de métadonnées suivantes :
 
-- `FinalOutputPath`: Chemin d’accès absolu du fichier; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
+- `FinalOutputPath`: Chemin d’accès absolu du fichier ; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
 - `TargetPath`:  Facultatif Définie lorsque le fichier doit être placé dans un sous-dossier `lib\<TargetFramework>` au sein de, comme les assemblys satellites qui se trouvent dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
 
 Exemple :
@@ -298,10 +325,10 @@ Exemple :
 
 #### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
 
-Écrivez une cible personnalisée et spécifiez-la comme valeur de `$(TargetsForTfmSpecificContentInPackage)` la propriété. Pour tous les fichiers à inclure dans le package, la cible doit écrire ces fichiers dans ItemGroup `TfmSpecificPackageFile` et définir les métadonnées facultatives suivantes:
+Écrivez une cible personnalisée et spécifiez-la comme valeur de `$(TargetsForTfmSpecificContentInPackage)` la propriété. Pour tous les fichiers à inclure dans le package, la cible doit écrire ces fichiers dans ItemGroup `TfmSpecificPackageFile` et définir les métadonnées facultatives suivantes :
 
 - `PackagePath`: Chemin d’accès où le fichier doit être généré dans le package. NuGet émet un avertissement si plusieurs fichiers sont ajoutés au même chemin d’accès de package.
-- `BuildAction`: Action de génération à assigner au fichier, obligatoire uniquement si le chemin d’accès du `contentFiles` package se trouve dans le dossier. La valeur par défaut est «None».
+- `BuildAction`: Action de génération à assigner au fichier, obligatoire uniquement si le chemin d’accès du `contentFiles` package se trouve dans le dossier. La valeur par défaut est « None ».
 
 Exemple :
 ```xml
@@ -332,7 +359,7 @@ Exemple :
 1. Télécharger les packages
 1. Écrire le fichier de ressources, les cibles et les propriétés
 
-La `restore` cible fonctionne **uniquement** pour les projets utilisant le format PackageReference. Il ne fonctionne **pas** pour les projets qui `packages.config` utilisent le format; utilisez la [restauration NuGet](../reference/cli-reference/cli-ref-restore.md) à la place.
+La `restore` cible fonctionne **uniquement** pour les projets utilisant le format PackageReference. Il ne fonctionne **pas** pour les projets qui `packages.config` utilisent le format ; utilisez la [restauration NuGet](../reference/cli-reference/cli-ref-restore.md) à la place.
 
 ### <a name="restore-properties"></a>Propriétés de restauration
 
@@ -390,7 +417,7 @@ Cela signifie que les éléments suivants auront un comportement imprévisible e
 msbuild -t:restore,build
 ```
 
- Au lieu de cela, l’approche recommandée est la suivante:
+ Au lieu de cela, l’approche recommandée est la suivante :
 
 ```cli
 msbuild -t:build -restore
