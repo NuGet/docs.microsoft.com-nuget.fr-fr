@@ -12,12 +12,12 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 992b3ddd04a1bb34e7aca25dfaa6f7df5485907b
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
+ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564533"
+ms.lasthandoff: 09/06/2019
+ms.locfileid: "70749029"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
@@ -29,7 +29,30 @@ Les packages de symboles vous permettent d’améliorer le débogage de vos pack
 
 ## <a name="creating-a-symbol-package"></a>Création d’un package de symboles
 
-Vous pouvez créer un package de symboles snupkg à l’aide de dotnet.exe, NuGet.exe ou MSBuild. Si vous choisissez NuGet.exe, vous pouvez utiliser les commandes suivantes pour créer un fichier .snupkg, en plus du fichier .nupkg :
+Si vous utilisez dotnet. exe ou MSBuild, vous devez définir les `IncludeSymbols` propriétés et `SymbolPackageFormat` pour créer un fichier. snupkg en plus du fichier. nupkg.
+
+* Ajoutez les propriétés suivantes à votre fichier. csproj :
+
+   ```xml
+   <PropertyGroup>
+      <IncludeSymbols>true</IncludeSymbols> 
+      <SymbolPackageFormat>snupkg</SymbolPackageFormat> 
+   </PropertyGroup>
+   ```
+
+* Ou spécifiez ces propriétés sur la ligne de commande :
+
+     ```cli
+     dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+     ```
+
+  ou Gestionnaire de configuration
+
+  ```cli
+  msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
+  ```
+
+Si vous choisissez NuGet.exe, vous pouvez utiliser les commandes suivantes pour créer un fichier .snupkg, en plus du fichier .nupkg :
 
 ```
 nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
@@ -37,20 +60,7 @@ nuget pack MyPackage.nuspec -Symbols -SymbolPackageFormat snupkg
 nuget pack MyPackage.csproj -Symbols -SymbolPackageFormat snupkg
 ```
 
-Si vous choisissez dotnet.exe ou MSBuild, effectuez les étapes suivantes pour créer un fichier .snupkg, en plus du fichier .nupkg :
-
-1. Ajoutez les propriétés suivantes à votre fichier .csproj :
-
-    ```xml
-    <PropertyGroup>
-      <IncludeSymbols>true</IncludeSymbols>
-      <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    </PropertyGroup>
-    ```
-
-1. Compressez votre projet avec `dotnet pack MyPackage.csproj` ou `msbuild -t:pack MyPackage.csproj`.
-
-La propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si la propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) n’est pas spécifiée, un package de symboles hérité est créé.
+La propriété [`SymbolPackageFormat`](/dotnet/core/tools/csproj#symbolpackageformat) peut avoir l’une des deux valeurs suivantes : `symbols.nupkg` (valeur par défaut) ou `snupkg`. Si cette propriété n’est pas spécifiée, un package de symboles hérité sera créé.
 
 > [!Note]
 > Le format hérité `.symbols.nupkg` est toujours pris en charge, mais uniquement pour des raisons de compatibilité (consultez [Packages de symboles hérités](Symbol-Packages.md)). Le serveur de symboles NuGet.org accepte uniquement le nouveau format de package de symboles - `.snupkg`.
@@ -118,8 +128,8 @@ Le fichier .nupkg est exactement le même qu’aujourd’hui. Toutefois, le fich
 
 4) Si un auteur décide d’utiliser un nuspec personnalisé pour générer ses nupkg et snupkg, le snupkg doit avoir la même hiérarchie de dossiers et les mêmes fichiers que ceux décrits dans 2).
 5) Les champs ```authors``` et ```owners``` sont exclus du nuspec de snupkg.
-6) N'utilisez pas l’élément <license> . Un fichier .snupkg est couvert par la même licence que le fichier .nupkg correspondant.
+6) N'utilisez pas l’élément ```<license>``` . Un fichier .snupkg est couvert par la même licence que le fichier .nupkg correspondant.
 
 ## <a name="see-also"></a>Voir aussi
 
-[Améliorations apportées au débogage et aux symboles de packages NuGet](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+[Améliorations du débogage des packages NuGet & symboles](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
