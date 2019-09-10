@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: a9331ad2ea0482737d84f4ea9a9babf95da8d66f
-ms.sourcegitcommit: d5cc3f01a92c2d69b794343c09aff07ba9e912e5
+ms.openlocfilehash: 16b8ff532b87a3e3f96029e77dd166eb39294c0b
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70385903"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815347"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -53,7 +53,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | VersionPrefix | PackageVersionPrefix | vide | La définition de PackageVersion remplace PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | vide | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix |
 | Auteurs | Auteurs | Nom de l’utilisateur actuel | |
-| Propriétaires | N/A | Ne figure pas dans NuSpec | |
+| Propriétaires | S.O. | Ne figure pas dans NuSpec | |
 | Titre | Titre | PackageId| |
 | Description | Description | « Description du package » | |
 | Copyright | Copyright | vide | |
@@ -109,6 +109,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 - NuspecFile
 - NuspecBasePath
 - NuspecProperties
+- Déterministe
 
 ## <a name="pack-scenarios"></a>Scénarios avec pack
 
@@ -172,6 +173,18 @@ Vous pouvez également ajouter les métadonnées suivantes à votre référence 
 <IncludeAssets>
 <ExcludeAssets>
 <PrivateAssets>
+```
+
+### <a name="deterministic"></a>Déterministe
+
+Lorsque vous `MSBuild -t:pack -p:Deterministic=true`utilisez, plusieurs appels de la cible Pack génèrent exactement le même package.
+La sortie de la commande à en-tête pack n’est pas affectée par l’État ambiant de l’ordinateur. En particulier, les entrées zip sont horodatées en tant que 1980-01-01. Pour obtenir un déterminisme complet, les assemblys doivent être générés avec l’option [de compilateur correspondante-déterministe](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option).
+Il est recommandé de spécifier la propriété déterministe comme suit, afin que le compilateur et NuGet le respecte.
+
+```xml
+<PropertyGroup>
+  <Deterministic>true</Deterministic>
+</PropertyGroup>
 ```
 
 ### <a name="including-content-in-a-package"></a>Ajout de contenu dans un package

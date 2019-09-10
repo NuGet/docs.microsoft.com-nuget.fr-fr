@@ -1,17 +1,17 @@
 ---
 title: Réservation du préfixe d’ID
 description: Description de la fonctionnalité Réservation du préfixe d’ID de package et guide de création.
-author: diverdan92
-ms.author: diverdan92
-ms.date: 10/09/2017
+author: karann-msft
+ms.author: karann
+ms.date: 09/07/2019
 ms.topic: reference
-ms.reviewer: ananguar
-ms.openlocfilehash: 650f570ec65a665e3d452af732ea22337835d8d9
-ms.sourcegitcommit: cae759ad8518c049575a30ad3bf04fe5d06244fb
-ms.translationtype: HT
+ms.reviewer: karann
+ms.openlocfilehash: 630c2b193500ec0b9aa5a7fe4af3ea95ae52aeec
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68616803"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815281"
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation du préfixe d’ID de package
 
@@ -88,6 +88,8 @@ Au cours de l’examen d’une demande de réservation de préfixe d’ID, l’�
 1. Les propriétés d’identification des packages qui correspondent au préfixe d’ID de package sont-elles claires et cohérentes (en particulier l’auteur du package) ?
 
 1. Les packages ont-ils une licence (qui utilise l’élément de métadonnées [license](../reference/nuspec.md#license) et non licenseUrl qui est déprécié) ?
+
+1. Si les packages ont une icône (à l’aide de l’élément de métadonnées iconUrl), sont-ils également en utilisant l’élément de métadonnées d' [icône](../reference/nuspec.md#icon) (il n’est pas nécessaire de supprimer le IconUrl) ?
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénarios faisant appel à un fournisseur de flux tiers
 

@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: cab56cb87f46335f9fdebdbc1649fead16459877
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: 76829d45ea9821da3b7fdaa2f88d30dbb104fea1
+ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959725"
+ms.lasthandoff: 09/09/2019
+ms.locfileid: "70815363"
 ---
 # <a name="pack-command-nuget-cli"></a>pack (commande, NuGet CLI)
 
-**S’applique à:** &bullet; **versions prises en charge** pour la création de package: 2.7+
+**S’applique à :** &bullet; **versions prises en charge** pour la création de package : 2.7+
 
 Crée un package NuGet basé sur le fichier [. NuSpec](../nuspec.md) ou le fichier projet spécifié. La `dotnet pack` commande (consultez les [commandes dotnet](../dotnet-Commands.md)) `msbuild -t:pack` et (voir [cibles MSBuild](../msbuild-targets.md)) peut être utilisée comme variantes.
 
@@ -35,7 +35,8 @@ où `<nuspecPath>` `.nuspec` et `<projectPath>` spécifient respectivement le fi
 | --- | --- |
 | Chemin de base | Définit le chemin d’accès de base des fichiers définis dans le fichier [. NuSpec](../nuspec.md) . |
 | Build | Spécifie que le projet doit être généré avant de générer le package. |
-| Exclude | Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l’exemple ci-dessous. |
+| Déterministe | Spécifiez si la commande doit créer un package déterministe. Plusieurs appels de la commande Pack génèrent exactement le même package octet-à-octet. La sortie de la commande à en-tête pack n’est pas affectée par l’État ambiant de l’ordinateur. En particulier, les entrées zip sont horodatées en tant que 1980-01-01. Pour obtenir un déterminisme complet, les assemblys doivent être générés avec l’option [de compilateur correspondante-déterministe](/dotnet/csharp/language-reference/compiler-options/deterministic-compiler-option). |
+| Exclure | Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l’exemple ci-dessous. |
 | ExcludeEmptyDirectories | Empêche l’inclusion de répertoires vides lors de la génération du package. |
 | ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
 | ConfigFile | Spécifiez le fichier de configuration pour la commande Pack. |
@@ -47,11 +48,11 @@ où `<nuspecPath>` `.nuspec` et `<projectPath>` spécifient respectivement le fi
 | NoDefaultExcludes | Empêche l’exclusion par défaut des fichiers de package NuGet et des fichiers et dossiers commençant par un `.svn` point `.gitignore`, comme et. |
 | NoPackageAnalysis | Spécifie que le pack ne doit pas exécuter d’analyse du package après sa génération. |
 | OutputDirectory | Spécifie le dossier dans lequel le package créé est stocké. Si aucun dossier n’est spécifié, le dossier actif est utilisé. |
-| Properties | Doit apparaître en dernier sur la ligne de commande après d’autres options. Spécifie une liste de propriétés qui remplacent les valeurs du fichier projet; consultez les [Propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pour les noms de propriété. L’argument Properties ici est une liste de paires jeton = valeur, séparées par des points-virgules, où `$token$` chaque occurrence `.nuspec` de dans le fichier sera remplacée par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que, pour la propriété «configuration», la valeur par défaut est «Debug». Pour passer à une configuration Release, utilisez `-Properties Configuration=Release`. |
+| Properties | Doit apparaître en dernier sur la ligne de commande après d’autres options. Spécifie une liste de propriétés qui remplacent les valeurs du fichier projet ; consultez les [Propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pour les noms de propriété. L’argument Properties ici est une liste de paires jeton = valeur, séparées par des points-virgules, où `$token$` chaque occurrence `.nuspec` de dans le fichier sera remplacée par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que, pour la propriété « configuration », la valeur par défaut est « Debug ». Pour passer à une configuration Release, utilisez `-Properties Configuration=Release`. |
 | Suffix | *(3.4.4+)* Ajoute un suffixe au numéro de version généré en interne, généralement utilisé pour l’ajout de la build ou autres identificateurs de version préliminaire. Par exemple, l' `-suffix nightly` utilisation de crée un package avec un numéro de `1.2.3-nightly`version comme. Les suffixes doivent commencer par une lettre pour éviter les avertissements, les erreurs et les incompatibilités potentielles avec les différentes versions de NuGet et du gestionnaire de package NuGet. |
 | Symbols | Spécifie que le package contient des sources et des symboles. Lorsqu’il est utilisé `.nuspec` avec un fichier, cela crée un fichier de package NuGet standard et le package de symboles correspondant. Par défaut, il crée un [package de symboles hérité](../../create-packages/Symbol-Packages.md). Le nouveau format recommandé pour les packages de symboles est .snupkg. Consultez [Création de packages de symboles (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
 | Tool | Spécifie que les fichiers de sortie du projet doivent être placés dans `tool` le dossier. |
-| Verbosity | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
+| Verbosity | Spécifie la quantité de détails affichée dans la sortie : *normal*, *Quiet*, *detailed*. |
 | Version | Remplace le numéro de `.nuspec` version du fichier. |
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
@@ -62,7 +63,7 @@ Certains packages NuGet sont utiles en tant que dépendances de développement, 
 
 La `pack` commande ignore `package` les entrées `packages.config` dans dont l' `developmentDependency` attribut a la `true`valeur. Ces entrées ne sont pas incluses en tant que dépendances dans le package créé.
 
-Par exemple, considérez le `packages.config` fichier suivant dans le projet source:
+Par exemple, considérez le `packages.config` fichier suivant dans le projet source :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
