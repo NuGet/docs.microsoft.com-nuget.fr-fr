@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: 5309d94fafea9cdfc3699d443393be5d381dd145
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 89127203df0aa1eb24f36b8ec64c5bb4a4d59319
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317729"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094072"
 ---
 # <a name="common-nuget-configurations"></a>Configurations courantes de NuGet
 
@@ -18,14 +18,14 @@ Le comportement de NuGet est contrôlé par les paramètres qui sont définis da
 
 ## <a name="config-file-locations-and-uses"></a>Emplacements et utilisations des fichiers config
 
-| Portée | Emplacement du fichier NuGet.Config | Description |
+| `Scope` | Emplacement du fichier NuGet.Config | Description |
 | --- | --- | --- |
 | Solution | Dossier actuel (dossier de solution) ou tout dossier pouvant être situé jusqu’à la racine du lecteur.| Dans un dossier de solution, les paramètres s’appliquent à tous les projets dans les sous-dossiers. Notez que si un fichier config est situé dans un dossier de projet, il n’a aucun effet sur ce projet. |
 | Utilisateur | Windows : `%appdata%\NuGet\NuGet.Config`<br/>Mac/Linux : `~/.config/NuGet/NuGet.Config` ou `~/.nuget/NuGet/NuGet.Config` (en fonction de la distribution du système d’exploitation) | Les paramètres s’appliquent à toutes les opérations. Toutefois, ils sont substitués par tout paramètre défini au niveau du projet. |
-| Ordinateur | Windows : `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux : `$XDG_DATA_HOME`. Si `$XDG_DATA_HOME` est null ou vide, `~/.local/share` ou `/usr/local/share` seront utilisés (en fonction de la distribution du système d’exploitation)  | Les paramètres s’appliquent à toutes les opérations effectuées sur l’ordinateur. Toutefois, ils sont remplacés par tout paramètre défini au niveau de l’utilisateur ou du projet. |
+| Computer | Windows : `%ProgramFiles(x86)%\NuGet\Config`<br/>Mac/Linux : `$XDG_DATA_HOME`. Si `$XDG_DATA_HOME` est null ou vide, `~/.local/share` ou `/usr/local/share` seront utilisés (en fonction de la distribution du système d’exploitation)  | Les paramètres s’appliquent à toutes les opérations effectuées sur l’ordinateur. Toutefois, ils sont remplacés par tout paramètre défini au niveau de l’utilisateur ou du projet. |
 
 Remarques concernant les versions précédentes de NuGet :
-- NuGet 3.3 et versions antérieures utilisaient un dossier `.nuget` pour les paramètres définis au niveau de la solution. Ce fichier n’est plus utilisé dans NuGet 3.4+.
+- NuGet 3.3 et versions antérieures utilisaient un dossier `.nuget` pour les paramètres définis au niveau de la solution. Ce dossier n’est pas utilisé dans NuGet 3.4 +.
 - Pour NuGet 2.6 3.x, le fichier config défini au niveau d’un ordinateur Windows était situé dans %ProgramData%\NuGet\Config[\\{IDE}[\\{Version}[\\{SKU}]]]\NuGet.Config, où *{IDE}* pouvait correspondre à  *Visual Studio*, *{Version}* à la version de Visual Studio, comme *14.0*, et *{SKU}* à l’édition *Community*, *Pro* ou *Enterprise*. Pour migrer les paramètres vers NuGet 4.0+, copiez simplement le fichier config vers %ProgramFiles(x86)%\NuGet\Config. Sur Linux, l’ancien emplacement était /etc/opt et sur Mac, Library/Application Support.
 
 ## <a name="changing-config-settings"></a>Modification des paramètres de configuration

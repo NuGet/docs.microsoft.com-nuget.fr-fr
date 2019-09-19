@@ -12,12 +12,12 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 109df18bcfd3e6a3fbd3ef3da1707ffada585140
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 5546881dbf7577eb289a28b35bc2c0e7dc5cac40
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70749029"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094112"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
@@ -92,25 +92,25 @@ NuGet publie les deux packages sur nuget.org. `MyPackage.nupkg` sera publié en 
 
 ## <a name="nugetorg-symbol-server"></a>Serveur de symboles NuGet.org
 
-NuGet.org prend en charge son propre dépôt de serveur de symboles et accepte uniquement le nouveau format de package de symboles - `.snupkg`. Les consommateurs de package peuvent utiliser les symboles publiés sur le serveur de symboles nuget.org en ajoutant `https://symbols.nuget.org/download/symbols` à leurs sources de symboles dans Visual Studio, ce qui permet d’effectuer un pas à pas détaillé du code de package dans le débogueur Visual Studio. Pour plus d’informations sur ce processus, consultez [Spécifier les fichiers de symboles (.pdb) et les fichiers sources dans le débogueur Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger?view=vs-2017).
+NuGet.org prend en charge son propre dépôt de serveur de symboles et accepte uniquement le nouveau format de package de symboles - `.snupkg`. Les consommateurs de package peuvent utiliser les symboles publiés sur le serveur de symboles nuget.org en ajoutant `https://symbols.nuget.org/download/symbols` à leurs sources de symboles dans Visual Studio, ce qui permet d’effectuer un pas à pas détaillé du code de package dans le débogueur Visual Studio. Pour plus d’informations sur ce processus, consultez [Spécifier les fichiers de symboles (.pdb) et les fichiers sources dans le débogueur Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger.md).
 
-### <a name="nugetorg-symbol-package-constraints"></a>Contraintes liées au package de symboles Nuget.org
+### <a name="nugetorg-symbol-package-constraints"></a>Contraintes du package de symboles NuGet.org
 
-Les packages de symboles pris en charge sur nuget.org ont les contraintes suivantes
+NuGet.org présente les contraintes suivantes pour les packages de symboles :
 
-- Seules les extensions de fichier suivantes peuvent être ajoutées à un package de symboles. ```.pdb,.nuspec,.xml,.psmdcp,.rels,.p7s```
-- Seuls les fichiers [pdb portables](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) managés sont pris en charge sur le serveur de symboles nuget.
-- Les fichiers pdb et les fichiers dll associés de nupkg doivent être générés avec le compilateur de Visual Studio version 15.9 ou version ultérieure (consultez [code de hachage de chiffrement de fichier pdb](https://github.com/dotnet/roslyn/issues/24429))
+- Seules les extensions de fichier suivantes sont autorisées dans les packages `.pdb`de `.nuspec`symboles : `.psmdcp`, `.rels`, `.xml`,,,`.p7s`
+- Seuls les fichiers [PDB portables](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) gérés sont pris en charge sur le serveur de symboles NuGet. org.
+- Les fichiers PDB et leurs dll. nupkg associés doivent être générés avec le compilateur dans Visual Studio version 15,9 ou ultérieure (voir [PDB crypto Hash](https://github.com/dotnet/roslyn/issues/24429))
 
-La publication du package de symboles sur nuget.org ne peut pas s’effectuer correctement si d’autres types de fichier sont inclus dans le fichier .snupkg.
+Les packages de symboles publiés sur NuGet.org ne seront pas validés si ces contraintes ne sont pas satisfaites. 
 
 ### <a name="symbol-package-validation-and-indexing"></a>Validation et indexation du package de symboles
 
-Les packages de symboles publiés sur [NuGet.org](https://www.nuget.org/) sont soumis à plusieurs validations, par exemple des contrôles antivirus.
+Les packages de symboles publiés dans [NuGet.org](https://www.nuget.org/) subissent plusieurs validations, y compris l’analyse des logiciels malveillants. Si un package ne parvient pas à effectuer une vérification de validation, sa page Détails du package affiche un message d’erreur. En outre, les propriétaires du package recevront un message électronique contenant des instructions sur la façon de résoudre les problèmes identifiés.
 
-Une fois que tous les contrôles de validation du package ont réussi, il est parfois nécessaire d’attendre un certain temps avant que les symboles ne soient indexés et disponibles pour être consommés à partir des serveurs de symboles NuGet.org. En cas d’échec d’un contrôle de validation du package, la page des détails de package du fichier .nupkg se met à jour pour afficher l’erreur associée. De plus, vous recevez un e-mail de notification.
+Quand le package de symboles a passé toutes les validations, les symboles sont indexés par les serveurs de symboles NuGet. org. Une fois indexés, le symbole sera disponible à la consommation à partir des serveurs de symboles NuGet.org.
 
-La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si nuget.org rencontre des interruptions. Si tous les systèmes sont opérationnels et si le package n’est pas correctement publié en moins d’une heure, connectez-vous à nuget.org et contactez-nous via le lien permettant de contacter le support dans la page des détails du package.
+La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si NuGet.org rencontre des interruptions. Si tous les systèmes sont opérationnels et si le package n’est pas correctement publié en moins d’une heure, connectez-vous à nuget.org et contactez-nous via le lien permettant de contacter le support dans la page des détails du package.
 
 ## <a name="symbol-package-structure"></a>Structure des packages de symboles
 
@@ -132,4 +132,6 @@ Le fichier .nupkg est exactement le même qu’aujourd’hui. Toutefois, le fich
 
 ## <a name="see-also"></a>Voir aussi
 
-[Améliorations du débogage des packages NuGet & symboles](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements)
+Envisagez d’utiliser le lien source pour activer le débogage du code source des assemblys .NET. Pour plus d’informations, reportez-vous à l’aide sur les [liens source](/dotnet/standard/library-guidance/sourcelink.md).
+
+Pour plus d’informations sur les packages de symboles, reportez-vous à la spécification du [débogage du package NuGet & les améliorations des symboles](https://github.com/NuGet/Home/wiki/NuGet-Package-Debugging-&-Symbols-Improvements) .

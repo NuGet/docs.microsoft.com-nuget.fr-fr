@@ -6,22 +6,22 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 5ec6c0e17a3e8b9a3f156a48685bcaafe42c744b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: 7aea28d6224a89149aa33be035c82a45db3058f0
+ms.sourcegitcommit: 1eda83ab537c86cc27316e7bc67f95a358766e63
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488221"
+ms.lasthandoff: 09/18/2019
+ms.locfileid: "71094114"
 ---
 # <a name="package-content"></a>Contenu du package
 
 Il est possible de générer une URL pour extraire le contenu d’un package arbitraire (fichier. nupkg) à l’aide de l’API V3. La ressource utilisée pour récupérer le contenu du package est `PackageBaseAddress` la ressource trouvée dans l' [index de service](service-index.md). Cette ressource permet également la détection de toutes les versions d’un package, répertoriées ou désactivées.
 
-Cette ressource est communément appelée «adresse de base du package» ou «conteneur plat».
+Cette ressource est communément appelée « adresse de base du package » ou « conteneur plat ».
 
 ## <a name="versioning"></a>Gestion de version
 
-La valeur `@type` suivante est utilisée:
+La valeur `@type` suivante est utilisée :
 
 Valeur@type              | Notes
 ------------------------ | -----
@@ -37,7 +37,7 @@ Toutes les URL trouvées dans la ressource d’inscription prennent en `GET` cha
 
 ## <a name="enumerate-package-versions"></a>Énumérer les versions du package
 
-Si le client connaît un ID de package et souhaite découvrir quelles versions de package la source du package a disponibles, le client peut construire une URL prévisible pour énumérer toutes les versions du package. Cette liste est censée être une «liste de répertoires» pour l’API de contenu de package mentionnée ci-dessous.
+Si le client connaît un ID de package et souhaite découvrir quelles versions de package la source du package a disponibles, le client peut construire une URL prévisible pour énumérer toutes les versions du package. Cette liste est censée être une « liste de répertoires » pour l’API de contenu de package mentionnée ci-dessous.
 
 > [!Note]
 > Cette liste contient à la fois les versions de packages listées et désinscrites.
@@ -48,7 +48,7 @@ Si le client connaît un ID de package et souhaite découvrir quelles versions d
 
 Name     | Dans     | Type    | Obligatoire | Notes
 -------- | ------ | ------- | -------- | -----
-LOWER_ID | URL    | string  | oui      | ID de package, minuscules
+LOWER_ID | URL    | string  | oui      | ID de package, en minuscules
 
 La `LOWER_ID` valeur est l’ID de package souhaité en minuscules à l’aide des règles implémentées par. Méthode du [`System.String.ToLowerInvariant()`](/dotnet/api/system.string.tolowerinvariant?view=netstandard-2.0#System_String_ToLowerInvariant) réseau.
 
@@ -56,13 +56,13 @@ La `LOWER_ID` valeur est l’ID de package souhaité en minuscules à l’aide d
 
 Si la source du package n’a pas de version de l’ID de package fourni, un code d’État 404 est retourné.
 
-Si la source du package a une ou plusieurs versions, un code d’état 200 est retourné. Le corps de la réponse est un objet JSON avec la propriété suivante:
+Si la source du package a une ou plusieurs versions, un code d’état 200 est retourné. Le corps de la réponse est un objet JSON avec la propriété suivante :
 
 Name     | Type             | Obligatoire | Notes
 -------- | ---------------- | -------- | -----
-versions | Tableau de chaînes | oui      | ID de package disponibles
+versions | Tableau de chaînes | oui      | Les versions disponibles
 
-Les chaînes du `versions` tableau sont toutes des [chaînes de version NuGet](../concepts/package-versioning.md#normalized-version-numbers), normalisées et en minuscules. Les chaînes de version ne contiennent pas de métadonnées de build SemVer 2.0.0.
+Les chaînes du `versions` tableau sont toutes des [chaînes de version NuGet, normalisées](../concepts/package-versioning.md#normalized-version-numbers)et en minuscules. Les chaînes de version ne contiennent pas de métadonnées de build SemVer 2.0.0.
 
 L’objectif est que les chaînes de version trouvées dans ce tableau peuvent être utilisées textuellement `LOWER_VERSION` pour les jetons trouvés dans les points de terminaison suivants.
 
@@ -76,7 +76,7 @@ L’objectif est que les chaînes de version trouvées dans ce tableau peuvent �
 
 ## <a name="download-package-content-nupkg"></a>Télécharger le contenu du package (. nupkg)
 
-Si le client connaît un ID de package et une version et qu’il souhaite télécharger le contenu du package, il n’a besoin que de créer l’URL suivante:
+Si le client connaît un ID de package et une version et qu’il souhaite télécharger le contenu du package, il n’a besoin que de créer l’URL suivante :
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.{LOWER_VERSION}.nupkg
 
@@ -108,7 +108,7 @@ Flux binaire qui est le fichier. nupkg pour Newtonsoft. JSON version9.0.1.
 
 ## <a name="download-package-manifest-nuspec"></a>Télécharger le manifeste du package (. NuSpec)
 
-Si le client connaît un ID de package et une version et qu’il souhaite télécharger le manifeste du package, il n’a besoin que de créer l’URL suivante:
+Si le client connaît un ID de package et une version et qu’il souhaite télécharger le manifeste du package, il n’a besoin que de créer l’URL suivante :
 
     GET {@id}/{LOWER_ID}/{LOWER_VERSION}/{LOWER_ID}.nuspec
 
