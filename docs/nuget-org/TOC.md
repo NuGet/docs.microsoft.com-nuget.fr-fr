@@ -5,7 +5,8 @@
 ## [Clés API](scoped-api-keys.md)
 # Gérer des packages sur NuGet.org
 ## [Publier un package](publish-a-package.md)
-## [Réservation du préfixe d’identificateur pour les packages](id-prefix-reservation.md)
+## [Réservation du préfixe d’ID de package](id-prefix-reservation.md)
+## [Dépréciation du package](deprecate-packages.md)
 # Stratégies
 ## [Demandes de données](policies/Data-requests.md)
 ## [Résolution des conflits](policies/dispute-resolution.md)
