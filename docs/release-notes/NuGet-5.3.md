@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f16bfe5481009f7924a61f03233d288d25ac618f
-ms.sourcegitcommit: f4bfdbf62302c95f1f39e81ccf998f8bbc6d56b0
+ms.openlocfilehash: 96d176beaa6b2f0c4f53488390e585b70c9ba846
+ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70774100"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71248170"
 ---
 # <a name="nuget-53-release-notes"></a>Notes de publication de NuGet 5,3
 
@@ -18,11 +18,11 @@ Véhicules de distribution NuGet :
 
 | Version de NuGet | Disponible dans la version Visual Studio| Disponible dans les SDK .NET|
 |:---|:---|:---|
-| [**5.3.0-preview3**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,3 Preview 3](https://visualstudio.microsoft.com/vs/preview/) | [3.0.100-preview9](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
 
 <sup>1</sup> Installé avec Visual Studio 2019 avec une charge de travail .NET Core
 
-## <a name="summary-whats-new-in-53-preview-3"></a>Résumé : Nouveautés de 5,3 Preview 3
+## <a name="summary-whats-new-in-53"></a>Résumé : Nouveautés de 5,3
 
 * [L’icône de package peut être incorporée dans le package](../reference/msbuild-targets.md#packing-an-icon-image-file), au lieu d’avoir besoin d’une URL externe. - [#352](https://github.com/NuGet/Home/issues/352)
 
@@ -32,6 +32,10 @@ Véhicules de distribution NuGet :
 
 **Bogues**
 
+* Les packages NuGet produits avec le kit de développement logiciel (SDK) 3.0.100-preview9 ne peuvent pas être utilisés par les utilisateurs du SDK 2,2... en fonction de votre fuseau horaire [#8603](https://github.com/NuGet/Home/issues/8603)
+
+* Guillemets dans le chemin d’accès, la cause de l’erreur « `nuget restore` caractères illégaux dans le chemin d’accès » dans [#8168](https://github.com/NuGet/Home/issues/8168)
+
 * VS : les assemblys sont entièrement Ngen-Ed non partiellement Ngen-Ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
 * Réduire l’utilisation de la mémoire (se désabonner des événements)- [#8471](https://github.com/NuGet/Home/issues/8471)
@@ -40,7 +44,7 @@ Véhicules de distribution NuGet :
 
 * Améliorations apportées à NU1403-valider tous les packages, inclure les valeurs SHA attendues/réelles- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Énumération multiple dans NuGetPackageManager. PreviewUpdatePackagesAsync- [#8401](https://github.com/NuGet/Home/issues/8401)
+* Énumération multiple `NuGetPackageManager.PreviewUpdatePackagesAsync`dans  -  [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Restauration de la modification « public-> Internal » dans PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -64,7 +68,7 @@ Véhicules de distribution NuGet :
 
 * Rendre les paramètres lus dans VS Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* La régression dans « Ajout des sources NuGet » provoque « le caractère « : », la valeur hexadécimale 0x3A, ne peut pas être inclus dans un nom «erreurs- [#7948](https://github.com/NuGet/Home/issues/7948)
+* La régression `Nuget sources add` dans amène le caractère «  : », la valeur hexadécimale 0x3A, ne peut pas être inclus dans un nom «Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Fournisseurs d’informations d’identification du plug-in NuGet-masquer la fenêtre de processus- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,6 +90,4 @@ Véhicules de distribution NuGet :
 
 * Options Add-SolutionDirectory et-PackageDirectory à NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
-* Activer le Pack NuGet pour qu’il soit déterministe- [#6229](https://github.com/NuGet/Home/issues/6229)
-
-**[Liste de tous les problèmes résolus dans cette version-5,3 Preview 3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+**[Liste de tous les problèmes résolus dans cette version-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
