@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: d9937a2b087fd88c1e6fd9f07a513b5047bdcf2e
-ms.sourcegitcommit: ac9a00ccaf90e539a381e92b650074910b21eb0d
+ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
+ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70235080"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71307227"
 ---
 # <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Démarrage rapide : Installer et utiliser un package dans Visual Studio (Windows uniquement)
 
@@ -29,11 +29,11 @@ Vous pouvez installer l’édition Community 2019 gratuitement à partir de [vis
 
 Si vous utilisez Visual Studio pour Mac, consultez [installer et utiliser un package dans Visual Studio pour Mac](install-and-use-a-package-in-visual-studio-mac.md).
 
-## <a name="create-a-project"></a>Création d’un projet
+## <a name="create-a-project"></a>Créer un projet
 
 Les packages NuGet peuvent être installés dans n’importe quel projet .NET, à condition qu’ils prennent en charge la même version cible de .NET Framework que le projet.
 
-Pour cette procédure pas à pas, utilisez une application WPF simple. Créez un projet dans Visual Studio avec **Fichier > Nouveau projet...** , tapez **.NET** dans la zone de recherche, puis sélectionnez l’**application WPF (.NET Framework)** . Cliquez sur **Suivant**. Acceptez les valeurs par défaut pour **Framework** quand vous y êtes invité.
+Pour cette procédure pas à pas, utilisez une application WPF simple. Créez un projet dans Visual Studio à l’aide de **fichier** > **nouveau projet**, en tapant **.net** dans la zone de recherche, puis en sélectionnant l' **application WPF (.NET Framework)** . Cliquez sur **Suivant**. Acceptez les valeurs par défaut pour **Framework** quand vous y êtes invité.
 
 Visual Studio crée le projet qui s’ouvre dans l’Explorateur de solutions.
 
@@ -41,7 +41,7 @@ Visual Studio crée le projet qui s’ouvre dans l’Explorateur de solutions.
 
 Pour installer le package, vous pouvez utiliser l’interface utilisateur du gestionnaire de package NuGet ou la console du gestionnaire de package. Quand vous installez un package, NuGet enregistre la dépendance dans votre fichier projet ou dans un fichier `packages.config` (en fonction du format du projet). Pour plus d’informations, consultez [Vue d’ensemble et flux de consommation des packages](../consume-packages/Overview-and-Workflow.md).
 
-### <a name="nuget-package-manager"></a>Gestionnaire de package NuGet
+### <a name="nuget-package-manager"></a>NuGet Package Manager
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références** et choisissez **Gérer les packages NuGet**.
 
@@ -63,7 +63,7 @@ Pour installer le package, vous pouvez utiliser l’interface utilisateur du ges
 
 ### <a name="package-manager-console"></a>Console du Gestionnaire de package
 
-1. Sélectionnez la commande de menu **Outils -> Gestionnaire de package NuGet -> Console du Gestionnaire de package**.
+1. Sélectionnez la commande de menu de la**console Gestionnaire** de**package** > NuGet **Outils** > gestionnaire de package NuGet.
 
 1. Une fois la console ouverte, vérifiez que la liste déroulante **Projet par défaut** affiche le projet dans lequel vous souhaitez installer le package. Si la solution ne contient qu’un seul projet, il est déjà sélectionné.
 
@@ -117,7 +117,7 @@ Le package Newtonsoft.Json étant dans le projet, vous pouvez appeler sa méthod
     using Newtonsoft.Json;
     ```
 
-1. Générez et exécutez l’application en appuyant sur F5 ou en sélectionnant **Déboguer > Démarrer le débogage** :
+1. Générez et exécutez l’application en appuyant sur F5 ou en sélectionnant **Déboguer** > **Démarrer le débogage**:
 
     ![Sortie initiale de l’application WPF](media/QS_Use-06-AppStart.png)
 
