@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea40f80a482a290b7399e5a6abc69e0c6fe32b77
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: 6bd730db16d8e8783f0d949bb04cf3b52c642cd0
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384456"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380554"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -30,13 +30,13 @@ Dans cette rubrique :
 
 ## <a name="project-type-compatibility"></a>Compatibilité des types de projet
 
-- Utilisez `.nuspec` `packages.config`avec `nuget.exe pack` pour les projets de type non-SDK qui utilisent.
+- Utilisez `.nuspec` avec `nuget.exe pack` pour les projets de type non-SDK qui utilisent `packages.config`.
 
-- Un `.nuspec` fichier n’est pas requis pour créer des packages pour les [projets de type SDK](../resources/check-project-format.md) (en général, les projets .net Core et .NET standard qui utilisent l' [attribut SDK](/dotnet/core/tools/csproj#additions)). (Notez qu’une `.nuspec` est générée lorsque vous créez le package.)
+- Un fichier `.nuspec` n’est pas nécessaire pour créer des packages pour les [projets de type SDK](../resources/check-project-format.md) (en général, les projets .net Core et .NET standard qui utilisent l' [attribut SDK](/dotnet/core/tools/csproj#additions)). (Notez qu’une `.nuspec` est générée lorsque vous créez le package.)
 
-   Si vous créez un package à l' `dotnet.exe pack` aide `msbuild pack target`de ou de, nous vous recommandons d’inclure à la place [toutes les propriétés](../reference/msbuild-targets.md#pack-target) qui se trouvent généralement dans le `.nuspec` fichier du fichier projet. Toutefois, vous pouvez choisir d' [utiliser un `.nuspec` fichier à compresser à `msbuild pack target`l’aide `dotnet.exe` de ou ](../reference/msbuild-targets.md#packing-using-a-nuspec)de.
+   Si vous créez un package à l’aide de `dotnet.exe pack` ou `msbuild pack target`, nous vous recommandons d’inclure à la place [toutes les propriétés](../reference/msbuild-targets.md#pack-target) qui se trouvent généralement dans le fichier `.nuspec` dans le fichier projet. Toutefois, vous pouvez choisir d' [utiliser à la place un fichier `.nuspec` à compresser à l’aide de `dotnet.exe` ou `msbuild pack target`](../reference/msbuild-targets.md#packing-using-a-nuspec).
 
-- Pour les projets migrés `packages.config` de vers [PackageReference](../consume-packages/package-references-in-project-files.md), `.nuspec` un fichier n’est pas requis pour créer le package. Utilisez plutôt [msbuild-t :Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
+- Pour les projets migrés de `packages.config` vers [PackageReference](../consume-packages/package-references-in-project-files.md), un fichier `.nuspec` n’est pas requis pour créer le package. Utilisez plutôt [msbuild-t :Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
 ## <a name="general-form-and-schema"></a>Forme générale et schéma
 
@@ -71,19 +71,19 @@ Bien que les éléments suivants correspondent à la configuration minimale requ
 
 Ces éléments doivent apparaître dans un élément `<metadata>`.
 
-#### <a name="id"></a>id 
+#### <a name="id"></a>ID 
 Identificateur de package ne respectant pas la casse, qui doit être unique dans nuget.org ou dans toute autre galerie susceptible d’héberger le package. Les ID ne peuvent pas contenir d’espaces ni de caractères qui ne sont pas valides pour une URL et suivent généralement les règles d’espace de noms .NET. Pour obtenir des conseils, consultez [Choix d’un identificateur de package unique](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number).
 #### <a name="version"></a>version
 Version du package, selon le modèle *version_principale.version_secondaire.version_corrective*. Les numéros de version peuvent inclure un suffixe de préversion comme décrit dans [Gestion de versions des packages](../concepts/package-versioning.md#pre-release-versions). 
 #### <a name="description"></a>description
 Description du package pour l’affichage de l’interface utilisateur.
 #### <a name="authors"></a>authors
-Liste séparée par des virgules des auteurs de packages, qui correspondent aux noms de profil sur nuget.org. Ceux-ci sont affichés dans la galerie NuGet sur nuget.org et servent à croiser les références des packages de mêmes auteurs. 
+Liste séparée par des virgules des auteurs de packages, qui correspondent aux noms de profil sur nuget.org. Ceux-ci sont affichés dans la galerie NuGet sur nuget.org et sont utilisés pour faire référence croisée aux packages par les mêmes auteurs. 
 
 ### <a name="optional-metadata-elements"></a>Éléments de métadonnées facultatifs
 
 #### <a name="owners"></a>owners
-Liste des créateurs de packages séparés par des virgules, qui utilisent des noms de profil sur nuget.org. Il s’agit souvent de la même liste que dans `authors` et elle est ignorée lors du chargement du package sur nuget.org. Consultez [Gestion des propriétaires de packages sur nuget.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
+Liste séparée par des virgules des créateurs de package utilisant des noms de profils sur nuget.org. Il s’agit souvent de la même liste que dans `authors`, et est ignorée lors du chargement du package sur nuget.org. Consultez [gestion des propriétaires de packages sur NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
 URL de la page d’accueil du package, souvent affichée dans l’interface utilisateur ainsi que sur nuget.org. 
@@ -95,18 +95,18 @@ URL de la page d’accueil du package, souvent affichée dans l’interface util
 URL de la licence du package, souvent présentée dans des interfaces utilisateur telles que nuget.org.
 
 #### <a name="license"></a>licence
-Une expression de licence SPDX ou un chemin d’accès à un fichier de licence dans le package, souvent affiché dans des interfaces utilisateur telles que nuget.org. Si vous configurez le package sous une licence commune, comme MIT ou BSD-2-clause, utilisez l' [identificateur de licence SPDX](https://spdx.org/licenses/)associé. Par exemple :
+Une expression de licence SPDX ou un chemin d’accès à un fichier de licence dans le package, souvent affiché dans des interfaces utilisateur telles que nuget.org. Si vous configurez le package sous une licence commune, comme MIT ou BSD-2-clause, utilisez l' [identificateur de licence SPDX](https://spdx.org/licenses/)associé. Exemple :
 
 `<license type="expression">MIT</license>`
 
 > [!Note]
 > NuGet.org accepte uniquement les expressions de licence approuvées par l’initiative Open source ou la Fondation logicielle gratuite.
 
-Si votre package est concédé sous licence sous plusieurs licences courantes, vous pouvez spécifier une licence composite à l’aide de la [syntaxe d’expression SPDX version 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Par exemple :
+Si votre package est concédé sous licence sous plusieurs licences courantes, vous pouvez spécifier une licence composite à l’aide de la [syntaxe d’expression SPDX version 2,0](https://spdx.org/spdx-specification-21-web-version#h.jxpfx0ykyb60). Exemple :
 
 `<license type="expression">BSD-2-Clause OR MIT</license>`
 
-Si vous utilisez une licence personnalisée qui n’est pas prise en charge par les expressions de `.txt` licence `.md` , vous pouvez empaqueter un fichier ou avec le texte de la licence. Par exemple :
+Si vous utilisez une licence personnalisée qui n’est pas prise en charge par les expressions de licence, vous pouvez empaqueter un fichier `.txt` ou `.md` avec le texte de la licence. Exemple :
 
 ```xml
 <package>
@@ -147,9 +147,9 @@ license-expression =  1*1(simple-expression / compound-expression / UNLICENSED)
 > [!Important]
 > iconUrl est déconseillé. Utilisez l’icône à la place.
 
-URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image de GitHub, utilisez l’URL de fichier brut <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>comme. 
+URL d’une image 64x64 avec un arrière-plan transparent à utiliser comme icône pour le package dans l’affichage de l’interface utilisateur. Vérifiez que cet élément contient *l’URL directe de l’image* et non l’URL d’une page web contenant l’image. Par exemple, pour utiliser une image de GitHub, utilisez l’URL de fichier brut comme <em>https://github.com/\<username\>/\<repository\>/raw/\<branch\>/\<logo.png\></em>. 
    
-#### <a name="icon"></a>située
+#### <a name="icon"></a>Située
 
 Il s’agit d’un chemin d’accès à un fichier image dans le package, souvent affiché dans des interfaces utilisateur telles que nuget.org comme icône de package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une image RESOULUTION de 64x64.
 
@@ -182,7 +182,7 @@ Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à acc
 
 #### <a name="summary"></a>résumé
 > [!Important]
-> `summary`est déconseillé. Utilisez plutôt `description`.
+> `summary` est déconseillé. Utilisez plutôt `description`.
 
 Brève description du package pour l’affichage de l’interface utilisateur. Si cet élément est omis, une version tronquée de `description` est utilisée.
 
@@ -192,19 +192,19 @@ Brève description du package pour l’affichage de l’interface utilisateur. S
 #### <a name="copyright"></a>copyright
 *(1.5+)* Détails de copyright pour le package.
 
-#### <a name="language"></a>langage
+#### <a name="language"></a>language
 ID de paramètres régionaux du package. Consultez [Création de packages localisés](../create-packages/creating-localized-packages.md).
 
-#### <a name="tags"></a>balises
+#### <a name="tags"></a>étiquettes
 Liste de balises et de mots clés délimités par des espaces, qui décrivent le package et permettent de découvrir les packages grâce à des fonctions de recherche et de filtrage. 
 
 #### <a name="serviceable"></a>une maintenance 
 *(3.3+)* Uniquement réservé à un usage NuGet interne.
 
-#### <a name="repository"></a>repository
-Métadonnées de référentiel, composées de quatre attributs facultatifs `url` : `commit` `type` et `branch` *(4.0 +)* , et et *(4.6 +)* . Ces attributs vous permettent de mapper le `.nupkg` au référentiel qui l’a créé, avec la possibilité d’obtenir le plus d’informations possible, comme le nom de la branche individuelle et/ou la validation du hachage SHA-1 qui a créé le package. Il doit s’agir d’une URL disponible publiquement qui peut être appelée directement par un logiciel de contrôle de version. Il ne doit pas s’agir d’une page HTML, car cela est destiné à l’ordinateur. Pour la liaison à la page de projet `projectUrl` , utilisez le champ à la place.
+#### <a name="repository"></a>dépôt
+Les métadonnées de référentiel, composées de quatre attributs facultatifs : `type` et `url` *(4.0 +)* et `branch` et `commit` *(4.6 +)*. Ces attributs vous permettent de mapper le `.nupkg` au référentiel qui l’a créé, avec la possibilité d’obtenir le même nom que le nom de la branche individuelle et/ou de valider le hachage SHA-1 qui a créé le package. Il doit s’agir d’une URL disponible publiquement qui peut être appelée directement par un logiciel de contrôle de version. Il ne doit pas s’agir d’une page HTML, car cela est destiné à l’ordinateur. Pour la liaison à la page de projet, utilisez le champ `projectUrl` à la place.
 
-Par exemple :
+Exemple :
 ```xml
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2016/06/nuspec.xsd">
@@ -216,7 +216,7 @@ Par exemple :
 </package>
 ```
 
-#### <a name="title"></a>title
+#### <a name="title"></a>titre
 Un titre convivial du package qui peut être utilisé dans certaines interfaces utilisateur s’affiche. (nuget.org et le gestionnaire de package dans Visual Studio n’affichent pas le titre)
 
 #### <a name="collection-elements"></a>Éléments de collection
@@ -226,17 +226,17 @@ Un titre convivial du package qui peut être utilisé dans certaines interfaces 
 #### <a name="dependencies"></a>dépendances
 Collection de zéro ou plusieurs éléments `<dependency>` spécifiant les dépendances du package. Chaque dépendance a des attributs *id*, *version*, *include* (3.x+) et *exclude* (3.x+). Consultez [Dépendances](#dependencies-element) ci-dessous.
 #### <a name="frameworkassemblies"></a>frameworkAssemblies
-*(1.2 +)* Collection de zéro ou plusieurs éléments `<frameworkAssembly>` identifiant les références d’assembly .NET Framework nécessaires à ce package, ce qui garantit que les références sont ajoutées à des projets utilisant le package. Chaque élément frameworkAssembly a des attributs *assemblyName* et *targetFramework*. Consultez [Références d’assembly Framework](#specifying-framework-assembly-references-gac) ci-dessous. |
+*(1.2 +)* Collection de zéro ou plusieurs éléments `<frameworkAssembly>` identifiant les références d’assembly .NET Framework nécessaires à ce package, ce qui garantit que les références sont ajoutées à des projets utilisant le package. Chaque élément frameworkAssembly a des attributs *assemblyName* et *targetFramework*. Consultez [Références d’assembly Framework](#specifying-framework-assembly-references-gac) ci-dessous.
 #### <a name="references"></a>Références
 *(1.5+)* Collection de zéro ou plusieurs éléments `<reference>` nommant des assemblys dans le dossier `lib` du package qui sont ajoutés en tant que références de projet. Chaque référence a un attribut *file*. `<references>` peut également contenir un élément `<group>` avec un attribut *targetFramework* qui contient à son tour des éléments `<reference>`. Si cet élément est omis, toutes les références dans `lib` sont incluses. Consultez [Références d’assembly explicite](#specifying-explicit-assembly-references) ci-dessous.
 #### <a name="contentfiles"></a>contentFiles
 *(3.3+)* Collection d’éléments `<files>` qui identifient les fichiers de contenu à inclure dans le projet de consommation. Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comment ils doivent être utilisés dans le système de projet. Consultez [Inclusion des fichiers d’assembly](#specifying-files-to-include-in-the-package) ci-dessous.
-#### <a name="files"></a>fichiers d'entrée 
-Le `<package>` nœud peut contenir un `<files>` nœud en tant que frère `<metadata>`pour, et `<contentFiles>` un enfant `<metadata>`sous, pour spécifier l’assembly et les fichiers de contenu à inclure dans le package. Consultez [Inclusion des fichiers d’assembly](#including-assembly-files) et [Inclusion des fichiers de contenu](#including-content-files) plus loin dans cette rubrique pour plus d’informations.
+#### <a name="files"></a>fichiers 
+Le nœud `<package>` peut contenir un nœud `<files>` comme frère pour `<metadata>`, et un enfant `<contentFiles>` sous `<metadata>`, pour spécifier l’assembly et les fichiers de contenu à inclure dans le package. Consultez [Inclusion des fichiers d’assembly](#including-assembly-files) et [Inclusion des fichiers de contenu](#including-content-files) plus loin dans cette rubrique pour plus d’informations.
 
 ### <a name="metadata-attributes"></a>attributs de métadonnées
 
-#### <a name="minclientversion"></a>minClientVersion
+#### <a name="minclientversion"></a>MinClientVersion
 Spécifie la version minimale du client NuGet qui peut installer ce package, appliquée par nuget.exe et le gestionnaire de package Visual Studio. Cet attribut est utilisé chaque fois que le package dépend de fonctionnalités spécifiques du fichier `.nuspec` qui ont été ajoutées dans une version particulière du client NuGet. Par exemple, un package utilisant l’attribut `developmentDependency` doit spécifier « 2.8 » pour `minClientVersion`. De même, un package utilisant l’élément `contentFiles` (consultez la section suivante) doit affecter à `minClientVersion` la valeur « 3.3 ». Notez également que, comme les clients NuGet antérieurs à 2.5 ne reconnaissent pas cet indicateur, ils refusent *toujours* d’installer le package, quel que soit le contenu de `minClientVersion`.
 
 ```xml
@@ -280,12 +280,12 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| Token | Source de la valeur | Valeur
+| Token | Source de valeur | valeur
 | --- | --- | ---
 | **$id$** | Fichier projet | AssemblyName (titre) à partir du fichier projet |
 | **$version$** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
 | **$author$** | AssemblyInfo | AssemblyCompany |
-| **$title$** | AssemblyInfo | AssemblyTitle |
+| **$title $** | AssemblyInfo | AssemblyTitle |
 | **$description$** | AssemblyInfo | AssemblyDescription |
 | **$copyright$** | AssemblyInfo | AssemblyCopyright |
 | **$configuration$** | DLL d’assembly | Configuration utilisée pour générer l’assembly, Debug étant la valeur par défaut. Notez que, pour créer un package à l’aide d’une configuration Release, vous utilisez toujours `-properties Configuration=Release` sur la ligne de commande. |
@@ -315,7 +315,7 @@ L’élément `<dependencies>` dans `<metadata>` contient un nombre quelconque d
 | `id` | (Obligatoire) ID de package de la dépendance, tel que « EntityFramework » et « NUnit », qui est le nom du package nuget.org affiché sur une page de package. |
 | `version` | (Obligatoire) Plage de versions acceptables en tant que dépendance. Consultez [Gestion de versions des packages](../concepts/package-versioning.md#version-ranges-and-wildcards) pour connaître la syntaxe exacte. Les versions génériques (flottantes) ne sont pas prises en charge. |
 | include | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à inclure dans le package final. La valeur par défaut est `all`. |
-| exclude | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à exclure dans le package final. La valeur `build,analyzers` par défaut peut être trop écrite. Mais `content/ ContentFiles` sont également implicitement exclus dans le package final qui ne peut pas être trop écrit. Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`. |
+| exclude | Liste de balises include/exclude séparées par des virgules (voir ci-dessous) indiquant la dépendance à exclure dans le package final. La valeur par défaut est `build,analyzers`, ce qui peut être trop écrit. Mais `content/ ContentFiles` sont également implicitement exclus dans le package final qui ne peut pas être trop écrit. Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`. |
 
 | Balise include/exclude | Dossiers affectés de la cible |
 | --- | --- |
@@ -325,7 +325,7 @@ L’élément `<dependencies>` dans `<metadata>` contient un nombre quelconque d
 | build | build (propriétés et cibles MSBuild) |
 | native | native |
 | none | Aucun dossier |
-| all | Tous les dossiers |
+| toutes les | Tous les dossiers |
 
 Par exemple, les lignes suivantes indiquent les dépendances sur `PackageA` version 1.1.0 ou ultérieure, et `PackageB` version 1.x.
 
@@ -346,7 +346,7 @@ Les lignes suivantes indiquent les dépendances sur les mêmes packages, mais sp
 ```
 
 > [!Important]
-> Lors de la `.nuspec` création d’un à `nuget spec`partir d’un projet à l’aide de, les dépendances qui existent `.nuspec` dans ce projet ne sont pas automatiquement incluses dans le fichier résultant. Au lieu de `nuget pack myproject.csproj`cela, utilisez et récupérez le fichier *. NuSpec* à partir du fichier *. nupkg* généré. This *. NuSpec* contient les dépendances.
+> Lors de la création d’un `.nuspec` à partir d’un projet à l’aide de `nuget spec`, les dépendances qui existent dans ce projet ne sont pas automatiquement incluses dans le fichier `.nuspec` résultant. Utilisez plutôt `nuget pack myproject.csproj`, et récupérez le fichier *. NuSpec* dans le fichier *. nupkg* généré. This *. NuSpec* contient les dépendances.
 
 ### <a name="dependency-groups"></a>Groupes de dépendances
 
@@ -383,7 +383,7 @@ L’exemple suivant illustre différentes variantes de l’élément `<group>` :
 
 ## <a name="explicit-assembly-references"></a>Références d’assembly explicite
 
-L' `<references>` élément est utilisé par les projets `packages.config` qui utilisent pour spécifier explicitement les assemblys que le projet cible doit référencer lors de l’utilisation du package. Des références explicites sont généralement utilisées pour les assemblys uniquement au moment du design. Pour plus d’informations, consultez la page sur la [sélection des assemblys référencés par les projets](../create-packages/select-assemblies-referenced-by-projects.md) pour plus d’informations.
+L’élément `<references>` est utilisé par les projets qui utilisent `packages.config` pour spécifier explicitement les assemblys que le projet cible doit référencer lors de l’utilisation du package. Des références explicites sont généralement utilisées pour les assemblys uniquement au moment du design. Pour plus d’informations, consultez la page sur la [sélection des assemblys référencés par les projets](../create-packages/select-assemblies-referenced-by-projects.md) pour plus d’informations.
 
 Par exemple, l’élément `<references>` suivant demande à NuGet d’ajouter des références à `xunit.dll` et `xunit.extensions.dll` uniquement même s’il existe d’autres assemblys dans le package :
 
@@ -455,7 +455,7 @@ Si vous suivez les conventions décrites dans [Création d’un package](../crea
 > [!Important]
 > Quand un package est installé dans un projet, NuGet ajoute automatiquement des références d’assembly aux DLL du package, *à l’exclusion* de celles nommées `.resources.dll`, car elles sont supposées être des assemblys satellites localisés. C’est pourquoi vous devez éviter d’utiliser `.resources.dll` pour les fichiers qui contiennent du code de package essentiel.
 
-Pour ignorer ce comportement automatique et contrôler explicitement les fichiers qui sont inclus dans un package, placez un élément `<files>` en tant qu’enfant de `<package>` (et frère de `<metadata>`), identifiant chaque fichier avec un élément `<file>` distinct. Par exemple :
+Pour ignorer ce comportement automatique et contrôler explicitement les fichiers qui sont inclus dans un package, placez un élément `<files>` en tant qu’enfant de `<package>` (et frère de `<metadata>`), identifiant chaque fichier avec un élément `<file>` distinct. Exemple :
 
 ```xml
 <files>
@@ -678,9 +678,9 @@ Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comm
 
 | Attribut | Description |
 | --- | --- |
-| **include** | (Obligatoire) Emplacement du ou des fichiers à inclure, soumis à des exclusions définies par l’attribut `exclude`. Le chemin d’accès est relatif `contentFiles` au dossier, à moins qu’un chemin d’accès absolu soit spécifié. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
+| **include** | (Obligatoire) Emplacement du ou des fichiers à inclure, soumis à des exclusions définies par l’attribut `exclude`. Le chemin d’accès est relatif au dossier `contentFiles`, à moins qu’un chemin d’accès absolu soit spécifié. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **exclude** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
-| **buildAction** | Action de génération à affecter à l’élément de contenu pour MSBuild, comme `Content`, `None`, `Embedded Resource`, `Compile`, etc. La valeur par défaut est `Compile`. |
+| **buildAction** | Action de génération à assigner à l’élément de contenu pour MSBuild, par exemple `Content`, `None`, `Embedded Resource`, `Compile`, etc. La valeur par défaut est `Compile`. |
 | **copyToOutput** | Valeur booléenne indiquant si les éléments de contenu doivent être copiés dans le dossier de sortie de la génération (ou de la publication). La valeur par défaut est false. |
 | **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |
 
@@ -696,7 +696,7 @@ Le projet de package doit structurer le contenu à l’aide du modèle suivant :
 - `TxM` est n’importe quel moniker du Framework cible légal pris en charge par NuGet (consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md)).
 - Toute structure de dossiers peut être ajoutée à la fin de cette syntaxe.
 
-Par exemple :
+Exemple :
 
     Language- and framework-agnostic:
         /contentFiles/any/any/config.xml

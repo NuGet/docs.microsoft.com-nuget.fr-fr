@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 74b80b1791dcb403c90bb3032c009717c11ffe57
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815308"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380500"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Plug-ins inter-plateforme NuGet
 
@@ -26,11 +26,11 @@ La description ci-dessous décrit les combinaisons client/Framework des plug-ins
 
 | Outil client  | Framework |
 | ------------ | --------- |
-| Visual Studio | .NET Framework |
-| dotnet.exe | .NET Core |
-| NuGet. exe | .NET Framework |
-| MSBuild. exe | .NET Framework |
-| NuGet. exe sur mono | .NET Framework |
+| Visual Studio | .NET Framework |
+| dotnet. exe | .NET Core |
+| NuGet. exe | .NET Framework |
+| MSBuild. exe | .NET Framework |
+| NuGet. exe sur mono | .NET Framework |
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
@@ -70,17 +70,17 @@ La communication entre les outils clients NuGet et le plug-in est bidirectionnel
 ## <a name="plugin-installation-and-discovery"></a>Installation et détection du plug-in
 
 Les plug-ins seront découverts via une structure de répertoires basée sur une convention.
-Les scénarios CI/CD et les utilisateurs avec pouvoir peuvent utiliser des variables d’environnement pour remplacer le comportement. Notez que `NUGET_NETFX_PLUGIN_PATHS` et `NUGET_NETCORE_PLUGIN_PATHS` sont uniquement disponibles avec 5.3 + version des outils NuGet et versions ultérieures.
+Les scénarios CI/CD et les utilisateurs avec pouvoir peuvent utiliser des variables d’environnement pour remplacer le comportement. Lorsque vous utilisez des variables d’environnement, seuls les chemins d’accès absolus sont autorisés. Notez que `NUGET_NETFX_PLUGIN_PATHS` et `NUGET_NETCORE_PLUGIN_PATHS` sont uniquement disponibles avec 5.3 + version des outils NuGet et versions ultérieures.
 
 - `NUGET_NETFX_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés par les outils basés sur .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Est prioritaire sur `NUGET_PLUGIN_PATHS`. (NuGet version 5.3 + uniquement)
 - `NUGET_NETCORE_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés par les outils basés sur .NET Core (dotnet. exe). Est prioritaire sur `NUGET_PLUGIN_PATHS`. (NuGet version 5.3 + uniquement)
-- `NUGET_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés pour ce processus NuGet, avec une priorité réservée. Si cette variable d’environnement est définie, elle remplace la détection basée sur une convention. Ignoré si l’une des variables spécifiques à l’infrastructure est spécifiée.
--  User-Location, l’emplacement d’hébergement NuGet `%UserProfile%/.nuget/plugins`dans. Cet emplacement ne peut pas être remplacé. Un répertoire racine différent sera utilisé pour les plug-ins .NET Core et .NET Framework.
+- `NUGET_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés pour ce processus NuGet, priorité préservée. Si cette variable d’environnement est définie, elle remplace la détection basée sur une convention. Ignoré si l’une des variables spécifiques à l’infrastructure est spécifiée.
+-  Utilisateur-emplacement, emplacement d’hébergement NuGet dans `%UserProfile%/.nuget/plugins`. Cet emplacement ne peut pas être remplacé. Un répertoire racine différent sera utilisé pour les plug-ins .NET Core et .NET Framework.
 
 | Framework | Emplacement de la détection racine  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
-| .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
+| .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
 
 Chaque plug-in doit être installé dans son propre dossier.
 Le point d’entrée du plug-in sera le nom du dossier installé, avec les extensions. dll pour .NET Core et l’extension. exe pour .NET Framework.
@@ -107,7 +107,7 @@ Le point d’entrée du plug-in sera le nom du dossier installé, avec les exten
 
 Deux opérations sont prises en charge dans le nouveau protocole de plug-in.
 
-| Nom d’opération | Version de protocole minimale | Version minimale du client NuGet |
+| Nom de l’opération | Version de protocole minimale | Version minimale du client NuGet |
 | -------------- | ----------------------- | --------------------- |
 | Télécharger le package | 1.0.0 | 4.3.0 |
 | [Authentification](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
@@ -123,20 +123,20 @@ Un problème potentiel peut survenir avec les plug-ins d’emplacement utilisate
 La vérification de la sécurité et l’instanciation des plug-ins sont coûteux. L’opération de téléchargement se produit plus fréquemment que l’opération d’authentification, mais l’utilisateur NuGet moyen est uniquement susceptible d’avoir un plug-in d’authentification.
 Pour améliorer l’expérience, NuGet met en cache les revendications d’opération pour la demande donnée. Ce cache est par plug-in dont la clé de plug-in est le chemin du plug-in, et l’expiration pour ce cache de fonctionnalités est de 30 jours. 
 
-Le cache se trouve dans `%LocalAppData%/NuGet/plugins-cache` et est remplacé par la variable `NUGET_PLUGINS_CACHE_PATH`d’environnement. Pour effacer ce [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), vous pouvez exécuter la commande variables locales avec l' `plugins-cache` option.
-L' `all` option variables locales va également supprimer le cache des plug-ins. 
+Le cache se trouve dans `%LocalAppData%/NuGet/plugins-cache` et est remplacé par la variable d’environnement `NUGET_PLUGINS_CACHE_PATH`. Pour effacer ce [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), vous pouvez exécuter la commande variables locales avec l’option `plugins-cache`.
+L’option variables locales `all` va également supprimer le cache des plug-ins. 
 
 ## <a name="protocol-messages-index"></a>Index des messages de protocole
 
 Messages de la version de protocole *1.0.0* :
 
-1.  Fermer
-    * Direction de la demande :  Plug-in NuGet->
+1.  Close
+    * Direction de la requête : plug-in NuGet->
     * La demande ne contient pas de charge utile
     * Aucune réponse n’est attendue.  La réponse appropriée est que le processus du plug-in s’arrête rapidement.
 
 2.  Copier les fichiers dans le package
-    * Direction de la demande :  Plug-in NuGet->
+    * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * ID et version du package
         * emplacement du référentiel source du package
@@ -147,7 +147,7 @@ Messages de la version de protocole *1.0.0* :
         * énumérable de chemins d’accès complets pour les fichiers copiés dans le répertoire de destination si l’opération a réussi
 
 3.  Copier le fichier de package (. nupkg)
-    * Direction de la demande :  Plug-in NuGet->
+    * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * ID et version du package
         * emplacement du référentiel source du package
@@ -166,7 +166,7 @@ Messages de la version de protocole *1.0.0* :
         * un mot de passe, s’il est disponible
 
 5.  Récupérer les fichiers dans le package
-    * Direction de la demande :  Plug-in NuGet->
+    * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * ID et version du package
         * emplacement du référentiel source du package
@@ -175,7 +175,7 @@ Messages de la version de protocole *1.0.0* :
         * énumérable de chemins d’accès de fichiers dans le package si l’opération a réussi
 
 6.  Récupération des revendications d’opération 
-    * Direction de la demande :  Plug-in NuGet->
+    * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * service index. JSON pour une source de package
         * emplacement du référentiel source du package
@@ -187,7 +187,7 @@ Messages de la version de protocole *1.0.0* :
 > Ce message a été mis à jour dans la version *2.0.0*. Il se trouve sur le client pour préserver la compatibilité descendante.
 
 7.  Obtient le hachage du package
-    * Direction de la demande :  Plug-in NuGet->
+    * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * ID et version du package
         * emplacement du référentiel source du package
@@ -197,7 +197,7 @@ Messages de la version de protocole *1.0.0* :
         * hachage de fichier de package utilisant l’algorithme de hachage demandé si l’opération a réussi
 
 8.  Obtient les versions du package
-    * Direction de la demande :  Plug-in NuGet->
+    * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * ID du package
         * emplacement du référentiel source du package
@@ -214,7 +214,7 @@ Messages de la version de protocole *1.0.0* :
         * index du service si l’opération a réussi
 
 10.  Négociation
-     * Direction de la demande :  < NuGet-plug-in >
+     * Direction de la demande : < NuGet-plug-in >
      * La demande contient :
          * version actuelle du protocole de plug-in
          * version de protocole du plug-in minimale prise en charge
@@ -223,7 +223,7 @@ Messages de la version de protocole *1.0.0* :
          * version du protocole négocié si l’opération a réussi.  Une défaillance entraînera l’arrêt du plug-in.
 
 11.  Initialize
-     * Direction de la demande :  Plug-in NuGet->
+     * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * version de l’outil client NuGet
          * langage de l’outil client NuGet en vigueur.  Cela prend en compte le paramètre ForceEnglishOutput, s’il est utilisé.
@@ -231,7 +231,7 @@ Messages de la version de protocole *1.0.0* :
      * Une réponse contient les éléments suivants :
          * Code de réponse indiquant le résultat de l’opération.  Une défaillance entraînera l’arrêt du plug-in.
 
-12.  Journal
+12.  Log
      * Direction de la demande : plugin-> NuGet
      * La demande contient :
          * niveau de journalisation de la demande
@@ -240,14 +240,14 @@ Messages de la version de protocole *1.0.0* :
          * Code de réponse indiquant le résultat de l’opération.
 
 13.  Surveiller la sortie du processus NuGet
-     * Direction de la demande :  Plug-in NuGet->
+     * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * l’ID de processus NuGet
      * Une réponse contient les éléments suivants :
          * Code de réponse indiquant le résultat de l’opération.
 
 14.  Prérécupérer le package
-     * Direction de la demande :  Plug-in NuGet->
+     * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * ID et version du package
          * emplacement du référentiel source du package
@@ -255,7 +255,7 @@ Messages de la version de protocole *1.0.0* :
          * Code de réponse indiquant le résultat de l’opération
 
 15.  Définir les informations d’identification
-     * Direction de la demande :  Plug-in NuGet->
+     * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * emplacement du référentiel source du package
          * dernier nom d’utilisateur source de package connu, s’il est disponible
@@ -266,7 +266,7 @@ Messages de la version de protocole *1.0.0* :
          * Code de réponse indiquant le résultat de l’opération
 
 16.  Définir le niveau de journal
-     * Direction de la demande :  Plug-in NuGet->
+     * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * niveau de journalisation par défaut
      * Une réponse contient les éléments suivants :
@@ -276,7 +276,7 @@ Messages du protocole version *2.0.0*
 
 17. Récupération des revendications d’opération
 
-* Direction de la demande :  Plug-in NuGet->
+* Direction de la requête : plug-in NuGet->
     * La demande contient :
         * service index. JSON pour une source de package
         * emplacement du référentiel source du package
@@ -288,14 +288,14 @@ Messages du protocole version *2.0.0*
 
 18. Récupérer les informations d’identification d’authentification
 
-* Direction de la demande : Plug-in NuGet->
+* Direction de la requête : plug-in NuGet->
 * La demande contient :
     * URI
     * isRetry
-    * NonInteractive
+    * Non interactive
     * CanShowDialog
 * Une réponse contient
-    * Nom d’utilisateur
+    * Utilisateur
     * Mot de passe
     * Message
     * Liste des types d’authentification

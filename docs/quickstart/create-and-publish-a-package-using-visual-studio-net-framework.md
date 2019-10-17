@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: 40e240478918d327fbea0013bbf271ea2ee1fc47
-ms.sourcegitcommit: a0807671386782021acb7588741390e6f07e94e1
+ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384494"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380643"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework, Windows)
 
@@ -19,7 +19,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 > [!Note]
 > Ce guide de démarrage rapide s’applique à Visual Studio 2017 et versions ultérieures pour Windows uniquement. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 1. Installez une édition de Visual Studio 2017 ou version supérieure à l’adresse [visualstudio.com](https://www.visualstudio.com/) avec n’importe quelle charge de travail liée à .NET. Visual Studio 2017 intègre automatiquement les fonctionnalités NuGet lorsqu’une charge de travail .NET est installée.
 
@@ -31,7 +31,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 
 Vous pouvez utiliser un projet de bibliothèque de classes .NET Framework existant pour le code à empaqueter, ou bien en créer un de la façon suivante :
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, sélectionnez le nœud **Visual C#** , sélectionnez le modèle « Bibliothèque de classes (.NET Framework) », nommez le projet AppLogger, puis cliquez sur **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, sélectionnez le nœud **Visual C#**, sélectionnez le modèle « Bibliothèque de classes (.NET Framework) », nommez le projet AppLogger, puis cliquez sur **OK**.
 
 1. Cliquez avec le bouton droit sur le fichier projet résultant et sélectionnez **Générer** pour être sûr que le projet a été créé correctement. La DLL se trouve dans le dossier Debug (ou Release si vous générez cette configuration).
 
@@ -94,18 +94,17 @@ Vous exécutez `nuget spec` une seule fois pour générer le manifeste initial. 
     <?xml version="1.0"?>
     <package >
       <metadata>
-        <id>$id$</id>
-        <version>$version$</version>
-        <title>$title$</title>
-        <authors>$author$</authors>
-        <owners>$author$</owners>
-        <licenseUrl>http://LICENSE_URL_HERE_OR_DELETE_THIS_LINE</licenseUrl>
+        <id>Package</id>
+        <version>1.0.0</version>
+        <authors>YourUsername</authors>
+        <owners>YourUsername</owners>
+        <license type="expression">MIT</license>
         <projectUrl>http://PROJECT_URL_HERE_OR_DELETE_THIS_LINE</projectUrl>
         <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
-        <description>$description$</description>
+        <description>Package description</description>
         <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
-        <copyright>Copyright 2018</copyright>
+        <copyright>Copyright 2019</copyright>
         <tags>Tag1 Tag2</tags>
       </metadata>
     </package>
@@ -119,7 +118,7 @@ Vous exécutez `nuget spec` une seule fois pour générer le manifeste initial. 
     - projectUrl
     - iconUrl
     - releaseNotes
-    - balises
+    - étiquettes
 
 1. Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **Tags**, car les balises aident les utilisateurs à trouver vos packages sur des sources comme nuget.org et à comprendre leur rôle.
 
@@ -135,7 +134,7 @@ Vous exécutez `nuget spec` une seule fois pour générer le manifeste initial. 
 
 ## <a name="publish-the-package"></a>Publier le package
 
-Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org à l’aide de la commande `nuget.exe` avec une clé API acquise sur nuget.org. Pour nuget.org, vous devez utiliser `nuget.exe` 4.1.0 ou ultérieur.
+Une fois que vous avez un fichier `.nupkg`, vous le publiez dans nuget.org à l’aide de `nuget.exe` avec une clé API acquise à partir de nuget.org. Pour nuget.org, vous devez utiliser `nuget.exe` 4.1.0 ou une version ultérieure.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 

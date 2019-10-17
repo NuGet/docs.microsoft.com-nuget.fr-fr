@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 40a42be91d3848db3e721a674e3fec4096fccd08
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69489012"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380750"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Créer un package NuGet à l’aide de l’interface CLI dotnet
 
@@ -23,15 +23,15 @@ Pour les projets .NET Core et .NET Standard qui utilisent le [format de style SD
 > [!IMPORTANT]
 > Cette rubrique s’applique aux projets [SDK-style](../resources/check-project-format.md), qui sont généralement des projets .net Core et .NET Standard.
 
-## <a name="set-properties"></a>Définir des propriétés
+## <a name="set-properties"></a>Définir les propriétés
 
 Les propriétés suivantes sont requises pour créer un package.
 
-- `PackageId`, l’identificateur du package, qui doit être unique dans toute la galerie qui héberge le package. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
+- `PackageId`, l’identificateur du package, qui doit être unique dans toute la galerie qui héberge le package. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
 - `Version`, un numéro de version spécifique au format *version_principale.version_secondaire.version_corrective [-suffixe]* où *-suffixe* identifie les [versions préliminaires](prerelease-packages.md). Si elle n’est pas spécifiée, la valeur par défaut est 1.0.0.
 - Titre du package tel qu’il doit apparaître sur l’hôte (par exemple nuget.org)
-- `Authors`, informations sur l’auteur et le propriétaire. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
-- `Company`, le nom de votre entreprise. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
+- `Authors`, informations sur l’auteur et le propriétaire. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
+- `Company`, le nom de votre entreprise. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
 
 Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez aussi définir directement ces propriétés dans les fichiers projet (`.csproj`).
 
@@ -131,4 +131,4 @@ Vous pouvez également étendre les fonctionnalités de votre package ou prendre
 Enfin, il existe d’autres types de package à connaître :
 
 - [Packages natifs](../guides/native-packages.md)
-- [Packages de symboles](../create-packages/symbol-packages.md)
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)

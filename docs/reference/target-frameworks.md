@@ -6,26 +6,26 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: ea9f699b202d7f32648f0ccfeac3ceb1ca325b7e
-ms.sourcegitcommit: 0f5363353f9dc1c3d68e7718f51b7ff92bb35e21
+ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68342444"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380484"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
 NuGet utilise les références des versions cibles de .NET Framework à de nombreux endroits pour identifier et isoler spécifiquement les composants dépendants du framework d’un package :
 
-- [fichier projet](../create-packages/multiple-target-frameworks-project-file.md): Pour les projets de type SDK, le *. csproj* contient les références à la version cible du .NET Framework.
-- [manifeste. NuSpec](../reference/nuspec.md): Un package peut indiquer des packages distincts à inclure dans un projet en fonction du Framework cible du projet.
-- [nom du dossier. nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory): Les dossiers contenus dans le dossier `lib` d’un package peuvent être nommés en fonction de la version cible de .NET Framework, chacun contenant les dll et d’autres contenus appropriés à cette infrastructure.
-- [packages. config](../reference/packages-config.md): L' `targetframework` attribut d’une dépendance spécifie la variante d’un package à installer.
+- [fichier projet](../create-packages/multiple-target-frameworks-project-file.md): pour les projets de type kit de développement logiciel (SDK), le fichier *. csproj* contient les références à la version cible du .NET Framework.
+- [Manifeste .nuspec](../reference/nuspec.md) : un package peut désigner des packages distincts à inclure dans un projet en fonction de la version cible de .NET Framework du projet.
+- [Nom du dossier .nupkg](../create-packages/creating-a-package.md#from-a-convention-based-working-directory) : les dossiers à l’intérieur du dossier `lib` d’un package peuvent être nommés en fonction de la version cible de .NET Framework, chacun contenant les DLL et tout autre contenu appropriés pour ce framework.
+- [packages.config](../reference/packages-config.md) : l’attribut `targetframework` d’une dépendance spécifie la variante d’un package à installer.
 
 > [!Note]
 > Le code source du client NuGet qui calcule les tableaux ci-dessous se trouve aux emplacements suivants :
-> - Noms des frameworks pris en charge: [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Priorité et mappage de l’infrastructure: [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> - Noms des frameworks pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Priorité des frameworks et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 ## <a name="supported-frameworks"></a>Frameworks pris en charge
 
@@ -33,9 +33,9 @@ Un framework est généralement référencé par un moniker du Framework cible o
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 
-| Nom | Abréviation | TFMs/TxMs |
+| Name | Abréviation | TFMs/TxMs |
 | ------------- | ------------ | --------- |
-|.NET Framework | net | net11 |
+|.NET Framework | net | net11 |
 | | | net20 |
 | | | net35 |
 | | | net40 |
@@ -83,6 +83,7 @@ Application .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
+| | | netcoreapp 3.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -138,7 +139,7 @@ Pour définir une version cible de .NET Framework qui fait référence à plusie
 
 D’autres frameworks définis par des tiers assurent la compatibilité avec d’autres environnements qui sont accessibles de cette manière. De plus, il existe des numéros de profil abrégés qui sont disponibles pour faire référence à ces combinaisons de frameworks connexes en tant que `Profile#`, mais l’utilisation de ces numéros n’est pas recommandée, car cela réduit la lisibilité des dossiers et de `.nuspec`.
 
-| Numéro de profil | Frameworks | Nom complet | .NET Standard |
+| Numéro de profil | Infrastructures | Nom complet | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -166,9 +167,9 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -184,7 +185,7 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -236,13 +237,13 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8

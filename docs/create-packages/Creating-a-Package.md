@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4223c25daa1c14c30de1ef063cd0f48df70c8b5
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 353654d12e137222ab24417f30fd22e9f027c324
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564577"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380708"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
 
@@ -241,7 +241,7 @@ Notez qu’il existe plusieurs autres options d’empaquetage disponibles quand 
 
 #### <a name="solution-level-packages"></a>Packages au niveau de la solution
 
-*NuGet 2.x uniquement. Non disponible dans NuGet 3.0+.*
+*NuGet 2. x uniquement. Non disponible dans NuGet 3.0 +.*
 
 NuGet 2.x prenait en charge la notion de package au niveau de la solution qui permettait d’installer des outils ou des commandes supplémentaires pour la console du gestionnaire de package (contenu du dossier `tools`), sans ajouter de références, de contenu, ni générer des personnalisations pour les projets de la solution. De tels packages ne contiennent aucun fichier dans leurs dossiers `lib`, `content` ou `build` directs et aucune de leurs dépendances n’ont des fichiers dans leurs dossiers `lib`, `content` ou `build` respectifs.
 
@@ -265,9 +265,9 @@ L’identificateur de package (élément `<id>`) et le numéro de version (élé
 
 **Bonnes pratiques en matière d’identificateur de package :**
 
-- **Unicité** : L’identificateur doit être unique sur nuget.org ou dans la galerie qui héberge le package, quelle qu’elle soit. Avant de déterminer un identificateur, faites une recherche dans la galerie applicable pour vérifier si le nom est déjà en cours d’utilisation. Pour éviter les conflits, utilisez le nom de votre société comme première partie de l’identificateur, par exemple `Contoso.`.
-- **Noms comme les espaces de noms** : Suivez un modèle similaire aux espaces de noms dans .NET, en utilisant la notation à points au lieu de traits d’union. Par exemple, utilisez `Contoso.Utility.UsefulStuff` plutôt que `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Les consommateurs trouvent également pratique de faire correspondre l’identificateur du package aux espaces de noms utilisés dans le code.
-- **Exemples de package** : Si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (L’exemple de package dépend naturellement de l’autre package.) Lorsque vous créez un exemple de package, utilisez la méthode du répertoire de travail basé sur une convention décrite précédemment. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Unicité** : l’identificateur doit être unique sur nuget.org ou dans la galerie qui héberge le package, quelle qu’elle soit. Avant de déterminer un identificateur, faites une recherche dans la galerie applicable pour vérifier si le nom est déjà en cours d’utilisation. Pour éviter les conflits, utilisez le nom de votre société comme première partie de l’identificateur, par exemple `Contoso.`.
+- **Noms comme les espaces de noms** : suivez un modèle similaire aux espaces de noms dans .NET, en utilisant la notation à points au lieu de traits d’union. Par exemple, utilisez `Contoso.Utility.UsefulStuff` plutôt que `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Les consommateurs trouvent également pratique de faire correspondre l’identificateur du package aux espaces de noms utilisés dans le code.
+- **Exemples de package** : si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (L’exemple de package est évidemment dépendant de l’autre package.) Lorsque vous créez un exemple de package, utilisez la méthode de répertoire de travail basée sur une convention décrite précédemment. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Bonnes pratiques en matière de version de package :**
 
@@ -278,7 +278,7 @@ L’identificateur de package (élément `<id>`) et le numéro de version (élé
 >
 > - [Partie 1 : Affronter les difficultés liées aux DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
 > - [Partie 2 : L’algorithme principal](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Partie 3 : Unification par le biais de redirections de liaison](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Partie 3 : Unification par le biais de redirections de liaison](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="add-a-readme-and-other-files"></a>Ajouter un fichier Lisez-moi et d’autres fichiers
 
@@ -344,7 +344,7 @@ Ensuite, dans le fichier `.nuspec`, veillez à faire référence à ces fichiers
 
 L’inclusion des propriétés et des cibles MSBuild dans un package a été [introduite avec NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files). Il est donc recommandé d’ajouter l’attribut `minClientVersion="2.5"` à l’élément `metadata` pour indiquer la version minimale du client NuGet nécessaire pour utiliser le package.
 
-Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du fichier projet. `.targets` est ajouté en bas.) Un élément `<Import>` MSBuild conditionnel distinct est ajouté pour chaque version cible de .NET Framework.
+Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du fichier projet ; `.targets` est ajouté en bas.) Un élément @no__t MSBuild conditionnel distinct-2 est ajouté pour chaque Framework cible.
 
 Les fichiers `.props` et `.targets` MSBuild du ciblage multi-infrastructure peuvent être placés dans le dossier `\buildMultiTargeting`. Lors de l’installation de package, NuGet ajoute les éléments `<Import>` correspondants au fichier projet à la condition que la version cible de .NET Framework ne soit pas définie (la propriété MSBuild `$(TargetFramework)` doit être vide).
 
@@ -382,7 +382,7 @@ Vous pouvez utiliser divers commutateurs de ligne de commande avec `nuget pack` 
 
 Les options suivantes figurent parmi les quelques options communes aux projets Visual Studio :
 
-- **Projets référencés** : Si le projet fait référence à d’autres projets, vous pouvez ajouter les projets référencés dans le cadre du package, ou en tant que dépendances, à l’aide de l’option `-IncludeReferencedProjects` :
+- **Projets référencés** : si le projet fait référence à d’autres projets, vous pouvez ajouter les projets référencés dans le cadre du package, ou en tant que dépendances, à l’aide de l’option `-IncludeReferencedProjects` :
 
     ```cli
     nuget pack MyProject.csproj -IncludeReferencedProjects
@@ -392,7 +392,7 @@ Les options suivantes figurent parmi les quelques options communes aux projets V
 
     Si un projet référencé inclut un fichier `.nuspec` bien à lui, alors NuGet ajoute ce projet référencé plutôt en tant que dépendance.  Vous devez empaqueter et publier ce projet séparément.
 
-- **Configuration de build** : Par défaut, NuGet utilise la configuration de build par défaut définie dans le fichier projet, généralement *Debug*. Pour compresser des fichiers d’une configuration de build différente, comme *Release*, utilisez l’option `-properties` avec la configuration :
+- **Configuration de build** : par défaut, NuGet utilise la configuration de build par défaut définie dans le fichier projet, généralement *Debug*. Pour compresser des fichiers d’une configuration de build différente, comme *Release*, utilisez l’option `-properties` avec la configuration :
 
     ```cli
     nuget pack MyProject.csproj -properties Configuration=Release
@@ -434,4 +434,4 @@ Vous pouvez également étendre les fonctionnalités de votre package ou prendre
 Enfin, il existe d’autres types de package à connaître :
 
 - [Packages natifs](../guides/native-packages.md)
-- [Packages de symboles](../create-packages/symbol-packages.md)
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)

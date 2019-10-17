@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c1d8a479747f6f7bce388c1555589543c8824a0
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
-ms.translationtype: HT
+ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020058"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380686"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Prendre en charge plusieurs versions de .NET Framework dans votre fichier projet
 
@@ -37,7 +37,7 @@ Pour les projets SDK-style, vous pouvez configurer la prise en charge de plusieu
 
    Veillez à modifier l’élément XML mis au pluriel (ajoutez des «s» aux balises d’ouverture et de fermeture).
 
-3. Si vous avez du code qui ne fonctionne que dans un TFM, vous pouvez utiliser `#if NET45` ou `#if NETSTANDARD20` pour séparer du code dépendant du TFM. (Pour plus d'informations, consultez [Guide pratique du multiciblage](/dotnet/core/tutorials/libraries#how-to-multitarget).) Par exemple, vous pouvez utiliser le code suivant :
+3. Si vous avez du code qui ne fonctionne que dans un TFM, vous pouvez utiliser `#if NET45` ou `#if NETSTANDARD2_0` pour séparer du code dépendant du TFM. (Pour plus d’informations, consultez [la rubrique Comment effectuer une MULTICIBLAGE](/dotnet/core/tutorials/libraries#how-to-multitarget).) Par exemple, vous pouvez utiliser le code suivant :
 
    ```csharp
    public string Platform {

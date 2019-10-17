@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 14483264030dd3bb32c7295886f2d37d52e735cc
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
-ms.translationtype: HT
+ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69020027"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380733"
 ---
 # <a name="support-multiple-net-versions"></a>Prendre en charge plusieurs versions de .NET
 
 De nombreuses bibliothèques ciblent une version spécifique de .NET Framework. Par exemple, vous pouvez avoir une première version de votre bibliothèque propre à la plateforme Windows universelle (UWP) et une autre version qui exploite les fonctionnalités de .NET Framework 4.6. Pour ce faire, NuGet prend en charge le placement de plusieurs versions de la même bibliothèque dans un package unique.
 
-Cet article décrit la disposition d’un package NuGet, quelle que soit la façon dont le package ou les assemblys sont créés (ce qui signifie que la disposition est la même, que vous utilisiez plusieurs fichiers *.csproj* non-SDK-style et un fichier *.nuspec* personnalisé, ou un fichier *.csproj* multicible unique SDK-style). Pour un projet SDK-style, les [cibles de packs](../reference/msbuild-targets.md) NuGet savent comment le package doit être disposé, automatisent le placement des assemblys dans les dossiers de bibliothèque corrects et créent des groupes de dépendances pour chaque framework cible (TFM). Pour des instructions détaillées, consultez [Prendre en charge plusieurs versions de .NET Framework](multiple-target-frameworks-project-file.md) dans votre fichier projet.
+Cet article décrit la disposition d’un package NuGet, quelle que soit la façon dont le package ou les assemblys sont générés (c’est-à-dire que la disposition est la même, que vous utilisiez plusieurs fichiers *. csproj* non-SDK et un fichier *. NuSpec* personnalisé, ou un seul fichier multiciblé SDK-style *. csproj*). Pour un projet SDK-style, les [cibles de packs](../reference/msbuild-targets.md) NuGet savent comment le package doit être disposé, automatisent le placement des assemblys dans les dossiers de bibliothèque corrects et créent des groupes de dépendances pour chaque framework cible (TFM). Pour des instructions détaillées, consultez [Prendre en charge plusieurs versions de .NET Framework](multiple-target-frameworks-project-file.md) dans votre fichier projet.
 
 Vous devez disposer manuellement le package comme décrit dans cet article lorsque vous utilisez la méthode de répertoire de travail basée sur une convention décrite dans [Création d’un package](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Pour un projet SDK-style, la méthode automatisée est recommandée, mais vous pouvez également choisir de disposer manuellement le package comme décrit dans cet article.
 
@@ -65,9 +65,9 @@ Si vous avez des assemblys propres à une architecture, autrement dit, des assem
             \native
             \lib\uap10.0
 
-Ces assemblys sont disponibles uniquement au moment de l’exécution. Si vous souhaitez fournir l’assembly correspondant au moment de la compilation, indiquez l’assembly `AnyCPU` dans le dossier `/ref{tfm}`. 
+Ces assemblys sont disponibles uniquement au moment de l’exécution. Si vous souhaitez fournir l’assembly correspondant au moment de la compilation, indiquez l’assembly `AnyCPU` dans le dossier `/ref/{tfm}`. 
 
-Notez que NuGet choisit toujours ces ressources de compilation ou d’exécution dans un seul dossier. Si des ressources compatibles se trouvent dans `/ref`, `/lib` est donc ignoré lors de l’ajout d’assemblys au moment de la compilation. De même, si des ressources compatibles se trouvent dans `/runtime`, `/lib` est ignoré pour l’exécution.
+Notez que NuGet choisit toujours ces ressources de compilation ou d’exécution dans un seul dossier. Si des ressources compatibles se trouvent dans `/ref`, `/lib` est donc ignoré lors de l’ajout d’assemblys au moment de la compilation. De même, s’il existe des éléments compatibles de `/runtime`, alors également `/lib` seront ignorés pour l’exécution.
 
 Consultez [Créer des packages UWP](../guides/create-uwp-packages.md) pour obtenir un exemple de référencement de ces fichiers dans le manifeste `.nuspec`.
 
@@ -116,10 +116,10 @@ NuGet prend également en charge le ciblage d’un profil de framework spécifiq
 
 Les profils pris en charge sont les suivants :
 
-- `client`: Profil client
-- `full`: Profil complet
-- `wp`: Windows Phone
-- `cf`: Compact Framework
+- `client` : Client Profile
+- `full` : Full Profile
+- `wp` : Windows Phone
+- `cf` : Compact Framework
 
 ## <a name="declaring-dependencies-advanced"></a>Déclaration de dépendances (avancée)
 
@@ -152,7 +152,7 @@ L’exemple suivant illustre différentes variantes de l’élément `<group>` :
 Lorsque vous empaquetez des bibliothèques ciblant la bibliothèque de classes portable, il peut être difficile de déterminer quelle cible NuGet vous devez utiliser dans vos noms de dossier et votre fichier `.nuspec`, en particulier si vous ciblez uniquement un sous-ensemble de la bibliothèque de classes portable. Les ressources externes suivantes peuvent vous aider à la déterminer :
 
 - [Profils de framework dans .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [Profils de bibliothèque de classes portables](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co) : Tableau qui énumère les profils de la bibliothèque de classes portable et leurs cibles NuGet équivalentes
+- [Profils de la bibliothèque de classes portable](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co) : tableau qui énumère les profils de la bibliothèque de classes portable et leurs cibles NuGet équivalentes
 - [Outil des profils de la bibliothèque de classes portable](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com) : outil en ligne de commande permettant de déterminer les profils de la bibliothèque de classes portable disponibles sur votre système
 
 ## <a name="content-files-and-powershell-scripts"></a>Fichiers de contenu et scripts PowerShell
@@ -160,7 +160,7 @@ Lorsque vous empaquetez des bibliothèques ciblant la bibliothèque de classes p
 > [!Warning]
 > Des fichiers de contenu mutables et une exécution des scripts sont disponibles au format `packages.config` uniquement ; ils sont dépréciés avec tous les autres des formats et ne doivent pas être utilisés pour de nouveaux packages.
 
-Avec `packages.config`, il est possible de regrouper les fichiers de contenu et les scripts PowerShell par version cible de .Net Framework en utilisant la même convention de dossier à l’intérieur des dossiers `content` et `tools`. Par exemple :
+Avec `packages.config`, il est possible de regrouper les fichiers de contenu et les scripts PowerShell par version cible de .Net Framework en utilisant la même convention de dossier à l’intérieur des dossiers `content` et `tools`. Exemple :
 
     \content
         \net46

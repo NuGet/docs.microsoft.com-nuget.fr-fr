@@ -5,22 +5,22 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 11dce27b93c3d09a2d27dc79f8d4fed86df879ba
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488972"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380721"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Créer des packages .NET Standard et .NET Framework avec Visual Studio 2015
 
-**Remarque :** Visual Studio 2017 est recommandé pour développer des bibliothèques .NET Standard. Visual Studio 2015 peut fonctionner, mais les outils .NET Core n’étaient qu’en préversion. Consultez la page [Créer et publier un package avec Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pour utiliser NuGet 4.x+ et Visual Studio 2017.
+**Remarque :** Visual Studio 2017 est recommandé pour développer des bibliothèques .NET Standard. Visual Studio 2015 peut fonctionner, mais les outils .NET Core n’étaient qu’en préversion. Consultez la page [Créer et publier un package avec Visual Studio 2017](../quickstart/create-and-publish-a-package-using-visual-studio.md) pour utiliser NuGet 4.x+ et Visual Studio 2017.
 
 La [bibliothèque .NET Standard](/dotnet/articles/standard/library) est une spécification formelle des API .NET destinées à être disponibles sur tous les runtimes .NET, renforçant ainsi l’uniformité de l’écosystème .NET. La bibliothèque .NET Standard définit un ensemble uniforme d’API de bibliothèque de classes de base pour toutes les plateformes .NET à implémenter, indépendamment de la charge de travail. Elle permet aux développeurs de produire du code qui est utilisable sur tous les runtimes .NET, et réduit, si ce n’est élimine, les directives de compilation conditionnelle spécifiques à la plateforme dans le code partagé.
 
 Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque .NET Standard 1.4 ou .NET Framework 4.6. Une bibliothèque .NET Standard 1.4 fonctionne sur .NET Framework 4.6.1, la plateforme Windows universelle 10, .NET Core et Mono/Xamarin. Pour plus d’informations, consultez la [table de mappage .NET Standard](/dotnet/standard/net-standard#net-implementation-support) (documentation .NET). Vous pouvez choisir une autre version de la bibliothèque .NET Standard si vous le souhaitez.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 1. Visual Studio 2015 Update 3
 1. (.NET Standard uniquement) [Kit SDK .NET Core](https://www.microsoft.com/net/download/)
@@ -31,7 +31,7 @@ Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque
 
 ## <a name="create-the-class-library-project"></a>Créer le projet de bibliothèque de classes
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)** , remplacez le nom par AppLogger et sélectionnez **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)**, remplacez le nom par AppLogger et sélectionnez **OK**.
 
     ![Créer un projet de bibliothèque de classes](media/NetStandard-NewProject.png)
 
@@ -68,7 +68,7 @@ Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque
     nuget spec
     ```
 
-1. Ouvrez `AppLogger.nuspec` dans un éditeur et mettez-le à jour afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). De plus, vous devez également mettre à jour les balises authors et description afin de ne pas obtenir d’erreur durant l’empaquetage.
+1. Ouvrez `AppLogger.nuspec` dans un éditeur et mettez-le à jour afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Veillez également à mettre à jour les balises authors et description afin de ne pas recevoir de message d’erreur durant l’empaquetage.
 
     ```xml
     <?xml version="1.0"?>
@@ -161,7 +161,7 @@ Cette opération génère `AppLogger.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce f
 
 Pour mettre votre package à la disposition des autres développeurs, suivez les instructions indiquées dans [Publier un package](../nuget-org/publish-a-package.md).
 
-Notez que `pack` nécessite Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins Windows dans le fichier `.nuspec` en chemins de style Unix.
+Notez que `pack` requiert Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins Windows dans le fichier `.nuspec` en chemins de style Unix.
 
 ## <a name="related-topics"></a>Rubriques connexes
 
@@ -169,7 +169,7 @@ Notez que `pack` nécessite Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur le
 - [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
-- [Packages de symboles](../create-packages/symbol-packages.md)
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
 - [Gestion des versions de package](../concepts/package-versioning.md)
 - [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
 - [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)
