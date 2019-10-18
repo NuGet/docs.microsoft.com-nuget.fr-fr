@@ -202,7 +202,7 @@ Liste de balises et de mots clés délimités par des espaces, qui décrivent le
 *(3.3+)* Uniquement réservé à un usage NuGet interne.
 
 #### <a name="repository"></a>dépôt
-Les métadonnées de référentiel, composées de quatre attributs facultatifs : `type` et `url` *(4.0 +)* et `branch` et `commit` *(4.6 +)*. Ces attributs vous permettent de mapper le `.nupkg` au référentiel qui l’a créé, avec la possibilité d’obtenir le même nom que le nom de la branche individuelle et/ou de valider le hachage SHA-1 qui a créé le package. Il doit s’agir d’une URL disponible publiquement qui peut être appelée directement par un logiciel de contrôle de version. Il ne doit pas s’agir d’une page HTML, car cela est destiné à l’ordinateur. Pour la liaison à la page de projet, utilisez le champ `projectUrl` à la place.
+Les métadonnées de référentiel, composées de quatre attributs facultatifs : `type` et `url` *(4.0 +)* et `branch` et `commit` *(4.6 +)* . Ces attributs vous permettent de mapper le `.nupkg` au référentiel qui l’a créé, avec la possibilité d’obtenir le même nom que le nom de la branche individuelle et/ou de valider le hachage SHA-1 qui a créé le package. Il doit s’agir d’une URL disponible publiquement qui peut être appelée directement par un logiciel de contrôle de version. Il ne doit pas s’agir d’une page HTML, car cela est destiné à l’ordinateur. Pour la liaison à la page de projet, utilisez le champ `projectUrl` à la place.
 
 Exemple :
 ```xml

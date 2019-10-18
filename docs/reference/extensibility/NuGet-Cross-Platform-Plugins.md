@@ -72,9 +72,9 @@ La communication entre les outils clients NuGet et le plug-in est bidirectionnel
 Les plug-ins seront découverts via une structure de répertoires basée sur une convention.
 Les scénarios CI/CD et les utilisateurs avec pouvoir peuvent utiliser des variables d’environnement pour remplacer le comportement. Lorsque vous utilisez des variables d’environnement, seuls les chemins d’accès absolus sont autorisés. Notez que `NUGET_NETFX_PLUGIN_PATHS` et `NUGET_NETCORE_PLUGIN_PATHS` sont uniquement disponibles avec 5.3 + version des outils NuGet et versions ultérieures.
 
-- `NUGET_NETFX_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés par les outils basés sur .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Est prioritaire sur `NUGET_PLUGIN_PATHS`. (NuGet version 5.3 + uniquement)
-- `NUGET_NETCORE_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés par les outils basés sur .NET Core (dotnet. exe). Est prioritaire sur `NUGET_PLUGIN_PATHS`. (NuGet version 5.3 + uniquement)
-- `NUGET_PLUGIN_PATHS`-définit les plug-ins qui seront utilisés pour ce processus NuGet, priorité préservée. Si cette variable d’environnement est définie, elle remplace la détection basée sur une convention. Ignoré si l’une des variables spécifiques à l’infrastructure est spécifiée.
+- `NUGET_NETFX_PLUGIN_PATHS` : définit les plug-ins qui seront utilisés par les outils basés sur .NET Framework (NuGet. exe/MSBuild. exe/Visual Studio). Est prioritaire sur `NUGET_PLUGIN_PATHS`. (NuGet version 5.3 + uniquement)
+- `NUGET_NETCORE_PLUGIN_PATHS` : définit les plug-ins qui seront utilisés par les outils basés sur .NET Core (dotnet. exe). Est prioritaire sur `NUGET_PLUGIN_PATHS`. (NuGet version 5.3 + uniquement)
+- `NUGET_PLUGIN_PATHS` : définit les plug-ins qui seront utilisés pour ce processus NuGet, priorité préservée. Si cette variable d’environnement est définie, elle remplace la détection basée sur une convention. Ignoré si l’une des variables spécifiques à l’infrastructure est spécifiée.
 -  Utilisateur-emplacement, emplacement d’hébergement NuGet dans `%UserProfile%/.nuget/plugins`. Cet emplacement ne peut pas être remplacé. Un répertoire racine différent sera utilisé pour les plug-ins .NET Core et .NET Framework.
 
 | Framework | Emplacement de la détection racine  |

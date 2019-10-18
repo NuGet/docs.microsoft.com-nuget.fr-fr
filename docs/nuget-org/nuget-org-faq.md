@@ -95,7 +95,7 @@ Tout d’abord, veillez à utiliser les dernières versions de NuGet. Si cette v
 - Supprimez toutes les sessions (sélectionnez tous les éléments de la liste, puis appuyez sur la touche **Supprimer**).
 - Configurez Fiddler pour capturer le trafic HTTPS en cochant **Decrypt HTTPS traffic** (Déchiffrer le trafic HTTPS) sous l’onglet **HTTPS** du menu **Tools > Fiddler Options...** (Outils > Options Fiddler...).
 - Fermez Visual Studio.
-- Activez **l’option Capture Traffic (Capturer le trafic) dans le menu File (Fichier)**.
+- Activez **l’option Capture Traffic (Capturer le trafic) dans le menu File (Fichier)** .
 - Démarrez Visual Studio ou nuget.exe et effectuez les actions qui ne fonctionnent pas. Le trafic généré par ces actions doit s’afficher dans Fiddler.
 - Une fois les actions exécutées, utilisez **File > Save > All Sessions** (Fichier > Enregistrer > Toutes les sessions) pour stocker les sessions capturées.
 
@@ -119,7 +119,7 @@ Notez que le [mot de passe de connexion NuGet.org n’est plus disponible](https
 ### <a name="which-microsoft-account-is-linked-to-my-nugetorg-account"></a>Quel compte Microsoft est lié à mon compte NuGet.org ?
 
 Si vous avez oublié quel compte Microsoft est associé à votre compte NuGet.org, effectuez les étapes ci-dessous pour obtenir de l’aide.
-1. Accédez à la [page de connexion à NuGet.org](https://www.nuget.org/users/account/LogOn), puis cliquez sur le lien **Vous avez besoin d’aide pour vous connecter ?**.
+1. Accédez à la [page de connexion à NuGet.org](https://www.nuget.org/users/account/LogOn), puis cliquez sur le lien **Vous avez besoin d’aide pour vous connecter ?** .
 1. Une boîte de dialogue contextuelle permettant d’obtenir de l’aide s’affiche alors. Effectuez les étapes décrites dans cette boîte de dialogue pour comprendre le ou les comptes Microsoft associés à votre compte NuGet.org.
 
 ### <a name="how-to-change-the-microsoft-account-i-use-for-nugetorg-login"></a>Comment changer le compte Microsoft que j’utilise pour la connexion à NuGet.org ?

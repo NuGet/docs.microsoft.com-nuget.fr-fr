@@ -31,7 +31,7 @@ Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque
 
 ## <a name="create-the-class-library-project"></a>Créer le projet de bibliothèque de classes
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)**, remplacez le nom par AppLogger et sélectionnez **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)** , remplacez le nom par AppLogger et sélectionnez **OK**.
 
     ![Créer un projet de bibliothèque de classes](media/NetStandard-NewProject.png)
 

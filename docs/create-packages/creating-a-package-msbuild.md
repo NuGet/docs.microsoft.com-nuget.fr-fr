@@ -35,7 +35,7 @@ Les propriétés suivantes sont requises pour créer un package.
 - `Authors`, informations sur l’auteur et le propriétaire. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
 - `Company`, le nom de votre entreprise. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
 
-Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez également définir directement ces propriétés dans les fichiers projet (*.csproj*).
+Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez également définir directement ces propriétés dans les fichiers projet ( *.csproj*).
 
 ```xml
 <PropertyGroup>
