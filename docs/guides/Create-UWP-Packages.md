@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
-ms.openlocfilehash: 1683349faacdf5ad47baafeef3457bbb3bb1baa9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
+ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488992"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72380765"
 ---
 # <a name="create-uwp-packages"></a>Créer des packages UWP
 
@@ -253,7 +253,7 @@ Pour mettre votre package à la disposition des autres développeurs, suivez les
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Informations de référence sur le fichier nuspec](../reference/nuspec.md)
-- [Packages de symboles](../create-packages/symbol-packages.md)
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
 - [Gestion de version des packages](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
