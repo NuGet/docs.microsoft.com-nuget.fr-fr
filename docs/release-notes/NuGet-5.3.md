@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: 683ee7d1bef30d0a7414ec1694a9735d79b2ab45
-ms.sourcegitcommit: c529f5944868a0692ca8550b716a73e05df0ccbf
+ms.openlocfilehash: 3418eb9b60123596eaa361a546e8ea1403396f14
+ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687889"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924595"
 ---
 # <a name="nuget-53-release-notes"></a>Notes de publication de NuGet 5,3
 
@@ -18,17 +18,17 @@ Véhicules de distribution NuGet :
 
 | Version de NuGet | Disponible dans la version Visual Studio| Disponible dans les SDK .NET|
 |:---|:---|:---|
-| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0) <sup>1</sup> |
-
+| [**5.3.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,3](https://visualstudio.microsoft.com/downloads/) | [3.0.100](https://dotnet.microsoft.com/download/dotnet-core/3.0)<sup>1</sup> |
+| [**5.3.1**](https://nuget.org/downloads) | [Version 16.3.6 de Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) | [Version future : 3.0.101](https://dotnet.microsoft.com/download/dotnet-core/3.0) |
 <sup>1</sup> Installé avec Visual Studio 2019 avec une charge de travail .NET Core
 
-## <a name="summary-whats-new-in-53"></a>Résumé : Nouveautés de 5,3
+## <a name="summary-whats-new-in-53"></a>Résumé : nouveautés de 5,3
 
 * [L’icône de package peut être incorporée dans le package](../reference/msbuild-targets.md#packing-an-icon-image-file), au lieu d’avoir besoin d’une URL externe. - [#352](https://github.com/NuGet/Home/issues/352)
 
 * Sécurité améliorée avec suivi et mise en application SHA pour packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Activer la désapprobation des packages NuGet obsolètes/hérités [#2867](https://github.com/NuGet/Home/issues/2867)billet de[blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) |   | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
+* Activer la désapprobation des packages NuGet obsolètes/hérités [#2867](https://github.com/NuGet/Home/issues/2867) | billet de [blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/en-us/nuget/nuget-org/deprecate-packages)
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
@@ -36,7 +36,7 @@ Véhicules de distribution NuGet :
 
 * Les packages NuGet produits avec le kit de développement logiciel (SDK) 3.0.100-preview9 ne peuvent pas être utilisés par les utilisateurs du SDK 2,2... en fonction de votre fuseau horaire [#8603](https://github.com/NuGet/Home/issues/8603)
 
-* Guillemets dans le chemin d’accès, la cause de l’erreur « `nuget restore` caractères illégaux dans le chemin d’accès » dans [#8168](https://github.com/NuGet/Home/issues/8168)
+* Guillemets « les caractères non conformes dans le chemin d’accès sont à l’origine de l’erreur «caractères illégaux dans le chemin » dans `nuget restore` [#8168](https://github.com/NuGet/Home/issues/8168)
 
 * VS : les assemblys sont entièrement Ngen-Ed non partiellement Ngen-Ed- [#8513](https://github.com/NuGet/Home/issues/8513)
 
@@ -46,7 +46,7 @@ Véhicules de distribution NuGet :
 
 * Améliorations apportées à NU1403-valider tous les packages, inclure les valeurs SHA attendues/réelles- [#8424](https://github.com/NuGet/Home/issues/8424)
 
-* Énumération multiple `NuGetPackageManager.PreviewUpdatePackagesAsync`dans  -  [#8401](https://github.com/NuGet/Home/issues/8401)
+* Énumération multiple dans `NuGetPackageManager.PreviewUpdatePackagesAsync` - [#8401](https://github.com/NuGet/Home/issues/8401)
 
 * Restauration de la modification « public-> Internal » dans PluginProcess- [#8390](https://github.com/NuGet/Home/issues/8390)
 
@@ -70,7 +70,7 @@ Véhicules de distribution NuGet :
 
 * Rendre les paramètres lus dans VS Lazy- [#8156](https://github.com/NuGet/Home/issues/8156)
 
-* La régression `Nuget sources add` dans amène le caractère «  : », la valeur hexadécimale 0x3A, ne peut pas être inclus dans un nom «Errors- [#7948](https://github.com/NuGet/Home/issues/7948)
+* La régression dans `Nuget sources add` provoque l’impossibilité d’inclure le caractère «  : », la valeur hexadécimale 0x3A, dans un nom «erreurs- [#7948](https://github.com/NuGet/Home/issues/7948)
 
 * Fournisseurs d’informations d’identification du plug-in NuGet-masquer la fenêtre de processus- [#7511](https://github.com/NuGet/Home/issues/7511)
 
@@ -86,10 +86,16 @@ Véhicules de distribution NuGet :
 
 * Activer la restauration sur les fichiers. proj- [#8212](https://github.com/NuGet/Home/issues/8212)
 
-* Introduire `NUGET_NETFX_PLUGIN_PATHS` et`NUGET_NETCORE_PLUGIN_PATHS` pour prendre en charge la configuration des deux en même temps [#8151](https://github.com/NuGet/Home/issues/8151)
+* Introduisez des `NUGET_NETFX_PLUGIN_PATHS` et des `NUGET_NETCORE_PLUGIN_PATHS` pour prendre en charge la configuration des deux en même temps [#8151](https://github.com/NuGet/Home/issues/8151)
 
 * Activer plusieurs versions pour un PackageDownload via l’attribut de version- [#8074](https://github.com/NuGet/Home/issues/8074)
 
 * Options Add-SolutionDirectory et-PackageDirectory à NuGet. exe Pack- [#7163](https://github.com/NuGet/Home/issues/7163)
 
 **[Liste de tous les problèmes résolus dans cette version-5,3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%225.3")**
+
+## <a name="summary-whats-new-in-531"></a>Résumé : nouveautés de la procédure 5.3.1
+
+* Plug-in : une tâche a été annulée-ne laissez pas les annulations affecter l’instanciation du plug-in- [#8648](https://github.com/NuGet/Home/issues/8648)
+
+* La tâche de restauration ne peut pas être exécutée deux fois en toute sécurité dans un même processus (lorsque des fournisseurs d’informations d’identification sont utilisés)- [#8688](https://github.com/NuGet/Home/issues/8688)
