@@ -36,9 +36,9 @@ où les termes de recherche facultatifs filtrent la liste affichée. Les termes 
 | Help | Affiche des informations d’aide pour la commande. |
 | IncludeDelisted | *(3.2 +)* Affichez les packages qui ne sont pas répertoriés. |
 | NonInteractive | Supprime les invites de saisie ou de confirmation de l’utilisateur. |
-| Version préliminaire | Contient des packages de version préliminaire dans la liste. |
-| source | Spécifie une liste de sources de packages à rechercher. |
-| Commentaires | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
+| PreRelease | Contient des packages de version préliminaire dans la liste. |
+| Source | Spécifie une liste de sources de packages à rechercher. |
+| Verbosity | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 
