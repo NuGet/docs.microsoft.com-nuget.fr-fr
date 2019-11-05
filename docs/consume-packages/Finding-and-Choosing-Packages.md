@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: cbe6fd964e88b054b9e2c5c8ead71d1f9090d63c
-ms.sourcegitcommit: 5aa49478dc466c67db5c3edda7c6ce8dcd8ae033
-ms.translationtype: HT
+ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68817568"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611074"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Recherche et sélection des packages NuGet pour votre projet
 
-Lorsque vous démarrez un projet .NET, ou chaque fois que votre application ou votre service a un problème d’ordre fonctionnel, vous pouvez gagner du temps et vous éviter des problèmes en utilisant des packages NuGet existants qui répondent à vos besoins. Ces packages peuvent provenir de la collection publique de [nuget.org](http://www.nuget.org/packages/), ou d’une source privée fournie par votre organisation ou par un tiers.
+Lorsque vous démarrez un projet .NET, ou chaque fois que votre application ou votre service a un problème d’ordre fonctionnel, vous pouvez gagner du temps et vous éviter des problèmes en utilisant des packages NuGet existants qui répondent à vos besoins. Ces packages peuvent provenir de la collection publique de [nuget.org](https://www.nuget.org/packages/), ou d’une source privée fournie par votre organisation ou par un tiers.
 
 ## <a name="finding-packages"></a>Recherche de packages
 
@@ -54,15 +54,15 @@ Par défaut, nuget.org affiche les packages de préversion dans les résultats d
 
 Par défaut, NuGet n’inclut pas les préversions dans Visual Studio, lorsque les outils de l’interface CLI dotnet et NuGet sont utilisés. Pour modifier ce comportement, effectuez les opérations suivantes :
 
-- **Interface utilisateur du Gestionnaire de package dans Visual Studio** : dans l’interface utilisateur **Gérer les packages NuGet**, cochez la case **Inclure la préversion**. Le fait de cocher ou décocher cette case actualise l’interface utilisateur du gestionnaire de package et la liste des versions disponibles que vous pouvez installer.
+- **Interface utilisateur du gestionnaire de package dans Visual Studio** : dans l’interface utilisateur **Gérer les packages NuGet**, cochez la case **Inclure la préversion**. Le fait de cocher ou décocher cette case actualise l’interface utilisateur du gestionnaire de package et la liste des versions disponibles que vous pouvez installer.
 
     ![Case à cocher Inclure la préversion dans Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console du Gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
+- **Console du gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
 
-- **Interface CLI nuget.exe** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
+- **Interface CLI nuget.exe** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
 
-- **Interface CLI dotnet.exe** : spécifiez la préversion exacte à l’aide de l’argument `-v`. Consultez la [référence dotnet Ajouter un package](/dotnet/core/tools/dotnet-add-package).
+- **Interface CLI dotnet.exe** : spécifiez la préversion exacte à l’aide de l’argument `-v`. Consultez la [référence dotnet Ajouter un package](/dotnet/core/tools/dotnet-add-package).
 
 <a name="native-cpp-packages"></a>
 
@@ -90,7 +90,7 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 
     ![Historique des versions dans la page du package](media/Finding-04-VersionHistory.png)
 
-- *Recent installs* (Installations récentes): dans la page du package, sous **Statistics** (Statistiques), sélectionnez **View full stats** (Afficher les statistiques complètes). La page des statistiques complètes répertorie les installations de packages des six dernières semaines, par numéro de version. Généralement, les packages très utilisés par les autres développeurs constituent un bon choix.
+- *Installations récentes*: sur la page package sous **statistiques**, sélectionnez **afficher les statistiques complètes**. La page des statistiques complètes affiche le package installé au cours des six dernières semaines par numéro de version. Généralement, les packages très utilisés par les autres développeurs constituent un bon choix.
 
 - *Support* : sur la page du package, sous **Info**, sélectionnez **Project Site** (Site du projet), le cas échéant, pour afficher les options de support proposées par l’auteur. Un projet avec un site dédié est généralement mieux pris en charge.
 
@@ -103,7 +103,7 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 - *Reserved Package ID Prefixes* (Préfixes d’ID de packages réservés) : de nombreux propriétaires de packages ont demandé et reçu un [préfixe d’ID de package réservé](../nuget-org/id-prefix-reservation.md). Quand vous voyez la coche à côté d’un ID de package sur [nuget.org](https://www.nuget.org/) ou dans Visual Studio, cela signifie que le propriétaire du package a répondu à nos [critères](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pour la réservation d’ID de préfixe. Cela signifie que le propriétaire du package est clair quant à l’identification de lui-même et de son package.
 
 > [!Note]
-> Faites toujours attention aux termes du contrat de licence d’un package, que vous pouvez obtenir en cliquant sur **License Info** (Informations sur la licence), dans la page du package sur nuget.org. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **Contact owners** (Contacter les propriétaires) dans la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
+> Gardez toujours à l’esprit les termes du contrat de licence d’un package, que vous pouvez consulter en sélectionnant les **informations de licence** sur la page de liste d’un package sur NuGet.org. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **contacter les propriétaires** sur la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
 
 ## <a name="license-url-deprecation"></a>Dépréciation d’URL de licence
 Avec le passage de [licenseUrl](../reference/nuspec.md#licenseurl) vers [licence](../reference/nuspec.md#license), des clients et flux NuGet risquent de ne pas pouvoir accéder aux informations de licence dans certains cas. Pour maintenir une compatibilité descendante, l’URL de la licence pointe vers ce document, qui explique comment récupérer les informations de licence dans ces situations.
@@ -125,9 +125,9 @@ Pour découvrir l’équivalent MSBuild à la définition de la licence dans le 
 
 La recherche de packages NuGet fonctionne de la même manière sur nuget.org, dans l’interface CLI de NuGet et dans l’extension du gestionnaire de package NuGet de Visual Studio. En règle générale, la recherche s’appuie sur les mots clés et les descriptions des packages.
 
-- **Mots clés** : la recherche porte sur les packages contenant les mots clés fournis. Par exemple : `modern UI` Pour effectuer une recherche dans les packages qui contiennent tous les mots clés fournis, utilisez « + » entre les termes, par exemple `modern+UI`.
-- **Expressions** : entrez les termes entre guillemets pour rechercher des correspondances exactes non sensibles à la casse. Exemple : `"modern UI" package`
-- **Filtrage** : vous pouvez appliquer un terme de recherche à une propriété spécifique à l’aide de la syntaxe `<property>:<term>`, où `<property>` (non sensible à la casse) peut être `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` ou `owner`. Les termes peuvent être placés entre guillemets si nécessaire, et vous pouvez rechercher plusieurs propriétés en même temps. De plus, les recherches effectuées sur la propriété `id` retournent des correspondances de sous-chaîne, tandis que `packageid` retourne une correspondance exacte. Exemples :
+- **Mots clés** : les packages contenant n’importe lesquels des mots clés fournis sont recherchés. Par exemple : `modern UI` Pour effectuer une recherche dans les packages qui contiennent tous les mots clés fournis, utilisez « + » entre les termes, par exemple `modern+UI`.
+- **Expressions** : saisissez des termes entre guillemets pour obtenir des correspondances exactes non sensibles à la casse. Exemple : `"modern UI" package`
+- **Filtrage** : vous pouvez appliquer un terme de recherche à une propriété spécifique à l’aide de la syntaxe `<property>:<term>`, où `<property>` (non sensible à la casse) peut être `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` ou `owner`. Les termes peuvent être placés entre guillemets si nécessaire, et vous pouvez rechercher plusieurs propriétés en même temps. De plus, les recherches effectuées sur la propriété `id` retournent des correspondances de sous-chaîne, tandis que `packageid` retourne une correspondance exacte. Exemples :
 
     ```
     id:NuGet.Core                # Match any part of the id property

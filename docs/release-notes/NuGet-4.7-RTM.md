@@ -5,30 +5,30 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: fe769f95e3eda4bc07db4369544472c00b35363d
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 0c3c0380fe6efb3c58124ca5ba8bc1306a433340
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488651"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611348"
 ---
 # <a name="nuget-47-release-notes"></a>Notes de publication de NuGet 4.7
 
 [Visual Studio 2017 15.7 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) est fourni avec [NuGet 4.7.0](https://dist.nuget.org/win-x86-commandline/v4.7.0/nuget.exe).
 
-## <a name="summary-whats-new-in-470"></a>Résumé : Nouveautés de la version 4.7.0
+## <a name="summary-whats-new-in-470"></a>Résumé : nouveautés de 4.7.0
 
 * Nous avons complété la signature du package pour activer les [packages signés de référentiel](https://github.com/NuGet/Home/wiki/Repository-Signatures).
 
-* Dans la version 15.7 de Visual Studio, nous avons introduit la possibilité de [migrer des projets existants du format packages.config à PackageReference](https://docs.microsoft.com/en-us/nuget/consume-packages/migrate-packages-config-to-package-reference).
+* Dans la version 15.7 de Visual Studio, nous avons introduit la possibilité de [migrer des projets existants du format packages.config à PackageReference](https://docs.microsoft.com/nuget/consume-packages/migrate-packages-config-to-package-reference).
 
-## <a name="summary-whats-new-in-472"></a>Résumé : Nouveautés de la version 4.7.2
+## <a name="summary-whats-new-in-472"></a>Résumé : nouveautés de 4.7.2
 
-* Correctif de sécurité : Les autorisations sur les fichiers créés dans ~/.nuget sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité : les autorisations sur les fichiers créés à l’intérieur de ~/.NuGet sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-473"></a>Résumé : Nouveautés de la version 4.7.3
+## <a name="summary-whats-new-in-473"></a>Résumé : nouveautés de 4.7.3
 
-* Correctif de sécurité : Les fichiers dans les NUPKG peuvent avoir un chemin relatif au-dessus du répertoire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correctif de sécurité : les fichiers à l’intérieur de NUPKGs peuvent avoir un chemin d’accès relatif au-dessus du répertoire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -60,13 +60,13 @@ L’option de migration devrait apparaître. Notez qu’elle n’est pas prise e
 * Pack : PackagePath est construit de manière incorrecte si TfmSpecificPackageFile est utilisé avec des chemins d’accès avec utilisation des caractères génériques. – [#6726](https://github.com/NuGet/Home/issues/6726)
 * Pack : Un projet d’API web ne peut pas créer de packages, sauf si ispackable est défini explicitement. - [#6156](https://github.com/NuGet/Home/issues/6156)
 * L’interface utilisateur de VS et PMC mettent 30 minutes à voir un nouveau package (nuget.exe le repère immédiatement). – [#6657](https://github.com/NuGet/Home/issues/6657)
-* Signature :  SignatureUtility.GetCertificateChain(...) ne vérifie pas tous les états de chaînes. – [#6565](https://github.com/NuGet/Home/issues/6565)
+* Signature : SignatureUtility.GetCertificateChain(...) ne vérifie pas tous les états de chaînes. – [#6565](https://github.com/NuGet/Home/issues/6565)
 * Signature : Améliorer la gestion de GeneralizedTime DER. – [#6564](https://github.com/NuGet/Home/issues/6564)
 * Signature : VS n’affiche pas d’erreur NU3002 lors de l’installation d’un package falsifié. – [#6337](https://github.com/NuGet/Home/issues/6337)
 * lockFile.GetLibrary respecte la casse. – [#6500](https://github.com/NuGet/Home/issues/6500)
 * Le code de restauration installer/mettre à jour et les chemins d’accès du code de restauration ne sont pas cohérents. – [#3471](https://github.com/NuGet/Home/issues/3471)
 * La solution PackageManager version ComboBox peut sélectionner un séparateur avec le clavier. – [#2606](https://github.com/NuGet/Home/issues/2606)
-* Impossible de charger l’index de service pour la source `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException : Le code d’état de la réponse n’indique pas une réussite : 403 (Interdit) – [#2530](https://github.com/NuGet/Home/issues/2530)
+* Il est impossible de charger l’index de service pour la source `https://www.myget.org/F/<id>` ---> System.Net.Http.HttpRequestException: Response status code does not indicate success: 403 (Forbidden). – [#2530](https://github.com/NuGet/Home/issues/2530)
 
 ### <a name="dcrs"></a>DCR
 
@@ -75,7 +75,7 @@ L’option de migration devrait apparaître. Notez qu’elle n’est pas prise e
 * NuGet.exe – NoServiceEndpoint permet d’éviter d’ajouter le suffixe d’URL du service. – [#6586](https://github.com/NuGet/Home/issues/6586)
 * Ajoutez un hachage de validation à la version d’information. – [#6492](https://github.com/NuGet/Home/issues/6492)
 * Signature : Autorisez la suppression de la signature/contre-signature de référentiel. – [#6646](https://github.com/NuGet/Home/issues/6646)
-* Signature :  API pour enlever la signature/contre-signature de référentiel. – [#6589](https://github.com/NuGet/Home/issues/6589)
+* Signature : API pour enlever la signature/contre-signature de référentiel. – [#6589](https://github.com/NuGet/Home/issues/6589)
 * Consignez les informations relatives à la source dans VS. – [#6527](https://github.com/NuGet/Home/issues/6527)
 * Filtrez /tools sur TFM et RID uniquement, afin que le XML de paramètres puisse être placé dans le dossier /tools – [#6197](https://github.com/NuGet/Home/issues/6197)
 * Lancez un avertissement lorsque la commande Pack exclut un fichier qui commence par « . ».  - [#3308](https://github.com/NuGet/Home/issues/3308)

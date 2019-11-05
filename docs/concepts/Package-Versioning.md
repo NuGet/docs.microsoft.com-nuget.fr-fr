@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7c6992d6bf3142eb6aca70f1fa3c46f72efd25a0
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520349"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610988"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
@@ -29,12 +29,12 @@ Dans cette rubrique :
 
 Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]* , où les composants ont la signification suivante :
 
-- *Major* : Modifications avec rupture
-- *Minor* : Nouvelles fonctionnalités, offrant néanmoins une compatibilité descendante
-- *Patch* : Correctifs de bogues à compatibilité descendante uniquement
-- *-Suffix* (optionnel) : un trait d'union suivi d'une chaîne de caractères indiquant une version préversion (suivant la convention [Semantic Versioning ou SemVer 1.0](http://semver.org/spec/v1.0.0.html)).
+- *Majeure*: modifications avec rupture
+- *Mineure*: nouvelles fonctionnalités, mais à compatibilité descendante
+- *Patch*: correctifs de bogues à compatibilité descendante uniquement
+- *-Suffix* (optionnel) : un trait d'union suivi d'une chaîne de caractères indiquant une version préversion (suivant la convention [Semantic Versioning ou SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
-**Exemples :**
+**Illustre**
 
     1.0.1
     6.11.1231
@@ -50,12 +50,12 @@ Techniquement parlant, les créateurs de packages peuvent utiliser n'importe que
 
 Cela dit, les développeurs de packages adoptent généralement des conventions d’affectation de noms reconnues :
 
-- `-alpha`: Version alpha, généralement utilisée pour les travaux en cours et les expérimentations.
-- `-beta`: Version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
-- `-rc`: Version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
+- `-alpha`: version alpha, généralement utilisée pour les travaux en cours et l’expérimentation.
+- `-beta`: version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
+- `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
-> NuGet 4.3.0+ prend en charge [SemVer 2.0.0](http://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de préversion utilisant la notation à points (par exemple, *1.0.1-build.23*). La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un format comme *1.0.1-build23*.
+> NuGet 4.3.0+ prend en charge [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de préversion utilisant la notation à points (par exemple, *1.0.1-build.23*). La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un format comme *1.0.1-build23*.
 
 Lorsque vous résolvez des références de packages et que plusieurs versions de packages ne diffèrent que par le suffixe, NuGet choisit d'abord une version sans suffixe, puis applique la priorité aux préversions dans l'ordre alphabétique inverse. Par exemple, les versions suivantes seraient choisies dans l'ordre exact indiqué :
 
@@ -70,7 +70,7 @@ Lorsque vous résolvez des références de packages et que plusieurs versions de
 
 ## <a name="semantic-versioning-200"></a>Semantic Versioning 2.0.0
 
-Avec NuGet 4.3.0+ et Visual Studio 2017 version 15.3+, NuGet prend en charge [Semantic Versioning 2.0.0](http://semver.org/spec/v2.0.0.html).
+Avec NuGet 4.3.0+ et Visual Studio 2017 version 15.3+, NuGet prend en charge [Semantic Versioning 2.0.0](https://semver.org/spec/v2.0.0.html).
 
 Certaines sémantiques de SemVer 2.0.0 ne sont pas prises en charge dans les clients plus anciens. NuGet considère une version de package comme spécifique à SemVer 2.0.0 si l'un des énoncés suivants est vrai :
 

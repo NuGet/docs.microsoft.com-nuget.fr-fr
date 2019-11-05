@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 08/25/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 10651e2cc26f7df4115e4de5dac8c91c93af7374
-ms.sourcegitcommit: 5a741f025e816b684ffe44a81ef7d3fbd2800039
+ms.openlocfilehash: 3ca023c8d39b9b36388f5f517b50ca5cd2347cc0
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815293"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610457"
 ---
 # <a name="hosting-your-own-nuget-feeds"></a>Hébergement de vos propres flux NuGet
 
@@ -19,9 +19,9 @@ Plutôt que de mettre les packages à la disposition de tous, vous pouvez les r�
 
 À ces fins, NuGet prend en charge la configuration de sources de packages privées des façons suivantes :
 
-- Flux local : les packages sont simplement placés sur un partage de fichiers réseau approprié, dans l’idéal en utilisant `nuget init` et `nuget add` pour créer une structure de dossiers hiérarchique (NuGet 3.3+). Pour plus d’informations, consultez [Flux locaux](../hosting-packages/local-feeds.md).
-- NuGet.Server : les packages sont accessibles par le biais d’un serveur HTTP local. Pour plus d’informations, consultez [NuGet.Server](../hosting-packages/nuget-server.md).
-- Galerie NuGet : les packages sont hébergés sur un serveur Internet à l’aide du [projet de Galerie NuGet](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (github.com). Avec la Galerie NuGet, gérez les utilisateurs et profitez de fonctionnalités telles qu’une interface utilisateur web complète qui permet de rechercher et d’explorer les packages à partir du navigateur, comme nuget.org.
+- Flux local : les packages sont simplement placés sur un partage de fichiers réseau approprié, dans l’idéal, en utilisant `nuget init` et `nuget add` pour créer une structure de dossiers hiérarchique (NuGet 3.3+). Pour plus d’informations, consultez [Flux locaux](../hosting-packages/local-feeds.md).
+- NuGet.Server : les packages sont accessibles via un serveur HTTP local. Pour plus d’informations, consultez [NuGet.Server](../hosting-packages/nuget-server.md).
+- Galerie NuGet : les packages sont hébergés sur un serveur Internet à l’aide du [projet de Galerie NuGet](https://github.com/NuGet/NuGetGallery#build-and-run-the-gallery-in-arbitrary-number-easy-steps) (github.com). Avec la Galerie NuGet, gérez les utilisateurs et profitez de fonctionnalités telles qu’une interface utilisateur web complète qui permet de rechercher et d’explorer les packages à partir du navigateur, comme nuget.org.
 
 Il existe également plusieurs autres produits d’hébergement NuGet, tels que [Azure artifacts](https://www.visualstudio.com/docs/package/nuget/publish) et le [Registre de packages GitHub](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry) qui prennent en charge les flux privés distants. Vous trouverez ci-dessous une liste de ces produits :
 
@@ -31,11 +31,11 @@ Il existe également plusieurs autres produits d’hébergement NuGet, tels que 
 - [Cloudsmith](https://cloudsmith.io/l/nuget-feed/), un Saas entièrement géré pour la gestion des packages
 - [Registre de package GitHub](https://help.github.com/articles/configuring-nuget-for-use-with-github-package-registry)
 - [LiGet](https://github.com/ai-traders/liget), une implémentation open source du serveur NuGet V2 qui s’exécute sur Kestrel dans Docker
-- [MyGet](http://myget.org)
-- [Nexus](http://www.sonatype.org/nexus/) de Sonatype
-- [NuGet Server (Open Source)](http://nuget-server.net) : implémentation open source similaire à NuGet Server d’Inedo
+- [MyGet](https://myget.org)
+- [Nexus](https://www.sonatype.org/nexus/) de Sonatype
+- [NuGet Server (Open Source)](https://github.com/svenkle/nuget-server) : implémentation open source similaire à NuGet Server d’Inedo
 - [NuGet Server](http://nugetserver.net/) : projet communautaire d’Inedo
-- [ProGet](http://inedo.com/proget) d’Inedo
+- [ProGet](https://inedo.com/proget) d’Inedo
 - [Sleet](https://github.com/emgarten/sleet), un générateur de flux statique NuGet V3 open source
 - [TeamCity](https://www.jetbrains.com/teamcity/) de JetBrains
 

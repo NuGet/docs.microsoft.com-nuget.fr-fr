@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: f6c4a18366b4df20fb210f718d3779e85c08d550
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: da464cc44d8c874e13c0cdfab871f31e643b577f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248125"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610488"
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation du préfixe d’ID de package
 
@@ -31,7 +31,7 @@ Quand un préfixe est réservé sur [nuget.org](https://www.nuget.org/), voilà 
 
 1. Chaque fois qu’un package est soumis à [nuget.org](https://www.nuget.org/) avec un ID correspondant au préfixe d’ID réservé, le package est rejeté, sauf s’il provient du ou des propriétaires ayant réservé le préfixe d’ID.
 
-1. Tout package correspondant au préfixe d’ID réservé et provenant du ou des propriétaires ayant réservé le préfixe d’ID comporte un indicateur visuel dans Visual Studio 2017 version 15.4 ou ultérieure ainsi que sur [nuget.org](https://www.nuget.org/) pour signaler que le package est associé à un préfixe d’ID réservé. Cela vaut pour les nouvelles soumissions de package ainsi que pour les packages existants sous le ou les propriétaires. **Remarque :** L’indicateur dans Visual Studio apparaît uniquement si un flux unique est sélectionné comme source du package.
+1. Tout package correspondant au préfixe d’ID réservé et provenant du ou des propriétaires ayant réservé le préfixe d’ID comporte un indicateur visuel dans Visual Studio 2017 version 15.4 ou ultérieure ainsi que sur [nuget.org](https://www.nuget.org/) pour signaler que le package est associé à un préfixe d’ID réservé. Cela vaut pour les nouvelles soumissions de package ainsi que pour les packages existants sous le ou les propriétaires. **Remarque :** L’indicateur dans Visual Studio s’affiche uniquement si un seul flux est sélectionné en tant que source du package.
 
 1. Tous les packages existants qui correspondent au préfixe d’ID réservé, mais qui *ne sont pas* détenus par le propriétaire du préfixe réservé restent inchangés (ils ne sont pas supprimés de la liste, mais ils n’ont pas non plus d’indicateur visuel). De plus, les propriétaires de ces packages peuvent toujours soumettre de nouvelles versions au package.
 
@@ -93,7 +93,7 @@ Au cours de l’examen d’une demande de réservation de préfixe d’ID, l’�
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénarios faisant appel à un fournisseur de flux tiers
 
-Si un fournisseur de flux tiers souhaite implémenter son propre service pour fournir des réservations de préfixe, modifiez le service de recherche dans les fournisseurs de flux NuGet V3. Pour cela, ajoutez la propriété *verified* au service de recherche de flux (voir les exemples pour les flux V3 ci-dessous). Le client NuGet ne prend pas en charge la propriété ajoutée dans le flux V2.
+Si un fournisseur de flux tiers souhaite implémenter son propre service pour fournir des réservations de préfixe, il peut le faire en modifiant le service de recherche dans les fournisseurs de flux NuGet v3. La modification du service de recherche de flux consiste à ajouter la propriété `verified`. Le client NuGet ne prend pas en charge la propriété ajoutée dans le flux V2.
 
 Pour plus d’informations, consultez la [documentation sur le service de recherche de l’API](../api/search-query-service-resource.md).
 

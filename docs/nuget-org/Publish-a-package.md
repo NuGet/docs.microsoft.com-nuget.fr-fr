@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 6d183100a8319b517347567f34d276e94eb4e15d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67427184"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610614"
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
@@ -24,7 +24,7 @@ Cet article traite de la publication sur nuget.org. Pour la publication sur Azur
 
 ## <a name="publish-to-nugetorg"></a>Publier dans nuget.org
 
-Dans le cas de nuget.org, il est nécessaire de se connecter avec un compte Microsoft, qui servira à enregistrer le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé avec des versions antérieures du portail.
+Pour nuget.org, vous devez vous connecter avec un compte Microsoft, avec lequel vous serez invité à inscrire le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé à l’aide de versions antérieures du portail.
 
 ![Emplacement de la connexion NuGet](media/publish_NuGetSignIn.png)
 
@@ -64,7 +64,7 @@ Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4
     nuget setApiKey <your_API_key>
     ```
 
-    Cette commande stocke votre clé API dans votre configuration NuGet ; vous devrez donc répéter cette étape sur le même ordinateur.
+    Cette commande stocke votre clé API dans votre configuration NuGet, de sorte que vous n’avez pas besoin de répéter cette étape sur le même ordinateur.
 
 1. Envoyez (push) votre package dans la galerie NuGet à l’aide de la commande suivante :
 
@@ -87,7 +87,7 @@ Lorsque le package a satisfait à tous les contrôles de validation, son indexat
 
 La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si nuget.org rencontre des interruptions. Si tous les systèmes sont opérationnels et que le package n’a pas été correctement publié dans l’heure, connectez-vous à nuget.org et contactez-nous à l’aide du lien permettant de contacter le support disponible dans la page du package.
 
-Pour afficher l’état d’un package, sélectionnez **Gérer les packages** sous le nom de votre compte sur nuget.org. Vous recevrez un e-mail de confirmation à la fin de la validation.
+Pour afficher l’état d’un package, sélectionnez **gérer les packages** sous le nom de votre compte sur NuGet.org. Une fois la validation terminée, vous recevez un e-mail de confirmation.
 
 Notez que l’indexation de votre package peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Pendant ce délai, le message suivant s’affiche dans la page de votre package :
 
@@ -115,7 +115,7 @@ Pour modifier la propriété d’un package, effectuez les opérations suivantes
 1. Ajoutez un propriétaire sous **Ajouter un propriétaire** en entrant son nom d’utilisateur et un message, puis en sélectionnant **Ajouter**. Cette action envoie un e-mail comportant un lien de confirmation à ce nouveau copropriétaire. Une fois la confirmation effectuée, cette personne dispose d’autorisations complètes pour ajouter et supprimer des propriétaires. (Tant que la confirmation n’est pas effectuée, la section **Propriétaires actuels** indique « En attente d’approbation » pour cette personne.)
 1. Pour transférer la propriété (quand elle change ou qu’un package n’a pas été publié sous le bon compte), ajoutez le nouveau propriétaire ; une fois qu’il aura confirmé sa propriété, il pourra vous supprimer de la liste.
 
-Pour affecter la propriété à une entreprise ou un groupe, créez un compte nuget.org à l’aide d’un alias de messagerie transféré aux membres d’équipe appropriés. Par exemple, les comptes [microsoft](http://nuget.org/profiles/microsoft) et [aspnet](http://nuget.org/profiles/aspnet) sont propriétaires de divers packages Microsoft ASP.NET.
+Pour affecter la propriété à une entreprise ou un groupe, créez un compte nuget.org à l’aide d’un alias de messagerie transféré aux membres d’équipe appropriés. Par exemple, les comptes [microsoft](https://nuget.org/profiles/microsoft) et [aspnet](https://nuget.org/profiles/aspnet) sont propriétaires de divers packages Microsoft ASP.NET.
 
 ### <a name="recovering-package-ownership"></a>Récupération des propriétaires des packages
 

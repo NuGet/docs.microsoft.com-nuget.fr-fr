@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 8bd1d473a69d769f3d9204188f3130578af78797
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69520459"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611069"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Comment NuGet résout les dépendances de package
 
@@ -24,7 +24,7 @@ Lorsque plusieurs packages partagent une même dépendance, le même ID de packa
 
 Lorsque des packages sont installés dans un projet au format PackageReference, NuGet ajoute des références à un graphique de packages plat dans le fichier correspondant, et résout les conflits à l’avance. Ce processus est appelé *restauration transitive*. Les processus de réinstallation et de restauration des packages reviennent donc à télécharger les packages répertoriés dans le graphique, ce qui permet d’obtenir des builds plus prévisibles, plus rapidement. Vous pouvez également tirer parti des versions génériques (flottantes), telles que 2.8.\*, afin d’éviter les appels à `nuget update` (qui sont coûteux et sujets aux erreurs) sur les ordinateurs clients et les serveurs de builds.
 
-Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Il écrit également les dépendances résolues dans un fichier de verrouillage nommé `packages.lock.json` si la [fonctionnalité de verrouillage de fichier est activée](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Il écrit également les dépendances résolues dans un fichier de verrouillage nommé `packages.lock.json` si la [fonctionnalité de verrouillage de fichier est activée](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
 Le fichier de ressources se trouve à l’emplacement `MSBuildProjectExtensionsPath` qui, par défaut, est le dossier « obj » du projet. MSBuild lit alors ce fichier et le convertit en un ensemble de dossiers pouvant contenir des références, puis les ajoute à l’arborescence de projets en mémoire.
 
 Le fichier `project.assets.json` est temporaire et ne doit pas être ajouté au contrôle de code source. Ce fichier est répertorié par défaut dans `.gitignore` et `.tfignore`. Consultez [Packages et contrôle de code source](../consume-packages/packages-and-source-control.md).
@@ -110,7 +110,7 @@ Le processus `packages.config` de résolution des dépendances devient complexe 
 
 Le format PackageReference permet de choisir les ressources des dépendances qui seront acheminées dans le projet de niveau supérieur. Pour plus d’informations, consultez la section [PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-Lorsque le projet de niveau supérieur est un package, vous pouvez contrôler ce flux en utilisant les attributs `include` et `exclude` avec les dépendances répertoriées dans le fichier `.nuspec`. Consultez [Référence .nuspec - Dépendances](../reference/nuspec.md#dependencies).
+Lorsque le projet de niveau supérieur est un package, vous pouvez contrôler ce flux en utilisant les attributs `include` et `exclude` avec les dépendances répertoriées dans le fichier `.nuspec`. Consultez [Informations de référence sur le fichier .nuspec - Dépendances](../reference/nuspec.md#dependencies).
 
 ## <a name="excluding-references"></a>Exclusion de références
 

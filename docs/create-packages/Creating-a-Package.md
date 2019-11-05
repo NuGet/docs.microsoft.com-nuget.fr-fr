@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 353654d12e137222ab24417f30fd22e9f027c324
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380708"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610701"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
 
@@ -276,9 +276,9 @@ L’identificateur de package (élément `<id>`) et le numéro de version (élé
 
 > Les séries suivantes de courts billets de blog s’avèrent également utiles pour comprendre la gestion de versions :
 >
-> - [Partie 1 : Affronter les difficultés liées aux DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Partie 2 : L’algorithme principal](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Partie 3 : Unification par le biais de redirections de liaison](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Partie 1 : Affronter les difficultés liées aux DLL](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Partie 2 : L’algorithme principal](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Partie 3 : Unification par le biais de redirections de liaison](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
 
 ## <a name="add-a-readme-and-other-files"></a>Ajouter un fichier Lisez-moi et d’autres fichiers
 
@@ -344,7 +344,7 @@ Ensuite, dans le fichier `.nuspec`, veillez à faire référence à ces fichiers
 
 L’inclusion des propriétés et des cibles MSBuild dans un package a été [introduite avec NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files). Il est donc recommandé d’ajouter l’attribut `minClientVersion="2.5"` à l’élément `metadata` pour indiquer la version minimale du client NuGet nécessaire pour utiliser le package.
 
-Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du fichier projet ; `.targets` est ajouté en bas.) Un élément @no__t MSBuild conditionnel distinct-2 est ajouté pour chaque Framework cible.
+Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du fichier projet ; `.targets` est ajouté en bas.) Un élément `<Import>` MSBuild conditionnel distinct est ajouté pour chaque Framework cible.
 
 Les fichiers `.props` et `.targets` MSBuild du ciblage multi-infrastructure peuvent être placés dans le dossier `\buildMultiTargeting`. Lors de l’installation de package, NuGet ajoute les éléments `<Import>` correspondants au fichier projet à la condition que la version cible de .NET Framework ne soit pas définie (la propriété MSBuild `$(TargetFramework)` doit être vide).
 

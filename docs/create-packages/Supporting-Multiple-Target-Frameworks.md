@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4413779361dad3a650da36b3c69bbb55b62804ee
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 69e12ce1c78f8d4d50cbad7a0237d767064193ab
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380733"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610648"
 ---
 # <a name="support-multiple-net-versions"></a>Prendre en charge plusieurs versions de .NET
 
@@ -151,8 +151,8 @@ L’exemple suivant illustre différentes variantes de l’élément `<group>` :
 
 Lorsque vous empaquetez des bibliothèques ciblant la bibliothèque de classes portable, il peut être difficile de déterminer quelle cible NuGet vous devez utiliser dans vos noms de dossier et votre fichier `.nuspec`, en particulier si vous ciblez uniquement un sous-ensemble de la bibliothèque de classes portable. Les ressources externes suivantes peuvent vous aider à la déterminer :
 
-- [Profils de framework dans .NET](http://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
-- [Profils de la bibliothèque de classes portable](http://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co) : tableau qui énumère les profils de la bibliothèque de classes portable et leurs cibles NuGet équivalentes
+- [Profils de framework dans .NET](https://blog.stephencleary.com/2012/05/framework-profiles-in-net.html) (stephenclearly.com)
+- [Profils de la bibliothèque de classes portable](https://embed.plnkr.co/03ck2dCtnJogBKHJ9EjY/preview) (plnkr.co) : tableau qui énumère les profils de la bibliothèque de classes portable et leurs cibles NuGet équivalentes
 - [Outil des profils de la bibliothèque de classes portable](https://github.com/StephenCleary/PortableLibraryProfiles) (github.com) : outil en ligne de commande permettant de déterminer les profils de la bibliothèque de classes portable disponibles sur votre système
 
 ## <a name="content-files-and-powershell-scripts"></a>Fichiers de contenu et scripts PowerShell

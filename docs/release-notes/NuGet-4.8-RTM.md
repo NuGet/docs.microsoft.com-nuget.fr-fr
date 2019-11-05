@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: f85042b8fe1511934d6a3ac7de34da92c575f6e0
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432516"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611364"
 ---
 # <a name="nuget-48-release-notes"></a>Notes de publication de NuGet 4.8
 
@@ -22,21 +22,21 @@ Des versions en ligne de commande offrant les mêmes fonctionnalités sont égal
 * DotNet.exe - [SDK .NET Core 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>Résumé : Nouveautés de la version 4.8.0
+## <a name="summary-whats-new-in-480"></a>Résumé : nouveautés de 4.8.0
 * NuGet.exe prend désormais en charge les noms de fichiers longs sur Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
-* Les plug-ins d’authentification sont désormais compatibles avec MsBuild, DotNet.exe, NuGet.exe et Visual Studio, y compris en multiplateforme. La première génération de plug-ins d’authentification n’était pas prise en charge par MsBuild et DotNet.exe. Remarque : Un plug-in d’authentification VSTS est inclus dans les builds Visual Studio 2017 15.9 Preview. [#6486](https://github.com/NuGet/Home/issues/6486)
+* Les plug-ins d’authentification sont désormais compatibles avec MsBuild, DotNet.exe, NuGet.exe et Visual Studio, y compris en multiplateforme. La première génération de plug-ins d’authentification n’était pas prise en charge par MsBuild et DotNet.exe. Remarque : Un plug-in d’authentification VSTS est inclus dans les builds Visual Studio 2017 15.9 Preview. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Le programme de résolution du SDK MsBuild fait désormais partie de NuGet, et est installé avec les outils NuGet pour Visual Studio. De cette façon, les versions restent toujours synchronisées. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference prend désormais en charge les métadonnées DevelopmentDependency - [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>Résumé : Nouveautés de la version 4.8.2
+## <a name="summary-whats-new-in-482"></a>Résumé : nouveautés de 4.8.2
 
-* Correctif de sécurité : Les autorisations sur les fichiers créés dans ~/.nuget sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité : les autorisations sur les fichiers créés à l’intérieur de ~/.NuGet sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>Problèmes connus
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>L’installation des packages signés sur une machine CI ou dans un environnement hors connexion est plus longue que d’habitude
 
 #### <a name="issue"></a>Problème
-Si l’ordinateur a un accès limité à Internet (s’il s’agit, par exemple, d’un ordinateur de build dans un scénario CI/CD), l’installation ou la restauration d’un package NuGet signé entraîne un avertissement ([NU3028](https://docs.microsoft.com/en-us/nuget/reference/errors-and-warnings/nu3028)), car les serveurs de révocation ne sont pas accessibles. Il s'agit du comportement attendu. Toutefois, dans certains cas, cela peut avoir des conséquences inattendues, comme un temps d’installation ou de restauration plus long que d’habitude.
+Si l’ordinateur a un accès limité à Internet (s’il s’agit, par exemple, d’un ordinateur de build dans un scénario CI/CD), l’installation ou la restauration d’un package NuGet signé entraîne un avertissement ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)), car les serveurs de révocation ne sont pas accessibles. Il s'agit du comportement attendu. Toutefois, dans certains cas, cela peut avoir des conséquences inattendues, comme un temps d’installation ou de restauration plus long que d’habitude.
 
 #### <a name="workaround"></a>Solution de contournement
 Effectuez une mise à jour vers Visual Studio 15.8.4 et NuGet.exe 4.8.1, où nous avons ajouté une variable d’environnement permettant de basculer en mode de vérification de la révocation.
@@ -60,13 +60,13 @@ Effectuez l’une des actions NuGet suivantes :
 * Générez le projet qui déclenche également la restauration NuGet.
 
 L’option de migration devrait apparaître. Notez qu’elle n’est pas prise en charge et ne s’affiche pas pour les types de projets ASP.NET et C++.
-Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
+Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
 
 ## <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
 ### <a name="bugs"></a>Bogues
 #### <a name="signing"></a>Signature
-* Signature : Installation d’un package signé dans un environnement hors connexion [#7008](https://github.com/NuGet/Home/issues/7008) -- Corrigé dans la version 4.8.1
+* Signature : Installation d’un package signé dans un environnement hors connexion [#7008](https://github.com/NuGet/Home/issues/7008) -- Corrigé dans la version 4.8.1
 * Signature : Vérification d’URL incorrecte - [#7174](https://github.com/NuGet/Home/issues/7174)
 * Signature : Vérifier l’intégrité du package dans RepositorySignatureVerifier lorsque le package est contresigné par le référentiel - [#6926](https://github.com/NuGet/Home/issues/6926)
 * Le message « La vérification de l’intégrité du package a échoué » doit inclure un ID de package (et un code d’erreur) - [#6944](https://github.com/NuGet/Home/issues/6944)
@@ -76,7 +76,7 @@ Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
 * La mémoire n’est pas valide lors de l’ajout de l’horodatage à la contresignature, dans le cadre de la mise à jour des informations sur les signataires - [#6840](https://github.com/NuGet/Home/issues/6840)
 * Signature : Supprimer les exceptions de liste de certificats de confiance - [#6794](https://github.com/NuGet/Home/issues/6794)
 * Signature : contentUrl doit être HTTPS - [#6777](https://github.com/NuGet/Home/issues/6777)
-* Signature :  SignedPackageVerifierSettings.VSClientDefaultPolicy n’est pas utilisé - [#6601](https://github.com/NuGet/Home/issues/6601)
+* Signature : SignedPackageVerifierSettings.VSClientDefaultPolicy n’est pas utilisé - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
 #### <a name="pack"></a>Compression

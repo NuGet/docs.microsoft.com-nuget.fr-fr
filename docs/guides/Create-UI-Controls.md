@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 522dbbb2a39eb1cb6f0d23f39a48158b07c9076d
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67426853"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610616"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Créer des contrôles IU en tant que packages NuGet
 
 À compter de Visual Studio 2017, vous pouvez utiliser les fonctionnalités qui ont été ajoutées pour les contrôles UWP et WPF que vous mettez à disposition dans les packages NuGet. Ce guide présente ces fonctionnalités dans le contexte des contrôles UWP au moyen de [l’exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Sauf indication contraire, la même procédure s’applique aux contrôles WPF.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 1. Visual Studio 2017
 1. Savoir [créer des packages UWP](create-uwp-packages.md)
@@ -60,9 +60,9 @@ La structure du fichier est la suivante :
 où :
 
 - *your_package_file* : nom de votre fichier de contrôle, tel que `ManagedPackage.winmd` (« ManagedPackage » est un nom arbitraire utilisé pour cet exemple et n’a aucune signification).
-- *vs_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans la boîte à outils du concepteur Visual Studio. Un `VSCategory` est nécessaire pour que le contrôle apparaisse dans la boîte à outils.
-- *blend_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans le volet Composants du concepteur Blend. Un `BlendCategory` est nécessaire pour que le contrôle apparaisse dans le volet Composants.
-- *type_full_name_n* : nom complet de chaque contrôle, espace de noms compris. Exemple : `ManagedPackage.MyCustomControl`. Notez que le format avec un point est utilisé pour les types managés et natifs.
+- *vs_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans la boîte à outils du concepteur Visual Studio. Un `VSCategory` est nécessaire pour que le contrôle apparaisse dans la boîte à outils.
+- *blend_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans le volet Composants du concepteur Blend. Un `BlendCategory` est nécessaire pour que le contrôle apparaisse dans le volet Composants.
+- *type_full_name_n* : nom complet de chaque contrôle, espace de noms compris, tel que `ManagedPackage.MyCustomControl`. Notez que le format avec un point est utilisé pour les types managés et natifs.
 
 Dans les scénarios plus avancés, vous pouvez également inclure plusieurs éléments `<File>` dans `<FileList>` quand un package unique contient plusieurs assemblys. Vous pouvez également avoir plusieurs nœuds `<ToolboxItems>` dans un seul `<File>` si vous souhaitez organiser vos contrôles en catégories distinctes.
 
@@ -93,7 +93,7 @@ Les formats pris en charge sont `.png`, `.jpg`, `.jpeg`, `.gif` et `.bmp`. Le fo
 
 ![Exemple d’icône de boîte à outils](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-L’arrière-plan rose est remplacé au moment de l’exécution. Les icônes sont recolorées quand le thème Visual Studio change et que la couleur d’arrière-plan est attendue. Pour plus d’informations, consultez [Images et icônes pour Visual Studio](https://docs.microsoft.com/en-us/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+L’arrière-plan rose est remplacé au moment de l’exécution. Les icônes sont recolorées quand le thème Visual Studio change et que la couleur d’arrière-plan est attendue. Pour plus d’informations, consultez [Images et icônes pour Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Dans l’exemple ci-dessous, le projet contient un fichier image nommé « ManagedPackage.MyCustomControl.png ».
 
@@ -120,7 +120,7 @@ Avec WPF, supposons que vous souhaitez que votre package de contrôles WPF soit 
 
 ## <a name="add-design-time-support"></a>Ajouter la prise en charge au moment de la conception
 
-Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\uap10.0.14393\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le fichier `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<your_assembly_name>\Themes` (là encore, en utilisant le nom de votre assembly). (Ce fichier n’a aucun impact sur le comportement d’un contrôle au moment de l’exécution.) La structure de dossiers apparaît donc comme ceci :
+Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\uap10.0.14393\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le fichier `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<your_assembly_name>\Themes` (là encore, en utilisant le nom de votre assembly). (Ce fichier n’a aucun impact sur le comportement d’exécution d’un contrôle.) La structure de dossiers devrait donc apparaître comme suit :
 
     \lib
       \uap10.0.14393

@@ -1,18 +1,18 @@
 ---
-ms.openlocfilehash: 7ebe3c0f75b8de158879119bce4df26217849251
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: c92f6e0c34347ee8555d416140d95ea2df5a3fbb
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488970"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610550"
 ---
 L’identificateur de package et le numéro de version sont les deux valeurs les plus importantes dans le projet, car ils identifient de façon unique le code exact contenu dans le package.
 
 **Bonnes pratiques en matière d’identificateur de package :**
 
-- **Unicité** : L’identificateur doit être unique sur nuget.org ou dans la galerie qui héberge le package, quelle qu’elle soit. Avant de déterminer un identificateur, faites une recherche dans la galerie applicable pour vérifier si le nom est déjà en cours d’utilisation. Pour éviter les conflits, utilisez le nom de votre société comme première partie de l’identificateur, par exemple `Contoso.`.
-- **Noms comme les espaces de noms** : Suivez un modèle similaire aux espaces de noms dans .NET, en utilisant la notation à points au lieu de traits d’union. Par exemple, utilisez `Contoso.Utility.UsefulStuff` plutôt que `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Les consommateurs trouvent également pratique de faire correspondre l’identificateur du package aux espaces de noms utilisés dans le code.
-- **Exemples de package** : Si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (L’exemple de package dépend naturellement de l’autre package.) Lorsque vous créez un exemple de package, utilisez la valeur `contentFiles` dans `<IncludeAssets>`. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Unicité** : l’identificateur doit être unique sur nuget.org ou dans la galerie qui héberge le package, quelle qu’elle soit. Avant de déterminer un identificateur, faites une recherche dans la galerie applicable pour vérifier si le nom est déjà en cours d’utilisation. Pour éviter les conflits, utilisez le nom de votre société comme première partie de l’identificateur, par exemple `Contoso.`.
+- **Noms comme les espaces de noms** : suivez un modèle similaire aux espaces de noms dans .NET, en utilisant la notation à points au lieu de traits d’union. Par exemple, utilisez `Contoso.Utility.UsefulStuff` plutôt que `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Les consommateurs trouvent également pratique de faire correspondre l’identificateur du package aux espaces de noms utilisés dans le code.
+- **Exemples de package** : si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (L’exemple de package est évidemment dépendant de l’autre package.) Lorsque vous créez un exemple de package, utilisez la valeur `contentFiles` dans `<IncludeAssets>`. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Bonnes pratiques en matière de version de package :**
 
@@ -21,6 +21,6 @@ L’identificateur de package et le numéro de version sont les deux valeurs les
 
 > Pour plus d’informations sur la résolution des dépendances, consultez [Résolution des dépendances avec PackageReference](../../concepts/dependency-resolution.md#dependency-resolution-with-packagereference). Pour obtenir des informations plus anciennes qui peuvent également aider à mieux comprendre le contrôle de version, consultez cette série de billets de blog.
 >
-> - [Partie 1 : Affronter les difficultés liées aux DLL](http://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
-> - [Partie 2 : L’algorithme principal](http://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
-> - [Partie 3 : Unification par le biais de redirections de liaison](http://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)
+> - [Partie 1 : Affronter les difficultés liées aux DLL](https://blog.davidebbo.com/2011/01/nuget-versioning-part-1-taking-on-dll.html)
+> - [Partie 2 : L’algorithme principal](https://blog.davidebbo.com/2011/01/nuget-versioning-part-2-core-algorithm.html)
+> - [Partie 3 : Unification par le biais de redirections de liaison](https://blog.davidebbo.com/2011/01/nuget-versioning-part-3-unification-via.html)

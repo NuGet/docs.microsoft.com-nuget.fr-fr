@@ -5,16 +5,16 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9512899a4086d17d2584f16833aba33efb321eae
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380688"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610556"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Créer un package NuGet avec MSBuild
 
-Lorsque vous créez un package NuGet à partir de votre code, vous compressez cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Cet article décrit comment créer un package à l’aide de MSBuild. MSBuild est préinstallé avec chaque charge de travail Visual Studio qui contient NuGet. Vous pouvez également utiliser MSBuild via l’interface CLI dotnet avec [dotnet msbuild](https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-msbuild)
+Lorsque vous créez un package NuGet à partir de votre code, vous compressez cette fonctionnalité dans un composant qui peut être partagé et utilisé avec d’autres développeurs. Cet article décrit comment créer un package à l’aide de MSBuild. MSBuild est préinstallé avec chaque charge de travail Visual Studio qui contient NuGet. En outre, vous pouvez également utiliser MSBuild à l’aide de l’interface CLI dotnet avec [dotnet MSBuild](https://docs.microsoft.com/dotnet/core/tools/dotnet-msbuild).
 
 Pour les projets .NET Core et .NET Standard qui utilisent le [format de style SDK](../resources/check-project-format.md), et tout autre projet de style SDK, NuGet utilise les informations dans le fichier projet directement pour créer un package.  Pour un projet de style non SDK qui utilise `<PackageReference>`, NuGet utilise également le fichier projet pour créer un package.
 

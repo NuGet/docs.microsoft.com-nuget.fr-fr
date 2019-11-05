@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7b92d07d19a2e9073ecc38ed37b4ee2491080443
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.openlocfilehash: 89b5fcbd76b85b77489ab36caa215c3a2fedf032
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68317769"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73610975"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gérer les limites d’approbation de package
 
@@ -95,7 +95,7 @@ Dans certaines situations, vous souhaitez activer la vérification avec des cert
 
 ### <a name="sync-repository-certificates"></a>Synchroniser des certificats de dépôt
 
-Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](../api/service-index.md). Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire. Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté. Vous pouvez facilement mettre à niveau les signataires approuvés associés à un dépôt avec la [commande trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-) de `nuget.exe`.
+Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](../api/service-index.md). Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire. Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté. Vous pouvez facilement mettre à niveau les signataires approuvés associés à un référentiel à l’aide de la `nuget.exe` [commande de synchronisation des signataires approuvés] (.. /Reference/CLI-Reference/CLI-Ref-Trusted-Signers.MD # NuGet-Trusted-Signers-Sync--Name-Name
 
 ### <a name="schema-reference"></a>Informations de référence sur le schéma
 

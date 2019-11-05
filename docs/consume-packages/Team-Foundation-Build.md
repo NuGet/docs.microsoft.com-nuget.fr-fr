@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0e69491525fce03e504d9d455bee2718510c83c2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
+ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549883"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73611000"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configuration de la restauration de packages avec Team Foundation Build
 
@@ -31,7 +31,7 @@ Si vous utilisez Visual Studio Team Services ou Team Foundation Server 2013 avec
 
 L’utilisation de NuGet vous permet d’éviter l’archivage des fichiers binaires dans votre système de gestion de versions.
 
-Ceci est particulièrement intéressant si vous utilisez un [système de gestion de versions distribué](http://en.wikipedia.org/wiki/Distributed_revision_control) tel que git, car les développeurs ont besoin de cloner l’intégralité du référentiel, y compris l’historique complet, avant de pouvoir travailler en local. L’archivage des fichiers binaires peut provoquer l’encombrement du référentiel, puisqu’ils sont généralement stockés sans compression delta.
+Ceci est particulièrement intéressant si vous utilisez un [système de gestion de versions distribué](https://en.wikipedia.org/wiki/Distributed_revision_control) tel que git, car les développeurs ont besoin de cloner l’intégralité du référentiel, y compris l’historique complet, avant de pouvoir travailler en local. L’archivage des fichiers binaires peut provoquer l’encombrement du référentiel, puisqu’ils sont généralement stockés sans compression delta.
 
 NuGet prend en charge la [restauration des packages](../consume-packages/package-restore.md) dans le cadre de la génération depuis longtemps. L’implémentation précédente avait un problème du type « l’œuf ou la poule » pour les packages qui devaient étendre le processus de génération, car NuGet restaurait les packages lors de la génération du projet. Toutefois, MSBuild ne permet pas d’étendre la génération pendant la génération. Certains pourraient dire qu’il s’agit d’un problème MSBuild, mais je pense qu’il s’agit plutôt d’un problème inhérent. Selon ce que vous avez besoin d’étendre, vous ne pourrez plus inscrire votre package une fois la restauration effectuée.
 
@@ -50,7 +50,7 @@ Le projet de démonstration suivant montre comment configurer la génération de
 
 ## <a name="repository-structure"></a>Structure du référentiel
 
-Notre projet de démonstration est un outil en ligne de commande simple qui utilise l’argument de ligne de commande pour interroger Bing. Il cible .NET Framework 4 et utilise une grande partie des [packages BCL](http://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](http://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](http://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](http://www.nuget.org/packages/Microsoft.Bcl.Async) et [Microsoft.Bcl.Build](http://www.nuget.org/packages/Microsoft.Bcl.Build)).
+Notre projet de démonstration est un outil en ligne de commande simple qui utilise l’argument de ligne de commande pour interroger Bing. Il cible .NET Framework 4 et utilise une grande partie des [packages BCL](https://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](https://www.nuget.org/packages/Microsoft.Bcl.Async) et [Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build)).
 
 La structure du référentiel se présente ainsi :
 
