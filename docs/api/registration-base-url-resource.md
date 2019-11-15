@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: e98e8d1258377818b3852762d317750a6b3e59ad
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611034"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096898"
 ---
 # <a name="package-metadata"></a>Métadonnées de package
 
@@ -70,7 +70,7 @@ Bien qu’il ne soit pas strictement nécessaire pour une implémentation de ser
 
 Le stockage de toutes les versions de package (feuilles) dans l’index d’inscription économise le nombre de requêtes HTTP nécessaires à l’extraction des métadonnées de package, mais signifie qu’un document plus volumineux doit être téléchargé et que davantage de mémoire cliente doit être allouée. En revanche, si l’implémentation de serveur stocke immédiatement l’inscription dans des documents de page distincts, le client doit effectuer davantage de requêtes HTTP pour obtenir les informations dont il a besoin.
 
-La méthode heuristique utilisée par nuget.org est la suivante : s’il existe 128 versions ou plus d’un package, scindez les feuilles de sortie en pages de taille 64. S’il y a moins de 128 versions, toutes les feuilles sont insérées dans l’index d’inscription.
+La méthode heuristique utilisée par nuget.org est la suivante : s’il existe 128 versions ou plus d’un package, scindez les feuilles de sortie en pages de taille 64. S’il y a moins de 128 versions, toutes les feuilles sont insérées dans l’index d’inscription. Notez que cela signifie que les packages avec des versions 65 à 127 auront deux pages dans l’index, mais les deux pages seront Inline.
 
     GET {@id}/{LOWER_ID}/index.json
 
@@ -145,7 +145,7 @@ ID                       | string                     | oui      | ID du package
 licenseUrl               | string                     | Non       |
 licenseExpression        | string                     | Non       | 
 liste                   | boolean                    | Non       | Doit être considéré comme indiqué s’il est absent
-MinClientVersion         | string                     | Non       | 
+minClientVersion         | string                     | Non       | 
 projectUrl               | string                     | Non       | 
 publié                | string                     | Non       | Chaîne contenant un horodateur ISO 8601 de la publication du package
 requireLicenseAcceptance | boolean                    | Non       | 
@@ -159,6 +159,9 @@ La propriété `version` du package est la chaîne de version complète après l
 La propriété `dependencyGroups` est un tableau d’objets représentant les dépendances du package, regroupées par version cible du .NET Framework. Si le package n’a pas de dépendances, la propriété `dependencyGroups` est manquante, un tableau vide ou la propriété `dependencies` de tous les groupes est vide ou manquante.
 
 La valeur de la propriété `licenseExpression` est conforme à la syntaxe de l' [expression de licence NuGet](https://docs.microsoft.com/nuget/reference/nuspec#license).
+
+> [!Note]
+> Sur nuget.org, la valeur `published` est définie sur l’année 1900 lorsque le package est non répertorié.
 
 #### <a name="package-dependency-group"></a>Groupe de dépendances du package
 
@@ -183,7 +186,7 @@ ID           | string | oui      | ID de la dépendance du package
 range        | object | Non       | Plage de [versions](../concepts/package-versioning.md#version-ranges-and-wildcards) autorisée de la dépendance
 inscription | string | Non       | URL de l’index d’inscription pour cette dépendance
 
-Si la propriété `range` est exclue ou est une chaîne vide, le client doit avoir comme valeur par défaut la plage de versions `(, )`. Autrement dit, toute version de la dépendance est autorisée.
+Si la propriété `range` est exclue ou est une chaîne vide, le client doit avoir comme valeur par défaut la plage de versions `(, )`. Autrement dit, toute version de la dépendance est autorisée. La valeur de `*` n’est pas autorisée pour la propriété `range`.
 
 #### <a name="package-deprecation"></a>Désapprobation du package
 
@@ -193,7 +196,7 @@ Name             | Tapez             | Obligatoire | Notes
 ---------------- | ---------------- | -------- | -----
 principales          | Tableau de chaînes | oui      | Raisons pour lesquelles le package a été déconseillé
 message          | string           | Non       | Détails supplémentaires sur cette désapprobation
-alternatePackage | object           | Non       | Dépendance de package à utiliser à la place
+alternatePackage | object           | Non       | Autre package à utiliser à la place
 
 La propriété `reasons` doit contenir au moins une chaîne et ne doit contenir que des chaînes du tableau suivant :
 
@@ -204,6 +207,16 @@ CriticalBugs | Le package contient des bogues qui le rendent inapproprié pour u
 Autre        | Le package est déconseillé en raison d’une raison qui ne figure pas dans cette liste
 
 Si la propriété `reasons` contient des chaînes qui ne proviennent pas de l’ensemble connu, elles doivent être ignorées. Les chaînes ne respectent pas la casse, `legacy` doit donc être traitée de la même façon que `Legacy`. Il n’existe aucune restriction de classement sur le tableau, de sorte que les chaînes peuvent être organisées dans n’importe quel ordre arbitraire. En outre, si la propriété contient uniquement des chaînes qui ne proviennent pas de l’ensemble connu, elle doit être traitée comme si elle contenait uniquement la chaîne « other ».
+
+#### <a name="alternate-package"></a>Autre package
+
+L’objet de package de remplacement possède les propriétés suivantes :
+
+Name         | Tapez   | Obligatoire | Notes
+------------ | ------ | -------- | -----
+ID           | string | oui      | ID de l’autre package
+range        | object | Non       | Plage de [versions](../concepts/package-versioning.md#version-ranges-and-wildcards)autorisée ou `*` si une version est autorisée
+inscription | string | Non       | URL de l’index d’inscription de cet autre package
 
 ### <a name="sample-request"></a>Exemple de demande
 
@@ -217,7 +230,10 @@ Dans ce cas particulier, la page d’inscription de l’index d’inscription es
 
 ## <a name="registration-page"></a>Page d’inscription
 
-La page d’inscription contient des feuilles d’inscription. L’URL permettant de récupérer une page d’inscription est déterminée par la propriété `@id` dans l' [objet de page d’inscription](#registration-page-object) mentionné ci-dessus.
+La page d’inscription contient des feuilles d’inscription. L’URL permettant de récupérer une page d’inscription est déterminée par la propriété `@id` dans l' [objet de page d’inscription](#registration-page-object) mentionné ci-dessus. L’URL n’est pas censée être prévisible et doit toujours être détectée au moyen du document d’index.
+
+> [!Warning]
+> Sur nuget.org, l’URL du document de page d’inscription contient de manière cofortuite les limites inférieure et supérieure de la page. Toutefois, cette hypothèse ne doit jamais être effectuée par un client, car les implémentations de serveur sont libres de modifier la forme de l’URL tant que le document d’index a un lien valide.
 
 Lorsque le tableau de `items` n’est pas fourni dans l’index d’inscription, une requête HTTP d’extraction de la valeur `@id` retourne un document JSON qui a un objet comme racine. L’objet a les propriétés suivantes :
 
@@ -244,7 +260,10 @@ La forme des objets feuilles d’inscription est identique à celle de l’index
 
 La feuille d’inscription contient des informations sur un ID de package et une version spécifiques. Les métadonnées relatives à la version spécifique peuvent ne pas être disponibles dans ce document. Les métadonnées du package doivent être extraites de l' [index d’inscription](#registration-index) ou de la [page d’inscription](#registration-page) (qui est découverte à l’aide de l’index d’inscription).
 
-L’URL permettant d’extraire une feuille d’inscription est obtenue à partir de la propriété `@id` d’un objet feuille d’inscription dans une page d’index ou d’inscription.
+L’URL permettant d’extraire une feuille d’inscription est obtenue à partir de la propriété `@id` d’un objet feuille d’inscription dans une page d’index ou d’inscription. Comme avec le document de la page. l’URL n’est pas censée être prévisible et doit toujours être détectée au moyen de l’objet de page d’inscription.
+
+> [!Warning]
+> Sur nuget.org, l’URL du document feuille d’inscription contient par ailleurs la version du package. Toutefois, cette hypothèse ne doit jamais être effectuée par un client, car les implémentations de serveur sont libres de modifier la forme de l’URL tant que le document parent a un lien valide. 
 
 La feuille d’inscription est un document JSON avec un objet racine avec les propriétés suivantes :
 

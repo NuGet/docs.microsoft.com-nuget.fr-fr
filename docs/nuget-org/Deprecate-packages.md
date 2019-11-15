@@ -6,12 +6,12 @@ ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
-ms.openlocfilehash: 120b463fda856fe9dd407b6eba32d60e0918f763
-ms.sourcegitcommit: 188ade66b7ac807ba1667c77cfb9325bf89a8a4a
+ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71248896"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096883"
 ---
 # <a name="deprecating-packages"></a>Dépréciation des packages
 
@@ -37,7 +37,7 @@ En tant que serveur de publication, vous pouvez choisir de ne pas répertorier e
     ![Sélectionner les raisons de la recommandation du package de substitution et un message personnalisé](media/deprecation-save.png)
 
 > [!Note]
-> Le message personnalisé s’affiche uniquement sur nuget.org, mais pas sur les clients. Actuellement, les clients tels `dotnet.exe` que et le gestionnaire de package NuGet n’affichent pas le message personnalisé.
+> Le message personnalisé s’affiche uniquement sur nuget.org, mais pas sur les clients. Actuellement, les clients tels que `dotnet.exe` et le gestionnaire de package NuGet n’affichent pas le message personnalisé.
 
 ## <a name="client-experience-for-deprecated-packages"></a>Expérience client pour les packages déconseillés
 Une fois qu’un package est déconseillé, ses consommateurs en sont informés de la façon suivante (selon le client utilisé).
@@ -45,11 +45,11 @@ Une fois qu’un package est déconseillé, ses consommateurs en sont informés 
 ### <a name="visual-studio"></a>Visual Studio 
 *Disponible à partir de Visual Studio 2019 version 16,3*
 
-Visual Studio vous avertit de l’utilisation d’un package déconseillé sous `Installed` l’onglet. Elle vous dirigera vers le package et ses informations d’obsolescence (notamment la raison pour laquelle elle a été dépréciée et le package de remplacement à utiliser à la place, le cas échéant).
+Visual Studio vous avertit de l’utilisation d’un package déconseillé sous l’onglet `Installed`. Il affiche un avertissement pour le package et ses informations d’obsolescence (notamment la raison pour laquelle il a été déconseillé et le package de remplacement à utiliser à la place, le cas échéant).
 
    ![Packages déconseillés sur Visual Studio onglet installé du gestionnaire de package](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet.exe
+### <a name="dotnetexe"></a>dotnet. exe
 *Disponible à partir du kit de développement logiciel (SDK) .NET 3,0*
 
 Si vous utilisez dotnet. exe, vous pouvez exécuter la commande `dotnet list package --deprecated` sur le dossier de la solution ou du projet pour obtenir la liste des packages déconseillés, ainsi que les informations de désapprobation :

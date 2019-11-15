@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6a49e410617c14e22f0d4a67d8bfe280f64f5505
-ms.sourcegitcommit: 8a424829b1f70cf7590e95db61997af6ae2d7a41
+ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
+ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72510794"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74096908"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -59,11 +59,11 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Copyright | Copyright | vide | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
 | licence | PackageLicenseExpression | vide | Correspond à `<license type="expression">` |
-| licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devrez peut-être compresser explicitement le fichier de licence référencé. |
+| licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devez explicitement compresser le fichier de licence référencé. |
 | LicenseUrl | PackageLicenseUrl | vide | `PackageLicenseUrl` est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
 | ProjectUrl | PackageProjectUrl | vide | |
-| Icône | PackageIcon | vide | Vous devrez peut-être compresser explicitement le fichier image icône référencé.|
-| IconUrl | PackageIconUrl | vide | `PackageIconUrl` est déconseillé, utilisez la propriété PackageIcon |
+| Icône | PackageIcon | vide | Vous devez explicitement compresser le fichier image icône référencé.|
+| IconUrl | PackageIconUrl | vide | Pour une expérience optimale, `PackageIconUrl` doit être spécifié en plus de `PackageIcon`. À long terme, `PackageIconUrl` sera dépréciée. |
 | Balises | PackageTags | vide | Les balises sont séparées par un point-virgule. |
 | ReleaseNotes | PackageReleaseNotes | vide | |
 | Référentiel/URL | RepositoryUrl | vide | URL du référentiel utilisée pour cloner ou récupérer le code source. Exemple : *https://github.com/NuGet/NuGet.Client.git* |
@@ -118,12 +118,18 @@ Pour supprimer les dépendances de package du package NuGet généré, définiss
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
-> [!Important]
-> PackageIconUrl est déconseillé avec NuGet 5.3 + & Visual Studio 2019 version 16.3 +. Utilisez [PackageIcon](#packing-an-icon-image-file) à la place.
+`PackageIconUrl` sera dépréciée en faveur de la nouvelle propriété [`PackageIcon`](#packageicon) .
 
-### <a name="packing-an-icon-image-file"></a>Compression d’un fichier image d’icône
+À compter de NuGet 5,3 & Visual Studio 2019 version 16,3, `pack` déclenche l’avertissement [NU5048](errors-and-warnings/nu5048) si les métadonnées de package spécifient uniquement `PackageIconUrl`.
 
-Lors de la compression d’un fichier image icône, vous devez utiliser la propriété PackageIcon pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 64x64.
+### <a name="packageicon"></a>PackageIcon
+
+> [!Tip]
+> Vous devez spécifier à la fois `PackageIcon` et `PackageIconUrl` pour assurer la compatibilité descendante avec les clients et les sources qui ne prennent pas encore en charge `PackageIcon`. Visual Studio prend en charge `PackageIcon` pour les packages provenant d’une source basée sur des dossiers dans une version ultérieure.
+
+#### <a name="packing-an-icon-image-file"></a>Compression d’un fichier image d’icône
+
+Lors de la compression d’un fichier image icône, vous devez utiliser `PackageIcon` propriété pour spécifier le chemin d’accès du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 64x64.
 
 Exemple :
 
@@ -276,7 +282,7 @@ Si vous utilisez MSBuild pour compresser votre projet, utilisez une commande sem
 msbuild -t:pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
-Notez que le compactage d’un NuSpec à l’aide de dotnet. exe ou de MSBuild permet également de générer le projet par défaut. Cela peut être évité en passant @no__t propriété-0 à dotnet. exe, qui est l’équivalent de la définition de ```<NoBuild>true</NoBuild> ``` dans votre fichier projet, ainsi que de la définition de ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` dans le fichier projet.
+Notez que le compactage d’un NuSpec à l’aide de dotnet. exe ou de MSBuild permet également de générer le projet par défaut. Cela peut être évité en passant ```--no-build``` propriété à dotnet. exe, qui est l’équivalent de la définition des ```<NoBuild>true</NoBuild> ``` dans votre fichier projet, ainsi que du paramètre ```<IncludeBuildOutput>false</IncludeBuildOutput> ``` dans le fichier projet.
 
 Voici un exemple de fichier *. csproj* pour compresser un fichier NuSpec :
 
