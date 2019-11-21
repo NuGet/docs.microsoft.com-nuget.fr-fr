@@ -12,24 +12,24 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0197902e4dbc18893d68833fbcfe4263f185a594
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 03ab4e1f3501055abedf430395de095d773bc9da
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307183"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253924"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
 Les packages de symboles vous permettent d’améliorer le débogage de vos packages NuGet.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 [nuget.exe v4.9.0 ou version ultérieure](https://www.nuget.org/downloads), ou [dotnet.exe v2.2.0 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-core/2.2), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) nécessaires.
 
 ## <a name="creating-a-symbol-package"></a>Création d’un package de symboles
 
-Si vous utilisez dotnet. exe ou MSBuild, vous devez définir les `IncludeSymbols` propriétés et `SymbolPackageFormat` pour créer un fichier. snupkg en plus du fichier. nupkg.
+Si vous utilisez dotnet. exe ou MSBuild, vous devez définir les propriétés `IncludeSymbols` et `SymbolPackageFormat` pour créer un fichier. snupkg en plus du fichier. nupkg.
 
 * Ajoutez les propriétés suivantes à votre fichier. csproj :
 
@@ -46,7 +46,7 @@ Si vous utilisez dotnet. exe ou MSBuild, vous devez définir les `IncludeSymbols
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
-  ou
+  or
 
   ```cli
   msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
@@ -98,7 +98,7 @@ NuGet.org prend en charge son propre dépôt de serveur de symboles et accepte u
 
 NuGet.org présente les contraintes suivantes pour les packages de symboles :
 
-- Seules les extensions de fichier suivantes sont autorisées dans les packages `.pdb`de `.nuspec`symboles : `.psmdcp`, `.rels`, `.xml`,,,`.p7s`
+- Seules les extensions de fichier suivantes sont autorisées dans les packages de symboles : `.pdb`, `.nuspec`, `.xml`, `.psmdcp`, `.rels`, `.p7s`
 - Seuls les fichiers [PDB portables](https://github.com/dotnet/corefx/blob/master/src/System.Reflection.Metadata/specs/PortablePdb-Metadata.md) gérés sont pris en charge sur le serveur de symboles NuGet. org.
 - Les fichiers PDB et leurs dll. nupkg associés doivent être générés avec le compilateur dans Visual Studio version 15,9 ou ultérieure (voir [PDB crypto Hash](https://github.com/dotnet/roslyn/issues/24429))
 

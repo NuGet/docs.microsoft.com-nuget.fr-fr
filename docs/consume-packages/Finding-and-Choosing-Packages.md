@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9947a490e4373bb0b8b7fb0814828ff2a60615a8
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 0691660f20f9b5a1ff0dad110ee87c6e29c0a56e
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611074"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253933"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Recherche et sélection des packages NuGet pour votre projet
 
@@ -82,9 +82,12 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 
     ![Statistiques de téléchargement dans la page du package](media/Finding-03-Downloads.png)
 
-- *Utilisation de GitHub* : sur la page du package, la section **Utilisation de GitHub** répertorie les principaux référentiels GitHub qui dépendent de ce package. Un package dont dépendent de nombreux référentiels GitHub populaires est généralement une meilleure option.
+- *Utilisation de GitHub*: sur la page package, la section **utilisation de GitHub** répertorie les dépôts GitHub publics qui dépendent de ce package et qui ont un grand nombre d’étoiles sur GitHub. Le nombre d’étoiles d’un dépôt GitHub indique généralement le degré d’actualité du référentiel avec les utilisateurs GitHub (d’autres étoiles signifient généralement plus populaires). Visitez [la page de prise en main de GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) pour plus d’informations sur les étoiles et le système de classement des référentiels de github.
 
     ![Utilisation de GitHub](media/GitHub-Usage.png)
+
+    > [!Note]
+    > La section utilisation du GitHub d’un package est générée automatiquement, périodiquement, sans examen humain des dépôts individuels, et uniquement à des fins d’information afin de vous montrer les dépôts GitHub qui dépendent du package et qui sont populaires avec GitHub utilisateurs.
 
 - *Version history* (Historique des versions) : dans la page du package, regardez sous **Info** pour connaître la date de la mise à jour la plus récente et consulter l’historique des versions (**Version History**). Un package bien géré doit comprendre des mises à jour récentes et un historique des versions très fourni. Les packages négligés comprennent peu de mises à jour et, souvent, n’ont pas été mis à jour depuis un certain temps.
 
@@ -103,7 +106,7 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 - *Reserved Package ID Prefixes* (Préfixes d’ID de packages réservés) : de nombreux propriétaires de packages ont demandé et reçu un [préfixe d’ID de package réservé](../nuget-org/id-prefix-reservation.md). Quand vous voyez la coche à côté d’un ID de package sur [nuget.org](https://www.nuget.org/) ou dans Visual Studio, cela signifie que le propriétaire du package a répondu à nos [critères](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pour la réservation d’ID de préfixe. Cela signifie que le propriétaire du package est clair quant à l’identification de lui-même et de son package.
 
 > [!Note]
-> Gardez toujours à l’esprit les termes du contrat de licence d’un package, que vous pouvez consulter en sélectionnant les **informations de licence** sur la page de liste d’un package sur NuGet.org. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **contacter les propriétaires** sur la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
+> Gardez toujours à l’esprit les termes du contrat de licence d’un package, que vous pouvez consulter en sélectionnant les **informations de licence** sur la page de liste d’un package sur NuGet.org. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **contacter les propriétaires** sur la page du package. Microsoft ne vous accorde pas de licences de droits de propriété intellectuelle pour le compte de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
 
 ## <a name="license-url-deprecation"></a>Dépréciation d’URL de licence
 Avec le passage de [licenseUrl](../reference/nuspec.md#licenseurl) vers [licence](../reference/nuspec.md#license), des clients et flux NuGet risquent de ne pas pouvoir accéder aux informations de licence dans certains cas. Pour maintenir une compatibilité descendante, l’URL de la licence pointe vers ce document, qui explique comment récupérer les informations de licence dans ces situations.

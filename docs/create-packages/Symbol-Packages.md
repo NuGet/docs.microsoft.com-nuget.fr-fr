@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: f7503dd413a976997580aa03da26df0c462ff0e1
-ms.sourcegitcommit: 80cf99f40759911324468be1ec815c96aebf376d
-ms.translationtype: HT
+ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2019
-ms.locfileid: "69564549"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253911"
 ---
 # <a name="creating-symbol-packages-legacy"></a>Création de packages de symboles (hérité)
 
@@ -54,7 +54,7 @@ Par exemple, un package de symboles ciblant le .NET 4.0 et Silverlight 4 aurait 
             \MyAssembly.dll
             \MyAssembly.pdb
 
-Les fichiers sources sont alors placés dans un dossier spécial distinct nommé `src`, qui doit suivre la structure relative de votre dépôt de code source. En effet, les fichiers PDB contiennent des chemins absolus aux fichiers sources utilisés pour compiler la DLL correspondante et doivent être détectés pendant le processus de publication. Un chemin de base (préfixe de chemin commun) peut être supprimé. Par exemple, considérez une bibliothèque créée à partir de ces fichiers :
+Les fichiers sources sont alors placés dans un dossier spécial distinct nommé `src`, qui doit suivre la structure relative de votre dépôt de code source. En effet, les fichiers PDB contiennent des chemins absolus aux fichiers sources utilisés pour compiler la DLL correspondante et doivent être détectés pendant le processus de publication. Un chemin d’accès de base (préfixe de chemin d’accès commun) peut être supprimé. Prenons l’exemple d’une bibliothèque générée à partir de ces fichiers :
 
     C:\Projects
         \MyProject
@@ -127,7 +127,7 @@ Un package de symboles peut être généré par des conventions, à partir d’u
     ```
 
    > [!Note]
-   > Avec nuget.exe 4.5.0 ou ultérieur, les packages de symboles ne sont pas automatiquement envoyés à symbolsource.org. Vous devez envoyer les packages de symboles séparément, comme expliqué dans les étapes précédentes.
+   > Avec NuGet. exe 4.5.0 ou version ultérieure, les packages de symboles ne sont pas automatiquement envoyés à symbolsource.org. Vous devez envoyer les packages de symboles séparément, comme expliqué dans les étapes précédentes.
    
 Dans ce cas, NuGet publie `MyPackage.symbols.nupkg`, le cas échéant, sur https://nuget.smbsrc.net/ (URL push pour symbolsource.org), après avoir publié le package principal sur nuget.org.
 

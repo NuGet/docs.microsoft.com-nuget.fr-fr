@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 63c6b5eb5ad635e436b4d53a5f833af35f72d76f
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
+ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69999966"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74253952"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Comptes individuels sur NuGet.org
 
@@ -48,7 +48,7 @@ Vous disposez maintenant d’un compte NuGet.org. Vous pouvez effectuer la gesti
 
 ## <a name="enable-two-factor-authentication-2fa"></a>Activer l’authentification à 2 facteurs (2FA)
 
-Pour mieux protéger votre compte, activez l’authentification à 2 facteurs (recommandé).
+L’authentification à deux facteurs, ou 2FA, est une couche supplémentaire de sécurité utilisée lors de la connexion à des sites Web ou des applications. Avec 2FA, vous devez vous connecter avec votre compte Microsoft (MSA) et fournir une autre forme d’authentification qui vous permet uniquement de connaître ou d’avoir accès à. Pour mieux protéger votre compte, activez l’authentification à 2 facteurs (recommandé).
 
 1. Une fois connecté à votre compte, ouvrez votre profil et choisissez **Activer** sous **Compte de connexion**.
 
@@ -69,6 +69,9 @@ Pour mieux protéger votre compte, activez l’authentification à 2 facteurs (r
    ![Activer la 2FA](media/nuget-org-enter-code-2fa.png)
 
 5. Suivez les instructions supplémentaires pour terminer l’authentification à 2 deux facteurs.
+
+> [!Tip]
+> L’activation de 2FA pour votre compte NuGet.org n’affecte pas les paramètres d’authentification pour d’autres comptes ou services qui peuvent être liés à la compte Microsoft vous utilisez pour vous connecter à NuGet.org.
 
 ## <a name="delete-a-nugetorg-account"></a>Supprimer un compte NuGet.org
 
