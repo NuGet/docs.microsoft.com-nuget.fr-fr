@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 47593cc65ad707b8880d854dc43824b9234fd44a
-ms.sourcegitcommit: ba8ad1bd13a4bba3df94374e34e20c425a05af2f
-ms.translationtype: HT
+ms.openlocfilehash: 9b6eb012b4bc8135b1648fa9f5e84d7d1c9d6b16
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68833304"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825350"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Démarrage rapide : Installer et utiliser un package à l’aide de l’interface CLI dotnet
 
@@ -19,9 +19,9 @@ Les packages NuGet contiennent du code réutilisable que les autres développeur
 Une fois le package installé, faites-y référence dans le code avec `using <namespace>`, où \<namespace\> est propre au package que vous utilisez. Vous pourrez alors utiliser l’API du package.
 
 > [!Tip]
-> **Prise en main de nuget.org** : Les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
+> **Commencez par nuget.org** : les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Configuration requise
 
 - Le [kit SDK .NET Core](https://www.microsoft.com/net/download/), qui fournit l’outil en ligne de commande `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
@@ -35,7 +35,7 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
 
 1. Créez le projet à l’aide de la commande suivante :
 
-    ```cli
+    ```dotnetcli
     dotnet new console
     ```
 
@@ -45,7 +45,7 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
 
 1. Utilisez la commande suivante pour installer le package `Newtonsoft.json` :
 
-    ```cli
+    ```dotnetcli
     dotnet add package Newtonsoft.Json
     ```
 
@@ -103,7 +103,7 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
     }
     ```
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Félicitations pour l’installation et l’utilisation de votre premier package NuGet !
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8727f67608593e6ae8b96daa81b7423782dfc219
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: 55f9c760ae05f060b748e6fbb82d8e9bd77c4e37
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096933"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825298"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
@@ -59,7 +59,7 @@ Chaque package NuGet a besoin d’un manifeste décrivant son contenu et ses dé
 
 Pour créer un package NuGet (fichier `.nupkg`) à partir du projet, exécutez la commande `dotnet pack`, qui génère également le projet automatiquement :
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```
@@ -105,7 +105,7 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="next-steps"></a>Étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes :
 
 Félicitations pour la création de votre premier package NuGet !
 

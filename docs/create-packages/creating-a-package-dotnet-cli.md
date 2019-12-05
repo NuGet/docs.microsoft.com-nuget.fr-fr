@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: ec37057d40ddc9ed1826b0628aaa573c342b92b6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 535d5a16a559cde065ee0277471edfbaf1aea084
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380750"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825272"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Créer un package NuGet à l’aide de l’interface CLI dotnet
 
@@ -27,11 +27,11 @@ Pour les projets .NET Core et .NET Standard qui utilisent le [format de style SD
 
 Les propriétés suivantes sont requises pour créer un package.
 
-- `PackageId`, l’identificateur du package, qui doit être unique dans toute la galerie qui héberge le package. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
+- `PackageId`, l’identificateur du package, qui doit être unique dans toute la galerie qui héberge le package. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
 - `Version`, un numéro de version spécifique au format *version_principale.version_secondaire.version_corrective [-suffixe]* où *-suffixe* identifie les [versions préliminaires](prerelease-packages.md). Si elle n’est pas spécifiée, la valeur par défaut est 1.0.0.
 - Titre du package tel qu’il doit apparaître sur l’hôte (par exemple nuget.org)
-- `Authors`, informations sur l’auteur et le propriétaire. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
-- `Company`, le nom de votre entreprise. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
+- `Authors`, informations sur l’auteur et le propriétaire. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
+- `Company`, le nom de votre entreprise. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
 
 Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez aussi définir directement ces propriétés dans les fichiers projet (`.csproj`).
 
@@ -76,7 +76,7 @@ Pour plus d’informations sur la déclaration des dépendances et la spécifica
 
 Pour créer un package NuGet (fichier `.nupkg`) à partir du projet, exécutez la commande `dotnet pack`, qui génère également le projet automatiquement :
 
-```cli
+```dotnetcli
 # Uses the project file in the current folder by default
 dotnet pack
 ```

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1c2af0b42e88623fa7a1216c17aa269e9b0a58cf
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
+ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096908"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74825065"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -40,7 +40,7 @@ De même, vous pouvez écrire une tâche MSBuild, écrire votre propre cible et 
 
 ## <a name="pack-target"></a>Cible pack
 
-Pour les projets .NET Standard utilisant le format PackageReference, l’utilisation de `msbuild -t:pack` permet de dessiner des entrées à partir du fichier projet à utiliser lors de la création d’un package NuGet.
+Pour les projets .NET Standard utilisant le format PackageReference, l’utilisation de `msbuild -t:pack` dessine les entrées du fichier projet à utiliser lors de la création d’un package NuGet.
 
 Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajoutées à un fichier projet au sein du premier nœud `<PropertyGroup>`. Vous pouvez effectuer ces modifications facilement dans Visual Studio 2017 et versions ultérieures en cliquant avec le bouton droit sur le projet et en sélectionnant **Modifier {nom_projet}** dans le menu contextuel. Pour des raisons pratiques, le tableau est organisé selon la propriété équivalente dans un [fichier `.nuspec`](../reference/nuspec.md).
 
@@ -48,16 +48,16 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 
 | Valeur d’attribut/NuSpec | Propriété MSBuild | Valeur par défaut | Notes |
 |--------|--------|--------|--------|
-| Id | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
+| ID | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
 | Version | PackageVersion | Version | Compatible avec SemVer, par exemple « 1.0.0 », « version bêta 1.0.0 » ou « version bêta-1.0.0-00345 » |
 | VersionPrefix | PackageVersionPrefix | vide | La définition de PackageVersion remplace PackageVersionPrefix |
 | VersionSuffix | PackageVersionSuffix | vide | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix |
 | Auteurs | Auteurs | Nom de l’utilisateur actuel | |
-| Propriétaires | N/A | Ne figure pas dans NuSpec | |
+| Propriétaires | Non applicable | Ne figure pas dans NuSpec | |
 | Titre | Titre | PackageId| |
 | Description | Description | « Description du package » | |
 | Copyright | Copyright | vide | |
-| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | False | |
+| RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | licence | PackageLicenseExpression | vide | Correspond à `<license type="expression">` |
 | licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devez explicitement compresser le fichier de licence référencé. |
 | LicenseUrl | PackageLicenseUrl | vide | `PackageLicenseUrl` est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
@@ -114,7 +114,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 
 ### <a name="suppress-dependencies"></a>Supprimer les dépendances
 
-Pour supprimer les dépendances de package du package NuGet généré, définissez `SuppressDependenciesWhenPacking` sur `true`, ce qui permettra d’ignorer toutes les dépendances du fichier nupkg généré.
+Pour supprimer les dépendances de package du package NuGet généré, affectez à `SuppressDependenciesWhenPacking` la valeur `true` qui permettra d’ignorer toutes les dépendances du fichier nupkg généré.
 
 ### <a name="packageiconurl"></a>PackageIconUrl
 
@@ -131,7 +131,7 @@ Pour supprimer les dépendances de package du package NuGet généré, définiss
 
 Lors de la compression d’un fichier image icône, vous devez utiliser `PackageIcon` propriété pour spécifier le chemin d’accès du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 64x64.
 
-Exemple :
+Par exemple :
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Lors de l’utilisation d’une expression de licence, la propriété PackageLic
 
 [En savoir plus sur les expressions de licence et les licences acceptées par NuGet.org](nuspec.md#license).
 
-Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propriété PackageLicenseFile pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Exemple :
+Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propriété PackageLicenseFile pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Par exemple :
 
 ```xml
 <PropertyGroup>
@@ -272,7 +272,7 @@ La version cible du .NET Framework du fichier projet n’est pas pertinente et n
 
 Si vous utilisez `dotnet.exe` pour compresser votre projet, utilisez une commande semblable à la suivante :
 
-```cli
+```dotnetcli
 dotnet pack <path to .csproj file> -p:NuspecFile=<path to nuspec file> -p:NuspecProperties=<> -p:NuspecBasePath=<Base path> 
 ```
 
@@ -303,17 +303,17 @@ Voici un exemple de fichier *. csproj* pour compresser un fichier NuSpec :
 
 La cible `pack` fournit deux points d’extension qui s’exécutent dans la build interne du Framework cible. Les points d’extension prennent en charge l’inclusion de contenu et d’assemblys spécifiques au Framework cible dans un package :
 
-- cible `TargetsForTfmSpecificBuildOutput` : à utiliser pour les fichiers se trouvant dans le dossier `lib` ou dans un dossier spécifié à l’aide de `BuildOutputTargetFolder`.
-- cible `TargetsForTfmSpecificContentInPackage` : à utiliser pour les fichiers en dehors du `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificBuildOutput` cible : utilisez pour les fichiers situés dans le dossier `lib` ou dans un dossier spécifié à l’aide de `BuildOutputTargetFolder`.
+- `TargetsForTfmSpecificContentInPackage` cible : à utiliser pour les fichiers en dehors du `BuildOutputTargetFolder`.
 
 #### <a name="targetsfortfmspecificbuildoutput"></a>TargetsForTfmSpecificBuildOutput
 
-Écrivez une cible personnalisée et spécifiez-la comme valeur de la propriété `$(TargetsForTfmSpecificBuildOutput)`. Pour tous les fichiers qui doivent accéder au `BuildOutputTargetFolder` (lib par défaut), la cible doit écrire ces fichiers dans le ItemGroup `BuildOutputInPackage` et définir les deux valeurs de métadonnées suivantes :
+Écrivez une cible personnalisée et spécifiez-la comme valeur de la propriété `$(TargetsForTfmSpecificBuildOutput)`. Pour tous les fichiers qui doivent être placés dans le `BuildOutputTargetFolder` (lib par défaut), la cible doit écrire ces fichiers dans le ItemGroup `BuildOutputInPackage` et définir les deux valeurs de métadonnées suivantes :
 
-- `FinalOutputPath` : chemin d’accès absolu du fichier ; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
-- `TargetPath` : (facultatif) défini lorsque le fichier doit être placé dans un sous-dossier au sein de `lib\<TargetFramework>`, comme les assemblys satellites qui se trouvent dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
+- `FinalOutputPath`: chemin d’accès absolu du fichier ; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
+- `TargetPath`: (facultatif) défini lorsque le fichier doit être placé dans un sous-dossier au sein de `lib\<TargetFramework>`, comme les assemblys satellites qui se trouvent dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
 
-Exemple :
+Exemple :
 
 ```xml
 <PropertyGroup>
@@ -331,12 +331,12 @@ Exemple :
 
 #### <a name="targetsfortfmspecificcontentinpackage"></a>TargetsForTfmSpecificContentInPackage
 
-Écrivez une cible personnalisée et spécifiez-la comme valeur de la propriété `$(TargetsForTfmSpecificContentInPackage)`. Pour tous les fichiers à inclure dans le package, la cible doit écrire ces fichiers dans le ItemGroup `TfmSpecificPackageFile` et définir les métadonnées facultatives suivantes :
+Écrivez une cible personnalisée et spécifiez-la comme valeur de la propriété `$(TargetsForTfmSpecificContentInPackage)`. Pour tous les fichiers à inclure dans le package, la cible doit écrire ces fichiers dans la `TfmSpecificPackageFile` ItemGroup et définir les métadonnées facultatives suivantes :
 
-- `PackagePath` : chemin d’accès où le fichier doit être généré dans le package. NuGet émet un avertissement si plusieurs fichiers sont ajoutés au même chemin d’accès de package.
-- `BuildAction` : action de génération à assigner au fichier, obligatoire uniquement si le chemin d’accès du package se trouve dans le dossier `contentFiles`. La valeur par défaut est « None ».
+- `PackagePath`: chemin d’accès où le fichier doit être généré dans le package. NuGet émet un avertissement si plusieurs fichiers sont ajoutés au même chemin d’accès de package.
+- `BuildAction`: action de génération à assigner au fichier, obligatoire uniquement si le chemin d’accès du package se trouve dans le dossier `contentFiles`. La valeur par défaut est « None ».
 
-Exemple :
+Voici un exemple :
 ```xml
 <PropertyGroup>
   <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
@@ -386,7 +386,7 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 | RestoreTaskAssemblyFile | Chemin d’accès à `NuGet.Build.Tasks.dll`. |
 | RestoreGraphProjectInput | Liste de projets à restaurer séparés par un point-virgule, qui doit contenir des chemins absolus. |
 | RestoreUseSkipNonexistentTargets  | Lorsque les projets sont collectés via MSBuild, il détermine s’ils sont collectés à l’aide de l’optimisation `SkipNonexistentTargets`. Si la valeur n’est pas définie, la valeur par défaut est `true`. La conséquence est un comportement de basculement rapide lorsque les cibles d’un projet ne peuvent pas être importées. |
-| MSBuildProjectExtensionsPath | Dossier de sortie, avec la valeur par défaut `BaseIntermediateOutputPath` et le dossier `obj`. |
+| MSBuildProjectExtensionsPath | Dossier de sortie, par défaut, `BaseIntermediateOutputPath` et le dossier `obj`. |
 | RestoreForce | Dans les projets basés sur PackageReference, force la résolution de toutes les dépendances même si la dernière restauration a réussi. La spécification de cet indicateur est semblable à la suppression du fichier `project.assets.json`. Cela ne contourne pas le cache http. |
 | RestorePackagesWithLockFile | Opte pour l’utilisation d’un fichier de verrouillage. |
 | RestoreLockedMode | Exécutez la restauration en mode verrouillé. Cela signifie que la restauration ne réévaluera pas les dépendances. |
@@ -395,7 +395,7 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 
 #### <a name="examples"></a>Exemples
 
-Ligne de commande :
+Ligne de commande :
 
 ```cli
 msbuild -t:restore -p:RestoreConfigFile=<path>
@@ -413,7 +413,7 @@ Fichier projet :
 
 La restauration crée les fichiers suivants dans le dossier `obj` de build :
 
-| Fichier | Description |
+| File | Description |
 |--------|--------|
 | `project.assets.json` | Contient le graphique de dépendance de toutes les références de package. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Références à des propriétés MSBuild contenues dans des packages |
