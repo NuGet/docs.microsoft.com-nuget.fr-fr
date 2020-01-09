@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: ed3545454a811c311190a191c566d9e9192f3fcc
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825065"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385012"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -46,7 +46,7 @@ Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajouté
 
 Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises en charge avec MSBuild.
 
-| Valeur d’attribut/NuSpec | Propriété MSBuild | Valeur par défaut | Notes |
+| Valeur d’attribut/NuSpec | Propriété MSBuild | Valeur par défaut | Remarques |
 |--------|--------|--------|--------|
 | ID | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
 | Version | PackageVersion | Version | Compatible avec SemVer, par exemple « 1.0.0 », « version bêta 1.0.0 » ou « version bêta-1.0.0-00345 » |
@@ -120,7 +120,7 @@ Pour supprimer les dépendances de package du package NuGet généré, affectez 
 
 `PackageIconUrl` sera dépréciée en faveur de la nouvelle propriété [`PackageIcon`](#packageicon) .
 
-À compter de NuGet 5,3 & Visual Studio 2019 version 16,3, `pack` déclenche l’avertissement [NU5048](errors-and-warnings/nu5048) si les métadonnées de package spécifient uniquement `PackageIconUrl`.
+À compter de NuGet 5,3 & Visual Studio 2019 version 16,3, `pack` déclenche l’avertissement [NU5048](./errors-and-warnings/nu5048.md) si les métadonnées de package spécifient uniquement `PackageIconUrl`.
 
 ### <a name="packageicon"></a>PackageIcon
 
@@ -371,7 +371,7 @@ La cible `restore` fonctionne **uniquement** pour les projets utilisant le forma
 
 Des paramètres de restauration supplémentaires peuvent provenir de propriétés MSBuild dans le fichier projet. Des valeurs peuvent également être définies à partir de la ligne de commande à l’aide du commutateur `-p:` (consultez Exemples ci-dessous).
 
-| Property | Description |
+| Les | Description |
 |--------|--------|
 | RestoreSources | Liste de sources de packages séparées par un point-virgule. |
 | RestorePackagesPath | Chemin du dossier de packages de l’utilisateur. |

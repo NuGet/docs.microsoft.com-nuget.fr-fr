@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 431e5f292f069ad5eb0c9f7f511d6b06810c8760
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 1c39fea2131b8f4b8a91314347a19366d5a582c2
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327346"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75385191"
 ---
 # <a name="get-package-package-manager-console-in-visual-studio"></a>Get-Package (Console du gestionnaire de packages dans Visual Studio)
 
@@ -26,19 +26,19 @@ Get-Package -Source <string> [-ListAvailable] [-Updates] [-ProjectName <string>]
     [-PageSize] [<CommonParameters>]
 ```
 
-Sans paramètres, `Get-Package` affiche la liste des packages installés dans le projet par défaut.
+Sans paramètre, `Get-Package` affiche la liste des packages installés dans le projet par défaut.
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>Parameters
 
 | Paramètre | Description |
 | --- | --- |
-| source | URL ou chemin d’accès du dossier pour le package. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission `Get-Package` , effectue une recherche dans la source du package actuellement sélectionnée. En cas d’utilisation avec-ListAvailable, la valeur par défaut est nuget.org. |
+| Source | URL ou chemin d’accès du dossier pour le package. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission, `Get-Package` recherche la source de package actuellement sélectionnée. En cas d’utilisation avec-ListAvailable, la valeur par défaut est nuget.org. |
 | ListAvailable | Répertorie les packages disponibles à partir d’une source de package, par défaut nuget.org. Affiche la valeur par défaut de 50 packages, sauf si-PageSize et/ou-First sont spécifiés. |
 | Mises à jour | Répertorie les packages dont la mise à jour est disponible à partir de la source du package. |
-| Nom_projet | Projet à partir duquel les packages installés doivent être installés. En cas d’omission, retourne les projets installés pour l’ensemble de la solution. |
-| Filtrer | Chaîne de filtrage utilisée pour limiter la liste des packages en l’appliquant à l’ID de package, à la description et aux balises. |
-| Première | Nombre de packages à retourner à partir du début de la liste. S’il n’est pas spécifié, la valeur par défaut est 50. |
-| Ignorer | Omet les premiers &lt;packages int&gt; de la liste affichée.  |
+| NomProjet | Projet à partir duquel les packages installés doivent être installés. En cas d’omission, retourne les projets installés pour l’ensemble de la solution. |
+| Filtre | Chaîne de filtrage utilisée pour limiter la liste des packages en l’appliquant à l’ID de package, à la description et aux balises. |
+| First | Nombre de packages à retourner à partir du début de la liste. S’il n’est pas spécifié, la valeur par défaut est 50. |
+| Skip | Omet les premiers packages de&gt; &lt;int de la liste affichée.  |
 | AllVersions | Affiche toutes les versions disponibles de chaque package, et non uniquement la version la plus récente. |
 | IncludePrerelease | Contient des packages de version préliminaire dans les résultats. |
 | PageSize | *(3.0 +)* En cas d’utilisation avec-ListAvailable (obligatoire), nombre de packages à répertorier avant de donner une invite pour continuer. |
@@ -47,7 +47,7 @@ Aucun de ces paramètres n’accepte d’entrée de pipeline ou de caractères g
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Get-Package`prend en charge les [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216)suivants: Débogage, action d’erreur, ErrorVariable, mise en mémoire tampon, dévariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Get-Package` prend en charge les [paramètres PowerShell communs](https://go.microsoft.com/fwlink/?LinkID=113216)suivants : Debug, Error action, ErrorVariable, unbuffer, unvariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 
