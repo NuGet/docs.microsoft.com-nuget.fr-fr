@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 1053a18926f63e02f0b1c100e7cc1cd293654ced
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307213"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383980"
 ---
 # <a name="signing-nuget-packages"></a>Signature de packages NuGet
 
@@ -19,7 +19,7 @@ Les packages signés permettent les contrôles de vérification de l’intégrit
 
 ## <a name="get-a-code-signing-certificate"></a>Obtenir un certificat de signature de code
 
-Des certificats valides peuvent être obtenus auprès d’une autorité de certification publique telle que [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [certr](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. La liste complète des autorités de certification approuvées par Windows peut être obtenue à partir de [http://aka.ms/trustcertpartners](http://aka.ms/trustcertpartners).
+Des certificats valides peuvent être obtenus auprès d’une autorité de certification publique telle que [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [certr](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. La liste complète des autorités de certification approuvées par Windows peut être obtenue à partir de [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners).
 
 Vous pouvez utiliser des certificats auto-émis à des fins de test. Toutefois, les packages signés à l’aide de certificats auto-émis ne sont pas acceptés par NuGet.org. En savoir plus sur [la création d’un certificat de test](#create-a-test-certificate)
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 Pour publier un package signé, vous devez d’abord inscrire le certificat auprès de NuGet.org. Vous avez besoin du certificat en tant que fichier `.cer` dans un format DER binaire.
 
 1. [Connectez-vous](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) à NuGet.org.
-1. Accédez à `Account settings` (ou à `Manage Organization` **>** `Edit Organziation` si vous voulez inscrire le certificat auprès d’un compte d’organisation).
+1. Accédez à `Account settings` (ou `Manage Organization` **>** `Edit Organziation` si vous souhaitez inscrire le certificat auprès d’un compte d’organisation).
 1. Développez la section `Certificates`, puis sélectionnez `Register new`.
 1. Accédez au fichier de certificat qui a été exporté précédemment.
   ![Certificats inscrits](../reference/media/registered-certs.png)

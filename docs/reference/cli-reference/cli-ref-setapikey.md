@@ -5,36 +5,39 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: b00e8b1f7a6fda9c1a0c079069fa8ee08a45b419
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 0e2119953e6d07cd3571f156fa0b2665de49f963
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327606"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75383967"
 ---
 # <a name="setapikey-command-nuget-cli"></a>commande setapikey (interface CLI NuGet)
 
-**S’applique à: consommation de** packages &bullet; , publication des **versions prises en charge:** toutes
+**S’applique à : consommation de** packages, publication &bullet; **versions prises en charge :** tout
 
-Enregistre une clé API pour une URL de serveur donnée `NuGet.Config` dans afin qu’elle n’ait pas besoin d’être entrée pour les commandes suivantes.
+Enregistre une clé API pour une URL de serveur donnée dans `NuGet.Config` afin qu’il n’ait pas besoin d’être entré pour les commandes suivantes.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Contrôle
 
 ```cli
 nuget setapikey <key> -Source <url> [options]
 ```
 
-où `<source>` identifie le serveur et `<key>` représente la clé ou le mot de passe à enregistrer. Si `<source>` est omis, NuGet.org est utilisé par défaut.
+où `<source>` identifie le serveur et `<key>` est la clé ou le mot de passe à enregistrer. Si `<source>` est omis, nuget.org est utilisé par défaut.
+
+> [!NOTE]
+> La clé API n’est pas utilisée pour l’authentification auprès du flux privé. Reportez-vous à [`nuget sources` commande](../cli-reference/cli-ref-sources.md) pour gérer les informations d’identification pour l’authentification auprès de la source.
 
 ## <a name="options"></a>Options
 
 | Option | Description |
 | --- | --- |
-| ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est `%AppData%\NuGet\NuGet.Config` pas spécifié, ( `~/.nuget/NuGet/NuGet.Config` Windows) ou (Mac/Linux) est utilisé.|
+| ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est pas spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
-| Help | Affiche des informations d’aide pour la commande. |
+| Aide | Affiche des informations d’aide pour la commande. |
 | NonInteractive | Supprime les invites de saisie ou de confirmation de l’utilisateur. |
-| Commentaires | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
+| Commentaires | Spécifie la quantité de détails affichée dans la sortie : *normal*, *Quiet*, *detailed*. |
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 
