@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 57e50ed805496b3511bc3b808f89da6f7ad413fc
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
+ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327266"
+ms.lasthandoff: 12/25/2019
+ms.locfileid: "75384854"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Console du gestionnaire de packages dans Visual Studio)
 
@@ -26,7 +26,7 @@ Update-Package [-Id] <string> [-IgnoreDependencies] [-ProjectName <string>] [-Ve
     [-DependencyVersion] [-ToHighestPatch] [-ToHighestMinor] [-WhatIf] [<CommonParameters>]
 ```
 
-Dans NuGet 2.8 +, `Update-Package` peut être utilisé pour rétrograder un package existant dans votre projet. Par exemple, si vous avez installé Microsoft. AspNet. MVC 5.1.0-RC1, la commande suivante le rétrograde à 5.0.0:
+Dans NuGet 2.8 +, `Update-Package` peut être utilisé pour rétrograder un package existant dans votre projet. Par exemple, si vous avez installé Microsoft. AspNet. MVC 5.1.0-RC1, la commande suivante le rétrograde à 5.0.0 :
 
 ```ps
 Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
@@ -36,16 +36,16 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 |  Paramètre | Description |
 | --- | --- |
-| Id | Identificateur du package à mettre à jour. En cas d’omission, met à jour tous les packages. Le commutateur-ID lui-même est facultatif. |
+| ID | Identificateur du package à mettre à jour. En cas d’omission, met à jour tous les packages. Le commutateur-ID lui-même est facultatif. |
 | IgnoreDependencies | Ignore la mise à jour des dépendances du package. |
-| Nom_projet | Nom du projet contenant les packages à mettre à jour, par défaut pour tous les projets. |
-| Version | Version à utiliser pour la mise à niveau, avec la version la plus récente par défaut. Dans NuGet 3.0 +, la valeur de version doit être l’une des valeurs les *plus basses, les plus élevées, les HighestMinor*ou les *HighestPatch* (équivalent à-Safe). |
+| NomProjet | Nom du projet contenant les packages à mettre à jour, par défaut pour tous les projets. |
+| cible | Version à utiliser pour la mise à niveau, avec la version la plus récente par défaut. Dans NuGet 3.0 +, la valeur de version doit être l’une des valeurs les *plus basses, les plus élevées, les HighestMinor*ou les *HighestPatch* (équivalent à-Safe). |
 | Safe | Limite les mises à niveau vers des versions avec la même version principale et la version mineure que le package actuellement installé. |
-| source | URL ou chemin d’accès de dossier de la source du package à rechercher. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission `Update-Package` , effectue une recherche dans la source du package actuellement sélectionnée. |
+| Source | URL ou chemin d’accès de dossier de la source du package à rechercher. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission, `Update-Package` recherche la source de package actuellement sélectionnée. |
 | IncludePrerelease | Contient des packages de version préliminaire pour les mises à jour. |
 | Réinstallation | Resintalls les packages en utilisant les versions actuellement installées. Consultez [Réinstallation et mise à jour des packages](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Action à exécuter lorsque le système vous demande de remplacer ou d’ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *overwrite, ignore, None, OverwriteAll*et *IgnoreAll* (3.0 +). |
-| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes:<br/><ul><li>La *plus basse* (par défaut): la version la plus basse</li><li>*HighestPatch*: version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor*: version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres): la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à [`dependencyVersion`](../nuget-config-file.md#config-section) l’aide du `Nuget.Config` paramètre dans le fichier. |
+| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch*: version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor*: version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du paramètre [`dependencyVersion`](../nuget-config-file.md#config-section) dans le fichier `Nuget.Config`. |
 | ToHighestPatch | équivalent à-Safe. |
 | ToHighestMinor | Limite les mises à niveau à des versions avec la même version principale que le package actuellement installé. |
 | WhatIf | Montre ce qui se passe lors de l’exécution de la commande sans réellement effectuer la mise à jour. |
@@ -54,7 +54,7 @@ Aucun de ces paramètres n’accepte d’entrée de pipeline ou de caractères g
 
 ### <a name="common-parameters"></a>Paramètres communs
 
-`Update-Package`prend en charge les [paramètres PowerShell communs](http://go.microsoft.com/fwlink/?LinkID=113216)suivants: Débogage, action d’erreur, ErrorVariable, mise en mémoire tampon, dévariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Update-Package` prend en charge les [paramètres PowerShell communs](https://go.microsoft.com/fwlink/?LinkID=113216)suivants : Debug, Error action, ErrorVariable, unbuffer, unvariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ### <a name="examples"></a>Exemples
 
