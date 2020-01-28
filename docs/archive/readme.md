@@ -1,1 +1,0 @@
-Ce dossier sert à garder le contenu destiné à être supprimé de la documentation principale. Il s’agit en général de contenu s’appliquant aux versions antérieures qui sera probablement déplacé vers un emplacement d’archivage permanent.
