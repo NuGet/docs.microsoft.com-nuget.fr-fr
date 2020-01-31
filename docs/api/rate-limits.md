@@ -1,6 +1,6 @@
 ---
-title: Limites, NuGet API du taux
-description: Les APIs NuGet sera ont appliqué les limites de débit pour empêcher les abus.
+title: Limites du taux de transfert, API NuGet
+description: Les API NuGet auront des limites de débit imposées pour empêcher tout abus.
 author: cmanu
 ms.author: cmanu
 ms.date: 03/20/2018
@@ -9,16 +9,16 @@ ms.reviewer:
 - skofman
 - anangaur
 - kraigb
-ms.openlocfilehash: 70b478ae17cd10b17f9d6ecb0f5776c1effcea58
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 9e60c0236bd4e6f1374b50a236447faf80dddb38
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548675"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813193"
 ---
 # <a name="rate-limits"></a>Limites du débit
 
-L’API de NuGet.org applique la limitation du débit pour empêcher les abus. Requêtes qui dépassent la limite de débit renvoient l’erreur suivante : 
+L’API NuGet.org applique la limitation du débit pour empêcher tout abus. Les demandes qui dépassent la limite de débit retournent l’erreur suivante : 
 
   ~~~
     {
@@ -27,7 +27,7 @@ L’API de NuGet.org applique la limitation du débit pour empêcher les abus. R
     }
   ~~~
 
-En plus de la demande à l’aide des limites de taux de limitation, certaines API également appliquent des quotas. Requêtes qui dépassent le quota renvoient l’erreur suivante :
+En plus de la limitation des demandes à l’aide de limites de débit, certaines API appliquent également le quota. Les demandes qui dépassent le quota renvoient l’erreur suivante :
 
   ~~~
     {
@@ -36,24 +36,23 @@ En plus de la demande à l’aide des limites de taux de limitation, certaines A
     }
   ~~~
 
-Les tableaux suivants répertorient les limites de taux pour l’API de NuGet.org.
+Les tableaux suivants répertorient les limites de taux de transfert pour l’API NuGet.org.
 
-## <a name="package-search"></a>Recherche de package
+## <a name="package-search"></a>Recherche de packages
 
 > [!Note]
-> Nous recommandons l’utilisation de NuGet.org [V3 API](https://docs.microsoft.com/nuget/api/search-query-service-resource) pour recherche performante et n’avez aucune limite actuellement. API de recherche pour V1 et V2, les limites followins s’appliquent :
+> Nous vous recommandons d’utiliser les [API de recherche v3](search-query-service-resource.md) de NuGet. org, car elles ne sont pas limitées au tarif actuellement. Pour les API de recherche v1 et v2, les limites suivantes s’appliquent :
 
-
-| API | Type de limite | Valeur de la limite | API CasUtilisation |
+| API | Type de limite | Valeur limite | UseCase d’API |
 |:---|:---|:---|:---|
-**TÉLÉCHARGER** `/api/v1/Packages` | IP | 1000 / minute | Interroger les métadonnées de package NuGet via OData de v1 `Packages` collection |
-**TÉLÉCHARGER** `/api/v1/Search()` | IP | 3000 / minute | Rechercher des packages NuGet via le point de terminaison v1 recherche | 
-**TÉLÉCHARGER** `/api/v2/Packages` | IP | 20000 / minute | Interroger les métadonnées de package NuGet via OData de v2 `Packages` collection | 
-**TÉLÉCHARGER** `/api/v2/Packages/$count` | IP | 100 / minute | Interroger le nombre de packages NuGet via OData de v2 `Packages` collection | 
+**Recevoir** `/api/v1/Packages` | IP | 1000/minute | Interroger les métadonnées du package NuGet via v1 OData `Packages` collection |
+**Recevoir** `/api/v1/Search()` | IP | 3000/minute | Rechercher des packages NuGet via le point de terminaison de recherche v1 | 
+**Recevoir** `/api/v2/Packages` | IP | 20000/minute | Interroger les métadonnées du package NuGet via v2 OData `Packages` collection | 
+**Recevoir** `/api/v2/Packages/$count` | IP | 100/minute | Interroger le nombre de packages NuGet via la collecte de `Packages` OData v2 | 
 
-## <a name="package-push-and-unlist"></a>Package Push et de retirer de la liste
+## <a name="package-push-and-unlist"></a>Push et Unlist des packages
 
-| API | Type de limite | Valeur de la limite | API CasUtilisation | 
+| API | Type de limite | Valeur limite | UseCase d’API | 
 |:---|:---|:---|:--- |
-**PUT** `/api/v2/package` | Clé API | 250 / heure | Charger un nouveau package NuGet (version) via le point de terminaison v2 push 
-**SUPPRIMER** `/api/v2/package/{id}/{version}` | Clé API | 250 / heure | Retirer de la liste un package NuGet (version) via le point de terminaison v2 
+**Placer** `/api/v2/package` | Clé API | 350/heure | Télécharger un nouveau package NuGet (version) via un point de terminaison Push v2 
+**Supprimer** `/api/v2/package/{id}/{version}` | Clé API | 250/heure | Délister un package NuGet (version) via un point de terminaison v2 

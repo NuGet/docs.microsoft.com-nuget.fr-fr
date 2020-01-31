@@ -12,18 +12,18 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: de37cbf1f63da3de07774281eceef99c51abdaa5
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676378"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813479"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
 Les packages de symboles vous permettent d’améliorer le débogage de vos packages NuGet.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prerequisites
 
 [nuget.exe v4.9.0 ou version ultérieure](https://www.nuget.org/downloads), ou [dotnet.exe v2.2.0 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-core/2.2), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) nécessaires.
 
@@ -127,7 +127,7 @@ Le fichier .nupkg est exactement le même qu’aujourd’hui. Toutefois, le fich
    ```
 
 4) Si un auteur décide d’utiliser un nuspec personnalisé pour générer ses nupkg et snupkg, le snupkg doit avoir la même hiérarchie de dossiers et les mêmes fichiers que ceux décrits dans 2).
-5) Les champs ```authors``` et ```owners``` sont exclus du nuspec de snupkg.
+5) Les champs suivants seront exclus du NuSpec de l’snupkg : ```authors```, ```owners```, ```requireLicenseAcceptance```, ```license type```, ```licenseUrl```et ```icon```.
 6) N'utilisez pas l’élément ```<license>``` . Un fichier .snupkg est couvert par la même licence que le fichier .nupkg correspondant.
 
 ## <a name="see-also"></a>Voir aussi

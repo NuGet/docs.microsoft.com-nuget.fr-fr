@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: d2294ef0acb9053e74543204ae6f68b9fbc6fb0a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: c6f50e6eb21826afebcdcd4045c7ab8b6e6489e3
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611069"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813323"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Comment NuGet résout les dépendances de package
 
@@ -24,7 +24,7 @@ Lorsque plusieurs packages partagent une même dépendance, le même ID de packa
 
 Lorsque des packages sont installés dans un projet au format PackageReference, NuGet ajoute des références à un graphique de packages plat dans le fichier correspondant, et résout les conflits à l’avance. Ce processus est appelé *restauration transitive*. Les processus de réinstallation et de restauration des packages reviennent donc à télécharger les packages répertoriés dans le graphique, ce qui permet d’obtenir des builds plus prévisibles, plus rapidement. Vous pouvez également tirer parti des versions génériques (flottantes), telles que 2.8.\*, afin d’éviter les appels à `nuget update` (qui sont coûteux et sujets aux erreurs) sur les ordinateurs clients et les serveurs de builds.
 
-Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Il écrit également les dépendances résolues dans un fichier de verrouillage nommé `packages.lock.json` si la [fonctionnalité de verrouillage de fichier est activée](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files#locking-dependencies).
+Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Il écrit également les dépendances résolues dans un fichier de verrouillage nommé `packages.lock.json` si la [fonctionnalité de verrouillage de fichier est activée](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Le fichier de ressources se trouve à l’emplacement `MSBuildProjectExtensionsPath` qui, par défaut, est le dossier « obj » du projet. MSBuild lit alors ce fichier et le convertit en un ensemble de dossiers pouvant contenir des références, puis les ajoute à l’arborescence de projets en mémoire.
 
 Le fichier `project.assets.json` est temporaire et ne doit pas être ajouté au contrôle de code source. Ce fichier est répertorié par défaut dans `.gitignore` et `.tfignore`. Consultez [Packages et contrôle de code source](../consume-packages/packages-and-source-control.md).
@@ -110,7 +110,7 @@ Le processus `packages.config` de résolution des dépendances devient complexe 
 
 Le format PackageReference permet de choisir les ressources des dépendances qui seront acheminées dans le projet de niveau supérieur. Pour plus d’informations, consultez la section [PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-Lorsque le projet de niveau supérieur est un package, vous pouvez contrôler ce flux en utilisant les attributs `include` et `exclude` avec les dépendances répertoriées dans le fichier `.nuspec`. Consultez [Informations de référence sur le fichier .nuspec - Dépendances](../reference/nuspec.md#dependencies).
+Lorsque le projet de niveau supérieur est un package, vous pouvez contrôler ce flux en utilisant les attributs `include` et `exclude` avec les dépendances répertoriées dans le fichier `.nuspec`. Consultez [Référence .nuspec - Dépendances](../reference/nuspec.md#dependencies).
 
 ## <a name="excluding-references"></a>Exclusion de références
 
@@ -156,4 +156,3 @@ Pour résoudre les incompatibilités, effectuez l’une des opérations suivante
 
 - Reciblez votre projet vers un framework pris en charge par les packages que vous souhaitez utiliser.
 - Contactez l’auteur des packages et ajoutez ensemble la prise en charge du framework de votre choix. Chaque page qui répertorie des packages sur [nuget.org](https://www.nuget.org/) comprend le lien **Contact Owners** qui permet de contacter les propriétaires des packages.
-

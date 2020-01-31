@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6e352fef9fc36646f6feedbc390f847119cb00bf
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611364"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813765"
 ---
 # <a name="nuget-48-release-notes"></a>Notes de publication de NuGet 4.8
 
@@ -36,7 +36,7 @@ Des versions en ligne de commande offrant les mêmes fonctionnalités sont égal
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>L’installation des packages signés sur une machine CI ou dans un environnement hors connexion est plus longue que d’habitude
 
 #### <a name="issue"></a>Problème
-Si l’ordinateur a un accès limité à Internet (s’il s’agit, par exemple, d’un ordinateur de build dans un scénario CI/CD), l’installation ou la restauration d’un package NuGet signé entraîne un avertissement ([NU3028](https://docs.microsoft.com/nuget/reference/errors-and-warnings/nu3028)), car les serveurs de révocation ne sont pas accessibles. Il s'agit du comportement attendu. Toutefois, dans certains cas, cela peut avoir des conséquences inattendues, comme un temps d’installation ou de restauration plus long que d’habitude.
+Si l’ordinateur a un accès limité à Internet (s’il s’agit, par exemple, d’un ordinateur de build dans un scénario CI/CD), l’installation ou la restauration d’un package NuGet signé entraîne un avertissement ([NU3028](../reference/errors-and-warnings/nu3028.md)), car les serveurs de révocation ne sont pas accessibles. Il s'agit du comportement attendu. Toutefois, dans certains cas, cela peut avoir des conséquences inattendues, comme un temps d’installation ou de restauration plus long que d’habitude.
 
 #### <a name="workaround"></a>Solution de contournement
 Effectuez une mise à jour vers Visual Studio 15.8.4 et NuGet.exe 4.8.1, où nous avons ajouté une variable d’environnement permettant de basculer en mode de vérification de la révocation.

@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: e2b6a64b8010f16d0fc33cca437b348d8f784fd7
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610503"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813739"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet.org
 
@@ -38,7 +38,7 @@ En général, nous ne prenons pas en charge la suppression d’un package publi�
 
 **Est-il possible de réserver des noms pour les packages destinés à être publiés ?**
 
-Oui. Vous pouvez réserver des ID pour les packages sur [NuGet.org](https://www.nuget.org/) en demandant un préfixe d’ID de package pour votre compte. Pour demander un préfixe d’ID de package, suivez les instructions de la [documentation](id-prefix-reservation.md).
+Oui, Vous pouvez réserver des ID pour les packages sur [NuGet.org](https://www.nuget.org/) en demandant un préfixe d’ID de package pour votre compte. Pour demander un préfixe d’ID de package, suivez les instructions de la [documentation](id-prefix-reservation.md).
 
 **Comment revendiquer la propriété de packages ?**
 
@@ -129,14 +129,14 @@ Si vous voulez changer le compte Microsoft de l’utilisateur NuGet.org, effectu
 1. Développez la section relative au **compte de connexion**. Cliquez sur le bouton **Changer de compte**.
 1. Vous allez maintenant être redirigé vers la page de connexion de Microsoft. Connectez-vous avec le compte pour lequel vous souhaitez modifier l’Association, c.-à-d. `account2@outlook.com`. **Remarque**: vous devrez peut-être cliquer sur **se déconnecter et vous connecter avec un autre compte** au cours du processus de connexion pour pouvoir vous connecter avec une autre compte Microsoft.
 1. Si vous voyez une erreur comme celle affichée ci-dessous, consultez [Le compte Microsoft est lié à un autre compte NuGet.org](#microsoft-account-is-linked-with-another-nugetorg-account) pour plus d’informations.
-    >_Échec de la mise à jour de la compte Microsoft avec « Account2 <account2@outlook.com> ». Cela peut se produire s’il est déjà lié à un autre compte NuGet. Pour plus d’informations, contactez le support._
+    >_Échec de la mise à jour de la compte Microsoft avec « Account2 <account2@outlook.com>». Cela peut se produire s’il est déjà lié à un autre compte NuGet. Pour plus d’informations, contactez le support._
 
 1. Une fois que vous êtes connecté avec votre deuxième compte, vous êtes redirigé vers la page des paramètres de votre compte NuGet.org et vous devez maintenant voir le nouveau compte Microsoft associé en tant que compte de connexion. Dorénavant, vous devez utiliser ce compte quand vous vous connectez à NuGet.org.
 
 ### <a name="microsoft-account-is-linked-with-another-nugetorg-account"></a>Le compte Microsoft est lié à un autre compte NuGet.org.
 
 Vous avez essayé de changer votre connexion Microsoft et l’erreur ci-dessous s’est affichée :
-> _Échec de la mise à jour de la compte Microsoft avec « Account2 <account2@outlook.com> ». Cela peut se produire s’il est déjà lié à un autre compte NuGet. Pour plus d’informations, contactez le support._
+> _Échec de la mise à jour de la compte Microsoft avec « Account2 <account2@outlook.com>». Cela peut se produire s’il est déjà lié à un autre compte NuGet. Pour plus d’informations, contactez le support._
 
 Supposons que vous tentiez de remplacer la connexion au compte Microsoft `account1@outlook.com` pour l’utilisateur NuGet.org avec le nom d’utilisateur `MyNuGetAccount1` par un autre compte Microsoft avec l’adresse e-mail `account2@outlook.com`. L’erreur ci-dessus s’affiche alors.
 
@@ -175,7 +175,7 @@ Si vous avez essayé de vous connecter avec votre compte Microsoft, par exemple 
 
 Quand un compte est créé sur NuGet.org, une adresse e-mail de communication lui est associée. Elle est généralement identique à l’adresse e-mail utilisée pour le compte Microsoft associé. Toutefois, vous pouvez choisir de spécifier une autre adresse e-mail pour la communication. Par conséquent, techniquement, vous pouvez avoir un autre compte Microsoft, par exemple avec `account2@outlook.com`, lié à un compte NuGet.org ayant l’adresse e-mail de communication `account1@outlook.com`.
 
-L’erreur ci-dessus signifie donc qu’il existe déjà un compte NuGet.org avec l’adresse e-mail de communication `account1@outlook.com` mais qu’il est associé à un autre compte Microsoft avec une adresse e-mail **qui n’est pas** `account1@outlook.com`.
+Par conséquent, l’erreur ci-dessus signifie qu’il existe déjà un compte NuGet.org avec une adresse de messagerie de communication `account1@outlook.com` mais qu’il est associé à un autre compte Microsoft avec un e-mail **qui n’est pas** `account1@outlook.com`.
 
 **Comment savoir quel compte Microsoft est lié à ce compte NuGet.org ?**
 
@@ -242,7 +242,7 @@ Vous pouvez [créer](https://www.microsoft.com/account) un compte Microsoft (ave
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Comment changer mon nom d’utilisateur de compte NuGet.org ?
 
-Vous ne le pouvez pas. En vertu de notre politique, nous n’autorisons pas, pour le moment, le changement des noms d’utilisateurs. La seule façon de changer votre nom d’utilisateur consiste à créer un compte avec le nom d’utilisateur souhaité. Nous vous recommandons de supprimer votre compte existant avant d’en créer un nouveau. Sinon, vous ne pourrez pas réutiliser votre compte Microsoft inscrit.
+Vous ne le pouvez pas. En matière de stratégie, nous n’autorisons pas la modification des noms d’utilisateur. En outre, il s’agit d’une modification avec rupture pour les utilisateurs qui peuvent avoir défini des [stratégies d’approbation de package basées sur le propriétaire du package](../consume-packages/installing-signed-packages.md#trust-package-owners). La seule façon de changer votre nom d’utilisateur consiste à créer un compte avec le nom d’utilisateur souhaité. Nous vous recommandons de supprimer votre compte existant avant d’en créer un nouveau. Sinon, vous ne pourrez pas réutiliser votre compte Microsoft inscrit.
 > [!Important]
 > La suppression de l’utilisateur **réserve** toutefois la valeur `username`. Vous ne pourrez pas réutiliser le même nom d’utilisateur et **cela inclut le changement de casse**. Par exemple, si vous avez créé un utilisateur avec le nom d’utilisateur `mycoolname` et que vous voulez le remplacer par `MyCoolName` (changement de casse), ce ne sera pas possible après la suppression de l’utilisateur.
 
@@ -250,7 +250,7 @@ Suivez les étapes indiquées dans la section relative à la [suppression de vot
 
 ### <a name="how-to-delete-my-nugetorg-account"></a>Comment supprimer mon compte NuGet.org ?
 
-Pour supprimer votre compte, notez que nous vous recommandons de transférer la propriété de tous les packages dont vous êtes l’unique propriétaire. Pour savoir comment procéder, lisez la section relative à la [gestion des propriétaires de packages](https://docs.microsoft.com/nuget/create-packages/publish-a-package#managing-package-owners-on-nugetorg). Cela nous permettra également d’accélérer votre demande.
+Pour supprimer votre compte, notez que nous vous recommandons de transférer la propriété de tous les packages dont vous êtes l’unique propriétaire. Pour savoir comment procéder, lisez la section relative à la [gestion des propriétaires de packages](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). Cela nous permettra également d’accélérer votre demande.
 
 Si vous envisagez de transformer votre compte en organisation, suivez les étapes indiquées dans [transformer mon compte NuGet.org en organisation.](#how-to-transform-my-nugetorg-account-to-an-organization)
 

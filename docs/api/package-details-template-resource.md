@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 3/1/2019
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 3102cb9a20f354e92a0da8bba6457dc2ad0f0f2d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 1b84c6e88a56216e5747d5bc602219af6695c305
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610960"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76812933"
 ---
 # <a name="package-details-url-template"></a>Modèle d’URL Détails du package
 
@@ -23,7 +23,7 @@ La ressource utilisée pour générer cette URL est la ressource `PackageDetails
 
 Les valeurs de `@type` suivantes sont utilisées :
 
-Valeur@type                     | Notes
+Valeur de @type                     | Remarques
 ------------------------------- | -----
 PackageDetailsUriTemplate/5.1.0 | La version initiale
 
@@ -45,12 +45,12 @@ La valeur de la `@id` dans l’index de service est une chaîne d’URL contenan
 
 ### <a name="url-placeholders"></a>Espaces réservés d’URL
 
-Name        | Tapez    | Obligatoire | Notes
+Name        | Type    | Obligatoire | Remarques
 ----------- | ------- | -------- | -----
 `{id}`      | string  | Non       | ID de package pour lequel obtenir des détails
 `{version}` | string  | Non       | Version du package pour laquelle obtenir des détails
 
-Le serveur doit accepter les valeurs `{id}` et `{version}` avec n’importe quelle casse. En outre, le serveur ne doit pas être sensible à la [normalisation](https://docs.microsoft.com/nuget/concepts/package-versioning#normalized-version-numbers)de la version. En d’autres termes, le serveur doit accepter également les versions non normalisées.
+Le serveur doit accepter les valeurs `{id}` et `{version}` avec n’importe quelle casse. En outre, le serveur ne doit pas être sensible à la [normalisation](../concepts/package-versioning.md#normalized-version-numbers)de la version. En d’autres termes, le serveur doit accepter également les versions non normalisées.
 
 Par exemple, le modèle de détails de package de NuGet. org ressemble à ceci :
 

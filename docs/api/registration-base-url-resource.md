@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: eb8d59e253f85fbbb8546a5f71856df842ce94d6
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.openlocfilehash: c62e5b7b53d30a1b362e87dbbea26355a36b1274
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096898"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813271"
 ---
 # <a name="package-metadata"></a>Métadonnées de package
 
@@ -23,11 +23,11 @@ La collection des documents trouvés sous `RegistrationsBaseUrl` sont souvent ap
 
 Les valeurs de `@type` suivantes sont utilisées :
 
-Valeur@type                     | Notes
+Valeur de @type                     | Remarques
 ------------------------------- | -----
 RegistrationsBaseUrl            | La version initiale
-RegistrationsBaseUrl/3.0.0-bêta | Alias de `RegistrationsBaseUrl`
-RegistrationsBaseUrl/3.0.0-RC   | Alias de `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-beta | Alias de `RegistrationsBaseUrl`
+RegistrationsBaseUrl/3.0.0-rc   | Alias de `RegistrationsBaseUrl`
 RegistrationsBaseUrl/3.4.0      | Réponses gzippé
 RegistrationsBaseUrl/3.6.0      | Comprend des packages SemVer 2.0.0
 
@@ -76,7 +76,7 @@ La méthode heuristique utilisée par nuget.org est la suivante : s’il existe
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name     | Vers l'avant     | Tapez    | Obligatoire | Notes
+Name     | Dans     | Type    | Obligatoire | Remarques
 -------- | ------ | ------- | -------- | -----
 LOWER_ID | URL    | string  | oui      | ID de package, en minuscules
 
@@ -86,10 +86,10 @@ La valeur `LOWER_ID` est l’ID de package souhaité en minuscules à l’aide d
 
 La réponse est un document JSON qui a un objet racine avec les propriétés suivantes :
 
-Name  | Tapez             | Obligatoire | Notes
+Name  | Type             | Obligatoire | Remarques
 ----- | ---------------- | -------- | -----
-count | entiers          | oui      | Nombre de pages d’inscription dans l’index
-contenus | Tableau d’objets | oui      | Tableau des pages d’inscription
+count | integer          | oui      | Nombre de pages d’inscription dans l’index
+éléments | Tableau d’objets | oui      | Tableau des pages d’inscription
 
 Chaque élément du tableau `items` de l’objet index est un objet JSON représentant une page d’inscription.
 
@@ -97,11 +97,11 @@ Chaque élément du tableau `items` de l’objet index est un objet JSON représ
 
 L’objet de page d’inscription trouvé dans l’index d’inscription a les propriétés suivantes :
 
-Name   | Tapez             | Obligatoire | Notes
+Name   | Type             | Obligatoire | Remarques
 ------ | ---------------- | -------- | -----
 @id    | string           | oui      | URL de la page d’inscription
-count  | entiers          | oui      | Nombre d’inscriptions laissées dans la page
-contenus  | Tableau d’objets | Non       | Le tableau de l’inscription quitte et leurs métadonnées associées
+count  | integer          | oui      | Nombre d’inscriptions laissées dans la page
+éléments  | Tableau d’objets | Non       | Le tableau de l’inscription quitte et leurs métadonnées associées
 inférieur  | string           | oui      | La version SemVer 2.0.0 la plus basse dans la page (inclusive)
 parent | string           | Non       | URL de l’index d’inscription
 coin  | string           | oui      | Version SemVer 2.0.0 la plus élevée dans la page (inclusive)
@@ -121,10 +121,10 @@ Chaque élément du tableau de `items` de l’objet page est un objet JSON qui r
 
 L’objet feuille d’inscription trouvé dans une page d’inscription a les propriétés suivantes :
 
-Name           | Tapez   | Obligatoire | Notes
+Name           | Type   | Obligatoire | Remarques
 -------------- | ------ | -------- | -----
 @id            | string | oui      | URL de la feuille d’inscription
-catalogEntry   | object | oui      | Entrée de catalogue contenant les métadonnées du package
+catalogEntry   | Objet | oui      | Entrée de catalogue contenant les métadonnées du package
 packageContent | string | oui      | URL du contenu du package (. nupkg)
 
 Chaque objet feuille d’inscription représente des données associées à une version de package unique.
@@ -133,32 +133,32 @@ Chaque objet feuille d’inscription représente des données associées à une 
 
 La propriété `catalogEntry` dans l’objet feuille d’inscription a les propriétés suivantes :
 
-Name                     | Tapez                       | Obligatoire | Notes
+Name                     | Type                       | Obligatoire | Remarques
 ------------------------ | -------------------------- | -------- | -----
 @id                      | string                     | oui      | URL du document utilisé pour produire cet objet
 authors                  | chaîne ou tableau de chaînes | Non       | 
 dependencyGroups         | Tableau d’objets           | Non       | Dépendances du package, regroupées par version cible du .NET Framework
-désapprobation              | object                     | Non       | Désapprobation associée au package
-description              | string                     | Non       | 
+désapprobation              | Objet                     | Non       | Désapprobation associée au package
+Description              | string                     | Non       | 
 iconUrl                  | string                     | Non       | 
 ID                       | string                     | oui      | ID du package
 licenseUrl               | string                     | Non       |
 licenseExpression        | string                     | Non       | 
-liste                   | boolean                    | Non       | Doit être considéré comme indiqué s’il est absent
+répertoriés                   | boolean                    | Non       | Doit être considéré comme indiqué s’il est absent
 minClientVersion         | string                     | Non       | 
 projectUrl               | string                     | Non       | 
-publié                | string                     | Non       | Chaîne contenant un horodateur ISO 8601 de la publication du package
+published                | string                     | Non       | Chaîne contenant un horodateur ISO 8601 de la publication du package
 requireLicenseAcceptance | boolean                    | Non       | 
 résumé                  | string                     | Non       | 
 étiquettes                     | chaîne ou tableau de chaînes  | Non       | 
 titre                    | string                     | Non       | 
-version                  | string                     | oui      | Chaîne de version complète après la normalisation
+Version de                  | string                     | oui      | Chaîne de version complète après la normalisation
 
 La propriété `version` du package est la chaîne de version complète après la normalisation. Cela signifie que les données de build SemVer 2.0.0 peuvent être incluses ici.
 
 La propriété `dependencyGroups` est un tableau d’objets représentant les dépendances du package, regroupées par version cible du .NET Framework. Si le package n’a pas de dépendances, la propriété `dependencyGroups` est manquante, un tableau vide ou la propriété `dependencies` de tous les groupes est vide ou manquante.
 
-La valeur de la propriété `licenseExpression` est conforme à la syntaxe de l' [expression de licence NuGet](https://docs.microsoft.com/nuget/reference/nuspec#license).
+La valeur de la propriété `licenseExpression` est conforme à la syntaxe de l' [expression de licence NuGet](../reference/nuspec.md#license).
 
 > [!Note]
 > Sur nuget.org, la valeur `published` est définie sur l’année 1900 lorsque le package est non répertorié.
@@ -167,7 +167,7 @@ La valeur de la propriété `licenseExpression` est conforme à la syntaxe de l'
 
 Chaque objet de groupe de dépendances a les propriétés suivantes :
 
-Name            | Tapez             | Obligatoire | Notes
+Name            | Type             | Obligatoire | Remarques
 --------------- | ---------------- | -------- | -----
 targetFramework | string           | Non       | Framework cible auquel ces dépendances sont applicables
 dépendances    | Tableau d’objets | Non       |
@@ -180,10 +180,10 @@ La propriété `dependencies` est un tableau d’objets, chacun représentant un
 
 Chaque dépendance de package a les propriétés suivantes :
 
-Name         | Tapez   | Obligatoire | Notes
+Name         | Type   | Obligatoire | Remarques
 ------------ | ------ | -------- | -----
 ID           | string | oui      | ID de la dépendance du package
-range        | object | Non       | Plage de [versions](../concepts/package-versioning.md#version-ranges-and-wildcards) autorisée de la dépendance
+range        | Objet | Non       | Plage de [versions](../concepts/package-versioning.md#version-ranges-and-wildcards) autorisée de la dépendance
 inscription | string | Non       | URL de l’index d’inscription pour cette dépendance
 
 Si la propriété `range` est exclue ou est une chaîne vide, le client doit avoir comme valeur par défaut la plage de versions `(, )`. Autrement dit, toute version de la dépendance est autorisée. La valeur de `*` n’est pas autorisée pour la propriété `range`.
@@ -192,11 +192,11 @@ Si la propriété `range` est exclue ou est une chaîne vide, le client doit avo
 
 Chaque désapprobation de package a les propriétés suivantes :
 
-Name             | Tapez             | Obligatoire | Notes
+Name             | Type             | Obligatoire | Remarques
 ---------------- | ---------------- | -------- | -----
-principales          | Tableau de chaînes | oui      | Raisons pour lesquelles le package a été déconseillé
+principales          | tableau de chaînes | oui      | Raisons pour lesquelles le package a été déconseillé
 message          | string           | Non       | Détails supplémentaires sur cette désapprobation
-alternatePackage | object           | Non       | Autre package à utiliser à la place
+alternatePackage | Objet           | Non       | Autre package à utiliser à la place
 
 La propriété `reasons` doit contenir au moins une chaîne et ne doit contenir que des chaînes du tableau suivant :
 
@@ -212,10 +212,10 @@ Si la propriété `reasons` contient des chaînes qui ne proviennent pas de l’
 
 L’objet de package de remplacement possède les propriétés suivantes :
 
-Name         | Tapez   | Obligatoire | Notes
+Name         | Type   | Obligatoire | Remarques
 ------------ | ------ | -------- | -----
 ID           | string | oui      | ID de l’autre package
-range        | object | Non       | Plage de [versions](../concepts/package-versioning.md#version-ranges-and-wildcards)autorisée ou `*` si une version est autorisée
+range        | Objet | Non       | Plage de [versions](../concepts/package-versioning.md#version-ranges-and-wildcards)autorisée ou `*` si une version est autorisée
 inscription | string | Non       | URL de l’index d’inscription de cet autre package
 
 ### <a name="sample-request"></a>Exemple de demande
@@ -235,13 +235,13 @@ La page d’inscription contient des feuilles d’inscription. L’URL permettan
 > [!Warning]
 > Sur nuget.org, l’URL du document de page d’inscription contient de manière cofortuite les limites inférieure et supérieure de la page. Toutefois, cette hypothèse ne doit jamais être effectuée par un client, car les implémentations de serveur sont libres de modifier la forme de l’URL tant que le document d’index a un lien valide.
 
-Lorsque le tableau de `items` n’est pas fourni dans l’index d’inscription, une requête HTTP d’extraction de la valeur `@id` retourne un document JSON qui a un objet comme racine. L’objet a les propriétés suivantes :
+Lorsque le tableau de `items` n’est pas fourni dans l’index d’inscription, une requête HTTP d’extraction de la valeur `@id` retourne un document JSON qui a un objet comme racine. L'objet a les propriétés suivantes :
 
-Name   | Tapez             | Obligatoire | Notes
+Name   | Type             | Obligatoire | Remarques
 ------ | ---------------- | -------- | -----
 @id    | string           | oui      | URL de la page d’inscription
-count  | entiers          | oui      | Nombre d’inscriptions laissées dans la page
-contenus  | Tableau d’objets | oui      | Le tableau de l’inscription quitte et leurs métadonnées associées
+count  | integer          | oui      | Nombre d’inscriptions laissées dans la page
+éléments  | Tableau d’objets | oui      | Le tableau de l’inscription quitte et leurs métadonnées associées
 inférieur  | string           | oui      | La version SemVer 2.0.0 la plus basse dans la page (inclusive)
 parent | string           | oui      | URL de l’index d’inscription
 coin  | string           | oui      | Version SemVer 2.0.0 la plus élevée dans la page (inclusive)
@@ -267,13 +267,13 @@ L’URL permettant d’extraire une feuille d’inscription est obtenue à parti
 
 La feuille d’inscription est un document JSON avec un objet racine avec les propriétés suivantes :
 
-Name           | Tapez    | Obligatoire | Notes
+Name           | Type    | Obligatoire | Remarques
 -------------- | ------- | -------- | -----
 @id            | string  | oui      | URL de la feuille d’inscription
 catalogEntry   | string  | Non       | URL de l’entrée de catalogue qui a produit ces feuilles
-liste         | boolean | Non       | Doit être considéré comme indiqué s’il est absent
+répertoriés         | boolean | Non       | Doit être considéré comme indiqué s’il est absent
 packageContent | string  | Non       | URL du contenu du package (. nupkg)
-publié      | string  | Non       | Chaîne contenant un horodateur ISO 8601 de la publication du package
+published      | string  | Non       | Chaîne contenant un horodateur ISO 8601 de la publication du package
 inscription   | string  | Non       | URL de l’index d’inscription
 
 > [!Note]

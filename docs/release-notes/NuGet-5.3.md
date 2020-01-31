@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: e77219d355f73f3bf01f68283ffb2759813af563
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: ca71c5b9ef546f3ea92e55763d5059466ac3a930
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611326"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813752"
 ---
 # <a name="nuget-53-release-notes"></a>Notes de publication de NuGet 5,3
 
@@ -29,7 +29,7 @@ Véhicules de distribution NuGet :
 
 * Sécurité améliorée avec suivi et mise en application SHA pour packages. config- [#7281](https://github.com/NuGet/Home/issues/7281)
 
-* Activer la désapprobation des packages NuGet obsolètes/hérités [#2867](https://github.com/NuGet/Home/issues/2867) | billet de [blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](https://docs.microsoft.com/nuget/nuget-org/deprecate-packages)
+* Activer la désapprobation des packages NuGet obsolètes/hérités [#2867](https://github.com/NuGet/Home/issues/2867) | billet de [blog](https://devblogs.microsoft.com/nuget/deprecating-packages-on-nuget-org/) | [docs](../nuget-org/deprecate-packages.md)
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
-ms.openlocfilehash: 0c3c0380fe6efb3c58124ca5ba8bc1306a433340
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 2290025d42dcd5704b6b019c17346201fe6a990d
+ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73611348"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76813791"
 ---
 # <a name="nuget-47-release-notes"></a>Notes de publication de NuGet 4.7
 
@@ -20,7 +20,7 @@ ms.locfileid: "73611348"
 
 * Nous avons complété la signature du package pour activer les [packages signés de référentiel](https://github.com/NuGet/Home/wiki/Repository-Signatures).
 
-* Dans la version 15.7 de Visual Studio, nous avons introduit la possibilité de [migrer des projets existants du format packages.config à PackageReference](https://docs.microsoft.com/nuget/consume-packages/migrate-packages-config-to-package-reference).
+* Dans la version 15.7 de Visual Studio, nous avons introduit la possibilité de [migrer des projets existants du format packages.config à PackageReference](../consume-packages/migrate-packages-config-to-package-reference.md).
 
 ## <a name="summary-whats-new-in-472"></a>Résumé : nouveautés de 4.7.2
 
