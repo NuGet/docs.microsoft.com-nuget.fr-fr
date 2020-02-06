@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2c2b5b21569e2644154670d502146f1e0f9c4c81
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 922fc0b25664dede59e33c6cd012dfeedcad0397
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385012"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036927"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -46,32 +46,32 @@ Le tableau ci-dessous décrit les propriétés MSBuild qui peuvent être ajouté
 
 Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises en charge avec MSBuild.
 
-| Valeur d’attribut/NuSpec | Propriété MSBuild | Valeur par défaut | Remarques |
+| Valeur d’attribut/NuSpec | Propriété MSBuild | Default | Notes |
 |--------|--------|--------|--------|
-| ID | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
+| Id | PackageId | AssemblyName | $(AssemblyName) de MSBuild |
 | Version | PackageVersion | Version | Compatible avec SemVer, par exemple « 1.0.0 », « version bêta 1.0.0 » ou « version bêta-1.0.0-00345 » |
-| VersionPrefix | PackageVersionPrefix | vide | La définition de PackageVersion remplace PackageVersionPrefix |
-| VersionSuffix | PackageVersionSuffix | vide | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix |
+| VersionPrefix | PackageVersionPrefix | empty | La définition de PackageVersion remplace PackageVersionPrefix |
+| VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix |
 | Auteurs | Auteurs | Nom de l’utilisateur actuel | |
-| Propriétaires | Non applicable | Ne figure pas dans NuSpec | |
-| Titre | Titre | PackageId| |
+| Propriétaires | N/A | Ne figure pas dans NuSpec | |
+| Intitulé | Intitulé | PackageId| |
 | Description | Description | « Description du package » | |
-| Copyright | Copyright | vide | |
+| copyright | copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
-| licence | PackageLicenseExpression | vide | Correspond à `<license type="expression">` |
-| licence | PackageLicenseFile | vide | Correspond à `<license type="file">`. Vous devez explicitement compresser le fichier de licence référencé. |
-| LicenseUrl | PackageLicenseUrl | vide | `PackageLicenseUrl` est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
-| ProjectUrl | PackageProjectUrl | vide | |
-| Icône | PackageIcon | vide | Vous devez explicitement compresser le fichier image icône référencé.|
-| IconUrl | PackageIconUrl | vide | Pour une expérience optimale, `PackageIconUrl` doit être spécifié en plus de `PackageIcon`. À long terme, `PackageIconUrl` sera dépréciée. |
-| Balises | PackageTags | vide | Les balises sont séparées par un point-virgule. |
-| ReleaseNotes | PackageReleaseNotes | vide | |
-| Référentiel/URL | RepositoryUrl | vide | URL du référentiel utilisée pour cloner ou récupérer le code source. Exemple : *https://github.com/NuGet/NuGet.Client.git* |
-| Dépôt/type | RepositoryType | vide | Type de référentiel. Exemples : *git*, *tfs*. |
-| Référentiel/branche | RepositoryBranch | vide | Informations de branche de référentiel facultatives. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *Master* (NuGet 4.7.0 +) |
-| Dépôt/validation | RepositoryCommit | vide | Validation ou ensemble de modifications de référentiel facultatif pour indiquer la source à partir de laquelle le package a été généré. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
+| license | PackageLicenseExpression | empty | Correspond à `<license type="expression">` |
+| license | PackageLicenseFile | empty | Correspond à `<license type="file">`. Vous devez explicitement compresser le fichier de licence référencé. |
+| LicenseUrl | PackageLicenseUrl | empty | `PackageLicenseUrl` est déconseillé, utilisez la propriété PackageLicenseExpression ou PackageLicenseFile |
+| ProjectUrl | PackageProjectUrl | empty | |
+| Icône | PackageIcon | empty | Vous devez explicitement compresser le fichier image icône référencé.|
+| IconUrl | PackageIconUrl | empty | Pour une expérience optimale, `PackageIconUrl` doit être spécifié en plus de `PackageIcon`. À long terme, `PackageIconUrl` sera dépréciée. |
+| Balises | PackageTags | empty | Les balises sont séparées par un point-virgule. |
+| ReleaseNotes | PackageReleaseNotes | empty | |
+| Référentiel/URL | RepositoryUrl | empty | URL du référentiel utilisée pour cloner ou récupérer le code source. Exemple : *https://github.com/NuGet/NuGet.Client.git* |
+| Dépôt/type | RepositoryType | empty | Type de référentiel. Exemples : *git*, *tfs*. |
+| Référentiel/branche | RepositoryBranch | empty | Informations de branche de référentiel facultatives. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *Master* (NuGet 4.7.0 +) |
+| Dépôt/validation | RepositoryCommit | empty | Validation ou ensemble de modifications de référentiel facultatif pour indiquer la source à partir de laquelle le package a été généré. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Récapitulatif | Non pris en charge | | |
+| Résumé | Non pris en charge | | |
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
 
@@ -81,7 +81,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 - PackageId
 - Auteurs
 - Description
-- Copyright
+- copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -129,7 +129,7 @@ Pour supprimer les dépendances de package du package NuGet généré, affectez 
 
 #### <a name="packing-an-icon-image-file"></a>Compression d’un fichier image d’icône
 
-Lors de la compression d’un fichier image icône, vous devez utiliser `PackageIcon` propriété pour spécifier le chemin d’accès du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 64x64.
+Lors de la compression d’un fichier image icône, vous devez utiliser `PackageIcon` propriété pour spécifier le chemin d’accès du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 128 x 128.
 
 Par exemple :
 
@@ -313,7 +313,7 @@ La cible `pack` fournit deux points d’extension qui s’exécutent dans la bui
 - `FinalOutputPath`: chemin d’accès absolu du fichier ; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
 - `TargetPath`: (facultatif) défini lorsque le fichier doit être placé dans un sous-dossier au sein de `lib\<TargetFramework>`, comme les assemblys satellites qui se trouvent dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
 
-Exemple :
+Exemple :
 
 ```xml
 <PropertyGroup>
@@ -336,7 +336,7 @@ Exemple :
 - `PackagePath`: chemin d’accès où le fichier doit être généré dans le package. NuGet émet un avertissement si plusieurs fichiers sont ajoutés au même chemin d’accès de package.
 - `BuildAction`: action de génération à assigner au fichier, obligatoire uniquement si le chemin d’accès du package se trouve dans le dossier `contentFiles`. La valeur par défaut est « None ».
 
-Voici un exemple :
+Exemple :
 ```xml
 <PropertyGroup>
   <TargetsForTfmSpecificContentInPackage>$(TargetsForTfmSpecificContentInPackage);CustomContentTarget</TargetsForTfmSpecificContentInPackage>
@@ -371,7 +371,7 @@ La cible `restore` fonctionne **uniquement** pour les projets utilisant le forma
 
 Des paramètres de restauration supplémentaires peuvent provenir de propriétés MSBuild dans le fichier projet. Des valeurs peuvent également être définies à partir de la ligne de commande à l’aide du commutateur `-p:` (consultez Exemples ci-dessous).
 
-| Les | Description |
+| Propriété | Description |
 |--------|--------|
 | RestoreSources | Liste de sources de packages séparées par un point-virgule. |
 | RestorePackagesPath | Chemin du dossier de packages de l’utilisateur. |
@@ -395,7 +395,7 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 
 #### <a name="examples"></a>Exemples
 
-Ligne de commande :
+Ligne de commande :
 
 ```cli
 msbuild -t:restore -p:RestoreConfigFile=<path>
@@ -413,7 +413,7 @@ Fichier projet :
 
 La restauration crée les fichiers suivants dans le dossier `obj` de build :
 
-| File | Description |
+| Fichier | Description |
 |--------|--------|
 | `project.assets.json` | Contient le graphique de dépendance de toutes les références de package. |
 | `{projectName}.projectFileExtension.nuget.g.props` | Références à des propriétés MSBuild contenues dans des packages |

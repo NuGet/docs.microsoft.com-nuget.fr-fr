@@ -12,24 +12,24 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: 0109aea95ec255b3e0abcdff4cf51b4bfeafbb8c
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 839c38ec165372bab9b93dec25e5c8e8e9439bfa
+ms.sourcegitcommit: 415c70d7014545c1f65271a2debf8c3c1c5eb688
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813479"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77036888"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
-Les packages de symboles vous permettent d’améliorer le débogage de vos packages NuGet.
+Une bonne expérience de débogage repose sur la présence de symboles de débogage, car ils fournissent des informations critiques telles que l’association entre le code compilé et le code source, les noms des variables locales, les traces de la pile, et bien plus encore. Vous pouvez utiliser des packages de symboles (. snupkg) pour distribuer ces symboles et améliorer l’expérience de débogage de vos packages NuGet.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Conditions préalables requises
 
-[nuget.exe v4.9.0 ou version ultérieure](https://www.nuget.org/downloads), ou [dotnet.exe v2.2.0 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-core/2.2), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) nécessaires.
+[NuGet. exe v 4.9.0 ou version ultérieure](https://www.nuget.org/downloads) ou [dotnet CLI v 2.2.0 ou version ultérieure](https://www.microsoft.com/net/download/dotnet-core/2.2), qui implémente les [protocoles NuGet](../api/nuget-protocols.md)requis.
 
 ## <a name="creating-a-symbol-package"></a>Création d’un package de symboles
 
-Si vous utilisez dotnet. exe ou MSBuild, vous devez définir les propriétés `IncludeSymbols` et `SymbolPackageFormat` pour créer un fichier. snupkg en plus du fichier. nupkg.
+Si vous utilisez dotnet CLI ou MSBuild, vous devez définir les propriétés `IncludeSymbols` et `SymbolPackageFormat` pour créer un fichier. snupkg en plus du fichier. nupkg.
 
 * Ajoutez les propriétés suivantes à votre fichier. csproj :
 
@@ -46,7 +46,7 @@ Si vous utilisez dotnet. exe ou MSBuild, vous devez définir les propriétés `I
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
-  ou
+  or
 
   ```cli
   msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg
@@ -108,17 +108,17 @@ Les packages de symboles publiés sur NuGet.org ne seront pas validés si ces co
 
 Les packages de symboles publiés dans [NuGet.org](https://www.nuget.org/) subissent plusieurs validations, y compris l’analyse des logiciels malveillants. Si un package ne parvient pas à effectuer une vérification de validation, sa page Détails du package affiche un message d’erreur. En outre, les propriétaires du package recevront un message électronique contenant des instructions sur la façon de résoudre les problèmes identifiés.
 
-Quand le package de symboles a passé toutes les validations, les symboles sont indexés par les serveurs de symboles NuGet. org. Une fois indexés, le symbole sera disponible à la consommation à partir des serveurs de symboles NuGet.org.
+Quand le package de symboles a réussi toutes les validations, les symboles sont indexés par les serveurs de symboles NuGet. org et sont disponibles pour la consommation.
 
-La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si NuGet.org rencontre des interruptions. Si tous les systèmes sont opérationnels et si le package n’est pas correctement publié en moins d’une heure, connectez-vous à nuget.org et contactez-nous via le lien permettant de contacter le support dans la page des détails du package.
+La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [Status.NuGet.org](https://status.nuget.org/) pour vérifier si NuGet.org rencontre des interruptions. Si tous les systèmes sont opérationnels et si le package n’est pas correctement publié en moins d’une heure, connectez-vous à nuget.org et contactez-nous via le lien permettant de contacter le support dans la page des détails du package.
 
 ## <a name="symbol-package-structure"></a>Structure des packages de symboles
 
-Le fichier .nupkg est exactement le même qu’aujourd’hui. Toutefois, le fichier .snupkg présente les caractéristiques suivantes :
+Le package de symboles (. snupkg) présente les caractéristiques suivantes :
 
-1) Le fichier .snupkg a le même ID et la même version que le fichier .nupkg correspondant.
-2) Le fichier .snupkg comporte la même structure de dossiers que le fichier .nupkg pour tous les fichiers DLL ou EXE, à la différence qu’au lieu de fichiers DLL/EXE, les fichiers PDB correspondants sont inclus dans la même hiérarchie de dossiers. Les fichiers et dossiers ayant d’autres extensions que PDB ne sont pas inclus dans le fichier .snupkg.
-3) Le fichier .nuspec dans le fichier .snupkg spécifie également un nouveau PackageType, comme indiqué ci-dessous. Il doit s’agir du seul PackageType spécifié.
+1) Le fichier. snupkg a le même ID et la même version que son package NuGet correspondant (. nupkg).
+2) Le fichier. snupkg a la même structure de dossiers que la structure. nupkg correspondante pour tous les fichiers DLL ou EXE, à la différence qu’au lieu de dll/exe, les fichiers PDB correspondants sont inclus dans la même hiérarchie de dossiers. Les fichiers et dossiers ayant d’autres extensions que PDB ne sont pas inclus dans le fichier .snupkg.
+3) Le fichier. NuSpec du package de symboles a le type de package `SymbolsPackage` :
 
    ```xml
    <packageTypes>
