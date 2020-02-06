@@ -1,4 +1,4 @@
-# [Aperçu de la documentation](index.md)
+# [Aperçu de la documentation](index.yml)
 # [Qu’est-ce que NuGet ?](what-is-nuget.md)
 # Prise en main
 ## [Installer les outils clients NuGet](install-nuget-client-tools.md)
