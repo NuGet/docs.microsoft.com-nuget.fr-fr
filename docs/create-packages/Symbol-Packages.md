@@ -1,34 +1,34 @@
 ---
-title: Guide pratique pour créer des packages de symboles NuGet
+title: Création de packages de symboles hérités (. Symbols. nupkg)
 description: Comment créer des packages NuGet qui contiennent uniquement des symboles pour prendre en charge le débogage d’autres packages NuGet dans Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 09/12/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 97a533171d698792d66a78550dacfe8eaf29a440
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.openlocfilehash: 374e9ccfc01cd06508e76529765db3f849342222
+ms.sourcegitcommit: 1799d4ac23c8aacee7498fdc72c40dd1646d267b
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253911"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77476267"
 ---
-# <a name="creating-symbol-packages-legacy"></a>Création de packages de symboles (hérité)
+# <a name="creating-legacy-symbol-packages-symbolsnupkg"></a>Création de packages de symboles hérités (. Symbols. nupkg)
 
 > [!Important]
 > Le nouveau format recommandé pour les packages de symboles est .snupkg. Consultez [Création de packages de symboles (.snupkg)](Symbol-Packages-snupkg.md). </br>
 > .symbols.nupkg est toujours pris en charge, mais uniquement pour des raisons de compatibilité.
 
-En plus de générer des packages pour nuget.org et d’autres sources, NuGet prend en charge la création de packages de symboles associés et leur publication dans le référentiel SymbolSource.
+En plus de créer des packages pour nuget.org ou d’autres sources, NuGet prend également en charge la création de packages de symboles associés qui peuvent être publiés sur des serveurs de symboles. Le format de package de symboles hérité,. Symbols. nupkg, peut faire l’objet d’un push vers le référentiel SymbolSource.
 
 Les consommateurs de packages peuvent alors ajouter `https://nuget.smbsrc.net` à leurs sources de symbole dans Visual Studio, ce qui permet d’exécuter pas à pas le code du package dans le débogueur Visual Studio. Pour plus d’informations sur ce processus, consultez [Spécifier les fichiers de symboles (.pdb) et les fichiers sources dans le débogueur Visual Studio](/visualstudio/debugger/specify-symbol-dot-pdb-and-source-files-in-the-visual-studio-debugger).
 
-## <a name="creating-a-symbol-package"></a>Création d’un package de symboles
+## <a name="creating-a-legacy-symbol-package"></a>Création d’un package de symboles hérité
 
-Pour créer un package de symboles, respectez les conventions suivantes :
+Pour créer un package de symboles hérité, respectez les conventions suivantes :
 
 - Nommez le package principal (avec votre code) `{identifier}.nupkg` et incluez tous vos fichiers à l’exception des fichiers `.pdb`.
-- Nommez le package de symboles `{identifier}.symbols.nupkg` et incluez la DLL de votre assembly, vos fichiers `.pdb`, vos fichiers XMLDOC, vos fichiers sources (consultez les sections qui suivent).
+- Nommez le package de symboles hérité `{identifier}.symbols.nupkg` et incluez votre DLL d’assembly, les fichiers de `.pdb`, les fichiers XMLDOC, les fichiers sources (voir les sections qui suivent).
 
 Vous pouvez créer les deux packages avec l’option `-Symbols`, soit à partir d’un fichier `.nuspec`, soit un fichier de projet :
 
@@ -38,13 +38,13 @@ nuget pack MyPackage.nuspec -Symbols
 nuget pack MyProject.csproj -Symbols
 ```
 
-Notez que `pack` nécessite Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins Windows dans le fichier `.nuspec` en chemins de style Unix.
+Notez que `pack` requiert Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins Windows dans le fichier `.nuspec` en chemins de style Unix.
 
-## <a name="symbol-package-structure"></a>Structure des packages de symboles
+## <a name="legacy-symbol-package-structure"></a>Structure de package de symboles héritée
 
-Un package de symboles peut cibler plusieurs versions cibles du .Net Framework de la même façon qu’un package de bibliothèque, si bien que la structure du dossier `lib` doit être exactement la même que celle du package principal, en incluant uniquement les fichiers `.pdb` avec la DLL.
+Un package de symboles hérité peut cibler plusieurs frameworks cibles de la même manière qu’un package de bibliothèque, de sorte que la structure du dossier `lib` doit être exactement la même que celle du package principal, y compris les fichiers `.pdb` avec la DLL.
 
-Par exemple, un package de symboles ciblant le .NET 4.0 et Silverlight 4 aurait cette disposition :
+Par exemple, un package de symboles hérité qui cible .NET 4,0 et Silverlight 4 aura cette disposition :
 
     \lib
         \net40
@@ -70,7 +70,7 @@ Les fichiers sources sont alors placés dans un dossier spécial distinct nommé
                 \MySilverlightExtensions.cs
                 \MyAssembly.csproj (producing \lib\sl4\MyAssembly.dll)
 
-À part le dossier `lib`, un package de symboles doit contenir cette disposition :
+En dehors du dossier `lib`, un package de symboles hérité doit contenir cette disposition :
 
     \src
         \Common
@@ -85,7 +85,7 @@ Les fichiers sources sont alors placés dans un dossier spécial distinct nommé
 
 ## <a name="referring-to-files-in-the-nuspec"></a>Référence à des fichiers dans le fichier nuspec
 
-Un package de symboles peut être généré par des conventions, à partir d’une structure de dossiers comme décrit dans la section précédente, ou en spécifiant son contenu dans la section `files` du manifeste. Par exemple, pour générer le package indiqué dans la section précédente, utilisez les éléments suivants dans le fichier `.nuspec` :
+Un package de symboles hérité peut être généré par des conventions, à partir d’une structure de dossiers comme décrit dans la section précédente, ou en spécifiant son contenu dans la section `files` du manifeste. Par exemple, pour générer le package indiqué dans la section précédente, utilisez les éléments suivants dans le fichier `.nuspec` :
 
 ```xml
 <files>
@@ -97,7 +97,7 @@ Un package de symboles peut être généré par des conventions, à partir d’u
 </files>
 ```
 
-## <a name="publishing-a-symbol-package"></a>Publication d’un package de symboles
+## <a name="publishing-a-legacy-symbol-package"></a>Publication d’un package de symboles hérité
 
 > [!Important]
 > Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4.9.1 ou plus](https://www.nuget.org/downloads), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) requis.
@@ -108,13 +108,13 @@ Un package de symboles peut être généré par des conventions, à partir d’u
     nuget SetApiKey Your-API-Key
     ```
 
-2. Après avoir publié votre package principal sur nuget.org, envoyez le package de symboles de la manière suivante, ce qui permet d’utiliser automatiquement symbolsource.org en tant que cible puisque le nom de fichier contient `.symbols` :
+2. Après la publication de votre package principal sur nuget.org, envoyez le package de symboles hérités comme suit, qui utilisera automatiquement symbolsource.org en tant que cible en raison de l' `.symbols` dans le nom de fichier :
 
     ```cli
     nuget push MyPackage.symbols.nupkg
     ```
 
-3. Pour publier sur un dépôt de symboles différent ou envoyer un package de symboles qui ne respecte pas les conventions de nommage, utilisez l’option `-Source` :
+3. Pour publier dans un autre référentiel de symboles ou pour pousser un package de symboles hérité qui ne respecte pas la Convention d’affectation de noms, utilisez l’option `-Source` :
 
     ```cli
     nuget push MyPackage.symbols.nupkg -source https://nuget.smbsrc.net/
@@ -133,4 +133,5 @@ Dans ce cas, NuGet publie `MyPackage.symbols.nupkg`, le cas échéant, sur https
 
 ## <a name="see-also"></a>Voir aussi
 
-[Passer au nouveau moteur SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
+* [Création de packages de symboles (. snupkg)](Symbol-Packages-snupkg.md) -nouveau format recommandé pour les packages de symboles
+* [Passer au nouveau moteur SymbolSource](https://tripleemcoder.com/2015/10/04/moving-to-the-new-symbolsource-engine/) (symbolsource.org)
