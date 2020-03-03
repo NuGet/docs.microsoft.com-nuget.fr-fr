@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: a08ac24ce6b1d64496c9fc1b20604850e9711dd6
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: c326cf184ff20fb798a5770f0a4cf9bf42bed3f5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380672"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230692"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
@@ -45,12 +45,12 @@ En plus de la prise en charge de l’hébergement, NuGet fournit également diff
 
 | Outil | Plateformes | Scénarios applicables | Description |
 | --- | --- | --- | --- |
-| [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md) | Tout | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI `nuget.exe`, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
-| [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tout | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
+| [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI `nuget.exe`, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
+| [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
 | [Console du Gestionnaire de package](consume-packages/install-use-packages-powershell.md) | Visual Studio sur Windows | Consommation | Propose des [commandes PowerShell](reference/Powershell-Reference.md) permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur du Gestionnaire de package](consume-packages/install-use-packages-visual-studio.md) | Visual Studio sur Windows | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur de gestion de NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio pour Mac | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Mac. |
-| [MSBuild](reference/msbuild-targets.md) | Windows | Création, consommation | Offre la possibilité de créer et de restaurer directement des packages utilisés dans un projet avec la chaîne d’outils MSBuild. |
+| [MSBuild](reference/msbuild-targets.md) |  Windows | Création, consommation | Offre la possibilité de créer et de restaurer directement des packages utilisés dans un projet avec la chaîne d’outils MSBuild. |
 
 Comme on peut le constater, les outils NuGet à utiliser dépendent fortement de l’activité (création, utilisation ou publication de packages), ainsi que de la plateforme utilisée. Les créateurs de packages en sont en général également des consommateurs, car ils s’appuient sur des fonctionnalités qui existent dans d’autres packages NuGet. Bien sûr, ces packages peuvent à leur tour dépendre d’autres packages.
 
@@ -76,7 +76,7 @@ NuGet gère plutôt une simple liste de références des packages dont dépend l
 
 ![Une liste des références NuGet est créée à l’installation du package et elle peut être utilisée pour restaurer des packages ailleurs.](media/nuget-restore.png)
 
-Avec seulement la liste des références, NuGet peut à tout moment réinstaller &mdash; autrement dit, *restaurer* &mdash; tous ces packages à partir d’hôtes publics et privés. Pour valider un projet dans le contrôle de code source ou le partager par un autre moyen, il suffit d’inclure la liste des références et d’exclure les fichiers binaires des packages (consultez la section [Packages et contrôle de code source](consume-packages/packages-and-source-control.md).)
+Avec seulement la liste des références, NuGet peut à tout moment réinstaller &mdash; autrement dit, *restaurer*&mdash; tous ces packages à partir d’hôtes publics et privés. Pour valider un projet dans le contrôle de code source ou le partager par un autre moyen, il suffit d’inclure la liste des références et d’exclure les fichiers binaires des packages (consultez la section [Packages et contrôle de code source](consume-packages/packages-and-source-control.md).)
 
 L’ordinateur qui reçoit un projet, par exemple un serveur de builds obtenant une copie du projet dans le cadre d’un système de déploiement automatisé, demande simplement à NuGet de restaurer les dépendances quand elles sont nécessaires. Les systèmes de build, comme Azure DevOps, fournissent des étapes de « restauration NuGet » à cette fin. De même, lorsque les développeurs récupèrent une copie d’un projet (par exemple, en clonant un référentiel), ils peuvent appeler une commande du type `nuget restore` (interface CLI NuGet), `dotnet restore` (interface CLI dotnet) ou `Install-Package` (console du Gestionnaire de package) pour avoir tous les packages nécessaires. Visual Studio, pour sa part, restaure automatiquement les packages lors de la création d’un projet (tant que la restauration automatique est activée, comme l’explique la page [Restauration de package](consume-packages/package-restore.md)).
 
@@ -105,9 +105,15 @@ Pour que ces processus fonctionnent efficacement, NuGet effectue certaines optim
 
 Pour un projet donné, NuGet gère le graphique de dépendance global, ce qui implique de résoudre à nouveau des références multiples à différentes versions du même package. Il est fréquent qu’un projet ait une dépendance d’un ou plusieurs packages qui ont eux-mêmes les mêmes dépendances. Par exemple, certains des packages utilitaires les plus pratiques de nuget.org sont utilisés par beaucoup d’autres packages. Pris dans sa totalité, le graphique de dépendance peut facilement comporter dix références distinctes à des versions différentes du même package. Pour éviter d’importer plusieurs versions de ce package dans l’application elle-même, NuGet repère la version utilisable par tout le monde. (Pour plus d’informations, consultez la page [Résolution des dépendances](concepts/dependency-resolution.md).)
 
-Au-delà, NuGet gère toutes les spécifications relatives à la structure des packages (y compris les symboles de [localisation](create-packages/creating-localized-packages.md) et de [débogage](create-packages/symbol-packages-snupkg.md)) et à la façon dont ils sont [référencés](consume-packages/package-references-in-project-files.md) (y compris les [plages](concepts/package-versioning.md#version-ranges-and-wildcards) de versions et les [versions préliminaires). ](create-packages/prerelease-packages.md).) NuGet fournit également différentes API pour travailler avec ses services par programme, et prend en charge les développeurs qui écrivent des extensions Visual Studio et des modèles de projet.
+Au-delà, NuGet gère toutes les spécifications relatives à la structure des packages (y compris les symboles de [localisation](create-packages/creating-localized-packages.md) et de [débogage](create-packages/symbol-packages-snupkg.md)) et à la façon dont ils sont [référencés](consume-packages/package-references-in-project-files.md) (y compris les [plages](concepts/package-versioning.md#version-ranges) de versions et les [versions préliminaires](create-packages/prerelease-packages.md)). NuGet fournit également différentes API pour travailler avec ses services par programme, et prend en charge les développeurs qui écrivent des extensions Visual Studio et des modèles de projet.
 
 Prenez un moment pour parcourir la table des matières de cette documentation : toutes ces fonctionnalités y sont représentées, ainsi que des notes de publication remontant aux débuts de NuGet.
+
+## <a name="related-video"></a>Vidéo connexe
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/What-is-NuGet-1-of-5/player]
+
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="comments-contributions-and-issues"></a>Commentaires, contributions et problèmes
 

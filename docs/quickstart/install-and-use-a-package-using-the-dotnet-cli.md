@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
-ms.openlocfilehash: 9b6eb012b4bc8135b1648fa9f5e84d7d1c9d6b16
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825350"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231272"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Démarrage rapide : Installer et utiliser un package à l’aide de l’interface CLI dotnet
 
@@ -21,11 +21,11 @@ Une fois le package installé, faites-y référence dans le code avec `using <na
 > [!Tip]
 > **Commencez par nuget.org** : les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Le [kit SDK .NET Core](https://www.microsoft.com/net/download/), qui fournit l’outil en ligne de commande `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
-## <a name="create-a-project"></a>Créer un projet
+## <a name="create-a-project"></a>Création d’un projet
 
 Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour cette procédure pas à pas, créez un projet de console .NET Core simple comme suit :
 
@@ -102,8 +102,13 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
       "DOB": "1980-02-20T00:00:00Z"
     }
     ```
+## <a name="related-video"></a>Vidéo connexe
 
-## <a name="next-steps"></a>Étapes suivantes :
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-the-NET-CLI-3-of-5/player]
+
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Félicitations pour l’installation et l’utilisation de votre premier package NuGet !
 

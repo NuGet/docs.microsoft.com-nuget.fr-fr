@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 55f9c760ae05f060b748e6fbb82d8e9bd77c4e37
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825298"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231303"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET est un processus simple, de même que sa publication sur nuget.org avec l’interface de ligne de commande (CLI) `dotnet`.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Installez le [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/), qui comprend l’interface CLI `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
@@ -105,7 +105,13 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 [!INCLUDE [publish-manage](includes/publish-manage.md)]
 
-## <a name="next-steps"></a>Étapes suivantes :
+## <a name="related-video"></a>Vidéo connexe
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
+
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+
+## <a name="next-steps"></a>Étapes suivantes
 
 Félicitations pour la création de votre premier package NuGet !
 
@@ -117,7 +123,7 @@ Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens 
 - [Publier un package](../nuget-org/publish-a-package.md)
 - [Packages de préversion](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Gestion de version des packages](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Création de packages de symboles](../create-packages/symbol-packages-snupkg.md)
 - [Signature de packages](../create-packages/Sign-a-package.md)

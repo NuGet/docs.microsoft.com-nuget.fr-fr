@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: e0014a812ea591ef40c961e13864652d75ebdf6c
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610988"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230861"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
@@ -19,22 +19,22 @@ Un package spécifique est toujours référencé à l'aide de son identificateur
 
 Lors de la création d'un package, vous attribuez un numéro de version spécifique avec un suffixe de texte de préversion optionnel. En revanche, lorsque vous consommez des packages, vous pouvez spécifier un numéro de version exact ou une plage de versions acceptables.
 
-Dans cette rubrique :
+Dans cette rubrique :
 
 - [Principes de base d’une version](#version-basics), y compris les suffixes de préversion.
-- [Plages de versions et caractères génériques](#version-ranges-and-wildcards)
+- [Plages de versions](#version-ranges)
 - [Numéros de version normalisés](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Principes de base d’une version
 
-Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]* , où les composants ont la signification suivante :
+Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]*, où les composants ont la signification suivante :
 
 - *Majeure*: modifications avec rupture
 - *Mineure*: nouvelles fonctionnalités, mais à compatibilité descendante
 - *Patch*: correctifs de bogues à compatibilité descendante uniquement
 - *-Suffix* (optionnel) : un trait d'union suivi d'une chaîne de caractères indiquant une version préversion (suivant la convention [Semantic Versioning ou SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
-**Illustre**
+**Exemples :**
 
     1.0.1
     6.11.1231
@@ -80,7 +80,7 @@ Certaines sémantiques de SemVer 2.0.0 ne sont pas prises en charge dans les cl
 Pour nuget.org, un package est défini comme un package SemVer 2.0.0 si l'un des énoncés suivants est vrai :
 
 - La propre version du package est conforme à SemVer 2.0.0 mais pas à SemVer 1.0.0, comme défini ci-dessus.
-- Toutes les plages de versions des dépendances du package ont une version minimale ou maximale conforme à SemVer 2.0.0 mais non conforme à SemVer 1.0.0, définie ci-dessus ; par exemple, *[1.0.0-alpha.1, )* .
+- Toutes les plages de versions des dépendances du package ont une version minimale ou maximale conforme à SemVer 2.0.0 mais non conforme à SemVer 1.0.0, définie ci-dessus ; par exemple, *[1.0.0-alpha.1, )*.
 
 Si vous uploadez un package spécifique à SemVer 2.0.0 sur nuget.org, le package est invisible pour les anciens clients et disponible uniquement pour les clients NuGet suivants :
 
@@ -98,7 +98,7 @@ Clients tiers :
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges-and-wildcards"></a>Plages de versions et caractères génériques
+## <a name="version-ranges"></a>Plages de versions
 
 Lorsque NuGet fait référence à des dépendances de packages, il prend en charge l'utilisation de la notation d'intervalle pour spécifier les plages de versions, résumées comme suit :
 
@@ -114,7 +114,7 @@ Lorsque NuGet fait référence à des dépendances de packages, il prend en char
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Version maximum exclusive et minimum inclusive mixte |
 | (1.0)    | non valide | non valide |
 
-Lorsque le format PackageReference est utilisé, NuGet prend également en charge la notation avec le caractère générique, \*, pour le suffixe du chiffre correspondant aux versions majeure, mineure, corrective et préversion. Les caractères génériques ne sont pas pris en charge avec le format `packages.config`.
+Lorsque vous utilisez le format PackageReference, NuGet prend également en charge l’utilisation d’une notation flottante, \*, pour les parties majeures, mineures, correctives et de suffixe de préversion du nombre. Les versions flottantes ne sont pas prises en charge avec le format `packages.config`.
 
 > [!Note]
 > Les plages de versions dans PackageReference incluent des préversions. De par leur conception, les versions flottantes ne résolvent pas les préversions à moins que vous ne l’ayez décidé. Pour connaître l'état de la demande de fonctionnalité associée, voir le [problème 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).

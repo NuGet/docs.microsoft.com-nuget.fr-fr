@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 11/05/2019
 ms.topic: tutorial
-ms.openlocfilehash: fce3c9a92dfee325f9e914bf3d6444601fb38b6c
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 0cb653bad9e853d908039b3f7a94e1dd7eefdde5
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385675"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230900"
 ---
 # <a name="create-packages-for-xamarin-with-visual-studio-2017-or-2019"></a>Créer des packages pour Xamarin avec Visual Studio 2017 ou 2019
 
@@ -18,14 +18,14 @@ Un package pour Xamarin contient du code qui utilise des API natives sur iOS, An
 
 Dans cette procédure pas à pas, vous utilisez Visual Studio 2017 ou 2019 pour créer un package NuGet multiplateforme qui peut être utilisé dans des projets mobiles sur iOS, Android et Windows.
 
-1. [Conditions préalables](#prerequisites)
+1. [Prérequis](#prerequisites)
 1. [Créer la structure du projet et le code d’abstraction](#create-the-project-structure-and-abstraction-code)
 1. [Écrire du code spécifique de la plateforme](#write-your-platform-specific-code)
 1. [Créer et mettre à jour le fichier .nuspec](#create-and-update-the-nuspec-file)
 1. [Empaqueter le composant](#package-the-component)
 1. [Rubriques connexes](#related-topics)
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Visual Studio 2017 ou 2019 avec plateforme Windows universelle (UWP) et Xamarin. Installez l’édition Community gratuitement à partir de [visualstudio.com](https://www.visualstudio.com/) ; bien entendu, vous pouvez également utiliser les éditions Professional et Enterprise. Pour inclure les outils Xamarin et UWP, sélectionnez une installation personnalisée et cochez les options appropriées.
 1. Interface de ligne de commande NuGet. Téléchargez la dernière version de nuget.exe à partir de [nuget.org/downloads](https://nuget.org/downloads), puis enregistrez-la dans un emplacement de votre choix. Ajoutez ensuite cet emplacement à votre variable d’environnement PATH, si ce n’est déjà fait.
@@ -36,11 +36,11 @@ Dans cette procédure pas à pas, vous utilisez Visual Studio 2017 ou 2019 pour 
 ## <a name="create-the-project-structure-and-abstraction-code"></a>Créer la structure du projet et le code d’abstraction
 
 1. Téléchargez et exécutez l' [extension de modèles de plug-in .NET standard multiplateforme](https://marketplace.visualstudio.com/items?itemName=vs-publisher-473885.PluginForXamarinTemplates) pour Visual Studio. Ces modèles facilitent la création de la structure de projet nécessaire pour cette procédure pas à pas.
-1. Dans Visual Studio 2017, **fichier > nouveau projet de >** , recherchez `Plugin`, sélectionnez le modèle de **plug-in bibliothèque de .NET standard multiplateforme** , remplacez le nom par LoggingLibrary, puis cliquez sur OK.
+1. Dans Visual Studio 2017, **fichier > nouveau projet de >**, recherchez `Plugin`, sélectionnez le modèle de **plug-in bibliothèque de .NET standard multiplateforme** , remplacez le nom par LoggingLibrary, puis cliquez sur OK.
 
     ![Nouveau projet application vide (Xamarin. Forms portable) dans VS 2017](media/CrossPlatform-NewProject.png)
 
-    Dans Visual Studio 2019, **fichier > nouveau projet de >** , recherchez `Plugin`, sélectionnez le modèle de **plug-in bibliothèque de .NET standard multiplateforme** , puis cliquez sur suivant.
+    Dans Visual Studio 2019, **fichier > nouveau projet de >**, recherchez `Plugin`, sélectionnez le modèle de **plug-in bibliothèque de .NET standard multiplateforme** , puis cliquez sur suivant.
 
     ![Nouveau projet application vide (Xamarin. Forms portable) dans VS 2019](media/CrossPlatform-NewProject19-Part1.png)
 
@@ -52,7 +52,7 @@ La solution obtenue contient deux projets partagés, ainsi qu’un large éventa
 
 - Le projet `ILoggingLibrary`, qui est contenu dans le fichier `ILoggingLibrary.shared.cs`, définit l’interface publique (la surface d’exposition de l’API) du composant. C’est là que vous définissez l’interface de votre bibliothèque.
 - L’autre projet partagé contient du code dans `CrossLoggingLibrary.shared.cs` qui localise une implémentation spécifique à la plateforme de l’interface abstraite au moment de l’exécution. En général, vous n’avez pas besoin de modifier ce fichier.
-- Les projets spécifiques à la plateforme, tels que les `LoggingLibrary.android.cs`, contiennent chacun une implémentation native de l’interface dans leurs fichiers `LoggingLibraryImplementation.cs` (VS 2017) ou `LoggingLibrary.<PLATFORM>.cs` (VS 2019) respectifs. C’est là que vous générez le code de votre bibliothèque.
+- Les projets spécifiques à la plateforme, tels que `LoggingLibrary.android.cs`, contiennent chacun une implémentation native de l’interface dans leurs fichiers `LoggingLibraryImplementation.cs` (VS 2017) ou `LoggingLibrary.<PLATFORM>.cs` (VS 2019) respectifs. C’est là que vous générez le code de votre bibliothèque.
 
 Par défaut, le fichier ILoggingLibrary.shared.cs du projet `ILoggingLibrary` contient une définition d’interface, mais aucune méthode. Dans le cadre de cette procédure pas à pas, vous devez ajouter une méthode `Log` comme suit :
 
@@ -123,7 +123,7 @@ Pour implémenter une implémentation spécifique de la plateforme de l’interf
     ```
 
 1. Renommez ce fichier `LoggingLibrary.nuspec` et ouvrez-le dans un éditeur.
-1. Mettez à jour le fichier afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). De plus, vous devez également mettre à jour les balises authors et description afin de ne pas obtenir d’erreur durant l’empaquetage.
+1. Mettez à jour le fichier afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Veillez également à mettre à jour les balises authors et description afin de ne pas recevoir de message d’erreur durant l’empaquetage.
 
     ```xml
     <?xml version="1.0"?>
@@ -176,7 +176,7 @@ Pour inclure des assemblys de référence propres à la plateforme, ajoutez le c
 > [!Note]
 > Pour raccourcir les noms des fichiers DLL et XML, cliquez avec le bouton droit sur un projet donné, sélectionnez l’onglet **Bibliothèque** et changez les noms d’assembly.
 
-### <a name="add-dependencies"></a>Ajouter des dépendances
+### <a name="add-dependencies"></a>Ajout de dépendances
 
 Si vous avez des dépendances spécifiques pour des implémentations natives, utilisez l’élément `<dependencies>` avec des éléments `<group>` pour les spécifier, par exemple :
 
@@ -265,7 +265,7 @@ Une fois que le fichier `.nuspec` est finalisé et qu’il référence tous les 
 nuget pack LoggingLibrary.nuspec
 ```
 
-Cette opération génère `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce fichier dans un outil tel que [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) et que vous développez tous les nœuds, le contenu suivant apparaît :
+Cela a pour effet de générer `LoggingLibrary.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce fichier dans un outil tel que [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) et développez tous les nœuds, le contenu suivant apparaît :
 
 ![NuGet Package Explorer affichant le package LoggingLibrary](media/Cross-Platform-PackageExplorer.png)
 
@@ -278,7 +278,7 @@ Pour mettre votre package à la disposition des autres développeurs, suivez les
 
 - [Informations de référence sur le fichier nuspec](../reference/nuspec.md)
 - [Packages de symboles](../create-packages/symbol-packages.md)
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Gestion de version des packages](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: d6cad228eb052563fe57ea635bff0ea548cedc1f
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cd321084c46709e3d1d22872c37485edacd33afa
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383562"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230524"
 ---
 # <a name="nugetconfig-reference"></a>informations de référence sur NuGet. config
 
@@ -29,7 +29,7 @@ Contient des paramètres de configuration divers, qui peuvent être définis à 
 
 `dependencyVersion` et `repositoryPath` s’appliquent uniquement aux projets utilisant `packages.config`. `globalPackagesFolder` s’applique uniquement aux projets utilisant le format PackageReference.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | dependencyVersion (`packages.config` uniquement) | Valeur `DependencyVersion` par défaut pour l’installation, la restauration et la mise à jour de package, quand le commutateur `-DependencyVersion` n’est pas spécifié directement. Cette valeur est également utilisée par l’interface utilisateur du Gestionnaire de package NuGet. Les valeurs sont `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
 | globalPackagesFolder (projets utilisant PackageReference uniquement) | Emplacement du dossier de packages global par défaut. L’emplacement par défaut est `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Un chemin relatif peut être utilisé dans les fichiers `nuget.config` spécifiques au projet. Ce paramètre est remplacé par la variable d’environnement NUGET_PACKAGES, qui est prioritaire. |
@@ -38,7 +38,7 @@ Contient des paramètres de configuration divers, qui peuvent être définis à 
 | http_proxy http_proxy.user http_proxy.password no_proxy | Paramètres de proxy à utiliser lors de la connexion aux sources de packages ; `http_proxy` doit être au format `http://<username>:<password>@<domain>`. Les mots de passe sont chiffrés et ne peuvent pas être ajoutés manuellement. Pour `no_proxy`, la valeur est une liste de domaines séparés par des virgules qui ignorent le serveur proxy. Vous pouvez également utiliser les variables d’environnement http_proxy et no_proxy pour ces valeurs. Pour plus d’informations, consultez [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Spécifie le mode de validation utilisé pour vérifier les signatures de package pour l’installation du package et la restauration. Les valeurs sont `accept`, `require`. La valeur par défaut est `accept`.
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <config>
@@ -54,11 +54,11 @@ Contient des paramètres de configuration divers, qui peuvent être définis à 
 
 Définit si NuGet effectue des redirections de liaisons automatiques quand un package est installé.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
-| skip | Valeur booléenne indiquant s’il faut ignorer les redirections de liaisons automatiques. La valeur par défaut est False. |
+| skip | Valeur booléenne indiquant s’il faut ignorer les redirections de liaisons automatiques. La valeur par défaut est false. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <bindingRedirects>
@@ -70,12 +70,12 @@ Définit si NuGet effectue des redirections de liaisons automatiques quand un pa
 
 Contrôle la restauration de packages pendant les générations.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
-| activé | Valeur booléenne indiquant si NuGet peut effectuer une restauration automatique. Vous pouvez également définir la variable d’environnement `EnableNuGetPackageRestore` avec la valeur `True` au lieu de définir cette clé dans le fichier config. |
-| automatic | Valeur booléenne indiquant si NuGet doit rechercher les packages manquants pendant une génération. |
+| enabled | Valeur booléenne indiquant si NuGet peut effectuer une restauration automatique. Vous pouvez également définir la variable d’environnement `EnableNuGetPackageRestore` avec la valeur `True` au lieu de définir cette clé dans le fichier config. |
+| automatique | Valeur booléenne indiquant si NuGet doit rechercher les packages manquants pendant une génération. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <packageRestore>
@@ -88,11 +88,11 @@ Contrôle la restauration de packages pendant les générations.
 
 Contrôle si le dossier `packages` d’une solution est inclus dans le contrôle de code source. Cette section fonctionne uniquement dans les fichiers `nuget.config` dans un dossier de solution.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
-| disableSourceControlIntegration | Valeur booléenne indiquant s’il faut ignorer le dossier de packages lors de l’utilisation de contrôle de code source. La valeur par défaut est false. |
+| disableSourceControlIntegration | Valeur booléenne indiquant s’il faut ignorer le dossier de packages lors de l’utilisation de contrôle de code source. La valeur par défaut est false. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <solution>
@@ -112,11 +112,11 @@ Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json
 
 Répertorie toutes les sources de packages connues. L’ordre est ignoré pendant les opérations de restauration et avec n’importe quel projet utilisant le format PackageReference. NuGet respecte l’ordre des sources pour les opérations d’installation et de mise à jour des projets à l’aide de `packages.config`.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | (nom à assigner à la source du package) | Chemin ou URL de la source du package. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <packageSources>
@@ -126,14 +126,17 @@ Répertorie toutes les sources de packages connues. L’ordre est ignoré pendan
 </packageSources>
 ```
 
+> [!Tip]
+> Lorsque `<clear />` est présent pour un nœud donné, NuGet ignore les valeurs de configuration définies précédemment pour ce nœud. [En savoir plus sur la façon dont les paramètres sont appliqués](../consume-packages/configuring-nuget-behavior.md#how-settings-are-applied).
+
 ### <a name="packagesourcecredentials"></a>packageSourceCredentials
 
 Stocke les noms d’utilisateur et mots de passe pour les sources, spécifiés en général en utilisant les commutateurs `-username` et `-password` avec `nuget sources`. Les mots de passe sont chiffrés par défaut, sauf si l’option `-storepasswordincleartext` est également utilisée.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
-| nom_utilisateur | Nom d’utilisateur pour la source en texte brut. |
-| mot de passe du . | Mot de passe chiffré pour la source. |
+| username | Nom d’utilisateur pour la source en texte brut. |
+| password | Mot de passe chiffré pour la source. |
 | cleartextpassword | Mot de passe non chiffré pour la source. |
 
 **Exemple :**
@@ -172,11 +175,11 @@ Lors de l’utilisation de mots de passe non chiffrés :
 
 Stocke les clés pour les sources qui utilisent l’authentification de clé API, comme défini avec la [commande `nuget setapikey`](../reference/cli-reference/cli-ref-setapikey.md).
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | (URL source) | Clé API chiffrée. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <apikeys>
@@ -188,7 +191,7 @@ Stocke les clés pour les sources qui utilisent l’authentification de clé API
 
 Identifie les sources actuellement désactivées. Peut être vide.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | (nom de source) | Valeur booléenne indiquant si la source est désactivée. |
 
@@ -209,11 +212,11 @@ Identifie les sources actuellement désactivées. Peut être vide.
 
 Identifie la source actuellement active ou indique l’agrégat de toutes les sources.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | (nom de source) ou `All` | Si la clé est le nom d’une source, la valeur est le chemin ou l’URL de la source. Si la clé est `All`, la valeur doit être `(Aggregate source)` pour combiner toutes les sources de packages qui ne sont pas autrement désactivées. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <activePackageSource>
@@ -241,7 +244,7 @@ Les algorithmes de hachage pris en charge utilisés pour une empreinte digitale 
 
 Si un `certificate` spécifie `allowUntrustedRoot` comme `true` le certificat donné est autorisé à se lier à une racine non approuvée lors de la génération de la chaîne de certificats dans le cadre de la vérification de la signature.
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <trustedSigners>
@@ -269,11 +272,11 @@ Si une recherche est réussie, aucun téléchargement n’est nécessaire.
 
 Si aucune correspondance n’est trouvée, NuGet vérifie les sources de fichiers, puis les sources http, puis télécharge les packages.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | (nom du dossier de secours) | Chemin d’accès au dossier de secours. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <fallbackPackageFolders>
@@ -285,12 +288,12 @@ Si aucune correspondance n’est trouvée, NuGet vérifie les sources de fichier
 
 Définit le format de gestion de package par défaut, *packages. config* ou PackageReference. Les projets de style SDK utilisent toujours PackageReference.
 
-| Clé | Value |
+| Clé | Valeur |
 | --- | --- |
 | format | Valeur booléenne qui indique le format de gestion des packages par défaut. Si `1`, le format est PackageReference. Si `0`, le format est *packages. config*. |
-| désactivés | Valeur booléenne indiquant s’il faut afficher l’invite de sélection d’un format de package par défaut lors de la première installation de package. `False` masque l’invite. |
+| disabled | Valeur booléenne indiquant s’il faut afficher l’invite de sélection d’un format de package par défaut lors de la première installation de package. `False` masque l’invite. |
 
-**Exemple** :
+**Exemple** :
 
 ```xml
 <packageManagement>
@@ -305,13 +308,13 @@ Vous pouvez utiliser des variables d’environnement dans les valeurs `nuget.con
 
 Par exemple, si la variable d’environnement `HOME` sur Windows a la valeur `c:\users\username`, la valeur `%HOME%\NuGetRepository` dans le fichier de configuration correspond à `c:\users\username\NuGetRepository`.
 
-De même, si `HOME` sur Mac/Linux a la valeur `/home/myStuff`, `$HOME/NuGetRepository` dans le fichier de configuration correspond à `/home/myStuff/NuGetRepository`.
+Notez que vous devez utiliser des variables d’environnement de style Windows (commence et se termine par%) même sur Mac/Linux. Le fait d’avoir `$HOME/NuGetRepository` dans un fichier de configuration ne sera pas résolu. Sur Mac/Linux, la valeur de `%HOME%\NuGetRepository` est résolue en `/home/myStuff/NuGetRepository`.
 
 Si aucune variable d’environnement n’est trouvée, NuGet utilise la valeur littérale du fichier de configuration.
 
 ## <a name="example-config-file"></a>Exemple de fichier config
 
-Voici un exemple de fichier `nuget.config` qui illustre un certain nombre de paramètres :
+Vous trouverez ci-dessous un exemple de `nuget.config` fichier qui illustre un certain nombre de paramètres, notamment ceux qui sont facultatifs :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

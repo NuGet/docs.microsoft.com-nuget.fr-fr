@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
-ms.openlocfilehash: fe551dfa7f2322e6677c9c0b972c79c9df2e7695
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813557"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231290"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
@@ -19,7 +19,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 > [!Note]
 > Si vous utilisez Visual Studio pour Mac, consultez [ces informations](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) sur la création d’un package NuGet ou utilisez les [outils CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Installez une édition de Visual Studio 2019 à l’adresse [visualstudio.com](https://www.visualstudio.com/) avec n’importe quelle charge de travail liée à .NET Core.
 
@@ -132,7 +132,7 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 Sélectionnez l'onglet de votre outil CLI, soit **.NET Core CLI** (CLI dotnet) ou **NuGet** (CLI nuget.exe).
 
-# <a name="net-core-clitabnetcore-cli"></a>[CLI .NET Core](#tab/netcore-cli)
+# <a name="net-core-cli"></a>[CLI .NET Core](#tab/netcore-cli)
 
 Cette étape est l’alternative recommandée à l’utilisation de `nuget.exe`.
 
@@ -140,7 +140,7 @@ Avant de pouvoir publier le package, vous devez d’abord ouvrir une ligne de co
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nugettabnuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Cette étape aboutit au même résultat que `dotnet.exe`.
 
@@ -193,13 +193,19 @@ Cela inclut un fichier nommé `readme.txt` dans la racine du package. Visual Stu
 > [!Note]
 > Le simple ajout du fichier readme.txt à la racine du projet ne permet pas de l’ajouter dans le package résultant.
 
+## <a name="related-video"></a>Vidéo connexe
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
+
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Créer un package](../create-packages/creating-a-package-dotnet-cli.md)
 - [Publier un package](../nuget-org/publish-a-package.md)
 - [Packages de préversion](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Gestion de version des packages](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
 - [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)

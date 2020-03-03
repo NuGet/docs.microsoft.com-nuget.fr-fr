@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: 906d07eb22599eb423b00300954ff2601dd33369
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 13b6f5abe93a17c809564265990f86f6780aa67e
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75383549"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230809"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentification de flux dans Visual Studio avec des fournisseurs d’informations d’identification NuGet
 
@@ -19,6 +19,8 @@ Après l’installation d’un fournisseur d’informations d’identification N
 
 Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
 
+Dans Visual Studio, NuGet utilise un `VsCredentialProviderImporter` interne qui recherche également les fournisseurs d’informations d’identification de plug-in. Ces fournisseurs d’informations d’identification de plug-in doivent être détectables comme une exportation MEF de type `IVsCredentialProvider`.
+
 À compter de la section 4.8 + NuGet dans Visual Studio prend également en charge les nouveaux plug-ins d’authentification multiplateforme, mais ce n’est pas l’approche recommandée pour des raisons de performances.
 
 > [!Note]
@@ -26,16 +28,6 @@ Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProv
 >
 > Les fournisseurs d’informations d’identification NuGet pour Visual Studio fonctionnent uniquement dans Visual Studio (pas dans dotnet restore ou NuGet. exe). Pour obtenir des fournisseurs d’informations d’identification avec NuGet. exe, consultez [fournisseurs d’informations d’identification NuGet. exe](nuget-exe-Credential-providers.md).
 > Pour les fournisseurs d’informations d’identification dans dotnet et MSBuild, consultez [plug-ins inter-plateforme NuGet](nuget-cross-platform-authentication-plugin.md)
-
-## <a name="available-nuget-credential-providers-for-visual-studio"></a>Fournisseurs d’informations d’identification NuGet disponibles pour Visual Studio
-
-Un fournisseur d’informations d’identification est intégré à l’extension NuGet de Visual Studio pour prendre en charge Visual Studio Team Services.
-
-L’extension Visual Studio NuGet utilise un `VsCredentialProviderImporter` interne qui recherche également les fournisseurs d’informations d’identification de plug-in. Ces fournisseurs d’informations d’identification de plug-in doivent être détectables comme une exportation MEF de type `IVsCredentialProvider`.
-
-Les fournisseurs d’informations d’identification de plug-in disponibles sont les suivants :
-
-- [Fournisseur d’informations d’identification MyGet pour Visual Studio](http://docs.myget.org/docs/reference/credential-provider-for-visual-studio)
 
 ## <a name="creating-a-nuget-credential-provider-for-visual-studio"></a>Création d’un fournisseur d’informations d’identification NuGet pour Visual Studio
 

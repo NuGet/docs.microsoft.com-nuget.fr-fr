@@ -3,14 +3,14 @@ title: Créer un package NuGet avec MSBuild
 description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
 author: karann-msft
 ms.author: karann
-ms.date: 08/05/2019
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: b45c25a92c0134228fb507ab321cb00ce156527f
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 7166d622ef9d3975fc1c931d30caf570a765a6da
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610556"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231316"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Créer un package NuGet avec MSBuild
 
@@ -25,17 +25,21 @@ La commande qui crée un package, `msbuild -t:pack`, est équivalente à `dotnet
 > [!IMPORTANT]
 > Cette rubrique concerne les projets de [style SDK](../resources/check-project-format.md), en général les projets .NET Core et .NET Standard, et aux projets de style non SDK qui utilisent PackageReference.
 
-## <a name="set-properties"></a>Définir les propriétés
+## <a name="set-properties"></a>Définir des propriétés
 
 Les propriétés suivantes sont requises pour créer un package.
 
-- `PackageId`, l’identificateur du package, qui doit être unique dans toute la galerie qui héberge le package. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
+- `PackageId`, l’identificateur du package, qui doit être unique dans toute la galerie qui héberge le package. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
 - `Version`, un numéro de version spécifique au format *version_principale.version_secondaire.version_corrective [-suffixe]* où *-suffixe* identifie les [versions préliminaires](prerelease-packages.md). Si elle n’est pas spécifiée, la valeur par défaut est 1.0.0.
 - Titre du package tel qu’il doit apparaître sur l’hôte (par exemple nuget.org)
-- `Authors`, informations sur l’auteur et le propriétaire. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
-- `Company`, le nom de votre entreprise. S’il n’est pas spécifié, la valeur par défaut est `AssemblyName`.
+- `Authors`, informations sur l’auteur et le propriétaire. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
+- `Company`, le nom de votre entreprise. Si elle n’est pas spécifiée, la valeur par défaut est `AssemblyName`.
 
-Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez également définir directement ces propriétés dans les fichiers projet ( *.csproj*).
+En outre, si vous compressez des projets de type non-SDK qui utilisent PackageReference, les conditions suivantes sont requises :
+
+- `PackageOutputPath`, le dossier de sortie du package généré lors de l’appel de Pack.
+
+Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez également définir directement ces propriétés dans les fichiers projet (*.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -69,6 +73,10 @@ Vous pouvez également définir les propriétés optionnelles, telles que `Title
 > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags**, car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
 
 Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md) et [Gestion des versions de package](../concepts/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `<IncludeAssets>` et `<ExcludeAssets>`. Pour plus d’informations, consultez [Contrôle des ressources des dépendances](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
+
+## <a name="add-an-optional-description-field"></a>Ajouter un champ de description facultatif
+
+[!INCLUDE [add description to package](includes/add-description.md)]
 
 ## <a name="choose-a-unique-package-identifier-and-set-the-version-number"></a>Choisir un identificateur de package unique et définir le numéro de version
 
@@ -170,7 +178,7 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
 - [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md)
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Gestion de version des packages](../concepts/package-versioning.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)

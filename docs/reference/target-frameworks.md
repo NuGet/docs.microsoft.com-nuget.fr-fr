@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: caa1509fd996c54f7de17e86559ea62ef67f749f
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380484"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230510"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -35,7 +35,7 @@ Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. 
 
 | Name | Abréviation | TFMs/TxMs |
 | ------------- | ------------ | --------- |
-|.NET Framework | net | net11 |
+|.NET Framework | net | net11 |
 | | | net20 |
 | | | net35 |
 | | | net40 |
@@ -55,7 +55,7 @@ Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. 
 | | | netcore451 [win81] |
 | | | netcore50 |
 |.NET MicroFramework | netmf | netmf |
-|Windows | win | win [win8, netcore45] |
+| Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non pris en charge par la plateforme Windows 10) |
@@ -78,12 +78,14 @@ Plateforme Windows universelle | uap | uap [uap10.0] |
 | | | netstandard1.5 |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
+| | | netstandard 2.1 |
 Application .NET Core | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp 3.0 |
+| | | netcoreapp 3.1 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -91,7 +93,7 @@ Tizen | tizen | tizen3 |
 
 Les frameworks suivants sont dépréciés. Les packages ciblant ces frameworks doivent migrer vers les versions de remplacement indiquées.
 
-| Framework déprécié | Replacement
+| Framework déprécié | Remplacement
 | --- | ---
 | aspnet50 | netcoreapp |
 | aspnetcore50 |
@@ -139,7 +141,7 @@ Pour définir une version cible de .NET Framework qui fait référence à plusie
 
 D’autres frameworks définis par des tiers assurent la compatibilité avec d’autres environnements qui sont accessibles de cette manière. De plus, il existe des numéros de profil abrégés qui sont disponibles pour faire référence à ces combinaisons de frameworks connexes en tant que `Profile#`, mais l’utilisation de ces numéros n’est pas recommandée, car cela réduit la lisibilité des dossiers et de `.nuspec`.
 
-| Numéro de profil | Infrastructures | Nom complet | .NET Standard |
+| Numéro de profil | Frameworks | Nom complet | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
  | | Windows 8.0 | |
@@ -167,9 +169,9 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | Silverlight 4.0 |
  Profile24 | .NETFramework 4.5 | portable-net45+sl5
  | | Silverlight 5.0 |
- Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
+ Profile31 | Windows 8.1 | portable-win81+wp81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
- Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
+ Profile32 | Windows 8.1 | portable-win81+wpa81 | netstandard1.2
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
@@ -185,7 +187,7 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | Silverlight 5.0 |
  | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
@@ -237,13 +239,13 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
- | | Windows 8.1 |
+ | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
  | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
- Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
+ Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8

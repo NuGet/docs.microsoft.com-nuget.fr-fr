@@ -5,23 +5,23 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/24/2018
 ms.topic: quickstart
-ms.openlocfilehash: 92fc78a88733d0308dc26e10c5b0bafb86b78045
-ms.sourcegitcommit: e4b0ff4460865db6dc7bc9f20e9f644d98493011
+ms.openlocfilehash: 96e138561390984d9def495ba5e091c43023cc92
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71307227"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231329"
 ---
-# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Démarrage rapide : Installer et utiliser un package dans Visual Studio (Windows uniquement)
+# <a name="quickstart-install-and-use-a-package-in-visual-studio-windows-only"></a>Démarrage rapide : installer et utiliser un package dans Visual Studio (Windows uniquement)
 
 Les packages NuGet contiennent du code réutilisable que les autres développeurs mettent à votre disposition pour l’utiliser dans vos projets. Pour des informations de base, consultez [Qu’est-ce que NuGet ?](../What-is-NuGet.md). Les packages sont installés dans un projet Visual Studio à l’aide du gestionnaire de package NuGet ou de la console du gestionnaire de package. Cet article explique le processus avec le package [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/) bien connu et un projet Windows Presentation Foundation (WPF). Le même processus s’applique à n’importe quel autre projet .NET ou .NET Core.
 
 Une fois le package installé, faites-y référence dans le code avec `using <namespace>`, où \<namespace\> est propre au package que vous utilisez. Une fois la référence effectuée, vous pouvez appeler le package par le biais de son API.
 
 > [!Tip]
-> **Prise en main de nuget.org** : Les développeurs .NET parcourent *nutget.org* à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans *nuget.org*, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article. Pour obtenir des informations générales, consultez [Rechercher et évaluer des packages NuGet](../consume-packages/finding-and-choosing-packages.md).
+> **Commencez avec NuGet.org**: la navigation *NuGet.org* est la manière dont les développeurs .net recherchent généralement les composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans *nuget.org*, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article. Pour obtenir des informations générales, consultez [Rechercher et évaluer des packages NuGet](../consume-packages/finding-and-choosing-packages.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Visual Studio 2019 avec la charge de travail Développement .NET Desktop.
 
@@ -29,11 +29,11 @@ Vous pouvez installer l’édition Community 2019 gratuitement à partir de [vis
 
 Si vous utilisez Visual Studio pour Mac, consultez [installer et utiliser un package dans Visual Studio pour Mac](install-and-use-a-package-in-visual-studio-mac.md).
 
-## <a name="create-a-project"></a>Créer un projet
+## <a name="create-a-project"></a>Création d’un projet
 
 Les packages NuGet peuvent être installés dans n’importe quel projet .NET, à condition qu’ils prennent en charge la même version cible de .NET Framework que le projet.
 
-Pour cette procédure pas à pas, utilisez une application WPF simple. Créez un projet dans Visual Studio à l’aide de **fichier** > **nouveau projet**, en tapant **.net** dans la zone de recherche, puis en sélectionnant l' **application WPF (.NET Framework)** . Cliquez sur **Suivant**. Acceptez les valeurs par défaut pour **Framework** quand vous y êtes invité.
+Pour cette procédure pas à pas, utilisez une application WPF simple. Créez un projet dans Visual Studio en utilisant **fichier** > **nouveau projet**, en tapant **.net** dans la zone de recherche, puis en sélectionnant l' **application WPF (.NET Framework)**. Cliquez sur **Suivant**. Acceptez les valeurs par défaut pour **Framework** quand vous y êtes invité.
 
 Visual Studio crée le projet qui s’ouvre dans l’Explorateur de solutions.
 
@@ -41,7 +41,7 @@ Visual Studio crée le projet qui s’ouvre dans l’Explorateur de solutions.
 
 Pour installer le package, vous pouvez utiliser l’interface utilisateur du gestionnaire de package NuGet ou la console du gestionnaire de package. Quand vous installez un package, NuGet enregistre la dépendance dans votre fichier projet ou dans un fichier `packages.config` (en fonction du format du projet). Pour plus d’informations, consultez [Vue d’ensemble et flux de consommation des packages](../consume-packages/Overview-and-Workflow.md).
 
-### <a name="nuget-package-manager"></a>NuGet Package Manager
+### <a name="nuget-package-manager"></a>Gestionnaire de package NuGet
 
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur **Références** et choisissez **Gérer les packages NuGet**.
 
@@ -63,7 +63,7 @@ Pour installer le package, vous pouvez utiliser l’interface utilisateur du ges
 
 ### <a name="package-manager-console"></a>Console du Gestionnaire de package
 
-1. Sélectionnez la commande de menu de la**console Gestionnaire** de**package** > NuGet **Outils** > gestionnaire de package NuGet.
+1. Sélectionnez **outils** > **Gestionnaire de package NuGet** > commande de menu de la **console du gestionnaire de package** .
 
 1. Une fois la console ouverte, vérifiez que la liste déroulante **Projet par défaut** affiche le projet dans lequel vous souhaitez installer le package. Si la solution ne contient qu’un seul projet, il est déjà sélectionné.
 
@@ -124,6 +124,12 @@ Le package Newtonsoft.Json étant dans le projet, vous pouvez appeler sa méthod
 1. Cliquez sur le bouton pour remplacer le contenu du TextBlock par du texte JSON :
 
     ![Sortie de l’application WPF après un clic sur le bouton](media/QS_Use-07-AppEnd.png)
+
+## <a name="related-video"></a>Vidéo connexe
+
+> [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-Visual-Studio-2-of-5/player]
+
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

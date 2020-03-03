@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 937d051ff6dc49e3204f7d0cb22c4f29b99a2a7d
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610614"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231342"
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
@@ -65,6 +65,10 @@ Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4
     ```
 
     Cette commande stocke votre clé API dans votre configuration NuGet, de sorte que vous n’avez pas besoin de répéter cette étape sur le même ordinateur.
+
+    > [!NOTE]
+    > La clé API n’est pas utilisée pour l’authentification auprès du flux privé. Reportez-vous à [`nuget sources` commande](../reference/cli-reference/cli-ref-sources.md) pour gérer les informations d’identification pour l’authentification auprès de la source.
+    > Les clés API peuvent être obtenues à partir des serveurs NuGet individuels. Pour créer et gérer APIKeys pour nuget.org, reportez-vous à la rubrique [Publish-API-Key](../quickstart/includes/publish-api-key.md)
 
 1. Envoyez (push) votre package dans la galerie NuGet à l’aide de la commande suivante :
 

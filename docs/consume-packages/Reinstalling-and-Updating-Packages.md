@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: c48980bc3f955a62962ca6e9619ce09f4a94a835
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488075"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231186"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Réinstallation et mise à jour des packages
 
@@ -20,7 +20,7 @@ Dans Visual Studio, la console du gestionnaire de package fournit de nombreuses 
 
 La mise à jour et la réinstallation des packages s’effectuent de la façon suivante :
 
-| Méthode | Mise à jour | Réinstallation |
+| Méthode | Update | Réinstallation |
 | --- | --- | --- |
 | Console du gestionnaire de package (décrite dans [Utilisation d’Update-Package](#using-update-package)) | Commande `Update-Package` | Commande `Update-Package -reinstall` |
 | Interface utilisateur du gestionnaire de package | Sous l’onglet **Mises à jour**, sélectionnez un ou plusieurs packages, puis sélectionnez **Mettre à jour**. | Sous l’onglet **Installé**, sélectionnez un package, enregistrez son nom, puis sélectionnez **Désinstaller**. Basculez vers l’onglet **Parcourir**, recherchez le nom du package, sélectionnez-le, puis sélectionnez **Installer**. |
@@ -29,18 +29,18 @@ La mise à jour et la réinstallation des packages s’effectuent de la façon s
 > [!NOTE]
 > Si vous utilisez l’interface CLI dotnet, la procédure équivalente n’est pas nécessaire. Dans un scénario similaire, vous pouvez [restaurer les packages à l’aide de l’interface CLI dotnet](package-restore.md#restore-using-the-dotnet-cli).
 
-Dans cet article :
+Contenu de cet article :
 
 - [Quand réinstaller un package](#when-to-reinstall-a-package)
 - [Restriction des versions de mise à niveau](#constraining-upgrade-versions)
 
 ## <a name="when-to-reinstall-a-package"></a>Quand réinstaller un package
 
-1. **Références rompues après restauration des package** : si vous avez toujours des références rompues après avoir ouvert un projet et restauré des packages NuGet, essayez de réinstaller chacun de ces packages.
-1. **Projet ne fonctionnant plus après une suppression de fichiers** : NuGet ne vous empêche pas de supprimer des éléments ajoutés à partir des packages. Il est donc facile de modifier par inadvertance le contenu installé à partir d’un package et de rendre ainsi votre projet inutilisable. Pour restaurer le projet, réinstallez les packages concernés.
-1. **Projet ne fonctionnant plus après une mise à jour de package** : si la mise à jour d’un package rend un projet inutilisable, cela est généralement dû à la mise à jour d’un package de dépendance. Pour restaurer l’état de la dépendance, réinstallez le package en question.
-1. **Reciblage ou mise à niveau du projet** : cela peut être utile lorsqu’un projet a été reciblé ou mis à niveau, et si le package nécessite une réinstallation en raison du changement de la version cible dans le framework cible. Dans ce cas, NuGet affiche une erreur de build tout de suite après le reciblage du projet, et les avertissements de build suivants vous informent que le package doit être réinstallé. Pour la mise à niveau du projet, NuGet affiche une erreur dans le journal de mise à niveau du projet.
-1. **Réinstallation d’un package durant son développement** : les auteurs de packages ont souvent besoin de réinstaller la même version d’un package qu’ils développent afin de tester son comportement. La commande `Install-Package` ne fournit pas d’option permettant de forcer une réinstallation. Vous devez donc utiliser `Update-Package -reinstall` à la place.
+1. **Références rompues après restauration des packages** : si vous avez toujours des références rompues après avoir ouvert un projet et restauré des packages NuGet, essayez de réinstaller chacun de ces packages.
+1. **Projet ne fonctionnant plus après une suppression de fichiers** : NuGet ne vous empêche pas de supprimer des éléments ajoutés à partir des packages. Il est donc facile de modifier par inadvertance le contenu installé à partir d’un package et de rendre votre projet inutilisable. Pour restaurer le projet, réinstallez les packages concernés.
+1. **Projet ne fonctionnant plus après une mise à jour de package** : si la mise à jour d’un package rend un projet inutilisable, cela est généralement dû à un package de dépendance qui a peut-être été aussi mis à jour. Pour restaurer l’état de la dépendance, réinstallez le package en question.
+1. **Reciblage ou mise à niveau du projet** : cela peut être utile lorsqu’un projet a été reciblé ou mis à niveau, et si le package nécessite une réinstallation en raison de la modification de la version cible de .NET Framework. Dans ce cas, NuGet affiche une erreur de build tout de suite après le reciblage du projet, et les avertissements de build suivants vous informent que le package doit être réinstallé. Pour la mise à niveau du projet, NuGet affiche une erreur dans le journal de mise à niveau du projet.
+1. **Réinstallation d’un package durant son développement** : les auteurs de packages ont souvent besoin de réinstaller la même version d’un package qu’ils développent afin de tester son comportement. La commande `Install-Package` ne fournit pas d’option permettant de forcer une réinstallation. Vous devez donc utiliser `Update-Package -reinstall` à la place.
 
 ## <a name="constraining-upgrade-versions"></a>Restriction des versions de mise à niveau
 
@@ -59,11 +59,11 @@ Pour définir une restriction, ouvrez `packages.config` dans un éditeur de text
 </packages>
 ```
 
-Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du package](../concepts/package-versioning.md#version-ranges-and-wildcards).
+Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du package](../concepts/package-versioning.md#version-ranges).
 
 ## <a name="using-update-package"></a>Utilisation d’Update-Package
 
-Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils**  >  **Gestionnaire de package NuGet** > **Console du gestionnaire de package**).
+Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall
@@ -101,7 +101,7 @@ La mise à jour des packages d’un projet ou d’une solution à l’aide de [P
 
 Pour plus d’informations sur la commande, consultez la référence relative à [Update-Package](../reference/ps-reference/ps-ref-update-package.md).
 
-### <a name="considerations"></a>Éléments à prendre en considération
+### <a name="considerations"></a>Considérations
 
 Les procédures suivantes peuvent être affectées lors de la réinstallation d’un package :
 

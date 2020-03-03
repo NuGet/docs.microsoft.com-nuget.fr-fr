@@ -6,12 +6,12 @@ ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 746f7a421bd855b77716388b4af2fecbd5cf5a68
-ms.sourcegitcommit: 96aab8a1ad35eca0c029679d0158d9cc93d66009
+ms.openlocfilehash: e596fd5eb3de8ca4802d9b7b8e7cb623568e3dcb
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75676404"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78231121"
 ---
 # <a name="sign-command-nuget-cli"></a>sign (commande, NuGet CLI)
 
@@ -22,7 +22,7 @@ Signe tous les packages correspondant au premier argument avec un certificat. Le
 > [!Note]
 > La signature du package n’est pas encore prise en charge dans .NET Core, sous mono ou sur des plateformes non-Windows.
 
-## <a name="usage"></a>Contrôle
+## <a name="usage"></a>Usage
 
 ```cli
 nuget sign <package(s)> [options]
@@ -42,11 +42,11 @@ où `<package(s)>` est un ou plusieurs fichiers `.nupkg`.
 | CertificateSubjectName | Spécifie le nom du sujet du certificat utilisé pour rechercher le certificat dans un magasin de certificats local.  La recherche est une comparaison de chaînes ne respectant pas la casse à l’aide de la valeur fournie, qui recherchera tous les certificats dont le nom d’objet contient cette chaîne, indépendamment des autres valeurs d’objet.  Le magasin de certificats peut être spécifié par les options-CertificateStoreName et-CertificateStoreLocation. |
 | ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est pas spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) est utilisé.|
 | ForceEnglishOutput | Force l’exécution de NuGet. exe à l’aide d’une culture indifférente basée sur l’anglais. |
-| HashAlgorithm | Algorithme de hachage à utiliser pour signer le package. La valeur par défaut est SHA256. |
+| HashAlgorithm | Algorithme de hachage à utiliser pour signer le package. La valeur par défaut est SHA256. Les valeurs possibles sont SHA256, SHA384 et SHA512. |
 | Aide | Affiche des informations d’aide pour la commande. |
 | NonInteractive | Supprime les invites de saisie ou de confirmation de l’utilisateur. |
 | OutputDirectory | Spécifie le répertoire dans lequel le package signé doit être enregistré. Par défaut, le package d’origine est remplacé par le package signé. |
-| Overwrite | Basculez pour indiquer si la signature actuelle doit être remplacée. Par défaut, la commande échoue si le package a déjà une signature. |
+| Remplacer | Basculez pour indiquer si la signature actuelle doit être remplacée. Par défaut, la commande échoue si le package a déjà une signature. |
 | Timestamper | URL vers un serveur d’horodatage RFC 3161. |
 | TimestampHashAlgorithm | Algorithme de hachage à utiliser par le serveur d’horodatage RFC 3161. La valeur par défaut est SHA256. |
 | Commentaires | Spécifie la quantité de détails affichée dans la sortie : *normal*, *Quiet*, *detailed*. |

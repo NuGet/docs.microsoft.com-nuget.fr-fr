@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12ecfb8374c43a04d57d32575556adebc991d053
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
+ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73610701"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78230952"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
 
@@ -68,7 +68,7 @@ Propriétés facultatives communes :
 - Brève description de l’[interface utilisateur du gestionnaire de package dans Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID de paramètres régionaux
 - URL du projet
-- Licence comme expression ou fichier (`licenseUrl` est en cours de dépréciation, utilisez l’élément de métadonnées nuspec [ `license` ](../reference/nuspec.md#license))
+- Licence comme expression ou fichier (`licenseUrl` est en cours de dépréciation, utilisez l’élément de métadonnées nuspec [`license`](../reference/nuspec.md#license))
 - URL de l’icône
 - Listes des dépendances et références
 - Balises facilitant les recherches dans la galerie
@@ -77,7 +77,7 @@ Voici un fichier `.nuspec` classique (mais fictif), avec des commentaires décri
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
         <!-- The identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
@@ -183,7 +183,7 @@ Les conventions de dossier sont les suivantes :
 | lib/{tfm} | Fichiers d’assembly (`.dll`), de documentation (`.xml`) et de symbole (`.pdb`) du TFM (moniker de la version cible de .NET Framework) donné | Les assemblys sont ajoutés comme références pour la compilation et l’exécution. `.xml` et `.pdb` sont copiés dans les dossiers du projet. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md) pour créer des sous-dossiers propres à la cible du framework. |
 | ref/{tfm} | Fichiers d’assembly (`.dll`) et de symbole (`.pdb`) du TFM (moniker de framework cible) donné | Les assemblys étant uniquement ajoutés comme références pour la compilation, rien n’est copié dans le dossier bin du projet. |
 | runtimes | Fichiers d’assemblies propres à l’architecture (`.dll`), de symboles (`.pdb`) et de ressources natives (`.pri`) | Les assemblys sont uniquement ajoutés comme références pour l’exécution. Les autres fichiers sont copiés dans les dossiers du projet. Il doit toujours y avoir un assembly spécifique à `AnyCPU` (TFM) correspondant sous le dossier `/ref/{tfm}` pour fournir l’assembly correspondant au moment de la compilation. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md). |
-| contenu | Fichiers arbitraires | Le contenu est copié à la racine du projet. Considérez que le dossier **content** est la racine de l’application cible qui consomme le package en définitive. Pour que le package ajoute une image dans le dossier */images* de l’application, placez-le dans le dossier *content/images* du package. |
+| content | Fichiers arbitraires | Le contenu est copié à la racine du projet. Considérez que le dossier **content** est la racine de l’application cible qui consomme le package en définitive. Pour que le package ajoute une image dans le dossier */images* de l’application, placez-le dans le dossier *content/images* du package. |
 | build | Fichiers *(3.x+)* MSBuild `.targets` et `.props` | Automatiquement insérés dans le projet. |
 | buildMultiTargeting | Les fichiers *(4.0+)* MSBuild `.targets` et `.props` du ciblage multi-infrastructure | Automatiquement insérés dans le projet. |
 | buildTransitive | Fichiers *(5.0 +)* MSBuild `.targets` et `.props` qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Automatiquement insérés dans le projet. |
@@ -286,7 +286,7 @@ Pour spécifier directement les fichiers à inclure dans le package, utilisez le
 
 ```xml
 <?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
     <!-- ... -->
     </metadata>
@@ -423,7 +423,7 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Gestion de version des packages](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
