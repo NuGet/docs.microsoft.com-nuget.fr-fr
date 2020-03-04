@@ -24,6 +24,7 @@
 ### [Réinstaller et mettre à jour des packages](consume-packages/reinstalling-and-updating-packages.md)
 ### [Gérer les dossiers de packages globaux et de cache](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Gérer les limites d’approbation de package](consume-packages/installing-signed-packages.md)
+### [Utiliser des flux authentifiés](consume-packages/consuming-packages-authenticated-feeds.md)
 ### [Utiliser les systèmes de contrôle de code source](consume-packages/packages-and-source-control.md)
 ### [Configurations courantes de NuGet](consume-packages/configuring-nuget-behavior.md)
 ## Packages de référence dans votre projet
@@ -45,7 +46,8 @@
 ### [Définir un type de package](create-packages/set-package-type.md)
 ### [Créer un package localisé](create-packages/creating-localized-packages.md)
 ## Guides pour du contenu spécifique
-### [Créer un package UWP](guides/create-uwp-packages.md)
+### [Créer un package UWP (C++)](guides/create-uwp-packages.md)
+### [Créer un package UWP (C#)](guides/create-uwp-packages-CS.md)
 ### [Créer un package natif](guides/native-packages.md)
 ### [Créer des contrôles IU en tant que package NuGet](guides/create-UI-controls.md)
 ### [Créer un analyseur en tant que package NuGet](guides/analyzers-conventions.md)
