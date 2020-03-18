@@ -7,11 +7,11 @@ ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
 ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230861"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428834"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
@@ -27,7 +27,7 @@ Dans cette rubrique :
 
 ## <a name="version-basics"></a>Principes de base d’une version
 
-Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]*, où les composants ont la signification suivante :
+Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]* , où les composants ont la signification suivante :
 
 - *Majeure*: modifications avec rupture
 - *Mineure*: nouvelles fonctionnalités, mais à compatibilité descendante
@@ -80,7 +80,7 @@ Certaines sémantiques de SemVer 2.0.0 ne sont pas prises en charge dans les cl
 Pour nuget.org, un package est défini comme un package SemVer 2.0.0 si l'un des énoncés suivants est vrai :
 
 - La propre version du package est conforme à SemVer 2.0.0 mais pas à SemVer 1.0.0, comme défini ci-dessus.
-- Toutes les plages de versions des dépendances du package ont une version minimale ou maximale conforme à SemVer 2.0.0 mais non conforme à SemVer 1.0.0, définie ci-dessus ; par exemple, *[1.0.0-alpha.1, )*.
+- Toutes les plages de versions des dépendances du package ont une version minimale ou maximale conforme à SemVer 2.0.0 mais non conforme à SemVer 1.0.0, définie ci-dessus ; par exemple, *[1.0.0-alpha.1, )* .
 
 Si vous uploadez un package spécifique à SemVer 2.0.0 sur nuget.org, le package est invisible pour les anciens clients et disponible uniquement pour les clients NuGet suivants :
 

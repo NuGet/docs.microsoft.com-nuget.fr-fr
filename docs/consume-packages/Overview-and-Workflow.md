@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/22/2018
 ms.topic: conceptual
 ms.openlocfilehash: ddd1d163e18ed4ce1e7cbf41ed152acc40c1c423
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488784"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428883"
 ---
 # <a name="package-consumption-workflow"></a>Flux de travail de la consommation des packages
 
@@ -18,14 +18,14 @@ Entre nuget.org et les galeries privées de packages que votre organisation peut
 
 ![Procédure comprenant l’accès à une source de package, la recherche d’un package, l’installation du package dans un projet, l’ajout d’une instruction using et les appels à l’API du package](media/Overview-01-GeneralFlow.png)
 
-\* _Visual Studio et `dotnet.exe` uniquement. La commande `nuget install` ne change pas les fichiers projet, ni le fichier `packages.config`. Les entrées doivent être gérées manuellement._
+\* _Visual Studio et `dotnet.exe` uniquement. La commande `nuget install` ne modifie pas les fichiers projet ou le fichier `packages.config` ; les entrées doivent être gérées manuellement._
 
 Pour plus d’informations, consultez [Trouver et choisir des packages](../consume-packages/finding-and-choosing-packages.md) et [Processus d’installation d’un package](../concepts/package-installation-process.md).
 
 NuGet se souvient de l’identité et du numéro de version de chaque package installé. Il les enregistre le fichier projet (avec [PackageReference](../consume-packages/package-references-in-project-files.md)) ou dans [`packages.config`](../reference/packages-config.md), selon le type du projet et la version de NuGet. Avec NuGet 4.0+, PackageReference est recommandé, bien que cela soit configurable dans Visual Studio à l’aide de l’[interface utilisateur du Gestionnaire de package](install-use-packages-visual-studio.md). Dans tous les cas, vous pouvez rechercher dans le fichier approprié à tout moment pour voir la liste complète des dépendances de votre projet.
 
 > [!Tip]
-> Il est préférable de toujours vérifier la licence pour chaque package que vous souhaitez utiliser dans votre logiciel. Pour vérifier la licence, sur Nuget.org, cliquez sur le lien **License Info** situé à droite, dans la page de description de chaque package. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide de du lien **Contact owners** (Contacter les propriétaires) dans la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
+> Il est préférable de toujours vérifier la licence pour chaque package que vous souhaitez utiliser dans votre logiciel. Pour vérifier la licence, sur Nuget.org, cliquez sur le lien **License Info** situé à droite, dans la page de description de chaque package. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide de du lien **Contact owners** (Contacter les propriétaires) dans la page du package. Microsoft ne vous accorde pas de licences de droits de propriété intellectuelle pour le compte de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
 
 Lors de l’installation des packages, NuGet vérifie généralement si le package est déjà disponible dans son cache. Vous pouvez effacer manuellement ce cache en ligne de commande, comme l’explique la page [Gérer les dossiers de packages globaux et de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 

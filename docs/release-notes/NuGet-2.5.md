@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 940582d5173f5a53dcd04cf1258fc02a2439af4e
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825287"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428715"
 ---
 # <a name="nuget-25-release-notes"></a>Notes de publication de NuGet 2,5
 
@@ -182,7 +182,7 @@ nuget push -source \\mycompany\repo\ mypackage.1.0.0.nupkg
 
 les commandes NuGet. exe qui accèdent à la configuration (toutes sauf « spec » et « Pack ») prennent désormais en charge une nouvelle option « -ConfigFile », qui force l’utilisation d’un fichier de configuration spécifique à la place du fichier de configuration par défaut sur%AppData%\nuget\Nuget.Config.
 
-Exemple :
+Exemple :
 
 ```cli
 nuget sources add -name test -source http://test -ConfigFile C:\test\.nuget\Nuget.Config

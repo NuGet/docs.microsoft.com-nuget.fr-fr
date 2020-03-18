@@ -6,11 +6,11 @@ ms.author: nikolev
 ms.date: 07/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: 00410214500c7f5256be243dd6fca0907ba9b0c4
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72380500"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429107"
 ---
 # <a name="nuget-cross-platform-plugins"></a>Plug-ins inter-plateforme NuGet
 
@@ -26,11 +26,11 @@ La description ci-dessous décrit les combinaisons client/Framework des plug-ins
 
 | Outil client  | Framework |
 | ------------ | --------- |
-| Visual Studio | .NET Framework |
-| dotnet. exe | .NET Core |
-| NuGet. exe | .NET Framework |
-| MSBuild. exe | .NET Framework |
-| NuGet. exe sur mono | .NET Framework |
+| Visual Studio | .NET Framework |
+| dotnet.exe | .NET Core |
+| NuGet. exe | .NET Framework |
+| MSBuild. exe | .NET Framework |
+| NuGet. exe sur mono | .NET Framework |
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
@@ -80,7 +80,7 @@ Les scénarios CI/CD et les utilisateurs avec pouvoir peuvent utiliser des varia
 | Framework | Emplacement de la détection racine  |
 | ------- | ------------------------ |
 | .NET Core |  `%UserProfile%/.nuget/plugins/netcore` |
-| .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
+| .NET Framework | `%UserProfile%/.nuget/plugins/netfx` |
 
 Chaque plug-in doit être installé dans son propre dossier.
 Le point d’entrée du plug-in sera le nom du dossier installé, avec les extensions. dll pour .NET Core et l’extension. exe pour .NET Framework.
@@ -107,7 +107,7 @@ Le point d’entrée du plug-in sera le nom du dossier installé, avec les exten
 
 Deux opérations sont prises en charge dans le nouveau protocole de plug-in.
 
-| Nom de l’opération | Version de protocole minimale | Version minimale du client NuGet |
+| Nom d’opération | Version de protocole minimale | Version minimale du client NuGet |
 | -------------- | ----------------------- | --------------------- |
 | Télécharger le package | 1.0.0 | 4.3.0 |
 | [Authentification](NuGet-Cross-Platform-Authentication-Plugin.md) | 2.0.0 | 4.8.0 |
@@ -124,13 +124,13 @@ La vérification de la sécurité et l’instanciation des plug-ins sont coûteu
 Pour améliorer l’expérience, NuGet met en cache les revendications d’opération pour la demande donnée. Ce cache est par plug-in dont la clé de plug-in est le chemin du plug-in, et l’expiration pour ce cache de fonctionnalités est de 30 jours. 
 
 Le cache se trouve dans `%LocalAppData%/NuGet/plugins-cache` et est remplacé par la variable d’environnement `NUGET_PLUGINS_CACHE_PATH`. Pour effacer ce [cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md), vous pouvez exécuter la commande variables locales avec l’option `plugins-cache`.
-L’option variables locales `all` va également supprimer le cache des plug-ins. 
+L’option `all` variables locales va également supprimer le cache des plug-ins. 
 
 ## <a name="protocol-messages-index"></a>Index des messages de protocole
 
 Messages de la version de protocole *1.0.0* :
 
-1.  Close
+1.  fermez
     * Direction de la requête : plug-in NuGet->
     * La demande ne contient pas de charge utile
     * Aucune réponse n’est attendue.  La réponse appropriée est que le processus du plug-in s’arrête rapidement.
@@ -196,7 +196,7 @@ Messages de la version de protocole *1.0.0* :
         * Code de réponse indiquant le résultat de l’opération
         * hachage de fichier de package utilisant l’algorithme de hachage demandé si l’opération a réussi
 
-8.  Obtient les versions du package
+8.  Obtenir des versions de packages
     * Direction de la requête : plug-in NuGet->
     * La demande contient :
         * ID du package
@@ -222,7 +222,7 @@ Messages de la version de protocole *1.0.0* :
          * Code de réponse indiquant le résultat de l’opération
          * version du protocole négocié si l’opération a réussi.  Une défaillance entraînera l’arrêt du plug-in.
 
-11.  Initialize
+11.  Initialiser
      * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * version de l’outil client NuGet
@@ -231,7 +231,7 @@ Messages de la version de protocole *1.0.0* :
      * Une réponse contient les éléments suivants :
          * Code de réponse indiquant le résultat de l’opération.  Une défaillance entraînera l’arrêt du plug-in.
 
-12.  Log
+12.  Journal
      * Direction de la demande : plugin-> NuGet
      * La demande contient :
          * niveau de journalisation de la demande
@@ -254,7 +254,7 @@ Messages de la version de protocole *1.0.0* :
      * Une réponse contient les éléments suivants :
          * Code de réponse indiquant le résultat de l’opération
 
-15.  Définir les informations d’identification
+15.  Définition des informations d’identification
      * Direction de la requête : plug-in NuGet->
      * La demande contient :
          * emplacement du référentiel source du package
@@ -290,12 +290,12 @@ Messages du protocole version *2.0.0*
 
 * Direction de la requête : plug-in NuGet->
 * La demande contient :
-    * URI
-    * isRetry
-    * Non interactive
+    * Uri
+    * IsRetry
+    * NonInteractive
     * CanShowDialog
 * Une réponse contient
-    * Utilisateur
+    * Nom d’utilisateur
     * Mot de passe
     * Message
     * Liste des types d’authentification

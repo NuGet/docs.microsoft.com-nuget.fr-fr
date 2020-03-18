@@ -11,11 +11,11 @@ f1_keywords:
 - vs.toolsoptionspages.nuget_package_manager.package_sources
 - vs.nuget.packagemanager.ui
 ms.openlocfilehash: 3adceac8c725d9ea1610aea090753c9c1d8bc818
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231005"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428694"
 ---
 # <a name="install-and-manage-packages-in-visual-studio-using-the-nuget-package-manager"></a>Installer et gérer des packages dans Visual Studio à l’aide du gestionnaire de package NuGet
 
@@ -28,7 +28,7 @@ L’interface utilisateur du gestionnaire de package NuGet dans Visual Studio fa
 
 ## <a name="find-and-install-a-package"></a>Rechercher et installer un package
 
-1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Références** ou sur un projet, puis sélectionnez **Gérer les packages NuGet...**.
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Références** ou sur un projet, puis sélectionnez **Gérer les packages NuGet...** .
 
     ![Option de menu Gérer les packages NuGet](media/ManagePackagesUICommand.png)
 
@@ -48,7 +48,7 @@ L’interface utilisateur du gestionnaire de package NuGet dans Visual Studio fa
 
 ## <a name="uninstall-a-package"></a>Désinstaller un package
 
-1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Références** ou sur le projet souhaité, puis sélectionnez **Gérer les packages NuGet...**.
+1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur **Références** ou sur le projet souhaité, puis sélectionnez **Gérer les packages NuGet...** .
 1. Sélectionnez l’onglet **Installé**.
 1. Sélectionnez le package à désinstaller (à l’aide de la recherche pour filtrer la liste si nécessaire) et sélectionnez **Désinstaller**.
 
@@ -58,7 +58,7 @@ L’interface utilisateur du gestionnaire de package NuGet dans Visual Studio fa
 
 ## <a name="update-a-package"></a>Mettre à jour un package
 
-1. Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **références** ou sur le projet souhaité, puis sélectionnez **gérer les packages NuGet...**. (Dans projets de site Web, cliquez avec le bouton droit sur le dossier **bin** .)
+1. Dans **Explorateur de solutions**, cliquez avec le bouton droit sur **références** ou sur le projet souhaité, puis sélectionnez **gérer les packages NuGet...** . (Dans projets de site Web, cliquez avec le bouton droit sur le dossier **bin** .)
 1. Sélectionnez l'onglet **Mises à jour** pour afficher les packages pour lesquels des mises à jour sont disponibles à partir des sources de package sélectionnées. Sélectionnez **Inclure la version préliminaire** pour inclure les packages en version préliminaire dans la liste des mises à jour.
 1. Sélectionnez le package à mettre à jour, la version souhaitée dans la liste déroulante à droite, puis **Mettre à jour**.
 
@@ -79,7 +79,7 @@ L’interface utilisateur du gestionnaire de package NuGet dans Visual Studio fa
 
 La gestion des packages pour une solution est un moyen pratique de travailler simultanément sur plusieurs projets.
 
-1. Sélectionnez la commande de menu **Outils > Gérer les packages NuGet pour la solution...**, ou cliquez avec le bouton droit sur la solution dans l’Explorateur de solutions et sélectionnez **Gérer les packages NuGet...**  :
+1. Sélectionnez la commande de menu **Outils > Gérer les packages NuGet pour la solution...** , ou cliquez avec le bouton droit sur la solution dans l’Explorateur de solutions et sélectionnez **Gérer les packages NuGet...**  :
 
     ![Gérer les packages NuGet pour la solution](media/ManagePackagesSolutionUICommand.png)
 
@@ -117,7 +117,7 @@ Pour gérer les sources de packages :
 
     ![Options des sources de packages](media/options.png)
 
-1. Pour ajouter une source, sélectionnez **+**, modifiez le nom, entrez l’URL ou le chemin dans le contrôle de **code source**, puis sélectionnez **Mettre à jour**. La source apparaît maintenant dans la liste déroulante du sélecteur.
+1. Pour ajouter une source, sélectionnez **+** , modifiez le nom, entrez l’URL ou le chemin dans le contrôle de **code source**, puis sélectionnez **Mettre à jour**. La source apparaît maintenant dans la liste déroulante du sélecteur.
 1. Pour modifier une source de package, sélectionnez-la, apportez des modifications aux zones **Nom** et **Source**, puis sélectionnez **Mettre à jour**.
 1. Pour désactiver une source de package, décochez la case située à gauche de son nom dans la liste.
 1. Pour supprimer une source de package, sélectionnez-la, puis sélectionnez le bouton **X**.

@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 03/19/2018
 ms.topic: conceptual
 ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74825209"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428967"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gérer les dossiers de packages globaux, les dossiers de cache et les dossiers temporaires
 
@@ -18,7 +18,7 @@ Chaque fois que vous installez, mettez à jour ou restaurez un package, NuGet g�
 
 | Name | Description et emplacement (par utilisateur)|
 | --- | --- |
-| global&#8209;packages | C’est dans le dossier *global-packages* que NuGet installe les packages téléchargés. Chaque package est entièrement développé dans un sous-dossier qui correspond à son identificateur et à son numéro de version. Les projets au format [PackageReference](package-references-in-project-files.md) utilisent toujours les packages directement dans ce dossier. Lorsque [packages.config](../reference/packages-config.md) est utilisé, les packages sont installés dans le dossier *global-packages*, puis copiés dans le dossier `packages` du projet.<br/><ul><li>Windows : `%userprofile%\.nuget\packages`</li><li>Mac/Linux : `~/.nuget/packages`</li><li>Écrasez avec la variable d’environnement NUGET_PACKAGES, les [paramètres de configuration](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` ou `repositoryPath` (respectivement pour PackageReference et `packages.config`) ou la propriété MSBuild `RestorePackagesPath` (MSBuild uniquement). La variable d’environnement a la priorité sur le paramètre de configuration.</li></ul> |
+| global&#8209;packages | C’est dans le dossier *global-packages* que NuGet installe les packages téléchargés. Chaque package est entièrement développé dans un sous-dossier qui correspond à son identificateur et à son numéro de version. Les projets au format [PackageReference](package-references-in-project-files.md) utilisent toujours les packages directement dans ce dossier. Lorsque [packages.config](../reference/packages-config.md) est utilisé, les packages sont installés dans le dossier *global-packages*, puis copiés dans le dossier `packages` du projet.<br/><ul><li>Windows : `%userprofile%\.nuget\packages`</li><li>Mac/Linux : `~/.nuget/packages`</li><li>Substituez à l’aide de la variable d’environnement NUGET_PACKAGES, des [paramètres de configuration](../reference/nuget-config-file.md#config-section) `globalPackagesFolder` ou `repositoryPath` (en utilisant respectivement PackageReference et `packages.config`) ou de la propriété MSBuild `RestorePackagesPath` (MSBuild uniquement). La variable d’environnement a la priorité sur le paramètre de configuration.</li></ul> |
 | http&#8209;cache | Le Gestionnaire de Package de Visual Studio (NuGet 3.x+) et l’outil `dotnet` stockent une copie des packages téléchargés dans ce cache (sous la forme de fichiers `.dat`), dans un sous-dossier par source de package. Les packages ne sont pas développés, et le cache a un délai d’expiration de 30 minutes.<br/><ul><li>Windows : `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux : `~/.local/share/NuGet/v3-cache`</li><li>Écrasez avec la variable d’environnement NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Il s’agit du dossier dans lequel NuGet stocke les fichiers temporaires pendant ses différentes opérations.<br/><li>Windows : `%temp%\NuGetScratch`</li><li>Mac/Linux : `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | Il s’agit du dossier dans lequel NuGet stocke les résultats de la demande de revendications de l’opération.<br/><ul><li>Windows : `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux : `~/.local/share/NuGet/plugins-cache`</li><li>Remplacez par la variable d’environnement NUGET_PLUGINS_CACHE_PATH.</li></ul> |
@@ -104,7 +104,7 @@ Les packages utilisés par des projets actuellement ouverts dans Visual Studio n
 
 ![Commande d’option NuGet pour effacer les caches](media/options-clear-caches.png)
 
-## <a name="troubleshooting-errors"></a>Dépannage d'erreurs
+## <a name="troubleshooting-errors"></a>Dépannage des erreurs
 
 Les erreurs suivantes risquent de se produire avec `nuget locals` ou `dotnet nuget locals` :
 

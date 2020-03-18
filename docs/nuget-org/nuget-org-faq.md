@@ -6,11 +6,11 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 915f6e4cfc0b21d2b10006c62e8230720d07ce74
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813739"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428904"
 ---
 # <a name="nugetorg-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet.org
 
@@ -20,7 +20,7 @@ ms.locfileid: "76813739"
 
 Chaque package est régi par les conditions qu’il inclut. Vous devez examiner les conditions applicables avant d’accéder à des packages, d’en télécharger ou d’en acquérir. Sur NuGet.org, utilisez le lien **License Info** (Informations de licence) sur la page des packages.
 
-Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **Contact owners** (Contacter les propriétaires) sur la page des packages NuGet.org. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
+Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **Contact owners** (Contacter les propriétaires) sur la page des packages NuGet.org. Microsoft ne vous accorde pas de licences de droits de propriété intellectuelle pour le compte de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
 
 ## <a name="managing-packages-on-nugetorg"></a>Gestion des packages sur NuGet.org
 
@@ -38,7 +38,7 @@ En général, nous ne prenons pas en charge la suppression d’un package publi�
 
 **Est-il possible de réserver des noms pour les packages destinés à être publiés ?**
 
-Oui, Vous pouvez réserver des ID pour les packages sur [NuGet.org](https://www.nuget.org/) en demandant un préfixe d’ID de package pour votre compte. Pour demander un préfixe d’ID de package, suivez les instructions de la [documentation](id-prefix-reservation.md).
+Oui. Vous pouvez réserver des ID pour les packages sur [NuGet.org](https://www.nuget.org/) en demandant un préfixe d’ID de package pour votre compte. Pour demander un préfixe d’ID de package, suivez les instructions de la [documentation](id-prefix-reservation.md).
 
 **Comment revendiquer la propriété de packages ?**
 
@@ -242,7 +242,7 @@ Vous pouvez [créer](https://www.microsoft.com/account) un compte Microsoft (ave
 
 ### <a name="how-do-i-change-my-nugetorg-account-username"></a>Comment changer mon nom d’utilisateur de compte NuGet.org ?
 
-Vous ne le pouvez pas. En matière de stratégie, nous n’autorisons pas la modification des noms d’utilisateur. En outre, il s’agit d’une modification avec rupture pour les utilisateurs qui peuvent avoir défini des [stratégies d’approbation de package basées sur le propriétaire du package](../consume-packages/installing-signed-packages.md#trust-package-owners). La seule façon de changer votre nom d’utilisateur consiste à créer un compte avec le nom d’utilisateur souhaité. Nous vous recommandons de supprimer votre compte existant avant d’en créer un nouveau. Sinon, vous ne pourrez pas réutiliser votre compte Microsoft inscrit.
+Ce n’est pas possible. En matière de stratégie, nous n’autorisons pas la modification des noms d’utilisateur. En outre, il s’agit d’une modification avec rupture pour les utilisateurs qui peuvent avoir défini des [stratégies d’approbation de package basées sur le propriétaire du package](../consume-packages/installing-signed-packages.md#trust-package-owners). La seule façon de changer votre nom d’utilisateur consiste à créer un compte avec le nom d’utilisateur souhaité. Nous vous recommandons de supprimer votre compte existant avant d’en créer un nouveau. Sinon, vous ne pourrez pas réutiliser votre compte Microsoft inscrit.
 > [!Important]
 > La suppression de l’utilisateur **réserve** toutefois la valeur `username`. Vous ne pourrez pas réutiliser le même nom d’utilisateur et **cela inclut le changement de casse**. Par exemple, si vous avez créé un utilisateur avec le nom d’utilisateur `mycoolname` et que vous voulez le remplacer par `MyCoolName` (changement de casse), ce ne sera pas possible après la suppression de l’utilisateur.
 

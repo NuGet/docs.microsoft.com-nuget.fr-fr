@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7951b3db0cdcaee0a1eb955a5bf6fedce24c79c9
-ms.sourcegitcommit: fc0f8c950829ee5c96e3f3f32184bc727714cfdb
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74253952"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79429016"
 ---
 # <a name="individual-accounts-on-nugetorg"></a>Comptes individuels sur NuGet.org
 
@@ -20,7 +20,7 @@ Vous devez créer un compte individuel pour publier et gérer des packages sur N
 
 Votre compte individuel (utilisateur) est votre identité sur NuGet.org et peut être membre de plusieurs organisations. Un package peut appartenir à un compte d’organisation ou à un compte individuel. Pour les consommateurs de packages, il n’y a aucune différence entre un compte individuel et le compte d’organisation : tous deux apparaissent comme `owners` de packages.
 
-Un compte d’organisation comprend un ou plusieurs comptes individuels comme membres. Ces membres peuvent gérer un ensemble de packages tout en conservant une identité unique pour appropriation.
+Un compte d’organisation comprend un ou plusieurs comptes individuels comme membres. Ces membres peuvent gérer un ensemble de packages tout en conservant une identité unique pour la propriété.
 
 ## <a name="add-a-new-individual-account"></a>Ajouter un nouveau compte individuel
 

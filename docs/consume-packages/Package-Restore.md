@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: c1f1957c58839ac763238938b476eb0882c56a59
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78231204"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428743"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurer des packages avec la restauration de packages
 
@@ -29,7 +29,7 @@ Si un package n’est pas déjà installé, NuGet essaie d’abord de le récup�
 
 ## <a name="restore-packages"></a>Restaurer des packages
 
-La restauration du package tente d’installer toutes les dépendances de package dans l’état correct correspondant aux références de votre fichier projet (*. csproj* ) ou de votre fichier *packages. config*. (Dans Visual Studio, les références s’affichent dans l’Explorateur de solutions sous **Dependencies \ NuGet** ou sous le nœud **Références**.)
+La restauration du package tente d’installer toutes les dépendances de package dans l’état correct correspondant aux références de votre fichier projet ( *. csproj* ) ou de votre fichier *packages. config*. (Dans Visual Studio, les références s’affichent dans l’Explorateur de solutions sous **Dependencies \ NuGet** ou sous le nœud **Références**.)
 
 1. Si les références du package dans votre fichier projet sont correctes, utilisez votre outil préféré pour restaurer les packages.
 
@@ -40,7 +40,7 @@ La restauration du package tente d’installer toutes les dépendances de packag
    - [Azure Pipelines](#restore-using-azure-pipelines)
    - [Azure DevOps Server](#restore-using-azure-devops-server)
 
-   Si les références de package dans votre fichier projet (*.csproj*) ou votre fichier *packages.config* sont incorrectes (elles ne correspondent pas à l’état souhaité après la restauration du package), vous devez installer ou mettre à jour les packages à la place.
+   Si les références de package dans votre fichier projet ( *.csproj*) ou votre fichier *packages.config* sont incorrectes (elles ne correspondent pas à l’état souhaité après la restauration du package), vous devez installer ou mettre à jour les packages à la place.
 
    Pour les projets utilisant PackageReference, après une restauration réussie le package doit se trouver dans le dossier *global-packages* et le fichier `obj/project.assets.json` est recréé. Pour les projets qui utilisent `packages.config`, le package doit apparaître dans le dossier `packages` du projet. Le projet doit à présent être généré. 
 
@@ -180,13 +180,13 @@ Azure DevOps Server et TFS 2013 et ultérieur restaurent automatiquement les pa
 
 Quand NuGet restaure des packages avec l’une des méthodes disponibles, il respecte toutes les restrictions que vous avez spécifiées dans `packages.config` ou dans le fichier projet :
 
-- Dans `packages.config`, vous pouvez spécifier une plage de versions dans la propriété `allowedVersion` de la dépendance. Pour plus d’informations, consultez [Restriction des versions de mise à niveau](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Par exemple : 
+- Dans `packages.config`, vous pouvez spécifier une plage de versions dans la propriété `allowedVersion` de la dépendance. Pour plus d’informations, consultez [Restriction des versions de mise à niveau](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions). Par exemple :
 
     ```xml
     <package id="Newtonsoft.json" version="6.0.4" allowedVersions="[6,7)" />
     ```
 
-- Dans un fichier projet, vous pouvez utiliser PackageReference pour spécifier directement la plage d’une dépendance. Par exemple : 
+- Dans un fichier projet, vous pouvez utiliser PackageReference pour spécifier directement la plage d’une dépendance. Par exemple :
 
     ```xml
     <PackageReference Include="Newtonsoft.json" Version="[6, 7)" />
