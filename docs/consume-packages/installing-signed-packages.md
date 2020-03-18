@@ -6,25 +6,25 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74096850"
+ms.lasthandoff: 03/16/2020
+ms.locfileid: "79428981"
 ---
-# <a name="manage-package-trust-boundaries"></a><span data-ttu-id="25da7-103">Gérer les limites d’approbation de package</span><span class="sxs-lookup"><span data-stu-id="25da7-103">Manage package trust boundaries</span></span>
+# <a name="manage-package-trust-boundaries"></a><span data-ttu-id="491b1-103">Gérer les limites d’approbation de package</span><span class="sxs-lookup"><span data-stu-id="491b1-103">Manage package trust boundaries</span></span>
 
-<span data-ttu-id="25da7-104">L’installation de packages signés ne nécessite aucune action spécifique. Cependant, si le contenu a été modifié après sa signature, l’installation est bloquée avec une erreur [NU3008](../reference/errors-and-warnings/NU3008.md).</span><span class="sxs-lookup"><span data-stu-id="25da7-104">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation is blocked with error [NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
+<span data-ttu-id="491b1-104">L’installation de packages signés ne nécessite aucune action spécifique. Cependant, si le contenu a été modifié après sa signature, l’installation est bloquée avec une erreur [NU3008](../reference/errors-and-warnings/NU3008.md).</span><span class="sxs-lookup"><span data-stu-id="491b1-104">Signed packages don't require any specific action to be installed; however, if the content has been modified since it was signed, the installation is blocked with error [NU3008](../reference/errors-and-warnings/NU3008.md).</span></span>
 
 > [!Warning]
-> <span data-ttu-id="25da7-105">Les packages signés avec des certificats non approuvés sont considérés comme non signés et installés sans avertissements ni erreurs, comme n’importe quel package non signé.</span><span class="sxs-lookup"><span data-stu-id="25da7-105">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
+> <span data-ttu-id="491b1-105">Les packages signés avec des certificats non approuvés sont considérés comme non signés et installés sans avertissements ni erreurs, comme n’importe quel package non signé.</span><span class="sxs-lookup"><span data-stu-id="491b1-105">Packages signed with untrusted certificates are considered as unsigned and are installed without any warnings or errors like any other unsigned package.</span></span>
 
-## <a name="configure-package-signature-requirements"></a><span data-ttu-id="25da7-106">Configurer les exigences de signature de package</span><span class="sxs-lookup"><span data-stu-id="25da7-106">Configure package signature requirements</span></span>
+## <a name="configure-package-signature-requirements"></a><span data-ttu-id="491b1-106">Configurer les exigences de signature de package</span><span class="sxs-lookup"><span data-stu-id="491b1-106">Configure package signature requirements</span></span>
 
 > [!Note]
-> <span data-ttu-id="25da7-107">Nécessite NuGet 4.9.0+ et Visual Studio version 15.9 et ultérieure sur Windows</span><span class="sxs-lookup"><span data-stu-id="25da7-107">Requires NuGet 4.9.0+ and Visual Studio version 15.9 and later on Windows</span></span>
+> <span data-ttu-id="491b1-107">Nécessite NuGet 4.9.0+ et Visual Studio version 15.9 et ultérieure sur Windows</span><span class="sxs-lookup"><span data-stu-id="491b1-107">Requires NuGet 4.9.0+ and Visual Studio version 15.9 and later on Windows</span></span>
 
-<span data-ttu-id="25da7-108">Vous pouvez configurer la façon dont les clients NuGet valident les signatures de package en définissant `signatureValidationMode` sur `require` dans le fichier [nuget.config](../reference/nuget-config-file.md) avec la commande [`nuget config`](../reference/cli-reference/cli-ref-config.md).</span><span class="sxs-lookup"><span data-stu-id="25da7-108">You can configure how NuGet clients validate package signatures by setting the `signatureValidationMode` to `require` in the [nuget.config](../reference/nuget-config-file.md) file using the [`nuget config`](../reference/cli-reference/cli-ref-config.md) command.</span></span>
+<span data-ttu-id="491b1-108">Vous pouvez configurer la façon dont les clients NuGet valident les signatures de package en définissant `signatureValidationMode` sur `require` dans le fichier [nuget.config](../reference/nuget-config-file.md) avec la commande [`nuget config`](../reference/cli-reference/cli-ref-config.md).</span><span class="sxs-lookup"><span data-stu-id="491b1-108">You can configure how NuGet clients validate package signatures by setting the `signatureValidationMode` to `require` in the [nuget.config](../reference/nuget-config-file.md) file using the [`nuget config`](../reference/cli-reference/cli-ref-config.md) command.</span></span>
 
 ```cmd
 nuget.exe config -set signatureValidationMode=require
@@ -36,11 +36,11 @@ nuget.exe config -set signatureValidationMode=require
   </config>
 ```
 
-<span data-ttu-id="25da7-109">Ce mode vérifie que tous les packages sont signés par un des certificats approuvés dans le fichier `nuget.config`.</span><span class="sxs-lookup"><span data-stu-id="25da7-109">This mode will verify that all packages are signed by any of the certificates trusted in the `nuget.config` file.</span></span> <span data-ttu-id="25da7-110">Ce fichier vous permet de spécifier les auteurs et/ou les dépôts qui sont approuvés en fonction de l’empreinte du certificat.</span><span class="sxs-lookup"><span data-stu-id="25da7-110">This file allows you to specify which authors and/or repositories are trusted based on the certificate's fingerprint.</span></span>
+<span data-ttu-id="491b1-109">Ce mode vérifie que tous les packages sont signés par un des certificats approuvés dans le fichier `nuget.config`.</span><span class="sxs-lookup"><span data-stu-id="491b1-109">This mode will verify that all packages are signed by any of the certificates trusted in the `nuget.config` file.</span></span> <span data-ttu-id="491b1-110">Ce fichier vous permet de spécifier les auteurs et/ou les dépôts qui sont approuvés en fonction de l’empreinte du certificat.</span><span class="sxs-lookup"><span data-stu-id="491b1-110">This file allows you to specify which authors and/or repositories are trusted based on the certificate's fingerprint.</span></span>
 
-### <a name="trust-package-author"></a><span data-ttu-id="25da7-111">Approuver un auteur de package</span><span class="sxs-lookup"><span data-stu-id="25da7-111">Trust package author</span></span>
+### <a name="trust-package-author"></a><span data-ttu-id="491b1-111">Approuver un auteur de package</span><span class="sxs-lookup"><span data-stu-id="491b1-111">Trust package author</span></span>
 
-<span data-ttu-id="25da7-112">Pour approuver des packages en fonction de la signature de l’auteur, utilisez la commande [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) pour définir la propriété `author` dans le fichier nuget.config.</span><span class="sxs-lookup"><span data-stu-id="25da7-112">To trust packages based on the author signature use the [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) command to set the `author` property in the nuget.config.</span></span>
+<span data-ttu-id="491b1-112">Pour approuver des packages en fonction de la signature de l’auteur, utilisez la commande [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) pour définir la propriété `author` dans le fichier nuget.config.</span><span class="sxs-lookup"><span data-stu-id="491b1-112">To trust packages based on the author signature use the [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) command to set the `author` property in the nuget.config.</span></span>
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -55,12 +55,12 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 ```
 
 >[!TIP]
-><span data-ttu-id="25da7-113">Utilisez la [commande verify](../reference/cli-reference/cli-ref-verify.md) de `nuget.exe` pour obtenir la valeur `SHA256` de l’empreinte du certificat.</span><span class="sxs-lookup"><span data-stu-id="25da7-113">Use the `nuget.exe` [verify command](../reference/cli-reference/cli-ref-verify.md) to get the `SHA256` value of the certificate's fingerprint.</span></span>
+><span data-ttu-id="491b1-113">Utilisez la [commande `nuget.exe` Verify](../reference/cli-reference/cli-ref-verify.md) pour connaître la valeur `SHA256` de l’empreinte numérique du certificat.</span><span class="sxs-lookup"><span data-stu-id="491b1-113">Use the `nuget.exe` [verify command](../reference/cli-reference/cli-ref-verify.md) to get the `SHA256` value of the certificate's fingerprint.</span></span>
 
 
-### <a name="trust-all-packages-from-a-repository"></a><span data-ttu-id="25da7-114">Approuver tous les packages d’un dépôt</span><span class="sxs-lookup"><span data-stu-id="25da7-114">Trust all packages from a repository</span></span>
+### <a name="trust-all-packages-from-a-repository"></a><span data-ttu-id="491b1-114">Approuver tous les packages d’un dépôt</span><span class="sxs-lookup"><span data-stu-id="491b1-114">Trust all packages from a repository</span></span>
 
-<span data-ttu-id="25da7-115">Pour approuver des packages en fonction de la signature du dépôt, utilisez l’élément `repository` :</span><span class="sxs-lookup"><span data-stu-id="25da7-115">To trust packages based on the repository signature use the `repository` element:</span></span>
+<span data-ttu-id="491b1-115">Pour approuver des packages en fonction de la signature du dépôt, utilisez l’élément `repository` :</span><span class="sxs-lookup"><span data-stu-id="491b1-115">To trust packages based on the repository signature use the `repository` element:</span></span>
 
 ```xml
 <trustedSigners>  
@@ -72,9 +72,9 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 </trustedSigners>
 ```
 
-### <a name="trust-package-owners"></a><span data-ttu-id="25da7-116">Approuver des propriétaires de package</span><span class="sxs-lookup"><span data-stu-id="25da7-116">Trust Package Owners</span></span>
+### <a name="trust-package-owners"></a><span data-ttu-id="491b1-116">Approuver des propriétaires de package</span><span class="sxs-lookup"><span data-stu-id="491b1-116">Trust Package Owners</span></span>
 
-<span data-ttu-id="25da7-117">Les signatures de dépôt incluent des métadonnées supplémentaires pour déterminer les propriétaires du package au moment de l’envoi.</span><span class="sxs-lookup"><span data-stu-id="25da7-117">Repository signatures include additional metadata to determine the owners of the package at the time of submission.</span></span> <span data-ttu-id="25da7-118">Vous pouvez restreindre les packages d’un dépôt en fonction d’une liste de propriétaires :</span><span class="sxs-lookup"><span data-stu-id="25da7-118">You can restrict packages from a repository based on a list of owners:</span></span>
+<span data-ttu-id="491b1-117">Les signatures de dépôt incluent des métadonnées supplémentaires pour déterminer les propriétaires du package au moment de l’envoi.</span><span class="sxs-lookup"><span data-stu-id="491b1-117">Repository signatures include additional metadata to determine the owners of the package at the time of submission.</span></span> <span data-ttu-id="491b1-118">Vous pouvez restreindre les packages d’un dépôt en fonction d’une liste de propriétaires :</span><span class="sxs-lookup"><span data-stu-id="491b1-118">You can restrict packages from a repository based on a list of owners:</span></span>
 
 ```xml
 <trustedSigners>  
@@ -87,21 +87,21 @@ nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE408
 </trustedSigners>
 ```
 
-<span data-ttu-id="25da7-119">Si un package a plusieurs propriétaires et que l’un de ces propriétaires est dans la liste approuvée, l’installation du package réussit.</span><span class="sxs-lookup"><span data-stu-id="25da7-119">If a package has multiple owners, and any one of those owners is in the trusted list, the package installation will succeed.</span></span>
+<span data-ttu-id="491b1-119">Si un package a plusieurs propriétaires et que l’un de ces propriétaires est dans la liste approuvée, l’installation du package réussit.</span><span class="sxs-lookup"><span data-stu-id="491b1-119">If a package has multiple owners, and any one of those owners is in the trusted list, the package installation will succeed.</span></span>
 
-### <a name="untrusted-root-certificates"></a><span data-ttu-id="25da7-120">Certificats racines non approuvés</span><span class="sxs-lookup"><span data-stu-id="25da7-120">Untrusted Root certificates</span></span>
+### <a name="untrusted-root-certificates"></a><span data-ttu-id="491b1-120">Certificats racines non approuvés</span><span class="sxs-lookup"><span data-stu-id="491b1-120">Untrusted Root certificates</span></span>
 
-<span data-ttu-id="25da7-121">Dans certaines situations, vous souhaitez activer la vérification avec des certificats qui ne sont pas chaînés à une racine approuvée dans la machine locale.</span><span class="sxs-lookup"><span data-stu-id="25da7-121">In some situations you may want to enable verification using certificates that do not chain to a trusted root in the local machine.</span></span> <span data-ttu-id="25da7-122">Vous pouvez utiliser l’attribut `allowUntrustedRoot` pour personnaliser ce comportement.</span><span class="sxs-lookup"><span data-stu-id="25da7-122">You can use the `allowUntrustedRoot` attribute to customize this behavior.</span></span>
+<span data-ttu-id="491b1-121">Dans certaines situations, vous souhaitez activer la vérification avec des certificats qui ne sont pas chaînés à une racine approuvée dans la machine locale.</span><span class="sxs-lookup"><span data-stu-id="491b1-121">In some situations you may want to enable verification using certificates that do not chain to a trusted root in the local machine.</span></span> <span data-ttu-id="491b1-122">Vous pouvez utiliser l’attribut `allowUntrustedRoot` pour personnaliser ce comportement.</span><span class="sxs-lookup"><span data-stu-id="491b1-122">You can use the `allowUntrustedRoot` attribute to customize this behavior.</span></span>
 
-### <a name="sync-repository-certificates"></a><span data-ttu-id="25da7-123">Synchroniser des certificats de dépôt</span><span class="sxs-lookup"><span data-stu-id="25da7-123">Sync repository certificates</span></span>
+### <a name="sync-repository-certificates"></a><span data-ttu-id="491b1-123">Synchroniser des certificats de dépôt</span><span class="sxs-lookup"><span data-stu-id="491b1-123">Sync repository certificates</span></span>
 
-<span data-ttu-id="25da7-124">Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](../api/service-index.md).</span><span class="sxs-lookup"><span data-stu-id="25da7-124">Package repositories should announce the certificates they use in their [service index](../api/service-index.md).</span></span> <span data-ttu-id="25da7-125">Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire.</span><span class="sxs-lookup"><span data-stu-id="25da7-125">Eventually the repository will update these certificates, e.g. when the certificate expires.</span></span> <span data-ttu-id="25da7-126">Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté.</span><span class="sxs-lookup"><span data-stu-id="25da7-126">When that happens, clients with specific policies will require an update to the configuration to include the newly added certificate.</span></span> <span data-ttu-id="25da7-127">Vous pouvez facilement mettre à niveau les signataires approuvés associés à un dépôt avec la [commande trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name) de `nuget.exe`.</span><span class="sxs-lookup"><span data-stu-id="25da7-127">You can easily upgrade the trusted signers associated to a repository by using the `nuget.exe` [trusted-signers sync command](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).</span></span>
+<span data-ttu-id="491b1-124">Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](../api/service-index.md).</span><span class="sxs-lookup"><span data-stu-id="491b1-124">Package repositories should announce the certificates they use in their [service index](../api/service-index.md).</span></span> <span data-ttu-id="491b1-125">Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire.</span><span class="sxs-lookup"><span data-stu-id="491b1-125">Eventually the repository will update these certificates, e.g. when the certificate expires.</span></span> <span data-ttu-id="491b1-126">Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté.</span><span class="sxs-lookup"><span data-stu-id="491b1-126">When that happens, clients with specific policies will require an update to the configuration to include the newly added certificate.</span></span> <span data-ttu-id="491b1-127">Vous pouvez facilement mettre à niveau les signataires approuvés associés à un référentiel à l’aide de la `nuget.exe` [commande de synchronisation des signataires approuvés](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).</span><span class="sxs-lookup"><span data-stu-id="491b1-127">You can easily upgrade the trusted signers associated to a repository by using the `nuget.exe` [trusted-signers sync command](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name).</span></span>
 
-### <a name="schema-reference"></a><span data-ttu-id="25da7-128">Informations de référence sur le schéma</span><span class="sxs-lookup"><span data-stu-id="25da7-128">Schema reference</span></span>
+### <a name="schema-reference"></a><span data-ttu-id="491b1-128">Informations de référence sur le schéma</span><span class="sxs-lookup"><span data-stu-id="491b1-128">Schema reference</span></span>
 
-<span data-ttu-id="25da7-129">Vous trouverez les informations de référence complètes sur le schéma pour les stratégies clientes dans les [informations de référence sur nuget.config](../reference/nuget-config-file.md#trustedsigners-section)</span><span class="sxs-lookup"><span data-stu-id="25da7-129">The complete schema reference for the client policies can be found in the [nuget.config reference](../reference/nuget-config-file.md#trustedsigners-section)</span></span>
+<span data-ttu-id="491b1-129">Vous trouverez les informations de référence complètes sur le schéma pour les stratégies clientes dans les [informations de référence sur nuget.config](../reference/nuget-config-file.md#trustedsigners-section)</span><span class="sxs-lookup"><span data-stu-id="491b1-129">The complete schema reference for the client policies can be found in the [nuget.config reference](../reference/nuget-config-file.md#trustedsigners-section)</span></span>
 
-## <a name="related-articles"></a><span data-ttu-id="25da7-130">Articles connexes</span><span class="sxs-lookup"><span data-stu-id="25da7-130">Related articles</span></span>
+## <a name="related-articles"></a><span data-ttu-id="491b1-130">Articles connexes</span><span class="sxs-lookup"><span data-stu-id="491b1-130">Related articles</span></span>
 
-- [<span data-ttu-id="25da7-131">Signature de packages NuGet</span><span class="sxs-lookup"><span data-stu-id="25da7-131">Signing NuGet Packages</span></span>](../create-packages/Sign-a-Package.md)
-- [<span data-ttu-id="25da7-132">Informations de référence sur les packages signés</span><span class="sxs-lookup"><span data-stu-id="25da7-132">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
+- [<span data-ttu-id="491b1-131">Signature de packages NuGet</span><span class="sxs-lookup"><span data-stu-id="491b1-131">Signing NuGet Packages</span></span>](../create-packages/Sign-a-Package.md)
+- [<span data-ttu-id="491b1-132">Informations de référence sur les packages signés</span><span class="sxs-lookup"><span data-stu-id="491b1-132">Signed Packages Reference</span></span>](../reference/Signed-Packages-Reference.md)
