@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 912c0d015e2f499bc7386483bc6c35ecd765d3d4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
+ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428834"
+ms.lasthandoff: 03/24/2020
+ms.locfileid: "80147446"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
@@ -221,6 +221,10 @@ Lorsque vous obtenez des packages à partir d'un référentiel pendant l'install
 
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
+        
+- Suppression des métadonnées de build SemVer 2.0.0
+
+        1.0.7+r3456 is treated as 1.0.7
 
 Les opérations `pack` et `restore` normalisent les versions lorsque cela est possible. Pour les packages déjà construits, cette normalisation n'affecte pas les numéros de version dans les packages eux-mêmes ; elle affecte uniquement la façon dont NuGet mappe les versions lors de la résolution des dépendances.
 
