@@ -6,7 +6,7 @@
       tocHref: /nuget/
       topicHref: /nuget
       items:
-        - name: Prise en main
+        - name: Bien démarrer
           tocHref: /nuget/quickstart/
           topicHref: /nuget/quickstart/install-and-use-a-package-using-the-dotnet-cli
         - name: Consommer des packages
@@ -15,13 +15,13 @@
         - name: Créer des packages
           tocHref: /nuget/create-packages/
           topicHref: /nuget/create-packages/overview-and-workflow
-        - name: Repères
+        - name: Guides
           tocHref: /nuget/guides/
           topicHref: /nuget/guides/create-net-standard-packages-vs2017
         - name: Concepts
           tocHref: /nuget/concepts/
           topicHref: /nuget/concepts/package-installation-process
-        - name: Référence
+        - name: Informations de référence
           tocHref: /nuget/reference/
           topicHref: /nuget/reference/nuspec
         - name: API
@@ -33,7 +33,7 @@
         - name: "Extensibilité de Visual\_Studio"
           tocHref: /nuget/visual-studio-extensibility/
           topicHref: /nuget/visual-studio-extensibility/nuget-api-in-visual-studio
-        - name: Publier
+        - name: Publish
           tocHref: /nuget/hosting-packages/
           topicHref: /nuget/hosting-packages/overview
         - name: Stratégies
