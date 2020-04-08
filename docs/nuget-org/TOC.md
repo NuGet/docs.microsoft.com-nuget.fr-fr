@@ -9,11 +9,11 @@
 ## [Dépréciation du package](deprecate-packages.md)
 # Stratégies
 ## [Demandes de données](policies/Data-requests.md)
-## [Résolution des conflits](policies/dispute-resolution.md)
+## [Règlement des litiges](policies/dispute-resolution.md)
 ## [Suppression de packages](policies/deleting-packages.md)
 ## [Exporter des contrôles](policies/export-control.md)
-# Référence
+# Informations de référence
 ## [API NuGet](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # Ressources
-## [FAQ](nuget-org-faq.md)
+## [FORUM AUX QUESTIONS](nuget-org-faq.md)

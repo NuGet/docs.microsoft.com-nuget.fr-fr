@@ -1,6 +1,6 @@
 # [Aperçu de la documentation](index.yml)
 # [Qu’est-ce que NuGet ?](what-is-nuget.md)
-# Prise en main
+# Bien démarrer
 ## [Installer les outils clients NuGet](install-nuget-client-tools.md)
 ## [Installer et utiliser un package (interface CLI dotnet)](quickstart/install-and-use-a-package-using-the-dotnet-cli.md)
 ## [Installer et utiliser un package (Visual Studio)](quickstart/install-and-use-a-package-in-visual-studio.md)
@@ -12,7 +12,7 @@
 ## [Vue d’ensemble et flux de travail](consume-packages/overview-and-workflow.md)
 ## [Rechercher et sélectionner des packages](consume-packages/finding-and-choosing-packages.md)
 ## Installer et gérer des packages
-### [Visual Studio](consume-packages/install-use-packages-visual-studio.md)
+### [Visual Studio](consume-packages/install-use-packages-visual-studio.md)
 ### [Visual Studio pour Mac](/visualstudio/mac/nuget-walkthrough?toc=/nuget/toc.json)
 ### [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md)
 ### [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md)
@@ -20,7 +20,7 @@
 ## Configurer NuGet
 ### Options de restauration de packages
 #### [Restaurer des packages](consume-packages/package-restore.md)
-#### [Résolution des problèmes](consume-packages/package-restore-troubleshooting.md)
+#### [Dépannage](consume-packages/package-restore-troubleshooting.md)
 ### [Réinstaller et mettre à jour des packages](consume-packages/reinstalling-and-updating-packages.md)
 ### [Gérer les dossiers de packages globaux et de cache](consume-packages/managing-the-global-packages-and-cache-folders.md)
 ### [Gérer les limites d’approbation de package](consume-packages/installing-signed-packages.md)
@@ -61,15 +61,15 @@
 ### [Publier un package](nuget-org/publish-a-package.md)
 ### [Clés API](nuget-org/scoped-api-keys.md)
 ## Publier sur un flux privé
-### [Vue d’ensemble](hosting-packages/overview.md)
+### [Vue d'ensemble](hosting-packages/overview.md)
 ### [Artifacts Azure](/azure/devops/artifacts/nuget/publish?view=azure-devops)
 ### [NuGet.Server](hosting-packages/nuget-server.md)
 ### [Flux locaux](hosting-packages/local-feeds.md)
 # Concepts
 ## [Processus d’installation des packages](concepts/package-installation-process.md)
-## [Gestion des versions de package](concepts/package-versioning.md)
+## [Gestion de version des packages](concepts/package-versioning.md)
 ## [Résolution des dépendances](concepts/dependency-resolution.md)
-# Référence
+# Informations de référence
 ## [.nuspec](reference/nuspec.md)
 ## [Fichier nuget.config](reference/nuget-config-file.md)
 ## [Frameworks cibles](reference/target-frameworks.md)
@@ -81,8 +81,8 @@
 ### [delete](reference/cli-reference/cli-ref-delete.md)
 ### [help or ?](reference/cli-reference/cli-ref-help.md)
 ### [init](reference/cli-reference/cli-ref-init.md)
-### [install](reference/cli-reference/cli-ref-install.md)
-### [liste](reference/cli-reference/cli-ref-list.md)
+### [installer](reference/cli-reference/cli-ref-install.md)
+### [list](reference/cli-reference/cli-ref-list.md)
 ### [locals](reference/cli-reference/cli-ref-locals.md)
 ### [mirror](reference/cli-reference/cli-ref-mirror.md)
 ### [pack](reference/cli-reference/cli-ref-pack.md)
@@ -97,7 +97,7 @@
 ### [trusted-signers](reference/cli-reference/cli-ref-trusted-signers.md)
 ### [Variables d’environnement](reference/cli-reference/cli-ref-environment-variables.md)
 ### [Prise en charge des chemins d’accès longs](reference/cli-reference/cli-ref-long-path.md)
-## [Informations de référence sur PowerShell](reference/powershell-reference.md)
+## [Référence PowerShell](reference/powershell-reference.md)
 ### [Add-BindingRedirect](reference/ps-reference/ps-ref-add-bindingredirect.md)
 ### [Find-Package](reference/ps-reference/ps-ref-find-package.md)
 ### [Get-Package](reference/ps-reference/ps-ref-get-package.md)
@@ -108,7 +108,7 @@
 ### [Uninstall-Package](reference/ps-reference/ps-ref-uninstall-package.md)
 ### [Update-Package](reference/ps-reference/ps-ref-update-package.md)
 ## API du serveur NuGet
-### [Vue d’ensemble](api/overview.md)
+### [Vue d'ensemble](api/overview.md)
 ### Ressources
 #### [Saisie semi-automatique](api/search-autocomplete-service-resource.md)
 #### [Catalogue](api/catalog-resource.md)
@@ -119,10 +119,10 @@
 #### [Packages de symboles de push](api/symbol-package-publish-resource.md)
 #### [URL pour signaler un abus](api/report-abuse-resource.md)
 #### [Signatures de référentiel](api/repository-signatures-resource.md)
-#### [Rechercher](api/search-query-service-resource.md)
+#### [action](api/search-query-service-resource.md)
 #### [Index de service](api/service-index.md)
 ### [Comment : effectuez une requête pour tous les packages à l’aide de l’API](guides/api/query-for-all-published-packages.md)
-### [Limites du débit](api/rate-limits.md)
+### [Limites du taux de transfert](api/rate-limits.md)
 ### [Protocoles nuget.org](api/nuget-protocols.md)
 ### [tools.json](api/tools-json.md)
 ## [Kit SDK du client NuGet](reference/nuget-client-sdk.md)
@@ -357,6 +357,6 @@
 #### [NuGet 1.3](release-notes/NuGet-1.3.md)
 #### [NuGet 1.2](release-notes/NuGet-1.2.md)
 #### [NuGet 1.1](release-notes/NuGet-1.1.md)
-## [Questions fréquentes (FAQ)](resources/nuget-faq.md)
+## [FAQ](resources/nuget-faq.md)
 ## [Format de projet](resources/check-project-format.md)
 # [NuGet.org](nuget-org/overview-nuget-org.md)
