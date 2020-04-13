@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/03/2018
 ms.topic: conceptual
 ms.openlocfilehash: be7c10fb6ce60375f77e38f9b604ec33063e52fc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43550508"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498247"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Packages dans des modèles Visual Studio
 
@@ -35,7 +35,7 @@ Les packages préinstallés fonctionnent avec des [Assistants Modèle](/visualst
 
 Étapes pour inclure des packages dans un modèle :
 
-1. Dans votre fichier `vstemplate`, ajoutez une référence à l’Assistant Modèle NuGet en ajoutant un élément [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) :
+1. Dans `vstemplate` votre fichier, ajoutez une référence à l’assistant de modèle NuGet en ajoutant un [`WizardExtension`](/visualstudio/extensibility/wizardextension-element-visual-studio-templates) élément :
 
     ```xml
     <WizardExtension>
@@ -119,7 +119,7 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
 1. Dans l’élément `<packages>` du fichier `.vstemplate`, ajoutez l’attribut `repository="registry"` et spécifiez le nom de votre clé de Registre dans l’attribut `keyName`.
 
     - Si vous avez déjà décompressé vos packages, utilisez l’attribut `isPreunzipped="true"`.
-    - *(NuGet 3.2 +)*  Si vous voulez forcer une build au moment du design à la fin de l’installation du package, ajoutez l’attribut `forceDesignTimeBuild="true"`.
+    - *(NuGet 3.2 +) * Si vous voulez forcer une build au moment du design à la fin de l’installation du package, ajoutez l’attribut `forceDesignTimeBuild="true"`.
     - À titre d’optimisation, ajoutez `skipAssemblyReferences="true"`, car le modèle lui-même inclut déjà les références nécessaires.
 
         ```xml
@@ -129,7 +129,7 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
         </packages>
         ```
 
-## <a name="best-practices"></a>Meilleures pratiques
+## <a name="best-practices"></a>Bonnes pratiques
 
 1. Déclarez une dépendance sur l’extension VSIX NuGet en ajoutant une référence à celle-ci dans votre manifeste VSIX :
 
@@ -141,6 +141,6 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
     <!-- ... -->
     ```
 
-1. Forcez l’enregistrement des modèles de projet/élément lors de la création en ajoutant [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) dans le fichier `.vstemplate`.
+1. Exiger que les modèles de projet/élément [`<PromptForSaveOnCreation>true</PromptForSaveOnCreation>`](/visualstudio/extensibility/promptforsaveoncreation-element-visual-studio-templates) soient `.vstemplate` sauvegardés sur la création en incluant dans le fichier.
 
 1. Les modèles ne comportent pas de fichier `packages.config` ; n’incluez aucune référence ni aucun contenu qui serait ajouté lors de l’installation des packages NuGet.

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/16/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9d9ea10ccd32bb65ad0d62b591f5e2cb58ea3427
-ms.sourcegitcommit: fc1b716afda999148eb06d62beedb350643eb346
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69019982"
 ---
 # <a name="omitting-nuget-packages-in-source-control-systems"></a>Omission de packages NuGet dans les systèmes de contrôle de code source
@@ -27,7 +27,7 @@ Même si la restauration de package constitue le comportement par défaut de NuG
 
 ## <a name="omitting-packages-with-git"></a>Omission de packages avec Git
 
-Utilisez le [fichier .gitignore](https://git-scm.com/docs/gitignore) pour ignorer les packages NuGet (`.nupkg`), le dossier `packages` et `project.assets.json`, entre autres. À titre de référence, consultez [l’exemple `.gitignore` pour les projets Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore) :
+Utilisez le [fichier .gitignore](https://git-scm.com/docs/gitignore) pour ignorer les packages NuGet (`.nupkg`), le dossier `packages` et `project.assets.json`, entre autres. Pour référence, consultez [l’échantillon `.gitignore` des projets Visual Studio](https://github.com/github/gitignore/blob/master/VisualStudio.gitignore):
 
 Les parties importantes du fichier `.gitignore` sont les suivantes :
 

@@ -9,10 +9,10 @@ ms.reviewer:
 - kraigb
 - camsoper
 ms.openlocfilehash: 152de360bfa31a0c8c60fac0b12149748773b13e
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427074"
 ---
 # <a name="your-organization-on-nugetorg"></a>Votre organisation sur NuGet.org
@@ -21,7 +21,7 @@ Les organisations permettent à des projets d’entreprise et des projets open s
 
 ## <a name="organization-accounts-vs-individual-accounts"></a>Comptes d’organisation et comptes individuels
 
-Un compte d’organisation comprend un ou plusieurs comptes (d’utilisateur) individuels comme membres. Ces membres peuvent gérer un ensemble de packages tout en conservant une identité unique pour la propriété.
+Un compte d’organisation comprend un ou plusieurs comptes (d’utilisateur) individuels comme membres. Ces membres peuvent gérer un ensemble de packages tout en conservant une identité unique pour appropriation.
 
 Votre compte individuel constitue votre identité sur NuGet.org et peut être membre de plusieurs organisations. Un package peut appartenir à un compte d’organisation ou à un compte individuel. Pour les consommateurs de packages, il n’y a aucune différence entre un compte individuel et le compte d’organisation : tous deux sont présentés comme les propriétaires (`owners`) des packages.
 

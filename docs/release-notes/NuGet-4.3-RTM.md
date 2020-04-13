@@ -7,22 +7,22 @@ ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 72d707cb9bacd8abbac873ee10b2fd00f233d3cc
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432476"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496589"
 ---
 # <a name="nuget-43-release-notes"></a>Notes de publication de NuGet 4.3
 
 [Visual Studio 2017 15.3 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) est fourni avec NuGet 4.3 RTM, qui ajoute la prise en charge de nouveaux scénarios tels que .NET Standard 2.0/.NET Core 2.0, contient de nombreux correctifs de qualité et améliore les performances. Cette version offre également plusieurs améliorations comme la prise en charge de la Gestion sémantique de version 2.0.0, l’intégration MSBuild des avertissements et erreurs NuGet, et bien plus encore.
 
-## <a name="summary-whats-new-in-430"></a>Résumé : Nouveautés de la version 4.3.0
+## <a name="summary-whats-new-in-430"></a>Résumé: Quoi de neuf en 4.3.0
 
-## <a name="summary-whats-new-in-431"></a>Résumé : Nouveautés de la version 4.3.1
+## <a name="summary-whats-new-in-431"></a>Résumé: Quoi de neuf en 4.3.1
 
-* Correctif de sécurité : Les autorisations sur les fichiers créés dans ~/.nuget sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
-* Correctif de sécurité : Les fichiers dans les NUPKG peuvent avoir un chemin relatif au-dessus du répertoire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correctif de sécurité : Les autorisations sur les fichiers créés à l’intérieur de l’adresse suivante [: les #7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité: Les fichiers à l’intérieur des NUPKGs peuvent avoir un chemin relatif au-dessus de l’annuaire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -78,15 +78,15 @@ Effectuez une restauration manuelle.
 
 - Amélioration des performances de restauration NuGet - Implémentation de NoOp plus intelligent pour les restaurations sur la ligne de commande et VS - [#5080](https://github.com/NuGet/Home/issues/5080)
 
-- NET Core 2.0 : l’interface de ligne de commande VS/Dotnet doit commencer à utiliser les fonctionnalités existantes de NuGet : dossiers de secours - [#4939](https://github.com/NuGet/Home/issues/4939)
+- NET Core 2.0 : l’interface de ligne de commande VS/Dotnet doit commencer à utiliser les fonctionnalités existantes de NuGet : dossiers de secours - [#4939](https://github.com/NuGet/Home/issues/4939)
 
-- NET Core 2.0 : permet aux utilisateurs d’ignorer des avertissements de restauration spécifiques (ou de les promouvoir en erreur) - [#4898](https://github.com/NuGet/Home/issues/4898)
+- NET Core 2.0 : Permet aux utilisateurs d’ignorer des avertissements de restauration spécifiques (ou de les promouvoir en erreur) - [#4898](https://github.com/NuGet/Home/issues/4898)
 
-- NET Core 2.0 : assemblys CLI localisés - [#4896](https://github.com/NuGet/Home/issues/4896)
+- NET Core 2.0 : assemblys CLI localisés - [#4896](https://github.com/NuGet/Home/issues/4896)
 
 - NET Core 2.0 : inscription de tous les avertissements/erreurs dans le fichier de ressources (notamment PackageTargetFallback) - [#4895](https://github.com/NuGet/Home/issues/4895)
 
-- Activer la prise en charge du moniker de framework cible (TFM) : NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
+- Activation de la prise en charge TFM : NetStandard2.0, Tizen - [#4892](https://github.com/NuGet/Home/issues/4892)
 
 - Réduction du nombre de projets NuGet.Core et NuGet.Client (et donc de DLL) - [#2446](https://github.com/NuGet/Home/issues/2446)
 
@@ -131,4 +131,4 @@ Effectuez une restauration manuelle.
 
 ## <a name="links-to-github-issues-fixed-in-43-rtm"></a>Liens vers les problèmes GitHub corrigés dans RTM 4.3
 
-[Liste des problèmes](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.3")
+[Liste des questions](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.3")

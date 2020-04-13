@@ -1,58 +1,58 @@
 ---
-title: Dépréciation de packages sur nuget.org
-description: Description détaillée du processus d’obsolescence des packages et de la façon dont les clients affichent ces informations
+title: Déprécier les paquets sur nuget.org
+description: Description détaillée du processus de dépréciation des paquets et de la façon dont les clients affichent ces informations
 author: anangaur
 ms.author: anangaur
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.reviewer: karann-msft
 ms.openlocfilehash: 70666ddf9cd7bdc448d29d4235e57bc91e2c003e
-ms.sourcegitcommit: 60414a17af65237652c1de9926475a74856b91cc
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/14/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "74096883"
 ---
-# <a name="deprecating-packages"></a>Dépréciation des packages
+# <a name="deprecating-packages"></a>Déprécier les paquets
 
-Vous pouvez déconseiller un package si vous ne gérez plus un package ou si vous souhaitez inciter les consommateurs de votre package à le déplacer vers un autre package. 
+Vous pouvez déprécier un forfait si vous ne conservez plus un forfait ou si vous souhaitez encourager les consommateurs de votre forfait à passer à un autre forfait. 
 
-La désapprobation de package est différente de la **liste** de votre package, comme expliqué ci-dessous :
-* Le fait de ne pas **répertorier** un package empêche sa détection, car il est masqué dans les résultats de la recherche. 
-* La **dépréciation** d’un package permet aux consommateurs existants de votre package de déterminer s’ils sont installés ou utilisés dans leurs projets. Elle leur permet également de connaître la raison de la désapprobation et un autre package recommandé tel que spécifié par vous (l’éditeur du package). La désapprobation d’un package ne déliste pas le package. 
+La dépréciation du paquet est différente de la **non-cotation de** votre colis comme expliqué ci-dessous :
+* **Le déballage d’un** paquet empêche sa découverte parce qu’il est caché dans les résultats de recherche. 
+* **La dépréciation d’un** paquet permet aux consommateurs existants de votre colis de savoir s’ils l’ont installé ou utilisé dans leurs projets. Il leur permet également de connaître la raison de la dépréciation et un autre paquet recommandé tel que spécifié par vous (l’éditeur de paquets). Déprécier un paquet ne désiste pas le paquet. 
 
-En tant que serveur de publication, vous pouvez choisir de ne pas répertorier et de déprécier les packages.
+En tant qu’éditeur, vous pouvez choisir de non-liste ainsi que de déprécier les paquets.
 
-## <a name="deprecation-workflow"></a>Flux de travail de désapprobation
-1. Pour déprécier un package, accédez à **gérer les packages** et sélectionnez **dépréciation**:
+## <a name="deprecation-workflow"></a>Flux de travail de dépréciation
+1. Pour déprécier un forfait, **rendez-vous** sur Gérer les forfaits et sélectionnez **Déprécation**:
 
-    ![Accéder à l’option déprécier le package](media/deprecation-select-option.png)
+    ![Aller à déprécier l’option paquet](media/deprecation-select-option.png)
 
-2. Sélectionnez la version que vous souhaitez déprécier. Si vous souhaitez déprécier toute la version, choisissez l’option **Sélectionner toutes les versions** .
+2. Sélectionnez la version que vous souhaitez déprécier. Si vous souhaitez déprécier toutes les **versions, choisissez Sélectionnez toutes les versions** option.
 
-    ![Sélectionner les versions de package à déprécier](media/deprecation-select-version.png)
+    ![Sélectionnez des versions de paquet pour déprécier](media/deprecation-select-version.png)
 
-3. Choisissez un motif d’obsolescence. Si le package n’est plus conservé, choisissez l’option **hérité** . Si la version spécifique présente un bogue critique, choisissez l’option **a des bogues critiques** . Pour toute autre raison, sélectionnez **autre**. Vous pouvez toujours spécifier un autre package recommandé (et la même version) et un message personnalisé destiné aux propriétaires. 
+3. Choisissez une raison de dépréciation. Si le paquet n’est plus maintenu, choisissez l’option **Legacy.** Si la version spécifique a un bogue critique, choisissez **l’option des bogues critiques.** Pour toute autre raison, sélectionnez **Autre**. Vous pouvez toujours spécifier un autre paquet recommandé (et la version) et un message personnalisé aux propriétaires. 
 
-    ![Sélectionner les raisons de la recommandation du package de substitution et un message personnalisé](media/deprecation-save.png)
+    ![Sélectionnez des raisons de recommandation de paquet alternative et de message personnalisé](media/deprecation-save.png)
 
 > [!Note]
-> Le message personnalisé s’affiche uniquement sur nuget.org, mais pas sur les clients. Actuellement, les clients tels que `dotnet.exe` et le gestionnaire de package NuGet n’affichent pas le message personnalisé.
+> Le message personnalisé n’est affiché que sur nuget.org mais pas auprès des clients. Actuellement, les `dotnet.exe` clients tels que et le gestionnaire de paquets NuGet ne montrent pas le message personnalisé.
 
-## <a name="client-experience-for-deprecated-packages"></a>Expérience client pour les packages déconseillés
-Une fois qu’un package est déconseillé, ses consommateurs en sont informés de la façon suivante (selon le client utilisé).
+## <a name="client-experience-for-deprecated-packages"></a>Expérience client pour les forfaits dépréciés
+Une fois qu’un colis a été déprécié, ses consommateurs en sont informés de la façon suivante (selon le client utilisé).
 
 ### <a name="visual-studio"></a>Visual Studio 
-*Disponible à partir de Visual Studio 2019 version 16,3*
+*Disponible à partir de Visual Studio 2019 version 16.3*
 
-Visual Studio vous avertit de l’utilisation d’un package déconseillé sous l’onglet `Installed`. Il affiche un avertissement pour le package et ses informations d’obsolescence (notamment la raison pour laquelle il a été déconseillé et le package de remplacement à utiliser à la place, le cas échéant).
+Visual Studio met en garde contre l’utilisation `Installed` d’un paquet déprécié sur l’onglet. Il montrera un avertissement pour le paquet et ses informations de dépréciation (y compris la raison pour laquelle il a été déprécié et le paquet alternatif à utiliser à la place, si présent).
 
-   ![Packages déconseillés sur Visual Studio onglet installé du gestionnaire de package](media/deprecation-vs.png)
+   ![Paquets dépréciés sur Visual Studio onglet installé de gestionnaire de paquets](media/deprecation-vs.png)
 
-### <a name="dotnetexe"></a>dotnet. exe
-*Disponible à partir du kit de développement logiciel (SDK) .NET 3,0*
+### <a name="dotnetexe"></a>dotnet.exe
+*Disponible en commençant par .NET SDK 3.0*
 
-Si vous utilisez dotnet. exe, vous pouvez exécuter la commande `dotnet list package --deprecated` sur le dossier de la solution ou du projet pour obtenir la liste des packages déconseillés, ainsi que les informations de désapprobation :
+Si vous utilisez dotnet.exe, vous `dotnet list package --deprecated` pouvez exécuter la commande sur la solution ou le dossier de projet pour obtenir une liste de paquets dépréciés ainsi que les informations de dépréciation:
 
 ```
 > dotnet list package --deprecated

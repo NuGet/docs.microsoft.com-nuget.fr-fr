@@ -6,17 +6,17 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
 ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231303"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET est un processus simple, de même que sa publication sur nuget.org avec l’interface de ligne de commande (CLI) `dotnet`.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez le [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/), qui comprend l’interface CLI `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
@@ -109,7 +109,7 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Trouver plus de vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -120,10 +120,10 @@ Félicitations pour la création de votre premier package NuGet !
 
 Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
 
-- [Publier un package](../nuget-org/publish-a-package.md)
-- [Packages de préversion](../create-packages/Prerelease-Packages.md)
+- [Publier un forfait](../nuget-org/publish-a-package.md)
+- [Forfaits de pré-version](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Gestion de version des packages](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
-- [Création de packages de symboles](../create-packages/symbol-packages-snupkg.md)
+- [Création de paquets de symboles](../create-packages/symbol-packages-snupkg.md)
 - [Signature de packages](../create-packages/Sign-a-package.md)

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 8f2b33a7290301bd16db3b1979ae496eee602f55
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "75383656"
 ---
 # <a name="known-issues-with-nuget"></a>Problèmes connus avec NuGet
@@ -21,19 +21,19 @@ Voici les problèmes connus avec NuGet les plus couramment signalés. Si vous av
 
 ## <a name="authentication-issues-with-nuget-feeds-in-vsts-with-nugetexe-v343"></a>Problèmes d’authentification avec les flux NuGet dans VSTS avec nuget.exe v3.4.3
 
-**Problème :**
+**Problème:**
 
 Quand vous utilisez la commande suivante pour stocker les informations d’identification, le jeton d’accès personnel est doublement chiffré.
 
 $PAT = « Votre jeton d’accès personnel » $Feed =« Votre url » .\nuget.exe sources add -Name Test -Source $Feed -UserName $UserName -Password $PAT
 
-**Solution de contournement :**
+**Solution de contournement :**
 
 Stockez les mots de passe en texte clair à l’aide de l’option [-StorePasswordInClearText](../reference/cli-reference/cli-ref-sources.md).
 
 ## <a name="error-installing-packages-with-nuget-34-341"></a>Erreur d’installation de packages avec NuGet 3.4, 3.4.1
 
-**Problème :**
+**Problème:**
 
 Dans NuGet 3.4 et 3.4.1, quand vous utilisez le complément NuGet, aucune source n’est signalée comme étant disponible et vous ne pouvez pas ajouter de nouvelles sources dans la fenêtre de configuration. Le résultat est similaire à l’image ci-dessous :
 
@@ -43,9 +43,9 @@ Le fichier `NuGet.Config` dans votre dossier `%AppData%\NuGet\` (Windows) ou `~/
 
 ## <a name="error-installing-packages-with-nuget-27"></a>Erreur d’installation de packages avec NuGet 2.7
 
-**Problème :**
+**Problème:**
 
-Dans NuGet 2.7 ou version ultérieure, quand vous tentez d’installer un package qui contient des références d’assembly, vous pouvez recevoir le message d’erreur **« Le format de la chaîne d’entrée est incorrect. »** , comme illustré ci-dessous :
+Dans NuGet 2.7 ou version ultérieure, quand vous tentez d’installer un package qui contient des références d’assembly, vous pouvez recevoir le message d’erreur **« Le format de la chaîne d’entrée est incorrect. » **, comme illustré ci-dessous :
 
 ```ps
 install-package log4net
@@ -63,7 +63,7 @@ install-package log4net
 
 Cela est dû au fait que la bibliothèque de types pour le composant COM `VSLangProj.dll` est désinscrite sur votre système. Cela peut se produire par exemple quand vous avez deux versions de Visual Studio installées côte à côte, et que vous désinstallez l’ancienne version. Cela peut annuler par inadvertance l’inscription de la bibliothèque COM ci-dessus.
 
-**Solution :**
+**Solution:**:
 
 Exécutez cette commande à partir d’une **invite de commandes avec élévation de privilèges** pour réinscrire la bibliothèque de types pour `VSLangProj.dll`.
 
@@ -71,7 +71,7 @@ Exécutez cette commande à partir d’une **invite de commandes avec élévatio
 
 Si la commande échoue, vérifiez si le fichier existe à cet emplacement.
 
-Pour plus d’informations sur cette erreur, consultez cet [élément de travail](https://nuget.codeplex.com/workitem/3609 "Élément de travail 3609").
+Pour plus d’informations sur cette erreur, voir cet [élément de travail](https://nuget.codeplex.com/workitem/3609 "Élément de travail 3609").
 
 ## <a name="build-failure-after-package-update-in-vs-2012"></a>Échec de la build après la mise à jour de package dans Visual Studio 2012
 
@@ -90,7 +90,7 @@ Si vous exécutez Visual Studio 2010 SP1, vous pouvez recevoir le message d’er
 Quand vous affichez les journaux, vous pouvez remarquer la présence d’une exception `SignatureMismatchException`.
 
 Pour éviter ce problème, vous pouvez installer un [correctif logiciel pour Visual Studio 2010 SP1](http://bit.ly/vsixcertfix) .
-Une autre solution de contournement consiste à désinstaller simplement NuGet (pendant que vous exécutez Visual Studio en tant qu’administrateur) puis à l’installer à partir de la galerie d’extensions Visual Studio. Pour plus d'informations, voir <https://support.microsoft.com/kb/2581019>.
+Une autre solution de contournement consiste à désinstaller simplement NuGet (pendant que vous exécutez Visual Studio en tant qu’administrateur) puis à l’installer à partir de la galerie d’extensions Visual Studio. Consultez la rubrique <https://support.microsoft.com/kb/2581019> (éventuellement en anglais) pour plus d'informations.
 
 ## <a name="package-manager-console-throws-an-exception-when-the-reflector-visual-studio-add-in-is-also-installed"></a>La console du Gestionnaire de package lève une exception quand le complément Reflector de Visual Studio est également installé.
 
@@ -105,7 +105,7 @@ Lors de l’exécution de la console du Gestionnaire de Package, vous pouvez rec
     Command execution stopped because the preference variable "ErrorActionPreference" or common parameter
     is set to Stop: Unable to find type
 
-ou
+or
 
     System.Management.Automation.CmdletInvocationException: Could not load file or assembly 'Scripts\nuget.psm1' or one of its dependencies. <br />The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) ---&gt; System.IO.FileLoadException: Could not load file or <br />assembly 'Scripts\nuget.psm1' or one of its dependencies. The parameter is incorrect. (Exception from HRESULT: 0x80070057 (E_INVALIDARG)) <br />---&gt; System.ArgumentException: Illegal characters in path.
        at System.IO.Path.CheckInvalidPathChars(String path)
@@ -159,7 +159,7 @@ Si vous essayez de désinstaller NuGet par le biais du Gestionnaire d’extensio
 
 ## <a name="the-package-manager-console-crashes-when-i-open-it-in-windows-xp-whats-wrong"></a>La console du Gestionnaire de package se bloque quand je l’ouvre dans Windows XP. Quel est le problème ?
 
-NuGet nécessite le runtime Powershell 2.0. Windows XP, par défaut, ne dispose pas de Powershell 2.0. Vous pouvez télécharger le runtime 2,0 de PowerShell à partir de <https://support.microsoft.com/kb/968929>. Après l’installation, redémarrez Visual Studio. Vous devriez pouvoir ouvrir la console du Gestionnaire de package.
+NuGet nécessite le runtime Powershell 2.0. Windows XP, par défaut, ne dispose pas de Powershell 2.0. Vous pouvez télécharger le runtime Powershell 2.0 à partir de <https://support.microsoft.com/kb/968929>. Après l’installation, redémarrez Visual Studio. Vous devriez pouvoir ouvrir la console du Gestionnaire de package.
 
 ## <a name="visual-studio-2010-sp1-beta-crashes-on-exit-if-the-package-manager-console-is-open"></a>Visual Studio 2010 SP1 bêta se bloque lors de sa fermeture si la console du Gestionnaire de package est ouverte.
 
@@ -171,7 +171,7 @@ Si vous avez installé des packages créés avec une préversion de NuGet, vous 
 
 ## <a name="attempting-to-install-or-uninstall-results-in-the-error-cannot-create-a-file-when-that-file-already-exists"></a>Une tentative d’installation ou de désinstallation provoque l’erreur « Impossible de créer un fichier lorsque ce fichier existe déjà. »
 
-Pour une raison quelconque, les extensions Visual Studio peuvent basculer dans un état étrange quand vous avez désinstallé l’extension VSIX mais que certains fichiers ont été conservés. Pour contourner ce problème, procédez comme suit :
+Pour une raison quelconque, les extensions Visual Studio peuvent basculer dans un état étrange quand vous avez désinstallé l’extension VSIX mais que certains fichiers ont été conservés. Pour contourner ce problème :
 
 1. Quitter Visual Studio
 1. Ouvrez le dossier suivant (il peut être sur un lecteur différent sur votre ordinateur) :
@@ -223,6 +223,6 @@ Les Outils Windows Phone ne prennent pas en charge le Gestionnaire d’extension
 
 Comme l’explique en détail [ce problème GitHub](https://github.com/Particular/NServiceBus/issues/1271#issuecomment-20865932), la modification de la mise en majuscules de packages NuGet peut être effectuée par le support NuGet, mais elle provoque des complications lors de la restauration de package pour les utilisateurs dont le dossier *global-packages* contient déjà des packages à la casse différente. Nous vous recommandons de demander un changement de casse uniquement quand vous avez la possibilité d’informer les utilisateurs de votre package de la rupture susceptible de se produire lors de la restauration des packages au moment de la build.
 
-## <a name="reporting-issues"></a>Problèmes liés aux rapports
+## <a name="reporting-issues"></a>Signaler un problème
 
-Pour signaler des problèmes liés à NuGet, visitez [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues).
+Pour signaler les problèmes [https://github.com/nuget/home/issues](https://github.com/nuget/home/issues)de NuGet, visitez .

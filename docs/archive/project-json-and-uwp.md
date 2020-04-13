@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 07/17/2017
 ms.topic: conceptual
 ms.openlocfilehash: ac3c137dd0ba50571737093eef11c8ab0ef932b2
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548662"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64494368"
 ---
 # <a name="projectjson-and-uwp"></a>project.json et UWP
 
@@ -33,7 +33,7 @@ Dans ce cas, vous devez ajouter le moniker de la version cible de .Net Framework
 
 ## <a name="i-dont-need-windows-10-specific-apis-but-want-new-net-features-or-dont-have-netcore45-already"></a>Je n’ai pas besoin des API spécifiques de Windows 10, mais je veux utiliser les nouvelles fonctionnalités .NET ou je n’ai pas encore netcore45
 
-Dans ce cas, ajoutez le TxM `dotnet` à votre package. Contrairement aux autres TxM, `dotnet` n’implique pas de surface d’exposition ni de plateforme. Il indique que votre package fonctionne sur n’importe quelle plateforme sur laquelle vos dépendances fonctionnent. Quand vous générez un package avec le TxM `dotnet`, vous êtes susceptible d’avoir de nombreuses dépendances propres au TxM dans votre `.nuspec`, puisque vous devez définir les packages BCL dont vous dépendez, comme `System.Text`, `System.Xml`, etc. Les emplacements sur lesquels ces dépendances fonctionnent définissent ceux auxquels votre package fonctionne.
+Dans ce cas, ajoutez le TxM `dotnet` à votre package. Contrairement aux autres TxM, `dotnet` n’implique pas de surface d’exposition ni de plateforme. Il indique que votre package fonctionne sur n’importe quelle plateforme sur laquelle vos dépendances fonctionnent. Lors de la `dotnet` construction d’un paquet avec le TxM, vous êtes `.nuspec`susceptible d’avoir beaucoup plus de dépendances `System.Text`TxM spécifiques dans votre , que vous devez définir les paquets BCL dont vous dépendez, tels, , `System.Xml`, etc. Les emplacements sur lesquelles ces dépendances fonctionnent définissent l’endroit où votre colis fonctionne.
 
 ### <a name="how-do-i-find-out-my-dependencies"></a>Comment trouver mes dépendances
 
@@ -43,7 +43,7 @@ Il existe deux façons de déterminer les dépendances à répertorier :
 
 1. (Méthode plus difficile) Utilisez `ILDasm` pour examiner votre `.dll` pour voir quels assemblys sont en fait nécessaires au moment de l’exécution. Déterminez ensuite de quel package NuGet ils proviennent.
 
-Consultez la rubrique [`project.json`](project-json.md) pour plus d’informations sur les fonctionnalités qui facilitent la création d’un package prenant en charge le TxM `dotnet`.
+Consultez [`project.json`](project-json.md) le sujet pour plus de détails sur les `dotnet` fonctionnalités qui aident à la création d’un paquet qui prend en charge le TxM.
 
 > [!Important]
 > Si votre package est prévu pour fonctionner avec des projets de la bibliothèque de classes portables, nous vous recommandons fortement de créer un dossier `dotnet`, pour éviter les avertissements et les éventuels problèmes de compatibilité.
@@ -52,9 +52,9 @@ Consultez la rubrique [`project.json`](project-json.md) pour plus d’informatio
 
 Les packages NuGet qui utilisent ce format ont le dossier et les comportements connus suivants :
 
-| Dossier | comportements |
+| Dossier | Comportements |
 | --- | --- |
-| Générer | Contient des fichiers de cibles et de propriétés MSBuild dans ce dossier qui sont intégrées différemment au projet, mais à part cela, il n’y a aucun changement. |
+| Build | Contient des fichiers de cibles et de propriétés MSBuild dans ce dossier qui sont intégrées différemment au projet, mais à part cela, il n’y a aucun changement. |
 | Outils | `install.ps1` et `uninstall.ps1` ne sont pas exécutés. `init.ps1` fonctionne comme il l’a toujours fait. |
 | Contenu | Le contenu n’est pas copié automatiquement dans le projet de l’utilisateur. Une prise en charge de l’inclusion de contenu dans le projet est prévue dans une prochaine version. |
 | Lib | Pour de nombreux packages, le dossier `lib` fonctionne de la même manière que dans NuGet 2.x, mais avec des options étendues pour les noms utilisables et une meilleure logique pour récupérer le sous-dossier approprié lors de la consommation de packages. Toutefois, lorsqu’il est utilisé conjointement avec `ref`, le dossier `lib` contient les assemblys qui implémentent la surface d’exposition définie par les assemblys inclus dans le dossier `ref`. |
@@ -113,7 +113,7 @@ Dans cet exemple, les assemblys inclus dans les répertoires `ref` sont tous ide
 
 ## <a name="runtimes"></a>Runtimes
 
-Le dossier des runtimes contient des assemblys et des bibliothèques natives devant s’exécuter sur des « runtimes » spécifiques, qui sont généralement définis par le système d’exploitation et l’architecture du processeur. Ces runtimes sont identifiés à l’aide d’[identificateurs de runtime (RID)](/dotnet/core/rid-catalog) comme `win`, `win-x86`, `win7-x86`, `win8-64`, etc.
+Le dossier des runtimes contient des assemblys et des bibliothèques natives devant s’exécuter sur des « runtimes » spécifiques, qui sont généralement définis par le système d’exploitation et l’architecture du processeur. Ces temps d’exécution sont identifiés à l’aide `win` [d’identifiants Runtime (RIDs)](/dotnet/core/rid-catalog) tels que , `win-x86`, `win7-x86`, `win8-64`etc.
 
 ## <a name="native-helpers-to-use-platform-specific-apis"></a>Programmes d’assistance natifs pour utiliser les API spécifiques à la plateforme
 

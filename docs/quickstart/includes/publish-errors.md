@@ -1,3 +1,11 @@
+---
+ms.openlocfilehash: b0af2000b1f43cd0b91f2c95dfc0c11540a94cab
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496063"
+---
 Les erreurs de la commande `push` signalent généralement le problème. Par exemple, vous avez peut-être oublié de mettre à jour le numéro de version de votre projet et, par conséquent, vous essayez de publier un package qui existe déjà.
 
 Des erreurs s’affichent également lorsque vous tentez de publier un package à l’aide d’un identificateur qui existe déjà sur l’hôte. Le nom « AppLogger », par exemple, existe déjà. Dans ce cas, la commande `push` génère l’erreur suivante :

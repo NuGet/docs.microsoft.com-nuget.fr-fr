@@ -8,10 +8,10 @@ ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
 ms.openlocfilehash: 42031f7b5fe4d3c1b4dbe5e1bfbf9197014e0e88
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428953"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installer et gérer des packages avec la console du gestionnaire de package dans Visual Studio (PowerShell)
@@ -143,7 +143,7 @@ Consultez [Find-Package](../reference/ps-reference/ps-ref-find-package.md). Dans
 
 À compter de Visual Studio 2017, NuGet et le gestionnaire de package NuGet sont automatiquement installés lorsque vous sélectionnez des charges de travail liées à .NET. Vous pouvez également les installer individuellement en cochant la case de l’option **Composants individuels > Outils de code > Gestionnaire de package NuGet** dans le programme d’installation de Visual Studio.
 
-Donc, si vous n’avez pas le gestionnaire de package NuGet dans Visual Studio 2015 et les versions antérieures, consultez **Outils > Extensions et mises à jour...** et recherchez l’extension pour le gestionnaire de package NuGet. Si vous ne pouvez pas utiliser le programme d’installation des extensions dans Visual Studio, vous pouvez télécharger l'extension directement à partir de [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html).
+Donc, si vous n’avez pas le gestionnaire de package NuGet dans Visual Studio 2015 et les versions antérieures, consultez **Outils > Extensions et mises à jour...** et recherchez l’extension pour le gestionnaire de package NuGet. Si vous n’êtes pas en mesure d’utiliser l’installateur [https://dist.nuget.org/index.html](https://dist.nuget.org/index.html)d’extensions dans Visual Studio, vous pouvez télécharger l’extension directement à partir de .
 
 La console du gestionnaire de package n’est actuellement pas disponible avec Visual Studio pour Mac. Toutefois, les commandes équivalentes sont disponibles par le biais de l’interface [CLI NuGet](../reference/nuget-exe-CLI-reference.md). Visual Studio pour Mac dispose d’une interface utilisateur pour la gestion des packages NuGet. Consultez [Inclusion d’un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
 
@@ -172,7 +172,7 @@ Pour plus d’informations, consultez [Profils Windows PowerShell](https://techn
 
 ## <a name="use-the-nugetexe-cli-in-the-console"></a>Utiliser l’interface CLI nuget.exe dans la console
 
-Pour rendre l’interface [`nuget.exe`CLI](../reference/nuget-exe-cli-reference.md) disponible dans la console du gestionnaire de package, installez le package [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) à partir de la console :
+Pour rendre [ `nuget.exe` l’IDC](../reference/nuget-exe-cli-reference.md) disponible dans la console Package Manager, installez le forfait [NuGet.CommandLine](https://www.nuget.org/packages/NuGet.CommandLine/) à partir de la console :
 
 ```ps
 # Other versions are available, see https://www.nuget.org/packages/NuGet.CommandLine/

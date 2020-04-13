@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4b95251e4b055523a9533b4125589b2650be932d
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428827"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Comment NuGet résout les dépendances de package
@@ -22,7 +22,7 @@ Lorsque plusieurs packages partagent une même dépendance, le même ID de packa
 
 ## <a name="dependency-resolution-with-packagereference"></a>Résolution des dépendances avec PackageReference
 
-Lorsque des packages sont installés dans un projet au format PackageReference, NuGet ajoute des références à un graphique de packages plat dans le fichier correspondant, et résout les conflits à l’avance. Ce processus est appelé *restauration transitive*. Les processus de réinstallation et de restauration des packages reviennent donc à télécharger les packages répertoriés dans le graphique, ce qui permet d’obtenir des builds plus prévisibles, plus rapidement. Vous pouvez également tirer parti des versions flottantes, par exemple 2,8.\*, pour éviter de modifier le projet pour utiliser la version la plus récente d’un package.
+Lorsque des packages sont installés dans un projet au format PackageReference, NuGet ajoute des références à un graphique de packages plat dans le fichier correspondant, et résout les conflits à l’avance. Ce processus est appelé *restauration transitive*. Les processus de réinstallation et de restauration des packages reviennent donc à télécharger les packages répertoriés dans le graphique, ce qui permet d’obtenir des builds plus prévisibles, plus rapidement. Vous pouvez également profiter des versions flottantes, telles que 2.8. \*, pour éviter de modifier le projet pour utiliser la dernière version d’un package.
 
 Quand le processus de restauration NuGet est exécuté avant une build, il résout d’abord les dépendances dans la mémoire, puis écrit le graphe résultant dans un fichier nommé `project.assets.json`. Il écrit également les dépendances résolues dans un fichier de verrouillage nommé `packages.lock.json` si la [fonctionnalité de verrouillage de fichier est activée](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 Le fichier de ressources se trouve à l’emplacement `MSBuildProjectExtensionsPath` qui, par défaut, est le dossier « obj » du projet. MSBuild lit alors ce fichier et le convertit en un ensemble de dossiers pouvant contenir des références, puis les ajoute à l’arborescence de projets en mémoire.
@@ -55,14 +55,14 @@ Lorsqu’une application spécifie un numéro de version exact (tel que 1.2) qui
 
 #### <a name="floating-versions"></a>Versions flottantes
 
-Une version de dépendance flottante est spécifiée avec le caractère \*. Par exemple : `6.0.*`. Cette spécification de version indique « utiliser la dernière version 6.0. x ». `4.*` signifie « utiliser la dernière version 4. x ». L’utilisation d’une version flottante réduit les modifications apportées au fichier projet, tout en gardant à jour la version la plus récente d’une dépendance.
+Une version de dépendance \* flottante est spécifiée avec le personnage. Par exemple : `6.0.*`. Cette spécification de version dit "utiliser la dernière version 6.0.x"; `4.*` signifie "utiliser la dernière version 4.x." L’utilisation d’une version flottante réduit les modifications apportées au fichier du projet, tout en restant au courant de la dernière version d’une dépendance.
 
-Lors de l’utilisation d’une version flottante, NuGet résout la version la plus récente d’un package qui correspond au modèle de version, par exemple `6.0.*` obtient la version la plus récente d’un package qui commence par 6,0 :
+Lors de l’utilisation d’une version flottante, NuGet résout `6.0.*` la version la plus élevée d’un paquet qui correspond au modèle de version, par exemple obtient la version la plus élevée d’un paquet qui commence par 6.0:
 
 ![Choix de la version 6.0.1 lorsqu’une version flottante 6.0.* est demandée](media/projectJson-dependency-4.png)
 
 > [!Note]
-> Pour plus d’informations sur le comportement des versions flottantes et des versions préliminaires, consultez contrôle de [version des packages](package-versioning.md#version-ranges).
+> Pour plus d’informations sur le comportement des versions flottantes et des versions pré-version, voir [La version Package](package-versioning.md#version-ranges).
 
 
 <a name="nearest-wins"></a>
@@ -110,7 +110,7 @@ Le processus `packages.config` de résolution des dépendances devient complexe 
 
 Le format PackageReference permet de choisir les ressources des dépendances qui seront acheminées dans le projet de niveau supérieur. Pour plus d’informations, consultez la section [PackageReference](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
-Lorsque le projet de niveau supérieur est un package, vous pouvez contrôler ce flux en utilisant les attributs `include` et `exclude` avec les dépendances répertoriées dans le fichier `.nuspec`. Consultez [Informations de référence sur le fichier .nuspec - Dépendances](../reference/nuspec.md#dependencies).
+Lorsque le projet de niveau supérieur est un package, vous pouvez contrôler ce flux en utilisant les attributs `include` et `exclude` avec les dépendances répertoriées dans le fichier `.nuspec`. Consultez [Référence .nuspec - Dépendances](../reference/nuspec.md#dependencies).
 
 ## <a name="excluding-references"></a>Exclusion de références
 

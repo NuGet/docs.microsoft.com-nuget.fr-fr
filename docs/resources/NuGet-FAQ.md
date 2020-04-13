@@ -6,10 +6,10 @@ ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 8cc990e0c9eed07c59c8dffb04d104be47051736
-ms.sourcegitcommit: 7c9f157ba02d9be543de34ab06813ab1ec10192a
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69999939"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
@@ -40,7 +40,7 @@ Pour plus d’informations, consultez [Recherche et sélection des packages](../
 
 - Visual Studio sur Windows prend en charge [l’interface utilisateur du Gestionnaire de package](../consume-packages/install-use-packages-visual-studio.md) et la [console du Gestionnaire de package](../consume-packages/install-use-packages-powershell.md).
 - Visual Studio pour Mac offre des fonctionnalités NuGet intégrées, comme décrit dans [Inclusion d’un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
-- Visual Studio Code (toutes les plateformes) n’a pas d’intégration directe de NuGet. Utilisez [l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md) ou [l’interface de ligne de commande dotnet](../reference/dotnet-commands.md).
+- Visual Studio Code (toutes les plateformes) n’a pas d’intégration directe de NuGet. Utilisez le [NuGet CLI](../reference/nuget-exe-cli-reference.md) ou le [dotnet CLI](../reference/dotnet-commands.md).
 - Azure DevOps fournit [une étape de la génération pour restaurer des packages NuGet](/vsts/build-release/tasks/package/nuget). Vous pouvez également [héberger des flux de packages NuGet privés sur Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
 
 **Comment vérifier la version exacte des outils NuGet qui sont installés ?**
@@ -89,9 +89,9 @@ Oui, vous pouvez ajouter des commandes personnalisées à `nuget.exe`, comme le 
 
 L’objet de niveau supérieur dans le modèle objet automation Visual Studio est appelé objet DTE (Development Tools Environment). La console le fournit par le biais d’une variable nommée `$DTE`. Pour plus d’informations, consultez [Vue d’ensemble du modèle Automation](/visualstudio/extensibility/internals/automation-model-overview) dans la documentation de l’extensibilité de Visual Studio.
 
-**J’essaie d’effectuer un cast de la variable $DTE en type DTE2, mais j’obtiens une erreur : Impossible de convertir la valeur « EnvDTE.DTEClass » de type « EnvDTE.DTEClass » en type « EnvDTE80.DTE2 ». Quel est le problème ?**
+**J’essaie de jeter la $DTE variable au type DTE2, mais je reçois une erreur: Ne peut pas convertir la valeur "EnvDTE.DTEClass" de type "EnvDTE.DTEClass" pour taper "EnvDTE80.DTE2". Qu'est-ce qui ne va pas?**
 
-Il s’agit d’un problème connu lié à la façon dont PowerShell interagit avec un objet COM. Essayez l’opération suivante :
+Il s’agit d’un problème connu lié à la façon dont PowerShell interagit avec un objet COM. Essayez ce qui suit :
 
 ```ps
 `$dte2 = Get-Interface $dte ([EnvDTE80.DTE2])`
@@ -105,7 +105,7 @@ Il s’agit d’un problème connu lié à la façon dont PowerShell interagit a
 
 Consultez [Création et publication d’un package](../quickstart/create-and-publish-a-package.md).
 
-**Plusieurs versions de ma bibliothèque ciblent des versions différentes du .NET Framework. Comment créer un package unique qui prend en charge ce cas de figure ?**
+**J’ai plusieurs versions de ma bibliothèque qui ciblent différentes versions du cadre .NET. Comment puis-je construire un seul paquet qui prend en charge cela?**
 
 Consultez [Prise en charge de plusieurs versions et profils du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md).
 
@@ -129,11 +129,11 @@ Oui, consultez le billet de Blog de Scott Hanselman [How to access NuGet when nu
 
 **Comment installer des packages dans un autre emplacement que le dossier de packages par défaut ?**
 
-Définissez le paramètre [`repositoryPath`](../reference/nuget-config-file.md#config-section) dans `Nuget.Config` en utilisant `nuget config -set repositoryPath=<path>`.
+Définissez [`repositoryPath`](../reference/nuget-config-file.md#config-section) le `Nuget.Config` `nuget config -set repositoryPath=<path>`paramètre à l’aide de .
 
 **Comment éviter d’ajouter le dossier de packages NuGet dans le contrôle de code source ?**
 
-Définissez [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) dans `Nuget.Config` sur `true`. Cette clé, qui fonctionne au niveau de la solution, doit être ajoutée au fichier `$(Solutiondir)\.nuget\Nuget.Config`. L’activation de la restauration des packages à partir de Visual Studio crée ce fichier automatiquement.
+Installez [`disableSourceControlIntegration`](../reference/nuget-config-file.md#solution-section) `Nuget.Config` le `true`dedans à . Cette clé, qui fonctionne au niveau de la solution, doit être ajoutée au fichier `$(Solutiondir)\.nuget\Nuget.Config`. L’activation de la restauration des packages à partir de Visual Studio crée ce fichier automatiquement.
 
 **Comment désactiver la restauration des packages ?**
 

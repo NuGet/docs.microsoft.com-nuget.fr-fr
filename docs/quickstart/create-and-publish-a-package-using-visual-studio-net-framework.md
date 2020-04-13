@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 05/13/2018
 ms.topic: quickstart
 ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380643"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework, Windows)
@@ -17,9 +17,9 @@ ms.locfileid: "72380643"
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET Framework implique de créer la DLL dans Visual Studio sous Windows, puis d’utiliser l’outil en ligne de commande nuget.exe pour créer et publier le package.
 
 > [!Note]
-> Ce guide de démarrage rapide s’applique à Visual Studio 2017 et versions ultérieures pour Windows uniquement. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Ce Quickstart s’applique à Visual Studio 2017 et aux versions supérieures pour Windows uniquement. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez une édition de Visual Studio 2017 ou version supérieure à l’adresse [visualstudio.com](https://www.visualstudio.com/) avec n’importe quelle charge de travail liée à .NET. Visual Studio 2017 intègre automatiquement les fonctionnalités NuGet lorsqu’une charge de travail .NET est installée.
 
@@ -31,7 +31,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 
 Vous pouvez utiliser un projet de bibliothèque de classes .NET Framework existant pour le code à empaqueter, ou bien en créer un de la façon suivante :
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, sélectionnez le nœud **Visual C#** , sélectionnez le modèle « Bibliothèque de classes (.NET Framework) », nommez le projet AppLogger, puis cliquez sur **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, sélectionnez le nœud **Visual C#**, sélectionnez le modèle « Bibliothèque de classes (.NET Framework) », nommez le projet AppLogger, puis cliquez sur **OK**.
 
 1. Cliquez avec le bouton droit sur le fichier projet résultant et sélectionnez **Générer** pour être sûr que le projet a été créé correctement. La DLL se trouve dans le dossier Debug (ou Release si vous générez cette configuration).
 
@@ -118,7 +118,7 @@ Vous exécutez `nuget spec` une seule fois pour générer le manifeste initial. 
     - projectUrl
     - iconUrl
     - releaseNotes
-    - étiquettes
+    - tags
 
 1. Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **Tags**, car les balises aident les utilisateurs à trouver vos packages sur des sources comme nuget.org et à comprendre leur rôle.
 
@@ -134,7 +134,7 @@ Vous exécutez `nuget spec` une seule fois pour générer le manifeste initial. 
 
 ## <a name="publish-the-package"></a>Publier le package
 
-Une fois que vous avez un fichier `.nupkg`, vous le publiez dans nuget.org à l’aide de `nuget.exe` avec une clé API acquise à partir de nuget.org. Pour nuget.org, vous devez utiliser `nuget.exe` 4.1.0 ou une version ultérieure.
+Une fois `.nupkg` que vous avez un fichier, `nuget.exe` vous le publiez à nuget.org à l’aide d’une clé API acquise à partir de nuget.org. Pour nuget.org vous devez `nuget.exe` utiliser 4.1.0 ou plus.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -180,8 +180,8 @@ Félicitations pour la création de votre premier package NuGet !
 
 Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
 
-- [Publier un package](../nuget-org/publish-a-package.md)
-- [Packages de préversion](../create-packages/Prerelease-Packages.md)
+- [Publier un forfait](../nuget-org/publish-a-package.md)
+- [Forfaits de pré-version](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)

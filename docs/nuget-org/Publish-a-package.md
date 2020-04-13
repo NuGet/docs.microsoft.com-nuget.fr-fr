@@ -7,10 +7,10 @@ ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429023"
 ---
 # <a name="publishing-packages"></a>Publication de packages
@@ -24,7 +24,7 @@ Cet article traite de la publication sur nuget.org. Pour la publication sur Azur
 
 ## <a name="publish-to-nugetorg"></a>Publier dans nuget.org
 
-Pour nuget.org, vous devez vous connecter avec un compte Microsoft, avec lequel vous serez invité à inscrire le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé à l’aide de versions antérieures du portail.
+Pour nuget.org, vous devez vous connecter avec un compte Microsoft, avec lequel il vous sera demandé d’enregistrer le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé en utilisant les anciennes versions du portail.
 
 ![Emplacement de la connexion NuGet](media/publish_NuGetSignIn.png)
 
@@ -64,11 +64,11 @@ Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4
     nuget setApiKey <your_API_key>
     ```
 
-    Cette commande stocke votre clé API dans votre configuration NuGet, de sorte que vous n’avez pas besoin de répéter cette étape sur le même ordinateur.
+    Cette commande stocke votre clé API dans votre configuration NuGet afin que vous n’ayez pas besoin de répéter cette étape à nouveau sur le même ordinateur.
 
     > [!NOTE]
-    > La clé API n’est pas utilisée pour l’authentification auprès du flux privé. Reportez-vous à [`nuget sources` commande](../reference/cli-reference/cli-ref-sources.md) pour gérer les informations d’identification pour l’authentification auprès de la source.
-    > Les clés API peuvent être obtenues à partir des serveurs NuGet individuels. Pour créer et gérer APIKeys pour nuget.org, reportez-vous à la rubrique [Publish-API-Key](../quickstart/includes/publish-api-key.md)
+    > La clé API n’est pas utilisée pour l’authentification avec le flux privé. Consultez [ `nuget sources` la commande](../reference/cli-reference/cli-ref-sources.md) pour gérer les informations d’identification pour l’authentification avec la source.
+    > Les touches API peuvent être obtenues à partir des serveurs NuGet individuels. Pour créer et manange APIKeys pour nuget.org se référer à [la publication-api-clé](../quickstart/includes/publish-api-key.md)
 
 1. Envoyez (push) votre package dans la galerie NuGet à l’aide de la commande suivante :
 
@@ -91,7 +91,7 @@ Lorsque le package a satisfait à tous les contrôles de validation, son indexat
 
 La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si nuget.org rencontre des interruptions. Si tous les systèmes sont opérationnels et que le package n’a pas été correctement publié dans l’heure, connectez-vous à nuget.org et contactez-nous à l’aide du lien permettant de contacter le support disponible dans la page du package.
 
-Pour afficher l’état d’un package, sélectionnez **gérer les packages** sous le nom de votre compte sur NuGet.org. Une fois la validation terminée, vous recevez un e-mail de confirmation.
+Pour voir l’état d’un package, **sélectionnez Gérer les forfaits** sous le nom de votre compte sur nuget.org. Vous recevez un e-mail de confirmation lorsque la validation est terminée.
 
 Notez que l’indexation de votre package peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Pendant ce délai, le message suivant s’affiche dans la page de votre package :
 

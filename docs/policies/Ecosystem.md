@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43548142"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495500"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Vue d’ensemble de l’écosystème NuGet
 
@@ -24,7 +24,7 @@ Tous ces projets sont sources d’innovation grâce aux contributions des dével
 
 NuGet fournit un système de gestion de packages gratuit et open source pour la plateforme de développement Microsoft. Il se compose de quelques outils clients, ainsi que de l’ensemble des services qui constituent la [Galerie NuGet officielle](http://www.nuget.org). Combinés, ils forment le projet NuGet régi par la [.NET Foundation](http://www.dotnetfoundation.org/).
 
-L’organisation NuGet contient plusieurs dépôts sur GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) donne une vue d’ensemble de tous les dépôts et des emplacements des différents composants NuGet.
+L’organisation NuGet contient plusieurs dépôts sur GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home)donne un aperçu de tous les dépôts et où trouver les différents composants NuGet.
 
 ## <a name="microsoft-projects"></a>Projets Microsoft
 
@@ -37,7 +37,7 @@ De nombreuses autres personnes et entreprises ont apporté des contributions imp
 - [AppVeyor CI](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Chocolatey](https://chocolatey.org/)
+- [Chocolaté](https://chocolatey.org/)
 - [CoApp](http://coapp.org/)
 - [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
@@ -45,7 +45,7 @@ De nombreuses autres personnes et entreprises ont apporté des contributions imp
 - [MinimalNugetServer](https://github.com/TanukiSharp/MinimalNugetServer)
 - [MyGet (ou NuGet-as-a-service)](http://www.myget.org/)
 - [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer)
-- [NuGet Server](http://nugetserver.net/)
+- [Serveur NuGet](http://nugetserver.net/)
 - [OctopusDeploy](https://octopus.com/)
 - [Paket](https://fsprojects.github.io/Paket/)
 - [ProGet (Inedo)](http://inedo.com/proget)

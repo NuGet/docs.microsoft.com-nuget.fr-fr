@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 12/07/2017
 ms.topic: conceptual
 ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428701"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Réinstallation et mise à jour des packages
@@ -63,7 +63,7 @@ Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du p
 
 ## <a name="using-update-package"></a>Utilisation d’Update-Package
 
-Si vous gardez à l’esprit les [éléments à prendre en considération](#considerations) décrits ci-dessous, vous pouvez facilement réinstaller un package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package Visual Studio (**Outils** > **Gestionnaire de package NuGet** > **Console du gestionnaire de package**).
+Étant conscient des [considérations décrites](#considerations) ci-dessous, vous pouvez facilement réinstaller n’importe quel paquet en utilisant la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console Visual Studio Package Manager **(Tools** > **NuGet Package Manager** > **Package Manager Console**).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

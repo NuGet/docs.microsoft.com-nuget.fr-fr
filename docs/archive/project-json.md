@@ -6,19 +6,19 @@ ms.author: karann
 ms.date: 07/27/2017
 ms.topic: reference
 ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488287"
 ---
 # <a name="projectjson-reference"></a>Documentation de référence sur project.json
 
-*NuGet 3.x+*
+*NuGet 3.x*
 
 Le fichier `project.json` gère une liste de packages utilisés dans un projet, appelée format de gestion des packages. Il remplace `packages.config` mais est à son tour remplacé par [PackageReference](../consume-packages/package-references-in-project-files.md) avec NuGet 4.0 +.
 
-Le fichier [`project.lock.json`](#projectlockjson) (décrit ci-dessous) est également utilisé dans les projets employant `project.json`.
+Le [`project.lock.json`](#projectlockjson) fichier (décrit ci-dessous) est `project.json`également utilisé dans les projets utilisant .
 
 `project.json` présente la structure de base suivante, où chacun des quatre objets de niveau supérieur peut avoir un nombre quelconque d’objets enfants :
 
@@ -39,7 +39,7 @@ Le fichier [`project.lock.json`](#projectlockjson) (décrit ci-dessous) est éga
 }
 ```
 
-## <a name="dependencies"></a>Dépendances
+## <a name="dependencies"></a>Les dépendances
 
 Répertorie les dépendances de package NuGet de votre projet sous la forme suivante :
 
@@ -47,7 +47,7 @@ Répertorie les dépendances de package NuGet de votre projet sous la forme suiv
 "PackageID" : "version_constraint"
 ```
 
-Par exemple :
+Par exemple :
 
 ```json
 "dependencies": {
@@ -75,7 +75,7 @@ Les ressources des dépendances qui sont transférées dans le projet de niveau 
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
 | native | native |
-| none | Aucun dossier |
+| Aucun | Aucun dossier |
 | all | Tous les dossiers |
 
 Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`.
@@ -136,7 +136,7 @@ Répertorie les systèmes d’exploitation et les architectures sur lesquels vot
 Un package contenant une bibliothèque de classes portable qui peut s’exécuter sur n’importe quel runtime n’a pas besoin d’en spécifier un. Cela doit également être vrai pour toutes les dépendances, sinon vous devez spécifier les runtimes.
 
 
-## <a name="supports"></a>Prises en charge
+## <a name="supports"></a>Prise en charge
 
 Définit un ensemble de vérifications pour les dépendances de package. Vous pouvez définir l’emplacement d’exécution prévu pour la bibliothèque de classes portable ou l’application. Les définitions ne sont pas restrictives, comme votre code peut être en mesure de s’exécuter à un autre emplacement. Toutefois, la spécification de ces vérifications permet à NuGet de contrôler que toutes les dépendances sont satisfaites sur les monikers du Framework cible répertoriés. `net46.app`, `uwp.10.0.app`, entre autres, en sont des exemples de valeurs.
 

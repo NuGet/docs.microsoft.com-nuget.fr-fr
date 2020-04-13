@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/02/2018
 ms.topic: tutorial
 ms.openlocfilehash: b16bf422e2627be3b8516a875d749639734064a9
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380721"
 ---
 # <a name="create-net-standard-and-net-framework-packages-with-visual-studio-2015"></a>Créer des packages .NET Standard et .NET Framework avec Visual Studio 2015
@@ -20,7 +20,7 @@ La [bibliothèque .NET Standard](/dotnet/articles/standard/library) est une spé
 
 Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque .NET Standard 1.4 ou .NET Framework 4.6. Une bibliothèque .NET Standard 1.4 fonctionne sur .NET Framework 4.6.1, la plateforme Windows universelle 10, .NET Core et Mono/Xamarin. Pour plus d’informations, consultez la [table de mappage .NET Standard](/dotnet/standard/net-standard#net-implementation-support) (documentation .NET). Vous pouvez choisir une autre version de la bibliothèque .NET Standard si vous le souhaitez.
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 1. Visual Studio 2015 Update 3
 1. (.NET Standard uniquement) [Kit SDK .NET Core](https://www.microsoft.com/net/download/)
@@ -31,7 +31,7 @@ Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque
 
 ## <a name="create-the-class-library-project"></a>Créer le projet de bibliothèque de classes
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)** , remplacez le nom par AppLogger et sélectionnez **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > Windows**, sélectionnez **Bibliothèque de classes (portable)**, remplacez le nom par AppLogger et sélectionnez **OK**.
 
     ![Créer un projet de bibliothèque de classes](media/NetStandard-NewProject.png)
 
@@ -68,7 +68,7 @@ Ce guide vous explique comment créer un package NuGet ciblant une bibliothèque
     nuget spec
     ```
 
-1. Ouvrez `AppLogger.nuspec` dans un éditeur et mettez-le à jour afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). Veillez également à mettre à jour les balises authors et description afin de ne pas recevoir de message d’erreur durant l’empaquetage.
+1. Ouvrez `AppLogger.nuspec` dans un éditeur et mettez-le à jour afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. La `<id>` valeur, en particulier, doit être unique à travers nuget.org (voir les conventions de nommage décrites dans [La création d’un paquet](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number). De plus, vous devez également mettre à jour les balises authors et description afin de ne pas obtenir d’erreur durant l’empaquetage.
 
     ```xml
     <?xml version="1.0"?>
@@ -159,17 +159,17 @@ Cette opération génère `AppLogger.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce f
 > [!Tip]
 > Un fichier `.nupkg` est simplement un fichier zip avec une extension différente. Vous pouvez alors également examiner le contenu de package en définissant `.nupkg` sur `.zip`, mais n’oubliez pas de restaurer l’extension avant de charger un package sur nuget.org.
 
-Pour mettre votre package à la disposition des autres développeurs, suivez les instructions indiquées dans [Publier un package](../nuget-org/publish-a-package.md).
+Pour mettre votre colis à la disposition d’autres développeurs, suivez les instructions sur [Publier un package](../nuget-org/publish-a-package.md).
 
-Notez que `pack` requiert Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins Windows dans le fichier `.nuspec` en chemins de style Unix.
+Notez que `pack` nécessite Mono 4.4.2 sur Mac OS X et ne fonctionne pas sur les systèmes Linux. Sur un Mac, vous devez également convertir les chemins d’accès Windows dans le fichier `.nuspec` en chemins d’accès de style Unix.
 
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Informations de référence sur le fichier .nuspec](../reference/nuspec.md)
-- [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
+- [Soutenir plusieurs versions-cadres .NET](../create-packages/supporting-multiple-target-frameworks.md)
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
-- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
 - [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)

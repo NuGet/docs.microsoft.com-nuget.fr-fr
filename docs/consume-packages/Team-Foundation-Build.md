@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: a86a58f8afb4b0f1affeddd47d6c5606fb465757
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73611000"
 ---
 # <a name="setting-up-package-restore-with-team-foundation-build"></a>Configuration de la restauration de packages avec Team Foundation Build
@@ -18,7 +18,7 @@ Cet article explique pas à pas comment restaurer des packages dans [Team Servic
 
 Cette procédure pas à pas est propre au scénario où Team Foundation Services est utilisé. Toutefois, les mêmes concepts s’appliquent aussi à d’autres systèmes de gestion de versions et de build.
 
-S’applique aux éléments suivants :
+S’applique à :
 
 - Projets MSBuild personnalisés exécutés sur n’importe quelle version de TFS
 - Team Foundation Server 2012 ou version antérieure
@@ -48,7 +48,7 @@ Lorsque votre processus de génération restaure des packages avant de générer
 
 Le projet de démonstration suivant montre comment configurer la génération de sorte que les dossiers `packages` et les fichiers `.targets` n’aient pas à être archivés. Il montre également comment configurer une génération automatique dans Team Foundation Service pour cet exemple de projet.
 
-## <a name="repository-structure"></a>Structure du référentiel
+## <a name="repository-structure"></a>Structure des référentiels
 
 Notre projet de démonstration est un outil en ligne de commande simple qui utilise l’argument de ligne de commande pour interroger Bing. Il cible .NET Framework 4 et utilise une grande partie des [packages BCL](https://www.nuget.org/profiles/dotnetframework/) ([Microsoft.Net.Http](https://www.nuget.org/packages/Microsoft.Net.Http), [Microsoft.Bcl](https://www.nuget.org/packages/Microsoft.Bcl), [Microsoft.Bcl.Async](https://www.nuget.org/packages/Microsoft.Bcl.Async) et [Microsoft.Bcl.Build](https://www.nuget.org/packages/Microsoft.Bcl.Build)).
 
@@ -84,7 +84,7 @@ Le code source se trouve dans le dossier `src`. Notre démonstration utilise une
 ### <a name="ignore-files"></a>Ignorer les fichiers
 
 > [!Note]
-> Il existe actuellement un [bogue connu dans le client NuGet](https://nuget.codeplex.com/workitem/4072), à cause duquel le client continue d’ajouter le dossier `packages` à la gestion de versions. Pour contourner ce problème, désactivez l’intégration du contrôle de code source. Vous aurez besoin pour cela d’un fichier `Nuget.Config ` dans le dossier `.nuget`, parallèle à votre solution. Si ce dossier n’existe pas encore, créez-le. Dans [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md), ajoutez le contenu suivant :
+> Il existe actuellement un [bogue connu dans le client NuGet](https://nuget.codeplex.com/workitem/4072), à cause duquel le client continue d’ajouter le dossier `packages` à la gestion de versions. Pour contourner ce problème, désactivez l’intégration du contrôle de code source. Vous aurez besoin pour cela d’un fichier `Nuget.Config ` dans le dossier `.nuget`, parallèle à votre solution. Si ce dossier n’existe pas encore, créez-le. Dans [`Nuget.Config`](../consume-packages/configuring-nuget-behavior.md), ajouter le contenu suivant:
 
 ```xml
 <configuration>

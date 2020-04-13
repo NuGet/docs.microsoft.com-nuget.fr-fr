@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 1df35c96124584bddbe58b8dd6587e3fff256ef9
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "74825316"
 ---
 1. Accédez au dossier contenant le fichier `.nupkg`.

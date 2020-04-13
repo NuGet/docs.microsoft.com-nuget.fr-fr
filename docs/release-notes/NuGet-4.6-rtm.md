@@ -6,29 +6,29 @@ ms.author: anangaur
 ms.date: 3/7/2018
 ms.topic: conceptual
 ms.openlocfilehash: eacd29d4c9340a0f015fcdf6c5b9dd41bf781419
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432554"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498688"
 ---
 # <a name="nuget-46-release-notes"></a>Notes de publication de NuGet 4.6
 
 [Visual Studio 2017 15.6 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) est fourni avec [NuGet 4.6.0](https://dist.nuget.org/win-x86-commandline/v4.6.0/nuget.exe).
 
-## <a name="summary-whats-new-in-460"></a>Résumé : Nouveautés de la version 4.6.0
+## <a name="summary-whats-new-in-460"></a>Résumé: Quoi de neuf en 4.6.0
 
 * Nous avons ajouté la prise en charge de la [signature de packages](../create-packages/sign-a-package.md).
 * Visual Studio 2017 et nuget.exe vérifient maintenant l’intégrité des packages avant d’installer et de restaurer des [packages signés](../reference/signed-packages-reference.md).
 * Nous avons amélioré les performances des restaurations successives.
 
-## <a name="summary-whats-new-in-463"></a>Résumé : Nouveautés de la version 4.6.3
+## <a name="summary-whats-new-in-463"></a>Résumé: Quoi de neuf en 4.6.3
 
-* Correctif de sécurité : Les autorisations sur les fichiers créés dans ~/.nuget sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité : Les autorisations sur les fichiers créés à l’intérieur de l’adresse suivante [: les #7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-464"></a>Résumé : Nouveautés de la version 4.6.4
+## <a name="summary-whats-new-in-464"></a>Résumé: Quoi de neuf en 4.6.4
 
-* Correctif de sécurité : Les fichiers dans les NUPKG peuvent avoir un chemin relatif au-dessus du répertoire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correctif de sécurité: Les fichiers à l’intérieur des NUPKGs peuvent avoir un chemin relatif au-dessus de l’annuaire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problèmes connus
 

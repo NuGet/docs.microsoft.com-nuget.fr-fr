@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488194"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impact de project.json lors de la création de packages
@@ -45,7 +45,7 @@ La prise en charge du contenu est actuellement désactivée pour des raisons sim
 
 Les fichiers de contenu peuvent toujours être déplacés à l’intérieur des packages, même s’ils sont ignorés actuellement, mais l’utilisateur final peut toujours les copier au bon endroit.
 
-Vous trouverez une des propositions de réintégration des fichiers de contenu et pourrez suivre sa progression ici : [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627).
+Vous pouvez voir l’une des propositions pour ramener des [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)fichiers de contenu, et suivre ses progrès, ici: .
 
 ## <a name="impact-for-package-authors"></a>Impact pour les auteurs de packages
 

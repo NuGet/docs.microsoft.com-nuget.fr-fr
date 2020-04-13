@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: 2fc62e7161a07d739760ed638653fbdec0dfc330
-ms.sourcegitcommit: e763d9549cee3b6254ec2d6382baccb44433d42c
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "68860579"
 ---
 Utilisez la commande [restore](../../reference/cli-reference/cli-ref-restore.md), qui télécharge et installe tous les packages manquants dans le dossier *packages*.

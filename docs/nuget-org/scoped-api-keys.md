@@ -6,17 +6,17 @@ ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
 ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426944"
 ---
 # <a name="scoped-api-keys"></a>Clés API délimitées
 
 Pour faire de NuGet un environnement plus sécurisé pour la distribution de packages, vous pouvez ajouter des étendues pour prendre le contrôle des clés API.
 
-En définissant des étendues pour vos clés API, vous pouvez mieux contrôler vos API. Vous pouvez :
+En définissant des étendues pour vos clés API, vous pouvez mieux contrôler vos API. Vous pouvez :
 
 - Créer plusieurs clés API délimitées pouvant être utilisées pour différents packages avec des délais d’expiration variables
 - Obtenir des clés API de manière sécurisée

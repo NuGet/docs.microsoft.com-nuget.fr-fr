@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78230576"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Créer un package NuGet à l’aide de l’interface CLI dotnet
@@ -104,7 +104,7 @@ Pour exécuter automatiquement `dotnet pack` pendant l’exécution de `dotnet b
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Lorsque vous exécutez `dotnet pack` sur une solution, cela compresse tous les projets de la solution qui peuvent être compressés (la propriété [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) a la valeur `true`).
+Lorsque vous `dotnet pack` exécutez sur une solution, cela emballe tous les[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) projets `true`dans la solution qui sont emballés (la propriété est définie à ).
 
 > [!NOTE]
 > Lorsque vous créez automatiquement le package, le délai d’attente augmente la durée de création de votre projet.
@@ -124,16 +124,16 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
-- [Gestion de version des packages](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Icône Ajouter un package](../reference/nuspec.md#icon)
+- [Ajouter une icône de paquet](../reference/nuspec.md#icon)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
-- [Préversions](../create-packages/prerelease-packages.md)
+- [Versions pré-version](../create-packages/prerelease-packages.md)
 - [Définir un type de package](../create-packages/set-package-type.md)
 - [Créer des packages avec des assemblys COM Interop](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 Enfin, il existe d’autres types de package à connaître :
 
 - [Packages natifs](../guides/native-packages.md)
-- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
+- [Paquets de symboles](../create-packages/symbol-packages-snupkg.md)

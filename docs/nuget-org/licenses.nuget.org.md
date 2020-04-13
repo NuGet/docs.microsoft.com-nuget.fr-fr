@@ -3,22 +3,22 @@ title: licenses.nuget.org
 author: agr
 ms.date: 02/22/2019
 ms.openlocfilehash: 717cf8c47335c620410be71300b07de82799e1d3
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67427114"
 ---
 # <a name="licensesnugetorg"></a>licenses.nuget.org
 
-## <a name="rationale"></a>Raisonnement
+## <a name="rationale"></a>Rationale
 
 Avec l’introduction des [expressions de licence](../reference/nuspec.md#license), il est devenu indispensable de disposer d’un service fiable fournissant un texte de référence pour les identificateurs de licence individuels, les identificateurs d’exception ou les expressions de licence.
 Ce service doit également avoir un schéma d’URL stable non sujet aux liens rompus, ce qui nous permet de l’utiliser de manière sécurisée pour fournir une compatibilité descendante aux anciens clients.
 
 Licenses.nuget.org remplit ce rôle. Nuget.org l’utilise pour fournir la référence au texte de licence pour les packages qui spécifient leur licence à l’aide d’une expression de licence. L’utilisation de `nuget pack` ou la création d’un package avec d’autres [outils clients](../install-nuget-client-tools.md) définit l’élément [`licenseUrl`](../reference/nuspec.md#licenseurl) pour qu’il pointe vers license.nuget.org afin de fournir une compatibilité ascendante avec les anciens clients ne prenant pas en charge l’élément `license`.
 
-## <a name="protocol"></a>Protocole
+## <a name="protocol"></a>Protocol
 
 Licenses.nuget.org est destiné à être visualisé par les utilisateurs dans leur navigateur. Aucune réponse lisible par machine n’est fournie.
 Le protocole HTTPS doit être utilisé et les demandes sont censées être construites d’une certaine manière. Seules les demandes `GET` sont prises en charge.
@@ -36,9 +36,9 @@ Les expressions de licence (y compris les cas triviaux où l’expression se com
 | (MIT)                                              | <https://licenses.nuget.org/(MIT)> |
 | (LGPL-2.0-only WITH FLTK-exception OR Apache-2.0+) | <https://licenses.nuget.org/(LGPL-2.0-only%20WITH%20FLTK-exception%20OR%20Apache-2.0+)> |
 
-Le service prend en charge uniquement les identificateurs de licence et d’exception de licence acceptés par nuget.org. Toutes les expressions de licence contenant des identificateurs de licence ou d’exception de licence non pris en charge ou non conformes à la syntaxe d’expression de licence sont considérées comme non valides.
+Le service ne prend en charge que les identifiants de licence et les identifiants d’exception de licence qui sont acceptés par nuget.org. Toutes les expressions de licence qui contiennent des identifiants de licence non pris en charge ou des identifiants d’exception de licence ou qui ne sont pas conformes à la syntaxe d’expression de licence sont considérées comme invalides.
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 Licenses.nuget.org répond aux demandes contenant des expressions de licence valides avec un code d’état HTTP 200 et une page web contenant une description de l’expression de licence :
 
@@ -51,14 +51,14 @@ Toute demande contenant une expression de licence non valide entraîne une répo
 
 #### <a name="request"></a>Requête
 
-Les identificateurs d’exception de licence doivent être codés dans une URL et utilisés comme chemin dans la demande à licences.nuget.org. Un seul identificateur d’exception de licence peut être fourni dans une même demande. Aucun caractère supplémentaire à part l’identificateur d’exception de licence ne peut être présent dans la partie chemin de l’URL.
+Les identifiants d’exception de licence doivent être codés par URL et utilisés comme voie dans la demande de licenses.nuget.org. Un seul identifiant d’exception de licence peut être fourni en une seule demande. Aucun caractère supplémentaire à part l’identificateur d’exception de licence ne peut être présent dans la partie chemin de l’URL.
 
 | Identificateur d’exception de licence | URL à utiliser |
 |:---|:---|
 |FLTK-exception            | <https://licenses.nuget.org/FLTK-exception> |
 |openvpn-openssl-exception | <https://licenses.nuget.org/openvpn-openssl-exception> |
 
-#### <a name="response"></a>Réponse
+#### <a name="response"></a>response
 
 Licenses.nuget.org répond à une demande contenant un identificateur d’exception de licence connu avec une réponse HTTP 200 et une page web contenant le texte de référence pour l’exception de licence spécifiée.
 

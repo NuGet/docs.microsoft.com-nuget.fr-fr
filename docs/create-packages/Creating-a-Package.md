@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428946"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
@@ -68,7 +68,7 @@ Propriétés facultatives communes :
 - Brève description de l’[interface utilisateur du gestionnaire de package dans Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID de paramètres régionaux
 - URL du projet
-- Licence comme expression ou fichier (`licenseUrl` est en cours de dépréciation, utilisez l’élément de métadonnées nuspec [`license`](../reference/nuspec.md#license))
+- Licence comme expression ou`licenseUrl` fichier (est déprécié, utilisez l’élément [ `license` de métadonnées nuspec](../reference/nuspec.md#license))
 - URL de l’icône
 - Listes des dépendances et références
 - Balises facilitant les recherches dans la galerie
@@ -138,7 +138,7 @@ Voici un fichier `.nuspec` classique (mais fictif), avec des commentaires décri
 </package>
 ```
 
-Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [packages.config](../reference/packages-config.md) et [Gestion des versions de package](../concepts/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `include` et `exclude` sur l’élément `dependency`. Consultez [Informations de référence sur le fichier .nuspec - Dépendances](../reference/nuspec.md#dependencies).
+Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [packages.config](../reference/packages-config.md) et [Gestion des versions de package](../concepts/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `include` et `exclude` sur l’élément `dependency`. Consultez [Référence .nuspec - Dépendances](../reference/nuspec.md#dependencies).
 
 Étant donné que le manifeste est inclus dans le package à partir duquel il est créé, vous pouvez en trouver de nombreux autres exemples en examinant les packages existants. Le dossier *global-packages*, sur votre ordinateur, représente une bonne source ; son emplacement est retourné par la commande suivante :
 
@@ -241,7 +241,7 @@ Notez qu’il existe plusieurs autres options d’empaquetage disponibles quand 
 
 #### <a name="solution-level-packages"></a>Packages au niveau de la solution
 
-*NuGet 2. x uniquement. Non disponible dans NuGet 3.0 +.*
+*NuGet 2.x seulement. Non disponible dans NuGet 3.0.*
 
 NuGet 2.x prenait en charge la notion de package au niveau de la solution qui permettait d’installer des outils ou des commandes supplémentaires pour la console du gestionnaire de package (contenu du dossier `tools`), sans ajouter de références, de contenu, ni générer des personnalisations pour les projets de la solution. De tels packages ne contiennent aucun fichier dans leurs dossiers `lib`, `content` ou `build` directs et aucune de leurs dépendances n’ont des fichiers dans leurs dossiers `lib`, `content` ou `build` respectifs.
 
@@ -267,7 +267,7 @@ L’identificateur de package (élément `<id>`) et le numéro de version (élé
 
 - **Unicité** : l’identificateur doit être unique sur nuget.org ou dans la galerie qui héberge le package, quelle qu’elle soit. Avant de déterminer un identificateur, faites une recherche dans la galerie applicable pour vérifier si le nom est déjà en cours d’utilisation. Pour éviter les conflits, utilisez le nom de votre société comme première partie de l’identificateur, par exemple `Contoso.`.
 - **Noms comme les espaces de noms** : suivez un modèle similaire aux espaces de noms dans .NET, en utilisant la notation à points au lieu de traits d’union. Par exemple, utilisez `Contoso.Utility.UsefulStuff` plutôt que `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Les consommateurs trouvent également pratique de faire correspondre l’identificateur du package aux espaces de noms utilisés dans le code.
-- **Exemples de package** : si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (L’exemple de package est évidemment dépendant de l’autre package.) Lorsque vous créez un exemple de package, utilisez la méthode de répertoire de travail basée sur une convention décrite précédemment. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Exemples de package** : si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (Le paquet d’échantillons dépendrait bien sûr de l’autre paquet.) Lors de la création d’un exemple, utilisez la méthode d’annuaire de travail basée sur la convention décrite plus tôt. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Bonnes pratiques en matière de version de package :**
 
@@ -344,7 +344,7 @@ Ensuite, dans le fichier `.nuspec`, veillez à faire référence à ces fichiers
 
 L’inclusion des propriétés et des cibles MSBuild dans un package a été [introduite avec NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files). Il est donc recommandé d’ajouter l’attribut `minClientVersion="2.5"` à l’élément `metadata` pour indiquer la version minimale du client NuGet nécessaire pour utiliser le package.
 
-Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du fichier projet ; `.targets` est ajouté en bas.) Un élément `<Import>` MSBuild conditionnel distinct est ajouté pour chaque Framework cible.
+Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du dossier du projet; `.targets` est ajouté en bas.) Un élément MSBuild `<Import>` conditionnel distinct est ajouté pour chaque cadre cible.
 
 Les fichiers `.props` et `.targets` MSBuild du ciblage multi-infrastructure peuvent être placés dans le dossier `\buildMultiTargeting`. Lors de l’installation de package, NuGet ajoute les éléments `<Import>` correspondants au fichier projet à la condition que la version cible de .NET Framework ne soit pas définie (la propriété MSBuild `$(TargetFramework)` doit être vide).
 
@@ -423,15 +423,15 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
-- [Gestion de version des packages](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
-- [Préversions](../create-packages/prerelease-packages.md)
+- [Versions pré-version](../create-packages/prerelease-packages.md)
 - [Définir un type de package](../create-packages/set-package-type.md)
 - [Créer des packages avec des assemblys COM Interop](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 Enfin, il existe d’autres types de package à connaître :
 
 - [Packages natifs](../guides/native-packages.md)
-- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
+- [Paquets de symboles](../create-packages/symbol-packages-snupkg.md)

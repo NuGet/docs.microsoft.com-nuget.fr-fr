@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 07/09/2019
 ms.topic: conceptual
 ms.openlocfilehash: b151547e40e567b38acc2b0b9ee84c50d85000c9
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "69488479"
 ---
 # <a name="identify-the-project-format"></a>Identifier le format du projet
@@ -22,7 +22,7 @@ La méthode utilisée pour créer le projet détermine si votre projet est de st
 |:------------- |:-------------|:-----|:-----|
 | .NET Standard | Style SDK | [Interface CLI .NET](../install-nuget-client-tools.md#dotnetexe-cli) | Les projets créés avant Visual Studio 2017 ne sont pas de type SDK. Utilisez la CLI `nuget.exe`. |
 | .NET Core | Style SDK | [Interface CLI .NET](../install-nuget-client-tools.md#dotnetexe-cli) | Les projets créés avant Visual Studio 2017 ne sont pas de type SDK. Utilisez la CLI `nuget.exe`. |
-| .NET Framework | Pas de style SDK | [Interface CLI de nuget.exe](../install-nuget-client-tools.md#nugetexe-cli) | Les projets .NET Framework créés à l’aide d’autres méthodes peuvent être des projets de type SDK. Pour ceux-ci, utilisez la [CLI dotnet](../install-nuget-client-tools.md#dotnetexe-cli) à la place. |
+| .NET Framework | Pas de style SDK | [Interface CLI de nuget.exe](../install-nuget-client-tools.md#nugetexe-cli) | Les projets .NET Framework créés à l’aide d’autres méthodes peuvent être des projets de type SDK. Pour ceux-ci, utilisez la [CLI dotnet](../install-nuget-client-tools.md#dotnetexe-cli) à la place. |
 | Projet .NET [migré](../consume-packages/migrate-packages-config-to-package-reference.md) | Pas de style SDK| Pour créer des packages, utilisez [msbuild -t:pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration) pour créer des packages. | Pour créer des packages, `msbuild -t:pack` est recommandé. Sinon, utilisez la [CLI dotnet](../install-nuget-client-tools.md#dotnetexe-cli). Les projets migrés ne sont pas des projets de type SDK. |
 
 ## <a name="check-the-project-format"></a>Vérifier le format du projet

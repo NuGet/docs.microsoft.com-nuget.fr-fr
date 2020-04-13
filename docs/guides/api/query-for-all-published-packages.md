@@ -7,11 +7,11 @@ ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
 ms.openlocfilehash: 0bd21c427b5b89ae9e5f1500d75e1bf63a96e828
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43551076"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64498235"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Rechercher à l’aide d’une requête tous les packages publiés sur nuget.org
 
@@ -30,9 +30,9 @@ Pour effectuer cette opération, il fallait généralement trier l’entité de 
 
 Pour cette raison, vous pouvez suivre le guide ci-après pour résoudre les scénarios cités plus haut d’une manière plus fiable et évolutive.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
-Ce guide repose sur une ressource de [l’API NuGet](../../api/overview.md) appelée **catalogue**. Le catalogue est une API d’ajout uniquement qui permet à l’appelant d’afficher un historique complet des packages ajoutés, modifiés et supprimés dans nuget.org. Si vous êtes intéressé par tout ou partie des packages publiés sur nuget.org, le catalogue est un excellent moyen d’être constamment à jour de l’ensemble des packages disponibles.
+Ce guide repose sur une ressource de [l’API NuGet](../../api/overview.md) appelée **catalogue**. Le catalogue est une API annexe uniquement qui permet à l’appelant de voir une histoire complète des paquets ajoutés, modifiés et supprimés de nuget.org. Si vous êtes intéressé par tout ou même un sous-ensemble de paquets publiés à nuget.org, le catalogue est un excellent moyen de rester à jour avec l’ensemble des paquets actuellement disponibles au fil du temps.
 
 Ce guide est conçu comme une procédure générale, mais si vous êtes intéressé par des détails précis du catalogue, consultez le [document de référence sur l’API](../../api/catalog-resource.md).
 
@@ -56,7 +56,7 @@ L’emplacement de chaque ressource (point de terminaison) dans l’API NuGet do
 
     GET https://api.nuget.org/v3/index.json
 
-Le document de service est un document JSON qui contient toutes les ressources sur nuget.org. Recherchez la ressource dont la propriété `@type` a pour valeur `Catalog/3.0.0`. La valeur de propriété `@id` associée est l’URL de l’index du catalogue. 
+Le document de service est un document JSON contenant toutes les ressources sur nuget.org. Recherchez la ressource `@type` ayant `Catalog/3.0.0`la valeur de propriété de . La valeur de propriété `@id` associée est l’URL de l’index du catalogue. 
 
 ## <a name="find-new-catalog-leaves"></a>Rechercher de nouvelles feuilles de catalogue
 
@@ -116,7 +116,7 @@ Vous pouvez installer ce package sur un projet compatible avec `netstandard1.3` 
 
 Un exemple d’utilisation de ce package est disponible sur GitHub dans le [projet NuGet.Protocol.Catalog.Sample](https://github.com/NuGet/Samples/tree/master/CatalogReaderExample/NuGet.Protocol.Catalog.Sample).
 
-#### <a name="sample-output"></a>Résultat de l'exemple
+#### <a name="sample-output"></a>Exemple de sortie
 
 ```output
 2017-11-10T22:16:44.8689025+00:00: Found package details leaf for xSkrape.APIWrapper.REST 1.0.2.
@@ -156,7 +156,7 @@ Pour obtenir un exemple avec moins de dépendances qui illustre l’interaction 
 
 La logique principale du code est visible dans le [fichier Program.cs](https://github.com/NuGet/Samples/blob/master/CatalogReaderExample/CatalogReaderExample/Program.cs).
 
-#### <a name="sample-output"></a>Résultat de l'exemple
+#### <a name="sample-output"></a>Exemple de sortie
 
 ```output
 No cursor found. Defaulting to 11/2/2017 9:41:28 PM.

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
 ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79429030"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
@@ -19,7 +19,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 > [!Note]
 > Si vous utilisez Visual Studio pour Mac, consultez [ces informations](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) sur la création d’un package NuGet ou utilisez les [outils CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez une édition de Visual Studio 2019 à l’adresse [visualstudio.com](https://www.visualstudio.com/) avec n’importe quelle charge de travail liée à .NET Core.
 
@@ -114,7 +114,7 @@ Vous pouvez configurer Visual Studio pour générer automatiquement le package N
 
 ### <a name="optional-pack-with-msbuild"></a>(Facultatif) Compresser avec MSBuild
 
-En guise d’alternative à l’utilisation de la commande de menu **Pack**, NuGet 4.x+ et MSBuild 15.1+ prennent en charge une cible `pack` quand le projet contient les données de package nécessaires. Ouvrez une invite de commandes, accédez au dossier de votre projet et exécutez la commande suivante. (Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu Démarrer, car elle est configurée avec tous les chemins nécessaires pour MSBuild.)
+En alternance avec l’utilisation de la commande de menu **Pack,** NuGet 4.x `pack` et MSBuild 15.1MD prend en charge une cible lorsque le projet contient les données de paquet nécessaires. Ouvrez une invite de commandes, accédez au dossier de votre projet et exécutez la commande suivante. (Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu Démarrer, car elle est configurée avec tous les chemins nécessaires pour MSBuild.)
 
 Pour plus d’informations, consultez [Créer un package avec MSBuild](../create-packages/creating-a-package-msbuild.md).
 
@@ -140,7 +140,7 @@ Avant de pouvoir publier le package, vous devez d’abord ouvrir une ligne de co
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nuget"></a>[NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet NuGet](#tab/nuget)
 
 Cette étape aboutit au même résultat que `dotnet.exe`.
 
@@ -197,15 +197,15 @@ Cela inclut un fichier nommé `readme.txt` dans la racine du package. Visual Stu
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
 
-Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Trouver plus de vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Créer un package](../create-packages/creating-a-package-dotnet-cli.md)
-- [Publier un package](../nuget-org/publish-a-package.md)
-- [Packages de préversion](../create-packages/Prerelease-Packages.md)
+- [Publier un forfait](../nuget-org/publish-a-package.md)
+- [Forfaits de pré-version](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Gestion de version des packages](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
 - [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)

@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: conceptual
 ms.openlocfilehash: 4d337299f725b38981b0121069d5e6295b05e34e
-ms.sourcegitcommit: f9645fc5f49c18978e12a292a3f832e162e069d5
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72924639"
 ---
 # <a name="analyzer-nuget-formats"></a>Formats NuGet des analyseurs
@@ -45,7 +45,7 @@ L’emploi du dossier `analyzers` est similaire à celui utilisé pour les [vers
 
     $/analyzers/{framework_name}{version}/{supported_architecture}/{supported_language}/{analyzer_name}.dll
 
-- **framework_name** et **version**: la surface d’exposition API *facultative* de l' .NET Framework que les dll contenues doivent s’exécuter. `dotnet` est actuellement la seule valeur valide, car Roslyn est le seul hôte qui peut exécuter des analyseurs. Si aucune cible n’est spécifiée, les DLL sont censées s’appliquer à *toutes* les cibles.
+- **framework_name** et **la version**: la surface *API optionnelle* du cadre .NET que les DLL contenus doivent fonctionner. `dotnet` est actuellement la seule valeur valide, car Roslyn est le seul hôte qui peut exécuter des analyseurs. Si aucune cible n’est spécifiée, les DLL sont censées s’appliquer à *toutes* les cibles.
 - **langage_pris_en_charge** : langage pour lequel la DLL s’applique, entre `cs` (C#) et `vb` (Visual Basic), et `fs` (F#). Le langage indique que l’analyseur doit être chargé uniquement pour un projet utilisant ce langage. Si aucun langage n’est spécifié, la DLL est censée s’appliquer à *tous* les langages qui prennent en charge des analyseurs.
 - **nom_analyseur** : spécifie les DLL de l’analyseur. Si vous avez besoin de fichiers supplémentaires en plus des DLL, ils doivent être inclus via des fichiers de propriétés ou de cibles.
 

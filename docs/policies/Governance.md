@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 2aaaf41b3fc4ef3621333e5099780b5d7ef393bc
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549448"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64500393"
 ---
 # <a name="nuget-governance"></a>Gouvernance pour NuGet
 
@@ -20,7 +20,7 @@ Le projet NuGet est dirigé par un dictateur bienveillant et géré par la commu
 
 Il appartient au dictateur bienveillant de résoudre les litiges au sein de la communauté et de s’assurer que le projet peut progresser de façon coordonnée. De son côté, il incombe à la communauté de guider les décisions du dictateur bienveillant par un engagement et une contribution actifs.
 
-## <a name="roles-and-responsibilities"></a>Rôles et responsabilités
+## <a name="roles-and-responsibilities"></a>Les rôles et responsabilités
 
 Quatre rôles sont décrits ici : dictateur bienveillant, validateurs, contributeurs et utilisateurs.
 
@@ -40,11 +40,11 @@ En règle générale, un validateur se concentre sur un aspect spécifique du pr
 
 Les validateurs n’ont aucune autorité sur la direction globale de NuGet. Toutefois, ils ont toute l’attention du chef de projet. Il appartient au validateur de s’assurer que le responsable tient compte des besoins et des objectifs collectifs de la communauté et d’aider à développer ou obtenir des contributions appropriées au projet. Souvent, les validateurs se voient accorder un contrôle informel de leurs domaines de responsabilité spécifiques, ainsi que des droits de modification directe de certaines zones du code source. Autrement dit, bien que les validateurs n’aient pas explicitement autorité en matière de prise de décision, ils constatent souvent que leurs actions concordent avec les décisions prises par le responsable.
 
-### <a name="contributors"></a>Contributors
+### <a name="contributors"></a>Contributeurs
 
 Les contributeurs sont des membres de la communauté qui soumettent des correctifs à NuGet. Ces correctifs peuvent se produire une ou plusieurs fois. En règle générale, les correctifs soumis par un contributeur sont petits dans un premier temps, puis deviennent plus importants à mesure que leur qualité gagne la confiance des contributeurs, des validateurs et du chef de projet. Les contributeurs sont identifiés dans le document des notes de publication du produit associé.
 
-Avant que le premier correctif d’un contributeur ne soit placé dans le dépôt, ce contributeur doit signer un [contrat de licence de contributeur](http://en.wikipedia.org/wiki/Contributor_License_Agreement) ou un accord d’affectation avec la .NET Foundation. Le correctif peut être soumis et discuté, mais il ne peut pas être validé dans le dépôt sans les papiers appropriés nécessaires. Pour obtenir un contrat de licence de contributeur, envoyez une demande par e-mail à [contributions@nuget.org](mailto:contributions@nuget.org).
+Avant que le premier correctif d’un contributeur ne soit placé dans le dépôt, ce contributeur doit signer un [contrat de licence de contributeur](http://en.wikipedia.org/wiki/Contributor_License_Agreement) ou un accord d’affectation avec la .NET Foundation. Le correctif peut être soumis et discuté, mais il ne peut pas être validé dans le dépôt sans les papiers appropriés nécessaires. Pour obtenir un contrat de licence de [contributions@nuget.org](mailto:contributions@nuget.org)contributeur, veuillez envoyer une demande par courriel à .
 
 Pour devenir contributeur, envoyez une demande de tirage (pull request) à un des dépôts suivants :
 
@@ -88,7 +88,7 @@ En cas de décès ou d’incapacité d’un détenteur de compte NuGet, nous tra
     - Certificat de naissance du titulaire du compte, si vous êtes son parent ou
     - Documents de tutelle si vous êtes tuteur légal du titulaire du compte
 
-Si vous vous sentez concerné, veuillez nous envoyer un e-mail à [support@nuget.org](mailto:support@nuget.org) avec l’ID et la version du package.
+Si vous avez besoin d’invoquer cette politique, [support@nuget.org](mailto:support@nuget.org) veuillez nous envoyer un e-mail avec l’ID et la version du paquet.
 
 ## <a name="transparency"></a>Transparence
 

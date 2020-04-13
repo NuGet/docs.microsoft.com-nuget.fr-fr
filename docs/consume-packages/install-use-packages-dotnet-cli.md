@@ -6,10 +6,10 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 67cca81c48970c7f2e2cf0a64ee5ba57704a31e2
-ms.sourcegitcommit: fe34b1fc79d6a9b2943a951f70b820037d2dd72d
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/04/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "74825160"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installer et gérer des packages à l’aide de l’interface CLI dotnet
@@ -20,7 +20,7 @@ Vous pouvez utiliser l’interface CLI dotnet dans votre projet .NET Core et .NE
 
 Cet article explique l’utilisation de base de quelques-unes des commandes de la CLI dotnet les plus courantes. Pour la plupart de ces commandes, l’outil CLI recherche un fichier projet dans le répertoire actif, sauf si vous avez spécifié un fichier projet particulier dans la commande (le fichier projet est un commutateur facultatif). Pour obtenir une liste complète des commandes et des arguments disponibles, consultez les [outils de l’interface de ligne de commande (CLI) de .NET Core](../reference/dotnet-commands.md).
 
-## <a name="prerequisites"></a>Configuration requise
+## <a name="prerequisites"></a>Prérequis
 
 - Le [kit SDK .NET Core](https://www.microsoft.com/net/download/), qui fournit l’outil en ligne de commande `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 

@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 05/01/2018
 ms.topic: conceptual
 ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: b6810860b77b2d50aab031040b047c20a333aca3
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "67426984"
 ---
 # <a name="user-data-requests"></a>Demandes de données utilisateur
 
-Les utilisateurs de nuget.org peuvent envoyer des demandes de suppression d’informations et des demandes d’exportation d’informations par le biais de [nuget.org](https://www.nuget.org). Ces deux types de demandes sont envoyés sous forme de demande de support et sont exécutés par les administrateurs nuget.org dans les 30 jours.
+nuget.org utilisateurs peuvent soumettre des informations supprimer les demandes et les demandes d’exportation d’informations par [nuget.org](https://www.nuget.org). Les deux types sont soumis sous forme de demandes de support et sont exécutés par les administrateurs nuget.org dans les 30 jours.
 
 Les données utilisateur suivantes sont directement accessibles par le biais de nuget.org :
 
@@ -28,7 +28,7 @@ Ces données ne sont pas incluses dans les données exportées dans le cadre de 
 
 Les données client peuvent être identifiées comme des noms de comptes d’utilisateur nuget.org.
 
-## <a name="deleting-customer-data"></a>Suppression de données client
+## <a name="deleting-customer-data"></a>Suppression des données client
 
 Pour demander la suppression de données utilisateur de nuget.org :
 
@@ -48,7 +48,7 @@ Lors de la suppression du compte, toutes les données de l’utilisateur sont su
 
 Les packages détenus ne sont *pas* supprimés. Bien qu’ils ne figurent plus dans les résultats de recherche, ils restent disponibles par le biais de la restauration de package dans les projets qui en dépendent.
 
-## <a name="exporting-customer-data"></a>Exportation de données client
+## <a name="exporting-customer-data"></a>Exportation des données client
 
 Une fois connecté à nuget.org, un utilisateur peut soumettre une demande d’exportation par le biais de [nuget.org/policies/Contact](https://www.nuget.org/policies/Contact).
 

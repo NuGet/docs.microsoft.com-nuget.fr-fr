@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: e0dea74fe179c0dce4996f3e498185bb3a491856
-ms.sourcegitcommit: 74bf831e013470da8b0c1f43193df10bfb1f4fe6
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58432489"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64496460"
 ---
 # <a name="nuget-49-release-notes"></a>Notes de publication NuGet 4.9
 
@@ -18,15 +18,15 @@ Véhicules de distribution NuGet :
 
 | Version de NuGet | Disponible dans la version Visual Studio| Disponible dans les SDK .NET|
 |:---|:---|:---|
-| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 version 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
-| [**4.9.1**](https://nuget.org/downloads) | N/A | N/A |
+| [**4.9.0**](https://nuget.org/downloads) | [Visual Studio 2017 version 15.9.0](https://visualstudio.microsoft.com/downloads/) | [2.1.500, 2.2.100](https://www.microsoft.com/net/download/visual-studio-sdks) |
+| [**4.9.1**](https://nuget.org/downloads) | n/a | n/a |
 | [**4.9.2**](https://nuget.org/downloads) |[Visual Studio 2017 version 15.9.4](https://visualstudio.microsoft.com/downloads/) | [2.1.502, 2.2.101](https://www.microsoft.com/net/download/visual-studio-sdks) |
 | [**4.9.3**](https://nuget.org/downloads) |[Visual Studio 2017 version 15.9.6](https://visualstudio.microsoft.com/downloads/) | [2.1.504, 2.2.104](https://www.microsoft.com/net/download/visual-studio-sdks) |
 
 
-## <a name="summary-whats-new-in-490"></a>Résumé : Nouveautés de la version 4.9.0
+## <a name="summary-whats-new-in-490"></a>Récapitulatif : Nouveautés de la version 4.9.0
 
-* Signature : configure ClientPolicies pour exiger l’utilisation d’un groupe d’auteurs et de référentiels de confiance répertoriés dans NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961), [billet de blog](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
+* Signature: Permettre à ClientPolicies d’exiger l’utilisation d’un ensemble d’auteurs et de dépôts de confiance répertoriés dans NuGet.Config - [#6961](https://github.com/NuGet/Home/issues/6961), [blog post](https://blog.nuget.org/20181205/Lock-down-your-dependencies-using-configurable-trust-policies.html)
 
 * Création de fichiers « .snupkg » qui contiennent les symboles dans un pack ; push amélioré pour comprendre le protocole nuget afin d’accepter les fichiers snupkg pour le serveur de symboles - [#6878](https://github.com/NuGet/Home/issues/6878), [billet de blog](https://blog.nuget.org/20181116/Improved-debugging-experience-with-the-NuGet-org-symbol-server-and-snupkg.html)
 
@@ -84,7 +84,7 @@ Véhicules de distribution NuGet :
 
 [Liste de tous les problèmes résolus dans cette version 4.9.0](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9") <br>
 
-## <a name="summary-whats-new-in-491"></a>Résumé : Nouveautés de la version 4.9.1
+## <a name="summary-whats-new-in-491"></a>Récapitulatif : Nouveautés de la version 4.9.1
 
 * Ajout de la prise en charge de la lecture d’une écriture dans le fichier nuget.config via une nouvelle commande trusted-signers - [#7480](https://github.com/NuGet/Home/issues/7480)
 
@@ -98,7 +98,7 @@ Véhicules de distribution NuGet :
 
 [Liste de tous les problèmes résolus dans cette version 4.9.1](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.1")
 
-## <a name="summary-whats-new-in-492"></a>Résumé : Nouveautés de la version 4.9.2
+## <a name="summary-whats-new-in-492"></a>Résumé: Quoi de neuf en 4.9.2
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
@@ -110,7 +110,7 @@ Véhicules de distribution NuGet :
 
 [Liste de tous les problèmes résolus dans cette version 4.9.2](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.2")
 
-## <a name="summary-whats-new-in-493"></a>Résumé : Nouveautés de la version 4.9.3
+## <a name="summary-whats-new-in-493"></a>Résumé: Quoi de neuf en 4.9.3
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 #### <a name="repeatable-package-restores-using-a-lock-file-issues"></a>Problèmes « Restaurations de packages reproductibles à l’aide d’un fichier de verrouillage »
@@ -140,14 +140,14 @@ Véhicules de distribution NuGet :
 
 [Liste de tous les problèmes résolus dans cette version 4.9.3](https://github.com/nuget/home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A%224.9.3")
 
-## <a name="summary-whats-new-in-494"></a>Résumé : Nouveautés de la version 4.9.4
+## <a name="summary-whats-new-in-494"></a>Résumé: Quoi de neuf en 4.9.4
 
-* Correctif de sécurité : Les autorisations sur les fichiers créés dans ~/.nuget sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité : Les autorisations sur les fichiers créés à l’intérieur de l’adresse suivante [: les #7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 
 ## <a name="known-issues"></a>Problèmes connus
 
-### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519httpsgithubcomnugethomeissues7519"></a>dotnet nuget push --interactive génère une erreur sur Mac. - [#7519](https://github.com/NuGet/Home/issues/7519)
+### <a name="dotnet-nuget-push---interactive-gives-an-error-on-mac---7519"></a>dotnet nuget push --interactive génère une erreur sur Mac. - [#7519](https://github.com/NuGet/Home/issues/7519)
 
 #### <a name="issue"></a>Problème
 L’argument `--interactive` n’est pas transféré par l’interface CLI dotnet et génère l’erreur `error: Missing value for option 'interactive'`
@@ -155,7 +155,7 @@ L’argument `--interactive` n’est pas transféré par l’interface CLI dotne
 #### <a name="workaround"></a>Solution de contournement
 Exécutez une autre commande dotnet avec l’option interactive, par exemple `dotnet restore --interactive` et identifiez-vous. L’authentification peut-être mise en cache par le fournisseur des informations d’identification. Exécutez ensuite `dotnet nuget push`.
 
-### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414httpsgithubcomnugethomeissues7414"></a>Les packages dans FallbackFolders ont été installés de façon personnalisée par le kit SDK .NET Core et la validation de la signature échoue. - [#7414](https://github.com/NuGet/Home/issues/7414)
+### <a name="packages-in-fallbackfolders-installed-by-net-core-sdk-are-custom-installed-and-fail-signature-validation---7414"></a>Les packages dans FallbackFolders ont été installés de façon personnalisée par le kit SDK .NET Core et la validation de la signature échoue. - [#7414](https://github.com/NuGet/Home/issues/7414)
 
 #### <a name="issue"></a>Problème
 Si vous utilisez dotnet.exe 2.x pour restaurer un projet qui cible netcoreapp 1.x et netcoreapp 2.x, le dossier de secours est traité comme un flux de fichier. Cela signifie que, lors de la restauration, NuGet sélectionnera le package dans le dossier de secours et essaiera de l’installer dans le dossier de packages globaux, et la validation de signature habituelle échouera.

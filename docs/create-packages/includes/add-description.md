@@ -1,14 +1,14 @@
 ---
 ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 1a63a84da2719c8141823ac89a20bf507fd22b00
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "80151307"
 ---
-La description facultative du package, affichée sur la page NuGet.org du package, est extraite de la `<description></description>` utilisée dans le fichier `.csproj` ou extraite via le `$description` dans le [fichier. NuSpec](../../reference/nuspec.md).
+La description facultative du paquet, affichée sur la page NuGet.org du `<description></description>` paquet, `.csproj` est soit tirée `$description` de l’utilisé dans le fichier, soit tirée par l’intermédiaire du [fichier .nuspec](../../reference/nuspec.md).
 
-Un exemple de champ de _Description_ est présenté dans le texte XML suivant du fichier `.csproj` pour un package .net :
+Un exemple de champ de _description_ est indiqué `.csproj` dans le texte XML suivant du fichier pour un paquet .NET :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">

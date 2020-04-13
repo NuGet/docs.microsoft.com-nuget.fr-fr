@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 03/21/2017
 ms.topic: tutorial
 ms.openlocfilehash: 77aa186291122a8d05018ecacd1329da459badad
-ms.sourcegitcommit: 363ec6843409b4714c91b75b105619a3a3184b43
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "72380765"
 ---
 # <a name="create-uwp-packages"></a>Créer des packages UWP
@@ -26,7 +26,7 @@ Dans cette procédure pas à pas, vous créez un package NuGet avec un composant
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Créer un composant Windows Runtime UWP
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C++ > Windows > Universel**, sélectionnez le modèle **Composant Windows Runtime (Windows universel)** , changez le nom en ImageEnhancer, puis cliquez sur OK. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C++ > Windows > Universel**, sélectionnez le modèle **Composant Windows Runtime (Windows universel)**, changez le nom en ImageEnhancer, puis cliquez sur OK. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
 
     ![Création d’un projet de composant Windows Runtime UWP](media/UWP-NewProject.png)
 
@@ -34,7 +34,7 @@ Dans cette procédure pas à pas, vous créez un package NuGet avec un composant
 
     ![Ajout d’un nouvel élément Contrôle basé sur un modèle XAML au projet](media/UWP-NewXAMLControl.png)
 
-1. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, puis sélectionnez Propriétés. Dans la page Propriétés, développez **Propriétés de configuration > C/C++** , puis cliquez sur **Fichiers de sortie**. Dans le volet droit, définissez **Génération de fichiers de documentation XML** sur Oui :
+1. Cliquez à droite sur le projet dans Solution Explorer et sélectionnez **propriétés.** Dans la page Propriétés, développez **Propriétés de configuration > C/C++**, puis cliquez sur **Fichiers de sortie**. Dans le volet droit, définissez **Génération de fichiers de documentation XML** sur Oui :
 
     ![Définition de Génération de fichiers de documentation XML sur Oui](media/UWP-GenerateXMLDocFiles.png)
 
@@ -153,7 +153,7 @@ Au sein de votre composant, la logique principale du type ImageEnhancer est en c
 
 ### <a name="adding-targets"></a>Ajout d’un fichier .targets
 
-Ensuite, les projets C++ et JavaScript susceptibles de consommer votre package NuGet ont besoin d’un fichier .targets pour identifier les fichiers winmd et d’assembly nécessaires. (Les projets C# et Visual Basic effectuent cette opération automatiquement.) Créez ce fichier en copiant le texte ci-dessous dans `ImageEnhancer.targets` et enregistrez-le dans le même dossier que le fichier `.nuspec`. _Remarque_ : Ce fichier `.targets` doit avoir le même nom que l’ID de package (par exemple, l’élément `<Id>` du fichier `.nupspec`) :
+Ensuite, les projets C++ et JavaScript susceptibles de consommer votre package NuGet ont besoin d’un fichier .targets pour identifier les fichiers winmd et d’assembly nécessaires. (Les projets de base visuel et C et visuels le font automatiquement.) Créez ce fichier en `ImageEnhancer.targets` copiant le texte ci-dessous `.nuspec` et enregistrez-le dans le même dossier que le fichier. _Remarque_ : Ce fichier `.targets` doit avoir le même nom que l’ID de package (par exemple, l’élément `<Id>` du fichier `.nupspec`) :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -241,7 +241,7 @@ Une fois que le fichier `.nuspec` est finalisé et qu’il référence tous les 
 nuget pack ImageEnhancer.nuspec
 ```
 
-Cette opération génère `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce fichier dans un outil tel que [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) et développez tous les nœuds, le contenu suivant apparaît :
+Cette opération génère `ImageEnhancer.YOUR_NAME.1.0.0.nupkg`. Si vous ouvrez ce fichier dans un outil tel que [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuGetPackageExplorer) et que vous développez tous les nœuds, le contenu suivant apparaît :
 
 ![NuGet Package Explorer affichant le package ImageEnhancer](media/UWP-PackageExplorer.png)
 
@@ -252,9 +252,9 @@ Pour mettre votre package à la disposition des autres développeurs, suivez les
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [Informations de référence sur le fichier nuspec](../reference/nuspec.md)
+- [.nuspec Référence](../reference/nuspec.md)
 - [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
-- [Gestion de version des packages](../concepts/package-versioning.md)
+- [Contrôle de version des packages](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
-- [Création de packages localisés](../create-packages/creating-localized-packages.md)
+- [Création de forfaits localisés](../create-packages/creating-localized-packages.md)

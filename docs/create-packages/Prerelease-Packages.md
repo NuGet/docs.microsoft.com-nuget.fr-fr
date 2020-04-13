@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 39f2ae79fbbc308e06acf67ee8e24cfcdb2c831b
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "73610716"
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
@@ -50,11 +50,11 @@ Par défaut, NuGet n’inclut pas de préversions dans le cadre de l’utilisati
 
     Le fait de cocher ou décocher cette case actualise l’interface utilisateur du gestionnaire de package et la liste des versions disponibles que vous pouvez installer.
 
-- **Console du gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
+- **Console de gestionnaire** `-IncludePrerelease` de paquet `Find-Package`: `Install-Package` `Sync-Package`Utilisez `Update-Package` le commutateur avec le , `Get-Package`, , et les commandes. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
 
-- **Interface de ligne de commande NuGet** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
+- **NuGet CLI**: `-prerelease` Utilisez `install`l’interrupteur avec le , `update`, `delete`et `mirror` les commandes. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
 
-## <a name="semantic-versioning"></a>Gestion sémantique des versions
+## <a name="semantic-versioning"></a>Gestion sémantique de version
 
 La [gestion sémantique de version ou convention SemVer](https://semver.org/spec/v1.0.0.html) décrit la manière d’utiliser des chaînes dans les numéros de version pour qu’elles indiquent la signification du code sous-jacent.
 

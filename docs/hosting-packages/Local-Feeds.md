@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 12/06/2017
 ms.topic: conceptual
 ms.openlocfilehash: 42a5c30c058a9efb35338c1b484235b6ad111bd0
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "68317589"
 ---
 # <a name="local-feeds"></a>Flux locaux
@@ -31,7 +31,7 @@ L’arborescence des dossiers hiérarchiques versionnés présente la structure 
           ├─<packageID>.<version>.nupkg
           └─<other files>
 
-NuGet crée cette structure automatiquement quand vous utilisez la commande [`nuget add`](../reference/cli-reference/cli-ref-add.md) pour copier un package dans le flux :
+NuGet crée cette structure automatiquement [`nuget add`](../reference/cli-reference/cli-ref-add.md) lorsque vous utilisez la commande pour copier un paquet sur le flux :
 
 ```cli
 nuget add new_package.1.0.0.nupkg -source \\myserver\packages
@@ -39,7 +39,7 @@ nuget add new_package.1.0.0.nupkg -source \\myserver\packages
 
 La commande `nuget add` fonctionne avec un package à la fois, ce qui peut être gênant quand vous configurez un flux avec plusieurs packages.
 
-Dans ce cas, utilisez la commande [`nuget init`](../reference/cli-reference/cli-ref-init.md) pour copier tous les packages d’un dossier dans le flux comme si vous exécutiez `nuget add` sur chacun d’eux tour à tour. Par exemple, la commande suivante copie tous les packages à partir de `c:\packages` vers une arborescence hiérarchique sur `\\myserver\packages` :
+Dans de tels [`nuget init`](../reference/cli-reference/cli-ref-init.md) cas, utilisez la commande pour copier tous les `nuget add` paquets dans un dossier sur le flux comme si vous couriez sur chacun individuellement. Par exemple, la commande suivante copie tous les packages à partir de `c:\packages` vers une arborescence hiérarchique sur `\\myserver\packages` :
 
 ```cli
 nuget init c:\packages \\myserver\packages

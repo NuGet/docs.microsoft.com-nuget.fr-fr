@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: 9f427005251bc2bf7a8a79285e39b4bd49062dbf
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "79428855"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Recherche et sélection des packages NuGet pour votre projet
@@ -40,7 +40,7 @@ Certains packages répertorient les frameworks qu’ils prennent en charge direc
 
 Heureusement, il existe d’autres moyens de déterminer les frameworks pris en charge :
 
-1. Essayez d’installer un package dans un projet à l’aide de la commande [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md), dans la console du gestionnaire de package NuGet. Si le package est incompatible, cette commande affiche les frameworks qui sont pris en charge par le package.
+1. Essayez d’installer un paquet [`Install-Package`](../reference/ps-reference/ps-ref-install-package.md) dans un projet à l’aide de la commande dans la console NuGet Package Manager. Si le package est incompatible, cette commande affiche les frameworks qui sont pris en charge par le package.
 
 1. Téléchargez le package sur nuget.org, en cliquant sur le lien **Manual download** (Téléchargement manuel) situé sous **Info**. Remplacez l’extension `.nupkg` par `.zip`, puis ouvrez le fichier pour examiner le contenu de son dossier `lib`. Vous voyez les sous-dossiers de chacun des frameworks pris en charge, où chaque sous-dossier est nommé avec un moniker de version cible de .NET Framework (TFM, consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md)). Si vous ne voyez aucun sous-dossier sous `lib`, mais seulement une DLL, essayez d’installer le package dans votre projet pour voir s’il est compatible.
 
@@ -58,9 +58,9 @@ Par défaut, NuGet n’inclut pas les préversions dans Visual Studio, lorsque l
 
     ![Case à cocher Inclure la préversion dans Visual Studio](media/Prerelease_02-CheckPrerelease.png)
 
-- **Console du gestionnaire de package** : utilisez le commutateur `-IncludePrerelease` avec les commandes `Find-Package`, `Get-Package`, `Install-Package`, `Sync-Package` et `Update-Package`. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
+- **Console de gestionnaire** `-IncludePrerelease` de paquet `Find-Package`: `Install-Package` `Sync-Package`Utilisez `Update-Package` le commutateur avec le , `Get-Package`, , et les commandes. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
 
-- **Interface CLI nuget.exe** : utilisez le commutateur `-prerelease` avec les commandes `install`, `update`, `delete` et `mirror`. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
+- **nuget.exe CLI**: `-prerelease` Utilisez `install`l’interrupteur avec le , `update`, `delete`et `mirror` les commandes. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
 
 - **Interface CLI dotnet.exe** : spécifiez la préversion exacte à l’aide de l’argument `-v`. Consultez la [référence dotnet Ajouter un package](/dotnet/core/tools/dotnet-add-package).
 
@@ -82,18 +82,18 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 
     ![Statistiques de téléchargement dans la page du package](media/Finding-03-Downloads.png)
 
-- *Utilisation de GitHub*: sur la page package, la section **utilisation de GitHub** répertorie les dépôts GitHub publics qui dépendent de ce package et qui ont un grand nombre d’étoiles sur GitHub. Le nombre d’étoiles d’un dépôt GitHub indique généralement le degré d’actualité du référentiel avec les utilisateurs GitHub (d’autres étoiles signifient généralement plus populaires). Visitez [la page de prise en main de GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) pour plus d’informations sur les étoiles et le système de classement des référentiels de github.
+- *Utilisation GitHub*: sur la page du paquet, la section **GitHub Utilisation** répertorie les référentiels GitHub publics qui dépendent de ce paquet et qui ont un grand nombre d’étoiles sur GitHub. Le nombre d’étoiles d’un référentiel GitHub indique généralement à quel point ce référentiel est populaire auprès des utilisateurs de GitHub (plus d’étoiles signifie généralement plus populaires). Veuillez visiter [la page Getting Started de GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) pour plus d’informations sur le système de classement des étoiles et des référentiels de GitHub.
 
     ![Utilisation de GitHub](media/GitHub-Usage.png)
 
     > [!Note]
-    > La section utilisation du GitHub d’un package est générée automatiquement, périodiquement, sans examen humain des dépôts individuels, et uniquement à des fins d’information afin de vous montrer les dépôts GitHub qui dépendent du package et qui sont populaires avec GitHub utilisateurs.
+    > La section GitHub Utilisation d’un paquet est générée automatiquement, périodiquement, sans examen humain des dépôts individuels, et uniquement à des fins d’information afin de vous montrer des dépôts GitHub qui dépendent du paquet et qui sont populaires auprès des utilisateurs de GitHub.
 
 - *Version history* (Historique des versions) : dans la page du package, regardez sous **Info** pour connaître la date de la mise à jour la plus récente et consulter l’historique des versions (**Version History**). Un package bien géré doit comprendre des mises à jour récentes et un historique des versions très fourni. Les packages négligés comprennent peu de mises à jour et, souvent, n’ont pas été mis à jour depuis un certain temps.
 
     ![Historique des versions dans la page du package](media/Finding-04-VersionHistory.png)
 
-- *Installations récentes*: sur la page package sous **statistiques**, sélectionnez **afficher les statistiques complètes**. La page des statistiques complètes affiche le package installé au cours des six dernières semaines par numéro de version. Généralement, les packages très utilisés par les autres développeurs constituent un bon choix.
+- *Installations récentes*: sur la page paquet sous **Statistiques**, sélectionnez Voir les **statistiques complètes**. La page de statistiques complète montre le paquet installe au cours des six dernières semaines par numéro de version. Généralement, les packages très utilisés par les autres développeurs constituent un bon choix.
 
 - *Support* : sur la page du package, sous **Info**, sélectionnez **Project Site** (Site du projet), le cas échéant, pour afficher les options de support proposées par l’auteur. Un projet avec un site dédié est généralement mieux pris en charge.
 
@@ -106,7 +106,7 @@ En même temps, utiliser un package NuGet signifie créer une dépendance à cel
 - *Reserved Package ID Prefixes* (Préfixes d’ID de packages réservés) : de nombreux propriétaires de packages ont demandé et reçu un [préfixe d’ID de package réservé](../nuget-org/id-prefix-reservation.md). Quand vous voyez la coche à côté d’un ID de package sur [nuget.org](https://www.nuget.org/) ou dans Visual Studio, cela signifie que le propriétaire du package a répondu à nos [critères](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pour la réservation d’ID de préfixe. Cela signifie que le propriétaire du package est clair quant à l’identification de lui-même et de son package.
 
 > [!Note]
-> Gardez toujours à l’esprit les termes du contrat de licence d’un package, que vous pouvez consulter en sélectionnant les **informations de licence** sur la page de liste d’un package sur NuGet.org. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **contacter les propriétaires** sur la page du package. Microsoft ne vous accorde pas de licences de droits de propriété intellectuelle pour le compte de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
+> Soyez toujours conscient des conditions de licence d’un paquet, que vous pouvez voir en sélectionnant **des informations de licence** sur la page d’inscription d’un paquet sur nuget.org. Si un paquet ne précise pas les conditions de licence, contactez directement le propriétaire du forfait en utilisant directement le lien **des propriétaires de contact** sur la page du forfait. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.
 
 ## <a name="license-url-deprecation"></a>Dépréciation d’URL de licence
 Avec le passage de [licenseUrl](../reference/nuspec.md#licenseurl) vers [licence](../reference/nuspec.md#license), des clients et flux NuGet risquent de ne pas pouvoir accéder aux informations de licence dans certains cas. Pour maintenir une compatibilité descendante, l’URL de la licence pointe vers ce document, qui explique comment récupérer les informations de licence dans ces situations.
@@ -128,7 +128,7 @@ Pour découvrir l’équivalent MSBuild à la définition de la licence dans le 
 
 La recherche de packages NuGet fonctionne de la même manière sur nuget.org, dans l’interface CLI de NuGet et dans l’extension du gestionnaire de package NuGet de Visual Studio. En règle générale, la recherche s’appuie sur les mots clés et les descriptions des packages.
 
-- **Filtrage** : vous pouvez appliquer un terme de recherche à une propriété spécifique à l’aide de la syntaxe `<property>:<term>`, où `<property>` (non sensible à la casse) peut être `id`, `packageid`, `version`, `title`, `tags`, `author`, `description`, `summary` ou `owner`. Vous pouvez rechercher plusieurs propriétés en même temps. Les recherches sur la propriété `id` sont des correspondances de sous-chaînes, tandis que `packageid` et `owner` utilisent une correspondance exacte qui ne respecte pas la casse. Exemples :
+- **Filtrage**: Vous pouvez appliquer un terme de `<property>:<term>` recherche `<property>` à une propriété spécifique en `id` `packageid`utilisant `version` `title`la `tags` `author`syntaxe où (cas-insensible) peut être , , , , , `description`, , `summary`et `owner`. Vous pouvez rechercher plusieurs propriétés en même temps. Les recherches `id` sur la propriété sont `packageid` `owner` des correspondances de sous-cordes, tandis que et utilise un match exact, insensible au cas. Exemples :
 
 ```
 PackageId:jquery             # Match the package ID in an exact, case-insensitive manner

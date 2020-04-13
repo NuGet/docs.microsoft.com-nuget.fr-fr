@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 5/14/2018
 ms.topic: conceptual
 ms.openlocfilehash: e6f6d9f703dd4761236d166f3772618c100aca09
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "76813765"
 ---
 # <a name="nuget-48-release-notes"></a>Notes de publication de NuGet 4.8
@@ -22,21 +22,21 @@ Des versions en ligne de commande offrant les mêmes fonctionnalités sont égal
 * DotNet.exe - [SDK .NET Core 2.1.400](https://www.microsoft.com/net/download/visual-studio-sdks)
 
 
-## <a name="summary-whats-new-in-480"></a>Résumé : nouveautés de 4.8.0
+## <a name="summary-whats-new-in-480"></a>Résumé: Quoi de neuf en 4.8.0
 * NuGet.exe prend désormais en charge les noms de fichiers longs sur Windows 10 - [#6937](https://github.com/NuGet/Home/issues/6937)
 * Les plug-ins d’authentification sont désormais compatibles avec MsBuild, DotNet.exe, NuGet.exe et Visual Studio, y compris en multiplateforme. La première génération de plug-ins d’authentification n’était pas prise en charge par MsBuild et DotNet.exe. Remarque : Un plug-in d’authentification VSTS est inclus dans les builds Visual Studio 2017 15.9 Preview. [#6486](https://github.com/NuGet/Home/issues/6486)
 * Le programme de résolution du SDK MsBuild fait désormais partie de NuGet, et est installé avec les outils NuGet pour Visual Studio. De cette façon, les versions restent toujours synchronisées. [#6799](https://github.com/NuGet/Home/issues/6799)
 * PackageReference prend désormais en charge les métadonnées DevelopmentDependency - [#4125](https://github.com/NuGet/Home/issues/4125)
 
-## <a name="summary-whats-new-in-482"></a>Résumé : nouveautés de 4.8.2
+## <a name="summary-whats-new-in-482"></a>Résumé: Quoi de neuf en 4.8.2
 
-* Correctif de sécurité : les autorisations sur les fichiers créés à l’intérieur de ~/.NuGet sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité : Les autorisations sur les fichiers créés à l’intérieur de l’adresse suivante [: les #7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
 ## <a name="known-issues"></a>Problèmes connus
 ### <a name="installing-signed-packages-on-a-ci-machine-or-in-an-offline-environment-takes-longer-than-usual"></a>L’installation des packages signés sur une machine CI ou dans un environnement hors connexion est plus longue que d’habitude
 
 #### <a name="issue"></a>Problème
-Si l’ordinateur a un accès limité à Internet (s’il s’agit, par exemple, d’un ordinateur de build dans un scénario CI/CD), l’installation ou la restauration d’un package NuGet signé entraîne un avertissement ([NU3028](../reference/errors-and-warnings/nu3028.md)), car les serveurs de révocation ne sont pas accessibles. Il s'agit du comportement attendu. Toutefois, dans certains cas, cela peut avoir des conséquences inattendues, comme un temps d’installation ou de restauration plus long que d’habitude.
+Si l’ordinateur a un accès limité à Internet (s’il s’agit, par exemple, d’un ordinateur de build dans un scénario CI/CD), l’installation ou la restauration d’un package NuGet signé entraîne un avertissement ([NU3028](../reference/errors-and-warnings/nu3028.md)), car les serveurs de révocation ne sont pas accessibles. Ceci est normal. Toutefois, dans certains cas, cela peut avoir des conséquences inattendues, comme un temps d’installation ou de restauration plus long que d’habitude.
 
 #### <a name="workaround"></a>Solution de contournement
 Effectuez une mise à jour vers Visual Studio 15.8.4 et NuGet.exe 4.8.1, où nous avons ajouté une variable d’environnement permettant de basculer en mode de vérification de la révocation.
@@ -79,7 +79,7 @@ Remarque : Ce problème a été résolu dans Visual Studio 2017 15.9 Preview 3
 * Signature : SignedPackageVerifierSettings.VSClientDefaultPolicy n’est pas utilisé - [#6601](https://github.com/NuGet/Home/issues/6601)
 
 
-#### <a name="pack"></a>Compression
+#### <a name="pack"></a>Pack
 * restore et build ne devraient pas être nécessaires lors de l’utilisation de dotnet.exe pour compresser le fichier nuspec - [#6866](https://github.com/NuGet/Home/issues/6866)
 * Autoriser les jetons de remplacement vides dans NuspecProperties - [#6722](https://github.com/NuGet/Home/issues/6722)
 * PackTask lève l’exception NullReferenceException quand NuspecProperties est spécifié - [#4649](https://github.com/NuGet/Home/issues/4649)

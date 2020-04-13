@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 01/09/2017
 ms.topic: reference
 ms.openlocfilehash: f1a11eb63c07a5d737a9474870f5653f6f7d850a
-ms.sourcegitcommit: 09107c5092050f44a0c6abdfb21db73878f78bd0
-ms.translationtype: HT
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980974"
+ms.lasthandoff: 04/07/2020
+ms.locfileid: "64495913"
 ---
 # <a name="nuget-api-in-visual-studio"></a>API NuGet dans Visual Studio
 
@@ -18,22 +18,22 @@ En plus de l’interface utilisateur et de la console du Gestionnaire de package
 
 À compter de NuGet 3.3+, NuGet exporte les services suivants, qui se trouvent tous dans l’espace de noms `NuGet.VisualStudio` dans l’assembly `NuGet.VisualStudio.dll` :
 
-- [`IRegistryKey`](#iregistrykey-interface): méthode pour récupérer une valeur d’une sous-clé du Registre.
-- [`IVsPackageInstaller`](#ivspackageinstaller-interface) : méthodes pour installer des packages NuGet dans des projets.
-- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface) : événements pour l’installation/désinstallation de packages.
-- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface) : événements par lots pour l’installation/désinstallation de packages.
-- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface) : méthodes pour récupérer des packages installés dans la solution actuelle et pour vérifier si un package donné est installé dans un projet.
-- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface) : méthodes destinées à fournir des suggestions alternatives du Gestionnaire de package pour un package NuGet.
-- [`IVsPackageMetadata`](#ivspackagemetadata-interface) : méthodes pour récupérer des informations sur un package installé.
-- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface) : méthodes pour récupérer des informations relatives à un projet où des actions NuGet vont être exécutées.
-- [`IVsPackageRestorer`](#ivspackagerestorer-interface) : méthodes pour restaurer des packages installés dans un projet.
-- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface) : méthodes pour récupérer une liste des sources de packages NuGet.
-- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface) : méthodes pour désinstaller des packages NuGet des projets.
-- [`IVsTemplateWizard`](#ivstemplatewizard-interface) : conçue pour inclure des packages préinstallés dans des modèles de projet/élément. Cette interface *n’est pas* destinée à être appelée à partir du code et n’a pas de méthodes publiques.
+- [`IRegistryKey`](#iregistrykey-interface): Méthode pour récupérer une valeur d’un sous-clé de registre.
+- [`IVsPackageInstaller`](#ivspackageinstaller-interface): Méthodes d’installation de paquets NuGet dans des projets.
+- [`IVsPackageInstallerEvents`](#ivspackageinstallerevents-interface): Événements pour l’installation de paquets/désinstaller.
+- [`IVsPackageInstallerProjectEvents`](#ivspackageinstallerprojectevents-interface): Événements par lots pour l’installation de paquets/désinstaller.
+- [`IVsPackageInstallerServices`](#ivspackageinstallerservices-interface): Méthodes pour récupérer les paquets installés dans la solution actuelle et vérifier si un paquet donné est installé dans un projet.
+- [`IVsPackageManagerProvider`](#ivspackagemanagerprovider-interface): Méthodes pour fournir d’autres suggestions de gestionnaire de paquets pour un forfait NuGet.
+- [`IVsPackageMetadata`](#ivspackagemetadata-interface): Méthodes pour récupérer des informations sur un paquet installé.
+- [`IVsPackageProjectMetadata`](#ivspackageprojectmetadata-interface): Méthodes pour récupérer des informations sur un projet où des actions NuGet sont exécutées.
+- [`IVsPackageRestorer`](#ivspackagerestorer-interface): Méthodes de restauration des colis installés dans un projet.
+- [`IVsPackageSourceProvider`](#ivspackagesourceprovider-interface): Méthodes pour récupérer une liste de sources de paquets NuGet.
+- [`IVsPackageUninstaller`](#ivspackageuninstaller-interface): Méthodes pour désinstaller les paquets NuGet des projets.
+- [`IVsTemplateWizard`](#ivstemplatewizard-interface): Conçu pour les modèles de projet/élément pour inclure des paquets préinstallés; cette interface *n’est pas* destinée à être invoquée à partir du code et n’a pas de méthodes publiques.
 
 ## <a name="using-nuget-services"></a>Utilisation des services NuGet
 
-1. Installez le package [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) dans votre projet, qui contient l’assembly `NuGet.VisualStudio.dll`.
+1. Installez [`NuGet.VisualStudio`](https://www.nuget.org/packages/NuGet.VisualStudio) le paquet dans votre `NuGet.VisualStudio.dll` projet, qui contient l’assemblage.
 
     Une fois installé, le package définit automatiquement la propriété **Incorporer les types d’interopérabilité** de la référence d’assembly sur **True**. Votre code devient résilient par rapport aux changements de version quand les utilisateurs effectuent une mise à jour avec des versions plus récentes de NuGet.
 

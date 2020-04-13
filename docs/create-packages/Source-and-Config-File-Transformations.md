@@ -7,10 +7,10 @@ ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
 ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231173"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformation de fichiers de code source et de configuration
@@ -113,7 +113,7 @@ Pour voir l’effet de l’installation et de la désinstallation du package, cr
 ### <a name="xdt-transforms"></a>Transformations XDT
 
 > [!Note]
-> Comme indiqué dans la [section problèmes de compatibilité de package de la documentation relative à la migration à partir de `packages.config` vers `PackageReference`](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), les transformations xdt, comme décrit ci-dessous, sont prises en charge uniquement par les `packages.config`. Si vous ajoutez les fichiers ci-dessous à votre package, les transformations appliquées aux consommateurs à l’aide de votre package avec `PackageReference` ne sont pas appliquées (reportez-vous à [cet exemple](https://github.com/NuGet/Samples/tree/master/XDTransformExample) pour faire en sorte que les transformations xdt fonctionnent avec`PackageReference`).
+> Comme mentionné dans la [section des questions de compatibilité `packages.config` `PackageReference`des paquets des documents pour migrer de ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), les transformations XDT comme décrit ci-dessous ne sont pris en charge par `packages.config`. Si vous ajoutez les fichiers ci-dessous à `PackageReference` votre forfait, les consommateurs utilisant votre colis avec ne`PackageReference`seront pas avoir les transformations appliquées (se référer à cet [échantillon](https://github.com/NuGet/Samples/tree/master/XDTransformExample) pour faire XDT transforme fonctionne avec ).
 
 Vous pouvez modifier des fichiers de configuration en utilisant la [syntaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Vous pouvez également demander à NuGet de remplacer les jetons par des [propriétés de projet](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) en plaçant leur nom entre les délimiteurs `$` (sans respect de la casse).
 

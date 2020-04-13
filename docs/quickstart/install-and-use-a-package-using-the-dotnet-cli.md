@@ -6,10 +6,10 @@ ms.author: karann
 ms.date: 01/23/2018
 ms.topic: quickstart
 ms.openlocfilehash: 006fff8360ac62393e4b88c1a253514591d22f4c
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
+ms.lasthandoff: 04/07/2020
 ms.locfileid: "78231272"
 ---
 # <a name="quickstart-install-and-use-a-package-using-the-dotnet-cli"></a>Démarrage rapide : Installer et utiliser un package à l’aide de l’interface CLI dotnet
@@ -21,7 +21,7 @@ Une fois le package installé, faites-y référence dans le code avec `using <na
 > [!Tip]
 > **Commencez par nuget.org** : les développeurs .NET parcourent nutget.org à la recherche de composants qu’ils peuvent réutiliser dans leurs propres applications. Vous pouvez effectuer des recherches directement dans nuget.org, ou rechercher et installer des packages dans Visual Studio comme illustré dans cet article.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 - Le [kit SDK .NET Core](https://www.microsoft.com/net/download/), qui fournit l’outil en ligne de commande `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
@@ -106,7 +106,7 @@ Les packages NuGet peuvent être installés dans tout type de projet .NET. Pour 
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Install-and-Use-a-NuGet-Package-with-the-NET-CLI-3-of-5/player]
 
-Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Trouver plus de vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -118,5 +118,5 @@ Félicitations pour l’installation et l’utilisation de votre premier package
 Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
 
 - [Vue d’ensemble et flux de travail de consommation de package](../consume-packages/overview-and-workflow.md)
-- [Recherche et sélection des packages](../consume-packages/finding-and-choosing-packages.md)
+- [Recherche et sélection de packages](../consume-packages/finding-and-choosing-packages.md)
 - [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md)
