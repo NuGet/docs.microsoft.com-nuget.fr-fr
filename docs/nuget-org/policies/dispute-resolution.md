@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2f1fed578f1635296892ab925219f0f27883c02
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7e725d8114cde3de189dc3a648bc5a6c0b0e785b
+ms.sourcegitcommit: 0a63956bf12aaf1b1b45e680bc8e90f97347988c
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426934"
+ms.lasthandoff: 05/13/2020
+ms.locfileid: "83367945"
 ---
 # <a name="resolving-disputes-over-nuget-package-names"></a>Résolution des litiges autour des noms de package NuGet
 
@@ -20,10 +20,10 @@ Par exemple, supposons que Northwind Traders crée un système CRM pour lequel i
 
 Dans ce scénario, Nancy ne semble pas agir avec de mauvaises intentions. Au contraire, elle agit plutôt en faveur des outils et des clients de Northwind en donnant de son temps et en contribuant avec son code. Parallèlement, Northwind est le propriétaire légitime du nom Northwind.
 
-En suivant la procédure ci-dessous, Northwind et Nancy peuvent rechercher ensemble une résolution appropriée, car l’un comme l’autre souhaitent servir la communauté des développeurs. Il n’est généralement pas nécessaire que l’équipe NuGet intervienne, car la collaboration résout généralement tous les problèmes. En fait, à ce jour, chaque litige soumis à l’équipe NuGet a été résolu sans qu’elle ait dû se prononcer.
+En suivant la procédure ci-dessous, Northwind et Nancy peuvent rechercher ensemble une résolution appropriée, car l’un comme l’autre souhaitent servir la communauté des développeurs. Il n’est généralement pas nécessaire que l’équipe NuGet intervienne, car la collaboration résout généralement tous les problèmes.
 
 ## <a name="process"></a>Process
 
 1. Contactez les propriétaires du package pour lequel vous avez un litige en utilisant le lien **Contacter les propriétaires** situé sur la page des détails du package. Décrivez votre problème de façon simple et directe.
-2. Envoyez une copie de [support@nuget.org](mailto:support@nuget.org) votre message pour que NuGet et la Fondation .NET soient au courant de votre différend.
-3. Attendez un maximum de 30 jours pour [support@nuget.org](mailto:support@nuget.org) une résolution, puis notez à nouveau. L’équipe de support nuget.org prendra part au dossier afin de résoudre le litige avec les deux parties.
+2. Envoyez une copie de votre message à [support@nuget.org](mailto:support@nuget.org) afin que NuGet et le .net Foundation soient conscients de votre litige.
+3. Attendez un maximum de 30 jours pour une résolution, puis [support@nuget.org](mailto:support@nuget.org) recommencez l’opération. L’équipe de support nuget.org prendra part au dossier afin de résoudre le litige avec les deux parties.
