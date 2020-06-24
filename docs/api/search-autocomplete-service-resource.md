@@ -6,34 +6,38 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 1179ad649da560766f28c18ab6fa670fd8fa6d8b
-ms.sourcegitcommit: 7441f12f06ca380feb87c6192ec69f6108f43ee3
+ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
+ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69488307"
+ms.lasthandoff: 06/24/2020
+ms.locfileid: "85292291"
 ---
-# <a name="autocomplete"></a>Saisie semi-automatique
+# <a name="autocomplete"></a>Autocomplétion
 
-Il est possible de générer un ID de package et une expérience de saisie semi-automatique de version à l’aide de l’API V3. La ressource utilisée pour effectuer des requêtes de saisie semi `SearchAutocompleteService` -automatique est la ressource trouvée dans l' [index de service](service-index.md).
+Il est possible de générer un ID de package et une expérience de saisie semi-automatique de version à l’aide de l’API V3. La ressource utilisée pour effectuer des requêtes de saisie semi-automatique est la `SearchAutocompleteService` ressource trouvée dans l' [index de service](service-index.md).
 
-## <a name="versioning"></a>Gestion de version
+## <a name="versioning"></a>Contrôle de version
 
-Les valeurs `@type` suivantes sont utilisées:
+Les `@type` valeurs suivantes sont utilisées :
 
-Valeur@type                          | Notes
+Valeur @type                          | Notes
 ------------------------------------ | -----
 SearchAutocompleteService            | La version initiale
-SearchAutocompleteService/3.0.0-beta | Alias de`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-bêta | Alias de`SearchAutocompleteService`
 SearchAutocompleteService/3.0.0-RC   | Alias de`SearchAutocompleteService`
+SearchAutocompleteService/3.5.0      | Prend en charge le `packageType` paramètre de requête
+
+### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
+Cette version introduit la prise en charge du `packageType` paramètre de requête, ce qui permet de filtrer les types de packages définis par l’auteur. Elle est entièrement compatible avec les requêtes à `SearchAutocompleteService` .
 
 ## <a name="base-url"></a>URL de base
 
-L’URL de base pour les API suivantes est la valeur de `@id` la propriété associée à l’une des valeurs `@type` de ressource mentionnées ci-dessus. Dans le document suivant, l’URL `{@id}` de base de l’espace réservé sera utilisée.
+L’URL de base pour les API suivantes est la valeur de la `@id` propriété associée à l’une des valeurs de ressource mentionnées ci-dessus `@type` . Dans le document suivant, l’URL de base de l’espace réservé `{@id}` sera utilisée.
 
-## <a name="http-methods"></a>Méthodes HTTP
+## <a name="http-methods"></a>HTTP Methods
 
-Toutes les URL trouvées dans la ressource d’inscription prennent en `GET` charge `HEAD`les méthodes http et.
+Toutes les URL trouvées dans la ressource d’inscription prennent en charge les méthodes HTTP `GET` et `HEAD` .
 
 ## <a name="search-for-package-ids"></a>Rechercher des ID de package
 
@@ -41,19 +45,20 @@ La première API de saisie semi-automatique prend en charge la recherche d’une
 
 Un package avec uniquement des versions non répertoriées n’apparaît pas dans les résultats.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
 Nom        | Dans     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
-q           | URL    | string  | Non       | Chaîne à comparer aux ID de package
-skip        | URL    | integer | Non       | Nombre de résultats à ignorer pour la pagination
-prendre        | URL    | integer | Non       | Nombre de résultats à retourner, pour la pagination
-version préliminaire  | URL    | booléenne | Non       | `true`ou `false` déterminer s’il faut inclure [les packages](../create-packages/prerelease-packages.md) de préversion
-semVerLevel | URL    | string  | Non       | Chaîne de version SemVer 1.0.0 
+q           | URL    | string  | non       | Chaîne à comparer aux ID de package
+skip        | URL    | entier | non       | Nombre de résultats à ignorer pour la pagination
+take        | URL    | entier | non       | Nombre de résultats à retourner, pour la pagination
+prerelease  | URL    | boolean | non       | `true`ou `false` déterminer s’il faut inclure [les packages](../create-packages/prerelease-packages.md) de préversion
+semVerLevel | URL    | string  | non       | Chaîne de version SemVer 1.0.0 
+packageType | URL    | string  | non       | Type de package à utiliser pour filtrer les packages (ajouté dans `SearchAutocompleteService/3.5.0` )
 
-La requête `q` de saisie semi-automatique est analysée d’une manière définie par l’implémentation du serveur. nuget.org prend en charge l’interrogation du préfixe des jetons d’ID de package, qui sont des éléments de l’ID produit par le fractionnement de la casse et des caractères de symboles mixtes originaux.
+La requête de saisie semi-automatique `q` est analysée d’une manière définie par l’implémentation du serveur. nuget.org prend en charge l’interrogation du préfixe des jetons d’ID de package, qui sont des éléments de l’ID produit par le fractionnement de la casse et des caractères de symboles mixtes originaux.
 
 La `skip` valeur par défaut du paramètre est 0.
 
@@ -65,16 +70,20 @@ Le `semVerLevel` paramètre de requête permet de s’abonner à des [packages S
 Si ce paramètre de requête est exclu, seuls les ID de package avec des versions compatibles SemVer 1.0.0 sont retournés (avec les avertissements de [version NuGet standard](../concepts/package-versioning.md) , tels que les chaînes de version avec 4 éléments entiers).
 Si `semVerLevel=2.0.0` est fourni, les packages compatibles SemVer 1.0.0 et SemVer 2.0.0 sont retournés. Pour plus d’informations, consultez [prise en charge de SemVer 2.0.0 pour NuGet.org](https://github.com/NuGet/Home/wiki/SemVer2-support-for-nuget.org-%28server-side%29) .
 
+Le `packageType` paramètre est utilisé pour filtrer les résultats de la saisie semi-automatique uniquement pour les packages qui ont au moins un type de package correspondant au nom du type de package.
+Si le type de package fourni n’est pas un type de package valide tel que défini par le [document de type de package](https://github.com/NuGet/Home/wiki/Package-Type-%5BPacking%5D), un résultat vide est retourné.
+Si le type de package fourni est vide, aucun filtre n’est appliqué. En d’autres termes, le passage d’aucune valeur au `packageType` paramètre se comporte comme si le paramètre n’était pas passé.
+
 ### <a name="response"></a>response
 
 La réponse est un document JSON contenant des `take` résultats de saisie semi-automatique.
 
-L’objet JSON racine a les propriétés suivantes:
+L’objet JSON racine a les propriétés suivantes :
 
 Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-totalHits | integer          | oui      | Nombre total de correspondances, à l' `skip` égard de et`take`
-data      | Tableau de chaînes | oui      | ID de package correspondants à la requête
+totalHits | entier          | oui      | Nombre total de correspondances, à l’égard de `skip` et`take`
+data      | tableau de chaînes | oui      | ID de package correspondants à la requête
 
 ### <a name="sample-request"></a>Exemple de requête
 
@@ -94,11 +103,11 @@ Une version de package non listée n’apparaît pas dans les résultats.
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
-Name        | Dans     | Type    | Obligatoire | Notes
+Nom        | Dans     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
 id          | URL    | string  | oui      | ID de package pour lequel extraire les versions
-version préliminaire  | URL    | booléenne | Non       | `true`ou `false` déterminer s’il faut inclure [les packages](../create-packages/prerelease-packages.md) de préversion
-semVerLevel | URL    | string  | Non       | Une chaîne de version SemVer 2.0.0 
+prerelease  | URL    | boolean | non       | `true`ou `false` déterminer s’il faut inclure [les packages](../create-packages/prerelease-packages.md) de préversion
+semVerLevel | URL    | string  | non       | Une chaîne de version SemVer 2.0.0 
 
 Si `prerelease` n’est pas fourni, les packages de préversion sont exclus.
 
@@ -108,13 +117,13 @@ Le `semVerLevel` paramètre de requête permet de s’abonner à des packages Se
 
 La réponse est un document JSON contenant toutes les versions de package de l’ID de package fourni, en filtrant par les paramètres de requête donnés.
 
-L’objet JSON racine a la propriété suivante:
+L’objet JSON racine a la propriété suivante :
 
 Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-data      | Tableau de chaînes | oui      | Versions du package correspondant à la requête
+data      | tableau de chaînes | oui      | Versions du package correspondant à la requête
 
-Les versions de package dans `data` le tableau peuvent contenir des métadonnées de build SemVer `1.0.0+metadata`2.0.0 (par `semVerLevel=2.0.0` exemple,) si le est fourni dans la chaîne de requête.
+Les versions de package dans le `data` tableau peuvent contenir des métadonnées de build SemVer 2.0.0 (par exemple `1.0.0+metadata` ,) si le `semVerLevel=2.0.0` est fourni dans la chaîne de requête.
 
 ### <a name="sample-request"></a>Exemple de requête
 
