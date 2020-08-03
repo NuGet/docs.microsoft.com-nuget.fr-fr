@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 712e4c7159aa9719052330d8e45f63e18e390325
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2fcba9dd6bbc7ff4e9b5b8b57250c399f59a1c5e
+ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78230576"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87473842"
 ---
 # <a name="create-a-nuget-package-using-the-dotnet-cli"></a>Créer un package NuGet à l’aide de l’interface CLI dotnet
 
@@ -104,14 +104,14 @@ Pour exécuter automatiquement `dotnet pack` pendant l’exécution de `dotnet b
 <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 ```
 
-Lorsque vous `dotnet pack` exécutez sur une solution, cela emballe tous les[<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) projets `true`dans la solution qui sont emballés (la propriété est définie à ).
+Quand vous exécutez `dotnet pack` sur une solution, cela compresse tous les projets de la solution qui peuvent être représentables (la [<IsPackable>](/dotnet/core/tools/csproj#nuget-metadata-properties) propriété a la valeur `true` ).
 
 > [!NOTE]
 > Lorsque vous créez automatiquement le package, le délai d’attente augmente la durée de création de votre projet.
 
 ### <a name="test-package-installation"></a>Tester l’installation de package
 
-Avant de publier un package, il est d’usage de tester son processus d’installation dans un projet de test. Les tests permettent de s’assurer que les fichiers nécessaires se placent tous au bon endroit dans le projet.
+Avant de publier un package, il est d’usage de tester son processus d’installation dans un projet de test. Les tests permettent de s’assurer que les fichiers nécessaires se trouvent tous dans leurs emplacements corrects dans le projet.
 
 Vous pouvez tester des installations manuellement dans Visual Studio ou à partir de la ligne de commande en suivant les [étapes d’installation normales du package](../consume-packages/overview-and-workflow.md#ways-to-install-a-nuget-package).
 
@@ -124,16 +124,16 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
-- [Contrôle de version des packages](../concepts/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Ajouter une icône de paquet](../reference/nuspec.md#icon)
+- [Icône Ajouter un package](../reference/nuspec.md#icon)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
-- [Versions pré-version](../create-packages/prerelease-packages.md)
+- [Versions préliminaires](../create-packages/prerelease-packages.md)
 - [Définir un type de package](../create-packages/set-package-type.md)
 - [Créer des packages avec des assemblys COM Interop](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 Enfin, il existe d’autres types de package à connaître :
 
 - [Packages natifs](../guides/native-packages.md)
-- [Paquets de symboles](../create-packages/symbol-packages-snupkg.md)
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
