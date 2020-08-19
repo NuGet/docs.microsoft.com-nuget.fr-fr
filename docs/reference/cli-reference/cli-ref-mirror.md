@@ -1,25 +1,25 @@
 ---
 title: Commande Mirror CLI NuGet
-description: Référence pour la commande NuGet. exe Mirror
+description: Référence pour la commande nuget.exe Mirror
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 81866172bfbf55c42ee96c213c0117f1f986235c
-ms.sourcegitcommit: 9803981c90a1ed954dc11ed71731264c0e75ea0a
+ms.openlocfilehash: a7247aeb21418e78dbfe9be15c2e7cd152aa3f4a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68959711"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622965"
 ---
-# <a name="mirror-command-nuget-cli"></a>mirror (commande, NuGet CLI)
+# <a name="mirror-command-nuget-cli"></a>commande Mirror (interface CLI NuGet)
 
-**S’applique à:** publication &bullet; de packages **versions prises en charge:** déconseillé dans 3.2 +
+**S’applique à :** publication de packages &bullet; **versions prises en charge :** déconseillé dans 3.2 +
 
 Met en miroir un package et ses dépendances à partir des dépôts source spécifiés vers le référentiel cible.
 
 > [!NOTE]
-> NuGet. ServerExtensions. dll et NuGet-Signed. exe qui prenait déjà en charge cette commande dans NuGet 2. x (en renommant NuGet-Signed. exe en NuGet. exe) ne sont plus disponibles au téléchargement. Pour utiliser une commande similaire à celle-ci, essayez [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
+> NuGet.ServerExtensions.dll et NuGet-Signed.exe qui prenait déjà en charge cette commande dans NuGet 2. x (en renommant NuGet-Signed.exe en nuget.exe) ne sont plus disponibles au téléchargement. Pour utiliser une commande similaire à celle-ci, essayez [NuGetMirror](https://www.nuget.org/packages/NuGetMirror/).
 
 ## <a name="usage"></a>Usage
 
@@ -27,24 +27,45 @@ Met en miroir un package et ses dépendances à partir des dépôts source spéc
 nuget mirror <packageID | configFilePath> <listUrlTarget> <publishUrlTarget> [options]
 ```
 
-où `<packageID>` est le package à mettre en miroir `<configFilePath>` , ou `packages.config` identifie le fichier qui répertorie les packages à mettre en miroir.
+où `<packageID>` est le package à mettre en miroir, ou `<configFilePath>` identifie le `packages.config` fichier qui répertorie les packages à mettre en miroir.
 
-Spécifie le référentiel source et `<publishUrlTarget>` spécifie le référentiel cible. `<listUrlTarget>`
+`<listUrlTarget>`Spécifie le référentiel source et `<publishUrlTarget>` spécifie le référentiel cible.
 
-Si votre dépôt cible `https://machine/repo` se trouve sur qui exécute [NuGet. Server](../../hosting-packages/nuget-server.md), la liste et les URL de `https://machine/repo/nuget` transmission sont et `https://machine/repo/api/v2/package`, respectivement.
+Si votre dépôt cible se trouve sur `https://machine/repo` qui exécute [NuGet. Server](../../hosting-packages/nuget-server.md), la liste et les URL de transmission sont `https://machine/repo/nuget` et `https://machine/repo/api/v2/package` , respectivement.
 
 ## <a name="options"></a>Options
 
-| Option | Description |
-| --- | --- |
-| ApiKey | Clé API pour le référentiel cible. S’il n’est pas présent, celui spécifié dans le fichier de configuration`%AppData%\NuGet\NuGet.Config` est utilisé (( `~/.nuget/NuGet/NuGet.Config` Windows) ou (Mac/Linux)). |
-| Aide | Affiche des informations d’aide pour la commande. |
-| NoCache | Empêche NuGet d’utiliser les packages mis en cache. Consultez [gestion des dossiers de packages globaux et de cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md). |
-| NOOP | Journalise ce qui serait fait, mais n’effectue pas les actions. suppose la réussite des opérations push. |
-| Version préliminaire | Comprend des packages de version préliminaire dans l’opération de mise en miroir. |
-| source | Liste des sources de package à mettre en miroir. Si aucune source n’est spécifiée, celles définies dans le fichier de configuration (voir ApiKey ci-dessus) sont utilisées, par défaut nuget.org si aucune n’est spécifiée. |
-| Délai | Spécifie le délai d’attente, en secondes, pour effectuer un push vers un serveur. La valeur par défaut est 300 secondes (5 minutes). |
-| Version | Version du package à installer. S’il n’est pas spécifié, la version la plus récente est mise en miroir. |
+- **`-ApiKey`**
+
+  Clé API pour le référentiel cible. S’il n’est pas présent, celui spécifié dans le fichier de configuration est utilisé ( `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux)).
+
+- **`-Help`**
+
+  Affiche des informations d’aide pour la commande.
+
+- **`-NoCache`**
+
+  Empêche NuGet d’utiliser les packages mis en cache. Consultez [gestion des dossiers de packages globaux et de cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md).
+
+- **`-Noop`**
+
+  Journalise ce qui serait fait, mais n’effectue pas les actions. suppose la réussite des opérations push.
+
+- **`-PreRelease`**
+
+  Comprend des packages de version préliminaire dans l’opération de mise en miroir.
+
+- **`-Source`**
+
+  Liste des sources de package à mettre en miroir. Si aucune source n’est spécifiée, celles définies dans le fichier de configuration (voir ApiKey ci-dessus) sont utilisées, par défaut nuget.org si aucune n’est spécifiée.
+
+- **`-Timeout`**
+
+  Spécifie le délai d’attente, en secondes, pour effectuer un push vers un serveur. La valeur par défaut est de 300 secondes (5 minutes).
+
+- **`-Version`**
+
+  Version du package à installer. S’il n’est pas spécifié, la version la plus récente est mise en miroir.
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 

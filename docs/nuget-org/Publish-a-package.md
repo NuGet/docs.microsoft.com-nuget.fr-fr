@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 02c6c8f3018bfd063c2d16a10381f88b54cac840
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: dc20e43bfb43a4b6e47297fb3446319860034d46
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429023"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623022"
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
@@ -24,7 +24,7 @@ Cet article traite de la publication sur nuget.org. Pour la publication sur Azur
 
 ## <a name="publish-to-nugetorg"></a>Publier dans nuget.org
 
-Pour nuget.org, vous devez vous connecter avec un compte Microsoft, avec lequel il vous sera demandé d’enregistrer le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé en utilisant les anciennes versions du portail.
+Pour nuget.org, vous devez vous connecter avec un compte Microsoft, avec lequel vous serez invité à inscrire le compte auprès de nuget.org. Vous pouvez également vous connecter avec un compte nuget.org créé à l’aide de versions antérieures du portail.
 
 ![Emplacement de la connexion NuGet](media/publish_NuGetSignIn.png)
 
@@ -46,7 +46,8 @@ Ensuite, vous pouvez charger le package via le portail web nuget.org, l’envoye
 
 ### <a name="command-line"></a>Ligne de commande
 
-Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4.1.0 ou plus](https://www.nuget.org/downloads), qui implémente les [protocoles NuGet](../api/nuget-protocols.md) requis. Vous aurez également besoin d’une clé API, créée sur nuget.org.
+Pour transmettre des packages à nuget.org, vous avez d’abord besoin d’une clé API, qui est créée sur nuget.org. Vous devez utiliser dotnet.exe (.NET Core) ou nuget.exe v 4.1.0 ou version ultérieure, qui implémentent les protocoles NuGet requis.
+Pour plus d’informations, consultez protocoles [.net Core](https://docs.microsoft.com/dotnet/core/install/), [nuget.exe](https://www.nuget.org/downloads)et [NuGet](../api/nuget-protocols.md).
 
 #### <a name="create-api-keys"></a>Créer des clés API
 
@@ -64,11 +65,11 @@ Pour envoyer (push) des packages à nuget.org, vous devez utiliser [nuget.exe v4
     nuget setApiKey <your_API_key>
     ```
 
-    Cette commande stocke votre clé API dans votre configuration NuGet afin que vous n’ayez pas besoin de répéter cette étape à nouveau sur le même ordinateur.
+    Cette commande stocke votre clé API dans votre configuration NuGet, de sorte que vous n’avez pas besoin de répéter cette étape sur le même ordinateur.
 
     > [!NOTE]
-    > La clé API n’est pas utilisée pour l’authentification avec le flux privé. Consultez [ `nuget sources` la commande](../reference/cli-reference/cli-ref-sources.md) pour gérer les informations d’identification pour l’authentification avec la source.
-    > Les touches API peuvent être obtenues à partir des serveurs NuGet individuels. Pour créer et manange APIKeys pour nuget.org se référer à [la publication-api-clé](../quickstart/includes/publish-api-key.md)
+    > La clé API n’est pas utilisée pour l’authentification auprès du flux privé. Reportez-vous à la [ `nuget sources` commande](../reference/cli-reference/cli-ref-sources.md) pour gérer les informations d’identification pour l’authentification auprès de la source.
+    > Les clés API peuvent être obtenues à partir des serveurs NuGet individuels. Pour créer et gérer APIKeys pour nuget.org, consultez [créer des clés API](#create-api-keys).
 
 1. Envoyez (push) votre package dans la galerie NuGet à l’aide de la commande suivante :
 
@@ -91,7 +92,7 @@ Lorsque le package a satisfait à tous les contrôles de validation, son indexat
 
 La validation et l’indexation du package prend généralement moins de 15 minutes. Si la publication du package prend plus de temps que prévu, visitez [status.nuget.org](https://status.nuget.org/) pour vérifier si nuget.org rencontre des interruptions. Si tous les systèmes sont opérationnels et que le package n’a pas été correctement publié dans l’heure, connectez-vous à nuget.org et contactez-nous à l’aide du lien permettant de contacter le support disponible dans la page du package.
 
-Pour voir l’état d’un package, **sélectionnez Gérer les forfaits** sous le nom de votre compte sur nuget.org. Vous recevez un e-mail de confirmation lorsque la validation est terminée.
+Pour afficher l’état d’un package, sélectionnez **gérer les packages** sous le nom de votre compte sur NuGet.org. Une fois la validation terminée, vous recevez un e-mail de confirmation.
 
 Notez que l’indexation de votre package peut prendre un certain temps ainsi que son apparition dans les résultats de recherche. Pendant ce délai, le message suivant s’affiche dans la page de votre package :
 

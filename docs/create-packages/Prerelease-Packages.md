@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 1c19f962dc9e42154c0f4374432548e867e9538a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 5dda56ccd4c959bcbcbd12b7a4771ddff1fe7530
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610716"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88623004"
 ---
 # <a name="building-pre-release-packages"></a>Génération de packages en préversion
 
@@ -24,7 +24,7 @@ Pour prendre en charge le cycle de vie de publication du logiciel, NuGet 1.6 et 
 
 Vous pouvez spécifier ces versions en utilisant l’une des manières suivantes :
 
-- **Si votre projet utilise [`PackageReference`](../consume-packages/package-references-in-project-files.md)**  : incluez le suffixe de version sémantique dans l’élément [`PackageVersion`](/dotnet/core/tools/csproj.md#packageversion) du fichier `.csproj` :
+- **Si votre projet utilise [`PackageReference`](../consume-packages/package-references-in-project-files.md)**  : incluez le suffixe de version sémantique dans l’élément [`PackageVersion`](/dotnet/core/tools/csproj#packageversion) du fichier `.csproj` :
 
     ```xml
     <PropertyGroup>
@@ -50,9 +50,9 @@ Par défaut, NuGet n’inclut pas de préversions dans le cadre de l’utilisati
 
     Le fait de cocher ou décocher cette case actualise l’interface utilisateur du gestionnaire de package et la liste des versions disponibles que vous pouvez installer.
 
-- **Console de gestionnaire** `-IncludePrerelease` de paquet `Find-Package`: `Install-Package` `Sync-Package`Utilisez `Update-Package` le commutateur avec le , `Get-Package`, , et les commandes. Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
+- **Console du gestionnaire de package**: utilisez le `-IncludePrerelease` commutateur avec les `Find-Package` commandes,, `Get-Package` `Install-Package` , `Sync-Package` et `Update-Package` . Reportez-vous à [Informations de référence sur PowerShell](../reference/powershell-reference.md).
 
-- **NuGet CLI**: `-prerelease` Utilisez `install`l’interrupteur avec le , `update`, `delete`et `mirror` les commandes. Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
+- **Interface CLI NuGet**: utilisez le `-prerelease` commutateur avec `install` les `update` commandes,, `delete` et `mirror` . Reportez-vous à [Informations de référence sur l’interface de ligne de commande NuGet](../reference/nuget-exe-cli-reference.md).
 
 ## <a name="semantic-versioning"></a>Gestion sémantique de version
 

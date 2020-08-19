@@ -1,33 +1,35 @@
 ---
 title: Commande Add de l’interface CLI NuGet
-description: Référence pour la commande d’ajout de NuGet. exe
+description: Référence pour la commande nuget.exe Add
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 7a72186e1dece082cd200a03849a0b12c751a645
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 89d268946243e8eae07e482db48e809a15260c38
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327856"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622900"
 ---
-# <a name="add-command-nuget-cli"></a>add (commande, NuGet CLI)
+# <a name="add-command-nuget-cli"></a>Add, commande (interface CLI NuGet)
 
-**S’applique à**: publication &bullet; de packages **prises en charge**: 3.3+
+**S’applique à**: publication de packages &bullet; **versions prises en charge**: 3.3 +
 
 Ajoute un package spécifié à une source de package non-HTTP (dossier ou chemin d’accès UNC) dans une disposition hiérarchique, où les dossiers sont créés pour l’ID de package et le numéro de version. Par exemple :
 
-    \\myserver\packages
-      └─<packageID>
-        └─<version>
-          ├─<packageID>.<version>.nupkg
-          ├─<packageID>.<version>.nupkg.sha512
-          └─<packageID>.nuspec
+```
+\\myserver\packages
+  └─<packageID>
+    └─<version>
+      ├─<packageID>.<version>.nupkg
+      ├─<packageID>.<version>.nupkg.sha512
+      └─<packageID>.nuspec
+```
 
 Lors de la restauration ou de la mise à jour par rapport à la source du package, la disposition hiérarchique offre des performances nettement meilleures.
 
-Pour développer tous les fichiers du package vers la source du package de destination, utilisez `-Expand` le commutateur. Cela entraîne généralement l’affichage de sous-dossiers supplémentaires dans la destination, tels `tools` que `lib`et.
+Pour développer tous les fichiers du package vers la source du package de destination, utilisez le `-Expand` commutateur. Cela entraîne généralement l’affichage de sous-dossiers supplémentaires dans la destination, tels que `tools` et `lib` .
 
 ## <a name="usage"></a>Usage
 
@@ -35,18 +37,38 @@ Pour développer tous les fichiers du package vers la source du package de desti
 nuget add <packagePath> -Source <sourcePath> [options]
 ```
 
-où `<packagePath>` est le nom du chemin d’accès au package à `<sourcePath>` ajouter et spécifie la source du package basée sur le dossier à laquelle le package sera ajouté. Les sources HTTP ne sont pas prises en charge.
+où `<packagePath>` est le nom du chemin d’accès au package à ajouter et `<sourcePath>` spécifie la source du package basée sur le dossier à laquelle le package sera ajouté. Les sources HTTP ne sont pas prises en charge.
 
 ## <a name="options"></a>Options
 
-| Option | Description |
-| --- | --- |
-| ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est `%AppData%\NuGet\NuGet.Config` pas spécifié, ( `~/.nuget/NuGet/NuGet.Config` Windows) ou (Mac/Linux) est utilisé.|
-| Expand | Ajoute tous les fichiers du package à la source du package. |
-| ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
-| Help | Affiche des informations d’aide pour la commande. |
-| NonInteractive | Supprime les invites de saisie ou de confirmation de l’utilisateur. |
-| Commentaires | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
+- **`-ConfigFile`**
+
+  Fichier de configuration NuGet à appliquer. S’il n’est pas spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` `~/.config/NuGet/NuGet.Config` (Mac/Linux) est utilisé.
+
+- **`-Expand`**
+
+  Ajoute tous les fichiers du package à la source du package.
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Force l’exécution de nuget.exe à l’aide d’une culture indifférente en anglais.
+Force l’exécution de nuget.exe à l’aide d’une culture indifférente en anglais.
+
+- **`-?|-help`**
+
+  Affiche des informations d’aide pour la commande.
+
+- **`-NonInteractive`**
+
+  Supprime les invites de saisie ou de confirmation de l’utilisateur.
+
+- **`-src|-Source`**
+
+   Spécifie la source du package, qui est un dossier ou un partage UNC auquel le nupkg sera ajouté. Les sources http ne sont pas prises en charge.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Spécifie la quantité de détails affichée dans la sortie : `normal` (valeur par défaut), `quiet` ou `detailed` .
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 

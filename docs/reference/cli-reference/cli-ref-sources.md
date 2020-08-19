@@ -1,22 +1,22 @@
 ---
 title: Commande de sources de l’interface CLI NuGet
-description: Référence pour la commande de sources NuGet. exe
+description: Référence pour la commande nuget.exe sources
 author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 94134b87f83e057d5d11a2722d9067fb76cc8e21
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 73c9cea8200a1ab1937d25a9a611ae7f2a943dba
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327596"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622588"
 ---
-# <a name="sources-command-nuget-cli"></a>sources (commande, NuGet CLI)
+# <a name="sources-command-nuget-cli"></a>commande sources (interface CLI NuGet)
 
-**S’applique à: consommation de** packages &bullet; , publication des **versions prises en charge:** toutes
+**S’applique à : consommation de** packages, publication &bullet; des **versions prises en charge :** toutes
 
-Gère la liste des sources situées dans le fichier de configuration de l’étendue de l’utilisateur ou dans un fichier de configuration spécifié. Le fichier de configuration de l’étendue de `%appdata%\NuGet\NuGet.Config` l’utilisateur se trouve `~/.nuget/NuGet/NuGet.Config` à l’emplacement (Windows) et (Mac/Linux).
+Gère la liste des sources situées dans le fichier de configuration de l’étendue de l’utilisateur ou dans un fichier de configuration spécifié. Le fichier de configuration de l’étendue de l’utilisateur se trouve à l’emplacement `%appdata%\NuGet\NuGet.Config` (Windows) et `~/.nuget/NuGet/NuGet.Config` (Mac/Linux).
 
 Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json`.
 
@@ -26,24 +26,60 @@ Notez que l’URL source pour nuget.org est `https://api.nuget.org/v3/index.json
 nuget sources <operation> -Name <name> -Source <source>
 ```
 
-où `<operation>` est l’une des *listes, ajouter, supprimer, activer, désactiver* ou *mettre à jour*, `<name>` est le nom de la source `<source>` et est l’URL de la source. Vous ne pouvez utiliser qu’une seule source à la fois.
+où `<operation>` est l’une des *listes, ajouter, supprimer, activer, désactiver* ou *mettre à jour*, `<name>` est le nom de la source et `<source>` est l’URL de la source. Vous ne pouvez utiliser qu’une seule source à la fois.
 
 ## <a name="options"></a>Options
 
-| Option | Description |
-| --- | --- |
-| ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est `%AppData%\NuGet\NuGet.Config` pas spécifié, ( `~/.nuget/NuGet/NuGet.Config` Windows) ou (Mac/Linux) est utilisé.|
-| ForceEnglishOutput | *(3.5 +)* Force nuget.exe pour exécuter à l’aide d’une culture dite indifférente, en anglais. |
-| Format | S’applique à `list` l’action et peut `Detailed` avoir la valeur (valeur `Short`par défaut) ou. |
-| Aide | Affiche des informations d’aide pour la commande. |
-| NonInteractive | Supprime les invites de saisie ou de confirmation de l’utilisateur. |
-| Mot de passe | Spécifie le mot de passe pour l’authentification auprès de la source. |
-| StorePasswordInClearText | Indique de stocker le mot de passe dans du texte non chiffré au lieu du comportement par défaut du stockage d’un formulaire chiffré. |
-| UserName | Spécifie le nom d’utilisateur pour l’authentification auprès de la source. |
-| Commentaires | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
+- **`-ConfigFile`**
+
+  Fichier de configuration NuGet à appliquer. S’il n’est pas spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` `~/.config/NuGet/NuGet.Config` (Mac/Linux) est utilisé.
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Force l’exécution de nuget.exe à l’aide d’une culture indifférente en anglais.
+
+- **`-Format`**
+
+  S’applique à l' `list` action et peut avoir `Detailed` la valeur (valeur par défaut) ou `Short` .
+
+- **`-?|-help`**
+
+  Affiche des informations d’aide pour la commande.
+
+- **`-Name`**
+
+  Nom de la source.
+
+- **`-NonInteractive`**
+
+  Supprime les invites de saisie ou de confirmation de l’utilisateur.
+
+- **`-Password`**
+
+  Spécifie le mot de passe pour l’authentification auprès de la source.
+
+- **`-src|-Source`**
+
+  Chemin d’accès à la source du ou des packages.
+
+- **`-StorePasswordInClearText`**
+
+  Indique de stocker le mot de passe dans du texte non chiffré au lieu du comportement par défaut du stockage d’un formulaire chiffré.
+
+- **`-UserName`**
+
+  Spécifie le nom d’utilisateur pour l’authentification auprès de la source.
+
+- **`-ValidAuthenticationTypes`**
+
+  Liste séparée par des virgules des types d’authentification valides pour cette source. Par défaut, tous les types d’authentification sont valides. Exemple : `basic,negotiate`.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Spécifie la quantité de détails affichée dans la sortie : `normal` (valeur par défaut), `quiet` ou `detailed` .
 
 > [!Note]
-> Veillez à ajouter le mot de passe de la source dans le même contexte utilisateur, car NuGet. exe sera utilisé ultérieurement pour accéder à la source du package. Le mot de passe est stocké de manière chiffrée dans le fichier de configuration et ne peut être déchiffré que dans le même contexte utilisateur que celui dans lequel il a été chiffré. Par exemple, lorsque vous utilisez un serveur de builds pour restaurer des packages NuGet, le mot de passe doit être chiffré avec le même utilisateur Windows sous lequel la tâche de serveur de builds s’exécutera.
+> Veillez à ajouter le mot de passe des sources dans le même contexte utilisateur, car le nuget.exe est utilisé ultérieurement pour accéder à la source du package. Le mot de passe est stocké de manière chiffrée dans le fichier de configuration et ne peut être déchiffré que dans le même contexte utilisateur que celui dans lequel il a été chiffré. Par exemple, lorsque vous utilisez un serveur de builds pour restaurer des packages NuGet, le mot de passe doit être chiffré avec le même utilisateur Windows sous lequel la tâche de serveur de builds s’exécutera.
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 

@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 649c440d868c89068a069a396919b58b999369e5
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451136"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622952"
 ---
 # <a name="pack-command-nuget-cli"></a>commande Pack (interface CLI NuGet)
 
@@ -31,29 +31,109 @@ nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
 où `<nuspecPath>` et `<projectPath>` spécifient `.nuspec` respectivement le fichier projet ou.
 
 ## <a name="options"></a>Options
+- **`-BasePath`**
 
-| Option | Description |
-| --- | --- |
-| Chemin de base | Définit le chemin d’accès de base des fichiers définis dans le fichier [. NuSpec](../nuspec.md) . |
-| Générer | Spécifie que le projet doit être généré avant de générer le package. |
-| Exclure | Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l’exemple ci-dessous. |
-| ExcludeEmptyDirectories | Empêche l’inclusion de répertoires vides lors de la génération du package. |
-| ForceEnglishOutput | *(3.5 +)* Force l’exécution de nuget.exe à l’aide d’une culture indifférente en anglais. |
-| ConfigFile | Spécifiez le fichier de configuration pour la commande Pack. |
-| Aide | Affiche des informations d’aide pour la commande. |
-| IncludeReferencedProjects | Indique que le package généré doit inclure des projets référencés en tant que dépendances ou dans le cadre du package. Si un projet référencé a un fichier correspondant `.nuspec` portant le même nom que le projet, ce projet référencé est ajouté en tant que dépendance. Dans le cas contraire, le projet référencé est ajouté dans le cadre du package. |
-| MinClientVersion | Définissez l’attribut *minClientVersion* pour le package créé. Cette valeur remplace la valeur de l’attribut *minClientVersion* existant (le cas échéant) dans le `.nuspec` fichier. |
-| MSBuildPath | *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande, prioritaire sur `-MSBuildVersion` . |
-| MSBuildVersion | *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Les valeurs prises en charge sont 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Par défaut, MSBuild dans votre chemin d’accès est choisi, sinon il s’agit par défaut de la version installée la plus récente de MSBuild. |
-| NoDefaultExcludes | Empêche l’exclusion par défaut des fichiers de package NuGet et des fichiers et dossiers commençant par un point, comme `.svn` et `.gitignore` . |
-| NoPackageAnalysis | Spécifie que le pack ne doit pas exécuter d’analyse du package après sa génération. |
-| OutputDirectory | Spécifie le dossier dans lequel le package créé est stocké. Si aucun dossier n’est spécifié, le dossier actif est utilisé. |
-| Propriétés | Doit apparaître en dernier sur la ligne de commande après d’autres options. Spécifie une liste de propriétés qui remplacent les valeurs du fichier projet ; consultez les [Propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pour les noms de propriété. L’argument Properties ici est une liste de paires jeton = valeur, séparées par des points-virgules, où chaque occurrence de `$token$` dans le `.nuspec` fichier sera remplacée par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que, pour la propriété « configuration », la valeur par défaut est « Debug ». Pour passer à une configuration Release, utilisez `-Properties Configuration=Release` . **En général**, les propriétés doivent être identiques à celles utilisées lors de la génération du projet correspondant, afin d’éviter un comportement potentiellement étrange. |
-| Suffixe | *(3.4.4 +)* Ajoute un suffixe au numéro de version généré en interne, généralement utilisé pour ajouter la build ou d’autres identificateurs de préversion. Par exemple, l’utilisation de `-suffix nightly` crée un package avec un numéro de version comme `1.2.3-nightly` . Les suffixes doivent commencer par une lettre pour éviter les avertissements, les erreurs et les incompatibilités potentielles avec les différentes versions de NuGet et du gestionnaire de package NuGet. |
-| symboles | Spécifie que le package contient des sources et des symboles. Lorsqu’il est utilisé avec un `.nuspec` fichier, cela crée un fichier de package NuGet standard et le package de symboles correspondant. Par défaut, il crée un [package de symboles hérité](../../create-packages/Symbol-Packages.md). Le nouveau format recommandé pour les packages de symboles est .snupkg. Consultez [Création de packages de symboles (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md). |
-| Outil | Spécifie que les fichiers de sortie du projet doivent être placés dans le `tool` dossier. |
-| Commentaires | Spécifie la quantité de détails affichée dans la sortie : *normal*, *Quiet*, *detailed*. |
-| Version | Remplace le numéro de version du `.nuspec` fichier. |
+   Définit le chemin d’accès de base des fichiers définis dans le fichier [. NuSpec](../nuspec.md) .
+
+- **`-Build`**
+
+  Spécifie que le projet doit être généré avant de générer le package.
+
+- **`-ConfigFile`**
+
+  Fichier de configuration NuGet à appliquer. S’il n’est pas spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` `~/.config/NuGet/NuGet.Config` (Mac/Linux) est utilisé.
+
+- **`-Exclude`**
+
+  Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l’exemple ci-dessous.
+
+- **`-ExcludeEmptyDirectories`**
+
+  Empêche l’inclusion de répertoires vides lors de la génération du package.
+
+- **`-ForceEnglishOutput`**
+
+  *(3.5 +)* Force l’exécution de nuget.exe à l’aide d’une culture indifférente en anglais.
+
+- **`-?|-help`**
+
+  Affiche des informations d’aide pour la commande.
+
+- **`-IncludeReferencedProjects`**
+
+  Indique que le package généré doit inclure des projets référencés en tant que dépendances ou dans le cadre du package. Si un projet référencé a un fichier correspondant `.nuspec` portant le même nom que le projet, ce projet référencé est ajouté en tant que dépendance. Dans le cas contraire, le projet référencé est ajouté dans le cadre du package.
+
+- **`-InstallPackageToOutputPath`**
+
+  Spécifiez si la commande doit préparer le répertoire de sortie du package pour prendre en charge le partage en tant que flux.
+
+- **`-MinClientVersion`**
+
+  Définissez l’attribut *minClientVersion* pour le package créé. Cette valeur remplace la valeur de l’attribut *minClientVersion* existant (le cas échéant) dans le `.nuspec` fichier.
+
+- **`-MSBuildPath`**
+
+  *(4.0 +)* Spécifie le chemin d’accès de MSBuild à utiliser avec la commande, prioritaire sur `-MSBuildVersion` .
+
+- **`-MSBuildVersion`**
+
+  *(3.2 +)* Spécifie la version de MSBuild à utiliser avec cette commande. Les valeurs prises en charge sont 4, 12, 14, 15,1, 15,3, 15,4, 15,5, 15,6, 15,7, 15,8, 15,9. Par défaut, MSBuild dans votre chemin d’accès est choisi, sinon il s’agit par défaut de la version installée la plus récente de MSBuild.
+
+- **`-NoDefaultExcludes`**
+
+  Empêche l’exclusion par défaut des fichiers de package NuGet et des fichiers et dossiers commençant par un point, comme `.svn` et `.gitignore` .
+
+- **`-NonInteractive`**
+
+  Supprime les invites de saisie ou de confirmation de l’utilisateur.
+
+- **`-NoPackageAnalysis`**
+
+  Spécifie que le pack ne doit pas exécuter d’analyse du package après sa génération.
+
+- **`-OutputDirectory`**
+
+  Spécifie le dossier dans lequel le package créé est stocké. Si aucun dossier n’est spécifié, le dossier actif est utilisé.
+
+- **`-OutputFileNamesWithoutVersion`**
+
+  Spécifiez si la commande doit préparer le nom de la sortie du package sans la version.
+
+- **`-PackagesDirectory`**
+
+  Spécifie le dossier Packages.
+
+- **`-p|-Properties`**
+
+  Doit apparaître en dernier sur la ligne de commande après d’autres options. Spécifie une liste de propriétés qui remplacent les valeurs du fichier projet ; consultez les [Propriétés communes des projets MSBuild](/visualstudio/msbuild/common-msbuild-project-properties) pour les noms de propriété. L’argument Properties ici est une liste de paires jeton = valeur, séparées par des points-virgules, où chaque occurrence de `$token$` dans le `.nuspec` fichier sera remplacée par la valeur donnée. Les valeurs peuvent être des chaînes entre guillemets. Notez que, pour la propriété « configuration », la valeur par défaut est « Debug ». Pour passer à une configuration Release, utilisez `-Properties Configuration=Release` . **En général**, les propriétés doivent être identiques à celles utilisées lors de la génération du projet correspondant, afin d’éviter un comportement potentiellement étrange.
+
+- **`-SolutionDirectory`**
+
+  Spécifie le répertoire de la solution.
+
+- **`-Suffix`**
+
+  *(3.4.4 +)* Ajoute un suffixe au numéro de version généré en interne, généralement utilisé pour ajouter la build ou d’autres identificateurs de préversion. Par exemple, l’utilisation de `-suffix nightly` crée un package avec un numéro de version comme `1.2.3-nightly` . Les suffixes doivent commencer par une lettre pour éviter les avertissements, les erreurs et les incompatibilités potentielles avec les différentes versions de NuGet et du gestionnaire de package NuGet.
+
+- **`-SymbolPackageFormat`**
+
+  Lorsque vous créez un package de symboles, permet de choisir entre le `snupkg` `symbols.nupkg` format et.
+
+- **`-Symbols`**
+
+  Spécifie que le package contient des sources et des symboles. Lorsqu’il est utilisé avec un `.nuspec` fichier, cela crée un fichier de package NuGet standard et le package de symboles correspondant. Par défaut, il crée un [package de symboles hérité](../../create-packages/Symbol-Packages.md). Le nouveau format recommandé pour les packages de symboles est .snupkg. Consultez [Création de packages de symboles (.snupkg)](../../create-packages/Symbol-Packages-snupkg.md).
+
+- **`-Tool`**
+
+   Spécifie que les fichiers de sortie du projet doivent être placés dans le `tool` dossier.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Spécifie la quantité de détails affichée dans la sortie : `normal` (valeur par défaut), `quiet` ou `detailed` .
+
+- **`-Version`**
+
+  Remplace le numéro de version du `.nuspec` fichier.
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 

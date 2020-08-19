@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: da8c5a05311c790bf6b873bc0f1a077d3ef1db87
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "73610616"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622705"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Créer des contrôles IU en tant que packages NuGet
 
@@ -18,7 +18,7 @@ ms.locfileid: "73610616"
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Visual Studio 2017
+1. Visual Studio 2017
 1. Savoir [créer des packages UWP](create-uwp-packages.md)
 
 ## <a name="generate-library-layout"></a>Générer la disposition de la bibliothèque
@@ -46,7 +46,7 @@ La structure du fichier est la suivante :
 ```xml
 <FileList>
   <File Reference = "your_package_file">
-    <ToolboxItems VSCategory="vs_category" BlendCategory="blend_category">
+    <ToolboxItems UIFramework="WPF" VSCategory="vs_category" BlendCategory="blend_category">
       <Item Type="type_full_name_1" />
 
       <!-- Any number of additional Items -->
@@ -61,6 +61,7 @@ où :
 
 - *your_package_file* : nom de votre fichier de contrôle, tel que `ManagedPackage.winmd` (« ManagedPackage » est un nom arbitraire utilisé pour cet exemple et n’a aucune signification).
 - *vs_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans la boîte à outils du concepteur Visual Studio. Un `VSCategory` est nécessaire pour que le contrôle apparaisse dans la boîte à outils.
+*ui_framework*: le nom de l’infrastructure, tel que « WPF », Notez que `UIFramework` l’attribut est requis sur les nœuds ToolBoxItems dans Visual Studio 16,7 Preview 3 ou version ultérieure pour que le contrôle s’affiche dans la boîte à outils.
 - *blend_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans le volet Composants du concepteur Blend. Un `BlendCategory` est nécessaire pour que le contrôle apparaisse dans le volet Composants.
 - *type_full_name_n* : nom complet de chaque contrôle, espace de noms compris, tel que `ManagedPackage.MyCustomControl`. Notez que le format avec un point est utilisé pour les types managés et natifs.
 
@@ -71,7 +72,7 @@ Dans l’exemple suivant, le contrôle implémenté dans `ManagedPackage.winmd` 
 ```xml
 <FileList>
   <File Reference = "ManagedPackage.winmd">
-    <ToolboxItems VSCategory="Managed Package" BlendCategory="Managed Package">
+    <ToolboxItems UIFramework="WPF" VSCategory="Managed Package" BlendCategory="Managed Package">
       <Item Type="ManagedPackage.MyCustomControl" />
     </ToolboxItems>
   </File>
@@ -120,7 +121,7 @@ Avec WPF, supposons que vous souhaitez que votre package de contrôles WPF soit 
 
 ## <a name="add-design-time-support"></a>Ajouter la prise en charge au moment de la conception
 
-Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\uap10.0.14393\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le fichier `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<your_assembly_name>\Themes` (là encore, en utilisant le nom de votre assembly). (Ce fichier n’a aucun impact sur le comportement en temps d’exécution d’un contrôle.) La structure du dossier apparaîtrait ainsi comme suit :
+Pour configurer où les propriétés de contrôle apparaissent dans l’inspecteur de propriétés, ajouter des ornements, etc., puis placez votre fichier `design.dll` dans le dossier `lib\uap10.0.14393\Design` en fonction de la plateforme cible. De plus, pour que la fonctionnalité **[Modifier le modèle > Modifier une copie](/windows/uwp/controls-and-patterns/xaml-styles#modify-the-default-system-styles)** soit opérationnelle, vous devez inclure le fichier `Generic.xaml` et tous les dictionnaires de ressources qu’il fusionne dans le dossier `<your_assembly_name>\Themes` (là encore, en utilisant le nom de votre assembly). (Ce fichier n’a aucun impact sur le comportement d’exécution d’un contrôle.) La structure de dossiers devrait donc apparaître comme suit :
 
     \lib
       \uap10.0.14393

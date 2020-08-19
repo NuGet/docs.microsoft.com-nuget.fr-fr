@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/04/2018
 ms.topic: conceptual
-ms.openlocfilehash: 45928e60033959bc8b4f43d1ef3e4c943e7ec057
-ms.sourcegitcommit: e02482e15c0cef63153086ed50d14f5b2a38f598
+ms.openlocfilehash: feb21ae1e70144491a5c0fe8f6a7be36e61d9b32
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87473867"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622982"
 ---
 # <a name="finding-and-evaluating-nuget-packages-for-your-project"></a>Recherche et sélection des packages NuGet pour votre projet
 
@@ -90,32 +90,41 @@ La meilleure façon d’évaluer l’utilité d’un package consiste à le tél
 
 En même temps, utiliser un package NuGet signifie créer une dépendance à celui-ci. Vous devez donc être sûr qu’il est fiable et robuste. Étant donné que l’installation et le test direct d’un package sont des processus relativement longs, il est conseillé de lire les informations fournies dans la page du package pour en savoir plus sur ses qualités :
 
-- *Downloads statistics* (Statistiques de téléchargement) : dans la page du package sur nuget.org, la section **Statistics** (Statistiques) indique le nombre total de téléchargements, les téléchargements de la version la plus récente, et le nombre moyen de téléchargements par jour. Un nombre élevé signifie que de nombreux développeurs dépendent de ce package, et donc que celui-ci a fait ses preuves.
+- **Downloads statistics** (Statistiques de téléchargement) : dans la page du package sur nuget.org, la section **Statistics** (Statistiques) indique le nombre total de téléchargements, les téléchargements de la version la plus récente, et le nombre moyen de téléchargements par jour. Un nombre élevé signifie que de nombreux développeurs dépendent de ce package, et donc que celui-ci a fait ses preuves.
 
     ![Statistiques de téléchargement dans la page du package](media/Finding-03-Downloads.png)
 
-- *Utilisation de GitHub*: sur la page package, la section **utilisation de GitHub** répertorie les dépôts GitHub publics qui dépendent de ce package et qui ont un grand nombre d’étoiles sur GitHub. Le nombre d’étoiles d’un dépôt GitHub indique généralement le degré d’actualité du référentiel avec les utilisateurs GitHub (d’autres étoiles signifient généralement plus populaires). Visitez [la page de prise en main de GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) pour plus d’informations sur les étoiles et le système de classement des référentiels de github.
+- **Utilisé par**: sur la page package, la section **utilisé par** répertorie les 5 packages NuGet.org les plus populaires et les principaux dépôts GitHub qui dépendent de ce package. Les packages et les dépôts qui dépendent de ce package peuvent être appelés « dépendants » de ce package. Les packages et dépôts dépendants peuvent être considérés comme des « approbateurs » de ce package, car les auteurs de package ont choisi d’approuver et de dépendre.
+  - Un package dépendant doit dépendre de *toute version* de ce package dans sa *dernière version stable*. Cette définition garantit que les packages dépendants affichés sont une réflexion à jour de la décision de l’auteur du package d’approuver et de dépendre de ce package. Les dépendants de la version préliminaire ne sont pas répertoriés, car ils ne sont pas encore considérés comme des endoresements plaisante. Pour des exemples, consultez le tableau suivant :
 
-    ![Utilisation de GitHub](media/GitHub-Usage.png)
+    | Empaqueter une version | Le package A est listé comme dépendant du package B ? |
+    |-|-|
+    | v1.0.0<br>v 1.1.0 (dernière stabilité)--package > B<br>v 1.2.0-version préliminaire | TRUE, la dernière version stable dépend du package B |
+    | v 1.0.0--> package B<br>v 1.1.0 (dernière version stable)<br>v 1.2.0-version préliminaire | FALSe, la dernière version stable ne dépend pas du package B |
+    | v 1.0.0--> package B<br>v 1.1.0 (dernière version stable)<br>v 1.2.0-Preview--package > B | FALSe, la dernière version stable ne dépend pas du package B |
+
+  - Le nombre d’étoiles d’un dépôt GitHub indique généralement le degré d’actualité du référentiel avec les utilisateurs GitHub (d’autres étoiles signifient généralement plus populaires). Visitez [la page de prise en main de GitHub](https://help.github.com/en/github/getting-started-with-github/saving-repositories-with-stars#about-stars) pour plus d’informations sur les étoiles et le système de classement des référentiels de github.
+
+    ![Utilisé par](media/Used-By-section-Humanizer.png)
 
     > [!Note]
-    > La section utilisation du GitHub d’un package est générée automatiquement, périodiquement, sans examen humain des dépôts individuels, et uniquement à des fins d’information, afin de vous montrer les dépôts GitHub qui dépendent du package et qui sont populaires avec les utilisateurs de GitHub.
+    > La section utilisé par le package est générée automatiquement, périodiquement, sans examen humain des dépôts individuels, et uniquement à des fins d’information afin de vous montrer les packages NuGet.org et les dépôts GitHub populaires qui dépendent du package.
 
-- *Version history* (Historique des versions) : dans la page du package, regardez sous **Info** pour connaître la date de la mise à jour la plus récente et consulter l’historique des versions (**Version History**). Un package bien géré doit comprendre des mises à jour récentes et un historique des versions très fourni. Les packages négligés comprennent peu de mises à jour et, souvent, n’ont pas été mis à jour depuis un certain temps.
+- **Historique des versions**: sur la page package, accédez **à la** date de la mise à jour la plus récente, puis examinez l' **historique des versions**. Un package bien géré doit comprendre des mises à jour récentes et un historique des versions très fourni. Les packages négligés comprennent peu de mises à jour et, souvent, n’ont pas été mis à jour depuis un certain temps.
 
     ![Historique des versions dans la page du package](media/Finding-04-VersionHistory.png)
 
-- *Installations récentes*: sur la page package sous **statistiques**, sélectionnez **afficher les statistiques complètes**. La page des statistiques complètes affiche le package installé au cours des six dernières semaines par numéro de version. Généralement, les packages très utilisés par les autres développeurs constituent un bon choix.
+- **Installations récentes**: sur la page package sous **statistiques**, sélectionnez **afficher les statistiques complètes**. La page des statistiques complètes affiche le package installé au cours des six dernières semaines par numéro de version. Généralement, les packages très utilisés par les autres développeurs constituent un bon choix.
 
-- *Support* : sur la page du package, sous **Info**, sélectionnez **Project Site** (Site du projet), le cas échéant, pour afficher les options de support proposées par l’auteur. Un projet avec un site dédié est généralement mieux pris en charge.
+- **Support** : sur la page du package, sous **Info**, sélectionnez **Project Site** (Site du projet), le cas échéant, pour afficher les options de support proposées par l’auteur. Un projet avec un site dédié est généralement mieux pris en charge.
 
-- *Developer history* (Historique des développeurs) : dans la page du package, sous **Owners** (Propriétaires), sélectionnez un propriétaire pour voir les autres packages qu’il a publiés. Les développeurs qui ont publié plusieurs packages sont davantage susceptibles de continuer la prise en charge de leur package.
+- **Developer history** (Historique des développeurs) : dans la page du package, sous **Owners** (Propriétaires), sélectionnez un propriétaire pour voir les autres packages qu’il a publiés. Les développeurs qui ont publié plusieurs packages sont davantage susceptibles de continuer la prise en charge de leur package.
 
-- *Open source contributions* (Contributions open source) : de nombreux packages sont conservés dans des référentiels open source, ce qui permet aux développeurs qui en dépendent de contribuer directement aux correctifs de bogues et à l’amélioration des fonctionnalités. L’historique des contributions d’un package donné est également un bon indicateur du nombre de développeurs activement impliqués.
+- **Open source contributions** (Contributions open source) : de nombreux packages sont conservés dans des référentiels open source, ce qui permet aux développeurs qui en dépendent de contribuer directement aux correctifs de bogues et à l’amélioration des fonctionnalités. L’historique des contributions d’un package donné est également un bon indicateur du nombre de développeurs activement impliqués.
 
-- *Interview the owners* (Interroger les propriétaires) : les nouveaux développeurs peuvent eux aussi produire des packages de grande qualité. Il est donc bon de leur permettre d’apporter quelque chose de nouveau à l’écosystème NuGet. Vous pouvez alors contacter directement les développeurs du package via l’option **Contact Owners** (Contacter les propriétaires) sous **Info**, dans la page du package. Ils seront très probablement contents de collaborer avec vous et de répondre à vos besoins !
+- **Interview the owners** (Interroger les propriétaires) : les nouveaux développeurs peuvent eux aussi produire des packages de grande qualité. Il est donc bon de leur permettre d’apporter quelque chose de nouveau à l’écosystème NuGet. Vous pouvez alors contacter directement les développeurs du package via l’option **Contact Owners** (Contacter les propriétaires) sous **Info**, dans la page du package. Ils seront très probablement contents de collaborer avec vous et de répondre à vos besoins !
 
-- *Reserved Package ID Prefixes* (Préfixes d’ID de packages réservés) : de nombreux propriétaires de packages ont demandé et reçu un [préfixe d’ID de package réservé](../nuget-org/id-prefix-reservation.md). Quand vous voyez la coche à côté d’un ID de package sur [nuget.org](https://www.nuget.org/) ou dans Visual Studio, cela signifie que le propriétaire du package a répondu à nos [critères](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pour la réservation d’ID de préfixe. Cela signifie que le propriétaire du package est clair quant à l’identification de lui-même et de son package.
+- **Reserved Package ID Prefixes** (Préfixes d’ID de packages réservés) : de nombreux propriétaires de packages ont demandé et reçu un [préfixe d’ID de package réservé](../nuget-org/id-prefix-reservation.md). Quand vous voyez la coche à côté d’un ID de package sur [nuget.org](https://www.nuget.org/) ou dans Visual Studio, cela signifie que le propriétaire du package a répondu à nos [critères](../nuget-org/id-prefix-reservation.md#id-prefix-reservation-criteria) pour la réservation d’ID de préfixe. Cela signifie que le propriétaire du package est clair quant à l’identification de lui-même et de son package.
 
 > [!Note]
 > Gardez toujours à l’esprit les termes du contrat de licence d’un package, que vous pouvez consulter en sélectionnant les **informations de licence** sur la page de liste d’un package sur NuGet.org. Si un package ne spécifie pas les termes du contrat de licence, contactez le propriétaire du package directement à l’aide du lien **contacter les propriétaires** sur la page du package. Microsoft ne vous concède aucune licence de propriété intellectuelle de fournisseurs de packages tiers et n’est pas responsable des informations fournies par des tiers.

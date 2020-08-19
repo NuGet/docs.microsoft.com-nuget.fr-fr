@@ -1,21 +1,21 @@
 ---
 title: Commande de vérification de l’interface CLI NuGet
-description: Référence pour la commande NuGet. exe Verify
+description: Référence pour la commande nuget.exe Verify
 author: dtivel
 ms.author: dtivel
 ms.date: 03/06/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9510f7323fe0cb860e0dbde51c1eda761846ee27
-ms.sourcegitcommit: efc18d484fdf0c7a8979b564dcb191c030601bb4
+ms.openlocfilehash: 2c501753a16820c5d027441001561c6b637ccda9
+ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68327496"
+ms.lasthandoff: 08/19/2020
+ms.locfileid: "88622601"
 ---
-# <a name="verify-command-nuget-cli"></a>verify (commande, NuGet CLI)
+# <a name="verify-command-nuget-cli"></a>Verify, commande (interface CLI NuGet)
 
-**S’applique à:** &bullet; **versions prises en charge par** la consommation des packages: 4.6 +
+**S’applique à :** &bullet; **versions prises en charge par** la consommation des packages : 4.6 +
 
 Vérifie un package.
 
@@ -27,7 +27,7 @@ La vérification des packages signés n’est pas encore prise en charge dans .N
 nuget verify <-All|-Signatures> <package(s)> [options]
 ```
 
-où `<package(s)>` se trouve un ou `.nupkg` plusieurs fichiers.
+où `<package(s)>` se trouve un ou plusieurs `.nupkg` fichiers.
 
 ## <a name="nuget-verify--all"></a>contrôle NuGet-tout
 
@@ -37,20 +37,33 @@ Spécifie que toutes les vérifications possibles doivent être effectuées sur 
 
 Spécifie que la vérification de la signature du package doit être effectuée.
 
-## <a name="options-for-verify--signatures"></a>Options pour «Verify-signatures»
+## <a name="options-for-verify--signatures"></a>Options pour « Verify-signatures »
 
-| Option | Description |
-| --- | --- |
-| CertificateFingerprint | Spécifie un ou plusieurs empreintes de certificat SHA-256 de certificats dont les packages signés doivent être signés. Une empreinte de certificat SHA-256 est un hachage SHA-256 du certificat. Les entrées multiples doivent être séparées par des points-virgules. |
+- **`-CertificateFingerprint`**
+
+  Spécifie un ou plusieurs empreintes de certificat SHA-256 de certificats dont les packages signés doivent être signés. Une empreinte de certificat SHA-256 est un hachage SHA-256 du certificat. Les entrées multiples doivent être séparées par des points-virgules.
 
 ## <a name="options"></a>Options
 
-| Option | Description |
-| --- | --- |
-| ConfigFile | Fichier de configuration NuGet à appliquer. S’il n’est `%AppData%\NuGet\NuGet.Config` pas spécifié, ( `~/.nuget/NuGet/NuGet.Config` Windows) ou (Mac/Linux) est utilisé.|
-| ForceEnglishOutput | Force l’exécution de NuGet. exe à l’aide d’une culture indifférente basée sur l’anglais. |
-| Aide | Affiche des informations d’aide pour la commande. |
-| Commentaires | Spécifie la quantité de détails affichée dans la sortie: *normal*, *Quiet*, *detailed*. |
+- **`-ConfigFile`**
+
+  Fichier de configuration NuGet à appliquer. S’il n’est pas spécifié, `%AppData%\NuGet\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` `~/.config/NuGet/NuGet.Config` (Mac/Linux) est utilisé.
+
+- **`-ForceEnglishOutput`**
+
+  Force l’exécution de nuget.exe à l’aide d’une culture indifférente en anglais.
+
+- **`-?|-help`**
+
+  Affiche des informations d’aide pour la commande.
+
+- **`-NonInteractive`**
+
+  Supprime les invites de saisie ou de confirmation de l’utilisateur.
+
+- **`-Verbosity [normal|quiet|detailed]`**
+
+  Spécifie la quantité de détails affichée dans la sortie : `normal` (valeur par défaut), `quiet` ou `detailed` .
 
 ## <a name="examples"></a>Exemples
 
