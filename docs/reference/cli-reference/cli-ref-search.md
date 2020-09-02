@@ -5,12 +5,12 @@ author: advay26
 ms.author: t-adtand
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 35e4906960534299418cb2a17c190476708b2634
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 8d63efefb8f14c03fbe3986d8d7eebcc3eb5bcac
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623268"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359680"
 ---
 # <a name="search-command-nuget-cli"></a>commande Search (interface CLI NuGet)
 
@@ -33,18 +33,16 @@ où les termes de recherche sont appliqués aux noms des packages, aux balises e
 | Version préliminaire | Les packages de préversion ne sont pas inclus par défaut, mais peuvent être inclus à l’aide de cet argument | -Version préliminaire |
 | Source | Source (s) de package spécifique à rechercher au lieu d’interroger les sources par défaut dans __nuget.config__ | -Source `<Source URL>`|
 | Take | Nombre de résultats à retourner. La valeur par défaut est 20. | -Take `<positive integer>` |
-| Commentaires | Niveau de détail à afficher dans la sortie. La valeur par défaut est _normal_. (Voir la remarque ci-dessous)  | -Verbosité `<quiet\|normal\|detailed>` |
+| Commentaires | Niveau de détail à afficher dans la sortie. La valeur par défaut est _normal_. (Voir la remarque ci-dessous)  | -Verbosité `<quiet|normal|detailed>` |
 | Aide | Affiche des informations d’aide pour la commande | -Aide |
 
 Voir aussi [variables d’environnement](cli-ref-environment-variables.md)
 
-__REMARQUE__
-
-Niveaux de détail :
-
-* _Quiet_ : ID de package, version
-* _normal_ : ID de package, version, téléchargements, aperçu de la description
-* _detailed_ : ID de package, version, téléchargements, description complète, autres informations comme l’URL de la requête
+> [!NOTE] 
+> Niveaux de détail :
+> * _Quiet_ : ID de package, version
+> * _normal_ : ID de package, version, téléchargements, aperçu de la description
+> * _detailed_ : ID de package, version, téléchargements, description complète, autres informations comme l’URL de la requête
 
 ## <a name="examples"></a>Exemples
 

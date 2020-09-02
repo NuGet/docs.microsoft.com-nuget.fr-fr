@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: b615bcb78ad2eaf8524bfbf17864d4652e546ff1
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c604d20c6358b7da5b1294ae48d9b7452794102f
+ms.sourcegitcommit: 6cda91f135e58cf57a2471b0c7c4a2f748f40024
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80151307"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89359646"
 ---
-La description facultative du paquet, affichée sur la page NuGet.org du `<description></description>` paquet, `.csproj` est soit tirée `$description` de l’utilisé dans le fichier, soit tirée par l’intermédiaire du [fichier .nuspec](../../reference/nuspec.md).
+La description facultative du package, affichée sur la page NuGet.org du package, est extraite de la `<description></description>` utilisée dans le `.csproj` fichier ou extraite via le `$description` dans le [fichier. NuSpec](../../reference/nuspec.md).
 
-Un exemple de champ de _description_ est indiqué `.csproj` dans le texte XML suivant du fichier pour un paquet .NET :
+Un exemple de champ de _Description_ est présenté dans le texte XML suivant du `.csproj` fichier pour un package .net :
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -25,5 +25,5 @@ Un exemple de champ de _description_ est indiqué `.csproj` dans le texte XML su
       REST API Reference for Blob Service - https://docs.microsoft.com/en-us/rest/api/storageservices/blob-service-rest-api
     </Description>
   </PropertyGroup>
-</PropertyGroup>
+</Project>
 ```
