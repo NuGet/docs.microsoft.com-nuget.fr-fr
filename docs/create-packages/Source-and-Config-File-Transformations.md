@@ -6,12 +6,12 @@ ms.author: karann
 ms.date: 04/24/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 2fefd9cff4d151111023521c31d58878743775bf
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 8e3eade14c70782563ba82894f072f9b3a611923
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231173"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237982"
 ---
 # <a name="transforming-source-code-and-configuration-files"></a>Transformation de fichiers de code source et de configuration
 
@@ -52,7 +52,7 @@ Le jeton `$rootnamespace$` est la propriété de projet la plus souvent utilisé
 Comme décrit dans les sections qui suivent, les transformations de fichiers de configuration peuvent être effectuées de deux manières :
 
 - Incluez des fichiers `app.config.transform` et `web.config.transform` dans le dossier `content` de votre package, où l’extension `.transform` indique à NuGet que ces fichiers contiennent le code XML à fusionner avec les fichiers de configuration existants lors de l’installation du package. Lorsqu’un package est désinstallé, ce même code XML est supprimé.
-- Incluez les fichiers `app.config.install.xdt` et `web.config.install.xdt` dans le dossier `content` de votre package en utilisant la [syntaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx) pour décrire les changements souhaités. Avec cette option, vous pouvez également inclure un fichier `.uninstall.xdt` pour annuler ces modifications lorsque le package est supprimé d’un projet.
+- Incluez les fichiers `app.config.install.xdt` et `web.config.install.xdt` dans le dossier `content` de votre package en utilisant la [syntaxe XDT](/previous-versions/aspnet/dd465326(v=vs.110)) pour décrire les changements souhaités. Avec cette option, vous pouvez également inclure un fichier `.uninstall.xdt` pour annuler ces modifications lorsque le package est supprimé d’un projet.
 
 > [!Note]
 > Les transformations ne sont pas appliquées aux fichiers `.config` référencés sous forme de lien dans Visual Studio.
@@ -108,14 +108,14 @@ Comme un exemple plus complet, le package [Gestionnaires et modules d’enregist
 
 Pour examiner son fichier `web.config.transform`, téléchargez le package ELMAH à partir du lien ci-dessus, remplacez l’extension du package `.nupkg` par `.zip`, puis ouvrez `content\web.config.transform` dans ce fichier ZIP.
 
-Pour voir l’effet de l’installation et de la désinstallation du package, créez un projet ASP.NET dans Visual Studio (le modèle est disponible sous **Visual C# > Web** dans la boîte de dialogue Nouveau projet), puis sélectionnez une application ASP.NET vide. Ouvrez `web.config` pour voir son état initial. Ensuite, cliquez sur le projet, sélectionnez **Gérer les packages NuGet**, recherchez ELMAH sur nuget.org et installez la version la plus récente. Remarquez toutes les modifications apportées à `web.config`. Désinstallez maintenant le package : `web.config` reviendra à son état antérieur.
+Pour voir l’effet de l’installation et de la désinstallation du package, créez un projet ASP.NET dans Visual Studio (le modèle est disponible sous **Visual C# > Web** dans la boîte de dialogue Nouveau projet), puis sélectionnez une application ASP.NET vide. Ouvrez `web.config` pour voir son état initial. Ensuite, cliquez sur le projet, sélectionnez **Gérer les packages NuGet** , recherchez ELMAH sur nuget.org et installez la version la plus récente. Remarquez toutes les modifications apportées à `web.config`. Désinstallez maintenant le package : `web.config` reviendra à son état antérieur.
 
 ### <a name="xdt-transforms"></a>Transformations XDT
 
 > [!Note]
-> Comme mentionné dans la [section des questions de compatibilité `packages.config` `PackageReference`des paquets des documents pour migrer de ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), les transformations XDT comme décrit ci-dessous ne sont pris en charge par `packages.config`. Si vous ajoutez les fichiers ci-dessous à `PackageReference` votre forfait, les consommateurs utilisant votre colis avec ne`PackageReference`seront pas avoir les transformations appliquées (se référer à cet [échantillon](https://github.com/NuGet/Samples/tree/master/XDTransformExample) pour faire XDT transforme fonctionne avec ).
+> Comme indiqué dans la [section problèmes de compatibilité de package de la documentation relative à la migration de `packages.config` vers `PackageReference` ](../consume-packages/migrate-packages-config-to-package-reference.md#package-compatibility-issues), les transformations xdt, comme décrit ci-dessous, sont prises en charge uniquement par `packages.config` . Si vous ajoutez les fichiers ci-dessous à votre package, les transformations ne sont pas appliquées aux consommateurs qui utilisent votre package, `PackageReference` (reportez-vous à [cet exemple](https://github.com/NuGet/Samples/tree/master/XDTransformExample) pour faire en sorte que les transformations xdt fonctionnent avec `PackageReference` ).
 
-Vous pouvez modifier des fichiers de configuration en utilisant la [syntaxe XDT](https://msdn.microsoft.com/library/dd465326.aspx). Vous pouvez également demander à NuGet de remplacer les jetons par des [propriétés de projet](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) en plaçant leur nom entre les délimiteurs `$` (sans respect de la casse).
+Vous pouvez modifier des fichiers de configuration en utilisant la [syntaxe XDT](/previous-versions/aspnet/dd465326(v=vs.110)). Vous pouvez également demander à NuGet de remplacer les jetons par des [propriétés de projet](/dotnet/api/vslangproj.projectproperties?view=visualstudiosdk-2017&viewFallbackFrom=netframework-4.7) en plaçant leur nom entre les délimiteurs `$` (sans respect de la casse).
 
 Par exemple, le fichier `app.config.install.xdt` suivant insère un élément `appSettings` dans `app.config` qui contient les valeurs `FullPath`, `FileName` et `ActiveConfigurationSettings` du projet :
 

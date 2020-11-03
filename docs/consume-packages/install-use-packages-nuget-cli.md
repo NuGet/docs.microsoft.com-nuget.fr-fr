@@ -6,11 +6,11 @@ ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: 7039dd27f2dddebc3c84e5ad35d5efec59547792
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428687"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237385"
 ---
 # <a name="manage-packages-using-the-nugetexe-cli"></a>Gérer des packages à l’aide de l’interface CLI nuget.exe
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser l’interface CLI `nuget.exe` pour votre projet .NET Framew
 
 Cet article explique l’utilisation de base de quelques-unes des commandes de la CLI `nuget.exe` les plus courantes. Pour la plupart de ces commandes, l’outil CLI recherche un fichier projet dans le répertoire actif, sauf si vous avez spécifié un fichier projet particulier dans la commande. Pour obtenir une liste complète des commandes et des arguments disponibles, consultez les [informations de référence sur l’interface CLI nuget.exe](../reference/nuget-exe-cli-reference.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 - Installez l’interface CLI `nuget.exe` en la téléchargeant sur [nuget.org](https://dist.nuget.org/win-x86-commandline/latest/nuget.exe) : enregistrez ce fichier `.exe` dans un dossier approprié et ajoutez ce dossier à votre variable d’environnement PATH.
 
@@ -32,23 +32,23 @@ Cet article explique l’utilisation de base de quelques-unes des commandes de l
 La commande [install](../reference/cli-reference/cli-ref-install.md) télécharge et installe un package dans un projet, par défaut dans le dossier actif, en utilisant les sources de packages spécifiées. Installez les nouveaux packages dans le dossier *packages* du répertoire racine de votre projet.
 
 > [!IMPORTANT]
-> La commande `install` ne modifie pas le fichier projet ni le fichier *packages.config*. Elle est similaire à la commande `restore` en ce sens qu’elle ajoute seulement les packages sur le disque, sans changer les dépendances du projet. Pour ajouter une dépendance, soit vous ajoutez un package via l’interface utilisateur ou la console du Gestionnaire de package dans Visual Studio, soit vous modifiez *packages.config* et exécutez ensuite `install` ou `restore`.
+> La commande `install` ne modifie pas le fichier projet ni le fichier *packages.config* . Elle est similaire à la commande `restore` en ce sens qu’elle ajoute seulement les packages sur le disque, sans changer les dépendances du projet. Pour ajouter une dépendance, soit vous ajoutez un package via l’interface utilisateur ou la console du Gestionnaire de package dans Visual Studio, soit vous modifiez *packages.config* et exécutez ensuite `install` ou `restore`.
 
 1. Ouvrez une ligne de commande et accédez au répertoire contenant votre fichier projet.
 
-2. Utilisez la commande suivante pour installer un package NuGet dans le dossier *packages*.
+2. Utilisez la commande suivante pour installer un package NuGet dans le dossier *packages* .
 
     ```cli
     nuget install <packageID> -OutputDirectory packages
     ```
 
-    Pour installer le package `Newtonsoft.json` dans le dossier *packages*, utilisez cette commande :
+    Pour installer le package `Newtonsoft.json` dans le dossier *packages* , utilisez cette commande :
 
     ```cli
     nuget install Newtonsoft.Json -OutputDirectory packages
     ```
 
-Vous pouvez aussi utiliser la commande suivante si vous souhaitez installer un package NuGet à l’aide d’un fichier `packages.config` existant dans le dossier *packages*. Cette commande n’ajoute pas le package aux dépendances de votre projet, elle l’installe localement.
+Vous pouvez aussi utiliser la commande suivante si vous souhaitez installer un package NuGet à l’aide d’un fichier `packages.config` existant dans le dossier *packages* . Cette commande n’ajoute pas le package aux dépendances de votre projet, elle l’installe localement.
 
 ```cli
 nuget install packages.config -OutputDirectory packages
@@ -72,7 +72,7 @@ Pour plus d’informations sur les limitations et le comportement de la commande
 
 ## <a name="remove-a-package"></a>Supprimer un package
 
-Pour supprimer un ou plusieurs packages, spécifiez les packages que vous souhaitez supprimer du dossier *packages*.
+Pour supprimer un ou plusieurs packages, spécifiez les packages que vous souhaitez supprimer du dossier *packages* .
 
 Pour réinstaller des packages supprimés, utilisez la commande `restore` ou `install`.
 
@@ -84,7 +84,7 @@ Vous pouvez lister les packages d’une source donnée à l’aide de la command
 nuget list -Source <source>
 ```
 
-Par exemple, listez les packages contenus dans le dossier *packages*.
+Par exemple, listez les packages contenus dans le dossier *packages* .
 
 ```cli
 nuget list -Source C:\Users\username\source\repos\MyProject\packages

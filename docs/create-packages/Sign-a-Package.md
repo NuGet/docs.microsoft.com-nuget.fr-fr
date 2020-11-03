@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 00fe1d5fa81132b5d6826203a0d26e56aa8d4755
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429002"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237586"
 ---
 # <a name="signing-nuget-packages"></a>Signature de packages NuGet
 
@@ -19,9 +19,9 @@ Les packages signés permettent les contrôles de vérification de l’intégrit
 
 ## <a name="get-a-code-signing-certificate"></a>Obtenir un certificat de signature de code
 
-Les certificats valides peuvent être obtenus auprès d’une autorité de certificat public telle que [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [Certum](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. La liste complète des autorisations de certification [http://aka.ms/trustcertpartners](https://aka.ms/trustcertpartners)dignes de confiance par Windows peut être obtenue à partir de .
+Des certificats valides peuvent être obtenus auprès d’une autorité de certification publique telle que [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [certr](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. La liste complète des autorités de certification approuvées par Windows peut être obtenue à partir de [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
 
-Vous pouvez utiliser des certificats auto-émis à des fins de test. Toutefois, les colis signés à l’aide de certificats auto-délivrés ne sont pas acceptés par NuGet.org. En savoir plus sur [la création d’un certificat de test](#create-a-test-certificate)
+Vous pouvez utiliser des certificats auto-émis à des fins de test. Toutefois, les packages signés à l’aide de certificats auto-émis ne sont pas acceptés par NuGet.org. En savoir plus sur [la création d’un certificat de test](#create-a-test-certificate)
 
 ## <a name="export-the-certificate-file"></a>Exporter le fichier de certificat
 
@@ -34,7 +34,7 @@ Vous pouvez utiliser des certificats auto-émis à des fins de test. Toutefois, 
 ## <a name="sign-the-package"></a>Signer le package
 
 > [!note]
-> Nécessite nuget.exe 4.6.0 ou plus tard. dotnet.exe soutien est à venir - [#7939](https://github.com/NuGet/Home/issues/7939)
+> Requiert nuget.exe 4.6.0 ou version ultérieure. La prise en charge de dotnet.exe sera bientôt disponible : [#7939](https://github.com/NuGet/Home/issues/7939)
 
 Signez le package avec [nuget sign](../reference/cli-reference/cli-ref-sign.md) :
 
@@ -51,7 +51,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 
 ## <a name="register-the-certificate-on-nugetorg"></a>Inscrire le certificat sur NuGet.org
 
-Pour publier un forfait signé, vous devez d’abord enregistrer le certificat auprès de NuGet.org. Vous avez besoin `.cer` du certificat comme fichier dans un format DER binaire.
+Pour publier un package signé, vous devez d’abord inscrire le certificat auprès de NuGet.org. Vous avez besoin du certificat en tant que `.cer` fichier au format der binaire.
 
 1. [Connectez-vous](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) à NuGet.org.
 1. Accédez à `Account settings` (ou à `Manage Organization` **>** `Edit Organziation` si vous voulez inscrire le certificat auprès d’un compte d’organisation).
@@ -59,14 +59,14 @@ Pour publier un forfait signé, vous devez d’abord enregistrer le certificat a
 1. Accédez au fichier de certificat qui a été exporté précédemment.
   ![Certificats inscrits](../reference/media/registered-certs.png)
 
-**Note**
+**Remarque**
 * Un même utilisateur peut envoyer plusieurs certificats et le même certificat peut être inscrit par plusieurs utilisateurs.
 * Une fois qu’un utilisateur a un certificat inscrit, tous les envois de package ultérieurs **doivent** être signés avec un des certificats. Consultez [Gérer les exigences de signature de votre package sur NuGet.org](#manage-signing-requirements-for-your-package-on-nugetorg)
 * Les utilisateurs peuvent également supprimer du compte un certificat inscrit. Une fois qu’un certificat est supprimé, l’envoi de nouveaux packages signés avec ce certificat échoue. Les packages existants ne sont pas affectés.
 
 ## <a name="publish-the-package"></a>Publier le package
 
-Vous êtes maintenant prêt à publier le paquet pour NuGet.org. Voir [les paquets d’édition](../nuget-org/Publish-a-package.md).
+Vous êtes maintenant prêt à publier le package sur NuGet.org. Consultez [publication de packages](../nuget-org/Publish-a-package.md).
 
 ## <a name="create-a-test-certificate"></a>Créer un certificat de test
 

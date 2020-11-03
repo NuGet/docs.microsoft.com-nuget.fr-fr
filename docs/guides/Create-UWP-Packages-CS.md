@@ -1,44 +1,44 @@
 ---
 title: Créer des packages NuGet pour la plateforme Windows universelle
-description: Une procédure pas à pas de bout en bout de la création de paquets NuGet à l’aide d’un composant Windows Runtime pour la plate-forme Windows universelle en C.
+description: Procédure pas à pas de bout en bout de la création de packages NuGet à l’aide d’un composant Windows Runtime pour le plateforme Windows universelle en C#.
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 61f46f2623769927f881877cfe3f96132211b442
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231804"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238008"
 ---
-# <a name="create-uwp-packages-c"></a>Créer des forfaits UWP (C)
+# <a name="create-uwp-packages-c"></a>Créer des packages UWP (C#)
 
 La [plateforme Windows universelle (UWP)](/windows/uwp) fournit une plateforme d’application commune pour chaque appareil qui exécute Windows 10. Dans ce modèle, les applications UWP peuvent appeler à la fois les API WinRT communes à tous les appareils et les API (notamment Win32 et .NET) propres à la famille d’appareils sur laquelle les applications s’exécutent.
 
-Dans ce cadre pas à pas, vous créez un package NuGet avec un composant C’UWP (y compris un contrôle XAML) qui peut être utilisé dans des projets gérés et autochtones.
+Dans cette procédure pas à pas, vous créez un package NuGet avec un composant UWP C# (y compris un contrôle XAML) qui peut être utilisé dans les projets managés et natifs.
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Visual Studio 2019. Installer l’édition communautaire 2019 gratuitement de [visualstudio.com](https://www.visualstudio.com/); vous pouvez également utiliser les éditions Professionnels et Entreprises.
+1. Visual Studio 2019. Installez gratuitement l’édition Community de 2019 à partir de [VisualStudio.com](https://www.visualstudio.com/). vous pouvez également utiliser les éditions Professional et Enterprise.
 
-1. Interface de ligne de commande NuGet. Téléchargez la dernière version de `nuget.exe` à partir de [nuget.org/downloads](https://nuget.org/downloads), puis enregistrez-la dans un emplacement de votre choix (le téléchargement est directement le `.exe`). Ajoutez ensuite cet emplacement à votre variable d’environnement PATH, si ce n’est déjà fait. [Plus de détails](/nuget/reference/nuget-exe-cli-reference#windows).
+1. Interface de ligne de commande NuGet. Téléchargez la dernière version de `nuget.exe` à partir de [nuget.org/downloads](https://nuget.org/downloads), puis enregistrez-la dans un emplacement de votre choix (le téléchargement est directement le `.exe`). Ajoutez ensuite cet emplacement à votre variable d’environnement PATH, si ce n’est déjà fait. [Plus de détails](../reference/nuget-exe-cli-reference.md#windows).
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Créer un composant Windows Runtime UWP
 
-1. Dans Visual Studio, choisissez **File > New > Project**, recherchez le modèle «uwp cô », sélectionnez le modèle de composant Windows **Runtime (Windows universel),** cliquez ensuite, changez le nom en ImageEnhancer et cliquez sur Créer. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
+1. Dans Visual Studio, choisissez **fichier > nouveau projet de >** , recherchez « UWP c# », sélectionnez le modèle **Windows Runtime composant (Windows universel)** , cliquez sur suivant, changez le nom en ImageEnhancer, puis cliquez sur créer. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
 
     ![Création d’un projet de composant Windows Runtime UWP](media/UWP-NewProject-CS.png)
 
-1. Cliquez à droite sur le projet dans Solution Explorer, **sélectionnez Ajouter > nouvel élément**, sélectionnez **Templated Control**, changez le nom pour AwesomeImageControl.cs et cliquez sur **Ajouter**:
+1. Cliquez avec le bouton droit sur le projet dans Explorateur de solutions, sélectionnez **ajouter > nouvel élément** , sélectionnez **contrôle basé** sur un modèle, changez le nom en AwesomeImageControl.cs, puis cliquez sur **Ajouter** :
 
     ![Ajout d’un nouvel élément Contrôle basé sur un modèle XAML au projet](media/UWP-NewXAMLControl-CS.png)
 
-1. Cliquez à droite sur le projet dans Solution Explorer et sélectionnez **propriétés.** Dans la page Propriétés, choisissez **l’onglet Construire** et activez **le fichier de documentation XML**:
+1. Dans Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Propriétés.** Dans la page Propriétés, choisissez l’onglet **générer** et activez **fichier de documentation XML** :
 
     ![Définition de Génération de fichiers de documentation XML sur Oui](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. Cliquez à droite sur la *solution* maintenant, sélectionnez **Batch Build**, vérifiez les cinq cases de construction dans le dialogue comme indiqué ci-dessous. Ainsi, quand vous effectuez une génération, vous générez un jeu complet d’artefacts pour chacun des systèmes cibles que Windows prend en charge.
+1. Cliquez avec le bouton droit sur la *solution* maintenant, sélectionnez **génération de lot** , cochez les cinq zones Build dans la boîte de dialogue, comme indiqué ci-dessous. Ainsi, quand vous effectuez une génération, vous générez un jeu complet d’artefacts pour chacun des systèmes cibles que Windows prend en charge.
 
     ![Générer en tâche de fond](media/UWP-BatchBuild-CS.png)
 
@@ -52,13 +52,13 @@ Dans ce cadre pas à pas, vous créez un package NuGet avec un composant C’UWP
 Pour créer le fichier `.nuspec` initial, effectuez les trois étapes ci-dessous. Les sections qui suivent vous guident tout au long des autres mises à jour nécessaires.
 
 1. Ouvrez une invite de commandes et accédez au dossier contenant `ImageEnhancer.csproj` (il s’agit d’un sous-dossier situé en dessous du fichier solution).
-1. Exécuter [`NuGet spec`](/nuget/reference/cli-reference/cli-ref-spec) la commande `ImageEnhancer.nuspec` pour générer (le nom du fichier `.csroj` est pris à partir du nom du fichier):
+1. Exécutez la [`NuGet spec`](../reference/cli-reference/cli-ref-spec.md) commande pour générer `ImageEnhancer.nuspec` (le nom du fichier est tiré du nom du `.csroj` fichier) :
 
     ```cli
     nuget spec
     ```
 
-1. Ouvrez `ImageEnhancer.nuspec` dans un éditeur et mettez-le à jour afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. Ne laissez aucune des valeurs $propertyName$. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). De plus, vous devez également mettre à jour les balises authors et description afin de ne pas obtenir d’erreur durant l’empaquetage.
+1. Ouvrez `ImageEnhancer.nuspec` dans un éditeur et mettez-le à jour afin qu’il corresponde au code ci-après, en remplaçant YOUR_NAME par une valeur appropriée. Ne laissez aucune des valeurs de $propertyName $. La valeur `<id>`, en particulier, doit être unique dans nuget.org (consultez les conventions de nommage décrites dans [Création d’un package](../create-packages/creating-a-package.md#choose-a-unique-package-identifier-and-setting-the-version-number)). De plus, vous devez également mettre à jour les balises authors et description afin de ne pas obtenir d’erreur durant l’empaquetage.
 
     ```xml
     <?xml version="1.0"?>
@@ -123,7 +123,7 @@ Pour inclure un contrôle XAML dans votre composant, vous devez ajouter le fichi
 
 ### <a name="adding-the-native-implementation-libraries"></a>Ajout des bibliothèques d’implémentation native
 
-Dans votre composant, la logique de base du type ImageEnhancer est `ImageEnhancer.winmd` en code natif, qui est contenu dans les différents assemblages qui sont générés pour chaque temps d’exécution cible (ARM, ARM64, x86, et x64). Pour inclure ces assemblys dans le package, référencez-les dans la section `<files>`, ainsi que leurs fichiers de ressources .pri associés :
+Au sein de votre composant, la logique principale du type ImageEnhancer est en code natif, qui est contenue dans les différents `ImageEnhancer.winmd` assemblys générés pour chaque Runtime cible (ARM, ARM64, x86 et x64). Pour inclure ces assemblys dans le package, référencez-les dans la section `<files>`, ainsi que leurs fichiers de ressources .pri associés :
 
 ```xml
 <?xml version="1.0"?>
@@ -197,7 +197,7 @@ Votre fichier `.nuspec` final doit maintenant ressembler au code ci-après, où 
 
 ## <a name="package-the-component"></a>Empaqueter le composant
 
-Avec le `.nuspec` référencement terminé de tous les fichiers que vous devez [`nuget pack`](/nuget/reference/cli-reference/cli-ref-pack) inclure dans le paquet, vous êtes prêt à exécuter la commande :
+Une fois que vous avez fait `.nuspec` référence à tous les fichiers que vous devez inclure dans le package, vous êtes prêt à exécuter la [`nuget pack`](../reference/cli-reference/cli-ref-pack.md) commande :
 
 ```cli
 nuget pack ImageEnhancer.nuspec
@@ -214,9 +214,9 @@ Pour mettre votre package à la disposition des autres développeurs, suivez les
 
 ## <a name="related-topics"></a>Rubriques connexes
 
-- [.nuspec Référence](../reference/nuspec.md)
+- [Référence. NuSpec](../reference/nuspec.md)
 - [Packages de symboles](../create-packages/symbol-packages-snupkg.md)
-- [Contrôle de version des packages](../concepts/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs versions du .NET Framework](../create-packages/supporting-multiple-target-frameworks.md)
 - [Inclure des cibles et des propriétés MSBuild dans un package](../create-packages/creating-a-package.md#include-msbuild-props-and-targets-in-a-package)
-- [Création de forfaits localisés](../create-packages/creating-localized-packages.md)
+- [Création de packages localisés](../create-packages/creating-localized-packages.md)

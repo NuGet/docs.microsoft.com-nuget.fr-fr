@@ -1,18 +1,18 @@
 ---
 title: Informations de référence sur PowerShell Open-PackagePage de NuGet
-description: Référence pour la commande PowerShell Open-PackagePage dans la console du gestionnaire de package NuGet dans Visual Studio.
+description: Référence pour Open-PackagePage commande PowerShell dans la console du gestionnaire de package NuGet dans Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: 39199ebfc37756ed40158a1c07afca7709067350
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: ba90e09c017ec66d73c35a60025474bc77cf65a7
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384426"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238060"
 ---
-# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (Console du gestionnaire de packages dans Visual Studio)
+# <a name="open-packagepage-package-manager-console-in-visual-studio"></a>Open-PackagePage (console du gestionnaire de package dans Visual Studio)
 
 *Déconseillé dans 3.0 +; disponible uniquement dans la [console du gestionnaire de package](../../consume-packages/install-use-packages-powershell.md) dans Visual Studio sur Windows.*
 
@@ -25,11 +25,11 @@ Open-PackagePage [-Id] <string> [-Version] [-Source] [-License] [-ReportAbuse]
     [-PassThru] [<CommonParameters>]
 ```
 
-## <a name="parameters"></a>Parameters
+## <a name="parameters"></a>Paramètres
 
 | Paramètre | Description |
 | --- | --- |
-| ID | ID de package du package souhaité. Le commutateur-ID lui-même est facultatif. |
+| Id | ID de package du package souhaité. Le commutateur-ID lui-même est facultatif. |
 | Version | Version du package, avec la version la plus récente par défaut. |
 | Source | Source du package, par défaut à la source sélectionnée dans la liste déroulante source. |
 | Licence | Ouvre le navigateur à l’URL de licence du package. Si ni-License ni-ReportAbuse n’est spécifié, le navigateur ouvre l’URL du projet du package. |
@@ -40,7 +40,7 @@ Aucun de ces paramètres n’accepte d’entrée de pipeline ou de caractères g
 
 ## <a name="common-parameters"></a>Paramètres communs
 
-`Open-PackagePage` prend en charge les [paramètres PowerShell communs](https://go.microsoft.com/fwlink/?LinkID=113216)suivants : Debug, Error action, ErrorVariable, unbuffer, unvariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Open-PackagePage` prend en charge les [paramètres PowerShell communs](/powershell/module/microsoft.powershell.core/about/about_commonparameters)suivants : Debug, Error action, ErrorVariable, labuffer, unvariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ## <a name="examples"></a>Exemples
 

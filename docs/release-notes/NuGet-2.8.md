@@ -6,38 +6,38 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 98b8b7334738306e6d40ba7c455409a87c4bb822
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429051"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237017"
 ---
 # <a name="nuget-28-release-notes"></a>Notes de publication de NuGet 2,8
 
-[Notes de publication de NuGet 2.7.2](../release-notes/nuget-2.7.2.md) | [notes de publication de NuGet 2.8.1](../release-notes/nuget-2.8.1.md)
+Notes de publication de [NuGet 2.7.2](../release-notes/nuget-2.7.2.md)  |  [Notes de publication de NuGet 2.8.1](../release-notes/nuget-2.8.1.md)
 
 NuGet 2,8 a été publié le 29 janvier 2014.
 
 ## <a name="acknowledgements"></a>Remerciements
 
-1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ([@leppie](https://twitter.com/leppie))
+1. [Llewellyn Pritchard](https://www.codeplex.com/site/users/view/leppie) ( [@leppie](https://twitter.com/leppie) )
     - [#3466](https://nuget.codeplex.com/workitem/3466) : lors de l’empaquetage de packages, vérification de l’ID des packages de dépendance.
-2. [Maarten Balliauw](https://www.codeplex.com/site/users/view/maartenba) ([@maartenballiauw](https://twitter.com/maartenballiauw))
+2. [Maarten Balliauw](https://www.codeplex.com/site/users/view/maartenba) ( [@maartenballiauw](https://twitter.com/maartenballiauw) )
     - [#2379](https://nuget.codeplex.com/workitem/2379) : supprimez le suffixe $Metadata quand les informations d’identification du flux persistening.
-3. [Filip de vos](https://www.codeplex.com/site/users/view/FilipDeVos) ([@foxtricks](https://twitter.com/foxtricks))
-    - [#3538](http://nuget.codeplex.com/workitem/3538) -prend en charge la spécification du fichier projet pour la commande de mise à jour de NuGet. exe.
+3. [Filip de vos](https://www.codeplex.com/site/users/view/FilipDeVos) ( [@foxtricks](https://twitter.com/foxtricks) )
+    - [#3538](http://nuget.codeplex.com/workitem/3538) -prend en charge la spécification du fichier projet pour la commande nuget.exe Update.
 4. [Juan Gonzalez](https://www.codeplex.com/site/users/view/jjgonzalez)
     - jetons de remplacement [#3536](http://nuget.codeplex.com/workitem/3536) non passés avec-IncludeReferencedProjects.
-5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ([@Sarkie_Dave](https://twitter.com/Sarkie_Dave))
+5. [David Poole](https://www.codeplex.com/site/users/view/Sarkie) ( [@Sarkie_Dave](https://twitter.com/Sarkie_Dave) )
     - [#3677](http://nuget.codeplex.com/workitem/3677) -Fix NuGet. push levant une exception OutOfMemoryException lors du push d’un package volumineux.
 6. [Wouter Ouwens](https://www.codeplex.com/site/users/view/Despotes)
-    - [#3666](http://nuget.codeplex.com/workitem/3666) : corrigez le chemin cible incorrect lorsque le projetC++ fait référence à une autre interface CLI/projet.
-7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ([@adamralph](https://twitter.com/adamralph))
+    - [#3666](http://nuget.codeplex.com/workitem/3666) : corrigez le chemin cible incorrect lorsque le projet fait référence à un autre projet CLI/C++.
+7. [Adam Ralph](http://www.codeplex.com/site/users/view/adamralph) ( [@adamralph](https://twitter.com/adamralph) )
     - [#3639](https://nuget.codeplex.com/workitem/3639) -autoriser l’installation des packages en tant que dépendances de développement par défaut
-8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ([@davidfowl](https://twitter.com/davidfowl))
+8. [David Fowler](https://www.codeplex.com/site/users/view/dfowler) ( [@davidfowl](https://twitter.com/davidfowl) )
     - [#3717](https://nuget.codeplex.com/workitem/3717) -supprimer les mises à niveau implicites vers la dernière version du correctif
 9. [Gregory vandenbrouck](https://www.codeplex.com/site/users/view/vdbg)
-    - Plusieurs correctifs de bogues et améliorations pour NuGet. Server, la commande de mise en miroir NuGet. exe et d’autres.
+    - Plusieurs correctifs de bogues et améliorations pour NuGet. Server, la commande nuget.exe Mirror et d’autres.
     - Ce travail a été effectué depuis plusieurs mois, avec Gregory avec nous sur le point de vue approprié pour une intégration à Master pour 2,8.
 
 ## <a name="patch-resolution-for-dependencies"></a>Résolution des correctifs pour les dépendances
@@ -52,7 +52,7 @@ Lors de la résolution des dépendances de packages, NuGet a implémenté histor
 
     Developer2 installs PackageA@1.0.0: installed PackageA@1.0.0 and PackageB@1.0.1
 
-Dans cet exemple, bien que Developer1 et Developer2 soient installés PackageA@1.0.0, chacun se terminait par une version différente de PackageB. NuGet 2,8 modifie ce comportement par défaut de telle sorte que le comportement de résolution des dépendances pour les versions correctives est cohérent avec le comportement des versions majeure et mineure. Dans l’exemple ci-dessus, PackageB@1.0.0 serait installé suite à l’installation de PackageA@1.0.0, quelle que soit la version de patch la plus récente.
+Dans cet exemple, même si Developer1 et Developer2 sont installés PackageA@1.0.0 , chacun s’est terminé avec une version différente de PackageB. NuGet 2,8 modifie ce comportement par défaut de telle sorte que le comportement de résolution des dépendances pour les versions correctives est cohérent avec le comportement des versions majeure et mineure. Dans l’exemple ci-dessus, est PackageB@1.0.0 installé suite à l’installation de PackageA@1.0.0 , quelle que soit la version de patch la plus récente.
 
 ## <a name="-dependencyversion-switch"></a>Commutateur-DependencyVersion
 
@@ -62,7 +62,7 @@ Bien que NuGet 2,8 modifie le comportement _par défaut_ pour la résolution des
 
 ## <a name="dependencyversion-attribute"></a>Attribut DependencyVersion
 
-Outre le commutateur-DependencyVersion détaillé ci-dessus, NuGet a également autorisé la possibilité de définir un nouvel attribut dans le fichier NuGet. config en définissant la valeur par défaut, si le commutateur-DependencyVersion n’est pas spécifié dans un appel de Install-Package. Cette valeur est également respectée par la boîte de dialogue du gestionnaire de package NuGet pour les opérations de package d’installation. Pour définir cette valeur, ajoutez l’attribut ci-dessous à votre fichier NuGet. config :
+Outre le commutateur-DependencyVersion détaillé ci-dessus, NuGet a également autorisé la possibilité de définir un nouvel attribut dans le fichier Nuget.Config définissant la valeur par défaut, si le commutateur-DependencyVersion n’est pas spécifié dans un appel de Install-Package. Cette valeur est également respectée par la boîte de dialogue du gestionnaire de package NuGet pour les opérations de package d’installation. Pour définir cette valeur, ajoutez l’attribut ci-dessous à votre fichier Nuget.Config :
 
     <config>
         <add key="dependencyversion" value="Highest" />
@@ -70,7 +70,7 @@ Outre le commutateur-DependencyVersion détaillé ci-dessus, NuGet a également 
 
 ## <a name="preview-nuget-operations-with--whatif"></a>Aperçu des opérations NuGet avec-WhatIf
 
-Certains packages NuGet peuvent avoir des graphiques de dépendance profonde et, par conséquent, ils peuvent être utiles lors d’une opération d’installation, de désinstallation ou de mise à jour pour voir d’abord ce qui se passe. NuGet 2,8 ajoute le commutateur PowerShell-WhatIf standard aux commandes install-package, Uninstall-package et Update-Package pour permettre la visualisation de la totalité de la fermeture des packages auxquels la commande sera appliquée. Par exemple, l’exécution de `install-package Microsoft.AspNet.WebApi -whatif` dans une application Web vide ASP.NET génère ce qui suit.
+Certains packages NuGet peuvent avoir des graphiques de dépendance profonde et, par conséquent, ils peuvent être utiles lors d’une opération d’installation, de désinstallation ou de mise à jour pour voir d’abord ce qui se passe. NuGet 2,8 ajoute le commutateur PowerShell-WhatIf standard aux commandes install-package, Uninstall-package et Update-Package pour permettre la visualisation de la totalité de la fermeture des packages auxquels la commande sera appliquée. Par exemple, `install-package Microsoft.AspNet.WebApi -whatif` l’exécution de dans une application Web ASP.net vide génère ce qui suit.
 
     PM> install-package Microsoft.AspNet.WebApi -whatif
     Attempting to resolve dependency 'Microsoft.AspNet.WebApi.WebHost (≥ 5.0.0)'.
@@ -89,13 +89,13 @@ Il n’est pas rare d’installer une version préliminaire d’un package afin 
 
 ## <a name="development-dependencies"></a>Dépendances de développement
 
-De nombreux types de fonctionnalités différents peuvent être fournis sous forme de packages NuGet, y compris les outils utilisés pour optimiser le processus de développement. Ces composants, bien qu’ils puissent être Instrumentals dans le développement d’un nouveau package, ne doivent pas être considérés comme une dépendance du nouveau package lorsqu’il est publié ultérieurement. NuGet 2,8 permet à un package de s’identifier dans le fichier `.nuspec` en tant que developmentDependency. Une fois installée, ces métadonnées sont également ajoutées au fichier `packages.config` du projet dans lequel le package a été installé. Lorsque ce `packages.config` fichier est analysé ultérieurement pour les dépendances NuGet pendant la `nuget.exe pack`, il exclut les dépendances marquées comme dépendances de développement.
+De nombreux types de fonctionnalités différents peuvent être fournis sous forme de packages NuGet, y compris les outils utilisés pour optimiser le processus de développement. Ces composants, bien qu’ils puissent être Instrumentals dans le développement d’un nouveau package, ne doivent pas être considérés comme une dépendance du nouveau package lorsqu’il est publié ultérieurement. NuGet 2,8 permet à un package de s’identifier dans le `.nuspec` fichier en tant que developmentDependency. Une fois installée, ces métadonnées sont également ajoutées au `packages.config` fichier du projet dans lequel le package a été installé. Lorsque ce `packages.config` fichier est analysé ultérieurement pour les dépendances NuGet pendant `nuget.exe pack` , il exclut les dépendances marquées comme dépendances de développement.
 
-## <a name="individual-packagesconfig-files-for-different-platforms"></a>Fichiers Packages. config individuels pour différentes plateformes
+## <a name="individual-packagesconfig-files-for-different-platforms"></a>Fichiers packages.config individuels pour différentes plateformes
 
-Lors du développement d’applications pour plusieurs plateformes cibles, il est courant d’avoir différents fichiers projet pour chacun des environnements de génération respectifs. Il est également courant de consommer différents packages NuGet dans différents fichiers projet, car les packages ont des niveaux différents de prise en charge pour différentes plateformes. NuGet 2,8 fournit une prise en charge améliorée pour ce scénario en créant différents fichiers `packages.config` pour différents fichiers projet spécifiques à la plateforme.
+Lors du développement d’applications pour plusieurs plateformes cibles, il est courant d’avoir différents fichiers projet pour chacun des environnements de génération respectifs. Il est également courant de consommer différents packages NuGet dans différents fichiers projet, car les packages ont des niveaux différents de prise en charge pour différentes plateformes. NuGet 2,8 fournit une prise en charge améliorée pour ce scénario en créant différents `packages.config` fichiers pour différents fichiers projet spécifiques à la plateforme.
 
-![Plusieurs fichiers package. config](./media/NuGet-2.8/multiple-packageconfigs.png)
+![Fichiers package.config multiples](./media/NuGet-2.8/multiple-packageconfigs.png)
 
 ## <a name="fallback-to-local-cache"></a>Revenir au cache local
 

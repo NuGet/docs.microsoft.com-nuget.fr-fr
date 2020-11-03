@@ -1,43 +1,43 @@
 ---
-title: Fournisseurs d’informations d’identification NuGet. exe
-description: les fournisseurs d’informations d’identification NuGet. exe s’authentifient avec un flux, et sont implémentés en tant qu’exécutables en ligne de commande qui suivent des conventions spécifiques.
+title: Fournisseurs d’informations d’identification nuget.exe
+description: nuget.exe fournisseurs d’informations d’identification s’authentifient avec un flux, et sont implémentés en tant qu’exécutables en ligne de commande qui suivent des conventions spécifiques.
 author: karann-msft
 ms.author: karann
 ms.date: 12/12/2017
 ms.topic: conceptual
 ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428722"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238112"
 ---
-# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentification de flux avec des fournisseurs d’informations d’identification NuGet. exe
+# <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentification de flux avec des fournisseurs d’informations d’identification nuget.exe
 
-La prise en charge de la version `3.3` a été ajoutée pour `nuget.exe` fournisseurs d’informations d’identification spécifiques. Depuis, dans la version `4.8` la [prise en charge des fournisseurs d’informations d’identification](NuGet-Cross-Platform-Authentication-Plugin.md) qui fonctionnent dans tous les scénarios de ligne de commande (`nuget.exe`, `dotnet.exe`, `msbuild.exe`) a été ajoutée.
+La `3.3` prise en charge de la version a été ajoutée pour des `nuget.exe` fournisseurs d’informations d’identification spécifiques. Depuis lors, la `4.8` [prise en charge des versions pour les fournisseurs d’informations d’identification](NuGet-Cross-Platform-Authentication-Plugin.md) qui fonctionnent dans tous les scénarios de ligne de commande ( `nuget.exe` , `dotnet.exe` , `msbuild.exe` ) a été ajoutée.
 
-Pour plus d’informations sur toutes les approches d’authentification pour `nuget.exe`, consultez [consommation de packages à partir de flux authentifiés](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe)
+Pour plus d’informations sur toutes les approches d’authentification pour, consultez [utilisation de packages à partir de flux authentifiés](../../consume-packages/consuming-packages-authenticated-feeds.md#nugetexe) . `nuget.exe`
 
-## <a name="nugetexe-credential-provider-discovery"></a>découverte de fournisseur d’informations d’identification NuGet. exe
+## <a name="nugetexe-credential-provider-discovery"></a>Détection de fournisseur d’informations d’identification nuget.exe
 
-les fournisseurs d’informations d’identification NuGet. exe peuvent être utilisés de trois manières :
+nuget.exe les fournisseurs d’informations d’identification peuvent être utilisés de trois manières :
 
-- **Globalement**: pour mettre un fournisseur d’informations d’identification à la disposition de toutes les instances de `nuget.exe` s’exécuter sous le profil de l’utilisateur actuel, ajoutez-le à `%LocalAppData%\NuGet\CredentialProviders`. Vous devrez peut-être créer le dossier `CredentialProviders`. Les fournisseurs d’informations d’identification peuvent être installés à la racine du dossier `CredentialProviders` ou dans un sous-dossier. Si un fournisseur d’informations d’identification contient plusieurs fichiers/assemblys, vous pouvez utiliser des sous-dossiers pour organiser les fournisseurs.
+- **Globalement** : pour mettre un fournisseur d’informations d’identification à la disposition de toutes les instances de `nuget.exe` exécutées sous le profil de l’utilisateur actuel, ajoutez-le à `%LocalAppData%\NuGet\CredentialProviders` . Vous devrez peut-être créer le `CredentialProviders` dossier. Les fournisseurs d’informations d’identification peuvent être installés à la racine du `CredentialProviders`  dossier ou dans un sous-dossier. Si un fournisseur d’informations d’identification contient plusieurs fichiers/assemblys, vous pouvez utiliser des sous-dossiers pour organiser les fournisseurs.
 
-- **À partir d’une variable d’environnement**: les fournisseurs d’informations d’identification peuvent être stockés n’importe où et rendus accessibles à `nuget.exe` en affectant à la variable d’environnement `%NUGET_CREDENTIALPROVIDERS_PATH%` l’emplacement du fournisseur. Cette variable peut être une liste séparée par des points-virgules (par exemple, `path1;path2`) si vous avez plusieurs emplacements.
+- **À partir d’une variable d’environnement** : les fournisseurs d’informations d’identification peuvent être stockés n’importe où et accessibles à `nuget.exe` en définissant la `%NUGET_CREDENTIALPROVIDERS_PATH%` variable d’environnement à l’emplacement du fournisseur. Cette variable peut être une liste séparée par des points-virgules (par exemple, `path1;path2` ) si vous avez plusieurs emplacements.
 
-- À **côté de NuGet. exe**: les fournisseurs d’informations d’identification NuGet. exe peuvent être placés dans le même dossier que `nuget.exe`.
+- À **côté de nuget.exe** : les fournisseurs d’informations d’identification nuget.exe peuvent être placés dans le même dossier que `nuget.exe` .
 
-Lors du chargement des fournisseurs d’informations d’identification, `nuget.exe` recherche les emplacements ci-dessus, dans l’ordre, pour tout fichier nommé `credentialprovider*.exe`, puis charge ces fichiers dans l’ordre où ils sont trouvés. Si plusieurs fournisseurs d’informations d’identification existent dans le même dossier, ils sont chargés dans l’ordre alphabétique.
+Lors du chargement des fournisseurs d’informations d’identification, `nuget.exe` recherche les emplacements ci-dessus, dans l’ordre, pour tout fichier nommé `credentialprovider*.exe` , puis charge ces fichiers dans l’ordre où ils sont trouvés. Si plusieurs fournisseurs d’informations d’identification existent dans le même dossier, ils sont chargés dans l’ordre alphabétique.
 
-## <a name="creating-a-nugetexe-credential-provider"></a>Création d’un fournisseur d’informations d’identification NuGet. exe
+## <a name="creating-a-nugetexe-credential-provider"></a>Création d’un fournisseur d’informations d’identification nuget.exe
 
-Un fournisseur d’informations d’identification est un exécutable de ligne de commande, nommé sous la forme `CredentialProvider*.exe`, qui recueille les entrées, acquiert les informations d’identification appropriées, puis retourne le code d’état de sortie et la sortie standard appropriés.
+Un fournisseur d’informations d’identification est un exécutable de ligne de commande, nommé sous la forme `CredentialProvider*.exe` , qui recueille les entrées, acquiert les informations d’identification appropriées, puis retourne le code d’état de sortie et la sortie standard appropriés.
 
 Un fournisseur doit effectuer les opérations suivantes :
 
 - Déterminez si elle peut fournir des informations d’identification pour l’URI ciblé avant de lancer l’acquisition des informations d’identification. Si ce n’est pas le cas, il doit renvoyer le code d’État 1 sans informations d’identification.
-- Ne modifiez pas `Nuget.Config` (par exemple, en définissant des informations d’identification).
+- Non modifié `Nuget.Config` (par exemple, en définissant des informations d’identification).
 - Gérez la configuration du proxy HTTP seul, car NuGet ne fournit pas d’informations de proxy au plug-in.
 - Retournez les informations d’identification ou les détails de l’erreur à `nuget.exe` en écrivant un objet de réponse JSON (voir ci-dessous) dans stdout, en utilisant l’encodage UTF-8.
 - Émettez éventuellement une journalisation de suivi supplémentaire vers stderr. Aucun secret ne doit jamais être écrit dans stderr, car à des niveaux de détail « normal » ou « détaillé », ces traces sont répercutées par NuGet sur la console.
@@ -56,9 +56,9 @@ Un fournisseur doit effectuer les opérations suivantes :
 
 | Code |Résultats | Description |
 |----------------|-----------|-----------|
-| 0 | Succès | Les informations d’identification ont été correctement acquises et ont été écrites dans stdout.|
+| 0 | Opération réussie | Les informations d’identification ont été correctement acquises et ont été écrites dans stdout.|
 | 1 | ProviderNotApplicable | Le fournisseur actuel ne fournit pas d’informations d’identification pour l’URI donné.|
-| 2 | Échec | Le fournisseur est le fournisseur approprié pour l’URI donné, mais il ne peut pas fournir d’informations d’identification. Dans ce cas, NuGet. exe ne réessaiera pas l’authentification et échouera. Par exemple, un utilisateur annule une connexion interactive. |
+| 2 | Échec | Le fournisseur est le fournisseur approprié pour l’URI donné, mais il ne peut pas fournir d’informations d’identification. Dans ce cas, nuget.exe n’effectue pas de nouvelle tentative d’authentification et échoue. Par exemple, un utilisateur annule une connexion interactive. |
 
 ### <a name="standard-output"></a>Sortie standard
 
@@ -80,9 +80,9 @@ Exemple stdout :
 
 Vous pouvez également effectuer les opérations suivantes :
 
-- Exécutez NuGet. exe avec le commutateur `-verbosity` pour inspecter la sortie détaillée.
-- Ajoutez des messages de débogage à `stdout` aux emplacements appropriés.
-- Assurez-vous que vous utilisez NuGet. exe 3,3 ou une version ultérieure.
+- Exécutez nuget.exe avec le `-verbosity` commutateur pour inspecter la sortie détaillée.
+- Ajoutez les messages de débogage à aux `stdout` emplacements appropriés.
+- Assurez-vous que vous utilisez nuget.exe 3,3 ou une version ultérieure.
 - Attachez le débogueur au démarrage avec cet extrait de code :
 
     ```cs

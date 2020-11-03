@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 11/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428981"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237625"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gérer les limites d’approbation de package
 
@@ -40,7 +40,7 @@ Ce mode vérifie que tous les packages sont signés par un des certificats appro
 
 ### <a name="trust-package-author"></a>Approuver un auteur de package
 
-Pour faire confiance aux paquets [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) basés sur `author` la signature de l’auteur, utilisez la commande pour définir la propriété dans le nuget.config.
+Pour approuver des packages en fonction de la signature de l’auteur, utilisez la [`trusted-signers`](../reference/cli-reference/cli-ref-trusted-signers.md) commande pour définir la `author` propriété dans la nuget.config.
 
 ```cmd
 nuget.exe  trusted-signers Add -Name MyCompanyCert -CertificateFingerprint CE40881FF5F0AD3E58965DA20A9F571EF1651A56933748E1BF1C99E537C4E039 -FingerprintAlgorithm SHA256
@@ -97,7 +97,7 @@ Dans certaines situations, vous souhaitez activer la vérification avec des cert
 
 Les dépôts de packages doivent annoncer les certificats qu’ils utilisent dans leur [index des services](../api/service-index.md). Au final, le dépôt met à jour ces certificats, par exemple quand un certificat expire. Quand cela se produit, les clients avec des stratégies spécifiques demandent une mise à jour de la configuration pour inclure le certificat nouvellement ajouté. Vous pouvez facilement mettre à niveau les signataires approuvés associés à un dépôt avec la  [commande trusted-signers sync](../reference/cli-reference/cli-ref-trusted-signers.md#nuget-trusted-signers-sync--name-name) de `nuget.exe`.
 
-### <a name="schema-reference"></a>Informations de référence sur le schéma
+### <a name="schema-reference"></a>Informations de référence sur les schémas
 
 Vous trouverez les informations de référence complètes sur le schéma pour les stratégies clientes dans les [informations de référence sur nuget.config](../reference/nuget-config-file.md#trustedsigners-section)
 

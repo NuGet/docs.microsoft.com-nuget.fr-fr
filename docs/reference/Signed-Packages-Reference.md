@@ -7,11 +7,11 @@ ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
 ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79428680"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238177"
 ---
 # <a name="signed-packages"></a>Packages signés
 
@@ -20,21 +20,21 @@ ms.locfileid: "79428680"
 Les packages NuGet peuvent inclure une signature numérique qui offre une protection contre le contenu falsifié. Cette signature est générée à partir d’un certificat X. 509 qui ajoute également des preuves d’authenticité à l’origine réelle du package.
 
 Les packages signés fournissent la validation de bout en bout la plus puissante. Il existe deux types différents de signatures NuGet :
-- **Signature**de l’auteur. Une signature d’auteur garantit que le package n’a pas été modifié depuis que l’auteur a signé le package, quel que soit le référentiel ou la méthode de transport que le package est remis. En outre, les packages signés par l’auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être enregistré à l’avance. Pour plus d’informations, consultez [inscrire des certificats](#signature-requirements-on-nugetorg).
-- **Signature du référentiel**. Les signatures de référentiel fournissent une garantie d’intégrité pour **tous les** packages d’un référentiel, qu’ils soient signés ou non, même si ces packages sont obtenus à partir d’un emplacement différent de celui dans lequel ils ont été signés.   
+- **Signature** de l’auteur. Une signature d’auteur garantit que le package n’a pas été modifié depuis que l’auteur a signé le package, quel que soit le référentiel ou la méthode de transport que le package est remis. En outre, les packages signés par l’auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être enregistré à l’avance. Pour plus d’informations, consultez [inscrire des certificats](#signature-requirements-on-nugetorg).
+- **Signature du référentiel** . Les signatures de référentiel fournissent une garantie d’intégrité pour **tous les** packages d’un référentiel, qu’ils soient signés ou non, même si ces packages sont obtenus à partir d’un emplacement différent de celui dans lequel ils ont été signés.   
 
 Pour plus d’informations sur la création d’un package signé par l’auteur, consultez [signature de packages](../create-packages/Sign-a-package.md) et la [commande NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
 
 > [!Important]
-> La signature du package n’est actuellement prise en charge que lors de l’utilisation de NuGet. exe sur Windows. La [vérification des packages signés n’est actuellement prise en charge que lors de l’utilisation de NuGet. exe](../reference/cli-reference/cli-ref-verify.md) ou de Visual Studio sur Windows.
+> La signature du package n’est actuellement prise en charge que lors de l’utilisation de nuget.exe sur Windows. La [vérification des packages signés n’est actuellement prise en charge que lors de l’utilisation de nuget.exe](../reference/cli-reference/cli-ref-verify.md) ou Visual Studio sur Windows.
 
-## <a name="certificate-requirements"></a>Configuration requise des certificats
+## <a name="certificate-requirements"></a>Conditions de certificat
 
-La signature de package requiert un certificat de signature de code, qui est un type spécial de certificat qui est valide pour le `id-kp-codeSigning` objectif [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
+La signature de package requiert un certificat de signature de code, qui est un type spécial de certificat qui est valide pour la `id-kp-codeSigning` fonction [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
 
 ## <a name="timestamp-requirements"></a>Exigences relatives aux horodateurs
 
-Les packages signés doivent inclure un horodateur RFC 3161 pour garantir la validité des signatures au-delà de la période de validité du certificat de signature du package. Le certificat utilisé pour signer l’horodateur doit être valide pour le `id-kp-timeStamping` objectif [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
+Les packages signés doivent inclure un horodateur RFC 3161 pour garantir la validité des signatures au-delà de la période de validité du certificat de signature du package. Le certificat utilisé pour signer l’horodateur doit être valide pour la `id-kp-timeStamping` fonction [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
 
 Des détails techniques supplémentaires sont disponibles dans les [spécifications techniques des signatures de packages](https://github.com/NuGet/Home/wiki/Package-Signatures-Technical-Details) (GitHub).
 

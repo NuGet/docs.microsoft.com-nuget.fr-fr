@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 31243076f36f6ff274c4377c1773ea59dda8c834
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64495500"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237424"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Vue d’ensemble de l’écosystème NuGet
 
@@ -24,7 +24,7 @@ Tous ces projets sont sources d’innovation grâce aux contributions des dével
 
 NuGet fournit un système de gestion de packages gratuit et open source pour la plateforme de développement Microsoft. Il se compose de quelques outils clients, ainsi que de l’ensemble des services qui constituent la [Galerie NuGet officielle](http://www.nuget.org). Combinés, ils forment le projet NuGet régi par la [.NET Foundation](http://www.dotnetfoundation.org/).
 
-L’organisation NuGet contient plusieurs dépôts sur GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home)donne un aperçu de tous les dépôts et où trouver les différents composants NuGet.
+L’organisation NuGet contient plusieurs dépôts sur GitHub. [https://github.com/Nuget/Home](https://github.com/Nuget/Home) donne une vue d’ensemble de tous les dépôts et indique où trouver les différents composants NuGet.
 
 ## <a name="microsoft-projects"></a>Projets Microsoft
 
@@ -37,7 +37,7 @@ De nombreuses autres personnes et entreprises ont apporté des contributions imp
 - [AppVeyor CI](https://www.appveyor.com/)
 - [Artifactory](https://www.jfrog.com/artifactory/)
 - [BoxStarter](http://boxstarter.org/)
-- [Chocolaté](https://chocolatey.org/)
+- [Chocolatey](https://chocolatey.org/)
 - [CoApp](http://coapp.org/)
 - [JetBrains ReSharper](https://resharper-plugins.jetbrains.com/)
 - [JetBrains TeamCity](https://www.jetbrains.com/teamcity/)
@@ -68,7 +68,7 @@ Il s’agit d’outils et d’utilitaires reposant sur NuGet :
 
 ## <a name="training-materials-and-references"></a>Références et supports de formation
 
-L’utilisation d’un nouvel outil ou technologie est généralement assortie d’une courbe d’apprentissage. Heureusement, la courbe d’apprentissage de NuGet ne présente aucune difficulté ! En fait, toute personne peut [commencer à consommer des packages](../quickstart/use-a-package.md) rapidement.
+L’utilisation d’un nouvel outil ou technologie est généralement assortie d’une courbe d’apprentissage. Heureusement, la courbe d’apprentissage de NuGet ne présente aucune difficulté ! En fait, toute personne peut [commencer à consommer des packages](../quickstart/install-and-use-a-package-in-visual-studio.md) rapidement.
 
 Ceci dit, la création de packages, et particulièrement de packages de qualité, ainsi que l’adoption de NuGet dans les processus de génération et de déploiement automatisés, nécessitent de consacrer un peu plus de temps aux ressources suivantes :
 

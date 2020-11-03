@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: 8c09d6d5662ed6ff0deffa5d45b823ad0992f399
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78231303"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237482"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET est un processus simple, de même que sa publication sur nuget.org avec l’interface de ligne de commande (CLI) `dotnet`.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Installez le [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/), qui comprend l’interface CLI `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
@@ -53,7 +53,7 @@ Chaque package NuGet a besoin d’un manifeste décrivant son contenu et ses dé
 1. Ajoutez si vous le souhaitez certaines des propriétés facultatives décrites dans [Propriétés de métadonnées NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
     > [!Note]
-    > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags**, car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
+    > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags** , car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
 
 ## <a name="run-the-pack-command"></a>Exécuter la commande pack
 
@@ -109,7 +109,7 @@ Maintenant que vous disposez d’un fichier `.nupkg`, publiez-le sur nuget.org �
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-the-NET-CLI-5-of-5/player]
 
-Trouver plus de vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -120,10 +120,11 @@ Félicitations pour la création de votre premier package NuGet !
 
 Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
 
-- [Publier un forfait](../nuget-org/publish-a-package.md)
-- [Forfaits de pré-version](../create-packages/Prerelease-Packages.md)
+- [Publier un package](../nuget-org/publish-a-package.md)
+- [Packages de version préliminaire](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Contrôle de version des packages](../concepts/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
+- [Ajout d’une expression ou d’un fichier de licence](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
-- [Création de paquets de symboles](../create-packages/symbol-packages-snupkg.md)
+- [Création de packages de symboles](../create-packages/symbol-packages-snupkg.md)
 - [Signature de packages](../create-packages/Sign-a-package.md)

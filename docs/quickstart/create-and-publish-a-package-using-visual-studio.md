@@ -6,11 +6,11 @@ ms.author: karann
 ms.date: 08/16/2019
 ms.topic: quickstart
 ms.openlocfilehash: 32dcc1d233154463e2950b1ce46554b1cb89956e
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429030"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237495"
 ---
 # <a name="quickstart-create-and-publish-a-nuget-package-using-visual-studio-net-standard-windows-only"></a>Démarrage rapide : Créer et publier un package NuGet avec Visual Studio (.NET Standard, Windows uniquement)
 
@@ -19,7 +19,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 > [!Note]
 > Si vous utilisez Visual Studio pour Mac, consultez [ces informations](/xamarin/cross-platform/app-fundamentals/nuget-multiplatform-libraries/existing-library) sur la création d’un package NuGet ou utilisez les [outils CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Installez une édition de Visual Studio 2019 à l’adresse [visualstudio.com](https://www.visualstudio.com/) avec n’importe quelle charge de travail liée à .NET Core.
 
@@ -36,7 +36,7 @@ La création d’un package NuGet à partir d’une bibliothèque de classes .NE
 
 Vous pouvez utiliser un projet de bibliothèque de classes .NET Standard existant pour le code à empaqueter, ou bien en créer un de la façon suivante :
 
-1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet**, développez le nœud **Visual C# > .NET Standard**, sélectionnez le modèle « Bibliothèque de classes (.NET Standard) », nommez le projet AppLogger, puis cliquez sur **OK**.
+1. Dans Visual Studio, choisissez **Fichier > Nouveau > Projet** , développez le nœud **Visual C# > .NET Standard** , sélectionnez le modèle « Bibliothèque de classes (.NET Standard) », nommez le projet AppLogger, puis cliquez sur **OK** .
 
    > [!Tip]
    > Sauf cas particulier, .NET Standard est la cible privilégiée pour les packages NuGet, car c’est celle qui assure la compatibilité avec le plus grand nombre de projets.
@@ -58,37 +58,37 @@ namespace AppLogger
 }
 ```
 
-## <a name="configure-package-properties"></a>Configurer les propriétés de package
+## <a name="configure-package-properties"></a>Configurer des propriétés de package
 
-1. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et choisissez la commande de menu **Propriétés**, puis sélectionnez l’onglet **Package**.
+1. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et choisissez la commande de menu **Propriétés** , puis sélectionnez l’onglet **Package** .
 
    L’onglet **Package** s’affiche uniquement pour les projets de type SDK dans Visual Studio, généralement les projets de bibliothèque de classes .NET Standard ou .NET Core. Si vous ciblez un projet qui n’est pas de style SDK (généralement .NET Framework), [migrez le projet](../consume-packages/migrate-packages-config-to-package-reference.md) ou consultez [Créer et publier un package .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) à la place des instructions pas à pas.
 
     ![Propriétés de package NuGet dans un projet Visual Studio](media/qs_create-vs-01-package-properties.png)
 
     > [!Note]
-    > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **Tags**, car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
+    > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **Tags** , car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
 
-1. Donnez à votre package un identificateur unique et remplissez les propriétés souhaitées. Pour un mappage des propriétés MSBuild (projet de type SDK) aux propriétés d'un fichier *.nuspec*, voir [Cibles de pack](../reference/msbuild-targets.md#pack-target). Pour les descriptions des propriétés, voir la référence du fichier [.nuspec ](../reference/nuspec.md). Toutes ces propriétés sont ajoutées au manifeste `.nuspec` créé par Visual Studio pour le projet.
+1. Donnez à votre package un identificateur unique et remplissez les propriétés souhaitées. Pour un mappage des propriétés MSBuild (projet de type SDK) aux propriétés d'un fichier *.nuspec* , voir [Cibles de pack](../reference/msbuild-targets.md#pack-target). Pour les descriptions des propriétés, voir la référence du fichier [.nuspec ](../reference/nuspec.md). Toutes ces propriétés sont ajoutées au manifeste `.nuspec` créé par Visual Studio pour le projet.
 
     > [!Important]
     > Vous devez donner au package un identificateur unique sur nuget.org ou sur l’hôte que vous utilisez. Dans le cadre de cette procédure pas à pas, nous vous recommandons d’inclure « Exemple » ou « Test » dans le nom, car l’étape de publication ultérieure rend le package visible publiquement (même s’il est peu probable que quelqu’un l’utilise vraiment).
     >
     > Si vous tentez de publier un package avec un nom qui existe déjà, une erreur se produira.
 
-1. (Facultatif) Pour afficher les propriétés directement dans le fichier projet, cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et sélectionnez **Modifier AppLogger.csproj**.
+1. (Facultatif) Pour afficher les propriétés directement dans le fichier projet, cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions et sélectionnez **Modifier AppLogger.csproj** .
 
-   Cette option n’est disponible qu’à partir de Visual Studio 2017 pour les projets qui utilisent l’attribut de style SDK. Sinon, cliquez avec le bouton droit sur le projet et choisissez **Décharger le projet**. Cliquez ensuite avec le bouton droit sur le projet déchargé, puis choisissez **Modifier AppLogger.csproj**.
+   Cette option n’est disponible qu’à partir de Visual Studio 2017 pour les projets qui utilisent l’attribut de style SDK. Sinon, cliquez avec le bouton droit sur le projet et choisissez **Décharger le projet** . Cliquez ensuite avec le bouton droit sur le projet déchargé, puis choisissez **Modifier AppLogger.csproj** .
 
 ## <a name="run-the-pack-command"></a>Exécuter la commande pack
 
-1. Définissez la configuration en **Release**.
+1. Définissez la configuration en **Release** .
 
-1. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions**, puis sélectionnez la commande **Empaqueter** :
+1. Cliquez avec le bouton droit sur le projet dans **l’Explorateur de solutions** , puis sélectionnez la commande **Empaqueter** :
 
     ![Commande pack de NuGet dans le menu contextuel du projet Visual Studio](media/qs_create-vs-02-pack-command.png)
 
-    Si vous ne voyez pas la commande **Pack**, cela signifie que votre projet n’est probablement pas un projet de type SDK et que vous devez utiliser la CLI `nuget.exe`. [Migrez le projet](../consume-packages/migrate-packages-config-to-package-reference.md) et utilisez la CLI `dotnet`, ou consultez [Créer et publier un package .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) à la place pour obtenir des instructions détaillées.
+    Si vous ne voyez pas la commande **Pack** , cela signifie que votre projet n’est probablement pas un projet de type SDK et que vous devez utiliser la CLI `nuget.exe`. [Migrez le projet](../consume-packages/migrate-packages-config-to-package-reference.md) et utilisez la CLI `dotnet`, ou consultez [Créer et publier un package .NET Framework](create-and-publish-a-package-using-visual-studio-net-framework.md) à la place pour obtenir des instructions détaillées.
 
 1. Visual Studio génère le projet et crée le fichier `.nupkg`. Lisez les informations qui apparaissent sur la fenêtre **Sortie** (comme dans la capture d’écran suivante), notamment le chemin d’accès du fichier de package. Notez également que l’assembly généré est dans `bin\Release\netstandard2.0` comme il convient à la cible .NET Standard 2.0.
 
@@ -103,9 +103,9 @@ namespace AppLogger
 
 Vous pouvez configurer Visual Studio pour générer automatiquement le package NuGet lorsque vous générez le projet.
 
-1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet et choisissez **Propriétés**.
+1. Dans l’Explorateur de solutions, cliquez avec le bouton droit sur le projet et choisissez **Propriétés** .
 
-2. Dans l’onglet **Package**, sélectionnez **Générer le package NuGet à la création**.
+2. Dans l’onglet **Package** , sélectionnez **Générer le package NuGet à la création** .
 
    ![Générer automatiquement le package à la création](media/qs_create-vs-05-generate-on-build.png)
 
@@ -114,7 +114,7 @@ Vous pouvez configurer Visual Studio pour générer automatiquement le package N
 
 ### <a name="optional-pack-with-msbuild"></a>(Facultatif) Compresser avec MSBuild
 
-En alternance avec l’utilisation de la commande de menu **Pack,** NuGet 4.x `pack` et MSBuild 15.1MD prend en charge une cible lorsque le projet contient les données de paquet nécessaires. Ouvrez une invite de commandes, accédez au dossier de votre projet et exécutez la commande suivante. (Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu Démarrer, car elle est configurée avec tous les chemins nécessaires pour MSBuild.)
+En guise d’alternative à l’utilisation de la commande de menu **Pack** , NuGet 4. x + et MSBuild 15.1 + prennent en charge une `pack` cible lorsque le projet contient les données de package nécessaires. Ouvrez une invite de commandes, accédez au dossier de votre projet et exécutez la commande suivante. (Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu Démarrer, car elle est configurée avec tous les chemins nécessaires pour MSBuild.)
 
 Pour plus d’informations, consultez [Créer un package avec MSBuild](../create-packages/creating-a-package-msbuild.md).
 
@@ -140,7 +140,7 @@ Avant de pouvoir publier le package, vous devez d’abord ouvrir une ligne de co
 
 [!INCLUDE [publish-dotnet](includes/publish-dotnet.md)]
 
-# <a name="nuget"></a>[NuGet NuGet](#tab/nuget)
+# <a name="nuget"></a>[NuGet](#tab/nuget)
 
 Cette étape aboutit au même résultat que `dotnet.exe`.
 
@@ -197,15 +197,15 @@ Cela inclut un fichier nommé `readme.txt` dans la racine du package. Visual Stu
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/Create-and-Publish-a-NuGet-Package-with-Visual-Studio-4-of-5/player]
 
-Trouver plus de vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="related-topics"></a>Rubriques connexes
 
 - [Créer un package](../create-packages/creating-a-package-dotnet-cli.md)
-- [Publier un forfait](../nuget-org/publish-a-package.md)
-- [Forfaits de pré-version](../create-packages/Prerelease-Packages.md)
+- [Publier un package](../nuget-org/publish-a-package.md)
+- [Packages de version préliminaire](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
-- [Contrôle de version des packages](../concepts/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Documentation de la bibliothèque .NET Standard](/dotnet/articles/standard/library)
 - [Portage vers .NET Core à partir du .NET Framework](/dotnet/articles/core/porting/index)

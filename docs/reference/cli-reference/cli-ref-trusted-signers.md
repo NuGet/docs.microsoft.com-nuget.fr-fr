@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 2753f92601b3d8b43593762cc07cd8384646feea
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 9e25f439617a76d30880bea3c10a5d063e681a41
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622666"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238151"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>commande des signataires approuvés (interface CLI NuGet)
 
@@ -19,7 +19,7 @@ ms.locfileid: "88622666"
 
 Obtient ou définit des signataires approuvés pour la configuration NuGet. Pour une utilisation supplémentaire, consultez [configurations NuGet courantes](../../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur l’apparence du schéma nuget.config, consultez la [Référence du fichier de configuration NuGet](../nuget-config-file.md).
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
@@ -46,6 +46,7 @@ Registered trusted signers:
  2.   microsoft [author]
       Certificate fingerprint(s):
         SHA256 - 3F9001EA83C560D712C24CF213C3D312CB3BFF51EE89435D3430BD06B5D0EECE
+        SHA256 - AA12DA22A49BCE7D5C1AE64CC1F3D892F150DA76140F210ABD2CBFFCA2C18A27
 
  3.   myUntrustedAuthorSignature [author]
       Certificate fingerprint(s):
@@ -89,7 +90,7 @@ où `<package(s)>` se trouve un ou plusieurs `.nupkg` fichiers.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Remarque_: cette option ajoute uniquement des référentiels approuvés. 
+_Remarque_ : cette option ajoute uniquement des référentiels approuvés. 
 
 - **`-AllowUntrustedRoot`**
 
@@ -109,7 +110,7 @@ _Remarque_: cette option ajoute uniquement des référentiels approuvés.
 nuget trusted-signers add -Name <name> [options]
 ```
 
-_Remarque_: si un signataire approuvé portant le même nom existe déjà, l’élément de certificat sera ajouté à ce signataire. Dans le cas contraire, un auteur approuvé sera créé avec un élément de certificat à partir des informations de certificat données.
+_Remarque_ : si un signataire approuvé portant le même nom existe déjà, l’élément de certificat sera ajouté à ce signataire. Dans le cas contraire, un auteur approuvé sera créé avec un élément de certificat à partir des informations de certificat données.
 
 
 - **`-AllowUntrustedRoot`**
@@ -132,7 +133,7 @@ Supprime tous les signataires approuvés qui correspondent au nom donné.
 
 Demande la liste la plus récente des certificats utilisés dans un référentiel actuellement approuvé pour mettre à jour la liste des certificats existants dans le signataire approuvé.
 
-_Remarque_: ce geste supprimera la liste actuelle des certificats et les remplacera par une liste à jour du référentiel.
+_Remarque_ : ce geste supprimera la liste actuelle des certificats et les remplacera par une liste à jour du référentiel.
 
 ## <a name="options"></a>Options
 

@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 937a0083ca47ba5668059736a7e99f7ca88e8908
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622614"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237995"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -41,13 +41,13 @@ Pour plus d’informations, consultez [Recherche et sélection des packages](../
 - Visual Studio sur Windows prend en charge [l’interface utilisateur du Gestionnaire de package](../consume-packages/install-use-packages-visual-studio.md) et la [console du Gestionnaire de package](../consume-packages/install-use-packages-powershell.md).
 - Visual Studio pour Mac offre des fonctionnalités NuGet intégrées, comme décrit dans [Inclusion d’un package NuGet dans votre projet](/visualstudio/mac/nuget-walkthrough).
 - Visual Studio Code (toutes les plateformes) n’a pas d’intégration directe de NuGet. Utilisez l' [interface CLI NuGet](../reference/nuget-exe-cli-reference.md) ou l' [interface CLI dotnet](../reference/dotnet-commands.md).
-- Azure DevOps fournit [une étape de la génération pour restaurer des packages NuGet](/vsts/build-release/tasks/package/nuget). Vous pouvez également [héberger des flux de packages NuGet privés sur Azure DevOps](https://docs.microsoft.com/azure/devops/artifacts/nuget/publish).
+- Azure DevOps fournit [une étape de la génération pour restaurer des packages NuGet](/vsts/build-release/tasks/package/nuget). Vous pouvez également [héberger des flux de packages NuGet privés sur Azure DevOps](/azure/devops/artifacts/nuget/publish).
 
 **Comment vérifier la version exacte des outils NuGet qui sont installés ?**
 
-Dans Visual Studio, utilisez la commande **Aide > À propos de Microsoft Visual Studio** et examinez la version affichée en regard de **Gestionnaire de package NuGet**.
+Dans Visual Studio, utilisez la commande **Aide > À propos de Microsoft Visual Studio** et examinez la version affichée en regard de **Gestionnaire de package NuGet** .
 
-Vous pouvez également lancer la console du Gestionnaire de package (**Outils > Gestionnaire de package NuGet > Console du Gestionnaire de package**), puis entrer `$host` pour afficher des informations sur NuGet, notamment la version.
+Vous pouvez également lancer la console du Gestionnaire de package ( **Outils > Gestionnaire de package NuGet > Console du Gestionnaire de package** ), puis entrer `$host` pour afficher des informations sur NuGet, notamment la version.
 
 **Quels sont les langages de programmation pris en charge par NuGet ?**
 
@@ -61,7 +61,7 @@ NuGet prend totalement en charge de nombreux modèles de projet tels que Windows
 
 **Comment mettre à jour les packages qui font partie de modèles Visual Studio ?**
 
-Accédez à l’onglet **Mises à jour** dans l’interface utilisateur du Gestionnaire de package et sélectionnez **Mettre à jour tout**, ou utilisez la [commande `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) à partir de la console du Gestionnaire de package.
+Accédez à l’onglet **Mises à jour** dans l’interface utilisateur du Gestionnaire de package et sélectionnez **Mettre à jour tout** , ou utilisez la [commande `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) à partir de la console du Gestionnaire de package.
 
 Pour mettre à jour le modèle lui-même, vous devez mettre à jour manuellement le dépôt du modèle. Consultez le [blog de Xavier Decoster](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) à ce sujet. Notez que cette opération est effectuée à vos risques et périls, étant donné que les mises à jour manuelles peuvent endommager le modèle si les dernières versions de toutes les dépendances ne sont pas compatibles entre elles.
 
@@ -103,7 +103,7 @@ Il s’agit d’un problème connu lié à la façon dont PowerShell interagit a
 
 **Comment répertorier mon package dans un flux ?**
 
-Consultez [Création et publication d’un package](../quickstart/create-and-publish-a-package.md).
+Consultez [Création et publication d’un package](../quickstart/create-and-publish-a-package-using-visual-studio.md).
 
 **Je dispose de plusieurs versions de ma bibliothèque qui ciblent différentes versions du .NET Framework. Comment faire créer un package unique qui prend en charge cette solution ?**
 

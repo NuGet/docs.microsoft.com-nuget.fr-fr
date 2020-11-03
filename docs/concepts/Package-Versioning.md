@@ -6,32 +6,32 @@ ms.author: karann
 ms.date: 03/23/2018
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: c79976c2f4ded2fba3796fb847d3c90807d7b86c
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 4cb12f439d796d583f52d657225c39418d5a4836
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80147446"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237359"
 ---
 # <a name="package-versioning"></a>Contrôle de version des packages
 
-Un package spécifique est toujours référencé à l'aide de son identificateur de package et d'un numéro de version exact. Par exemple, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) sur nuget.org propose plusieurs dizaines de packages spécifiques disponibles, allant de la version *4.1.10311* à la version *6.1.3*. (la dernière version stable) et une variété de préversions comme *6.2.0-beta1*.
+Un package spécifique est toujours référencé à l'aide de son identificateur de package et d'un numéro de version exact. Par exemple, [Entity Framework](https://www.nuget.org/packages/EntityFramework/) sur nuget.org propose plusieurs dizaines de packages spécifiques disponibles, allant de la version *4.1.10311* à la version *6.1.3* . (la dernière version stable) et une variété de préversions comme *6.2.0-beta1* .
 
 Lors de la création d'un package, vous attribuez un numéro de version spécifique avec un suffixe de texte de préversion optionnel. En revanche, lorsque vous consommez des packages, vous pouvez spécifier un numéro de version exact ou une plage de versions acceptables.
 
-Dans cette rubrique :
+Dans cette rubrique :
 
 - [Principes de base d’une version](#version-basics), y compris les suffixes de préversion.
-- [Gammes de versions](#version-ranges)
+- [Plages de versions](#version-ranges)
 - [Numéros de version normalisés](#normalized-version-numbers)
 
 ## <a name="version-basics"></a>Principes de base d’une version
 
-Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]*, où les composants ont la signification suivante :
+Un numéro de version spécifique se présente sous la forme *Major.Minor.Patch[-Suffix]* , où les composants ont la signification suivante :
 
-- *Major*: Changements de rupture
-- *Mineur*: Nouvelles fonctionnalités, mais compatibles à l’envers
-- *Patch*: Corrections de bogues compatibles à l’envers seulement
+- *Majeure* : modifications avec rupture
+- *Mineure* : nouvelles fonctionnalités, mais à compatibilité descendante
+- *Patch* : correctifs de bogues à compatibilité descendante uniquement
 - *-Suffix* (optionnel) : un trait d'union suivi d'une chaîne de caractères indiquant une version préversion (suivant la convention [Semantic Versioning ou SemVer 1.0](https://semver.org/spec/v1.0.0.html)).
 
 **Exemples :**
@@ -50,12 +50,12 @@ Techniquement parlant, les créateurs de packages peuvent utiliser n'importe que
 
 Cela dit, les développeurs de packages adoptent généralement des conventions d’affectation de noms reconnues :
 
-- `-alpha`: Version Alpha, généralement utilisée pour le travail en cours et l’expérimentation.
+- `-alpha`: Version alpha, généralement utilisée pour les travaux en cours et l’expérimentation.
 - `-beta`: version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
 - `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
-> NuGet 4.3.0+ prend en charge [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de préversion utilisant la notation à points (par exemple, *1.0.1-build.23*). La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un format comme *1.0.1-build23*.
+> NuGet 4.3.0+ prend en charge [SemVer 2.0.0](https://semver.org/spec/v2.0.0.html), qui prend en charge les numéros de préversion utilisant la notation à points (par exemple, *1.0.1-build.23* ). La notation à points n’est pas prise en charge avec les versions de NuGet antérieures à 4.3.0. Vous pouvez utiliser un format comme *1.0.1-build23* .
 
 Lorsque vous résolvez des références de packages et que plusieurs versions de packages ne diffèrent que par le suffixe, NuGet choisit d'abord une version sans suffixe, puis applique la priorité aux préversions dans l'ordre alphabétique inverse. Par exemple, les versions suivantes seraient choisies dans l'ordre exact indiqué :
 
@@ -80,7 +80,7 @@ Certaines sémantiques de SemVer 2.0.0 ne sont pas prises en charge dans les cl
 Pour nuget.org, un package est défini comme un package SemVer 2.0.0 si l'un des énoncés suivants est vrai :
 
 - La propre version du package est conforme à SemVer 2.0.0 mais pas à SemVer 1.0.0, comme défini ci-dessus.
-- Toutes les plages de versions des dépendances du package ont une version minimale ou maximale conforme à SemVer 2.0.0 mais non conforme à SemVer 1.0.0, définie ci-dessus ; par exemple, *[1.0.0-alpha.1, )*.
+- Toutes les plages de versions des dépendances du package ont une version minimale ou maximale conforme à SemVer 2.0.0 mais non conforme à SemVer 1.0.0, définie ci-dessus ; par exemple, *[1.0.0-alpha.1, )* .
 
 Si vous uploadez un package spécifique à SemVer 2.0.0 sur nuget.org, le package est invisible pour les anciens clients et disponible uniquement pour les clients NuGet suivants :
 
@@ -98,7 +98,7 @@ Clients tiers :
 <!-- For compatibility with previous dependency-versions page -->
 <a name="version-ranges"></a>
 
-## <a name="version-ranges"></a>Gammes de versions
+## <a name="version-ranges"></a>Plages de versions
 
 Lorsque NuGet fait référence à des dépendances de packages, il prend en charge l'utilisation de la notation d'intervalle pour spécifier les plages de versions, résumées comme suit :
 
@@ -114,7 +114,7 @@ Lorsque NuGet fait référence à des dépendances de packages, il prend en char
 | [1.0,2.0) | 1.0 ≤ x < 2.0 | Version maximum exclusive et minimum inclusive mixte |
 | (1.0)    | non valide | non valide |
 
-Lors de l’utilisation du format PackageReference, \*NuGet prend également en charge l’utilisation d’une notation flottante, pour major, mineur, patch, et pré-version parties de suffixe du nombre. Les versions flottantes `packages.config` ne sont pas prises en charge avec le format.
+Lors de l’utilisation du format PackageReference, NuGet prend également en charge l’utilisation d’une notation flottante, \* , pour les parties de suffixe majeure, mineure, de correctif et de préversion du nombre. Les versions flottantes ne sont pas prises en charge avec le `packages.config` format. Quand une version flottante est spécifiée, la règle doit être résolue en la version existante la plus élevée qui correspond à la description de la version. Vous trouverez ci-dessous des exemples de versions flottantes et de résolution.
 
 > [!Note]
 > Les plages de versions dans PackageReference incluent des préversions. De par leur conception, les versions flottantes ne résolvent pas les préversions à moins que vous ne l’ayez décidé. Pour connaître l'état de la demande de fonctionnalité associée, voir le [problème 6434](https://github.com/NuGet/Home/issues/6434#issuecomment-358782297).
@@ -126,28 +126,43 @@ Spécifiez toujours une version ou une plage de versions pour les dépendances d
 #### <a name="references-in-project-files-packagereference"></a>Références dans les fichiers projet (PackageReference)
 
 ```xml
-<!-- Accepts any version 6.1 and above. -->
+<!-- Accepts any version 6.1 and above.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.1" />
 
-<!-- Accepts any 6.x.y version. -->
+<!-- Accepts any 6.x.y version.
+     Will resolve to the highest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="6.*" />
-<PackageReference Include="ExamplePackage" Version="[6,7)" />
 
 <!-- Accepts any version above, but not including 4.1.3. Could be
-     used to guarantee a dependency with a specific bug fix. -->
+     used to guarantee a dependency with a specific bug fix. 
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="(4.1.3,)" />
 
 <!-- Accepts any version up below 5.x, which might be used to prevent pulling in a later
      version of a dependency that changed its interface. However, this form is not
-     recommended because it can be difficult to determine the lowest version. -->
+     recommended because it can be difficult to determine the lowest version. 
+     Will resolve to the smallest acceptable stable version.
+     -->
 <PackageReference Include="ExamplePackage" Version="(,5.0)" />
 
-<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher. -->
+<!-- Accepts any 1.x or 2.x version, but not 0.x or 3.x and higher.
+     Will resolve to the smallest acceptable stable version.-->
 <PackageReference Include="ExamplePackage" Version="[1,3)" />
 
-<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher. -->
+<!-- Accepts 1.3.2 up to 1.4.x, but not 1.5 and higher.
+     Will resolve to the smallest acceptable stable version. -->
 <PackageReference Include="ExamplePackage" Version="[1.3.2,1.5)" />
 ```
+
+#### <a name="floating-version-resolutions"></a>Résolutions de version flottante 
+
+| Version | Versions présentes sur le serveur | Résolution | Motif | Notes |
+|----------|--------------|-------------|-------------|-------------|
+| * | 1.1.0 <br> 1.1.1 <br> 1.2.0 <br> 1.3.0-alpha  | 1.2.0 | Version stable la plus élevée. |
+| 1.1.* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.2.0-alpha | 1.1.1 | Version stable la plus élevée qui respecte le modèle spécifié.|
+| * - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.3.0-bêta  | 1.3.0-bêta | La version la plus élevée, y compris les versions non stables. | Disponible dans Visual Studio version 16,6, NuGet version 5,6, kit SDK .NET Core version 3.1.300 |
+| 1,1. *-* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.1.2-bêta <br> 1.3.0-bêta  | 1.1.2-bêta | Version la plus élevée respectant le modèle et incluant les versions non stables. | Disponible dans Visual Studio version 16,6, NuGet version 5,6, kit SDK .NET Core version 3.1.300 |
 
 **Références dans `packages.config` :**
 
@@ -222,7 +237,7 @@ Lorsque vous obtenez des packages à partir d'un référentiel pendant l'install
         1.0.0.0 is treated as 1.0.0
         1.0.01.0 is treated as 1.0.1
         
-- Les métadonnées de construction SemVer 2.0.0 sont supprimées
+- Suppression des métadonnées de build SemVer 2.0.0
 
         1.0.7+r3456 is treated as 1.0.7
 

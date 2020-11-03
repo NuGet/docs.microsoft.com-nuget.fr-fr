@@ -1,18 +1,18 @@
 ---
-title: Mise à jour NuGet-référence PowerShell du package
-description: Référence de la commande PowerShell Update-Package dans la console du gestionnaire de package NuGet dans Visual Studio.
+title: Informations de référence sur PowerShell Update-Package de NuGet
+description: Référence pour Update-Package commande PowerShell dans la console du gestionnaire de package NuGet dans Visual Studio.
 author: karann-msft
 ms.author: karann
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: e1bff9d4b7391d8be87afa4b8f2fbd51ae922140
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384854"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238034"
 ---
-# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (Console du gestionnaire de packages dans Visual Studio)
+# <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (console du gestionnaire de package dans Visual Studio)
 
 *Disponible uniquement dans la [console du gestionnaire de package NuGet](../../consume-packages/install-use-packages-powershell.md) dans Visual Studio sur Windows.*
 
@@ -36,16 +36,16 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 |  Paramètre | Description |
 | --- | --- |
-| ID | Identificateur du package à mettre à jour. En cas d’omission, met à jour tous les packages. Le commutateur-ID lui-même est facultatif. |
+| Id | Identificateur du package à mettre à jour. En cas d’omission, met à jour tous les packages. Le commutateur-ID lui-même est facultatif. |
 | IgnoreDependencies | Ignore la mise à jour des dépendances du package. |
-| NomProjet | Nom du projet contenant les packages à mettre à jour, par défaut pour tous les projets. |
-| cible | Version à utiliser pour la mise à niveau, avec la version la plus récente par défaut. Dans NuGet 3.0 +, la valeur de version doit être l’une des valeurs les *plus basses, les plus élevées, les HighestMinor*ou les *HighestPatch* (équivalent à-Safe). |
+| ProjectName | Nom du projet contenant les packages à mettre à jour, par défaut pour tous les projets. |
+| Version | Version à utiliser pour la mise à niveau, avec la version la plus récente par défaut. Dans NuGet 3.0 +, la valeur de version doit être l’une des valeurs les *plus basses, les plus élevées, les HighestMinor* ou les *HighestPatch* (équivalent à-Safe). |
 | Safe | Limite les mises à niveau vers des versions avec la même version principale et la version mineure que le package actuellement installé. |
-| Source | URL ou chemin d’accès de dossier de la source du package à rechercher. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission, `Update-Package` recherche la source de package actuellement sélectionnée. |
+| Source | URL ou chemin d’accès de dossier de la source du package à rechercher. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission, `Update-Package` effectue une recherche dans la source du package actuellement sélectionnée. |
 | IncludePrerelease | Contient des packages de version préliminaire pour les mises à jour. |
-| Réinstallation | Resintalls les packages en utilisant les versions actuellement installées. Consultez [Réinstallation et mise à jour des packages](../../consume-packages/reinstalling-and-updating-packages.md). |
-| FileConflictAction | Action à exécuter lorsque le système vous demande de remplacer ou d’ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *overwrite, ignore, None, OverwriteAll*et *IgnoreAll* (3.0 +). |
-| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch*: version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor*: version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du paramètre [`dependencyVersion`](../nuget-config-file.md#config-section) dans le fichier `Nuget.Config`. |
+| Réinstallation | Resintalls les packages en utilisant les versions actuellement installées. Consultez [réinstallation et mise à jour des packages](../../consume-packages/reinstalling-and-updating-packages.md). |
+| FileConflictAction | Action à exécuter lorsque le système vous demande de remplacer ou d’ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *overwrite, ignore, None, OverwriteAll* et *IgnoreAll* (3.0 +). |
+| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch* : version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor* : version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du [`dependencyVersion`](../nuget-config-file.md#config-section) paramètre dans le `Nuget.Config` fichier. |
 | ToHighestPatch | équivalent à-Safe. |
 | ToHighestMinor | Limite les mises à niveau à des versions avec la même version principale que le package actuellement installé. |
 | WhatIf | Montre ce qui se passe lors de l’exécution de la commande sans réellement effectuer la mise à jour. |
@@ -54,7 +54,7 @@ Aucun de ces paramètres n’accepte d’entrée de pipeline ou de caractères g
 
 ### <a name="common-parameters"></a>Paramètres communs
 
-`Update-Package` prend en charge les [paramètres PowerShell communs](https://go.microsoft.com/fwlink/?LinkID=113216)suivants : Debug, Error action, ErrorVariable, unbuffer, unvariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
+`Update-Package` prend en charge les [paramètres PowerShell communs](/powershell/module/microsoft.powershell.core/about/about_commonparameters)suivants : Debug, Error action, ErrorVariable, labuffer, unvariable, PipelineVariable, Verbose, WarningAction et WarningVariable.
 
 ### <a name="examples"></a>Exemples
 
@@ -81,11 +81,11 @@ Update-Package Elmah -ProjectName MvcApplication1 -Safe
 # (subject to version constraints). If this command rolls a dependency back to an earlier version,
 # use Update-Package <dependency_name> to reinstall that one dependency without affecting the
 # dependent package.
-Update-Package ELmah –reinstall 
+Update-Package Elmah –reinstall 
 
 # Reinstall the Elmah package in just MyProject
 Update-Package Elmah -ProjectName MyProject -reinstall
 
 # Reinstall the same version of the original package without touching dependencies.
-Update-Package ELmah –reinstall -ignoreDependencies
+Update-Package Elmah –reinstall -ignoreDependencies
 ```

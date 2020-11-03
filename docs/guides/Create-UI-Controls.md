@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: e1ebf5042597693ee55d986a4f93e797c27ad30a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 17062d83349fe1b8cd28e57dd888686a226ac9cb
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622705"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93238021"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Créer des contrôles IU en tant que packages NuGet
 
 À compter de Visual Studio 2017, vous pouvez utiliser les fonctionnalités qui ont été ajoutées pour les contrôles UWP et WPF que vous mettez à disposition dans les packages NuGet. Ce guide présente ces fonctionnalités dans le contexte des contrôles UWP au moyen de [l’exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Sauf indication contraire, la même procédure s’applique aux contrôles WPF.
 
-## <a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Conditions préalables requises
 
 1. Visual Studio 2017
 1. Savoir [créer des packages UWP](create-uwp-packages.md)
@@ -61,7 +61,7 @@ où :
 
 - *your_package_file* : nom de votre fichier de contrôle, tel que `ManagedPackage.winmd` (« ManagedPackage » est un nom arbitraire utilisé pour cet exemple et n’a aucune signification).
 - *vs_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans la boîte à outils du concepteur Visual Studio. Un `VSCategory` est nécessaire pour que le contrôle apparaisse dans la boîte à outils.
-*ui_framework*: le nom de l’infrastructure, tel que « WPF », Notez que `UIFramework` l’attribut est requis sur les nœuds ToolBoxItems dans Visual Studio 16,7 Preview 3 ou version ultérieure pour que le contrôle s’affiche dans la boîte à outils.
+*ui_framework* : le nom de l’infrastructure, tel que « WPF », Notez que `UIFramework` l’attribut est requis sur les nœuds ToolBoxItems dans Visual Studio 16,7 Preview 3 ou version ultérieure pour que le contrôle s’affiche dans la boîte à outils.
 - *blend_category* : étiquette du groupe dans lequel le contrôle doit apparaître dans le volet Composants du concepteur Blend. Un `BlendCategory` est nécessaire pour que le contrôle apparaisse dans le volet Composants.
 - *type_full_name_n* : nom complet de chaque contrôle, espace de noms compris, tel que `ManagedPackage.MyCustomControl`. Notez que le format avec un point est utilisé pour les types managés et natifs.
 
@@ -94,7 +94,7 @@ Les formats pris en charge sont `.png`, `.jpg`, `.jpeg`, `.gif` et `.bmp`. Le fo
 
 ![Exemple d’icône de boîte à outils](https://raw.githubusercontent.com/NuGet/docs.microsoft.com-nuget/live/docs/guides/media/ColorPicker_16x16x24.bmp)
 
-L’arrière-plan rose est remplacé au moment de l’exécution. Les icônes sont recolorées quand le thème Visual Studio change et que la couleur d’arrière-plan est attendue. Pour plus d’informations, consultez [Images et icônes pour Visual Studio](https://docs.microsoft.com/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
+L’arrière-plan rose est remplacé au moment de l’exécution. Les icônes sont recolorées quand le thème Visual Studio change et que la couleur d’arrière-plan est attendue. Pour plus d’informations, consultez [Images et icônes pour Visual Studio](/visualstudio/extensibility/ux-guidelines/images-and-icons-for-visual-studio).
 
 Dans l’exemple ci-dessous, le projet contient un fichier image nommé « ManagedPackage.MyCustomControl.png ».
 
@@ -147,7 +147,7 @@ Pour WPF, poursuivez avec l’exemple dans lequel vous souhaitez que votre packa
 
 ## <a name="use-strings-and-resources"></a>Utilisez des chaînes et des ressources
 
-Vous pouvez incorporer des ressources de type chaîne (`.resw`) dans votre package qui peuvent être utilisées par votre contrôle ou le projet UWP de consommation ; pour ce faire, définissez la propriété **Action de génération** du fichier `.resw` sur **PRIResource**.
+Vous pouvez incorporer des ressources de type chaîne (`.resw`) dans votre package qui peuvent être utilisées par votre contrôle ou le projet UWP de consommation ; pour ce faire, définissez la propriété **Action de génération** du fichier `.resw` sur **PRIResource** .
 
 Pour obtenir un exemple, reportez-vous à [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) dans l’exemple ExtensionSDKasNuGetPackage.
 

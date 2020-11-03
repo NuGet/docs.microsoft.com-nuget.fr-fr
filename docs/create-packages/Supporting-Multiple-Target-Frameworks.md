@@ -5,18 +5,18 @@ author: karann-msft
 ms.author: karann
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34f7c6132ba6050e20114642932ccf29a5ec088d
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c0da38ab4059b89c9693ecbece2bc8ed1a775ec
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79429009"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237943"
 ---
 # <a name="support-multiple-net-versions"></a>Prendre en charge plusieurs versions de .NET
 
 De nombreuses bibliothèques ciblent une version spécifique de .NET Framework. Par exemple, vous pouvez avoir une première version de votre bibliothèque propre à la plateforme Windows universelle (UWP) et une autre version qui exploite les fonctionnalités de .NET Framework 4.6. Pour ce faire, NuGet prend en charge le placement de plusieurs versions de la même bibliothèque dans un package unique.
 
-Cet article décrit la disposition d’un paquet NuGet, indépendamment de la façon dont le paquet ou les assemblages sont construits (c’est-à-dire, la mise en page est la même que ce soit en utilisant plusieurs fichiers *.csproj* non-SDK-style et un fichier *personnalisé .nuspec,* ou un seul multi-cibléS SDK-style *.csproj*). Pour un projet SDK-style, les [cibles de packs](../reference/msbuild-targets.md) NuGet savent comment le package doit être disposé, automatisent le placement des assemblys dans les dossiers de bibliothèque corrects et créent des groupes de dépendances pour chaque framework cible (TFM). Pour des instructions détaillées, consultez [Prendre en charge plusieurs versions de .NET Framework](multiple-target-frameworks-project-file.md) dans votre fichier projet.
+Cet article décrit la disposition d’un package NuGet, quelle que soit la façon dont le package ou les assemblys sont générés (autrement dit, la disposition est la même, que vous utilisiez plusieurs fichiers *. csproj* non-style SDK et un fichier *. NuSpec* personnalisé, ou un fichier. *csproj* SDK multi-ciblé unique). Pour un projet SDK-style, les [cibles de packs](../reference/msbuild-targets.md) NuGet savent comment le package doit être disposé, automatisent le placement des assemblys dans les dossiers de bibliothèque corrects et créent des groupes de dépendances pour chaque framework cible (TFM). Pour des instructions détaillées, consultez [Prendre en charge plusieurs versions de .NET Framework](multiple-target-frameworks-project-file.md) dans votre fichier projet.
 
 Vous devez disposer manuellement le package comme décrit dans cet article lorsque vous utilisez la méthode de répertoire de travail basée sur une convention décrite dans [Création d’un package](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). Pour un projet SDK-style, la méthode automatisée est recommandée, mais vous pouvez également choisir de disposer manuellement le package comme décrit dans cet article.
 
@@ -67,11 +67,11 @@ Si vous avez des assemblys propres à une architecture, autrement dit, des assem
 
 Ces assemblys sont disponibles uniquement au moment de l’exécution. Si vous souhaitez fournir l’assembly correspondant au moment de la compilation, indiquez l’assembly `AnyCPU` dans le dossier `/ref/{tfm}`. 
 
-Notez que NuGet choisit toujours ces ressources de compilation ou d’exécution dans un seul dossier. Si des ressources compatibles se trouvent dans `/ref`, `/lib` est donc ignoré lors de l’ajout d’assemblys au moment de la compilation. De même, s’il `/runtimes` y `/lib` a quelques actifs compatibles à partir de là également seront ignorés pour le temps d’exécution.
+Notez que NuGet choisit toujours ces ressources de compilation ou d’exécution dans un seul dossier. Si des ressources compatibles se trouvent dans `/ref`, `/lib` est donc ignoré lors de l’ajout d’assemblys au moment de la compilation. De même, s’il existe des ressources compatibles de, `/runtimes` elles sont également `/lib` ignorées pour l’exécution.
 
 Consultez [Créer des packages UWP](../guides/create-uwp-packages.md) pour obtenir un exemple de référencement de ces fichiers dans le manifeste `.nuspec`.
 
-Consultez également [Empaquetage d’un composant d’application Windows Store avec NuGet](https://blogs.msdn.microsoft.com/mim/2013/09/02/packaging-a-windows-store-apps-component-with-nuget-part-2).
+Consultez également [Empaquetage d’un composant d’application Windows Store avec NuGet](/archive/blogs/mim/packaging-a-windows-store-apps-component-with-nuget-part-2).
 
 ## <a name="matching-assembly-versions-and-the-target-framework-in-a-project"></a>Correspondance entre les versions d’assembly et la version cible de .Net Framework dans un projet
 
@@ -129,7 +129,7 @@ Lors de la compression d’un fichier projet, NuGet tente de générer automatiq
 
 Chaque groupe possède un attribut nommé `targetFramework` et contient zéro ou plusieurs éléments `<dependency>`. Ces dépendances sont installées ensemble quand la version cible de .Net Framework est compatible avec le profil de framework du projet. Consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md) pour connaître les identificateurs de framework exacts.
 
-Nous vous recommandons d’utiliser un groupe par moniker de framework cible (TFM) pour les fichiers dans les dossiers * lib/* et *ref/*.
+Nous vous recommandons d’utiliser un groupe par moniker de framework cible (TFM) pour les fichiers dans les dossiers *lib/* et *ref/* .
 
 L’exemple suivant illustre différentes variantes de l’élément `<group>` :
 

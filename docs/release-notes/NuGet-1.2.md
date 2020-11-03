@@ -6,15 +6,15 @@ ms.author: karann
 ms.date: 11/11/2016
 ms.topic: conceptual
 ms.openlocfilehash: 5d10d6bf27614980a144c30c3af6f9892a109061
-ms.sourcegitcommit: ddb52131e84dd54db199ce8331f6da18aa3feea1
+ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2020
-ms.locfileid: "79429086"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93237182"
 ---
 # <a name="nuget-12-release-notes"></a>Notes de publication de NuGet 1,2
 
-[Notes de publication de nuget 1,0 et 1,1](../release-notes/nuget-1.1.md) | [notes de publication de NuGet 1,3](../release-notes/nuget-1.3.md)
+Notes de publication [de NuGet 1,0 et 1,1](../release-notes/nuget-1.1.md)  |  [Notes de publication de NuGet 1,3](../release-notes/nuget-1.3.md)
 
 NuGet 1,2 a été publié le 30 mars 2011.
 
@@ -36,14 +36,14 @@ Lors de l’installation d’un package avec des assemblys avec nom fort, NuGet 
 
 ### <a name="specifying-framework-assembly-references-gac"></a>Spécification des références d’assembly Framework (GAC)
 
-Dans certains cas, un package peut dépendre d’un assembly qui se trouve dans le .NET Framework. Strictement parlant, il n’est pas toujours nécessaire que le consommateur de votre package référence l’assembly Framework. Toutefois, dans certains cas, il est important, par exemple quand le développeur a besoin de coder par rapport à des types dans cet assembly afin d’utiliser votre package. Le nouvel élément `frameworkAssemblies`, un élément enfant de l’élément Metadata, vous permet de spécifier un ensemble d’éléments `frameworkAssembly` qui pointent vers un assembly Framework dans le GAC. Notez l’importance de l’assembly de Framework.
-Ces assemblys ne sont pas inclus dans votre package, car ils sont supposés se trouver sur chaque ordinateur dans le cadre de la .NET Framework. Le tableau suivant répertorie les attributs de l’élément `frameworkAssembly`.
+Dans certains cas, un package peut dépendre d’un assembly qui se trouve dans le .NET Framework. Strictement parlant, il n’est pas toujours nécessaire que le consommateur de votre package référence l’assembly Framework. Toutefois, dans certains cas, il est important, par exemple quand le développeur a besoin de coder par rapport à des types dans cet assembly afin d’utiliser votre package. Le nouvel `frameworkAssemblies` élément, un élément enfant de l’élément de métadonnées, vous permet de spécifier un ensemble d' `frameworkAssembly` éléments pointant vers un assembly de Framework dans le GAC. Notez l’importance de l’assembly de Framework.
+Ces assemblys ne sont pas inclus dans votre package, car ils sont supposés se trouver sur chaque ordinateur dans le cadre de la .NET Framework. Le tableau suivant répertorie les attributs de l' `frameworkAssembly` élément.
 
 
 |Attribut |Description|
 |----------------|-----------|
-|**assemblyName**|*Requis*. Nom de l’assembly, par exemple `System.Net`.|
-|**targetFramework**|*Facultatif*. Permet de spécifier un Framework et un nom de profil (ou alias) auxquels cet assembly d’infrastructure s’applique, tel que « net40 » ou « SL4 ». Utilise le même format que celui décrit dans [prise en charge de plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md).|
+|**NomAssembly**|*Requis* . Nom de l’assembly, par exemple `System.Net` .|
+|**targetFramework**|*Facultatif* . Permet de spécifier un Framework et un nom de profil (ou alias) auxquels cet assembly d’infrastructure s’applique, tel que « net40 » ou « SL4 ». Utilise le même format que celui décrit dans [prise en charge de plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md).|
 
 ```xml
   <frameworkAssemblies>
@@ -52,9 +52,9 @@ Ces assemblys ne sont pas inclus dans votre package, car ils sont supposés se t
   </frameworkAssemblies>
 ```
 
-### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>NuGet. exe est désormais en mesure de stocker les informations d’identification de clé API
+### <a name="nugetexe-now-is-able-to-store-api-key-credentials"></a>nuget.exe est maintenant en mesure de stocker les informations d’identification de clé API
 
-Lorsque vous utilisez l’outil en ligne de commande NuGet. exe, vous pouvez maintenant utiliser la commande SetApiKey pour stocker votre clé API. De cette façon, vous n’aurez pas besoin de le spécifier chaque fois que vous envoyez un package. Pour plus d’informations sur l’enregistrement de votre clé API avec NuGet. exe, [consultez la documentation sur la publication d’un package](../nuget-org/publish-a-package.md).
+Lorsque vous utilisez l’outil de ligne de commande nuget.exe, vous pouvez maintenant utiliser la commande SetApiKey pour stocker votre clé API. De cette façon, vous n’aurez pas besoin de le spécifier chaque fois que vous envoyez un package. Pour plus d’informations sur l’enregistrement de votre clé API avec nuget.exe, [consultez la documentation sur la publication d’un package](../nuget-org/publish-a-package.md).
 
 ### <a name="package-explorer"></a>Explorateur de package
 L’Explorateur de package a été mis à jour pour prendre en charge NuGet 1,2. Pour plus d’informations, consultez les [notes de publication](http://nuget.codeplex.com/wikipage?title=New%20features%20in%20NuGet%20Package%20Explorer%201.0)de l’Explorateur de package.
@@ -65,6 +65,6 @@ La liste précédente était la plus perceptible des nombreuses fonctionnalités
 
 ## <a name="known-issues"></a>Problèmes connus
 
-* **1,2 incompatibilité de package**: les packages générés avec la dernière version de l’outil en ligne de commande, NuGet. exe (> 1,2) ne fonctionneront pas avec les versions antérieures du complément NuGet vs (par exemple, 1,1). Si vous rencontrez un message d’erreur indiquant un schéma incompatible, vous exécutez cette erreur. Veuillez mettre à jour NuGet vers la dernière version.
-* **Incompatibilité de NuGet. Server**: Si vous hébergez un flux NuGet interne à l’aide du projet NuGet. Server, vous devez mettre à jour ce projet avec la dernière version de NuGet. Server.
-* **Erreur d’incompatibilité de signature**: Si vous rencontrez une erreur lors d’une mise à niveau avec un message relatif à une incompatibilité de signature, vous devez d’abord désinstaller NuGet, puis l’installer. Cela est répertorié dans la [page problèmes connus](../release-notes/known-issues.md) qui fournit plus de détails. Le problème affecte uniquement ceux qui exécutent Visual Studio 2010 SP1 et dont une version de NuGet 1,0 installée n’a pas été correctement signée. Cette version n’était disponible qu’à partir du site Web CodePlex pendant une courte période, ce problème ne devrait donc pas affecter trop de personnes.
+* **1,2 incompatibilité de package** : les packages générés avec la version la plus récente de l’outil en ligne de commande, nuget.exe (> 1,2) ne fonctionnent pas avec les versions antérieures du complément NuGet vs (tel que 1,1). Si vous rencontrez un message d’erreur indiquant un schéma incompatible, vous exécutez cette erreur. Veuillez mettre à jour NuGet vers la dernière version.
+* **Incompatibilité de NuGet. Server** : Si vous hébergez un flux NuGet interne à l’aide du projet NuGet. Server, vous devez mettre à jour ce projet avec la dernière version de NuGet. Server.
+* **Erreur d’incompatibilité de signature** : Si vous rencontrez une erreur lors d’une mise à niveau avec un message relatif à une incompatibilité de signature, vous devez d’abord désinstaller NuGet, puis l’installer. Cela est répertorié dans la [page problèmes connus](../release-notes/known-issues.md) qui fournit plus de détails. Le problème affecte uniquement ceux qui exécutent Visual Studio 2010 SP1 et dont une version de NuGet 1,0 installée n’a pas été correctement signée. Cette version n’était disponible qu’à partir du site Web CodePlex pendant une courte période, ce problème ne devrait donc pas affecter trop de personnes.
