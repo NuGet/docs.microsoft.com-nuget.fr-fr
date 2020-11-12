@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 81f8695d7b3cec73f3e18f90ddf38dfe6c3ecf4d
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
+ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237586"
+ms.lasthandoff: 11/12/2020
+ms.locfileid: "94550373"
 ---
 # <a name="signing-nuget-packages"></a>Signature de packages NuGet
 
@@ -54,7 +54,7 @@ nuget sign MyPackage.nupkg -CertificatePath <PathToTheCertificate> -Timestamper 
 Pour publier un package signé, vous devez d’abord inscrire le certificat auprès de NuGet.org. Vous avez besoin du certificat en tant que `.cer` fichier au format der binaire.
 
 1. [Connectez-vous](https://www.nuget.org/users/account/LogOn?returnUrl=%2F) à NuGet.org.
-1. Accédez à `Account settings` (ou à `Manage Organization` **>** `Edit Organziation` si vous voulez inscrire le certificat auprès d’un compte d’organisation).
+1. Accédez à `Account settings` (ou à `Manage Organization` **>** `Edit Organization` si vous voulez inscrire le certificat auprès d’un compte d’organisation).
 1. Développez la section `Certificates`, puis sélectionnez `Register new`.
 1. Accédez au fichier de certificat qui a été exporté précédemment.
   ![Certificats inscrits](../reference/media/registered-certs.png)
