@@ -6,18 +6,18 @@ ms.author: karann
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: f91d47bdf9b957b512d3d83434693ee93de07afb
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 6e5107ac05046ea46cc819ebe2a504ba6b030634
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623134"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738940"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
 Un fichier `.nuspec` est un manifeste XML qui contient des métadonnées de package. Ce manifeste est utilisé à la fois pour générer le package et pour fournir des informations aux consommateurs. Le manifeste est toujours inclus dans un package.
 
-Dans cette rubrique :
+Dans cette rubrique :
 
 - [Forme générale et schéma](#general-form-and-schema)
 - [Jetons de remplacement](#replacement-tokens) (lors d’une utilisation avec un projet Visual Studio)
@@ -96,6 +96,9 @@ Lors du chargement d’un package sur nuget.org, le `authors` champ est limité 
 ### <a name="optional-metadata-elements"></a>Éléments de métadonnées facultatifs
 
 #### <a name="owners"></a>owners
+> [!Important]
+> les propriétaires sont déconseillés. Utilisez à la place Authors.
+
 Liste séparée par des virgules des créateurs de package utilisant des noms de profils sur nuget.org. Il s’agit souvent de la même liste que dans `authors` , et est ignoré lors du téléchargement du package vers NuGet.org. Consultez [gestion des propriétaires de packages sur NuGet.org](../nuget-org/publish-a-package.md#managing-package-owners-on-nugetorg). 
 
 #### <a name="projecturl"></a>projectUrl
@@ -319,7 +322,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| par jeton | Source de la valeur | Value
+| Jeton | Source de la valeur | Valeur
 | --- | --- | ---
 | **$id $** | Fichier projet | AssemblyName (titre) à partir du fichier projet |
 | **$version $** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
@@ -365,7 +368,7 @@ Lors du chargement d’un package sur nuget.org, l’attribut de chaque dépenda
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
 | native | native |
-| Aucun | Aucun dossier |
+| aucun | Aucun dossier |
 | all | Tous les dossiers |
 
 Par exemple, les lignes suivantes indiquent les dépendances sur `PackageA` version 1.1.0 ou ultérieure, et `PackageB` version 1.x.

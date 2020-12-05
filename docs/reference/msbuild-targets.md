@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 16fd7b9103ef5ac335f0b2e5493dd2983b182f50
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
+ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623173"
+ms.lasthandoff: 12/05/2020
+ms.locfileid: "96738927"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -54,9 +54,9 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | VersionSuffix | PackageVersionSuffix | empty | $(VersionSuffix) de MSBuild. La définition de PackageVersion remplace PackageVersionSuffix |
 | Auteurs | Auteurs | Nom de l’utilisateur actuel | |
 | Propriétaires | N/A | Ne figure pas dans NuSpec | |
-| Intitulé | Intitulé | PackageId| |
+| Titre | Titre | PackageId| |
 | Description | Description | « Description du package » | |
-| Copyright | Copyright | empty | |
+| copyright | copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | license | PackageLicenseExpression | empty | Correspond à `<license type="expression">` |
 | license | PackageLicenseFile | empty | Correspond à `<license type="file">`. Vous devez explicitement compresser le fichier de licence référencé. |
@@ -71,7 +71,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Référentiel/branche | RepositoryBranch | empty | Informations de branche de référentiel facultatives. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *Master* (NuGet 4.7.0 +) |
 | Dépôt/validation | RepositoryCommit | empty | Validation ou ensemble de modifications de référentiel facultatif pour indiquer la source à partir de laquelle le package a été généré. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Résumé | Non pris en charge | | |
+| Résumé | Non prise en charge | | |
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
 
@@ -81,7 +81,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 - PackageId
 - Auteurs
 - Description
-- Copyright
+- copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -365,7 +365,8 @@ Exemple :
 1. Télécharger des packages
 1. Écrire le fichier de ressources, les cibles et les propriétés
 
-La `restore` cible fonctionne **uniquement** pour les projets utilisant le format PackageReference. Il ne fonctionne **pas** pour les projets qui utilisent le `packages.config` format ; utilisez la [restauration NuGet](../reference/cli-reference/cli-ref-restore.md) à la place.
+La `restore` cible fonctionne pour les projets utilisant le format PackageReference.
+`MSBuild 16.5+` prend également [en charge](#restoring-packagereference-and-packages.config-with-msbuild) le `packages.config` format.
 
 ### <a name="restore-properties"></a>Propriétés de restauration
 
@@ -391,7 +392,8 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 | RestorePackagesWithLockFile | Opte pour l’utilisation d’un fichier de verrouillage. |
 | RestoreLockedMode | Exécutez la restauration en mode verrouillé. Cela signifie que la restauration ne réévaluera pas les dépendances. |
 | NuGetLockFilePath | Emplacement personnalisé pour le fichier de verrouillage. L’emplacement par défaut est à côté du projet et est nommé `packages.lock.json` . |
-| RestoreForceEvaluate | Force la restauration à recalculer les dépendances et à mettre à jour le fichier de verrouillage sans aucun avertissement. | 
+| RestoreForceEvaluate | Force la restauration à recalculer les dépendances et à mettre à jour le fichier de verrouillage sans aucun avertissement. |
+| RestorePackagesConfig | Commutateur d’abonnement qui restaure les projets avec packages.config. Prise en charge avec `MSBuild -t:restore` uniquement. |
 
 #### <a name="examples"></a>Exemples
 
@@ -435,6 +437,17 @@ msbuild -t:build -restore
 ```
 
 La même logique s’applique à d’autres cibles similaires à celles de `build` .
+
+### <a name="restoring-packagereference-and-packagesconfig-with-msbuild"></a>Restauration de PackageReference et packages.config avec MSBuild
+
+Avec MSBuild 16,5 +, packages.config sont également pris en charge pour `msbuild -t:restore` .
+
+```cli
+msbuild -t:restore -p:RestorePackagesConfig=true
+```
+
+> [!NOTE]
+> `packages.config` la restauration est disponible uniquement avec `MSBuild 16.5+` , et non avec `dotnet.exe`
 
 ### <a name="packagetargetfallback"></a>PackageTargetFallback
 
