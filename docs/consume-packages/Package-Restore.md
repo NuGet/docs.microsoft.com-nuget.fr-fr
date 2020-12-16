@@ -1,16 +1,16 @@
 ---
 title: Restauration des packages NuGet
 description: Vue d’ensemble décrivant comment NuGet restaure les packages dont dépend un projet (notamment les procédures de désactivation de la restauration et de restriction des versions).
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: be68d3bd1c7dfcc5661276c0b62d46722af61a00
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: bac4d88c29539f9fbe7b33b44ce11d350920d365
+ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738953"
+ms.lasthandoff: 12/15/2020
+ms.locfileid: "97523526"
 ---
 # <a name="restore-packages-using-package-restore"></a>Restaurer des packages avec la restauration de packages
 
@@ -82,7 +82,7 @@ La restauration des packages est automatique quand vous créez un projet à part
 
 ### <a name="enable-and-disable-package-restore-in-visual-studio"></a>Activer et désactiver la restauration des packages dans Visual Studio
 
-Dans Visual Studio, vous contrôlez la restauration des packages principalement via les options **Outils**  >  **Options**  >  **Gestionnaire de package NuGet**:
+Dans Visual Studio, vous contrôlez la restauration des packages principalement via les options **Outils**  >    >  **Gestionnaire de package NuGet**:
 
 ![Contrôle de la restauration des packages avec les options du Gestionnaire de package NuGet](media/Restore-01-AutoRestoreOptions.png)
 
@@ -147,7 +147,7 @@ NuGet a deux formats dans lesquels un projet peut utiliser des packages : [`Pac
 
 ## <a name="restore-using-msbuild"></a>Restaurer avec MSBuild
 
-Utilisez la commande [msbuild-t :Restore](../reference/msbuild-targets.md#restore-target) pour restaurer les packages listés dans le fichier projet (consultez [PackageReference](../../consume-packages/package-references-in-project-files.md)) et à partir de MSBuild 16,5 +, `packages.config` Projects.
+Utilisez la commande [msbuild-t :Restore](../reference/msbuild-targets.md#restore-target) pour restaurer les packages listés dans le fichier projet (consultez [PackageReference](package-references-in-project-files.md)) et à partir de MSBuild 16,5 +, `packages.config` Projects.
 
  Cette commande est disponible uniquement dans NuGet 4.x+ et MSBuild 15.1+, inclus avec Visual Studio 2017 et les versions ultérieures.
 À compter de MSBuild 16,5 +, cette commande peut également restaurer `packages.config` des projets basés sur `-p:RestorePackagesConfig=true` .
@@ -242,6 +242,6 @@ Pour tester la restauration automatique des packages :
 
    La restauration automatique des packages doit télécharger et installer chaque package de dépendances, sans les ajouter au contrôle de code source.
 
-## <a name="troubleshooting"></a>Dépannage
+## <a name="troubleshooting"></a>Résolution des problèmes
 
 Consultez [Résolution des erreurs de restauration](package-restore-troubleshooting.md).
