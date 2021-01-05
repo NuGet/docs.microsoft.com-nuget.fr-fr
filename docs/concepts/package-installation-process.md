@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 06/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1ae030c308b14b8884fb608c1683c8c46000b0bd
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 634c421499b06f6b62d88a95f8703614dec5ace8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "77036901"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699764"
 ---
 # <a name="what-happens-when-a-nuget-package-is-installed"></a>Processus d’installation d’un package NuGet
 
@@ -25,7 +25,10 @@ Le processus général se décompose ainsi :
 2. Acquérir le package :
    - Déterminez si le package (en fonction du numéro de version et de l’identificateur précis) est déjà installé dans le dossier *global-packages*, comme l’explique la page [Gérer les dossiers de packages globaux et de cache](../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-   - Si le paquet n’est pas dans le dossier *global-paquets,* essayez de le récupérer à partir des sources énumérées dans les [fichiers de configuration](../consume-packages/Configuring-NuGet-Behavior.md). Pour les sources en ligne, tentez tout d’abord de récupérer le package du cache HTTP, sauf si vous avez spécifié `-NoCache` avec des commandes de `nuget.exe`, ou spécifié `--no-cache` avec la commande `dotnet restore`. (Visual Studio `dotnet add package` et toujours utiliser le cache.) Si un paquet est utilisé à partir du cache, "CACHE" apparaît dans la sortie. Le cache a un délai d’expiration de 30 minutes.
+   - Si le package ne se trouve pas dans le dossier *Global-packages* , essayez de le récupérer à partir des sources listées dans les [fichiers de configuration](../consume-packages/Configuring-NuGet-Behavior.md). Pour les sources en ligne, tentez tout d’abord de récupérer le package du cache HTTP, sauf si vous avez spécifié `-NoCache` avec des commandes de `nuget.exe`, ou spécifié `--no-cache` avec la commande `dotnet restore`. (Visual Studio et `dotnet add package` utilisent toujours le cache.) Si un package est utilisé à partir du cache, « CACHE » s’affiche dans la sortie. Le cache a un délai d’expiration de 30 minutes.
+
+   - Si le package a été spécifié à l’aide d’une [version flottante](../consume-packages/Package-References-in-Project-Files.md#floating-versions)ou sans version minimale *, NuGet* contacte toutes les sources pour déterminer la meilleure correspondance.
+   Exemple : `1.*` , `(, 2.0.0]` .
 
    - Si le package ne se trouve pas dans le cache HTTP, tentez de le télécharger parmi les sources listées dans la configuration. Si un package est téléchargé, « GET » et « OK » apparaissent en sortie. NuGet journalise le trafic HTTP avec le niveau de commentaires normal.
 

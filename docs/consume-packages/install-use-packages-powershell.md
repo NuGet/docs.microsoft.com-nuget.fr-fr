@@ -7,12 +7,12 @@ ms.date: 07/08/2019
 ms.topic: conceptual
 f1_keywords:
 - vs.nuget.packagemanager.console
-ms.openlocfilehash: 8b23b6cc22eff5413e317fbe619edd3d4f4716ee
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 31fa51bc017eaaf9306d5f267e5d4b0d7a15ec9c
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237398"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699836"
 ---
 # <a name="install-and-manage-packages-with-the-package-manager-console-in-visual-studio-powershell"></a>Installer et gérer des packages avec la console du gestionnaire de package dans Visual Studio (PowerShell)
 
@@ -20,11 +20,14 @@ La console du gestionnaire de package NuGet vous permet d’utiliser des [comman
 
 La console est intégrée dans Visual Studio sur Windows. Elle n’est pas incluse dans Visual Studio pour Mac ou dans Visual Studio Code.
 
+> [!Important]
+> Les commandes répertoriées ici sont spécifiques à la console du gestionnaire de package dans Visual Studio, et diffèrent des [commandes du module Package Management](/powershell/module/packagemanagement/) qui sont disponibles dans un environnement PowerShell général. Plus précisément, chaque environnement possède des commandes qui ne sont pas disponibles dans l’autre, et les commandes portant le même nom peuvent également différer dans leurs arguments spécifiques. Lorsque vous utilisez la console Package Management dans Visual Studio, les commandes et les arguments décrits dans cette rubrique s’appliquent.
+
 ## <a name="find-and-install-a-package"></a>Rechercher et installer un package
 
 Par exemple, la recherche et l’installation d’un package s’effectuent en trois étapes simples :
 
-1. Ouvrez le projet/la solution dans Visual Studio, puis ouvrez la console à l’aide de la commande **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package** .
+1. Ouvrez le projet/la solution dans Visual Studio, puis ouvrez la console à l’aide de la commande **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**.
 
 1. Recherchez le package que vous souhaitez installer. Si vous le connaissez déjà ce cas, passez directement à l’étape 3.
 
@@ -48,7 +51,7 @@ Par exemple, la recherche et l’installation d’un package s’effectuent en t
 
 ## <a name="opening-the-console-and-console-controls"></a>Ouverture de la console et des contrôles de la console
 
-1. Ouvrez la console dans Visual Studio à l’aide de la commande **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package** . La console est une fenêtre Visual Studio qui peut être organisée et positionnée comme vous le souhaitez (consultez [Personnaliser les dispositions de fenêtres dans Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
+1. Ouvrez la console dans Visual Studio à l’aide de la commande **Outils > Gestionnaire de package NuGet > Console du gestionnaire de package**. La console est une fenêtre Visual Studio qui peut être organisée et positionnée comme vous le souhaitez (consultez [Personnaliser les dispositions de fenêtres dans Visual Studio](/visualstudio/ide/customizing-window-layouts-in-visual-studio)).
 
 1. Par défaut, les commandes de la console fonctionnent sur une source de package et un projet spécifiques définis dans le contrôle en haut de la fenêtre :
 
@@ -56,7 +59,7 @@ Par exemple, la recherche et l’installation d’un package s’effectuent en t
 
 1. La sélection d’une autre source et/ou d’un autre projet de package modifie ces valeurs par défaut pour les commandes suivantes. Pour écraser ces paramètres sans modifier les valeurs par défaut, la plupart des commandes prennent en charge les options `-Source` et `-ProjectName`.
 
-1. Pour gérer les sources de packages, sélectionnez l’icône d’engrenage. Il s’agit d’un raccourci vers la boîte de dialogue **Outils > Options > Gestionnaire de package NuGet > Sources des packages** , conformément à la description à la page [Interface utilisateur du gestionnaire de package](install-use-packages-visual-studio.md#package-sources). Le contrôle situé à droite du sélecteur de projets efface également le contenu de la console :
+1. Pour gérer les sources de packages, sélectionnez l’icône d’engrenage. Il s’agit d’un raccourci vers la boîte de dialogue **Outils > Options > Gestionnaire de package NuGet > Sources des packages**, conformément à la description à la page [Interface utilisateur du gestionnaire de package](install-use-packages-visual-studio.md#package-sources). Le contrôle situé à droite du sélecteur de projets efface également le contenu de la console :
 
     ![Paramètres de la console du gestionnaire de package et contrôles d’effacement](media/PackageManagerConsoleControls2.png)
 
@@ -79,7 +82,7 @@ Consultez [Install-Package](../reference/ps-reference/ps-ref-install-package.md)
 L’installation d’un package dans la console effectue les mêmes étapes que celles décrites dans [Processus d’installation d’un package](../concepts/package-installation-process.md), plus ce qui suit :
 
 - La console affiche les termes du contrat de licence applicables dans sa fenêtre et l’accord implicite. Si vous n’acceptez pas les termes du contrat, vous devez désinstaller immédiatement le package.
-- Une référence au package est également ajoutée au fichier projet et s’affiche dans l’ **Explorateur de solutions** sous le nœud **Références** . Vous devez enregistrer le projet pour voir les modifications directement dans le fichier projet.
+- Une référence au package est également ajoutée au fichier projet et s’affiche dans l’**Explorateur de solutions** sous le nœud **Références**. Vous devez enregistrer le projet pour voir les modifications directement dans le fichier projet.
 
 ## <a name="uninstall-a-package"></a>Désinstaller un package
 
@@ -98,7 +101,7 @@ Consultez [Uninstall-Package](../reference/ps-reference/ps-ref-uninstall-package
 
 La désinstallation d’un package effectue les actions suivantes :
 
-- Supprime les références au package provenant du projet (quel que soit le format de gestion utilisé). Les références ne s’affichent plus dans l’ **Explorateur de solutions** . (Vous devrez peut-être régénérer le projet pour le supprimer du dossier **Bin** .)
+- Supprime les références au package provenant du projet (quel que soit le format de gestion utilisé). Les références ne s’affichent plus dans l’**Explorateur de solutions**. (Vous devrez peut-être régénérer le projet pour le supprimer du dossier **Bin**.)
 - Annule toutes les modifications apportées à `app.config` ou à `web.config` lors de l’installation du package.
 - Supprime les dépendances précédemment installées si aucun package restant ne les utilise.
 

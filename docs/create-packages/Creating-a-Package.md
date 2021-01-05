@@ -1,16 +1,16 @@
 ---
 title: Créer un package NuGet à l’aide de l’interface CLI nuget.exe
-description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
+description: Guide détaillé sur la conception et la création d’un package NuGet, y compris les fichiers et le contrôle de version.
 author: karann-msft
-ms.author: karann
+ms.author: feaguila
 ms.date: 07/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3e6f0efc9e2e12de186ffd4ce29d496d07d5fc4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: ec06a8f721b7b67ddc5d72323305b9b22f292de6
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "79428946"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699795"
 ---
 # <a name="create-a-package-using-the-nugetexe-cli"></a>Créer un package à l’aide de l’interface CLI nuget.exe
 
@@ -68,8 +68,8 @@ Propriétés facultatives communes :
 - Brève description de l’[interface utilisateur du gestionnaire de package dans Visual Studio](../consume-packages/install-use-packages-visual-studio.md)
 - ID de paramètres régionaux
 - URL du projet
-- Licence comme expression ou`licenseUrl` fichier (est déprécié, utilisez l’élément [ `license` de métadonnées nuspec](../reference/nuspec.md#license))
-- URL de l’icône
+- Licence en tant qu’expression ou fichier ( `licenseUrl` est déconseillé, utilisez l' [ `license` élément de métadonnées NuSpec](../reference/nuspec.md#license) à la place)
+- Un fichier d’icône ( `iconUrl` est déconseillé, utilisez l' [ `icon` élément de métadonnées NuSpec](../reference/nuspec.md#icon) à la place)
 - Listes des dépendances et références
 - Balises facilitant les recherches dans la galerie
 
@@ -79,11 +79,11 @@ Voici un fichier `.nuspec` classique (mais fictif), avec des commentaires décri
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
     <metadata>
-        <!-- The identifier that must be unique within the hosting gallery -->
+        <!-- Identifier that must be unique within the hosting gallery -->
         <id>Contoso.Utility.UsefulStuff</id>
 
-        <!-- The package version number that is used when resolving dependencies -->
-        <version>1.8.3-beta</version>
+        <!-- Package version number that is used when resolving dependencies -->
+        <version>1.8.3</version>
 
         <!-- Authors contain text that appears directly on the gallery -->
         <authors>Dejana Tesic, Rajeev Dey</authors>
@@ -101,8 +101,8 @@ Voici un fichier `.nuspec` classique (mais fictif), avec des commentaires décri
         <license type="expression">Apache-2.0</license>
         
 
-        <!-- The icon is used in Visual Studio's package manager UI -->
-        <iconUrl>http://github.com/contoso/UsefulStuff/nuget_icon.png</iconUrl>
+        <!-- Icon is used in Visual Studio's package manager UI -->
+        <icon>icon.png</icon>
 
         <!-- 
             If true, this value prompts the user to accept the license when
@@ -134,6 +134,7 @@ Voici un fichier `.nuspec` classique (mais fictif), avec des commentaires décri
     <!-- A readme.txt to display when the package is installed -->
     <files>
         <file src="readme.txt" target="" />
+        <file src="icon.png" target="" />
     </files>
 </package>
 ```
@@ -183,7 +184,7 @@ Les conventions de dossier sont les suivantes :
 | lib/{tfm} | Fichiers d’assembly (`.dll`), de documentation (`.xml`) et de symbole (`.pdb`) du TFM (moniker de la version cible de .NET Framework) donné | Les assemblys sont ajoutés comme références pour la compilation et l’exécution. `.xml` et `.pdb` sont copiés dans les dossiers du projet. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md) pour créer des sous-dossiers propres à la cible du framework. |
 | ref/{tfm} | Fichiers d’assembly (`.dll`) et de symbole (`.pdb`) du TFM (moniker de framework cible) donné | Les assemblys étant uniquement ajoutés comme références pour la compilation, rien n’est copié dans le dossier bin du projet. |
 | runtimes | Fichiers d’assemblies propres à l’architecture (`.dll`), de symboles (`.pdb`) et de ressources natives (`.pri`) | Les assemblys sont uniquement ajoutés comme références pour l’exécution. Les autres fichiers sont copiés dans les dossiers du projet. Il doit toujours y avoir un assembly spécifique à `AnyCPU` (TFM) correspondant sous le dossier `/ref/{tfm}` pour fournir l’assembly correspondant au moment de la compilation. Consultez [Prise en charge de plusieurs frameworks cibles](supporting-multiple-target-frameworks.md). |
-| content | Fichiers arbitraires | Le contenu est copié à la racine du projet. Considérez que le dossier **content** est la racine de l’application cible qui consomme le package en définitive. Pour que le package ajoute une image dans le dossier */images* de l’application, placez-le dans le dossier *content/images* du package. |
+| contenu | Fichiers arbitraires | Le contenu est copié à la racine du projet. Considérez que le dossier **content** est la racine de l’application cible qui consomme le package en définitive. Pour que le package ajoute une image dans le dossier */images* de l’application, placez-le dans le dossier *content/images* du package. |
 | build | Fichiers *(3.x+)* MSBuild `.targets` et `.props` | Automatiquement insérés dans le projet. |
 | buildMultiTargeting | Les fichiers *(4.0+)* MSBuild `.targets` et `.props` du ciblage multi-infrastructure | Automatiquement insérés dans le projet. |
 | buildTransitive | Fichiers *(5.0 +)* MSBuild `.targets` et `.props` qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). | Automatiquement insérés dans le projet. |
@@ -241,7 +242,7 @@ Notez qu’il existe plusieurs autres options d’empaquetage disponibles quand 
 
 #### <a name="solution-level-packages"></a>Packages au niveau de la solution
 
-*NuGet 2.x seulement. Non disponible dans NuGet 3.0.*
+*NuGet 2. x uniquement. Non disponible dans NuGet 3.0 +.*
 
 NuGet 2.x prenait en charge la notion de package au niveau de la solution qui permettait d’installer des outils ou des commandes supplémentaires pour la console du gestionnaire de package (contenu du dossier `tools`), sans ajouter de références, de contenu, ni générer des personnalisations pour les projets de la solution. De tels packages ne contiennent aucun fichier dans leurs dossiers `lib`, `content` ou `build` directs et aucune de leurs dépendances n’ont des fichiers dans leurs dossiers `lib`, `content` ou `build` respectifs.
 
@@ -255,7 +256,7 @@ La commande suivante crée un manifeste par défaut avec des espaces réservés,
 nuget spec [<package-name>]
 ```
 
-Si vous omettez le \<nom_du_package\>, le fichier obtenu est `Package.nuspec`. Si vous fournissez un nom comme `Contoso.Utility.UsefulStuff`, le fichier est `Contoso.Utility.UsefulStuff.nuspec`.
+Si vous omettez \<package-name\> , le fichier résultant est `Package.nuspec` . Si vous fournissez un nom comme `Contoso.Utility.UsefulStuff`, le fichier est `Contoso.Utility.UsefulStuff.nuspec`.
 
 Le fichier `.nuspec` obtenu contient des espaces réservés pour des valeurs telles que `projectUrl`. Veillez à modifier le fichier avant de l’utiliser pour créer le fichier `.nupkg` final.
 
@@ -267,7 +268,7 @@ L’identificateur de package (élément `<id>`) et le numéro de version (élé
 
 - **Unicité** : l’identificateur doit être unique sur nuget.org ou dans la galerie qui héberge le package, quelle qu’elle soit. Avant de déterminer un identificateur, faites une recherche dans la galerie applicable pour vérifier si le nom est déjà en cours d’utilisation. Pour éviter les conflits, utilisez le nom de votre société comme première partie de l’identificateur, par exemple `Contoso.`.
 - **Noms comme les espaces de noms** : suivez un modèle similaire aux espaces de noms dans .NET, en utilisant la notation à points au lieu de traits d’union. Par exemple, utilisez `Contoso.Utility.UsefulStuff` plutôt que `Contoso-Utility-UsefulStuff` ou `Contoso_Utility_UsefulStuff`. Les consommateurs trouvent également pratique de faire correspondre l’identificateur du package aux espaces de noms utilisés dans le code.
-- **Exemples de package** : si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (Le paquet d’échantillons dépendrait bien sûr de l’autre paquet.) Lors de la création d’un exemple, utilisez la méthode d’annuaire de travail basée sur la convention décrite plus tôt. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
+- **Exemples de package** : si vous produisez un package d’exemple de code qui montre comment utiliser un autre package, attachez `.Sample` comme suffixe à l’identificateur, comme dans `Contoso.Utility.UsefulStuff.Sample`. (L’exemple de package est évidemment dépendant de l’autre package.) Lorsque vous créez un exemple de package, utilisez la méthode de répertoire de travail basée sur une convention décrite précédemment. Dans le dossier `content`, réorganisez l’exemple de code dans un dossier appelé `\Samples\<identifier>` comme dans `\Samples\Contoso.Utility.UsefulStuff.Sample`.
 
 **Bonnes pratiques en matière de version de package :**
 
@@ -316,6 +317,7 @@ Vous pouvez être amené à ajouter des cibles ou propriétés de build personna
 
 Les fichiers inclus dans le dossier `\build` racine sont considérés comme appropriés à toutes les versions cibles de .Net Framework. Pour fournir des fichiers spécifiques au framework, commencez par les placer dans les sous-dossiers appropriés, notamment :
 
+```
     \build
         \netstandard1.4
             \Contoso.Utility.UsefulStuff.props
@@ -323,6 +325,7 @@ Les fichiers inclus dans le dossier `\build` racine sont considérés comme appr
         \net462
             \Contoso.Utility.UsefulStuff.props
             \Contoso.Utility.UsefulStuff.targets
+```
 
 Ensuite, dans le fichier `.nuspec`, veillez à faire référence à ces fichiers dans le nœud `<files>` :
 
@@ -344,7 +347,7 @@ Ensuite, dans le fichier `.nuspec`, veillez à faire référence à ces fichiers
 
 L’inclusion des propriétés et des cibles MSBuild dans un package a été [introduite avec NuGet 2.5](../release-notes/NuGet-2.5.md#automatic-import-of-msbuild-targets-and-props-files). Il est donc recommandé d’ajouter l’attribut `minClientVersion="2.5"` à l’élément `metadata` pour indiquer la version minimale du client NuGet nécessaire pour utiliser le package.
 
-Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. (`.props` est ajouté en haut du dossier du projet; `.targets` est ajouté en bas.) Un élément MSBuild `<Import>` conditionnel distinct est ajouté pour chaque cadre cible.
+Quand NuGet installe un package avec des fichiers `\build`, il ajoute des éléments `<Import>` MSBuild au fichier projet pointant vers les fichiers `.targets` et `.props`. ( `.props` est ajouté en haut du fichier projet ; `.targets` est ajouté en bas.) Un élément MSBuild conditionnel distinct `<Import>` est ajouté pour chaque version cible de .NET Framework.
 
 Les fichiers `.props` et `.targets` MSBuild du ciblage multi-infrastructure peuvent être placés dans le dossier `\buildMultiTargeting`. Lors de l’installation de package, NuGet ajoute les éléments `<Import>` correspondants au fichier projet à la condition que la version cible de .NET Framework ne soit pas définie (la propriété MSBuild `$(TargetFramework)` doit être vide).
 
@@ -423,15 +426,15 @@ Une fois que vous avez créé un package, qui est un fichier `.nupkg`, vous pouv
 
 Vous pouvez également étendre les fonctionnalités de votre package ou prendre en charge d’autres scénarios comme décrit dans les rubriques suivantes :
 
-- [Contrôle de version des packages](../concepts/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Prise en charge de plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
 - [Transformations de fichiers sources et de configuration](../create-packages/source-and-config-file-transformations.md)
 - [Localisation](../create-packages/creating-localized-packages.md)
-- [Versions pré-version](../create-packages/prerelease-packages.md)
+- [Versions préliminaires](../create-packages/prerelease-packages.md)
 - [Définir un type de package](../create-packages/set-package-type.md)
 - [Créer des packages avec des assemblys COM Interop](../create-packages/author-packages-with-COM-interop-assemblies.md)
 
 Enfin, il existe d’autres types de package à connaître :
 
 - [Packages natifs](../guides/native-packages.md)
-- [Paquets de symboles](../create-packages/symbol-packages-snupkg.md)
+- [Packages de symboles](../create-packages/symbol-packages-snupkg.md)

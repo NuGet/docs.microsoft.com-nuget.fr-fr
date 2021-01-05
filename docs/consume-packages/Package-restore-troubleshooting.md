@@ -5,12 +5,12 @@ author: karann-msft
 ms.author: karann
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: b162990eae2160961f560b6c6ee73e47cb4121d6
-ms.sourcegitcommit: f29fa9b93fd59e679fab50d7413bbf67da3ea5b3
+ms.openlocfilehash: 9f680a714717d1bde0472f2e1266cacfd8bd4d5f
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2020
-ms.locfileid: "86451149"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699725"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Résolution des erreurs de restauration des packages
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Cette erreur se produit quand vous tentez de générer un projet contenant des références à un ou plusieurs packages NuGet qui ne sont pas installés sur l’ordinateur ou dans le projet.
 
-- Lorsque vous utilisez le format de gestion [PackageReference](package-references-in-project-files.md) , l’erreur signifie que le package n’est pas installé dans le dossier *Global-packages* , comme décrit dans [gestion des dossiers de packages globaux et de cache](managing-the-global-packages-and-cache-folders.md).
+- Lorsque vous utilisez le format de gestion [PackageReference](package-references-in-project-files.md) , cette erreur peut être un restes d’une packages.config à la migration de PackageReference et doit être [supprimée manuellement](../resources/NuGet-FAQ.md#working-with-packages) du fichier projet.
 - Si [ packages.config](../reference/packages-config.md) est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier `packages` à la racine de la solution.
 
 Cette situation se produit souvent quand vous obtenez le code source d’un projet à partir du contrôle de code source ou d’un autre téléchargement. Les packages sont généralement omis du contrôle de code source ou des téléchargements car ils peuvent être restaurés à partir de flux de packages comme nuget.org. Pour plus d’informations, consultez [Packages et contrôle de code source](Packages-and-Source-Control.md)). Leur inclusion engendrerait l’encombrement du dépôt ou la création inutile de fichiers .zip volumineux.

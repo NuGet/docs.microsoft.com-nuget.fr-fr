@@ -1,16 +1,16 @@
 ---
 title: Commandes pack et restore NuGet comme cibles MSBuild
 description: Les commandes pack et restore NuGet peuvent être utilisées directement comme cibles MSBuild avec NuGet 4.0+.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4a04c6dd7993fc47bcf7a6fe46236ed700a0d105
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738927"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699890"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -71,7 +71,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Référentiel/branche | RepositoryBranch | empty | Informations de branche de référentiel facultatives. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *Master* (NuGet 4.7.0 +) |
 | Dépôt/validation | RepositoryCommit | empty | Validation ou ensemble de modifications de référentiel facultatif pour indiquer la source à partir de laquelle le package a été généré. *RepositoryUrl* doit également être spécifié pour que cette propriété soit incluse. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* (NuGet 4.7.0 +) |
 | PackageType | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
-| Résumé | Non prise en charge | | |
+| Résumé | Non pris en charge | | |
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
 
@@ -131,7 +131,7 @@ Pour supprimer les dépendances de package du package NuGet généré, affectez 
 
 Lors de la compression d’un fichier image icône, vous devez utiliser `PackageIcon` la propriété pour spécifier le chemin d’accès du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 128 x 128.
 
-Par exemple :
+Exemple :
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Lors de l’utilisation d’une expression de licence, la propriété PackageLic
 
 [En savoir plus sur les expressions de licence et les licences acceptées par NuGet.org](nuspec.md#license).
 
-Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propriété PackageLicenseFile pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Par exemple :
+Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propriété PackageLicenseFile pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Exemple :
 
 ```xml
 <PropertyGroup>
@@ -256,6 +256,23 @@ Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propri
 
 [Exemple de fichier de licence](https://github.com/NuGet/Samples/tree/master/PackageLicenseFileExample).
 
+### <a name="packing-a-file-without-an-extension"></a>Compression d’un fichier sans extension
+
+Dans certains scénarios, par exemple lors de la compression d’un fichier de licence, vous souhaiterez peut-être inclure un fichier sans extension.
+Pour des raisons historiques, NuGet & MSBuild traitent les chemins d’accès sans extension comme répertoires.
+
+```xml
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="LICENSE" Pack="true" PackagePath=""/>
+  </ItemGroup>  
+```
+
+[Fichier sans exemple d’extension](https://github.com/NuGet/Samples/blob/master/PackageLicenseFileExtensionlessExample/).
 ### <a name="istool"></a>IsTool
 
 Lors de l’utilisation de `MSBuild -t:pack -p:IsTool=true`, tous les fichiers de sortie, comme spécifié dans le scénario [Assemblys de sortie](#output-assemblies), sont copiés dans le dossier `tools` au lieu du dossier `lib`. Notez que cela est différent d’un `DotNetCliTool` qui est spécifié en définissant `PackageType` dans le fichier `.csproj`.
@@ -366,7 +383,10 @@ Exemple :
 1. Écrire le fichier de ressources, les cibles et les propriétés
 
 La `restore` cible fonctionne pour les projets utilisant le format PackageReference.
-`MSBuild 16.5+` prend également [en charge](#restoring-packagereference-and-packages.config-with-msbuild) le `packages.config` format.
+`MSBuild 16.5+` prend également [en charge](#restoring-packagereference-and-packagesconfig-with-msbuild) le `packages.config` format.
+
+> [!NOTE]
+> La `restore` cible ne [doit pas être exécutée](#restoring-and-building-with-one-msbuild-command) en association avec la `build` cible.
 
 ### <a name="restore-properties"></a>Propriétés de restauration
 

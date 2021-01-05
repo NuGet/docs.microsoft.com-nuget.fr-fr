@@ -5,12 +5,12 @@ author: shishirx34
 ms.author: shishirh
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: aae6f0474cc6e8e8aa5c269b79be6fd949d9184c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: be24660d05f34242e45f223e2248b943ecc38616
+ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237995"
+ms.lasthandoff: 12/19/2020
+ms.locfileid: "97699660"
 ---
 # <a name="nuget-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur NuGet
 
@@ -45,9 +45,9 @@ Pour plus d’informations, consultez [Recherche et sélection des packages](../
 
 **Comment vérifier la version exacte des outils NuGet qui sont installés ?**
 
-Dans Visual Studio, utilisez la commande **Aide > À propos de Microsoft Visual Studio** et examinez la version affichée en regard de **Gestionnaire de package NuGet** .
+Dans Visual Studio, utilisez la commande **Aide > À propos de Microsoft Visual Studio** et examinez la version affichée en regard de **Gestionnaire de package NuGet**.
 
-Vous pouvez également lancer la console du Gestionnaire de package ( **Outils > Gestionnaire de package NuGet > Console du Gestionnaire de package** ), puis entrer `$host` pour afficher des informations sur NuGet, notamment la version.
+Vous pouvez également lancer la console du Gestionnaire de package (**Outils > Gestionnaire de package NuGet > Console du Gestionnaire de package**), puis entrer `$host` pour afficher des informations sur NuGet, notamment la version.
 
 **Quels sont les langages de programmation pris en charge par NuGet ?**
 
@@ -61,7 +61,7 @@ NuGet prend totalement en charge de nombreux modèles de projet tels que Windows
 
 **Comment mettre à jour les packages qui font partie de modèles Visual Studio ?**
 
-Accédez à l’onglet **Mises à jour** dans l’interface utilisateur du Gestionnaire de package et sélectionnez **Mettre à jour tout** , ou utilisez la [commande `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) à partir de la console du Gestionnaire de package.
+Accédez à l’onglet **Mises à jour** dans l’interface utilisateur du Gestionnaire de package et sélectionnez **Mettre à jour tout**, ou utilisez la [commande `Update-Package`](../reference/ps-reference/ps-ref-update-package.md) à partir de la console du Gestionnaire de package.
 
 Pour mettre à jour le modèle lui-même, vous devez mettre à jour manuellement le dépôt du modèle. Consultez le [blog de Xavier Decoster](http://www.xavierdecoster.com/update-project-template-to-latest-nuget-packages) à ce sujet. Notez que cette opération est effectuée à vos risques et périls, étant donné que les mises à jour manuelles peuvent endommager le modèle si les dernières versions de toutes les dépendances ne sont pas compatibles entre elles.
 
@@ -149,3 +149,10 @@ Cela n’est pas un problème si vous utilisez PackageReference, car chaque fich
 
 - Ajoutez `https://api.nuget.org/v3/index.json` à votre liste de sources, ou
 - Supprimez `%appdata%\.nuget\NuGet.Config` (Windows) ou `~/.nuget/NuGet/NuGet.Config` (Mac/Linux) et laissez NuGet le recréer.
+
+**J’ai effectué une migration vers PackageReference, pourquoi ma Build échoue- `This project references NuGet package(s) that are missing on this computer.` t-elle ?**
+
+Dans packages.config projets, quand un package avec `build` props ou cibles a été installé, NuGet ajoute une `EnsureNuGetPackageBuildImports` cible pour vérifier que le contenu des packages MSBuild a été importé avant la génération.
+Si le `target` a été modifié manuellement, NuGet peut ne pas être en mesure de détecter qu’il a besoin d’être supprimé lors de la migration.
+
+Si votre projet est `PackageReference` et que vous avez toujours cette cible dans le fichier projet, vous devez pouvoir la supprimer en toute sécurité.
