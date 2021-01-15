@@ -1,16 +1,16 @@
 ---
 title: Format PackageReference NuGet (références de package dans des fichiers projet)
 description: Cet article donne des informations détaillées sur le format PackageReference NuGet dans les fichiers projet, pris en charge par NuGet 4.0 (et versions ultérieures), Visual Studio 2017 et .NET Core 2.0.
-author: karann-msft
-ms.author: karann
+author: nkolev92
+ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1127e7aee27d57abd5f14dd3bea82dfff3ba6d93
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699787"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235761"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
 
@@ -305,7 +305,7 @@ Dans Visual Studio, vous pouvez également [supprimer des avertissements](/visua
 
 *Cette fonctionnalité est disponible avec NuGet **4.9** ou ultérieur, et avec Visual Studio 2017 **15.9** ou ultérieur.*
 
-L’entrée de la restauration NuGet est un ensemble de références de package provenant du fichier de projet (dépendances de niveau supérieur ou directes). La sortie est une fermeture complète de toutes les dépendances de package, notamment les dépendances transitives. NuGet s’efforce toujours de produire la même fermeture complète des dépendances de package si la liste PackageReference d’entrée ne change pas. Toutefois, tous les scénarios ne s’y prêtent pas. Exemple :
+L’entrée de la restauration NuGet est un ensemble de références de package provenant du fichier de projet (dépendances de niveau supérieur ou directes). La sortie est une fermeture complète de toutes les dépendances de package, notamment les dépendances transitives. NuGet s’efforce toujours de produire la même fermeture complète des dépendances de package si la liste PackageReference d’entrée ne change pas. Toutefois, tous les scénarios ne s’y prêtent pas. Par exemple :
 
 * Quand vous utilisez des versions flottantes comme `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. L’intention ici est de flotter vers la dernière version à chaque restauration de package. Mais dans certains scénarios, les utilisateurs peuvent exiger le verrouillage du graphe à une version récente donnée et son flottement vers une version ultérieure, si celle-ci est disponible, à la suite d’un mouvement explicite.
 * Une version plus récente du package correspondant aux exigences de version de PackageReference est publiée. Par exemple, 
@@ -390,3 +390,34 @@ Vous pouvez contrôler divers comportements de restauration avec un fichier de v
 | `-LockedMode` | `--locked-mode` | RestoreLockedMode | Active le mode verrouillé pour la restauration. Cela est utile dans les scénarios d’intégration continue et de livraison continue dans lesquels vous souhaitez créer des builds reproductibles.|   
 | `-ForceEvaluate` | `--force-evaluate` | RestoreForceEvaluate | Cette option est utile avec des packages dont la version flottante est définie dans le projet. Par défaut, NuGet Restore ne met pas à jour automatiquement la version du package lors de chaque restauration, sauf si vous exécutez Restore avec cette option. |
 | `-LockFilePath` | `--lock-file-path` | NuGetLockFilePath | Définit un emplacement de fichier de verrouillage personnalisé pour un projet. Par défaut, NuGet prend en charge `packages.lock.json` au niveau du répertoire racine. Si vous avez plusieurs projets dans le même répertoire, NuGet prend en charge le fichier de verrouillage `packages.<project_name>.lock.json` spécifique au projet. |
+
+## <a name="assettargetfallback"></a>AssetTargetFallback
+
+La `AssetTargetFallback` propriété vous permet de spécifier des versions de Framework compatibles supplémentaires pour les projets que votre projet référence et les packages NuGet que votre projet utilise.
+
+Si vous spécifiez une dépendance de package à l’aide de `PackageReference` , mais que ce package ne contient pas les ressources qui sont compatibles avec le Framework cible de votre projet, la `AssetTargetFallback` propriété entre en lecture. La compatibilité du package référencé est revérifiée à l’aide de chaque version cible de .NET Framework spécifiée dans `AssetTargetFallback` .
+Quand un `project` ou un `package` est référencé par le biais de `AssetTargetFallback` , l’avertissement [NU1701](../reference/errors-and-warnings/NU1701.md) est déclenché.
+
+Reportez-vous au tableau ci-dessous pour obtenir des exemples d' `AssetTargetFallback` impact sur la compatibilité.
+
+| Infrastructure de projet | AssetTargetFallback | Infrastructures de package | Résultats |
+|-------------------|---------------------|--------------------|--------|
+| .NET Framework 4.7.2 | | .NET Standard 2.0 | .NET Standard 2.0 |
+| Application .NET Core 3,1 | | .NET Standard 2,0, .NET Framework 4.7.2 | .NET Standard 2.0 |
+| Application .NET Core 3,1 | | .NET Framework 4.7.2 | Incompatible, échec avec [`NU1202`](../reference/errors-and-warnings/NU1202.md) |
+| Application .NET Core 3,1 | net472;net471 | .NET Framework 4.7.2 | .NET Framework 4.7.2 avec [`NU1701`](../reference/errors-and-warnings/NU1701.md) |
+
+Plusieurs infrastructures peuvent être spécifiées à l’aide de `;` comme délimiteur. Pour ajouter une infrastructure de secours, vous pouvez effectuer les opérations suivantes :
+
+```xml
+<AssetTargetFallback Condition=" '$(TargetFramework)'=='netcoreapp3.1' ">
+    $(AssetTargetFallback);net472;net471
+</AssetTargetFallback>
+```
+
+Vous pouvez abandonner `$(AssetTargetFallback)` si vous souhaitez remplacer les valeurs existantes au lieu de les ajouter `AssetTargetFallback` .
+
+> [!NOTE]
+> Si vous utilisez un [projet basé sur le kit de développement logiciel (SDK) .net](/dotnet/core/sdk), les `$(AssetTargetFallback)` valeurs appropriées sont configurées et vous n’avez pas besoin de les définir manuellement.
+>
+> `$(PackageTargetFallback)` était une fonctionnalité antérieure qui tentait de résoudre ce problème, mais elle est radicalement rompue et ne *doit* pas être utilisée. Pour migrer de `$(PackageTargetFallback)` vers `$(AssetTargetFallback)` , il vous suffit de modifier le nom de la propriété.

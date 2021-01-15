@@ -5,12 +5,12 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/23/2018
 ms.topic: conceptual
-ms.openlocfilehash: 66df4e0e4739300608fd5f9e44eea5bcd00079c8
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 7de3f0f1133a89848e9268d489751293fb3cbf25
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699890"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235696"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>Commandes pack et restore NuGet comme cibles MSBuild
 
@@ -56,7 +56,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 | Propriétaires | N/A | Ne figure pas dans NuSpec | |
 | Titre | Titre | PackageId| |
 | Description | Description | « Description du package » | |
-| copyright | copyright | empty | |
+| Copyright | Copyright | empty | |
 | RequireLicenseAcceptance | PackageRequireLicenseAcceptance | false | |
 | license | PackageLicenseExpression | empty | Correspond à `<license type="expression">` |
 | license | PackageLicenseFile | empty | Correspond à `<license type="file">`. Vous devez explicitement compresser le fichier de licence référencé. |
@@ -81,7 +81,7 @@ Notez que les propriétés `Owners` et `Summary` de `.nuspec` ne sont pas prises
 - PackageId
 - Auteurs
 - Description
-- copyright
+- Copyright
 - PackageRequireLicenseAcceptance
 - DevelopmentDependency
 - PackageLicenseExpression
@@ -131,7 +131,7 @@ Pour supprimer les dépendances de package du package NuGet généré, affectez 
 
 Lors de la compression d’un fichier image icône, vous devez utiliser `PackageIcon` la propriété pour spécifier le chemin d’accès du package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. La taille du fichier image est limitée à 1 Mo. Les formats de fichiers pris en charge sont JPEG et PNG. Nous recommandons une résolution d’image de 128 x 128.
 
-Exemple :
+Par exemple :
 
 ```xml
 <PropertyGroup>
@@ -242,7 +242,7 @@ Lors de l’utilisation d’une expression de licence, la propriété PackageLic
 
 [En savoir plus sur les expressions de licence et les licences acceptées par NuGet.org](nuspec.md#license).
 
-Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propriété PackageLicenseFile pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Exemple :
+Lors de l’empaquetage d’un fichier de licence, vous devez utiliser la propriété PackageLicenseFile pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Par exemple :
 
 ```xml
 <PropertyGroup>
@@ -413,7 +413,8 @@ Des paramètres de restauration supplémentaires peuvent provenir de propriété
 | RestoreLockedMode | Exécutez la restauration en mode verrouillé. Cela signifie que la restauration ne réévaluera pas les dépendances. |
 | NuGetLockFilePath | Emplacement personnalisé pour le fichier de verrouillage. L’emplacement par défaut est à côté du projet et est nommé `packages.lock.json` . |
 | RestoreForceEvaluate | Force la restauration à recalculer les dépendances et à mettre à jour le fichier de verrouillage sans aucun avertissement. |
-| RestorePackagesConfig | Commutateur d’abonnement qui restaure les projets avec packages.config. Prise en charge avec `MSBuild -t:restore` uniquement. |
+| RestorePackagesConfig | Commutateur d’abonnement qui restaure des projets avec packages.config. Prise en charge avec `MSBuild -t:restore` uniquement. |
+| RestoreUseStaticGraphEvaluation | Un commutateur d’abonnement pour utiliser l’évaluation MSBuild de graphe statique au lieu de l’évaluation standard. L’évaluation du graphique statique est une fonctionnalité expérimentale qui est beaucoup plus rapide pour les grandes pensions et les solutions. |
 
 #### <a name="examples"></a>Exemples
 
@@ -469,25 +470,40 @@ msbuild -t:restore -p:RestorePackagesConfig=true
 > [!NOTE]
 > `packages.config` la restauration est disponible uniquement avec `MSBuild 16.5+` , et non avec `dotnet.exe`
 
-### <a name="packagetargetfallback"></a>PackageTargetFallback
+### <a name="restoring-with-msbuild-static-graph-evaluation"></a>Restauration avec évaluation de graphe statique MSBuild
 
-L’élément `PackageTargetFallback` vous permet de spécifier un jeu de cibles compatibles à utiliser lors de la restauration des packages. Il est conçu pour permettre aux packages qui utilisent un [moniker du Framework cible](../reference/target-frameworks.md) dotnet de fonctionner avec des packages compatibles qui ne déclarent pas de moniker du Framework cible dotnet. Autrement dit, si votre projet utilise le moniker du Framework cible dotnet, tous les packages dont il dépend doivent également avoir un moniker du Framework cible dotnet, sauf si vous ajoutez `<PackageTargetFallback>` à votre projet pour permettre aux plateformes autres que dotnet d’être compatibles avec dotnet.
+> [!NOTE]
+> Avec MSBuild 16,6 +, NuGet a ajouté une fonctionnalité expérimentale pour utiliser l’évaluation de graphique statique à partir de la ligne de commande, ce qui améliore considérablement le temps de restauration pour les référentiels volumineux.
 
-Par exemple, si le projet utilise le moniker du Framework cible `netstandard1.6` et qu’un package dépendant ne contient que `lib/net45/a.dll` et `lib/portable-net45+win81/a.dll`, la génération du projet échoue. Si vous souhaitez présenter la dernière DLL, vous pouvez ajouter un `PackageTargetFallback` comme suit pour dire que la DLL `portable-net45+win81` est compatible :
-
-```xml
-<PackageTargetFallback Condition="'$(TargetFramework)'=='netstandard1.6'">
-    portable-net45+win81
-</PackageTargetFallback>
+```cli
+msbuild -t:restore -p:RestoreUseStaticGraphEvaluation=true
 ```
 
-Pour déclarer une solution de secours pour toutes les cibles de votre projet, omettez l’attribut `Condition`. Vous pouvez également étendre tout `PackageTargetFallback` en incluant `$(PackageTargetFallback)` comme indiqué ici :
+Vous pouvez également l’activer en définissant la propriété dans un répertoire. Build. props.
 
 ```xml
-<PackageTargetFallback>
-    $(PackageTargetFallback);portable-net45+win81
-</PackageTargetFallback >
+<Project>
+  <PropertyGroup>
+    <RestoreUseStaticGraphEvaluation>true</RestoreUseStaticGraphEvaluation>
+  </PropertyGroup>
+</Project>
 ```
+
+> [!NOTE]
+> À compter de Visual Studio 2019. x et NuGet 5. x, cette fonctionnalité est considérée comme expérimentale et s’abonne. Pour plus d’informations sur le moment où cette fonctionnalité sera activée par défaut, suivez [NuGet/9803](https://github.com/NuGet/Home/issues/9803) .
+
+La restauration de graphiques statiques modifie la partie MSBuild de la restauration, la lecture et l’évaluation du projet, mais pas l’algorithme de restauration ! L’algorithme de restauration est le même pour tous les outils NuGet (NuGet.exe, MSBuild.exe, dotnet.exe et Visual Studio).
+
+Dans très peu de scénarios, la restauration de graphiques statiques peut se comporter différemment de la restauration en cours et certains PackageReferences ou références déclarés peuvent être manquants.
+
+Pour faciliter l’utilisation de la migration vers la restauration de graphiques statiques, envisagez d’exécuter :
+
+```cli
+msbuild.exe -t:restore -p:RestoreUseStaticGraphEvaluation
+msbuild.exe -t:restore
+```
+
+NuGet ne *doit signaler aucune modification* . Si vous voyez une anomalie, veuillez envoyer un problème à [NuGet/](https://github.com/nuget/home/issues/new)à la page d’hébergement.
 
 ### <a name="replacing-one-library-from-a-restore-graph"></a>Remplacement d’une bibliothèque à partir d’un graphique de restauration
 

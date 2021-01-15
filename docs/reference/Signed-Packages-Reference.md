@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 05/18/2018
 ms.topic: reference
 ms.reviewer: ananguar
-ms.openlocfilehash: 7384e8b30cb2ec5fe53ea0fe485858bc1f7b3c43
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: ac9efadc1d29bec86ca9b7821d5587e0171613aa
+ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238177"
+ms.lasthandoff: 01/15/2021
+ms.locfileid: "98235709"
 ---
 # <a name="signed-packages"></a>Packages signés
 
@@ -21,14 +21,14 @@ Les packages NuGet peuvent inclure une signature numérique qui offre une protec
 
 Les packages signés fournissent la validation de bout en bout la plus puissante. Il existe deux types différents de signatures NuGet :
 - **Signature** de l’auteur. Une signature d’auteur garantit que le package n’a pas été modifié depuis que l’auteur a signé le package, quel que soit le référentiel ou la méthode de transport que le package est remis. En outre, les packages signés par l’auteur fournissent un mécanisme d’authentification supplémentaire au pipeline de publication nuget.org, car le certificat de signature doit être enregistré à l’avance. Pour plus d’informations, consultez [inscrire des certificats](#signature-requirements-on-nugetorg).
-- **Signature du référentiel** . Les signatures de référentiel fournissent une garantie d’intégrité pour **tous les** packages d’un référentiel, qu’ils soient signés ou non, même si ces packages sont obtenus à partir d’un emplacement différent de celui dans lequel ils ont été signés.   
+- **Signature du référentiel**. Les signatures de référentiel fournissent une garantie d’intégrité pour **tous les** packages d’un référentiel, qu’ils soient signés ou non, même si ces packages sont obtenus à partir d’un emplacement différent de celui dans lequel ils ont été signés.   
 
-Pour plus d’informations sur la création d’un package signé par l’auteur, consultez [signature de packages](../create-packages/Sign-a-package.md) et la [commande NuGet Sign](../reference/cli-reference/cli-ref-sign.md).
+Pour plus d’informations sur la création d’un package signé par l’auteur, consultez [signature de packages](../create-packages/Sign-a-package.md) et la [commande NuGet Sign](../reference/cli-reference/cli-ref-sign.md). Vous pouvez vérifier les signatures des packages à l’aide des commandes [dotnet NuGet Verify](/dotnet/core/tools/dotnet-nuget-verify.md) ou [NuGet Verify](../reference/cli-reference/cli-ref-verify.md) .
 
 > [!Important]
-> La signature du package n’est actuellement prise en charge que lors de l’utilisation de nuget.exe sur Windows. La [vérification des packages signés n’est actuellement prise en charge que lors de l’utilisation de nuget.exe](../reference/cli-reference/cli-ref-verify.md) ou Visual Studio sur Windows.
+> Les packages de signature d’auteur sont uniquement pris en charge par nuget.exe sur Windows pour l’instant. Toutefois, tous les packages chargés sur nuget.org sont automatiquement signés.
 
-## <a name="certificate-requirements"></a>Conditions de certificat
+## <a name="certificate-requirements"></a>Configuration requise des certificats
 
 La signature de package requiert un certificat de signature de code, qui est un type spécial de certificat qui est valide pour la `id-kp-codeSigning` fonction [[RFC 5280 section 4.2.1.12](https://tools.ietf.org/html/rfc5280#section-4.2.1.12)]. En outre, le certificat doit avoir une longueur de clé publique RSA de 2048 bits ou supérieure.
 
@@ -57,4 +57,6 @@ nuget.org a des exigences supplémentaires pour accepter un package signé :
 ## <a name="related-articles"></a>Articles connexes
 
 - [Signature de packages NuGet](../create-packages/Sign-a-Package.md)
+- [Vérifier les packages signés à l’aide de l’interface CLI dotnet](/dotnet/core/tools/dotnet-nuget-verify.md)
+- [Vérifier les packages signés à l’aide de nuget.exe](../reference/cli-reference/cli-ref-verify.md)
 - [Gérer les limites d’approbation de package](../consume-packages/installing-signed-packages.md)
