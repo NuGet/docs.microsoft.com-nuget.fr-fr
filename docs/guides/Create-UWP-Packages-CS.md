@@ -1,16 +1,16 @@
 ---
-title: Créer des packages NuGet pour la plateforme Windows universelle
+title: Créer des packages NuGet pour la plateforme UWP (C#)
 description: Procédure pas à pas de bout en bout de la création de packages NuGet à l’aide d’un composant Windows Runtime pour le plateforme Windows universelle en C#.
 author: rrelyea
 ms.author: rrelyea
 ms.date: 02/28/2020
 ms.topic: tutorial
-ms.openlocfilehash: 6f8037f439d627af158b6d5b7746a633b053e514
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 22df2cd6dc374ba265c79a019747191e797b774c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238008"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774289"
 ---
 # <a name="create-uwp-packages-c"></a>Créer des packages UWP (C#)
 
@@ -26,19 +26,19 @@ Dans cette procédure pas à pas, vous créez un package NuGet avec un composant
 
 ## <a name="create-a-uwp-windows-runtime-component"></a>Créer un composant Windows Runtime UWP
 
-1. Dans Visual Studio, choisissez **fichier > nouveau projet de >** , recherchez « UWP c# », sélectionnez le modèle **Windows Runtime composant (Windows universel)** , cliquez sur suivant, changez le nom en ImageEnhancer, puis cliquez sur créer. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
+1. Dans Visual Studio, choisissez **fichier > nouveau projet de >**, recherchez « UWP c# », sélectionnez le modèle **Windows Runtime composant (Windows universel)** , cliquez sur suivant, changez le nom en ImageEnhancer, puis cliquez sur créer. À l’invite, acceptez les valeurs par défaut pour Version cible et Version minimale.
 
     ![Création d’un projet de composant Windows Runtime UWP](media/UWP-NewProject-CS.png)
 
-1. Cliquez avec le bouton droit sur le projet dans Explorateur de solutions, sélectionnez **ajouter > nouvel élément** , sélectionnez **contrôle basé** sur un modèle, changez le nom en AwesomeImageControl.cs, puis cliquez sur **Ajouter** :
+1. Cliquez avec le bouton droit sur le projet dans Explorateur de solutions, sélectionnez **ajouter > nouvel élément**, sélectionnez **contrôle basé** sur un modèle, changez le nom en AwesomeImageControl.cs, puis cliquez sur **Ajouter**:
 
     ![Ajout d’un nouvel élément Contrôle basé sur un modèle XAML au projet](media/UWP-NewXAMLControl-CS.png)
 
-1. Dans Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Propriétés.** Dans la page Propriétés, choisissez l’onglet **générer** et activez **fichier de documentation XML** :
+1. Dans Explorateur de solutions, cliquez avec le bouton droit sur le projet, puis sélectionnez **Propriétés.** Dans la page Propriétés, choisissez l’onglet **générer** et activez **fichier de documentation XML**:
 
     ![Définition de Génération de fichiers de documentation XML sur Oui](media/UWP-GenerateXMLDocFiles-CS.png)
 
-1. Cliquez avec le bouton droit sur la *solution* maintenant, sélectionnez **génération de lot** , cochez les cinq zones Build dans la boîte de dialogue, comme indiqué ci-dessous. Ainsi, quand vous effectuez une génération, vous générez un jeu complet d’artefacts pour chacun des systèmes cibles que Windows prend en charge.
+1. Cliquez avec le bouton droit sur la *solution* maintenant, sélectionnez **génération de lot**, cochez les cinq zones Build dans la boîte de dialogue, comme indiqué ci-dessous. Ainsi, quand vous effectuez une génération, vous générez un jeu complet d’artefacts pour chacun des systèmes cibles que Windows prend en charge.
 
     ![Générer en tâche de fond](media/UWP-BatchBuild-CS.png)
 

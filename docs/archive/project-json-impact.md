@@ -1,16 +1,16 @@
 ---
 title: Impact de project.json sur les auteurs de packages NuGet
 description: Informations sur la façon dont l’implémentation de project.json dans NuGet 3.x affecte les auteurs de packages, notamment en termes de fonctionnalités, de contenu et de format de package non pris en charge.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 34b08f06f04efdcf7bf73efc2cbdb5a5494ae2d9
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 82b7ce7962ecccc9559ae25a8fe35a3820238049
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488194"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775385"
 ---
 # <a name="impact-of-projectjson-when-creating-packages"></a>Impact de project.json lors de la création de packages
 
@@ -33,7 +33,7 @@ De plus, les scripts d’installation étaient pris en charge uniquement dans Vi
 
 À l’instar des scripts d’installation, les transformations s’exécutent sur l’installation du package et ne sont généralement pas idempotentes. Étant donné qu’il n’existe plus d’heure d’installation, XDT Transform et d’autres fonctionnalités similaires ne sont pas prises en charge et sont ignorées si un tel package est utilisé dans un scénario transitif.
 
-### <a name="content"></a>Contenu
+### <a name="content"></a>Content
 
 Les packages NuGet traditionnels fournissent des fichiers de contenu comme des fichiers de code source et de configuration. Ils sont en général utilisés dans deux scénarios :
 
@@ -45,7 +45,7 @@ La prise en charge du contenu est actuellement désactivée pour des raisons sim
 
 Les fichiers de contenu peuvent toujours être déplacés à l’intérieur des packages, même s’ils sont ignorés actuellement, mais l’utilisateur final peut toujours les copier au bon endroit.
 
-Vous pouvez voir l’une des propositions pour ramener des [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627)fichiers de contenu, et suivre ses progrès, ici: .
+Vous pouvez voir l’une des propositions de remise de fichiers de contenu et suivre sa progression, ici : [https://github.com/NuGet/Home/issues/627](https://github.com/NuGet/Home/issues/627) .
 
 ## <a name="impact-for-package-authors"></a>Impact pour les auteurs de packages
 

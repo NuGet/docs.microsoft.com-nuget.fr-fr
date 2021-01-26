@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 11/02/2017
 ms.topic: tutorial
 ms.reviewer: kraigb
-ms.openlocfilehash: 749d9466976d51c7cb65332c8b149e3a30862e63
-ms.sourcegitcommit: 650c08f8bc3d48dfd206a111e5e2aaca3001f569
+ms.openlocfilehash: 7e611b568538e0acfcbad2e5d986a0f9382ac8fd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97523401"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774111"
 ---
 # <a name="query-for-all-packages-published-to-nugetorg"></a>Rechercher à l’aide d’une requête tous les packages publiés sur nuget.org
 
@@ -54,7 +54,9 @@ DateTime cursor = DateTime.UtcNow.AddHours(-1);
 
 L’emplacement de chaque ressource (point de terminaison) dans l’API NuGet doit être découvert à l’aide de [l’index de service](../../api/service-index.md). Étant donné que ce guide se concentre sur nuget.org, nous allons utiliser l’index de service de nuget.org.
 
-    GET https://api.nuget.org/v3/index.json
+```
+GET https://api.nuget.org/v3/index.json
+```
 
 Le document de service est un document JSON contenant toutes les ressources sur nuget.org. Recherchez la ressource dont la propriété a la `@type` valeur `Catalog/3.0.0` . La valeur de propriété `@id` associée est l’URL de l’index du catalogue. 
 
@@ -62,13 +64,17 @@ Le document de service est un document JSON contenant toutes les ressources sur 
 
 À l’aide de la valeur de propriété `@id` trouvée à l’étape précédente, téléchargez l’index du catalogue :
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 Désérialisez [l’index du catalogue](../../api/catalog-resource.md#catalog-index). Éliminez par filtrage tous les [objets de page de catalogue](../../api/catalog-resource.md#catalog-page-object-in-the-index) pour lesquels `commitTimeStamp` est inférieur ou égal à la valeur actuelle de votre curseur.
 
 Pour chaque page de catalogue restante, téléchargez le document entier à l’aide de la propriété `@id`.
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 Désérialisez [la page du catalogue](../../api/catalog-resource.md#catalog-page). Éliminez par filtrage tous les [objets de feuille de catalogue](../../api/catalog-resource.md#catalog-item-object-in-a-page) pour lesquels `commitTimeStamp` est inférieur ou égal à la valeur actuelle de votre curseur.
 
@@ -80,7 +86,9 @@ Après avoir téléchargé toutes les pages de catalogue non éliminées par fil
 
 Si vous êtes intéressé par les métadonnées relatives au package (par exemple, la description, les dépendances, la taille du fichier .nupkg, etc.), vous pouvez extraire le [document de feuille du catalogue](../../api/catalog-resource.md#catalog-leaf) à l’aide de la propriété `@id`.
 
-    GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
+GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 Ce document contient, entre autres, toutes les métadonnées incluses dans la [ressource des métadonnées du package](../../api/registration-base-url-resource.md).
 

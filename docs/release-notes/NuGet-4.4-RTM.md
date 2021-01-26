@@ -1,31 +1,31 @@
 ---
 title: Notes de publication de NuGet 4.4 RTM
 description: Notes de publication de NuGet 4.4 RTM, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 3be24a86cc92c4e6d07fcae1dc625a150f28d7b4
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64498701"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776286"
 ---
 # <a name="nuget-44-release-notes"></a>Notes de publication de NuGet 4.4
 
 [Visual Studio 2017 15.4 RTW](https://www.visualstudio.com/news/releasenotes/vs2017-relnotes) est fourni avec NuGet 4.4 RTM.
 
-## <a name="summary-whats-new-in-440"></a>Résumé: Quoi de neuf en 4.4.0
+## <a name="summary-whats-new-in-440"></a>Résumé : nouveautés de 4.4.0
 
-## <a name="summary-whats-new-in-442"></a>Résumé: Quoi de neuf en 4.4.2
+## <a name="summary-whats-new-in-442"></a>Résumé : nouveautés de 4.4.2
 
-* Correctif de sécurité : Les autorisations sur les fichiers créés à l’intérieur de l’adresse suivante [: les #7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
+* Correctif de sécurité : les autorisations sur les fichiers créés à l’intérieur de ~/.NuGet sont trop ouvertes [#7673](https://github.com/NuGet/Home/issues/7673) [CVE-2019-0757](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/CVE-2019-0757)
 
-## <a name="summary-whats-new-in-443"></a>Résumé: Quoi de neuf en 4.4.3
+## <a name="summary-whats-new-in-443"></a>Résumé : nouveautés de 4.4.3
 
-* Correctif de sécurité: Les fichiers à l’intérieur des NUPKGs peuvent avoir un chemin relatif au-dessus de l’annuaire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
+* Correctif de sécurité : les fichiers à l’intérieur de NUPKGs peuvent avoir un chemin d’accès relatif au-dessus du répertoire NUPKG [#7906](https://github.com/NuGet/Home/issues/7906)
 
 ## <a name="known-issues"></a>Problèmes connus
 
@@ -71,7 +71,7 @@ Parfois, quand vous utilisez un package qui contient un assembly avec une signat
 
 #### <a name="workaround"></a>Solution de contournement
 
-Il n’existe aucune solution de contournement pour l’instant.
+Il n’existe pas de solution de contournement à ce jour.
 
 ## <a name="issues-fixed-in-nuget-44-rtm-timeframe"></a>Problèmes résolus dans NuGet 4.4 RTM
 
@@ -175,7 +175,7 @@ Il n’existe aucune solution de contournement pour l’instant.
 
 - [Avertissements et erreurs] NoWarn n’est pas transmis de manière transitive à travers les références P2P - [#5501](https://github.com/NuGet/Home/issues/5501)
 
-- Charge de solution légère : noyau commun pour l’interface utilisateur de PM, PMC, et IVs- - [#5057](https://github.com/NuGet/Home/issues/5057)
+- Chargement de solution allégé : noyau commun pour l’interface utilisateur PM, PMC et IV-- [#5057](https://github.com/NuGet/Home/issues/5057)
 
 - Chargement de solution allégé : Prise en charge - PMC - [#5053](https://github.com/NuGet/Home/issues/5053)
 
@@ -187,7 +187,7 @@ Il n’existe aucune solution de contournement pour l’instant.
 
 - RestoreOperationLogger.Do bloque les threads de pool de threads - [#5663](https://github.com/NuGet/Home/issues/5663)
 
-### <a name="docs"></a>Docs
+### <a name="docs"></a>Documentation
 
 - Documentation pour les indicateurs DependencyVersion et Framework de la commande Install - [#5858](https://github.com/NuGet/Home/issues/5858)
 
@@ -195,8 +195,8 @@ Il n’existe aucune solution de contournement pour l’instant.
 
 ## <a name="links-to-github-issues-fixed-in-44-rtm"></a>Liens vers les problèmes GitHub corrigés dans RTM 4.4
 
-[Liste des questions 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
+[Liste des problèmes 1](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:"4.4")
 
-[Liste des questions 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
+[Liste des problèmes 2](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F31+through+8%2F18%22)
 
-[Liste des questions 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)
+[Liste des problèmes 3](https://github.com/NuGet/Home/issues?q=is:issue+is:closed+milestone:%224.4+-+7%2F10+through+7%2F28%22)

@@ -1,16 +1,16 @@
 ---
-title: Notes de publication de la version NuGet 4.0 RC
+title: Notes de publication de NuGet 4.0 RTM
 description: Notes de publication pour NuGet 4.0 RTM, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR.
 author: anangaur
 ms.author: anangaur
 ms.date: 03/03/2017
 ms.topic: conceptual
-ms.openlocfilehash: c27d0aa2e5c9af9cb15d2f487b93e93aca666214
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: c3ec5c20e5175edd315de20ca98c7a106c51809e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496604"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776279"
 ---
 # <a name="nuget-40-rtm-release-notes"></a>Notes de publication de NuGet 4.0 RTM
 
@@ -46,7 +46,7 @@ Parfois, quand vous utilisez un package qui contient un assembly avec une signat
 
 #### <a name="workaround"></a>Solution de contournement
 
-Il n’existe aucune solution de contournement pour l’instant.
+Il n’existe pas de solution de contournement à ce jour.
 
 ### <a name="you-are-unable-to-view-add-or-update-dotnetclitools-using-nuget-package-manager"></a>Impossible d’afficher, d’ajouter ou de mettre à jour DotNetCLITools à l’aide du Gestionnaire de package NuGet
 
@@ -86,7 +86,7 @@ L’utilisation manuelle d’Update-Package dans la console ne fonctionne qu’u
 
 #### <a name="workaround"></a>Solution de contournement
 
-Il n’existe aucune solution de contournement pour l’instant.
+Il n’existe pas de solution de contournement à ce jour.
 
 ### <a name="retargeting-target-framework-version-may-lead-to-incomplete-intellisense"></a>Le reciblage de la version du framework cible peut générer des informations Intellisense incomplètes
 
@@ -106,7 +106,7 @@ msbuild /t:restore échoue quand un projet basé sur PackageReference ciblant .N
 
 #### <a name="workaround"></a>Solution de contournement
 
-Il n’existe aucune solution de contournement pour l’instant.
+Il n’existe pas de solution de contournement à ce jour.
 
 ## <a name="issues-fixed-in-nuget-40-rtm-timeframe"></a>Problèmes résolus dans NuGet 4.0 RTM
 

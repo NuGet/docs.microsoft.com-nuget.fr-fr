@@ -1,16 +1,16 @@
 ---
 title: Créer un package NuGet avec MSBuild
 description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 47a20c5566affec1cdc7772c86d8101dab162d85
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237969"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774444"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Créer un package NuGet avec MSBuild
 
@@ -39,7 +39,7 @@ En outre, si vous compressez des projets de type non-SDK qui utilisent PackageRe
 
 - `PackageOutputPath`, le dossier de sortie du package généré lors de l’appel à Pack.
 
-Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés** , puis sélectionnez l’onglet **Package** ). Vous pouvez également définir directement ces propriétés dans les fichiers projet ( *.csproj* ).
+Dans Visual Studio, vous pouvez définir ces valeurs dans les propriétés du projet (cliquez avec le bouton droit sur le projet dans Explorateur de solutions, choisissez **Propriétés**, puis sélectionnez l’onglet **Package**). Vous pouvez également définir directement ces propriétés dans les fichiers projet (*.csproj*).
 
 ```xml
 <PropertyGroup>
@@ -70,7 +70,7 @@ L’exemple suivant montre un fichier projet simple et complet avec ces proprié
 Vous pouvez également définir les propriétés optionnelles, telles que `Title`, `PackageDescription` et `PackageTags`, comme cela est décrit dans [les cibles de packages MSBuild](../reference/msbuild-targets.md#pack-target), [Contrôle des ressources de dépendances](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets) et [Propriétés de métadonnées NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
 > [!NOTE]
-> Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags** , car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
+> Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags**, car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
 
 Pour plus d’informations sur la déclaration des dépendances et la spécification des numéros de version, consultez [Références de package dans les fichiers projet](../consume-packages/package-references-in-project-files.md) et [Gestion des versions de package](../concepts/package-versioning.md). Il est également possible de faire remonter les ressources des dépendances directement dans le package à l’aide des attributs `<IncludeAssets>` et `<ExcludeAssets>`. Pour plus d’informations, consultez [Contrôle des ressources des dépendances](../consume-packages/package-references-in-project-files.md#controlling-dependency-assets).
 
@@ -96,9 +96,9 @@ Si vous utilisez MSBuild avec un projet de style non SDK et PackageReference, aj
    </ItemGroup>
    ```
 
-2. Ouvrez une invite de commandes développeur (dans la zone **Rechercher** , saisissez **Invite de commandes développeur** ).
+2. Ouvrez une invite de commandes développeur (dans la zone **Rechercher**, saisissez **Invite de commandes développeur**).
 
-   Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu **Démarrer** , car elle est configurée avec tous les chemins nécessaires pour MSBuild.
+   Il est généralement recommandé de démarrer l’invite de commandes développeur pour Visual Studio à partir du menu **Démarrer**, car elle est configurée avec tous les chemins nécessaires pour MSBuild.
 
 3. Basculez vers le dossier contenant le fichier projet et saisissez la commande suivante pour installer le package NuGet.Build.Tasks.Pack.
 

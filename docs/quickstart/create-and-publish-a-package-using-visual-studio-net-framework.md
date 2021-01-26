@@ -1,23 +1,23 @@
 ---
 title: Créer et publier un package .NET Framework NuGet avec Visual Studio sur Windows
 description: Ce tutoriel explique pas à pas comment créer et publier un package NuGet .NET Framework avec Visual Studio dans Windows.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/13/2018
 ms.topic: quickstart
-ms.openlocfilehash: e00aac83a710e2f745d5e4bb9aec741ee686e595
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 7c030db769973e3b3c41da6523d57ab2cd769a9d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380643"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775745"
 ---
 # <a name="quickstart-create-and-publish-a-package-using-visual-studio-net-framework-windows"></a>Démarrage rapide : Créer et publier un package avec Visual Studio (.NET Framework, Windows)
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET Framework implique de créer la DLL dans Visual Studio sous Windows, puis d’utiliser l’outil en ligne de commande nuget.exe pour créer et publier le package.
 
 > [!Note]
-> Ce Quickstart s’applique à Visual Studio 2017 et aux versions supérieures pour Windows uniquement. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
+> Ce guide de démarrage rapide s’applique à Visual Studio 2017 et versions ultérieures pour Windows uniquement. Visual Studio pour Mac n’intègre pas les fonctionnalités décrites ici. Utilisez dans ce cas les [outils de l’interface CLI dotnet](create-and-publish-a-package-using-the-dotnet-cli.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -134,7 +134,7 @@ Vous exécutez `nuget spec` une seule fois pour générer le manifeste initial. 
 
 ## <a name="publish-the-package"></a>Publier le package
 
-Une fois `.nupkg` que vous avez un fichier, `nuget.exe` vous le publiez à nuget.org à l’aide d’une clé API acquise à partir de nuget.org. Pour nuget.org vous devez `nuget.exe` utiliser 4.1.0 ou plus.
+Une fois que vous disposez d’un `.nupkg` fichier, publiez-le sur NuGet.org à l’aide `nuget.exe` de avec une clé API acquise auprès de NuGet.org. Pour nuget.org, vous devez utiliser `nuget.exe` 4.1.0 ou une version ultérieure.
 
 [!INCLUDE [publish-notes](includes/publish-notes.md)]
 
@@ -180,8 +180,8 @@ Félicitations pour la création de votre premier package NuGet !
 
 Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens ci-dessous.
 
-- [Publier un forfait](../nuget-org/publish-a-package.md)
-- [Forfaits de pré-version](../create-packages/Prerelease-Packages.md)
+- [Publier un package](../nuget-org/publish-a-package.md)
+- [Packages de version préliminaire](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/supporting-multiple-target-frameworks.md)
-- [Contrôle de version des packages](../concepts/package-versioning.md)
+- [Gestion des versions de package](../concepts/package-versioning.md)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)

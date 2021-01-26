@@ -1,16 +1,16 @@
 ---
 title: Vue d’ensemble de l’écosystème NuGet
 description: Ressources complètes dans l’écosystème NuGet, notamment des sources NuGet, des projets NuGet non-Microsoft, des utilitaires et des supports de formation NuGet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: 165587fb64be5a5f4dbfdece7dc3a1e6402b733e
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 57fa8e5683e687aab3022ebc77d7e69a61615877
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237424"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775602"
 ---
 # <a name="an-overview-of-the-nuget-ecosystem"></a>Vue d’ensemble de l’écosystème NuGet
 

@@ -1,16 +1,16 @@
 ---
 title: Multiciblage pour les packages NuGet dans votre fichier projet
-description: Description des différentes méthodes pour cibler plusieurs versions de .NET Framework à partir d’un seul package NuGet.
-author: karann-msft
-ms.author: karann
+description: Description des différentes méthodes pour cibler plusieurs versions de .NET Framework à partir d’un seul package NuGet dans votre fichier projet.
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1d23759433efb405fa5f0035049befced2c43d6b
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a05d053340bb2fe795991dfa5a2b95d8625dfd44
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "72380686"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774378"
 ---
 # <a name="support-multiple-net-framework-versions-in-your-project-file"></a>Prendre en charge plusieurs versions de .NET Framework dans votre fichier projet
 
@@ -37,7 +37,7 @@ Pour les projets SDK-style, vous pouvez configurer la prise en charge de plusieu
 
    Veillez à modifier l’élément XML mis au pluriel (ajoutez des «s» aux balises d’ouverture et de fermeture).
 
-3. Si vous avez du code qui ne fonctionne que dans un TFM, vous pouvez utiliser `#if NET45` ou `#if NETSTANDARD2_0` pour séparer du code dépendant du TFM. (Pour plus d’informations, voir [Comment multitarget](/dotnet/core/tutorials/libraries#how-to-multitarget).) Par exemple, vous pouvez utiliser le code suivant :
+3. Si vous avez du code qui ne fonctionne que dans un TFM, vous pouvez utiliser `#if NET45` ou `#if NETSTANDARD2_0` pour séparer du code dépendant du TFM. (Pour plus d’informations, consultez [la rubrique Comment effectuer une MULTICIBLAGE](/dotnet/core/tutorials/libraries#how-to-multitarget).) Par exemple, vous pouvez utiliser le code suivant :
 
    ```csharp
    public string Platform {

@@ -1,22 +1,22 @@
 ---
 title: Créer et publier un package NuGet avec l’interface CLI dotnet
 description: Ce didacticiel explique pas à pas comment créer et publier un package NuGet avec l’interface de ligne de commande (CLI) .NET Core, dotnet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: quickstart
-ms.openlocfilehash: a67c8cd92304c6c4abcffbb79ddbe964664d08fb
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: cb63257c874fc4752f3b3d59db4be5996d5ab81d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237482"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775765"
 ---
 # <a name="quickstart-create-and-publish-a-package-dotnet-cli"></a>Démarrage rapide : Créer et publier un package (interface CLI dotnet)
 
 La création d’un package NuGet à partir d’une bibliothèque de classes .NET est un processus simple, de même que sa publication sur nuget.org avec l’interface de ligne de commande (CLI) `dotnet`.
 
-## <a name="prerequisites"></a>Conditions préalables requises
+## <a name="prerequisites"></a>Prérequis
 
 1. Installez le [Kit de développement logiciel (SDK) .NET Core](https://www.microsoft.com/net/download/), qui comprend l’interface CLI `dotnet`. À compter de Visual Studio 2017, la CLI dotnet est installée automatiquement avec les charges de travail associées à NET Core.
 
@@ -53,7 +53,7 @@ Chaque package NuGet a besoin d’un manifeste décrivant son contenu et ses dé
 1. Ajoutez si vous le souhaitez certaines des propriétés facultatives décrites dans [Propriétés de métadonnées NuGet](/dotnet/core/tools/csproj#nuget-metadata-properties).
 
     > [!Note]
-    > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags** , car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
+    > Dans le cas des packages destinés à une utilisation publique, faites particulièrement attention à la propriété **PackageTags**, car les balises aident les utilisateurs à trouver vos packages et à comprendre leur rôle.
 
 ## <a name="run-the-pack-command"></a>Exécuter la commande pack
 
@@ -124,7 +124,7 @@ Pour explorer plus en détail ce que NuGet a à offrir, sélectionnez les liens 
 - [Packages de version préliminaire](../create-packages/Prerelease-Packages.md)
 - [Prendre en charge plusieurs frameworks cibles](../create-packages/multiple-target-frameworks-project-file.md)
 - [Gestion des versions de package](../concepts/package-versioning.md)
-- [Ajout d’une expression ou d’un fichier de licence](../reference/msbuild-targets#packing-a-license-expression-or-a-license-file)
+- [Ajout d’une expression ou d’un fichier de licence](../reference/msbuild-targets.md#packing-a-license-expression-or-a-license-file)
 - [Création de packages localisés](../create-packages/creating-localized-packages.md)
 - [Création de packages de symboles](../create-packages/symbol-packages-snupkg.md)
 - [Signature de packages](../create-packages/Sign-a-package.md)

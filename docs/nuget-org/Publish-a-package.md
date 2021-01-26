@@ -1,17 +1,17 @@
 ---
 title: Guide pratique pour publier un package NuGet
 description: Instructions détaillées sur la manière de publier un package NuGet sur nuget.org ou des flux privés et de gérer la propriété du package sur nuget.org.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: fe5625247dca51c10d82fffe82022c40a4716069
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237930"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775993"
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
@@ -38,11 +38,11 @@ Ensuite, vous pouvez charger le package via le portail web nuget.org, l’envoye
 
 1. nuget.org indique si le nom du package est disponible. Si ce n’est pas le cas, modifiez l’identificateur du package dans votre projet, relancez la génération et retentez le chargement.
 
-1. Si le nom du package est disponible, nuget.org ouvre une section **Vérifier** , qui permet de consulter les métadonnées du manifeste de package. Pour modifier les métadonnées, modifiez votre projet (fichier projet ou fichier `.nuspec`), relancez la génération, recréez le package et relancez le chargement.
+1. Si le nom du package est disponible, nuget.org ouvre une section **Vérifier**, qui permet de consulter les métadonnées du manifeste de package. Pour modifier les métadonnées, modifiez votre projet (fichier projet ou fichier `.nuspec`), relancez la génération, recréez le package et relancez le chargement.
 
 1. Sous **Documentation de l’importation** vous pouvez coller Markdown, pointer sur vos documents avec une URL ou charger un fichier de documentation.
 
-1. Lorsque toutes les informations sont prêtes, sélectionnez le bouton **Envoyer** .
+1. Lorsque toutes les informations sont prêtes, sélectionnez le bouton **Envoyer**.
 
 ### <a name="command-line"></a>Ligne de commande
 
@@ -111,13 +111,13 @@ Tous les propriétaires de packages disposent d’autorisations complètes sur l
 Pour modifier la propriété d’un package, effectuez les opérations suivantes :
 
 1. Connectez-vous à nuget.org avec le compte qui est le propriétaire actuel du package.
-1. Sélectionnez le nom de votre compte, puis **Gérer les packages** et développez **Packages publiés** .
+1. Sélectionnez le nom de votre compte, puis **Gérer les packages** et développez **Packages publiés**.
 1. Sélectionnez le package que vous souhaitez gérer, puis **Gérer les propriétaires** à droite.
 
 À partir de là, vous disposez de plusieurs options :
 
-1. Supprimez des propriétaires listés sous **Propriétaires actuels** .
-1. Ajoutez un propriétaire sous **Ajouter un propriétaire** en entrant son nom d’utilisateur et un message, puis en sélectionnant **Ajouter** . Cette action envoie un e-mail comportant un lien de confirmation à ce nouveau copropriétaire. Une fois la confirmation effectuée, cette personne dispose d’autorisations complètes pour ajouter et supprimer des propriétaires. (Tant que la confirmation n’est pas effectuée, la section **Propriétaires actuels** indique « En attente d’approbation » pour cette personne.)
+1. Supprimez des propriétaires listés sous **Propriétaires actuels**.
+1. Ajoutez un propriétaire sous **Ajouter un propriétaire** en entrant son nom d’utilisateur et un message, puis en sélectionnant **Ajouter**. Cette action envoie un e-mail comportant un lien de confirmation à ce nouveau copropriétaire. Une fois la confirmation effectuée, cette personne dispose d’autorisations complètes pour ajouter et supprimer des propriétaires. (Tant que la confirmation n’est pas effectuée, la section **Propriétaires actuels** indique « En attente d’approbation » pour cette personne.)
 1. Pour transférer la propriété (quand elle change ou qu’un package n’a pas été publié sous le bon compte), ajoutez le nouveau propriétaire ; une fois qu’il aura confirmé sa propriété, il pourra vous supprimer de la liste.
 
 Pour affecter la propriété à une entreprise ou un groupe, créez un compte nuget.org à l’aide d’un alias de messagerie transféré aux membres d’équipe appropriés. Par exemple, les comptes [microsoft](https://nuget.org/profiles/microsoft) et [aspnet](https://nuget.org/profiles/aspnet) sont propriétaires de divers packages Microsoft ASP.NET.

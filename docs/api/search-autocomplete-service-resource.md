@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: f574849bf99cd4da4eefd55c3dd5a0648042f0c1
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 2893e13ff7b070844a2bdd5722da3aa1f123538d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292291"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773958"
 ---
 # <a name="autocomplete"></a>Autocomplétion
 
@@ -24,8 +24,8 @@ Les `@type` valeurs suivantes sont utilisées :
 Valeur @type                          | Notes
 ------------------------------------ | -----
 SearchAutocompleteService            | La version initiale
-SearchAutocompleteService/3.0.0-bêta | Alias de`SearchAutocompleteService`
-SearchAutocompleteService/3.0.0-RC   | Alias de`SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-bêta | Alias de `SearchAutocompleteService`
+SearchAutocompleteService/3.0.0-RC   | Alias de `SearchAutocompleteService`
 SearchAutocompleteService/3.5.0      | Prend en charge le `packageType` paramètre de requête
 
 ### <a name="searchautocompleteservice350"></a>SearchAutocompleteService/3.5.0
@@ -45,7 +45,9 @@ La première API de saisie semi-automatique prend en charge la recherche d’une
 
 Un package avec uniquement des versions non répertoriées n’apparaît pas dans les résultats.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -82,12 +84,14 @@ L’objet JSON racine a les propriétés suivantes :
 
 Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-totalHits | entier          | oui      | Nombre total de correspondances, à l’égard de `skip` et`take`
-data      | tableau de chaînes | oui      | ID de package correspondants à la requête
+totalHits | entier          | Oui      | Nombre total de correspondances, à l’égard de `skip` et `take`
+data      | tableau de chaînes | Oui      | ID de package correspondants à la requête
 
 ### <a name="sample-request"></a>Exemple de requête
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?q=storage&prerelease=true
+```
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -99,13 +103,15 @@ Une fois qu’un ID de package est découvert à l’aide de l’API précédent
 
 Une version de package non listée n’apparaît pas dans les résultats.
 
-    GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
+GET {@id}?id={ID}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}
+```
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
 Nom        | Dans     | Type    | Obligatoire | Notes
 ----------- | ------ | ------- | -------- | -----
-id          | URL    | string  | oui      | ID de package pour lequel extraire les versions
+id          | URL    | string  | Oui      | ID de package pour lequel extraire les versions
 prerelease  | URL    | boolean | non       | `true`ou `false` déterminer s’il faut inclure [les packages](../create-packages/prerelease-packages.md) de préversion
 semVerLevel | URL    | string  | non       | Une chaîne de version SemVer 2.0.0 
 
@@ -121,13 +127,15 @@ L’objet JSON racine a la propriété suivante :
 
 Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-data      | tableau de chaînes | oui      | Versions du package correspondant à la requête
+data      | tableau de chaînes | Oui      | Versions du package correspondant à la requête
 
 Les versions de package dans le `data` tableau peuvent contenir des métadonnées de build SemVer 2.0.0 (par exemple `1.0.0+metadata` ,) si le `semVerLevel=2.0.0` est fourni dans la chaîne de requête.
 
 ### <a name="sample-request"></a>Exemple de requête
 
-    GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
+GET https://api-v2v3search-0.nuget.org/autocomplete?id=nuget.protocol&prerelease=true
+```
 
 ### <a name="sample-response"></a>Exemple de réponse
 

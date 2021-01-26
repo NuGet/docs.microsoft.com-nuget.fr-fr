@@ -1,20 +1,20 @@
 ---
 title: Demandes de données utilisateur
 description: Stratégies de demande d’exportation et de suppression de données utilisateur
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: ef054f741755bccf56eedfd462915b8e9fd6931a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: e0ec429469a992c9558d1635890fd568398206a1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426984"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775717"
 ---
 # <a name="user-data-requests"></a>Demandes de données utilisateur
 
-nuget.org utilisateurs peuvent soumettre des informations supprimer les demandes et les demandes d’exportation d’informations par [nuget.org](https://www.nuget.org). Les deux types sont soumis sous forme de demandes de support et sont exécutés par les administrateurs nuget.org dans les 30 jours.
+les utilisateurs nuget.org peuvent envoyer des demandes de suppression d’informations et des demandes d’exportation d’informations via [NuGet.org](https://www.nuget.org). Les deux types sont soumis sous la forme de demandes de support et sont exécutés par les administrateurs nuget.org dans un délai de 30 jours.
 
 Les données utilisateur suivantes sont directement accessibles par le biais de nuget.org :
 

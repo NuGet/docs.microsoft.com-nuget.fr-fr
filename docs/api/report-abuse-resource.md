@@ -1,60 +1,64 @@
 ---
-title: Signaler un abus API NuGet, modèle d’URL
-description: Le modèle d’URL de rapport abus permet aux clients d’afficher un lien Signaler un abus dans leur interface utilisateur.
+title: Modèle d’URL du rapport d’abus, API NuGet
+description: Le modèle URL du rapport d’abus permet aux clients d’afficher un lien signaler un abus dans leur interface utilisateur.
 author: joelverhagen
 ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: d0ff41b08eeba5a6e4bc7c44722b6bc57f502047
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: b36058c9c841e2cca6eb61121ada8275f1525a8f
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43549337"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775233"
 ---
-# <a name="report-abuse-url-template"></a>Modèle d’URL de rapport un abus
+# <a name="report-abuse-url-template"></a>Modèle d’URL d’abus de rapport
 
-Il est possible pour un client générer une URL qui peut être utilisée par l’utilisateur pour signaler un abus sur un package spécifique. Cela est utile lorsqu’une source de package souhaite activer toutes les expériences client (même 3e partie) déléguer les rapports d’abus pour la source du package.
+Il est possible pour un client de créer une URL qui peut être utilisée par l’utilisateur pour signaler un abus sur un package spécifique. Cela est utile quand une source de package souhaite activer toutes les expériences client (même tierces) pour déléguer des rapports d’abus à la source du package.
 
-La ressource utilisée pour la création de cette URL est la `ReportAbuseUriTemplate` ressource trouvée dans le [index de service](service-index.md).
+La ressource utilisée pour générer cette URL est la `ReportAbuseUriTemplate` ressource trouvée dans l' [index de service](service-index.md).
 
-## <a name="versioning"></a>Gestion de version
+## <a name="versioning"></a>Contrôle de version
 
-Les éléments suivants `@type` les valeurs sont utilisées :
+Les `@type` valeurs suivantes sont utilisées :
 
 Valeur @type                       | Notes
 --------------------------------- | -----
-ReportAbuseUriTemplate/3.0.0-beta | La version initiale
-ReportAbuseUriTemplate/3.0.0-rc   | Alias de `ReportAbuseUriTemplate/3.0.0-beta`
+ReportAbuseUriTemplate/3.0.0-bêta | La version initiale
+ReportAbuseUriTemplate/3.0.0-RC   | Alias de `ReportAbuseUriTemplate/3.0.0-beta`
 
-## <a name="url-template"></a>Modèle d’URL
+## <a name="url-template"></a>URL template
 
-L’URL de l’API suivante est la valeur de la `@id` propriété associée à un de la ressource susmentionnée `@type` valeurs.
+L’URL de l’API suivante est la valeur de la `@id` propriété associée à l’une des valeurs de ressource mentionnées ci-dessus `@type` .
 
 ## <a name="http-methods"></a>Méthodes HTTP
 
-Bien que le client n’est pas destiné à effectuer des demandes à l’URL d’abus de rapports pour le compte de l’utilisateur, la page web doit prendre en charge la `GET` méthode pour autoriser une URL consultée être ouvert dans un navigateur web.
+Bien que le client ne soit pas destiné à effectuer des demandes à l’URL d’abus de rapport pour le compte de l’utilisateur, la page Web doit prendre en charge la `GET` méthode pour permettre l’ouverture facile d’une URL cliquée dans un navigateur Web.
 
 ## <a name="construct-the-url"></a>Construire l’URL
 
-Étant donné un ID de package connus et la version, l’implémentation du client permettre construire une URL utilisée pour accéder à une interface web. L’implémentation cliente doit afficher cette URL construit (ou un lien interactif) pour l’utilisateur leur permettant d’ouvrir un navigateur web à l’URL et que n’importe quel rapport abus nécessaire. L’implémentation de la forme de rapports d’abus est déterminée par l’implémentation du serveur.
+Avec un ID de package connu et une version, l’implémentation cliente peut construire une URL utilisée pour accéder à une interface Web. L’implémentation du client doit afficher cette URL construite (ou un lien de clic) pour permettre à l’utilisateur d’ouvrir un navigateur Web à l’URL et de faire tout rapport d’abus nécessaire. L’implémentation du formulaire de rapport d’abus est déterminée par l’implémentation du serveur.
 
-La valeur de la `@id` est une chaîne d’URL contenant un jeton d’espace réservé suivant :
+La valeur de `@id` est une chaîne d’URL contenant l’un des jetons d’espace réservé suivants :
 
-### <a name="url-placeholders"></a>Espace réservé d’URL
+### <a name="url-placeholders"></a>Espaces réservés d’URL
 
-Name        | Type    | Obligatoire | Notes
+Nom        | Type    | Obligatoire | Notes
 ----------- | ------- | -------- | -----
-`{id}`      | chaîne  | Non       | L’ID de package pour signaler un abus pour
-`{version}` | chaîne  | Non       | La version du package pour signaler un abus pour
+`{id}`      | string  | non       | ID de package pour signaler un abus pour
+`{version}` | string  | non       | Version du package pour signaler un abus pour
 
-Le `{id}` et `{version}` valeurs interprétée par l’implémentation de serveur doivent être de la casse et pas la casse pour que la version est normalisée.
+Les `{id}` `{version}` valeurs et interprétées par l’implémentation de serveur doivent être insensibles à la casse et ne pas être sensibles au fait que la version est normalisée ou non.
 
-Par exemple, modèle d’abus de nuget.org rapport ressemble à ceci :
+Par exemple, le modèle de rapport d’abus de NuGet. org ressemble à ceci :
 
-    https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
+https://www.nuget.org/packages/{id}/{version}/ReportAbuse
+```
 
-Si l’implémentation cliente doit afficher un lien vers le formulaire d’abus de rapport pour NuGet.Versioning 4.3.0, il serait génère l’URL suivante et fournit à l’utilisateur :
+Si l’implémentation du client doit afficher un lien vers le formulaire signaler un abus pour NuGet. version 4.3.0, elle génère l’URL suivante et la fournit à l’utilisateur :
 
-    https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```
+https://www.nuget.org/packages/NuGet.Versioning/4.3.0/ReportAbuse
+```

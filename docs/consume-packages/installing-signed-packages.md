@@ -1,16 +1,16 @@
 ---
 title: Gérer les limites d’approbation de package
 description: Décrit le processus d’installation de packages NuGet signés et de configuration des paramètres d’approbation des signatures de package.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 034b9dd9699af529e4d82d6ee5b1c42214673341
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 596ce330e434253e6fb200aa59ae4e14d47779ed
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237625"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774806"
 ---
 # <a name="manage-package-trust-boundaries"></a>Gérer les limites d’approbation de package
 

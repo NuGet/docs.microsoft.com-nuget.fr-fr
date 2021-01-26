@@ -10,19 +10,19 @@ ms.technology: ''
 description: Le service de publication permet aux clients de publier de nouveaux packages de symboles.
 keywords: Package de symboles push de l’API NuGet
 ms.reviewer: karann
-ms.openlocfilehash: bd4a10cc976c9d0775a63cfe61c35327c196065c
-ms.sourcegitcommit: e39e5a5ddf68bf41e816617e7f0339308523bbb3
+ms.openlocfilehash: 91bb4c9ca77fd7f1ff35831e02eb4f9d65d641c5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96738875"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98773896"
 ---
 # <a name="push-symbol-packages"></a>Envoyer des packages de symboles
 
 Il est possible d’envoyer des packages de symboles ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) à l’aide de l’API NuGet v3.
 Ces opérations sont basées sur la `SymbolPackagePublish` ressource trouvée dans l' [index de service](service-index.md).
 
-## <a name="versioning"></a>Gestion de version
+## <a name="versioning"></a>Contrôle de version
 
 La `@type` valeur suivante est utilisée :
 
@@ -42,7 +42,9 @@ La `PUT` méthode http est prise en charge par cette ressource.
 
 nuget.org prend en charge l’envoi d’un nouveau format de packages de symboles ([snupkg](../create-packages/Symbol-Packages-snupkg.md)) à l’aide de l’API suivante. 
 
-    PUT https://www.nuget.org/api/v2/symbolpackage
+```
+PUT https://www.nuget.org/api/v2/symbolpackage
+```
 
 Les packages de symboles avec le même ID et la même version peuvent être envoyés plusieurs fois. Un package de symboles sera rejeté dans les cas suivants.
 - Un package ayant le même ID et la même version n’existe pas.

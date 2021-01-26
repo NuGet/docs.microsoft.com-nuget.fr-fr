@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: ffbcb8dc18542f39c32a6d84b279c8eccaf98fc3
-ms.sourcegitcommit: 7e9c0630335ef9ec1e200e2ee9065f702e52a8ec
+ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85292309"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774160"
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -63,16 +63,18 @@ Les éléments de catalogue sont toujours ajoutés au catalogue dans un ordre ch
 
 La requête suivante extrait l’index du catalogue.
 
-    GET {@id}
+```
+GET {@id}
+```
 
 L’index de catalogue est un document JSON qui contient un objet avec les propriétés suivantes :
 
 Nom            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
-commitId        | string           | oui      | ID unique associé à la validation la plus récente
-commitTimeStamp | string           | oui      | Horodateur de la validation la plus récente
-count           | entier          | oui      | Nombre de pages dans l’index
-items           | tableau d’objets | oui      | Tableau d’objets, chaque objet représentant une page
+commitId        | string           | Oui      | ID unique associé à la validation la plus récente
+commitTimeStamp | string           | Oui      | Horodateur de la validation la plus récente
+count           | entier          | Oui      | Nombre de pages dans l’index
+items           | tableau d’objets | Oui      | Tableau d’objets, chaque objet représentant une page
 
 Chaque élément du `items` tableau est un objet avec des détails minimes sur chaque page. Ces objets de page ne contiennent pas les feuilles de catalogue (éléments). L’ordre des éléments dans ce tableau n’est pas défini. Les pages peuvent être triées par le client en mémoire à l’aide de leur `commitTimeStamp` propriété.
 
@@ -86,16 +88,18 @@ Les objets de page de catalogue trouvés dans la propriété de l’index de cat
 
 Nom            | Type    | Obligatoire | Notes
 --------------- | ------- | -------- | -----
-@id             | string  | oui      | URL de récupération de la page de catalogue
-commitId        | string  | oui      | ID unique associé à la validation la plus récente dans cette page
-commitTimeStamp | string  | oui      | Horodateur de la dernière validation dans cette page
-count           | entier | oui      | Nombre d’éléments dans la page de catalogue
+@id             | string  | Oui      | URL de récupération de la page de catalogue
+commitId        | string  | Oui      | ID unique associé à la validation la plus récente dans cette page
+commitTimeStamp | string  | Oui      | Horodateur de la dernière validation dans cette page
+count           | entier | Oui      | Nombre d’éléments dans la page de catalogue
 
 Contrairement à la [ressource de métadonnées de package](registration-base-url-resource.md) , qui, dans certains cas, insère des feuilles dans l’index, les feuilles de catalogue ne sont jamais inline dans l’index et doivent toujours être extraites à l’aide de l’URL de la page `@id` .
 
 ### <a name="sample-request"></a>Exemple de requête
 
-    GET https://api.nuget.org/v3/catalog0/index.json
+```
+GET https://api.nuget.org/v3/catalog0/index.json
+```
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -111,11 +115,11 @@ Le document de page de catalogue est un objet JSON avec les propriétés suivant
 
 Nom            | Type             | Obligatoire | Notes
 --------------- | ---------------- | -------- | -----
-commitId        | string           | oui      | ID unique associé à la validation la plus récente dans cette page
-commitTimeStamp | string           | oui      | Horodateur de la dernière validation dans cette page
-count           | entier          | oui      | Nombre d’éléments dans la page
-items           | tableau d’objets | oui      | Éléments du catalogue dans cette page
-parent          | string           | oui      | URL de l’index du catalogue
+commitId        | string           | Oui      | ID unique associé à la validation la plus récente dans cette page
+commitTimeStamp | string           | Oui      | Horodateur de la dernière validation dans cette page
+count           | entier          | Oui      | Nombre d’éléments dans la page
+items           | tableau d’objets | Oui      | Éléments du catalogue dans cette page
+parent          | string           | Oui      | URL de l’index du catalogue
 
 Chaque élément du `items` tableau est un objet avec des détails minimes sur l’élément du catalogue. Ces objets d’élément ne contiennent pas toutes les données de l’élément de catalogue. L’ordre des éléments dans le tableau de la page `items` n’est pas défini. Les éléments peuvent être triés par le client en mémoire à l’aide de leur `commitTimeStamp` propriété.
 
@@ -131,12 +135,12 @@ Les objets d’élément de catalogue trouvés dans la propriété de la page du
 
 Nom            | Type    | Obligatoire | Notes
 --------------- | ------- | -------- | -----
-@id             | string  | oui      | URL permettant de récupérer l’élément de catalogue
-@type           | string  | oui      | Type de l’élément de catalogue
-commitId        | string  | oui      | ID de validation associé à cet élément de catalogue
-commitTimeStamp | string  | oui      | Horodatage de validation de cet élément de catalogue
-NuGet : ID        | string  | oui      | ID de package associé à ce nœud terminal
-NuGet : version   | string  | oui      | Version du package à laquelle cette feuille est associée
+@id             | string  | Oui      | URL permettant de récupérer l’élément de catalogue
+@type           | string  | Oui      | Type de l’élément de catalogue
+commitId        | string  | Oui      | ID de validation associé à cet élément de catalogue
+commitTimeStamp | string  | Oui      | Horodatage de validation de cet élément de catalogue
+NuGet : ID        | string  | Oui      | ID de package associé à ce nœud terminal
+NuGet : version   | string  | Oui      | Version du package à laquelle cette feuille est associée
 
 La `@type` valeur sera l’une des deux valeurs suivantes :
 
@@ -147,7 +151,9 @@ Pour plus d’informations sur la signification de chaque type, consultez le [ty
 
 ### <a name="sample-request"></a>Exemple de requête
 
-    GET https://api.nuget.org/v3/catalog0/page2926.json
+```
+GET https://api.nuget.org/v3/catalog0/page2926.json
+```
 
 ### <a name="sample-response"></a>Exemple de réponse
 
@@ -161,12 +167,12 @@ Le document feuille du catalogue est un objet JSON avec les propriétés suivant
 
 Nom                    | Type                       | Obligatoire | Notes
 ----------------------- | -------------------------- | -------- | -----
-@type                   | chaîne ou tableau de chaînes | oui      | Type (s) de l’élément de catalogue
-Catalogue : commitId        | string                     | oui      | ID de validation associé à cet élément de catalogue
-Catalogue : commitTimeStamp | string                     | oui      | Horodatage de validation de cet élément de catalogue
-id                      | string                     | oui      | ID de package de l’élément de catalogue
-published               | string                     | oui      | Date de publication de l’élément du catalogue de packages
-version                 | string                     | oui      | Version du package de l’élément de catalogue
+@type                   | chaîne ou tableau de chaînes | Oui      | Type (s) de l’élément de catalogue
+Catalogue : commitId        | string                     | Oui      | ID de validation associé à cet élément de catalogue
+Catalogue : commitTimeStamp | string                     | Oui      | Horodatage de validation de cet élément de catalogue
+id                      | string                     | Oui      | ID de package de l’élément de catalogue
+published               | string                     | Oui      | Date de publication de l’élément du catalogue de packages
+version                 | string                     | Oui      | Version du package de l’élément de catalogue
 
 ### <a name="item-types"></a>Types d’éléments
 
@@ -195,7 +201,7 @@ Nom                    | Type                       | Obligatoire | Notes
 authors                 | string                     | non       |
 created                 | string                     | non       | Horodateur du moment où le package a été créé pour la première fois. Propriété de secours : `published` .
 dependencyGroups        | tableau d’objets           | non       | Les dépendances du package, regroupées par version cible du .NET Framework ([même format que la ressource de métadonnées du package](registration-base-url-resource.md#package-dependency-group))
-désapprobation             | object                     | non       | La désapprobation associée au package ([même format que la ressource de métadonnées du package](registration-base-url-resource.md#package-deprecation))
+désapprobation             | objet                     | non       | La désapprobation associée au package ([même format que la ressource de métadonnées du package](registration-base-url-resource.md#package-deprecation))
 description             | string                     | non       |
 iconUrl                 | string                     | non       |
 isPrerelease            | boolean                    | non       | Indique si la version du package est préliminaire. Peut être détecté à partir de `version` .
@@ -203,14 +209,14 @@ langage                | string                     | non       |
 licenseUrl              | string                     | non       |
 liste                  | boolean                    | non       | Indique si le package est ou non listé
 minClientVersion        | string                     | non       |
-packageHash             | string                     | oui      | Hachage du package, encodage à l’aide de la [base standard 64](https://tools.ietf.org/html/rfc4648#section-4)
-packageHashAlgorithm    | string                     | oui      |
-empaqueter             | entier                    | oui      | Taille du package. nupkg en octets
+packageHash             | string                     | Oui      | Hachage du package, encodage à l’aide de la [base standard 64](https://tools.ietf.org/html/rfc4648#section-4)
+packageHashAlgorithm    | string                     | Oui      |
+empaqueter             | entier                    | Oui      | Taille du package. nupkg en octets
 packageTypes            | tableau d’objets           | non       | Types de packages spécifiés par l’auteur.
 projectUrl              | string                     | non       |
 releaseNotes            | string                     | non       |
 requireLicenseAgreement | boolean                    | non       | Supposer `false` si exclu
-summary                 | string                     | non       |
+Récapitulatif                 | string                     | non       |
 tags                    | tableau de chaînes           | non       |
 title                   | string                     | non       |
 verbatimVersion         | string                     | non       | Chaîne de version telle qu’elle est trouvée à l’origine dans le. NuSpec
@@ -225,7 +231,7 @@ La `packageTypes` propriété est présente uniquement si un type de package a �
 
 Nom      | Type    | Obligatoire | Notes
 --------- | ------- | -------- | -----
-name      | string  | oui      | Nom du type de package.
+name      | string  | Oui      | Nom du type de package.
 version    | string  | non       | Version du type de package. Présent uniquement si l’auteur a spécifié explicitement une version dans le NuSpec.
 
 L' `published` horodateur est l’heure de la dernière liste du package.
@@ -235,7 +241,9 @@ L' `published` horodateur est l’heure de la dernière liste du package.
 
 #### <a name="sample-request"></a>Exemple de requête
 
+```
 GET https://api.nuget.org/v3/catalog0/data/2015.02.01.11.18.40/windowsazure.storage.1.0.0.json
+```
 
 #### <a name="sample-response"></a>Exemple de réponse
 
@@ -256,7 +264,9 @@ La `published` propriété est l’heure à laquelle le package a été supprim�
 
 #### <a name="sample-request"></a>Exemple de requête
 
+```
 GET https://api.nuget.org/v3/catalog0/data/2017.11.02.00.40.00/netstandard1.4_lib.1.0.0-test.json
+```
 
 #### <a name="sample-response"></a>Exemple de réponse
 
@@ -309,7 +319,7 @@ Avec cet algorithme de base, l’implémentation cliente peut générer une vue 
 
 Supposons que deux clients de catalogue possèdent une dépendance inhérente où la sortie d’un client dépend de la sortie d’un autre client. 
 
-#### <a name="example"></a>Exemple
+#### <a name="example"></a>Exemples
 
 Par exemple, sur nuget.org, un package qui vient d’être publié ne doit pas apparaître dans la ressource de recherche avant d’apparaître dans la ressource de métadonnées du package. Cela est dû au fait que l’opération de « restauration » effectuée par le client NuGet officiel utilise la ressource de métadonnées du package. Si un client Découvre un package à l’aide du service de recherche, il doit être en mesure de restaurer ce package à l’aide de la ressource de métadonnées du package. En d’autres termes, la ressource de recherche dépend de la ressource de métadonnées du package. Chaque ressource a une tâche en arrière-plan du client du catalogue qui met à jour cette ressource. Chaque client possède son propre curseur.
 

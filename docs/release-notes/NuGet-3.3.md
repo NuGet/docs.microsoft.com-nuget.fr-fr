@@ -1,20 +1,20 @@
 ---
 title: Notes de publication de NuGet 3,3
 description: Notes de publication de NuGet 3,3, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: aa8290c80cc500b59d1779bf76662c07382fd277
-ms.sourcegitcommit: e9c1dd0679ddd8ba3ee992d817b405f13da0472a
+ms.openlocfilehash: cd3f8c9c4586c608d41e7b8bfc413acfc6aff497
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76813778"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776514"
 ---
 # <a name="nuget-33-release-notes"></a>Notes de publication de NuGet 3,3
 
-[Notes de publication de NuGet 3.2.1](../release-notes/nuget-3.2.1.md) | [-notes de publication de NuGet 3,4-RC](../release-notes/nuget-3.4-RC.md)
+Notes de publication de [NuGet 3.2.1](../release-notes/nuget-3.2.1.md)  |  [Notes de publication de NuGet 3,4-RC](../release-notes/nuget-3.4-RC.md)
 
 NuGet 3,3 a été publié le 30 novembre, 2015 avec un nombre important de mises à jour de l’interface utilisateur et de fonctionnalités de ligne de commande, ainsi qu’une collection de correctifs utiles pour les clients NuGet.
 
@@ -37,11 +37,11 @@ NuGet 3,3 a été publié le 30 novembre, 2015 avec un nombre important de mises
 
 ## <a name="new-command-line-features"></a>Nouvelles fonctionnalités de ligne de commande
 
-Dans cette version, nous avons introduit les commandes `add` et `init` pour initialiser les référentiels basés sur les dossiers, comme décrit dans la [référence de NuGet. exe](../reference/nuget-exe-cli-reference.md). Les référentiels construits et gérés avec cette structure de dossiers offrent des [avantages significatifs](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) en matière de performances, comme indiqué sur notre blog.
+Dans cette version, nous avons introduit les `add` `init` commandes et pour initialiser les référentiels basés sur des dossiers, comme décrit dans la [ référencenuget.exe](../reference/nuget-exe-cli-reference.md). Les référentiels construits et gérés avec cette structure de dossiers offrent des [avantages significatifs](http://blog.nuget.org/20150922/Accelerate-Package-Source.html) en matière de performances, comme indiqué sur notre blog.
 
 ## <a name="contentfiles"></a>ContentFiles
 
-Le contenu est maintenant pris en charge dans `project.json` projets gérés par le biais du nouveau dossier `contentFiles` et `.nuspec` la notation d’élément `contentFiles`.  Ce contenu peut être spécifié plus directement par l’auteur du package pour les interactions avec les systèmes de projet.  Vous trouverez plus d’informations sur la configuration de contentFiles dans un document `.nuspec` dans la [référence. NuSpec](../reference/nuspec.md).
+Le contenu est désormais pris en charge dans `project.json` les projets managés par le biais de la nouvelle `contentFiles` notation de dossier et d' `.nuspec` `contentFiles` élément.  Ce contenu peut être spécifié plus directement par l’auteur du package pour les interactions avec les systèmes de projet.  Vous trouverez plus d’informations sur la configuration de contentFiles dans un `.nuspec` document dans la [référence. NuSpec](../reference/nuspec.md).
 
 ## <a name="nuget-locals-cache-management"></a>Gestion du cache des variables locales NuGet
 
@@ -55,7 +55,7 @@ La ligne de commande NuGet a été mise à jour pour inclure des informations su
 
 La liste complète des problèmes qui ont été résolus dans la version 3,3 se trouve sur GitHub, sous la [étape majeure de 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).
 
-La liste des problèmes corrigés dans la version de ligne de commande 3,3 est enregistrée dans le [jalon de ligne de commande 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
+La liste des problèmes corrigés dans la version de ligne de commande 3,3 est enregistrée dans le [jalon de Command-Line 3,3](https://github.com/NuGet/Home/issues?q=is%3Aissue+is%3Aclosed+milestone%3A3.3.0-commandline).
 
 ## <a name="known-issues"></a>Problèmes connus
 

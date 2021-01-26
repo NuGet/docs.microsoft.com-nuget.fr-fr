@@ -1,16 +1,16 @@
 ---
 title: Réinstallation et mise à jour des packages NuGet
 description: Informations détaillées sur la nécessité de réinstaller et mettre à jour des packages, comme lorsque des références de package sont rompues dans Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: conceptual
-ms.openlocfilehash: 101c6d6b9d93da912f60c40b27559e80327154b8
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 588d546352e5733ba8198061beb8006a79ecedac
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237729"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774981"
 ---
 # <a name="how-to-reinstall-and-update-packages"></a>Réinstallation et mise à jour des packages
 
@@ -23,7 +23,7 @@ La mise à jour et la réinstallation des packages s’effectuent de la façon s
 | Méthode | Update | Réinstallation |
 | --- | --- | --- |
 | Console du gestionnaire de package (décrite dans [Utilisation d’Update-Package](#using-update-package)) | Commande `Update-Package` | Commande `Update-Package -reinstall` |
-| Interface utilisateur du gestionnaire de package | Sous l’onglet **Mises à jour** , sélectionnez un ou plusieurs packages, puis sélectionnez **Mettre à jour** . | Sous l’onglet **Installé** , sélectionnez un package, enregistrez son nom, puis sélectionnez **Désinstaller** . Basculez vers l’onglet **Parcourir** , recherchez le nom du package, sélectionnez-le, puis sélectionnez **Installer** . |
+| Interface utilisateur du gestionnaire de package | Sous l’onglet **Mises à jour**, sélectionnez un ou plusieurs packages, puis sélectionnez **Mettre à jour**. | Sous l’onglet **Installé**, sélectionnez un package, enregistrez son nom, puis sélectionnez **Désinstaller**. Basculez vers l’onglet **Parcourir**, recherchez le nom du package, sélectionnez-le, puis sélectionnez **Installer**. |
 | Interface CLI de nuget.exe | Commande `nuget update` | Pour tous les packages, supprimez le dossier de package, puis exécutez `nuget install`. S’il n’y a qu’un seul package, supprimez le dossier de package et utilisez `nuget install <id>` pour réinstaller le même package. |
 
 > [!NOTE]
@@ -63,7 +63,7 @@ Dans tous les cas, utilisez la notation décrite dans [Gestion des versions du p
 
 ## <a name="using-update-package"></a>Utilisation d’Update-Package
 
-En tenant compte des [considérations](#considerations) décrites ci-dessous, vous pouvez facilement réinstaller tout package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package de Visual Studio ( **Outils** gestionnaire de  >  **package NuGet**  >  **console du gestionnaire** de package).
+En tenant compte des [considérations](#considerations) décrites ci-dessous, vous pouvez facilement réinstaller tout package à l’aide de la [commande Update-Package](../reference/ps-reference/ps-ref-update-package.md) dans la console du gestionnaire de package de Visual Studio (**Outils** gestionnaire de  >  **package NuGet**  >  **console du gestionnaire** de package).
 
 ```ps
 Update-Package -Id <package_name> –reinstall

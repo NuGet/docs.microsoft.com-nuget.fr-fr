@@ -1,16 +1,16 @@
 ---
 title: Configurations courantes de NuGet
 description: Les fichiers NuGet.Config permettent de contrôler le comportement de NuGet pour l’ensemble des projets et pour chacun des projets. Pour modifier ces fichiers, utilisez la commande nuget config.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 10/25/2017
 ms.topic: conceptual
-ms.openlocfilehash: e81c380eab3f1a8635e50e62811c7ae463ec3653
-ms.sourcegitcommit: 53b06e27bcfef03500a69548ba2db069b55837f1
+ms.openlocfilehash: 35339626b0a20ccfceafa89fef94fb3187013fd7
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97699769"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774857"
 ---
 # <a name="common-nuget-configurations"></a>Configurations courantes de NuGet
 
@@ -120,14 +120,16 @@ Quand NuGet trouve les paramètres dans ces fichiers, il les applique de la mani
 
 Supposons que vous disposiez de la structure de dossiers suivante sur deux lecteurs distincts :
 
-    disk_drive_1
-        User
-    disk_drive_2
-       Project1
-         Source
-       Project2
-         Source
-       tmp
+```
+disk_drive_1
+    User
+disk_drive_2
+    Project1
+        Source
+    Project2
+        Source
+    tmp
+```
 
 Vous avez donc quatre fichiers `NuGet.Config` aux emplacements suivants, avec le contenu spécifié (le fichier défini au niveau de l’ordinateur n’est pas inclus dans cet exemple, toutefois, son comportent est similaire à celui du fichier défini au niveau de l’utilisateur).
 

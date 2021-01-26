@@ -1,16 +1,16 @@
 ---
 title: Notes de publication de NuGet 5,0 RTM
 description: Notes de publication de NuGet 5,0, y compris les problèmes connus, les correctifs de bogues, les nouvelles fonctionnalités et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 04/02/2019
 ms.topic: conceptual
-ms.openlocfilehash: e4a6be7fb26e3cc4bd297eaf02999f6ac1389b77
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 637db1ae128ce020c33e54e56148c848a5f905a5
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236800"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776222"
 ---
 # <a name="nuget-50-release-notes"></a>Notes de publication de NuGet 5,0
 

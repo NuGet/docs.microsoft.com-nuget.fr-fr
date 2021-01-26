@@ -6,14 +6,14 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 86c9d07cf90b84fffd09b04847d41772dd633b98
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 7047dfd48b7f93756bbb1491de1b7e65da2c12b4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237872"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775406"
 ---
-# <a name="search"></a>Rechercher
+# <a name="search"></a>Recherche
 
 Il est possible de rechercher des packages disponibles sur une source de package à l’aide de l’API V3. La ressource utilisée pour la recherche est la `SearchQueryService` ressource trouvée dans l' [index de service](service-index.md).
 
@@ -45,7 +45,9 @@ L’API de recherche permet à un client de demander une page de packages corres
 
 Un package non répertorié ne doit jamais apparaître dans les résultats de la recherche.
 
-    GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
+GET {@id}?q={QUERY}&skip={SKIP}&take={TAKE}&prerelease={PRERELEASE}&semVerLevel={SEMVERLEVEL}&packageType={PACKAGETYPE}
+```
 
 ### <a name="request-parameters"></a>Paramètres de la demande
 
@@ -82,8 +84,8 @@ L’objet JSON racine a les propriétés suivantes :
 
 Nom      | Type             | Obligatoire | Notes
 --------- | ---------------- | -------- | -----
-totalHits | entier          | yes      | Nombre total de correspondances, à l’égard de `skip` et `take`
-data      | tableau d’objets | yes      | Résultats de la recherche correspondant à la requête
+totalHits | entier          | Oui      | Nombre total de correspondances, à l’égard de `skip` et `take`
+data      | tableau d’objets | Oui      | Résultats de la recherche correspondant à la requête
 
 ### <a name="search-result"></a>Résultat de la recherche
 
@@ -92,10 +94,10 @@ L'objet a les propriétés suivantes :
 
 Nom           | Type                       | Obligatoire | Notes
 -------------- | -------------------------- | -------- | -----
-id             | string                     | yes      | ID du package mis en correspondance
-version        | string                     | yes      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de Build)
+id             | string                     | Oui      | ID du package mis en correspondance
+version        | string                     | Oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de Build)
 description    | string                     | non       | 
-versions       | tableau d’objets           | yes      | Toutes les versions du package correspondant au `prerelease` paramètre
+versions       | tableau d’objets           | Oui      | Toutes les versions du package correspondant au `prerelease` paramètre
 authors        | chaîne ou tableau de chaînes | non       | 
 iconUrl        | string                     | non       | 
 licenseUrl     | string                     | non       | 
@@ -107,7 +109,7 @@ tags           | chaîne ou tableau de chaînes | non       |
 title          | string                     | non       | 
 totalDownloads | entier                    | non       | Cette valeur peut être déduite par la somme des téléchargements dans le `versions` tableau.
 verifi       | boolean                    | non       | Valeur booléenne JSON indiquant si le package est [vérifié](../nuget-org/id-prefix-reservation.md)
-packageTypes   | tableau d’objets           | yes      | Types de packages définis par l’auteur du package (ajouté dans `SearchQueryService/3.5.0` )
+packageTypes   | tableau d’objets           | Oui      | Types de packages définis par l’auteur du package (ajouté dans `SearchQueryService/3.5.0` )
 
 Sur nuget.org, un package vérifié est un package dont l’ID de package correspond à un préfixe d’ID réservé et qui appartient à l’un des propriétaires du préfixe réservé. Pour plus d’informations, consultez la [documentation relative à la réservation du préfixe d’ID](../nuget-org/id-prefix-reservation.md).
 
@@ -115,19 +117,21 @@ Les métadonnées contenues dans l’objet de résultat de la recherche provienn
 
 Nom      | Type    | Obligatoire | Notes
 --------- | ------- | -------- | -----
-@id       | string  | yes      | URL absolue de la [feuille d’inscription](registration-base-url-resource.md#registration-leaf) associée
-version   | string  | yes      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de Build)
-disponibles | entier | yes      | Nombre de téléchargements pour cette version de package spécifique
+@id       | string  | Oui      | URL absolue de la [feuille d’inscription](registration-base-url-resource.md#registration-leaf) associée
+version   | string  | Oui      | La chaîne de version SemVer 2.0.0 complète du package (peut contenir des métadonnées de Build)
+disponibles | entier | Oui      | Nombre de téléchargements pour cette version de package spécifique
 
 Le `packageTypes` tableau se compose toujours d’au moins un élément (1). Le type de package d’un ID de package donné est considéré comme les types de packages définis par la dernière version du package par rapport aux autres paramètres de recherche. Chaque élément du `packageTypes` tableau est un objet JSON avec les propriétés suivantes :
 
 Nom      | Type    | Obligatoire | Notes
 --------- | ------- | -------- | -----
-name      | string  | yes      | Nom du type de package.
+name      | string  | Oui      | Nom du type de package.
 
 ### <a name="sample-request"></a>Exemple de requête
 
-    GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
+GET https://azuresearch-usnc.nuget.org/query?q=NuGet.Versioning&prerelease=false&semVerLevel=2.0.0
+```
 
 ### <a name="sample-response"></a>Exemple de réponse
 

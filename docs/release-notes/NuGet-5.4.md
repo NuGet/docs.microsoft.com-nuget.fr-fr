@@ -1,16 +1,16 @@
 ---
 title: Notes de publication de NuGet 5,4
 description: Notes de publication de NuGet 5,4, y compris les nouvelles fonctionnalités, les correctifs de bogues et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 09/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: c7fb9c1e587b6603abe63581c662571abfd4506b
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: dd4c10672db3a65b68f18636105ee55ab09da7ef
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384109"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776177"
 ---
 # <a name="nuget-54-release-notes"></a>Notes de publication de NuGet 5,4
 
@@ -28,7 +28,7 @@ Véhicules de distribution NuGet :
 
 * Nouvelle fonction d’assistance : à partir d’une liste d’ID de package et de versions, récupérez les packages de niveau supérieur probables. - [#8316](https://github.com/NuGet/Home/issues/8316)
 
-* Nouvelle [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) action pour l’installation et la configuration de NuGet. exe sur les [actions GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
+* Nouvelle [`nuget/setup-nuget`](https://github.com/marketplace/actions/setup-nuget-exe-for-use-with-actions) action pour l’installation et la configuration de NuGet.exe sur des [actions GitHub](https://github.com/features/actions). - [#8818](https://github.com/NuGet/Home/issues/8818)
 
 ### <a name="issues-fixed-in-this-release"></a>Problèmes résolus dans cette version
 
@@ -42,7 +42,7 @@ Véhicules de distribution NuGet :
 
 * Le fichier de verrouillage n’est pas généré correctement-l’ordonnancement du Framework ne doit pas avoir d’impact sur la restauration avec lockedmode- [#8645](https://github.com/NuGet/Home/issues/8645)
 
-* La validation LockFile échoue pour les projets avec <RuntimeIdentifiers> défini dans le kit de développement logiciel (SDK) 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
+* La validation LockFile échoue pour les projets avec <RuntimeIdentifiers> set dans le kit de développement logiciel (SDK) 3.0.100- [#8639](https://github.com/NuGet/Home/issues/8639)
 
 * La validation de signature rejettera désormais correctement les signatures avec des horodateurs qui ont 2 valeurs sous le même OID- [#8629](https://github.com/NuGet/Home/issues/8629)
 

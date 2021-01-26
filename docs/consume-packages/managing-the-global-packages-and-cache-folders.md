@@ -1,16 +1,16 @@
 ---
 title: Gérer les dossiers de packages globaux, les dossiers de cache et les dossiers temporaires dans NuGet
 description: Guide pratique pour gérer le dossier d’installation des packages globaux, le cache de package et les dossiers temporaires présents sur un ordinateur et utilisés lors de l’installation, la restauration et la mise à jour de packages.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e2672aa0bf57242526364639f0df74f9d1adb934
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: e5585267d4ce2563d77ff30ec5c31e196d98686a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237320"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774798"
 ---
 # <a name="managing-the-global-packages-cache-and-temp-folders"></a>Gérer les dossiers de packages globaux, les dossiers de cache et les dossiers temporaires
 
@@ -18,17 +18,17 @@ Chaque fois que vous installez, mettez à jour ou restaurez un package, NuGet g�
 
 | Nom | Description et emplacement (par utilisateur)|
 | --- | --- |
-| global&#8209;packages | C’est dans le dossier *global-packages* que NuGet installe les packages téléchargés. Chaque package est entièrement développé dans un sous-dossier qui correspond à son identificateur et à son numéro de version. Les projets qui utilisent le format [PackageReference](package-references-in-project-files.md) utilisent toujours des packages directement à partir de ce dossier. Lorsque [packages.config](../reference/packages-config.md) est utilisé, les packages sont installés dans le dossier *global-packages* , puis copiés dans le dossier `packages` du projet.<br/><ul><li>Windows : `%userprofile%\.nuget\packages`</li><li>Mac/Linux : `~/.nuget/packages`</li><li>Écrasez avec la variable d’environnement NUGET_PACKAGES, les  [paramètres de configuration](../reference/nuget-config-file.md#config-section)`globalPackagesFolder` ou `repositoryPath` (respectivement pour PackageReference et `packages.config`) ou la propriété MSBuild `RestorePackagesPath` (MSBuild uniquement). La variable d’environnement a la priorité sur le paramètre de configuration.</li></ul> |
+| global&#8209;packages | C’est dans le dossier *global-packages* que NuGet installe les packages téléchargés. Chaque package est entièrement développé dans un sous-dossier qui correspond à son identificateur et à son numéro de version. Les projets qui utilisent le format [PackageReference](package-references-in-project-files.md) utilisent toujours des packages directement à partir de ce dossier. Lorsque [packages.config](../reference/packages-config.md) est utilisé, les packages sont installés dans le dossier *global-packages*, puis copiés dans le dossier `packages` du projet.<br/><ul><li>Windows : `%userprofile%\.nuget\packages`</li><li>Mac/Linux : `~/.nuget/packages`</li><li>Écrasez avec la variable d’environnement NUGET_PACKAGES, les  [paramètres de configuration](../reference/nuget-config-file.md#config-section)`globalPackagesFolder` ou `repositoryPath` (respectivement pour PackageReference et `packages.config`) ou la propriété MSBuild `RestorePackagesPath` (MSBuild uniquement). La variable d’environnement a la priorité sur le paramètre de configuration.</li></ul> |
 | http&#8209;cache | Le Gestionnaire de Package de Visual Studio (NuGet 3.x+) et l’outil `dotnet` stockent une copie des packages téléchargés dans ce cache (sous la forme de fichiers `.dat`), dans un sous-dossier par source de package. Les packages ne sont pas développés, et le cache a un délai d’expiration de 30 minutes.<br/><ul><li>Windows : `%localappdata%\NuGet\v3-cache`</li><li>Mac/Linux : `~/.local/share/NuGet/v3-cache`</li><li>Écrasez avec la variable d’environnement NUGET_HTTP_CACHE_PATH.</li></ul> |
 | temp | Il s’agit du dossier dans lequel NuGet stocke les fichiers temporaires pendant ses différentes opérations.<br/><li>Windows : `%temp%\NuGetScratch`</li><li>Mac/Linux : `/tmp/NuGetScratch`</li></ul> |
 | plugins-cache **4.8+** | Il s’agit du dossier dans lequel NuGet stocke les résultats de la demande de revendications de l’opération.<br/><ul><li>Windows : `%localappdata%\NuGet\plugins-cache`</li><li>Mac/Linux : `~/.local/share/NuGet/plugins-cache`</li><li>Remplacez par la variable d’environnement NUGET_PLUGINS_CACHE_PATH.</li></ul> |
 
 > [!Note]
-> NuGet 3.5 et les versions antérieures utilisent *packages-cache* au lieu de *http-cache* , qui se trouve dans `%localappdata%\NuGet\Cache`.
+> NuGet 3.5 et les versions antérieures utilisent *packages-cache* au lieu de *http-cache*, qui se trouve dans `%localappdata%\NuGet\Cache`.
 
 Les dossiers *global-packages* et cache dispensent en général NuGet de télécharger des packages déjà présents sur l’ordinateur, ce qui améliore les performances d’installation, de mise à jour et de restauration. Avec PackageReference, le dossier *global-packages* évite également de conserver les packages téléchargés à l’intérieur des dossiers du projet, où ils pourraient être ajoutés par inadvertance au contrôle de code source, et réduit l’impact global de NuGet sur le stockage de l’ordinateur.
 
-Pour récupérer un package, NuGet commence par regarder dans le dossier *global-packages* . Si la version exacte du package n’y figure pas, il vérifie toutes les sources de packages non HTTP. S’il ne trouve toujours pas le package, il le recherche dans *http-cache* , sauf si vous spécifiez `--no-cache` avec des commandes `dotnet.exe` ou `-NoCache` avec des commandes `nuget.exe`. Si le package ne se trouve pas dans le cache ou que le cache n’est pas utilisé, NuGet le récupère sur HTTP.
+Pour récupérer un package, NuGet commence par regarder dans le dossier *global-packages*. Si la version exacte du package n’y figure pas, il vérifie toutes les sources de packages non HTTP. S’il ne trouve toujours pas le package, il le recherche dans *http-cache*, sauf si vous spécifiez `--no-cache` avec des commandes `dotnet.exe` ou `-NoCache` avec des commandes `nuget.exe`. Si le package ne se trouve pas dans le cache ou que le cache n’est pas utilisé, NuGet le récupère sur HTTP.
 
 Pour plus d’informations, consultez [Processus d’installation d’un package](../concepts/package-installation-process.md).
 
@@ -98,9 +98,9 @@ dotnet nuget locals all --clear
 nuget locals all -clear
 ```
 
-Les packages utilisés par des projets actuellement ouverts dans Visual Studio ne sont pas effacés du dossier *global-packages* .
+Les packages utilisés par des projets actuellement ouverts dans Visual Studio ne sont pas effacés du dossier *global-packages*.
 
-À compter de Visual Studio 2017, utilisez la commande de menu **Outils > Gestionnaire de package NuGet > Paramètres du Gestionnaire de package** , puis sélectionnez **Effacer tous les caches NuGet** . À l’heure actuelle, la gestion du cache n’est pas disponible avec la console du Gestionnaire de package. Dans Visual Studio 2015, utilisez plutôt les commandes CLI.
+À compter de Visual Studio 2017, utilisez la commande de menu **Outils > Gestionnaire de package NuGet > Paramètres du Gestionnaire de package**, puis sélectionnez **Effacer tous les caches NuGet**. À l’heure actuelle, la gestion du cache n’est pas disponible avec la console du Gestionnaire de package. Dans Visual Studio 2015, utilisez plutôt les commandes CLI.
 
 ![Commande d’option NuGet pour effacer les caches](media/options-clear-caches.png)
 

@@ -1,7 +1,7 @@
 ---
 title: Guide pratique pour publier des packages de symboles NuGet à l’aide du nouveau format de package de symboles « .snupkg »| Microsoft Docs
-author: cristinamanu
-ms.author: cristinamanu
+author: JonDouglas
+ms.author: jodou
 manager: skofman
 ms.date: 10/30/2018
 ms.topic: reference
@@ -12,16 +12,18 @@ keywords: Packages de symboles NuGet, débogage de packages NuGet, prise en char
 ms.reviewer:
 - anangaur
 - karann
-ms.openlocfilehash: fbcc035a6b800617f995d3bcebd7e1764aa467b0
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: 001637348fdd435e4ffd3a5a55e8128d1eab453c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235722"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98774567"
 ---
 # <a name="creating-symbol-packages-snupkg"></a>Création de packages de symboles (.snupkg)
 
 Une bonne expérience de débogage repose sur la présence de symboles de débogage, car ils fournissent des informations critiques telles que l’association entre le code compilé et le code source, les noms des variables locales, les traces de la pile, et bien plus encore. Vous pouvez utiliser des packages de symboles (. snupkg) pour distribuer ces symboles et améliorer l’expérience de débogage de vos packages NuGet.
+
+> Notez que le package de symboles n’est pas la seule stratégie pour rendre les symboles de débogage disponibles pour les consommateurs de votre bibliothèque. Il est également [possible `embed` ](https://docs.microsoft.com/dotnet/core/deploying/single-file#include-pdb-files-inside-the-bundle) de les utiliser dans le `dll` ou `exe` avec la propriété de projet suivante :`<DebugType>embedded</DebugType>`
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -46,7 +48,7 @@ Si vous utilisez l’interface CLI dotnet ou MSBuild, vous devez définir les `I
      dotnet pack MyPackage.csproj -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
      ```
 
-  ou
+  or
 
   ```cli
   msbuild MyPackage.csproj /t:pack /p:IncludeSymbols=true /p:SymbolPackageFormat=snupkg

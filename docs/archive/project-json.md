@@ -1,24 +1,24 @@
 ---
 title: Informations de référence sur le fichier project.json pour NuGet
 description: Dans certains types de projets, project.json gère la liste des packages NuGet utilisés dans le projet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 07/27/2017
 ms.topic: reference
-ms.openlocfilehash: 5ecbcd4855de8ea7b6301a5e307779216baf96fc
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 6665f4f3e688cb4a3989216c8c8f1a8655b61ed8
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "69488287"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98775207"
 ---
 # <a name="projectjson-reference"></a>Documentation de référence sur project.json
 
-*NuGet 3.x*
+*NuGet 3. x +*
 
 Le fichier `project.json` gère une liste de packages utilisés dans un projet, appelée format de gestion des packages. Il remplace `packages.config` mais est à son tour remplacé par [PackageReference](../consume-packages/package-references-in-project-files.md) avec NuGet 4.0 +.
 
-Le [`project.lock.json`](#projectlockjson) fichier (décrit ci-dessous) est `project.json`également utilisé dans les projets utilisant .
+Le [`project.lock.json`](#projectlockjson) fichier (décrit ci-dessous) est également utilisé dans les projets qui utilisent `project.json` .
 
 `project.json` présente la structure de base suivante, où chacun des quatre objets de niveau supérieur peut avoir un nombre quelconque d’objets enfants :
 
@@ -39,7 +39,7 @@ Le [`project.lock.json`](#projectlockjson) fichier (décrit ci-dessous) est `pro
 }
 ```
 
-## <a name="dependencies"></a>Les dépendances
+## <a name="dependencies"></a>Dépendances
 
 Répertorie les dépendances de package NuGet de votre projet sous la forme suivante :
 
@@ -70,12 +70,12 @@ Les ressources des dépendances qui sont transférées dans le projet de niveau 
 
 | Balise include/exclude | Dossiers affectés de la cible |
 | --- | --- |
-| contentFiles | Contenu  |
+| contentFiles | Content  |
 | runtime | Runtime, Resources et FrameworkAssemblies  |
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
 | native | native |
-| Aucun | Aucun dossier |
+| aucun | Aucun dossier |
 | all | Tous les dossiers |
 
 Les balises spécifiées avec `exclude` sont prioritaires sur celles spécifiées avec `include`. Par exemple, `include="runtime, compile" exclude="compile"` est identique à `include="runtime"`.
