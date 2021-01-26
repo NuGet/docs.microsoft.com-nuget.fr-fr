@@ -1,16 +1,16 @@
 ---
 title: Commande du Pack de l’interface CLI NuGet
 description: Référence pour la commande nuget.exe Pack
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 0483a75c7ee1fd851f935f44d96a417e2e86bf20
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: e2906d53119cb8c922df7d177cd686836ac50a5a
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622952"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780043"
 ---
 # <a name="pack-command-nuget-cli"></a>commande Pack (interface CLI NuGet)
 
@@ -22,7 +22,7 @@ Crée un package NuGet basé sur le fichier [. NuSpec](../nuspec.md) ou le fichi
 > Utilisez [`dotnet pack`](../dotnet-Commands.md) ou [`msbuild -t:pack`](../msbuild-targets.md) pour les projets basés sur [PackageReference](../../consume-packages/package-references-in-project-files.md) .
 > Sous mono, la création d’un package à partir d’un fichier projet n’est pas prise en charge. Vous devez également ajuster les chemins non locaux dans le `.nuspec` fichier aux chemins de style UNIX, car nuget.exe ne convertit pas les chemins Windows eux-mêmes.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget pack <nuspecPath | projectPath> [options] [-Properties ...]
@@ -45,7 +45,7 @@ où `<nuspecPath>` et `<projectPath>` spécifient `.nuspec` respectivement le fi
 
 - **`-Exclude`**
 
-  Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l’exemple ci-dessous.
+  Spécifie un ou plusieurs modèles de caractères génériques à exclure lors de la création d’un package. Pour spécifier plusieurs modèles, répétez l’indicateur-Exclude. Voir l'exemple ci-dessous.
 
 - **`-ExcludeEmptyDirectories`**
 

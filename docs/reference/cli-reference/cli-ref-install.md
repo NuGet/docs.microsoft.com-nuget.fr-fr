@@ -1,16 +1,16 @@
 ---
 title: Commande d’installation de l’interface CLI NuGet
 description: Référence pour la commande nuget.exe install
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 23856728d07d07183b5aedcd6218a56a444c410b
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 34b79bfa7a0dddf5da6b5c465293caec49129f6c
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623095"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779264"
 ---
 # <a name="install-command-nuget-cli"></a>commande Install (interface CLI NuGet)
 
@@ -29,7 +29,7 @@ La `install` commande ne modifie pas un fichier projet ou `packages.config` . de
 
 Pour ajouter une dépendance, ajoutez un package par le biais de l’interface utilisateur ou de la console du gestionnaire de package dans Visual Studio, ou modifiez, `packages.config` puis exécutez `install` ou `restore` .
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget install <packageID | configFilePath> [options]

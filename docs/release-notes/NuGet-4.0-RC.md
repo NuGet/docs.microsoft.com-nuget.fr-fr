@@ -1,17 +1,17 @@
 ---
 title: Notes de publication de la version NuGet 4.0 RC
 description: Notes de publication de NuGet 4.0 RC, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 02/03/2017
 ms.topic: conceptual
 ms.reviewer: ananguar
-ms.openlocfilehash: 2d0bb6356c0a20843bdc884b68f5f61838b82e73
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 44f15e2fc33cca8a3d88af17bf76f1dcc16ca860
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "64496644"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780188"
 ---
 # <a name="nuget-40-rc-release-notes"></a>Notes de publication de la version NuGet 4.0 RC
 
@@ -19,7 +19,7 @@ ms.locfileid: "64496644"
 
 [NuGet 4.0 RC pour Visual Studio 2017](http://blog.nuget.org/20161121/introducing-nuget4.0) ajoute la prise en charge des scénarios .NET Core, répond aux principaux commentaires des clients et améliore les performances dans de nombreux scénarios. Cette version offre plusieurs améliorations telles que la prise en charge de PackageReference, des commandes NuGet comme cibles MSBuild, la restauration des packages en arrière-plan, et bien plus encore.
 
-## <a name="bug-fixes"></a>Correctifs de bogues
+## <a name="bug-fixes"></a>Résolutions de bogues
 
 - Changements de comportement dans `dotnet pack --version-suffix foo` - [#3838](https://github.com/NuGet/Home/issues/3838)
 

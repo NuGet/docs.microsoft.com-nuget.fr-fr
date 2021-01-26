@@ -1,16 +1,16 @@
 ---
 title: Packages NuGet dans les modèles Visual Studio
 description: Instructions pour inclure des packages NuGet dans des modèles de projet et d’élément Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/03/2018
 ms.topic: conceptual
-ms.openlocfilehash: 2dfbd793eee05169f051d9c8943bc065945b92da
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 82a0121bb3144b7f28f677185039c0fe15cc2bf3
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622640"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780088"
 ---
 # <a name="packages-in-visual-studio-templates"></a>Packages dans des modèles Visual Studio
 
@@ -119,7 +119,7 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
 1. Dans l’élément `<packages>` du fichier `.vstemplate`, ajoutez l’attribut `repository="registry"` et spécifiez le nom de votre clé de Registre dans l’attribut `keyName`.
 
     - Si vous avez déjà décompressé vos packages, utilisez l’attribut `isPreunzipped="true"`.
-    - *(NuGet 3.2 +) * Si vous voulez forcer une build au moment du design à la fin de l’installation du package, ajoutez l’attribut `forceDesignTimeBuild="true"`.
+    - *(NuGet 3.2 +)* Si vous voulez forcer une build au moment du design à la fin de l’installation du package, ajoutez l’attribut `forceDesignTimeBuild="true"`.
     - À titre d’optimisation, ajoutez `skipAssemblyReferences="true"`, car le modèle lui-même inclut déjà les références nécessaires.
 
         ```xml
@@ -129,7 +129,7 @@ Les SDK qui sont installés avec un fichier MSI peuvent installer des packages N
         </packages>
         ```
 
-## <a name="best-practices"></a>Bonnes pratiques
+## <a name="best-practices"></a>Meilleures pratiques
 
 1. Déclarez une dépendance sur l’extension VSIX NuGet en ajoutant une référence à celle-ci dans votre manifeste VSIX :
 

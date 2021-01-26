@@ -1,16 +1,16 @@
 ---
 title: Commande init de l’interface CLI NuGet
 description: Référence pour la commande nuget.exe init
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 3b830d678a473c917b70bd46900bdb0206d3652e
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: f37572624cea744ce60a9a2e58ad3cbe2696cb9e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623082"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780069"
 ---
 # <a name="init-command-nuget-cli"></a>Init, commande (interface CLI NuGet)
 
@@ -20,7 +20,7 @@ Copie tous les packages d’un dossier plat dans un dossier de destination à l�
 
 Comme avec `add` , la destination doit être un dossier local ou un chemin d’accès UNC ; Les référentiels de packages HTTP comme nuget.org ou les serveurs privés ne sont pas pris en charge.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget init <source> <destination> [options]

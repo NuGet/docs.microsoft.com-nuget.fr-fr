@@ -1,16 +1,16 @@
 ---
 title: Présentation et objectifs de NuGet
 description: Une introduction complète à ce qu’est et ce que fait NuGet
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: overview
-ms.openlocfilehash: c326cf184ff20fb798a5770f0a4cf9bf42bed3f5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 446a1ad4d07d0338a996ad93823ac20386620c0d
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "78230692"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780099"
 ---
 # <a name="an-introduction-to-nuget"></a>Présentation de NuGet
 
@@ -24,7 +24,7 @@ NuGet prenant en charge à la fois les hôtes privés et l’hôte nuget.org pub
 
 ## <a name="the-flow-of-packages-between-creators-hosts-and-consumers"></a>Flux des packages entre les créateurs, les hôtes et les consommateurs
 
-Dans son rôle d’hôte public, NuGet lui-même maintient le dépôt central de plus de 100.000 paquets uniques à [nuget.org](https://www.nuget.org). Ces forfaits sont utilisés par des millions de développeurs .NET/.NET Core chaque jour. NuGet vous permet également d’héberger des packages à titre privé dans le cloud (par exemple sur Azure DevOps), sur un réseau privé ou même seulement sur votre système de fichiers local. Ces packages sont ainsi réservés aux développeurs qui ont accès à l’hôte, ce qui permet de les mettre à la disposition d’un groupe spécifique de consommateurs. Les options sont expliquées dans [Hébergement de vos propres flux NuGet](hosting-packages/overview.md). Les options de configuration permettent également de choisir précisément quels hôtes seront accessibles à chaque ordinateur, ce qui garantit que les packages proviendront de sources spécifiques plutôt que d’un référentiel public comme nuget.org.
+Dans son rôle d’hôte public, NuGet gère lui-même le référentiel central de plus de 100 000 packages uniques sur [NuGet.org](https://www.nuget.org). Ces packages sont utilisés par des millions de développeurs .NET/.NET Core tous les jours. NuGet vous permet également d’héberger des packages à titre privé dans le cloud (par exemple sur Azure DevOps), sur un réseau privé ou même seulement sur votre système de fichiers local. Ces packages sont ainsi réservés aux développeurs qui ont accès à l’hôte, ce qui permet de les mettre à la disposition d’un groupe spécifique de consommateurs. Les options sont expliquées dans [Hébergement de vos propres flux NuGet](hosting-packages/overview.md). Les options de configuration permettent également de choisir précisément quels hôtes seront accessibles à chaque ordinateur, ce qui garantit que les packages proviendront de sources spécifiques plutôt que d’un référentiel public comme nuget.org.
 
 Quelle que soit sa nature, un hôte sert de point de connexion entre les *créateurs* et les *consommateurs* de packages. Les créateurs produisent des packages NuGet pratiques et les publient sur un hôte. Les consommateurs recherchent des packages pratiques et compatibles sur les hôtes accessibles, les téléchargent et incluent ces packages dans leurs projets. Une fois installés dans un projet, les API des packages sont disponibles pour le reste du code du projet.
 
@@ -47,7 +47,7 @@ En plus de la prise en charge de l’hébergement, NuGet fournit également diff
 | --- | --- | --- | --- |
 | [Interface CLI .NET](consume-packages/install-use-packages-dotnet-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Propose certaines des fonctionnalités de l’interface CLI NuGet directement dans la chaîne d’outils .NET Core. Tout comme l’interface CLI `nuget.exe`, l’interface CLI dotnet n’interagit pas avec les projets Visual Studio. |
 | [Interface CLI de nuget.exe](consume-packages/install-use-packages-nuget-cli.md) | Tous | Création, consommation | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Fournit toutes les fonctionnalités de NuGet, avec certaines commandes s’appliquant spécifiquement aux créateurs de package, certaines seulement aux consommateurs et d’autres aux deux. Par exemple, les créateurs de packages utilisent la commande `nuget pack` pour créer un package à partir de différents assemblies et des fichiers associés, les consommateurs utilisent `nuget install` pour inclure des packages dans un dossier de projet, et tous utilisent `nuget config` pour définir les variables de configuration NuGet. L’interface CLI NuGet, indépendante de la plateforme, n’interagit pas avec les projets Visual Studio. |
-| [Console De gestionnaire de paquets](consume-packages/install-use-packages-powershell.md) | Visual Studio sur Windows | Consommation | Propose des [commandes PowerShell](reference/Powershell-Reference.md) permettant d’installer et de gérer des packages dans les projets Visual Studio. |
+| [Console du gestionnaire de package](consume-packages/install-use-packages-powershell.md) | Visual Studio sur Windows | Consommation | Propose des [commandes PowerShell](reference/Powershell-Reference.md) permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur du gestionnaire de package](consume-packages/install-use-packages-visual-studio.md) | Visual Studio sur Windows | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Visual Studio. |
 | [Interface utilisateur de gestion de NuGet](/visualstudio/mac/nuget-walkthrough) | Visual Studio pour Mac | Consommation | Propose une interface utilisateur facile d’utilisation permettant d’installer et de gérer des packages dans les projets Mac. |
 | [MSBuild](reference/msbuild-targets.md) | Windows | Création, consommation | Offre la possibilité de créer et de restaurer directement des packages utilisés dans un projet avec la chaîne d’outils MSBuild. |
@@ -72,11 +72,11 @@ Pour plus d’informations sur la façon dont NuGet réalise ce service, consult
 
 Compte tenu de la simplicité de déplacement de projets entre différents ordinateurs de développeurs, référentiels de contrôle de code source, serveurs de builds, etc., il est très peu pratique de conserver les assemblys binaires de packages NuGet directement liés à un projet. Cela aurait pour effet d’encombrer inutilement chacune des copies du projet (et ainsi de gaspiller de l’espace dans les référentiels de contrôle de code source). Il serait également très difficile de mettre à jour les fichiers binaires des packages, car la nouvelle version devrait s’appliquer à toutes les copies du projet.
 
-NuGet gère plutôt une simple liste de références des packages dont dépend le projet, qui englobe les dépendances de niveau supérieur et de niveau inférieur. Autrement dit, lorsque un package est installé dans un projet à partir d’un hôte, NuGet enregistre l’identificateur et le numéro de version du package dans cette liste de références. (Désinstaller un paquet, bien sûr, le supprime de la liste.) NuGet fournit alors un moyen de restaurer tous les paquets référencés sur demande, comme décrit sur [la restauration de paquet](consume-packages/package-restore.md).
+NuGet gère plutôt une simple liste de références des packages dont dépend le projet, qui englobe les dépendances de niveau supérieur et de niveau inférieur. Autrement dit, lorsque un package est installé dans un projet à partir d’un hôte, NuGet enregistre l’identificateur et le numéro de version du package dans cette liste de références. (La désinstallation d’un package, bien sûr, le supprime de la liste.) NuGet fournit ensuite un moyen de restaurer tous les packages référencés à la demande, comme décrit dans [restauration de packages](consume-packages/package-restore.md).
 
 ![Une liste des références NuGet est créée à l’installation du package et elle peut être utilisée pour restaurer des packages ailleurs.](media/nuget-restore.png)
 
-Avec seulement la liste de référence,&mdash;NuGet peut alors réinstaller qui est, *restaurer*&mdash;tous ces paquets à partir d’hôtes publics et / ou privés à tout moment ultérieur. Pour valider un projet dans le contrôle de code source ou le partager par un autre moyen, il suffit d’inclure la liste des références et d’exclure les fichiers binaires des packages (consultez la section [Packages et contrôle de code source](consume-packages/packages-and-source-control.md).)
+Avec uniquement la liste de référence, NuGet peut ensuite réinstaller &mdash; autrement dit, *restaurer* &mdash; tous ces packages à partir d’hôtes publics et/ou privés à un moment ultérieur. Pour valider un projet dans le contrôle de code source ou le partager par un autre moyen, il suffit d’inclure la liste des références et d’exclure les fichiers binaires des packages (consultez la section [Packages et contrôle de code source](consume-packages/packages-and-source-control.md).)
 
 L’ordinateur qui reçoit un projet, par exemple un serveur de builds obtenant une copie du projet dans le cadre d’un système de déploiement automatisé, demande simplement à NuGet de restaurer les dépendances quand elles sont nécessaires. Les systèmes de build, comme Azure DevOps, fournissent des étapes de « restauration NuGet » à cette fin. De même, lorsque les développeurs récupèrent une copie d’un projet (par exemple, en clonant un référentiel), ils peuvent appeler une commande du type `nuget restore` (interface CLI NuGet), `dotnet restore` (interface CLI dotnet) ou `Install-Package` (console du Gestionnaire de package) pour avoir tous les packages nécessaires. Visual Studio, pour sa part, restaure automatiquement les packages lors de la création d’un projet (tant que la restauration automatique est activée, comme l’explique la page [Restauration de package](consume-packages/package-restore.md)).
 
@@ -84,9 +84,9 @@ Le rôle principal de NuGet pour les développeurs est clairement de gérer cett
 
 - [PackageReference](consume-packages/package-references-in-project-files.md) (ou « Références des packages dans les fichiers projet ») : *(NuGet 4.0+)* Gère la liste des dépendances de niveau supérieur d’un projet directement dans le fichier projet ; aucun fichier distinct n’est nécessaire. Un fichier associé, `obj/project.assets.json`, est généré dynamiquement pour gérer le graphique de dépendance global des packages utilisés par un projet, ainsi que toutes les dépendances de bas niveau. PackageReference est toujours utilisé par les projets .NET Core.
 
-- [`packages.config`](reference/packages-config.md): *(NuGet 1.0MD)* Fichier XML qui maintient une liste plate de toutes les dépendances du projet, y compris les dépendances d’autres paquets installés. Les packages installés ou restaurés sont stockés dans un dossier `packages`.
+- [`packages.config`](reference/packages-config.md): *(NuGet 1.0 +)* fichier XML qui gère une liste plate de toutes les dépendances dans le projet, y compris les dépendances des autres packages installés. Les packages installés ou restaurés sont stockés dans un dossier `packages`.
 
-Le format de gestion des packages utilisé dépend du type de projet, ainsi que de la version disponible de NuGet (ou de Visual Studio). Pour savoir quel format est utilisé, recherchez `packages.config` dans la racine du projet après avoir installé votre premier package. Si vous ne possédez pas ce fichier, recherchez l’élément \<PackageReference\> directement dans le fichier projet.
+Le format de gestion des packages utilisé dépend du type de projet, ainsi que de la version disponible de NuGet (ou de Visual Studio). Pour savoir quel format est utilisé, recherchez `packages.config` dans la racine du projet après avoir installé votre premier package. Si vous n’avez pas ce fichier, recherchez un élément directement dans le fichier projet \<PackageReference\> .
 
 Si vous avez le choix, nous vous recommandons d’utiliser PackageReference. `packages.config` est conservé pour des raisons d’héritage et ne fait plus l’objet d’un développement actif.
 
@@ -105,7 +105,7 @@ Pour que ces processus fonctionnent efficacement, NuGet effectue certaines optim
 
 Pour un projet donné, NuGet gère le graphique de dépendance global, ce qui implique de résoudre à nouveau des références multiples à différentes versions du même package. Il est fréquent qu’un projet ait une dépendance d’un ou plusieurs packages qui ont eux-mêmes les mêmes dépendances. Par exemple, certains des packages utilitaires les plus pratiques de nuget.org sont utilisés par beaucoup d’autres packages. Pris dans sa totalité, le graphique de dépendance peut facilement comporter dix références distinctes à des versions différentes du même package. Pour éviter d’importer plusieurs versions de ce package dans l’application elle-même, NuGet repère la version utilisable par tout le monde. (Pour plus d’informations, consultez la page [Résolution des dépendances](concepts/dependency-resolution.md).)
 
-Au-delà de cela, NuGet maintient toutes les spécifications relatives à la façon dont les paquets sont structurés (y compris [la localisation](create-packages/creating-localized-packages.md) et [les symboles de débogé)](create-packages/symbol-packages-snupkg.md)et comment ils sont [référencés](consume-packages/package-references-in-project-files.md) (y compris [les plages de version](concepts/package-versioning.md#version-ranges) et [les versions pré-version](create-packages/prerelease-packages.md).) NuGet fournit également diverses API pour travailler avec ses services programmatiquement, et fournit un soutien aux développeurs qui écrivent des extensions visual Studio et des modèles de projet.
+Au-delà, NuGet gère toutes les spécifications relatives à la structure des packages (y compris les symboles de [localisation](create-packages/creating-localized-packages.md) et de [débogage](create-packages/symbol-packages-snupkg.md)) et à la façon dont ils sont [référencés](consume-packages/package-references-in-project-files.md) (y compris les [plages](concepts/package-versioning.md#version-ranges) de versions et les [versions préliminaires](create-packages/prerelease-packages.md)). NuGet fournit également différentes API pour travailler avec ses services par programme, et prend en charge les développeurs qui écrivent des extensions Visual Studio et des modèles de projet.
 
 Prenez un moment pour parcourir la table des matières de cette documentation : toutes ces fonctionnalités y sont représentées, ainsi que des notes de publication remontant aux débuts de NuGet.
 
@@ -113,11 +113,11 @@ Prenez un moment pour parcourir la table des matières de cette documentation : 
 
 > [!Video https://channel9.msdn.com/Series/NuGet-101/What-is-NuGet-1-of-5/player]
 
-Trouver plus de vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
+Recherchez d’autres vidéos NuGet sur [Channel 9](https://channel9.msdn.com/Series/NuGet-101) et [YouTube](https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVLvfkFk8O9h6v2Dcdh2bh_).
 
 ## <a name="comments-contributions-and-issues"></a>Commentaires, contributions et problèmes
 
-Enfin, les commentaires et les contributions à cette documentation sont les bienvenus &mdash; sélectionnez simplement les commandes **Commentaires** et **Modifier** en haut d’une page, ou consultez le [référentiel de documents ](https://github.com/NuGet/docs.microsoft.com-nuget/) et la [liste des documents consacrés aux problèmes](https://github.com/NuGet/docs.microsoft.com-nuget/issues) sur GitHub.
+Enfin, les commentaires et les contributions à cette documentation sont les bienvenus &mdash; sélectionnez simplement les commandes **Commentaires** et **Modifier** en haut d’une page, ou consultez le [référentiel de documents](https://github.com/NuGet/docs.microsoft.com-nuget/) et la [liste des documents consacrés aux problèmes](https://github.com/NuGet/docs.microsoft.com-nuget/issues) sur GitHub.
 
 Nous apprécions également les contributions à NuGet à proprement parler sur ses [différents référentiels GitHub](https://github.com/NuGet/Home) ; vous trouverez les problèmes de NuGet sur [https://github.com/NuGet/home/issues](https://github.com/NuGet/home/issues).
 

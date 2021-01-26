@@ -1,16 +1,16 @@
 ---
 title: Commande paramètres régionaux de l’interface CLI NuGet
 description: Référence pour la commande nuget.exe variables locales
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 03/19/2018
 ms.topic: reference
-ms.openlocfilehash: cdc2b760021ffc4a9e02edacb45beac01cc99bf1
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 25feb29c7b96c47681cedd8208b8595952d3ca49
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623056"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779195"
 ---
 # <a name="locals-command-nuget-cli"></a>commande variables locales (interface CLI NuGet)
 
@@ -18,7 +18,7 @@ ms.locfileid: "88623056"
 
 Efface ou répertorie les ressources NuGet locales, telles que le dossier *http-cache*, *Global-packages* et le dossier Temp. La `locals` commande peut également être utilisée pour afficher une liste de ces emplacements. Pour plus d’informations, consultez [gestion des dossiers de packages globaux et de cache](../../consume-packages/managing-the-global-packages-and-cache-folders.md).
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget locals <folder> [options]

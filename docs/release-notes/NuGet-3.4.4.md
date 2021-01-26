@@ -1,26 +1,26 @@
 ---
 title: Notes de publication de NuGet 3.4.4
-description: Notes de publication pour NuGet 3.4.4, notamment et problèmes connus, correctifs de bogues, fonctionnalités ajoutées, dcr.
-author: karann-msft
-ms.author: karann
+description: Notes de publication pour NuGet 3.4.4, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 44a9f21c61f0552fdc21aab24f48eee993654b01
-ms.sourcegitcommit: 1d1406764c6af5fb7801d462e0c4afc9092fa569
+ms.openlocfilehash: 4e5e635432147afba4809562035bc8c762d31af4
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43547471"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780220"
 ---
 # <a name="nuget-344-release-notes"></a>Notes de publication de NuGet 3.4.4
 
-[Notes de publication de NuGet 3.4.3](../release-notes/nuget-3.4.3.md) | [Notes de publication NuGet 3.5 bêta](../release-notes/nuget-3.5-Beta.md)
+Notes de publication de [NuGet 3.4.3](../release-notes/nuget-3.4.3.md)  |  [Notes de publication de NuGet 3,5-Beta](../release-notes/nuget-3.5-Beta.md)
 
-Le principal objectif de cette version a été améliorations apportées à la qualité de 3.4.3 version de nuget.exe avec quelques correctifs à l’extension de Visual Studio et.
+L’objectif principal de cette version était d’améliorer la qualité de la version 3.4.3 de nuget.exe avec quelques correctifs de l’extension Visual Studio.
 
-Vous pouvez télécharger l’extension VSIX et nuget.exe [ici](https://dist.nuget.org/index.html).
+Vous pouvez télécharger les versions VSIX et nuget.exe [ici](https://dist.nuget.org/index.html).
 
-## <a name="344-rtmhttpsgithubcomnugetnugetclienttree344-rtm-2016-05-19"></a>[3.4.4-RTM](https://github.com/NuGet/NuGet.Client/tree/3.4.4-rtm) (2016-05-19)
+## <a name="344-rtm-2016-05-19"></a>[3.4.4-RTM](https://github.com/NuGet/NuGet.Client/tree/3.4.4-rtm) (2016-05-19)
 
 [Journal des modifications complet](https://github.com/NuGet/NuGet.Client/compare/3.5.0-beta-final...3.4.4-rtm)
 
@@ -28,13 +28,13 @@ Vous pouvez télécharger l’extension VSIX et nuget.exe [ici](https://dist.nug
 
 ### <a name="changes"></a>Modifications
 
-- Améliorations du Pack : Améliorations pour la compression des symboles, de livraison avec `project.json` et plus [ \#606](https://github.com/NuGet/NuGet.Client/pull/606)
-- Afficher l’exception lors de l’échec de recherche de projets dans la commande de mise à jour [\#605](https://github.com/NuGet/NuGet.Client/pull/605)
-- Lire le type de package à partir de l’entrée `.nuspec` et `project.json` lors de la compression [ \#603](https://github.com/NuGet/NuGet.Client/pull/603)
-- Rendre NuGet.Shared pas un projet. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
-- Utiliser le délai d’attente de transmission en tant que le délai d’expiration de la réponse HTTP [ \#599](https://github.com/NuGet/NuGet.Client/pull/599)
-- Fichiers de package avec des dates futures n’aura pas leurs utilisations [ \#597](https://github.com/NuGet/NuGet.Client/pull/597)
-- La mise à jour `NuGet.Core.dll` version à 2.12.0 pour résoudre le problème de XML [ \#594](https://github.com/NuGet/NuGet.Client/pull/594)
-- Prise en charge de v -./NuGet.CommandLine.XPlat \<commentaires\> \<mode\> [ \#593](https://github.com/NuGet/NuGet.Client/pull/593)
-- Restauration d’erreur complet sans `project.json` ou `packages.config` [ \#590](https://github.com/NuGet/NuGet.Client/pull/590)
-- Résolution des versions de dépendances lorsque diffèrent des versions requises [ \#559](https://github.com/NuGet/NuGet.Client/pull/559)
+- Améliorations des packs : améliorations de la compression des symboles, compression avec `project.json` et plus de [ \# 606](https://github.com/NuGet/NuGet.Client/pull/606)
+- Afficher une exception en cas d’échec lors de la recherche de projets dans la commande Update [ \# 605] (https://github.com/NuGet/NuGet.Client/pull/605
+- Lire le type de package à partir de l’entrée `.nuspec` et lors de la `project.json` compression [ \# 603](https://github.com/NuGet/NuGet.Client/pull/603)
+- Mettez NuGet. Shared non un projet. [\#602](https://github.com/NuGet/NuGet.Client/pull/602)
+- Utilisez le délai d’expiration de Push comme délai de réponse HTTP [ \# 599](https://github.com/NuGet/NuGet.Client/pull/599)
+- Les fichiers de package avec des heures futures n’auront pas les heures utilisées [ \# 597](https://github.com/NuGet/NuGet.Client/pull/597)
+- Mise à jour `NuGet.Core.dll` de la version vers 2.12.0 pour résoudre le problème XML [ \# 594](https://github.com/NuGet/NuGet.Client/pull/594)
+- Support./NuGet.CommandLine.XPlat-v \<verbosity\> \<mode\> [ \# 593](https://github.com/NuGet/NuGet.Client/pull/593)
+- Afficher les erreurs de restauration sans `project.json` ou `packages.config` [ \# 590](https://github.com/NuGet/NuGet.Client/pull/590)
+- Correction des versions de dépendance lorsque les versions requises diffèrent de [ \# 559](https://github.com/NuGet/NuGet.Client/pull/559)

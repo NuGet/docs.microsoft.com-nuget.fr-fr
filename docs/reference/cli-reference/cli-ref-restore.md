@@ -1,16 +1,16 @@
 ---
 title: Commande de restauration de l’interface CLI NuGet
 description: Référence pour la commande nuget.exe Restore
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 108317aba2107948180ab0149c0c5ba5150cf9b8
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: 49fabbd0ef0c1c0c16f13bdf741296575fa72359
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622827"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98780027"
 ---
 # <a name="restore-command-nuget-cli"></a>Restore, commande (interface CLI NuGet)
 
@@ -20,7 +20,7 @@ Télécharge et installe tous les packages manquants dans le `packages` dossier.
 
 Sur Mac OSX et Linux avec l’interface CLI sur mono, la restauration des packages n’est pas prise en charge avec PackageReference.
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget restore <projectPath> [options]

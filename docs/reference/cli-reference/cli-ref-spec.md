@@ -1,16 +1,16 @@
 ---
 title: Commande spec de l’interface CLI NuGet
 description: Référence pour la commande nuget.exe spec
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: reference
-ms.openlocfilehash: 17603fa30a75c7906f867c96c5d77f31732eaa59
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: b7780ee5d2e722da5e1623f44709059dd9aa3d45
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88622562"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98779151"
 ---
 # <a name="spec-command-nuget-cli"></a>Spec, commande (interface CLI NuGet)
 
@@ -18,7 +18,7 @@ ms.locfileid: "88622562"
 
 Génère un `.nuspec` fichier pour un nouveau package. Si l’exécution s’exécute dans le même dossier qu’un fichier projet ( `.csproj` , `.vbproj` , `.fsproj` ), `spec` crée un `.nuspec` fichier sous forme de jeton. Pour plus d’informations, consultez [création d’un package](../../create-packages/creating-a-package.md).
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget spec [<packageID>] [options]
