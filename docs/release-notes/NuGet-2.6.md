@@ -1,16 +1,16 @@
 ---
 title: Notes de publication de NuGet 2,6
 description: Notes de publication de NuGet 2.6.1 pour WebMatrix, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 5f6504d180879f2e9140552e0d2e07e34a85a083
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 812a0e806e29c5a2141db4f2fbab4bf91b0983f9
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236973"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98776834"
 ---
 # <a name="nuget-26-release-notes"></a>Notes de publication de NuGet 2,6
 
@@ -41,7 +41,7 @@ L’une des fonctionnalités les plus demandées pour le client NuGet a été de
 
 En avril 2013, nous avons créé deux grandes annonces concernant la prise en charge de NuGet pour XDT. La première était que la bibliothèque XDT elle-même était [publiée en tant que package NuGet](https://nuget.org/packages/Microsoft.Web.Xdt) et [Open source sur CodePlex](http://xdt.codeplex.com/). Cette étape permettait au moteur XDT d’être utilisé librement par d’autres logiciels open source, y compris le client NuGet. La deuxième annonce était le plan de prise en charge de l’utilisation du moteur XDT pour les transformations dans le client NuGet. NuGet 2,6 comprend cette intégration.
 
-#### <a name="how-it-works"></a>Comment ça marche
+#### <a name="how-it-works"></a>Fonctionnement
 
 Pour tirer parti de la prise en charge XDT de NuGet, l’mécanique ressemble à celle de la [fonctionnalité de transformation de configuration actuelle](../create-packages/source-and-config-file-transformations.md).
 Les fichiers de transformation sont ajoutés au dossier Content du package. Toutefois, tandis que les transformations de configuration utilisent un seul fichier pour l’installation et la désinstallation, les transformations XDT permettent un contrôle affiné sur ces deux processus à l’aide des fichiers suivants :
@@ -102,6 +102,6 @@ Les auteurs de package reposent davantage et plus d’informations sur les [stat
 
 En plus du nom d’opération différent, l’ID de package dépendant est également enregistré pour l’installation.  Une prochaine mise à jour de la galerie NuGet expose les données dans les rapports, ce qui permet aux auteurs de packages de comprendre parfaitement comment les développeurs installent leurs packages.
 
-## <a name="bug-fixes"></a>Correctifs de bogues
+## <a name="bug-fixes"></a>Résolutions de bogues
 
 NuGet 2,6 comprend également plusieurs correctifs de bogues. Pour obtenir la liste complète des éléments de travail corrigés dans NuGet 2,6, consultez le [suivi des problèmes NuGet pour cette version](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).

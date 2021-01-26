@@ -1,16 +1,16 @@
 ---
 title: Informations de référence sur PowerShell Install-Package de NuGet
 description: Référence pour Install-Package commande PowerShell dans la console du gestionnaire de package NuGet dans Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 5bda888e0fb526faca79e88da93b0ceb9aff5348
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 110b41e830636d60741b14292c17840aa5a63dfd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93237203"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777443"
 ---
 # <a name="install-package-package-manager-console-in-visual-studio"></a>Install-Package (console du gestionnaire de package dans Visual Studio)
 
@@ -36,14 +36,14 @@ Install-Package Microsoft.AspNet.MVC -Version 5.0.0.
 
 | Paramètre | Description |
 | --- | --- |
-| Id | Souhaitée Identificateur du package à installer. ( *3.0 +* ) L’identificateur peut être un chemin d’accès ou une URL d’un `packages.config` fichier ou d’un `.nupkg` fichier. Le commutateur-ID lui-même est facultatif. |
+| Id | Souhaitée Identificateur du package à installer. (*3.0 +*) L’identificateur peut être un chemin d’accès ou une URL d’un `packages.config` fichier ou d’un `.nupkg` fichier. Le commutateur-ID lui-même est facultatif. |
 | IgnoreDependencies | Installez uniquement ce package et non ses dépendances. |
 | ProjectName | Projet dans lequel installer le package, par défaut au projet par défaut. |
 | Source | URL ou chemin d’accès de dossier de la source du package à rechercher. Les chemins d’accès des dossiers locaux peuvent être absolus ou relatifs au dossier actif. En cas d’omission, `Install-Package` effectue une recherche dans la source du package actuellement sélectionnée. |
 | Version | Version du package à installer, avec la version la plus récente par défaut. |
 | IncludePrerelease | Prend en compte les packages de version préliminaire pour l’installation. En l’absence d’indications, seuls les packages stables sont considérés. |
-| FileConflictAction | Action à exécuter lorsque le système vous demande de remplacer ou d’ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *overwrite, ignore, None, OverwriteAll* et *(3.0 +)* *IgnoreAll* . |
-| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch* : version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor* : version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du [`dependencyVersion`](../nuget-config-file.md#config-section) paramètre dans le `Nuget.Config` fichier. |
+| FileConflictAction | Action à exécuter lorsque le système vous demande de remplacer ou d’ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *overwrite, ignore, None, OverwriteAll* et *(3.0 +)* *IgnoreAll*. |
+| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch*: version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor*: version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du [`dependencyVersion`](../nuget-config-file.md#config-section) paramètre dans le `Nuget.Config` fichier. |
 | WhatIf | Montre ce qui se passe lors de l’exécution de la commande sans réellement effectuer l’installation. |
 
 Aucun de ces paramètres n’accepte d’entrée de pipeline ou de caractères génériques.

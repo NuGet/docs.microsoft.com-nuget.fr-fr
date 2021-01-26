@@ -1,16 +1,16 @@
 ---
 title: Informations de référence sur PowerShell Update-Package de NuGet
 description: Référence pour Update-Package commande PowerShell dans la console du gestionnaire de package NuGet dans Visual Studio.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: af918d11e8f976be962d52084c5eda4d53e382c6
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 159817e56d978d6432e989d2027907c0d2445222
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238034"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777373"
 ---
 # <a name="update-package-package-manager-console-in-visual-studio"></a>Update-Package (console du gestionnaire de package dans Visual Studio)
 
@@ -45,7 +45,7 @@ Update-Package Microsoft.AspNet.MVC -Version 5.0.0.
 | IncludePrerelease | Contient des packages de version préliminaire pour les mises à jour. |
 | Réinstallation | Resintalls les packages en utilisant les versions actuellement installées. Consultez [réinstallation et mise à jour des packages](../../consume-packages/reinstalling-and-updating-packages.md). |
 | FileConflictAction | Action à exécuter lorsque le système vous demande de remplacer ou d’ignorer les fichiers existants référencés par le projet. Les valeurs possibles sont *overwrite, ignore, None, OverwriteAll* et *IgnoreAll* (3.0 +). |
-| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch* : version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor* : version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du [`dependencyVersion`](../nuget-config-file.md#config-section) paramètre dans le `Nuget.Config` fichier. |
+| DependencyVersion | Version des packages de dépendance à utiliser, qui peut être l’une des suivantes :<br/><ul><li>La *plus basse* (par défaut) : la version la plus basse</li><li>*HighestPatch*: version avec le correctif le plus bas, le plus petit minimum, le plus élevé.</li><li>*HighestMinor*: version avec le correctif le plus bas, le plus élevé, le plus élevé, le plus élevé</li><li>La *plus élevée* (valeur par défaut pour Update-Package sans paramètres) : la version la plus élevée</li></ul>Vous pouvez définir la valeur par défaut à l’aide du [`dependencyVersion`](../nuget-config-file.md#config-section) paramètre dans le `Nuget.Config` fichier. |
 | ToHighestPatch | équivalent à-Safe. |
 | ToHighestMinor | Limite les mises à niveau à des versions avec la même version principale que le package actuellement installé. |
 | WhatIf | Montre ce qui se passe lors de l’exécution de la commande sans réellement effectuer la mise à jour. |

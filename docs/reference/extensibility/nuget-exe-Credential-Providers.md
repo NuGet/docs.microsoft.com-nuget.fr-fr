@@ -1,16 +1,16 @@
 ---
 title: Fournisseurs d’informations d’identification nuget.exe
 description: nuget.exe fournisseurs d’informations d’identification s’authentifient avec un flux, et sont implémentés en tant qu’exécutables en ligne de commande qui suivent des conventions spécifiques.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 41e3e63138351bafd5e3a56080268faef10d85a3
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238112"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777771"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentification de flux avec des fournisseurs d’informations d’identification nuget.exe
 
@@ -22,11 +22,11 @@ Pour plus d’informations sur toutes les approches d’authentification pour, c
 
 nuget.exe les fournisseurs d’informations d’identification peuvent être utilisés de trois manières :
 
-- **Globalement** : pour mettre un fournisseur d’informations d’identification à la disposition de toutes les instances de `nuget.exe` exécutées sous le profil de l’utilisateur actuel, ajoutez-le à `%LocalAppData%\NuGet\CredentialProviders` . Vous devrez peut-être créer le `CredentialProviders` dossier. Les fournisseurs d’informations d’identification peuvent être installés à la racine du `CredentialProviders`  dossier ou dans un sous-dossier. Si un fournisseur d’informations d’identification contient plusieurs fichiers/assemblys, vous pouvez utiliser des sous-dossiers pour organiser les fournisseurs.
+- **Globalement**: pour mettre un fournisseur d’informations d’identification à la disposition de toutes les instances de `nuget.exe` exécutées sous le profil de l’utilisateur actuel, ajoutez-le à `%LocalAppData%\NuGet\CredentialProviders` . Vous devrez peut-être créer le `CredentialProviders` dossier. Les fournisseurs d’informations d’identification peuvent être installés à la racine du `CredentialProviders`  dossier ou dans un sous-dossier. Si un fournisseur d’informations d’identification contient plusieurs fichiers/assemblys, vous pouvez utiliser des sous-dossiers pour organiser les fournisseurs.
 
-- **À partir d’une variable d’environnement** : les fournisseurs d’informations d’identification peuvent être stockés n’importe où et accessibles à `nuget.exe` en définissant la `%NUGET_CREDENTIALPROVIDERS_PATH%` variable d’environnement à l’emplacement du fournisseur. Cette variable peut être une liste séparée par des points-virgules (par exemple, `path1;path2` ) si vous avez plusieurs emplacements.
+- **À partir d’une variable d’environnement**: les fournisseurs d’informations d’identification peuvent être stockés n’importe où et accessibles à `nuget.exe` en définissant la `%NUGET_CREDENTIALPROVIDERS_PATH%` variable d’environnement à l’emplacement du fournisseur. Cette variable peut être une liste séparée par des points-virgules (par exemple, `path1;path2` ) si vous avez plusieurs emplacements.
 
-- À **côté de nuget.exe** : les fournisseurs d’informations d’identification nuget.exe peuvent être placés dans le même dossier que `nuget.exe` .
+- À **côté de nuget.exe**: les fournisseurs d’informations d’identification nuget.exe peuvent être placés dans le même dossier que `nuget.exe` .
 
 Lors du chargement des fournisseurs d’informations d’identification, `nuget.exe` recherche les emplacements ci-dessus, dans l’ordre, pour tout fichier nommé `credentialprovider*.exe` , puis charge ces fichiers dans l’ordre où ils sont trouvés. Si plusieurs fournisseurs d’informations d’identification existent dans le même dossier, ils sont chargés dans l’ordre alphabétique.
 
@@ -70,9 +70,11 @@ Un fournisseur doit effectuer les opérations suivantes :
 
 Exemple stdout :
 
-    { "Username" : "freddy@example.com",
-      "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
-      "Message"  : "" }
+```
+{ "Username" : "freddy@example.com",
+    "Password" : "bwm3bcx6txhprzmxhl2x63mdsul6grctazoomtdb6kfbof7m3a3z",
+    "Message"  : "" }
+```
 
 ## <a name="troubleshooting-a-credential-provider"></a>Résolution des problèmes d’un fournisseur d’informations d’identification
 

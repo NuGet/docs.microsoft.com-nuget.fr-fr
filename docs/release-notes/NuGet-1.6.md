@@ -1,27 +1,27 @@
 ---
 title: Notes de publication de NuGet 1,6
 description: Notes de publication de NuGet 1,6, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 2878d3809b2be4fb71f4e7b1a1e08e405ead44b9
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: 08b1cb3736e645d6efcc33f920f521c9c0fc7507
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384135"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777009"
 ---
  # <a name="nuget-16-release-notes"></a>Notes de publication de NuGet 1,6
 
-[Notes de publication de nuget 1,5](../release-notes/nuget-1.5.md) | [notes de publication de NuGet 1,7](../release-notes/nuget-1.7.md)
+Notes de publication de [NuGet 1,5](../release-notes/nuget-1.5.md)  |  [Notes de publication de NuGet 1,7](../release-notes/nuget-1.7.md)
 
 NuGet 1,6 a été publié le 13 décembre 2011.
 
 ## <a name="known-installation-issue"></a>Problème d’installation connu
 Si vous exécutez VS 2010 SP1, vous pouvez rencontrer une erreur d’installation lors de la tentative de mise à niveau de NuGet si une version antérieure est installée.
 
-La solution consiste à désinstaller simplement NuGet, puis à l’installer à partir de la Galerie d’extensions Visual Studio.  Pour plus d'informations, voir <https://support.microsoft.com/kb/2581019>.
+La solution consiste à désinstaller simplement NuGet, puis à l’installer à partir de la Galerie d’extensions Visual Studio.  Consultez la rubrique <https://support.microsoft.com/kb/2581019> (éventuellement en anglais) pour plus d'informations.
 
 Remarque : si Visual Studio ne vous permet pas de désinstaller l’extension (le bouton désinstaller est désactivé), vous devrez probablement redémarrer Visual Studio à l’aide de « exécuter en tant qu’administrateur ».
 
@@ -47,7 +47,7 @@ NuGet 1,6 permet de désélectionner une source de package pour la désactiver, 
 
 ![Désactivation d’un package](./media/package-source-with-disabled-source.png)
 
-## <a name="bug-fixes"></a>Correctifs de bogues
+## <a name="bug-fixes"></a>Résolutions de bogues
 NuGet 1,6 avait un total de 106 éléments de travail corrigés. 95 de celles-ci ont été classées comme des bogues et 10 de ces fonctionnalités.
 
 Pour obtenir la liste complète des éléments de travail corrigés dans NuGet 1,6, consultez le [suivi des problèmes NuGet pour cette version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.6&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

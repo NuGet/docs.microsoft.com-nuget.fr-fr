@@ -1,16 +1,16 @@
 ---
 title: Référence de fichier nuget.config
 description: Informations de référence sur le fichier NuGet.Config, notamment les sections config, bindingRedirects, packageRestore, solution et packageSource.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 371f0d934fcd3c1f111d277131553c1eed0200be
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93238099"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777663"
 ---
 # <a name="nugetconfig-reference"></a>Référence nuget.config
 
@@ -38,7 +38,7 @@ Contient divers paramètres de configuration, qui peuvent être définis à l’
 | http_proxy http_proxy.user http_proxy.password no_proxy | Paramètres de proxy à utiliser lors de la connexion aux sources de packages ; `http_proxy` doit être au format `http://<username>:<password>@<domain>`. Les mots de passe sont chiffrés et ne peuvent pas être ajoutés manuellement. Pour `no_proxy`, la valeur est une liste de domaines séparés par des virgules qui ignorent le serveur proxy. Vous pouvez également utiliser les variables d’environnement http_proxy et no_proxy pour ces valeurs. Pour plus d’informations, consultez [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Spécifie le mode de validation utilisé pour vérifier les signatures de package pour l’installation du package et la restauration. Les valeurs sont `accept` , `require` . La valeur par défaut est `accept`.
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <config>
@@ -58,7 +58,7 @@ Définit si NuGet effectue des redirections de liaisons automatiques quand un pa
 | --- | --- |
 | skip | Valeur booléenne indiquant s’il faut ignorer les redirections de liaisons automatiques. La valeur par défaut est false. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <bindingRedirects>
@@ -75,7 +75,7 @@ Contrôle la restauration de packages pendant les générations.
 | enabled | Valeur booléenne indiquant si NuGet peut effectuer une restauration automatique. Vous pouvez également définir la variable d’environnement `EnableNuGetPackageRestore` avec la valeur `True` au lieu de définir cette clé dans le fichier config. |
 | automatique | Valeur booléenne indiquant si NuGet doit rechercher les packages manquants pendant une génération. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <packageRestore>
@@ -92,7 +92,7 @@ Contrôle si le dossier `packages` d’une solution est inclus dans le contrôle
 | --- | --- |
 | disableSourceControlIntegration | Valeur booléenne indiquant s’il faut ignorer le dossier de packages lors de l’utilisation de contrôle de code source. La valeur par défaut est false. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <solution>
@@ -116,7 +116,7 @@ Répertorie toutes les sources de packages connues. L’ordre est ignoré pendan
 | --- | --- |
 | (nom à assigner à la source du package) | Chemin ou URL de la source du package. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <packageSources>
@@ -141,7 +141,7 @@ Si vous le souhaitez, les types d’authentification valides peuvent être spéc
 | cleartextpassword | Mot de passe non chiffré pour la source. Remarque : les variables d’environnement peuvent être utilisées pour améliorer la sécurité. |
 | validauthenticationtypes | Liste séparée par des virgules des types d’authentification valides pour cette source. Définissez cette valeur sur `basic` si le serveur publie NTLM ou Negotiate et que vos informations d’identification doivent être envoyées à l’aide du mécanisme de base, par exemple lors de l’utilisation d’un Pat avec un Azure DevOps Server local. Les autres valeurs valides incluent `negotiate` , `kerberos` , `ntlm` et `digest` , mais ces valeurs ne sont pas susceptibles d’être utiles. |
 
-**Exemple :**
+**Exemple :**
 
 Dans le fichier config, l’élément `<packageSourceCredentials>` contient des nœuds enfants pour chaque nom de source applicable (les espaces dans le nom sont remplacés par `_x0020_`). Autrement dit, pour les sources nommées « Contoso » et « Test Source », le fichier config contient les éléments suivants lors de l’utilisation de mots de passe chiffrés :
 
@@ -213,7 +213,7 @@ Stocke des clés pour les sources qui utilisent l’authentification par clé AP
 | --- | --- |
 | (URL source) | Clé API chiffrée. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <apikeys>
@@ -229,7 +229,7 @@ Identifie les sources actuellement désactivées. Peut être vide.
 | --- | --- |
 | (nom de source) | Valeur booléenne indiquant si la source est désactivée. |
 
-**Exemple :**
+**Exemple :**
 
 ```xml
 <disabledPackageSources>
@@ -250,7 +250,7 @@ Identifie la source actuellement active ou indique l’agrégat de toutes les so
 | --- | --- |
 | (nom de source) ou `All` | Si la clé est le nom d’une source, la valeur est le chemin ou l’URL de la source. Si la clé est `All`, la valeur doit être `(Aggregate source)` pour combiner toutes les sources de packages qui ne sont pas autrement désactivées. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <activePackageSource>
@@ -268,7 +268,7 @@ Stocke les signataires approuvés utilisés pour autoriser le package lors de l�
 
 Cette section peut être mise à jour à l’aide de la [ `nuget trusted-signers` commande](../reference/cli-reference/cli-ref-trusted-signers.md).
 
-**Schéma**  :
+**Schéma** :
 
 Un signataire approuvé contient une collection d' `certificate` éléments qui inscrivent tous les certificats qui identifient un signataire donné. Un signataire approuvé peut être un `Author` ou un `Repository` .
 
@@ -278,7 +278,7 @@ Les algorithmes de hachage pris en charge utilisés pour une empreinte digitale 
 
 Si un `certificate` spécifie `allowUntrustedRoot` en tant que `true` certificat donné, il est autorisé à effectuer une chaîne sur une racine non approuvée lors de la génération de la chaîne de certificats dans le cadre de la vérification de la signature.
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <trustedSigners>
@@ -311,7 +311,7 @@ Si aucune correspondance n’est trouvée, NuGet vérifie les sources de fichier
 | --- | --- |
 | (nom du dossier de secours) | Chemin d’accès au dossier de secours. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <fallbackPackageFolders>
@@ -325,10 +325,10 @@ Définit le format de gestion des packages par défaut, *packages.config* ou Pac
 
 | Clé | Valeur |
 | --- | --- |
-| format | Valeur booléenne qui indique le format de gestion des packages par défaut. Si `1` , format est PackageReference. Si `0` , format est *packages.config* . |
+| format | Valeur booléenne qui indique le format de gestion des packages par défaut. Si `1` , format est PackageReference. Si `0` , format est *packages.config*. |
 | disabled | Valeur booléenne indiquant s’il faut afficher l’invite de sélection d’un format de package par défaut lors de la première installation de package. `False` masque l’invite. |
 
-**Exemple**  :
+**Exemple** :
 
 ```xml
 <packageManagement>

@@ -1,16 +1,16 @@
 ---
 title: Notes de publication de NuGet 1,0 et 1,1
 description: Notes de publication de NuGet 1,1, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 4f90888eae4d039c99d6f6879a06107ec5a31a82
-ms.sourcegitcommit: 26a8eae00af2d4be581171e7a73009f94534c336
+ms.openlocfilehash: cdd4bad54b08d956dbfdaf54220971492fd3ab02
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75384695"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777211"
 ---
 # <a name="nuget-10-and-11-release-notes"></a>Notes de publication de NuGet 1,0 et 1,1
 
@@ -18,7 +18,7 @@ ms.locfileid: "75384695"
 
 NuGet 1,0 a été publié le 13 janvier 2011.  NuGet 1,1 a été publié le 12 février 2011.
 
-## <a name="overview"></a>Vue d'ensemble de
+## <a name="overview"></a>Vue d’ensemble
 
 Ce document contient les notes de publication pour les différentes versions de NuGet 1,0 regroupées en fonction de la version d’évaluation principale.
 
@@ -31,19 +31,19 @@ NuGet comprend les composants suivants :
 
 L’extension Visual Studio des outils NuGet (*NuGet. Tools. vsix*) requiert les éléments suivants :
 
-* Visual Studio 2010 ou Visual Web Developer 2010 Express.
+* Visual Studio 2010 ou Visual Web Developer 2010 Express.
 
 L’outil en ligne de commande NuGet requiert :
 
 * .NET Framework version 4
 
-## <a name="installation"></a>Installation de
+## <a name="installation"></a>Installation
 
 Pour utiliser cette [dernière version](http://nuget.codeplex.com/releases/view/52018):
 
 * Désinstallez d’abord votre version antérieure. Pour ce faire, vous devez exécuter VS en tant qu’administrateur.
 * Supprimez tous les flux existants.
-* Ajoutez un nouveau flux pointant vers <https://go.microsoft.com/fwlink/?LinkId=206669>.
+* Ajoutez un nouveau flux pointant vers <https://go.microsoft.com/fwlink/?LinkId=206669> .
 
 ## <a name="nuget-11"></a>NuGet 1.1
 
@@ -110,14 +110,14 @@ Voici les modifications apportées à cette version Release candidate depuis CTP
 * [Prendre en charge les redirections de liaison pour les assemblys avec nom fort](http://nuget.codeplex.com/workitem/238)
 * [Ajouter une référence de package... Interface utilisateur à inclure dans la liste déroulante pour la source du package](http://nuget.codeplex.com/workitem/226)
 * [NuPack doit prendre en charge la transformation de configuration de façon agnostique du nom du fichier de configuration](http://nuget.codeplex.com/workitem/224)
-* [Autorise le remplacement de BasePath dans NuPack. exe](http://nuget.codeplex.com/workitem/222)
+* [Autorise le remplacement de BasePath dans NuPack.exe](http://nuget.codeplex.com/workitem/222)
 * [Comportement de secours de la source du package](http://nuget.codeplex.com/workitem/204)
 * [Blocage sur l’interface graphique](http://nuget.codeplex.com/workitem/201)
 * [Ajouter des options de tri à la boîte de dialogue Ajouter un package](http://nuget.codeplex.com/workitem/179)
 * [touche de raccourci pour effacer la console du gestionnaire de package](http://nuget.codeplex.com/workitem/174)
 * [PowerConsole provoque l’échec de la console NuPack](http://nuget.codeplex.com/workitem/166)
 * [La console et la boîte de dialogue Ajouter un package doivent définir agent utilisateur dans les demandes](http://nuget.codeplex.com/workitem/141)
-* [Définissez le numéro de version de l’extension VSIX et NuPack. exe dans la Build.](http://nuget.codeplex.com/workitem/134)
+* [Définissez le numéro de version de l’extension VSIX et NuPack.exe dans la Build.](http://nuget.codeplex.com/workitem/134)
 * [Masquer les paramètres PowerShell communs de- ?](http://nuget.codeplex.com/workitem/118)
 * [Ajouter-aide détaillée pour les commandes de la console](http://nuget.codeplex.com/workitem/110)
 * [La boîte de dialogue Ajouter un package doit autoriser le choix de la source du package actuel](http://nuget.codeplex.com/workitem/88)
@@ -129,17 +129,17 @@ Voici les modifications apportées à cette version Release candidate depuis CTP
 
 Les modifications les plus importantes apportées à CTP 2 sont les suivantes :
 
-* Basculement du flux de package ATOM vers un point de terminaison de service OData : Si vous effectuez une mise à niveau vers la version CTP2 de NuGet, veillez à ajouter l’URL suivante en tant que source du package : `https://feed.nuget.org/ctp2/odata/v1/`.
+* Basculement du flux de package ATOM vers un point de terminaison de service OData : Si vous effectuez une mise à niveau vers la version CTP2 de NuGet, veillez à ajouter l’URL suivante en tant que source du package : `https://feed.nuget.org/ctp2/odata/v1/` .
 * La commande Add-Package a été renommée en *Install-Package*.
-* Mise à jour du format de `.nuspec`. Le format `.nuspec` comprend maintenant le champ *IconUrl* pour la spécification d’une icône png 32 x 32 qui s’affichera dans la boîte de dialogue Ajouter un package. Veillez donc à définir cette valeur pour faire la distinction entre votre package. Le format `.nuspec` inclut également le nouveau champ *projectUrl* que vous pouvez utiliser pour pointer vers une page Web qui fournit des informations supplémentaires sur votre package.
+* Mise à jour du `.nuspec` format. Le `.nuspec` format comprend maintenant le champ *IconUrl* pour la spécification d’une icône png 32 x 32 qui s’affichera dans la boîte de dialogue Ajouter un package. Veillez donc à définir cette valeur pour faire la distinction entre votre package. Le `.nuspec` format inclut également le nouveau champ *projectUrl* que vous pouvez utiliser pour pointer vers une page Web qui fournit des informations supplémentaires sur votre package.
 
-Cette Build ne fonctionne pas avec les anciens fichiers de `.nupkg`. Si vous recevez des exceptions de référence null, vous utilisez un ancien fichier de `.nupkg` et devez le régénérer avec l' [outil en ligne de commande NuGet](http://nuget.codeplex.com/releases/52017/download/165468)mis à jour.
+Cette Build ne fonctionne pas avec les anciens `.nupkg` fichiers. Si vous recevez des exceptions de référence null, vous utilisez un ancien `.nupkg` fichier et vous devez le régénérer avec l' [outil en ligne de commande NuGet](http://nuget.codeplex.com/releases/52017/download/165468)mis à jour.
 
 La liste suivante répertorie les fonctionnalités et bogues qui ont été corrigés pour NuGet CTP 2 (n’inclut pas les bogues pour les nettoyages de code mineurs, etc.).
 
 * [Erreur lors de la décompression des assemblys de package lors de la spécification de TargetFramework pour un assembly.](http://nuget.codeplex.com/workitem/10)
 * [Rendre la fenêtre de console NuPack plus détectable](http://nuget.codeplex.com/workitem/14)
-* [ILMerge la version nupack. exe](http://nuget.codeplex.com/workitem/19)
+* [ILMerge la version nupack.exe](http://nuget.codeplex.com/workitem/19)
 * [Meilleure gestion des erreurs et des exceptions](http://nuget.codeplex.com/workitem/24)
 * [[Nupack. Core] : PackageManager doit gérer correctement les erreurs liées aux flux](http://nuget.codeplex.com/workitem/28)
 * [Vous avez besoin d’une nouvelle icône pour la console](http://nuget.codeplex.com/workitem/29)
@@ -147,7 +147,7 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [NuPack caches téléchargés. NuPack fichiers en mémoire](http://nuget.codeplex.com/workitem/40)
 * [Console NuPack : modifier le raccourci par défaut pour l’affichage de la console](http://nuget.codeplex.com/workitem/48)
 * [ProjectSystem doit prendre en charge les valeurs par défaut pour les propriétés communes](http://nuget.codeplex.com/workitem/49)
-* [L’exécution de nupack. exe dans un dossier avec un seul fichier NuSpec doit utiliser ce NuSpec](http://nuget.codeplex.com/workitem/52)
+* [L’exécution de nupack.exe dans un dossier avec un seul fichier NuSpec doit utiliser ce NuSpec](http://nuget.codeplex.com/workitem/52)
 * [Le menu projet s’affiche même si aucun projet/solution n’est chargé](http://nuget.codeplex.com/workitem/54)
 * [Build. cmd échoue sur un clone propre du code base](http://nuget.codeplex.com/workitem/56)
 * [Fonctionnalité mises à jour disponibles](http://nuget.codeplex.com/workitem/57)
@@ -156,10 +156,10 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [Il n’existe aucun moyen de détecter les packages installés qui ont des mises à jour.](http://nuget.codeplex.com/workitem/82)
 * [Il n’existe aucun moyen de mettre à jour un package installé dans la boîte de dialogue.](http://nuget.codeplex.com/workitem/83)
 * [Il n’existe aucun moyen de désinstaller un package installé dans la boîte de dialogue](http://nuget.codeplex.com/workitem/84)
-* [&ldquo;&hellip;&rdquo; ajouter une référence de package apparaît dans le menu contextuel des références installées](http://nuget.codeplex.com/workitem/85)
+* [&ldquo;Ajouter une référence &hellip; &rdquo; de package s’affiche dans le menu contextuel des références installées](http://nuget.codeplex.com/workitem/85)
 * [Après la mise à jour d’un package à partir de la console, il affiche à la fois l’ancienne version et la nouvelle version installée](http://nuget.codeplex.com/workitem/86)
 * [L’activité dans la console, lors de l’utilisation de la boîte de dialogue, disparaît après utilisation](http://nuget.codeplex.com/workitem/87)
-* [Analyse de la ligne de commande Cleanup dans nupack. exe](http://nuget.codeplex.com/workitem/89)
+* [Analyse de la ligne de commande de nettoyage dans nupack.exe](http://nuget.codeplex.com/workitem/89)
 * [Ajouter un nom convivial aux sources du package](http://nuget.codeplex.com/workitem/98)
 * [Update. NuSpec pour prendre en charge l’inclusion d’icônes de package](http://nuget.codeplex.com/workitem/103)
 * [L’interface utilisateur du flux n’autorise pas la copie de l’URL](http://nuget.codeplex.com/workitem/105)
@@ -175,14 +175,14 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [Mettre à jour NuPack. Server pour exiger que l’agent utilisateur NuPack télécharge le package](http://nuget.codeplex.com/workitem/142)
 * [La boîte de dialogue acceptation de la licence doit répertorier les licences pour toutes les dépendances qui nécessitent une acceptation](http://nuget.codeplex.com/workitem/145)
 * [Consigner une erreur lorsqu’un package est levé dans le flux](http://nuget.codeplex.com/workitem/150)
-* [NuPack. exe ne doit pas autoriser un élément&gt; &lt;licenseUrl vide](http://nuget.codeplex.com/workitem/152)
-* [Renommer la liste-package pour la récupération du package, ajouter un package à Install-Package et Remove-Package pour Uninstall-package](http://nuget.codeplex.com/workitem/155)
+* [NuPack.exe ne doit pas autoriser un &lt; élément licenseUrl vide &gt;](http://nuget.codeplex.com/workitem/152)
+* [Renommez List-Package en Install-Package, Add-Package à Install-Package et Remove-Package à Uninstall-package](http://nuget.codeplex.com/workitem/155)
 * [L’utilisation de l’élément de menu Ajouter une référence de package du navigateur de solution bloque Visual Studio](http://nuget.codeplex.com/workitem/158)
 * [L’étiquette « sources de package disponibles » ne contient pas de signe deux-points](http://nuget.codeplex.com/workitem/160)
 * [Faire en sorte que la casse des éléments XML de NuSpec respecte constamment la casse](http://nuget.codeplex.com/workitem/161)
 * [Le manifeste du VSIX NuPack doit activer le bit « admin ».](http://nuget.codeplex.com/workitem/162)
-* [Si vous exécutez List-package sans flux, vous recevez une erreur de référence null](http://nuget.codeplex.com/workitem/164)
-* [NuGet. exe : spécifier le chemin de destination](http://nuget.codeplex.com/workitem/171)
+* [Si vous exécutez List-Package sans flux, vous recevez une erreur de référence null](http://nuget.codeplex.com/workitem/164)
+* [nuget.exe : spécifier le chemin de destination](http://nuget.codeplex.com/workitem/171)
 * [Erreurs PowerShell lors de l’ouverture de la console Package Management sur WinXP](http://nuget.codeplex.com/workitem/175)
 * [VS crashs durant la tentative de chargement de la liste des packages](http://nuget.codeplex.com/workitem/176)
 * [autoriser les packages méta (aucun fichier, uniquement les dépendances)](http://nuget.codeplex.com/workitem/180)
@@ -190,22 +190,22 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [PathResolver doit ignorer la partie du chemin d’accès précédant les caractères génériques lorsque la cible est spécifiée](http://nuget.codeplex.com/workitem/183)
 * [Aucune dépendance](http://nuget.codeplex.com/workitem/186)
 * [Erreur lors de l’installation de ELMAH](http://nuget.codeplex.com/workitem/192)
-* [Les transformations de configuration ne fonctionnent pas correctement avec &lt;configSections&gt;](http://nuget.codeplex.com/workitem/194)
+* [Les transformations de configuration ne fonctionnent pas correctement avec &lt; configSections&gt;](http://nuget.codeplex.com/workitem/194)
 * [Impossible de récupérer la variable « $global :p rojectCache », car elle n’a pas été définie](http://nuget.codeplex.com/workitem/203)
 * [Ajouter une tâche MSBuild pour la création de packages NuPack](http://nuget.codeplex.com/workitem/205)
 * [List : le package doit prendre en charge la recherche/filtrage](http://nuget.codeplex.com/workitem/206)
 * [Afficher toujours un lien vers une licence si l’auteur du package fournit une URL de licence](http://nuget.codeplex.com/workitem/208)
 * [Exception occasionnelle « accès refusé » avec Remove-Package](http://nuget.codeplex.com/workitem/213)
-* [Échec des tests unitaires : InvalidPackageIsExcludedFromFeedItems &amp; CreatingFeedConvertsPackagesToAtomEntries](http://nuget.codeplex.com/workitem/214)
+* [Tests unitaires en échec : InvalidPackageIsExcludedFromFeedItems &amp; CreatingFeedConvertsPackagesToAtomEntries](http://nuget.codeplex.com/workitem/214)
 * [Autoriser un jeu de fichiers de secours/par défaut si une version du Framework spécifique est introuvable](http://nuget.codeplex.com/workitem/223)
 * [Ajouter une référence de package... L’interface utilisateur ne peut pas supprimer un package](http://nuget.codeplex.com/workitem/225)
 * [Ajouter une référence de package bloque Studio quand un ou plusieurs projets sont déchargés](http://nuget.codeplex.com/workitem/228)
-* [La transformation de configuration ne semble pas fonctionner sur le fichier Web. Debug. config](http://nuget.codeplex.com/workitem/229)
-* [init. ps1 non déclenché sur un package personnalisé](http://nuget.codeplex.com/workitem/237)
+* [La transformation de configuration ne semble pas fonctionner sur le fichier web.debug.config](http://nuget.codeplex.com/workitem/229)
+* [init.ps1 ne pas déclencher sur un package personnalisé](http://nuget.codeplex.com/workitem/237)
 * [Lorsque vous ajoutez des chemins d’accès au tab, le bouton par défaut est défini sur OK, donc si j’appuie sur entrée, il se ferme automatiquement](http://nuget.codeplex.com/workitem/240)
 * [La tentative de désinstallation d’une dépendance se bloquera si la tentative est effectuée 2 fois dans une ligne](http://nuget.codeplex.com/workitem/241)
 * [Afficher l’URL du projet dans la boîte de dialogue Ajouter un package](http://nuget.codeplex.com/workitem/253)
-* [Valeur par défaut de la boîte de dialogue Ajouter un package aux packages installés](http://nuget.codeplex.com/workitem/254)
+* [Boîte de dialogue Add-Package par défaut pour les packages installés](http://nuget.codeplex.com/workitem/254)
 * [Modifier l’élément de menu de la boîte de dialogue Ajouter un package.](http://nuget.codeplex.com/workitem/261)
 * [Renommer les espaces de noms et les assemblys](http://nuget.codeplex.com/workitem/274)
 * [Renommer le projet NuPack en NuGet](http://nuget.codeplex.com/workitem/282)
@@ -214,7 +214,7 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [Modifier le texte de la boîte de dialogue d’acceptation de la licence au-dessus de la liste des packages](http://nuget.codeplex.com/workitem/292)
 * [OData ne fonctionne pas avec une URL fwlink](http://nuget.codeplex.com/workitem/304)
 * [Interface utilisateur du gestionnaire de package : dépassement de la mise en cache agressive du nombre de packages utilisés pour la pagination](http://nuget.codeplex.com/workitem/317)
-* [NuPack/NuGet-erreur de la console du gestionnaire de package&gt;](http://nuget.codeplex.com/workitem/335)
+* [NuPack/NuGet- &gt; erreur de la console du gestionnaire de package](http://nuget.codeplex.com/workitem/335)
 * [La boîte de dialogue Ajouter un package affiche l’acceptation de la licence pour les packages déjà installés](http://nuget.codeplex.com/workitem/336)
 
 ## <a name="ctp-1"></a>CTP 1
@@ -223,8 +223,8 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 
 * [L’extension du package doit être renommée. nupack](http://nuget.codeplex.com/workitem/1)
 * [Déplacer le fichier de package dans le dossier](http://nuget.codeplex.com/workitem/2)
-* [Fusionner l’installation &amp; ajouter des commandes PS](http://nuget.codeplex.com/workitem/3)
-* [Créer des alias pour les applets de commande Verb-substantif](http://nuget.codeplex.com/workitem/4)
+* [Ajouter des commandes PS pour l’installation de fusion &amp;](http://nuget.codeplex.com/workitem/3)
+* [Créer des alias pour les applets de commande Verb-Noun](http://nuget.codeplex.com/workitem/4)
 * [NuPack est confus lors du basculement de la solution dans Visual Studio](http://nuget.codeplex.com/workitem/6)
 * [Nous devrions masquer le dossier de solution « packages » par défaut](http://nuget.codeplex.com/workitem/11)
 * [Ajoutez la prise en charge du remplacement de jetons dans les éléments de contenu.](http://nuget.codeplex.com/workitem/12)
@@ -233,10 +233,10 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [La suppression du projet par défaut de la solution affiche toujours le projet supprimé par défaut](http://nuget.codeplex.com/workitem/30)
 * [Le nouveau package échoue avec « impossible d’ajouter un composant pour l’URI spécifié, car il se trouve déjà dans le package ».](http://nuget.codeplex.com/workitem/32)
 * [Supprimer les chaînes « NuPack » de l’interface utilisateur graphique de Visual Studio](http://nuget.codeplex.com/workitem/35)
-* [Ajouter un en-tête Apache à un fichier COPYRIGHT. txt](http://nuget.codeplex.com/workitem/36)
-* [Supprimer la commande Update-PackageSource](http://nuget.codeplex.com/workitem/37)
+* [Ajouter un en-tête Apache à un fichier COPYRIGHT.txt](http://nuget.codeplex.com/workitem/36)
+* [Commande supprimer Update-PackageSource](http://nuget.codeplex.com/workitem/37)
 * [Le gestionnaire de package est inutilisable lorsque le chargement du profil lève une exception](http://nuget.codeplex.com/workitem/39)
-* [init. ps1, install. ps1 et uninstall. ps1 doivent recevoir un État supplémentaire](http://nuget.codeplex.com/workitem/41)
+* [init.ps1, install.ps1 et uninstall.ps1 devez recevoir un État supplémentaire](http://nuget.codeplex.com/workitem/41)
 * [Combiner des packages console et GUI en un seul package](http://nuget.codeplex.com/workitem/42)
 * [La logique de transformation XML ne fonctionne pas si elle est appliquée à du code XML qui ne se trouve pas à la racine](http://nuget.codeplex.com/workitem/43)
 * [Boîte de dialogue gérer les paramètres des sources du package ne mettant pas à jour la console NuPack](http://nuget.codeplex.com/workitem/44)
@@ -262,8 +262,8 @@ La liste suivante répertorie les fonctionnalités et bogues qui ont été corri
 * [Pourquoi-version pour Remove-Package](http://nuget.codeplex.com/workitem/113)
 * [Supprimer l’onglet récent de l’interface utilisateur de la boîte de dialogue](http://nuget.codeplex.com/workitem/115)
 * [VS Crash quand vous cliquez avec le bouton droit sur le dossier de solution après l’ouverture de l’interface utilisateur du dialogue au moins un.](http://nuget.codeplex.com/workitem/126)
-* [Remplacez le paramètre-local de List-package par installed](http://nuget.codeplex.com/workitem/129)
-* [Renommer packages. XML en NuPack. config](http://nuget.codeplex.com/workitem/132)
+* [Remplacez le paramètre-local de List-Package par-installed](http://nuget.codeplex.com/workitem/129)
+* [Renommez packages.xml NuPack.config](http://nuget.codeplex.com/workitem/132)
 * [La console force le curseur jusqu’à la fin de la ligne](http://nuget.codeplex.com/workitem/135)
 * [La suppression d’un package IntelliSense est rompue](http://nuget.codeplex.com/workitem/136)
 * [Ajouter l’indicateur RequireLicenseAcceptance à. NuSpec et flux](http://nuget.codeplex.com/workitem/137)

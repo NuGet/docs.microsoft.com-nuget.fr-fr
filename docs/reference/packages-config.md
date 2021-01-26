@@ -1,24 +1,24 @@
 ---
-title: Référence du fichier Packages. config NuGet
+title: Informations de référence sur le fichier packages.config NuGet
 description: Dans certains types de projets, packages.config gère la liste des packages NuGet utilisés dans le projet.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 05/21/2018
 ms.topic: reference
-ms.openlocfilehash: 3665989d35d7362b30a106cf6b4ed0210619efee
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 3e5db779f735cd42aa331f9f8a93496d32c8df54
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230565"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777629"
 ---
 # <a name="packagesconfig-reference"></a>Informations de référence sur packages.config
 
 Le fichier `packages.config` est utilisé dans certains types de projets pour gérer la liste des packages référencés par le projet. Cela permet à NuGet de restaurer facilement les dépendances du projet quand le projet doit être acheminé vers un autre ordinateur, tel qu’un serveur de builds, sans tous ces packages.
 
-S’il est utilisé, `packages.config` se trouve généralement dans la racine d’un projet. Elle est automatiquement créée lors de l’exécution de la première opération NuGet, mais elle peut également être créée manuellement avant d’exécuter des commandes telles que `nuget restore`.
+S' `packages.config` il est utilisé, est généralement situé à la racine d’un projet. Elle est automatiquement créée lors de l’exécution de la première opération NuGet, mais elle peut également être créée manuellement avant d’exécuter des commandes telles que `nuget restore` .
 
-Les projets qui utilisent [PackageReference](../consume-packages/Package-References-in-Project-Files.md) n’utilisent pas `packages.config`.
+Les projets qui utilisent [PackageReference](../consume-packages/Package-References-in-Project-Files.md) n’utilisent pas `packages.config` .
 
 ## <a name="schema"></a>schéma
 
@@ -28,9 +28,9 @@ Le schéma est simple : l’en-tête XML standard est suivi d’un seul nœud `<
 | --- | --- | --- |
 | id | Oui | Identificateur du package, tel que Newtonsoft.json ou Microsoft.AspNet.Mvc. | 
 | version | Oui | Version exacte du package à installer, comme 3.1.1 ou la version bêta 4.2.5.11. Une chaîne de version doit avoir au moins trois chiffres ; un quatrième est facultatif, comme un suffixe de préversion. Les plages ne sont pas autorisées. | 
-| targetFramework | Non  | [Moniker du Framework cible (TFM)](target-frameworks.md) à appliquer lors de l’installation du package. Cet attribut est initialement défini sur la cible du projet quand un package est installé. Par conséquent, différents éléments `<package>` peuvent avoir différents monikers TFM. Par exemple, si vous créez un projet ciblant .NET 4.5.2, les packages installés à ce stade utilisent le moniker TFM net452. Si vous reciblez ultérieurement le projet vers .NET 4.6 et ajoutez d’autres packages, ceux-ci utilisent le moniker TFM net46. Une incompatibilité entre la cible du projet et les attributs `targetFramework` génère des avertissements, auquel cas vous pouvez réinstaller les packages concernés. | 
-| allowedVersions | Non  | Plage de versions autorisées pour ce package appliquée au cours de la mise à jour du package (consultez [Limitation des versions de mise à niveau](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)). Cet attribut n’affecte *pas* le package installé pendant une opération d’installation ou de restauration. Consultez [Gestion de versions des packages](../concepts/package-versioning.md#version-ranges) pour connaître la syntaxe. L’interface utilisateur du Gestionnaire de package désactive également toutes les versions en dehors de la plage autorisée. | 
-| developmentDependency | Non  | Si le projet de consommation lui-même crée un package NuGet, l’affectation de la valeur `true` à cet attribut pour une dépendance empêche l’ajout de ce package quand le package de consommation est créé. Par défaut, il s’agit de `false`. | 
+| targetFramework | Non | [Moniker du Framework cible (TFM)](target-frameworks.md) à appliquer lors de l’installation du package. Cet attribut est initialement défini sur la cible du projet quand un package est installé. Par conséquent, différents éléments `<package>` peuvent avoir différents monikers TFM. Par exemple, si vous créez un projet ciblant .NET 4.5.2, les packages installés à ce stade utilisent le moniker TFM net452. Si vous reciblez ultérieurement le projet vers .NET 4.6 et ajoutez d’autres packages, ceux-ci utilisent le moniker TFM net46. Une incompatibilité entre la cible du projet et les attributs `targetFramework` génère des avertissements, auquel cas vous pouvez réinstaller les packages concernés. | 
+| allowedVersions | Non | Plage de versions autorisées pour ce package appliquée au cours de la mise à jour du package (consultez [Limitation des versions de mise à niveau](../consume-packages/reinstalling-and-updating-packages.md#constraining-upgrade-versions)). Cet attribut n’affecte *pas* le package installé pendant une opération d’installation ou de restauration. Consultez [Gestion de versions des packages](../concepts/package-versioning.md#version-ranges) pour connaître la syntaxe. L’interface utilisateur du Gestionnaire de package désactive également toutes les versions en dehors de la plage autorisée. | 
+| developmentDependency | Non | Si le projet de consommation lui-même crée un package NuGet, l’affectation de la valeur `true` à cet attribut pour une dépendance empêche l’ajout de ce package quand le package de consommation est créé. Par défaut, il s’agit de `false`. | 
 
 ## <a name="examples"></a>Exemples
 

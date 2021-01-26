@@ -1,16 +1,16 @@
 ---
 title: Notes de publication de NuGet 1,8
 description: Notes de publication de NuGet 1,8, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 9d55534ffe765137731b7fbf4be4bbaa618c769c
-ms.sourcegitcommit: b138bc1d49fbf13b63d975c581a53be4283b7ebf
+ms.openlocfilehash: 8dd0fff88424c516d8b894412d07dcc53af19265
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93236835"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777103"
 ---
 # <a name="nuget-18-release-notes"></a>Notes de publication de NuGet 1,8
 
@@ -72,6 +72,6 @@ Pour plus d’informations, consultez le billet de blog de l' [équipe](http://b
 ### <a name="nugetexe-performance-improvements"></a>Améliorations des performances de nuget.exe
 En modifiant la commande d’installation pour télécharger et installer des packages en parallèle, NuGet 1,8 améliore considérablement les performances des nuget.exe et de la restauration des packages d’extension.  Les tests de haut niveau montrent que les performances pour l’installation de 6 packages dans un projet s’améliorent d’environ 35% dans NuGet 1,8.  L’augmentation du nombre de packages à 25 représente un gain de performances d’environ 60%.
 
-## <a name="bug-fixes"></a>Correctifs de bogues
+## <a name="bug-fixes"></a>Résolutions de bogues
 NuGet 1,8 comprend un certain nombre de correctifs de bogues en mettant l’accent sur la console du gestionnaire de package et le flux de travail de restauration des packages, en particulier en ce qui concerne le consentement de restauration des packages et l’intégration de Windows 8 Express.
 Pour obtenir la liste complète des éléments de travail corrigés dans NuGet 1,8, consultez le [suivi des problèmes NuGet pour cette version](http://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%201.8&assignedTo=All&component=All&sortField=Votes&sortDirection=Descending&page=0).

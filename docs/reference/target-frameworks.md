@@ -1,17 +1,17 @@
 ---
 title: Référence des frameworks cibles pour NuGet
 description: Les références des versions cibles de .NET Framework NuGet identifient et isolent les composants dépendants du framework d’un package.
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 995f15ae2ad823d9c814cb7e78facddee713cc8f
-ms.sourcegitcommit: c81561e93a7be467c1983d639158d4e3dc25b93a
+ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78230510"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777311"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -33,7 +33,7 @@ Un framework est généralement référencé par un moniker du Framework cible o
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 
-| Name | Abréviation | TFMs/TxMs |
+| Nom | Abréviation | TFMs/TxMs |
 | ------------- | ------------ | --------- |
 |.NET Framework | net | net11 |
 | | | net20 |
@@ -55,7 +55,7 @@ Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. 
 | | | netcore451 [win81] |
 | | | netcore50 |
 |.NET MicroFramework | netmf | netmf |
-| Windows | win | win [win8, netcore45] |
+|Windows | win | win [win8, netcore45] |
 | | | win8 [netcore45, win] |
 | | | win81 [netcore451] |
 | | | win10 (non pris en charge par la plateforme Windows 10) |
@@ -116,7 +116,7 @@ Les frameworks suivants sont dépréciés. Les packages ciblant ces frameworks d
 
 Un certain nombre de frameworks sont liés et compatibles entre eux, mais sans être nécessairement équivalents :
 
-| Framework | Peut utiliser |
+| Infrastructure | Peut utiliser |
 | -- | --- |
 | uap (Plateforme Windows universelle) | win81 |
 | | wpa81 |
@@ -144,21 +144,21 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
 | Numéro de profil | Frameworks | Nom complet | .NET Standard |
  --- | --- | --- | ---
  Profile2 | .NETFramework 4.0 | portable-net40+win8+sl4+wp7 |
- | | Windows 8.0 | |
+ | | Windows 8.0 | |
  | | Silverlight 4.0 |
  | | WindowsPhone 7.0|
  Profile3 | .NETFramework 4.0 | portable-net40+sl4
  | | Silverlight 4.0 |
  Profile4 | .NETFramework 4.5 | portable-net45+sl4+win8+wp7
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7.0 |
  Profile5 | .NETFramework 4.0 | portable-net40+win8
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile6 | .NETFramework 4.0.3 | portable-net403+win8
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile7 | .NETFramework 4.5 | portable-net45+win8 | netstandard1.1
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile14 | .NETFramework 4.0 | portable-net40+sl5
  | | Silverlight 5.0 |
  Profile18 | .NETFramework 4.0.3 | portable-net403+sl4
@@ -175,118 +175,118 @@ D’autres frameworks définis par des tiers assurent la compatibilité avec d�
  | | WindowsPhone 8.1 (UWP) |
  Profile36 | .NETFramework 4.0 | portable-net40+sl4+win8+wp8
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile37 | .NETFramework 4.0 | portable-net40+sl5+win8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile41 | .NETFramework 4.0.3 | portable-net403+sl4+win8
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile42 | .NETFramework 4.0.3 | portable-net403+sl5+win8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile44 | .NETFramework 4.5.1 | portable-net451+win81 | netstandard1.2
  | | Windows 8.1 |
  Profile46 | .NETFramework 4.5 | portable-net45+sl4+win8
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile47 | .NETFramework 4.5 | portable-net45+sl5+win8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  Profile49 | .NETFramework 4.5 | portable-net45+wp8 | netstandard1.0
  | | WindowsPhone 8.0 (SL) |
  Profile78 | .NETFramework 4.5 | portable-net45+win8+wp8 | netstandard1.0
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile84 | WindowsPhone 8.1 | portable-wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (UWP) |
  Profile88 | .NETFramework 4.0 | portable-net40+sl4+win8+wp75
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7.5 |
  Profile92 | .NETFramework 4.0 | portable-net40+win8+wpa81
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  Profile95 | .NETFramework 4.0.3 | portable-net403+sl4+win8+wp7
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7.0 |
  Profile96 | .NETFramework 4.0.3 | portable-net403+sl4+win8+wp75
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7.5 |
  Profile102 | .NETFramework 4.0.3 | portable-net403+win8+wpa81
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  Profile104 | .NETFramework 4.5 | portable-net45+sl4+win8+wp75
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 7.5 |
  Profile111 | .NETFramework 4.5 | portable-net45+win8+wpa81 | netstandard1.1
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  Profile136 | .NETFramework 4.0 | portable-net40+sl5+win8+wp8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile143 | .NETFramework 4.0.3 | portable-net403+sl4+win8+wp8
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile147 | .NETFramework 4.0.3 | portable-net403+sl5+win8+wp8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile151 | NETFramework 4.5.1 | portable-net451+win81+wpa81 | netstandard1.2
  | | Windows 8.1 |
  | | WindowsPhone 8.1 (UWP) |
  Profile154 | .NETFramework 4.5 | portable-net45+sl4+win8+wp8
  | | Silverlight 4.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile157 | Windows 8.1 | portable-win81+wp81+wpa81 | netstandard1.0
  | | WindowsPhone 8.1 (SL) |
  | | WindowsPhone 8.1 (UWP) |
  Profile158 | .NETFramework 4.5 | portable-net45+sl5+win8+wp8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.0 (SL) |
  Profile225 | .NETFramework 4.0 | portable-net40+sl5+win8+wpa81
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  Profile240 | .NETFramework 4.0.3 | portable-net403+sl5+win8+wpa8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  Profile255 | .NETFramework 4.5 | portable-net45+sl5+win8+wpa81
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  Profile259 | .NETFramework 4.5 | portable-net45+win8+wpa81+wp8 | netstandard1.0
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  | | WindowsPhone 8.0 (SL) |
  Profile328 | .NETFramework 4.0 | portable-net40+sl5+win8+wpa81+wp8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  | | WindowsPhone 8.0 (SL) |
  Profile336 | .NETFramework 4.0.3 | portable-net403+sl5+win8+wpa81+wp8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  | | WindowsPhone 8.0 (SL) |
  Profile344 | .NETFramework 4.5 | portable-net45+sl5+win8+wpa81+wp8
  | | Silverlight 5.0 |
- | | Windows 8.0 |
+ | | Windows 8.0 |
  | | WindowsPhone 8.1 (UWP) |
  | | WindowsPhone 8.0 (SL) |
 
 De plus, les packages NuGet ciblant Xamarin peuvent utiliser d’autres frameworks définis par Xamarin. Consultez [Création de packages NuGet pour Xamarin](https://developer.xamarin.com/guides/cross-platform/advanced/nuget/).
 
-| Name | Description | .NET Standard |
+| Nom | Description | .NET Standard |
 | --- | --- | ---
 | monoandroid | Prise en charge mono pour le système d’exploitation Android | netstandard1.4 |
 | monotouch | Prise en charge mono pour iOS | netstandard1.4 |

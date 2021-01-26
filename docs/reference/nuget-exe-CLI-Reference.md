@@ -1,16 +1,16 @@
 ---
-title: Informations de référence sur l’interface de ligne de commande (CLI) NuGet
+title: Informations de référence sur l’interface de Command-Line NuGet (CLI)
 description: Index de référence de ligne de commande pour l’interface CLI nuget.exe
-author: karann-msft
-ms.author: karann
+author: JonDouglas
+ms.author: jodou
 ms.date: 01/23/2018
 ms.topic: reference
-ms.openlocfilehash: e9343f1fdddcf839322849925372587e685aef4a
-ms.sourcegitcommit: cbc87fe51330cdd3eacaad3e8656eb4258882fc7
+ms.openlocfilehash: a9a5fc4d3b1e0f19fa3ea249ca7759c8ebc2d12e
+ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88623147"
+ms.lasthandoff: 01/26/2021
+ms.locfileid: "98777702"
 ---
 # <a name="nuget-cli-reference"></a>Informations de référence sur l’interface de ligne de commande NuGet
 
@@ -47,7 +47,7 @@ Commandes disponibles et applicabilité pour la création de packages, la consom
 | [push](cli-reference/cli-ref-push.md) | Publication | Tous | Publie un package dans une source de package. |
 | [config](cli-reference/cli-ref-config.md) | Tous | Tous | Obtient ou définit les valeurs de configuration NuGet. |
 | [help or ?](cli-reference/cli-ref-help.md) | Tous | Tous | Affiche des informations d’aide ou de l’aide pour une commande. |
-| [locals](cli-reference/cli-ref-locals.md) | Consommation | 3.3 + | Répertorie les emplacements des dossiers *Global-packages*, *http-cache*et *temp* et efface le contenu de ces dossiers. |
+| [locals](cli-reference/cli-ref-locals.md) | Consommation | 3.3 + | Répertorie les emplacements des dossiers *Global-packages*, *http-cache* et *temp* et efface le contenu de ces dossiers. |
 | [restore](cli-reference/cli-ref-restore.md) | Consommation | 2.7+ | Restaure tous les packages référencés par le format de gestion des packages en cours d’utilisation. En cas d’exécution sur mono, la restauration de packages à l’aide du format PackageReference n’est pas prise en charge. |
 | [setapikey](cli-reference/cli-ref-setapikey.md) | Publication, consommation | Tous | Enregistre une clé API pour une source de package donnée lorsque cette source de package requiert une clé pour l’accès. |
 | [spec](cli-reference/cli-ref-spec.md) | Création | Tous | Génère un `.nuspec` fichier en utilisant des jetons en cas de génération du fichier à partir d’un projet Visual Studio. |
