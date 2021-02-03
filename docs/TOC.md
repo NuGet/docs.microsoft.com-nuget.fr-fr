@@ -35,7 +35,7 @@
 ## [Créer un package (CLI dotnet)](create-packages/creating-a-package-dotnet-cli.md)
 ## [Créer un package (CLI nuget.exe)](create-packages/creating-a-package.md)
 ## [Créer un package (MSBuild)](create-packages/creating-a-package-msbuild.md)
-## [Meilleures pratiques pour la création de packages](create-packages/Package-authoring-best-practices.md)
+## [Meilleures pratiques de création de packages](create-packages/Package-authoring-best-practices.md)
 ## [Créer un package de préversion](create-packages/prerelease-packages.md)
 ## [Créer un package de symboles](create-packages/symbol-packages-snupkg.md)
 ## [Prendre en charge plusieurs frameworks cibles dans votre fichier projet](create-packages/multiple-target-frameworks-project-file.md)
