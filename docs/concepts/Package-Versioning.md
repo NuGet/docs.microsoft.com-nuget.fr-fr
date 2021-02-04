@@ -165,8 +165,8 @@ Spécifiez toujours une version ou une plage de versions pour les dépendances d
 |----------|--------------|-------------|-------------|-------------|
 | * | 1.1.0 <br> 1.1.1 <br> 1.2.0 <br> 1.3.0-alpha  | 1.2.0 | Version stable la plus élevée. |
 | 1.1.* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.2.0-alpha | 1.1.1 | Version stable la plus élevée qui respecte le modèle spécifié.|
-| * - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.3.0-bêta  | 1.3.0-bêta | La version la plus élevée, y compris les versions non stables. | Disponible dans Visual Studio version 16,6, NuGet version 5,6, kit SDK .NET Core version 3.1.300 |
-| 1,1. *-* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.1.2-bêta <br> 1.3.0-bêta  | 1.1.2-bêta | Version la plus élevée respectant le modèle et incluant les versions non stables. | Disponible dans Visual Studio version 16,6, NuGet version 5,6, kit SDK .NET Core version 3.1.300 |
+| * - * | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.3.0-beta  | 1.3.0-beta | La version la plus élevée, y compris les versions non stables. | Disponible dans Visual Studio version 16,6, NuGet version 5,6, kit SDK .NET Core version 3.1.300 |
+| 1.1. *-* | 1.1.0 <br> 1.1.1 <br> 1.1.2-alpha <br> 1.1.2-beta <br> 1.3.0-beta  | 1.1.2-beta | Version la plus élevée respectant le modèle et incluant les versions non stables. | Disponible dans Visual Studio version 16,6, NuGet version 5,6, kit SDK .NET Core version 3.1.300 |
 
 **Références dans `packages.config` :**
 
@@ -232,7 +232,7 @@ Lorsque vous obtenez des packages à partir d'un référentiel pendant l'install
 
 - Les zéros non significatifs sont supprimés des numéros de version :
 
-  1,00 est traité comme 1,0 1.01.1 est traité comme 1.1.1 1.00.0.1 est traité comme 1.0.0.1
+  1.00 est traité comme 1.0 1.01.1 est traité comme 1.1.1 1.00.0.1 est traité comme 1.0.0.1
 
 - Un zéro dans la quatrième partie du numéro de version sera omis
 
