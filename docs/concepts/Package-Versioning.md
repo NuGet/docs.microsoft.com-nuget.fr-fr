@@ -53,7 +53,7 @@ Techniquement parlant, les créateurs de packages peuvent utiliser n'importe que
 Cela dit, les développeurs de packages adoptent généralement des conventions d’affectation de noms reconnues :
 
 - `-alpha`: Version alpha, généralement utilisée pour les travaux en cours et l’expérimentation.
-- `-beta`: version bêta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
+- `-beta`: version beta, comprenant généralement toutes les fonctionnalités de la prochaine version planifiée, mais pouvant contenir des bogues connus.
 - `-rc` : version Release Candidate, généralement une version potentiellement finale (stable), sauf si des bogues importants apparaissent.
 
 > [!Note]
