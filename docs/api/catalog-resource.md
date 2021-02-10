@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/30/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 11485f583d6993919f6bb8acabcc87d9e4261975
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6c04453fec9beb7b0998953384ec60694e1213c1
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774160"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990145"
 ---
 # <a name="catalog"></a>Catalogue
 
@@ -201,7 +201,7 @@ Nom                    | Type                       | Obligatoire | Notes
 authors                 | string                     | non       |
 created                 | string                     | non       | Horodateur du moment où le package a été créé pour la première fois. Propriété de secours : `published` .
 dependencyGroups        | tableau d’objets           | non       | Les dépendances du package, regroupées par version cible du .NET Framework ([même format que la ressource de métadonnées du package](registration-base-url-resource.md#package-dependency-group))
-désapprobation             | objet                     | non       | La désapprobation associée au package ([même format que la ressource de métadonnées du package](registration-base-url-resource.md#package-deprecation))
+désapprobation             | object                     | non       | La désapprobation associée au package ([même format que la ressource de métadonnées du package](registration-base-url-resource.md#package-deprecation))
 description             | string                     | non       |
 iconUrl                 | string                     | non       |
 isPrerelease            | boolean                    | non       | Indique si la version du package est préliminaire. Peut être détecté à partir de `version` .
@@ -220,6 +220,7 @@ Récapitulatif                 | string                     | non       |
 tags                    | tableau de chaînes           | non       |
 title                   | string                     | non       |
 verbatimVersion         | string                     | non       | Chaîne de version telle qu’elle est trouvée à l’origine dans le. NuSpec
+vulnérabilités         | tableau d’objets           | non       | Les failles de sécurité du package
 
 La propriété de package `version` est la chaîne de version complète après la normalisation. Cela signifie que les données de build SemVer 2.0.0 peuvent être incluses ici.
 
@@ -238,6 +239,17 @@ L' `published` horodateur est l’heure de la dernière liste du package.
 
 > [!Note]
 > Sur nuget.org, la `published` valeur est définie sur l’année 1900 lorsque le package est non répertorié.
+
+#### <a name="vulnerabilities"></a>Vulnérabilités
+
+Tableau d'objets `vulnerability`. Chaque vulnérabilité a les propriétés suivantes :
+
+Nom         | Type   | Obligatoire | Notes
+------------ | ------ | -------- | -----
+advisoryUrl  | string | Oui      | Emplacement de l’avis de sécurité pour le package
+severity     | string | Oui      | Gravité de l’avis : "0" = faible, "1" = modéré, "2" = élevé, "3" = critique
+
+Si la `severity` propriété contient des valeurs autres que celles répertoriées ici, la gravité de l’avis doit être considérée comme faible.
 
 #### <a name="sample-request"></a>Exemple de requête
 
@@ -319,7 +331,7 @@ Avec cet algorithme de base, l’implémentation cliente peut générer une vue 
 
 Supposons que deux clients de catalogue possèdent une dépendance inhérente où la sortie d’un client dépend de la sortie d’un autre client. 
 
-#### <a name="example"></a>Exemples
+#### <a name="example"></a>Exemple
 
 Par exemple, sur nuget.org, un package qui vient d’être publié ne doit pas apparaître dans la ressource de recherche avant d’apparaître dans la ressource de métadonnées du package. Cela est dû au fait que l’opération de « restauration » effectuée par le client NuGet officiel utilise la ressource de métadonnées du package. Si un client Découvre un package à l’aide du service de recherche, il doit être en mesure de restaurer ce package à l’aide de la ressource de métadonnées du package. En d’autres termes, la ressource de recherche dépend de la ressource de métadonnées du package. Chaque ressource a une tâche en arrière-plan du client du catalogue qui met à jour cette ressource. Chaque client possède son propre curseur.
 

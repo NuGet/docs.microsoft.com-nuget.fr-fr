@@ -6,12 +6,12 @@ ms.author: jver
 ms.date: 10/26/2017
 ms.topic: reference
 ms.reviewer: kraigb
-ms.openlocfilehash: 403686de42bf4dc1fa94b9dd92ca6d33f3be2183
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 8d1ab4d1f3d75d93c30d94958fd9d1abf0742730
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775294"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990123"
 ---
 # <a name="package-metadata"></a>Métadonnées de package
 
@@ -126,7 +126,7 @@ L’objet feuille d’inscription trouvé dans une page d’inscription a les pr
 Nom           | Type   | Obligatoire | Notes
 -------------- | ------ | -------- | -----
 @id            | string | Oui      | URL de la feuille d’inscription
-catalogEntry   | objet | Oui      | Entrée de catalogue contenant les métadonnées du package
+catalogEntry   | object | Oui      | Entrée de catalogue contenant les métadonnées du package
 packageContent | string | Oui      | URL du contenu du package (. nupkg)
 
 Chaque objet feuille d’inscription représente des données associées à une version de package unique.
@@ -140,7 +140,7 @@ Nom                     | Type                       | Obligatoire | Notes
 @id                      | string                     | Oui      | URL du document utilisé pour produire cet objet
 authors                  | chaîne ou tableau de chaînes | non       | 
 dependencyGroups         | tableau d’objets           | non       | Dépendances du package, regroupées par version cible du .NET Framework
-désapprobation              | objet                     | non       | Désapprobation associée au package
+désapprobation              | object                     | non       | Désapprobation associée au package
 description              | string                     | non       | 
 iconUrl                  | string                     | non       | 
 id                       | string                     | Oui      | ID du package
@@ -155,6 +155,7 @@ Récapitulatif                  | string                     | non       |
 tags                     | chaîne ou tableau de chaînes  | non       | 
 title                    | string                     | non       | 
 version                  | string                     | Oui      | Chaîne de version complète après la normalisation
+vulnérabilités          | tableau d’objets           | non       | Les failles de sécurité du package
 
 La propriété de package `version` est la chaîne de version complète après la normalisation. Cela signifie que les données de build SemVer 2.0.0 peuvent être incluses ici.
 
@@ -185,7 +186,7 @@ Chaque dépendance de package a les propriétés suivantes :
 Nom         | Type   | Obligatoire | Notes
 ------------ | ------ | -------- | -----
 id           | string | Oui      | ID de la dépendance du package
-range        | objet | non       | Plage de [versions](../concepts/package-versioning.md#version-ranges) autorisée de la dépendance
+range        | object | non       | Plage de [versions](../concepts/package-versioning.md#version-ranges) autorisée de la dépendance
 inscription | string | non       | URL de l’index d’inscription pour cette dépendance
 
 Si la `range` propriété est exclue ou est une chaîne vide, le client doit avoir comme valeur par défaut la plage de versions `(, )` . Autrement dit, toute version de la dépendance est autorisée. La valeur de `*` n’est pas autorisée pour la `range` propriété.
@@ -198,7 +199,7 @@ Nom             | Type             | Obligatoire | Notes
 ---------------- | ---------------- | -------- | -----
 principales          | tableau de chaînes | Oui      | Raisons pour lesquelles le package a été déconseillé
 message          | string           | non       | Détails supplémentaires sur cette désapprobation
-alternatePackage | objet           | non       | Autre package à utiliser à la place
+alternatePackage | object           | non       | Autre package à utiliser à la place
 
 La `reasons` propriété doit contenir au moins une chaîne et ne doit contenir que des chaînes du tableau suivant :
 
@@ -217,7 +218,16 @@ L’objet de package de remplacement possède les propriétés suivantes :
 Nom         | Type   | Obligatoire | Notes
 ------------ | ------ | -------- | -----
 id           | string | Oui      | ID de l’autre package
-range        | objet | non       | Plage de [versions](../concepts/package-versioning.md#version-ranges)autorisée ou `*` si une version est autorisée
+range        | object | non       | Plage de [versions](../concepts/package-versioning.md#version-ranges)autorisée ou `*` si une version est autorisée
+
+#### <a name="vulnerabilities"></a>Vulnérabilités
+
+Tableau d'objets `vulnerability`. Chaque vulnérabilité a les propriétés suivantes :
+
+Nom         | Type   | Obligatoire | Notes
+------------ | ------ | -------- | -----
+advisoryUrl  | string | Oui      | Emplacement de l’avis de sécurité pour le package
+severity     | string | Oui      | Gravité de l’avis : "0" = faible, "1" = modéré, "2" = élevé, "3" = critique
 
 ### <a name="sample-request"></a>Exemple de requête
 

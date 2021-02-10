@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 09/07/2019
 ms.topic: reference
 ms.reviewer: karann
-ms.openlocfilehash: af9969df33c6bf7a62709e6e3535b8b886376e3e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 428fd3d7b324f6eb825b17e4a87a662fbd84a2f0
+ms.sourcegitcommit: af059dc776cfdcbad20baab2919b5d6dc1e9022d
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775929"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99990097"
 ---
 # <a name="package-id-prefix-reservation"></a>Réservation du préfixe d’ID de package
 
@@ -73,23 +73,25 @@ Une fois la demande soumise, vous êtes notifié de son acceptation ou de son re
 
 ### <a name="id-prefix-reservation-criteria"></a>Critères de réservation de préfixe d’ID
 
-Au cours de l’examen d’une demande de réservation de préfixe d’ID, l’équipe de [nuget.org](https://www.nuget.org/) évalue l’application par rapport aux critères ci-dessous. Tous les critères ne doivent pas nécessairement être remplis pour qu’un préfixe soit réservé, mais la demande peut être refusée s’il n’y a pas de preuve substantielle que les critères sont remplis (une explication est donnée) :
+Lorsque vous examinez une application pour la réservation de préfixe d’ID, l’équipe [NuGet.org](https://www.nuget.org) évalue l’application par rapport aux critères ci-dessous. Notez que tous les critères ne doivent pas être satisfaits pour qu’un préfixe soit réservé, mais l’application peut être refusée s’il n’y a pas de preuve importante des critères atteints (avec une explication donnée) :
 
-1. Le préfixe d’ID de package identifie-t-il correctement et clairement le propriétaire du package ?
+1. Le préfixe d’ID de package est-il correctement identifié et identifie clairement le propriétaire de la réservation ?
 
-1. Le propriétaire du package a-t-il [activé 2FA pour son compte NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa) ?
-
-1. Le propriétaire a-t-il déjà soumis un nombre important de packages sous le préfixe d’ID de package ?
+1. Le propriétaire a-t-il [activé 2FA pour son compte NuGet.org](individual-accounts.md#enable-two-factor-authentication-2fa)?
 
 1. Le préfixe d’ID de package est-il un élément commun qui n’est pas censé appartenir à un propriétaire ou à une organisation ?
 
-1. Le fait de *ne pas* réserver le préfixe d’ID de package serait-il source d’ambiguïté et de confusion pour la communauté ?
+1. Le préfixe d’ID de package ne serait-il *pas* possible de réserver une ambiguïté, une confusion ou d’autres dégâts à la communauté ?
+
+Lors de la publication de packages sur NuGet.org dans votre réservation de préfixe d’ID, les meilleures pratiques suivantes doivent être prises en compte :
 
 1. Les propriétés d’identification des packages qui correspondent au préfixe d’ID de package sont-elles claires et cohérentes (en particulier l’auteur du package) ?
 
 1. Les packages ont-ils une licence (qui utilise l’élément de métadonnées [license](../reference/nuspec.md#license) et non licenseUrl qui est déprécié) ?
 
-1. Si les packages ont une icône (à l’aide de l’élément de métadonnées iconUrl), sont-ils également en utilisant l’élément de métadonnées d' [icône](../reference/nuspec.md#icon) (il n’est pas nécessaire de supprimer le IconUrl) ?
+1. Si les packages ont une icône (à l’aide de l’élément de métadonnées iconUrl), sont-ils également en utilisant l’élément de métadonnées d' [icône](../reference/nuspec.md#icon) ? Il n’est pas nécessaire de supprimer les iconUrl, mais les icônes incorporées doivent être utilisées.
+ 
+Envisagez de consulter le [Guide des meilleures pratiques](../create-packages/package-authoring-best-practices.md) pour la création de packages complète en plus des points ci-dessus.
 
 ## <a name="third-party-feed-provider-scenarios"></a>Scénarios faisant appel à un fournisseur de flux tiers
 
