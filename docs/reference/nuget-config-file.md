@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: 9b15550d0e6e8aec4d526391d77c654a756f343e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 60626a5a2a261241e0dce34421f73a86d815e454
+ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777663"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101101342"
 ---
 # <a name="nugetconfig-reference"></a>Référence nuget.config
 
@@ -32,8 +32,8 @@ Contient divers paramètres de configuration, qui peuvent être définis à l’
 | Clé | Valeur |
 | --- | --- |
 | dependencyVersion (`packages.config` uniquement) | Valeur `DependencyVersion` par défaut pour l’installation, la restauration et la mise à jour de package, quand le commutateur `-DependencyVersion` n’est pas spécifié directement. Cette valeur est également utilisée par l’interface utilisateur du Gestionnaire de package NuGet. Les valeurs sont `Lowest`, `HighestPatch`, `HighestMinor`, `Highest`. |
-| globalPackagesFolder (projets utilisant PackageReference uniquement) | Emplacement du dossier de packages global par défaut. L’emplacement par défaut est `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Un chemin relatif peut être utilisé dans les fichiers `nuget.config` spécifiques au projet. Ce paramètre est remplacé par la variable d’environnement NUGET_PACKAGES, qui est prioritaire. |
-| repositoryPath (`packages.config` uniquement) | Emplacement dans lequel installer les packages NuGet au lieu du dossier `$(Solutiondir)/packages` par défaut. Un chemin relatif peut être utilisé dans les fichiers `nuget.config` spécifiques au projet. Ce paramètre est remplacé par la variable d’environnement NUGET_PACKAGES, qui est prioritaire. |
+| globalPackagesFolder (projets utilisant PackageReference uniquement) | Emplacement du dossier de packages global par défaut. L’emplacement par défaut est `%userprofile%\.nuget\packages` (Windows) ou `~/.nuget/packages` (Mac/Linux). Un chemin relatif peut être utilisé dans les fichiers `nuget.config` spécifiques au projet. Ce paramètre est remplacé par la `NUGET_PACKAGES` variable d’environnement, qui est prioritaire. |
+| repositoryPath (`packages.config` uniquement) | Emplacement dans lequel installer les packages NuGet au lieu du dossier `$(Solutiondir)/packages` par défaut. Un chemin relatif peut être utilisé dans les fichiers `nuget.config` spécifiques au projet. Ce paramètre est remplacé par la `NUGET_PACKAGES` variable d’environnement, qui est prioritaire. |
 | defaultPushSource | Identifie l’URL ou le chemin de la source du package qui doit être utilisée comme valeur par défaut si aucune autre source de package n’est trouvée pour une opération. |
 | http_proxy http_proxy.user http_proxy.password no_proxy | Paramètres de proxy à utiliser lors de la connexion aux sources de packages ; `http_proxy` doit être au format `http://<username>:<password>@<domain>`. Les mots de passe sont chiffrés et ne peuvent pas être ajoutés manuellement. Pour `no_proxy`, la valeur est une liste de domaines séparés par des virgules qui ignorent le serveur proxy. Vous pouvez également utiliser les variables d’environnement http_proxy et no_proxy pour ces valeurs. Pour plus d’informations, consultez [NuGet proxy settings](http://skolima.blogspot.com/2012/07/nuget-proxy-settings.html) (skolima.blogspot.com). |
 | signatureValidationMode | Spécifie le mode de validation utilisé pour vérifier les signatures de package pour l’installation du package et la restauration. Les valeurs sont `accept` , `require` . La valeur par défaut est `accept`.
@@ -141,7 +141,7 @@ Si vous le souhaitez, les types d’authentification valides peuvent être spéc
 | cleartextpassword | Mot de passe non chiffré pour la source. Remarque : les variables d’environnement peuvent être utilisées pour améliorer la sécurité. |
 | validauthenticationtypes | Liste séparée par des virgules des types d’authentification valides pour cette source. Définissez cette valeur sur `basic` si le serveur publie NTLM ou Negotiate et que vos informations d’identification doivent être envoyées à l’aide du mécanisme de base, par exemple lors de l’utilisation d’un Pat avec un Azure DevOps Server local. Les autres valeurs valides incluent `negotiate` , `kerberos` , `ntlm` et `digest` , mais ces valeurs ne sont pas susceptibles d’être utiles. |
 
-**Exemple :**
+**Exemple :**
 
 Dans le fichier config, l’élément `<packageSourceCredentials>` contient des nœuds enfants pour chaque nom de source applicable (les espaces dans le nom sont remplacés par `_x0020_`). Autrement dit, pour les sources nommées « Contoso » et « Test Source », le fichier config contient les éléments suivants lors de l’utilisation de mots de passe chiffrés :
 
@@ -229,7 +229,7 @@ Identifie les sources actuellement désactivées. Peut être vide.
 | --- | --- |
 | (nom de source) | Valeur booléenne indiquant si la source est désactivée. |
 
-**Exemple :**
+**Exemple :**
 
 ```xml
 <disabledPackageSources>
