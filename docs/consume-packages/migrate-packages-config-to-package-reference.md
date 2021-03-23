@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8161f4a39d4adfdb9efb25bcb840b20b85a58e07
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: fabfd76a46a38ff26acbc6439406d99eb3f85bf4
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774783"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859159"
 ---
 # <a name="migrate-from-packagesconfig-to-packagereference"></a>Migrer de packages.config vers PackageReference
 
@@ -100,31 +100,27 @@ Certains aspects autrefois pris en charge dans packages.config ne le sont plus d
 
 ### <a name="installps1-scripts-are-ignored-when-the-package-is-installed-after-the-migration"></a>Les scripts « install.ps1 » sont ignorés lorsque le package est installé après la migration
 
-| | |
-| --- | --- |
-| **Description** | Avec PackageReference, les scripts PowerShell install.ps1 et uninstall.ps1 ne sont pas exécutés pendant l'installation ou la désinstallation d'un package. |
-| **Impact potentiel** | Les packages qui dépendent de ces scripts pour configurer certains comportements dans le projet de destination peuvent ne pas fonctionner comme prévu. |
+* **Description**: avec PackageReference, install.ps1 et uninstall.ps1 scripts PowerShell ne sont pas exécutés lors de l’installation ou de la désinstallation d’un package.
+
+* **Impact potentiel**: les packages qui dépendent de ces scripts pour configurer un comportement dans le projet de destination peuvent ne pas fonctionner comme prévu.
 
 ### <a name="content-assets-are-not-available-when-the-package-is-installed-after-the-migration"></a>Les ressources « content » sont ignorées lorsque le package est installé après la migration
 
-| | |
-| --- | --- |
-| **Description** | Les ressources du dossier `content` d'un package ne sont pas prises en charge par PackageReference et sont ignorées. PackageReference ajoute la prise en charge de `contentFiles` pour permettre une meilleure prise en charge transitive et le partage de contenu.  |
-| **Impact potentiel** | les ressources dans `content` ne sont pas copiées dans le projet et le code de projet qui dépend de la présence de ces ressources nécessite une refactorisation.  |
+* **Description**: les ressources du dossier d’un package ne `content` sont pas prises en charge avec PackageReference et sont ignorées. PackageReference ajoute la prise en charge de `contentFiles` pour permettre une meilleure prise en charge transitive et le partage de contenu.
+
+* **Impact potentiel**: les ressources dans `content` ne sont pas copiées dans le projet et le code de projet qui dépend de la présence de ces ressources requiert une refactorisation.
 
 ### <a name="xdt-transforms-are-not-applied-when-the-package-is-installed-after-the-upgrade"></a>Les transformations XDT ne sont pas appliquées lorsque le package est installé après la mise à niveau
 
-| | |
-| --- | --- |
-| **Description** | Les transformations XDT ne sont pas prises en charge avec PackageReference et les fichiers `.xdt` sont ignorés lors de l'installation ou de la désinstallation d'un package.   |
-| **Impact potentiel** | les transformations XDT ne sont appliquées à aucun fichier XML du projet, le plus souvent, `web.config.install.xdt` et `web.config.uninstall.xdt`, ce qui signifie que le fichier ` web.config` du projet n'est pas mis à jour lorsque le package est installé ou désinstallé. |
+* **Description**: les transformations xdt ne sont pas prises en charge avec PackageReference et les `.xdt` fichiers sont ignorés lors de l’installation ou de la désinstallation d’un package.
+
+* **Impact potentiel**: les transformations xdt ne sont pas appliquées aux fichiers XML de projet, le plus souvent, `web.config.install.xdt` et `web.config.uninstall.xdt` , ce qui signifie que le fichier du projet ` web.config` n’est pas mis à jour lors de l’installation ou de la désinstallation du package.
 
 ### <a name="assemblies-in-the-lib-root-are-ignored-when-the-package-is-installed-after-the-migration"></a>Les assemblys à la racine de la bibliothèque sont ignorés lorsque le package est installé après la migration
 
-| | |
-| --- | --- |
-| **Description** | Avec PackageReference, les assemblys présents à la racine du dossier `lib` sans sous-dossier spécifique au framework cible sont ignorés. NuGet recherche un sous-dossier correspondant au moniker de framework cible (TFM) pour le framework cible du projet, puis installe les assemblys correspondants dans le projet. |
-| **Impact potentiel** | Les packages sans sous-dossier correspondant au moniker de framework cible (TFM) pour le framework cible du projet peuvent ne pas se comporter comme prévu après la transition, ou l'installation peut échouer pendant la migration |
+* **Description**: avec PackageReference, les assemblys présents à la racine du `lib` dossier sans un sous-dossier spécifique au Framework cible sont ignorés. NuGet recherche un sous-dossier correspondant au moniker de framework cible (TFM) pour le framework cible du projet, puis installe les assemblys correspondants dans le projet.
+
+* **Impact potentiel**: les packages qui n’ont pas de sous-dossier correspondant au moniker du Framework cible (TFM) correspondant au Framework cible du projet peuvent ne pas se comporter comme prévu après l’installation de transition ou d’échec au cours de la migration.
 
 ## <a name="found-an-issue-report-it"></a>Vous avez rencontré un problème ? Signalez-le !
 

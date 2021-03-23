@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/23/2018
 ms.topic: tutorial
-ms.openlocfilehash: 317937b4d9d773d74384b8ebfcd2146062236ac1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7660203ec44db75b7764767b519c9ff10dd1122e
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774321"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859081"
 ---
 # <a name="creating-ui-controls-as-nuget-packages"></a>Créer des contrôles IU en tant que packages NuGet
 
-À compter de Visual Studio 2017, vous pouvez utiliser les fonctionnalités qui ont été ajoutées pour les contrôles UWP et WPF que vous mettez à disposition dans les packages NuGet. Ce guide présente ces fonctionnalités dans le contexte des contrôles UWP au moyen de [l’exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage). Sauf indication contraire, la même procédure s’applique aux contrôles WPF.
+À compter de Visual Studio 2017, vous pouvez utiliser les fonctionnalités qui ont été ajoutées pour les contrôles UWP et WPF que vous mettez à disposition dans les packages NuGet. Ce guide présente ces fonctionnalités dans le contexte des contrôles UWP au moyen de [l’exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage). Sauf indication contraire, la même procédure s’applique aux contrôles WPF.
 
 ## <a name="prerequisites"></a>Prérequis
 
-1. Visual Studio 2017
+1. Visual Studio 2017
 1. Savoir [créer des packages UWP](create-uwp-packages.md)
 
 ## <a name="generate-library-layout"></a>Générer la disposition de la bibliothèque
@@ -90,7 +90,7 @@ Dans l’exemple suivant, le contrôle implémenté dans `ManagedPackage.winmd` 
 
 ## <a name="add-custom-icons-to-your-controls"></a>Ajouter des icônes personnalisées à vos contrôles
 
-Pour afficher une icône personnalisée dans la boîte à outils ou le volet Composants, ajoutez une image à votre projet ou au projet `design.dll` correspondant portant le nom « Namespace.ControlName.extension » et définissez l’action de génération sur « Ressource incorporée ». Vous devez également vous assurer que le `AssemblyInfo.cs` associé spécifie l’attribut ProvideMetadata : `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Consultez cet [exemple](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
+Pour afficher une icône personnalisée dans la boîte à outils ou le volet Composants, ajoutez une image à votre projet ou au projet `design.dll` correspondant portant le nom « Namespace.ControlName.extension » et définissez l’action de génération sur « Ressource incorporée ». Vous devez également vous assurer que le `AssemblyInfo.cs` associé spécifie l’attribut ProvideMetadata : `[assembly: ProvideMetadata(typeof(RegisterMetadata))]`. Consultez cet [exemple](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/NativePackage.Design/Properties/AssemblyInfo.cs#L20).
 
 Les formats pris en charge sont `.png`, `.jpg`, `.jpeg`, `.gif` et `.bmp`. Le format recommandé est BMP24 en 16 pixels par 16 pixels.
 
@@ -158,7 +158,7 @@ Pour WPF, poursuivez avec l’exemple dans lequel vous souhaitez que votre packa
 
 Vous pouvez incorporer des ressources de type chaîne (`.resw`) dans votre package qui peuvent être utilisées par votre contrôle ou le projet UWP de consommation ; pour ce faire, définissez la propriété **Action de génération** du fichier `.resw` sur **PRIResource**.
 
-Pour obtenir un exemple, reportez-vous à [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/master/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) dans l’exemple ExtensionSDKasNuGetPackage.
+Pour obtenir un exemple, reportez-vous à [MyCustomControl.cs](https://github.com/NuGet/Samples/blob/main/ExtensionSDKasNuGetPackage/ManagedPackage/MyCustomControl.cs) dans l’exemple ExtensionSDKasNuGetPackage.
 
 > [!Note]
 > Cette procédure s’applique uniquement aux contrôles UWP.
@@ -166,4 +166,4 @@ Pour obtenir un exemple, reportez-vous à [MyCustomControl.cs](https://github.co
 ## <a name="see-also"></a>Voir aussi
 
 - [Créer des packages UWP](create-uwp-packages.md)
-- [Exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/master/ExtensionSDKasNuGetPackage)
+- [Exemple ExtensionSDKasNuGetPackage](https://github.com/NuGet/Samples/tree/main/ExtensionSDKasNuGetPackage)

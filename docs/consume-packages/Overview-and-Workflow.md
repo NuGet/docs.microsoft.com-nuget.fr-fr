@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 5f1856940a988e0585c29ccfd581d823e4f69921
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775065"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859211"
 ---
 # <a name="package-consumption-workflow"></a>Flux de travail de la consommation des packages
 
@@ -45,9 +45,9 @@ Enfin, le comportement de NuGet est régi par des fichiers `Nuget.Config`. Plusi
 
 Les packages NuGet peuvent être téléchargés et installés à l’aide des méthodes présentées dans le tableau suivant.
 
-| Outil | Description |
-| --- | --- |
-| [dotnet.exe CLI](install-use-packages-dotnet-cli.md) | (Toutes les plateformes) Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut Sdk](/dotnet/core/tools/csproj#additions)). Récupère le package identifié par \<package_name\> et ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
-| Visual Studio | (Windows et Mac) Fournit une interface utilisateur permettant de parcourir, de sélectionner et d’installer des packages et leurs dépendances dans un projet à partir d’une source de package donnée. Ajoute des références aux packages installés dans le fichier projet.<ul><li>[Installer et gérer des packages à l’aide de Visual Studio](install-use-packages-visual-studio.md)</li><li>[Inclusion d’un package NuGet dans votre projet (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
-| [Console du Gestionnaire de package (Visual Studio)](install-use-packages-powershell.md) | (Windows uniquement) Récupère et installe le package identifié par \<package_name\> à partir d’une source sélectionnée dans un projet spécifié dans la solution, puis ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
-| [Interface CLI de nuget.exe](install-use-packages-nuget-cli.md) | (Toutes les plateformes) Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Récupère le package identifié par \<package_name\> et développe son contenu dans un dossier du répertoire actif ; peut également récupérer tous les packages répertoriés dans un `packages.config` fichier. Récupère et installe également les dépendances, mais n’apporte aucune modification aux fichiers projet ni à `packages.config`. |
+| Outil | Plateformes | Description |
+| --- | --- | --- |
+| [Interface CLI .NET](install-use-packages-dotnet-cli.md) | Tous | Outil CLI pour les bibliothèques .NET Core et .NET Standard et pour les projets de style SDK qui ciblent le .NET Framework (consultez [Attribut SDK](/dotnet/core/tools/csproj#additions)). Récupère le package identifié par \<package_name\> et ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
+| Visual Studio | Windows et Mac | Fournit une interface utilisateur par le biais de laquelle vous pouvez parcourir, sélectionner et installer des packages et leurs dépendances dans un projet à partir d’une source de package spécifiée. Ajoute des références aux packages installés dans le fichier projet.<ul><li>[Installer et gérer des packages à l’aide de Visual Studio](install-use-packages-visual-studio.md)</li><li>[Inclusion d’un package NuGet dans votre projet (Mac)](/visualstudio/mac/nuget-walkthrough)</li></ul> |
+| [Console du Gestionnaire de package (Visual Studio)](install-use-packages-powershell.md) | Windows uniquement | Récupère et installe le package identifié par \<package_name\> à partir d’une source sélectionnée dans un projet spécifié dans la solution, puis ajoute une référence au fichier projet. Récupère et installe également les dépendances. |
+| [Interface CLI de nuget.exe](install-use-packages-nuget-cli.md) | Tous | Outil CLI pour les bibliothèques .NET Framework et les projets qui ne sont pas de style SDK ciblant les bibliothèques .NET Standard. Récupère le package identifié par \<package_name\> et développe son contenu dans un dossier du répertoire actif ; peut également récupérer tous les packages répertoriés dans un `packages.config` fichier. Récupère et installe également les dépendances, mais n’apporte aucune modification aux fichiers projet ni à `packages.config`. |

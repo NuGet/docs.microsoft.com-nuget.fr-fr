@@ -5,12 +5,12 @@ author: zivkan
 ms.author: zivkan
 ms.date: 05/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: b32075c3f2c06c15c07d36602bdabdaee8b9405a
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: b2202946d0060e09828250d240f931044d1bf485
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427474"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859029"
 ---
 # <a name="select-assemblies-referenced-by-projects"></a>Sélectionner des assemblys référencés par les projets
 
@@ -21,7 +21,7 @@ Avec les références d’assembly explicites, vous pouvez utiliser un sous-ense
 
 ## <a name="packagereference-support"></a>Prise en charge de `PackageReference`
 
-Quand un projet utilise un package avec `PackageReference` et que ce package contient un répertoire `ref\<tfm>\`, NuGet classe ces assemblys en tant que ressources de compilation, alors que les assemblys `lib\<tfm>\` sont classés en tant que ressources d’exécution. Les assemblys dans `ref\<tfm>\` ne sont pas utilisés au moment de l’exécution. Cela implique que chaque assembly dans `ref\<tfm>\` ait un assembly correspondant dans `lib\<tfm>\` ou dans un répertoire `runtime\` correspondant. Sinon, des erreurs d’exécution se produiront certainement. Du fait que les assemblys dans `ref\<tfm>\` ne sont pas utilisés au moment de l’exécution, vous pouvez utiliser des [assemblys de métadonnées uniquement](https://github.com/dotnet/roslyn/blob/master/docs/features/refout.md) afin de réduire la taille du package.
+Quand un projet utilise un package avec `PackageReference` et que ce package contient un répertoire `ref\<tfm>\`, NuGet classe ces assemblys en tant que ressources de compilation, alors que les assemblys `lib\<tfm>\` sont classés en tant que ressources d’exécution. Les assemblys dans `ref\<tfm>\` ne sont pas utilisés au moment de l’exécution. Cela implique que chaque assembly dans `ref\<tfm>\` ait un assembly correspondant dans `lib\<tfm>\` ou dans un répertoire `runtime\` correspondant. Sinon, des erreurs d’exécution se produiront certainement. Du fait que les assemblys dans `ref\<tfm>\` ne sont pas utilisés au moment de l’exécution, vous pouvez utiliser des [assemblys de métadonnées uniquement](https://github.com/dotnet/roslyn/blob/main/docs/features/refout.md) afin de réduire la taille du package.
 
 > [!Important]
 > Si un package contient l’élément nuspec `<references>` (utilisé par `packages.config`, comme décrit ci-dessous) et ne contient pas d’assemblys dans `ref\<tfm>\`, NuGet publie les assemblys listés dans l’élément nuspec `<references>` à la fois comme ressources de compilation et ressources d’exécution. Cela signifie qu’il y aura des exceptions de runtime si les assemblys référencés doivent charger un autre assembly dans le répertoire `lib\<tfm>\`.
@@ -31,7 +31,7 @@ Quand un projet utilise un package avec `PackageReference` et que ce package con
 
 ## <a name="packagesconfig-support"></a>Prise en charge de `packages.config`
 
-Les projets qui utilisent `packages.config` pour gérer les packages NuGet ajoutent normalement des références à tous les assemblys listés dans le répertoire `lib\<tfm>\`. Le répertoire `ref\` ayant été ajouté pour prendre en charge `PackageReference`, il est ignoré quand `packages.config` est utilisé. Pour définir explicitement les assemblages référencés pour les projets utilisant, `packages.config`le paquet doit utiliser l’élément [ `<references>` dans le fichier nuspec](../reference/nuspec.md#explicit-assembly-references). Par exemple :
+Les projets qui utilisent `packages.config` pour gérer les packages NuGet ajoutent normalement des références à tous les assemblys listés dans le répertoire `lib\<tfm>\`. Le répertoire `ref\` ayant été ajouté pour prendre en charge `PackageReference`, il est ignoré quand `packages.config` est utilisé. Pour définir explicitement les assemblys qui sont référencés pour les projets à l’aide de `packages.config` , le package doit utiliser l' [ `<references>` élément dans le fichier NuSpec](../reference/nuspec.md#explicit-assembly-references). Par exemple :
 
 ```xml
 <references>
@@ -42,7 +42,7 @@ Les projets qui utilisent `packages.config` pour gérer les packages NuGet ajout
 ```
 
 > [!Note]
-> Le projet `packages.config` utilise un processus appelé [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/master/documentation/wiki/ResolveAssemblyReference.md) pour copier les assemblys dans le répertoire de sortie `bin\<configuration>\`. L’assembly du projet est copié, après quoi le système de build recherche les assemblys référencés dans le manifeste de l’assembly, puis copie ces assemblys, et répète cette séquence de manière récursive pour tous les assemblys. Cela signifie que si un des assemblys du répertoire `lib\<tfm>\` n’est pas référencé dans le manifeste d’aucun autre assembly en tant que dépendance (si l’assembly est chargé au moment de l’exécution avec `Assembly.Load`, MEF ou tout autre framework d’injection de dépendance), il risque de ne pas être copié dans le répertoire de sortie `bin\<configuration>\` de votre projet, même s’il est bien dans `bin\<tfm>\`.
+> Le projet `packages.config` utilise un processus appelé [ResolveAssemblyReference](https://github.com/Microsoft/msbuild/blob/main/documentation/wiki/ResolveAssemblyReference.md) pour copier les assemblys dans le répertoire de sortie `bin\<configuration>\`. L’assembly du projet est copié, après quoi le système de build recherche les assemblys référencés dans le manifeste de l’assembly, puis copie ces assemblys, et répète cette séquence de manière récursive pour tous les assemblys. Cela signifie que si un des assemblys du répertoire `lib\<tfm>\` n’est pas référencé dans le manifeste d’aucun autre assembly en tant que dépendance (si l’assembly est chargé au moment de l’exécution avec `Assembly.Load`, MEF ou tout autre framework d’injection de dépendance), il risque de ne pas être copié dans le répertoire de sortie `bin\<configuration>\` de votre projet, même s’il est bien dans `bin\<tfm>\`.
 
 ## <a name="example"></a>Exemple
 

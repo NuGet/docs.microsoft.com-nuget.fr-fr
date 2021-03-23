@@ -5,14 +5,14 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dcaed83ca54e3234702e963ffc2ebbde4cd75b28
-ms.sourcegitcommit: 323a107c345c7cb4e344a6e6d8de42c63c5188b7
+ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98235761"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859185"
 ---
-# <a name="package-references-packagereference-in-project-files"></a>Références de package (PackageReference) dans les fichiers projet
+# <a name="package-references-packagereference-in-project-files"></a>Références de package ( `PackageReference` ) dans les fichiers projet
 
 Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’a pas d’impact sur les autres aspects de NuGet. Par exemple, les paramètres des fichiers `NuGet.config` (notamment les sources de packages) continuent d’être appliqués, comme cela est expliqué dans [Configurations courantes de NuGet](configuring-nuget-behavior.md).
 
@@ -102,7 +102,7 @@ Les balises de métadonnées suivantes permettent de contrôler les ressources d
 | Tag | Description | Valeur par défaut |
 | --- | --- | --- |
 | IncludeAssets | Ces ressources sont consommées. | all |
-| ExcludeAssets | Ces ressources ne sont pas consommées. | aucun |
+| ExcludeAssets | Ces ressources ne sont pas consommées. | Aucun |
 | PrivateAssets | Ces ressources sont consommées, mais ne sont pas acheminées vers le projet parent. | contentfiles;analyzers;build |
 
 Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multiples doivent être séparées par un point-virgule, à l’exception de `all` et de `none` qui doivent s’afficher seules) :
@@ -117,7 +117,7 @@ Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multipl
 | buildTransitive | *(5.0 +)* `.props` et `.targets` dans le dossier `buildTransitive`, pour les ressources qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analyzers | Analyseurs .NET |
 | native | Contenu du dossier `native` |
-| aucun | Aucune des valeurs ci-dessus n’est utilisée. |
+| Aucun | Aucune des valeurs ci-dessus n’est utilisée. |
 | all | Toutes les valeurs ci-dessus sont utilisées (sauf `none`) |
 
 Dans l’exemple suivant, tout (à l’exception des fichiers de contenu du package) est consommé par le projet et tout (à l’exception des fichiers de contenu et des analyseurs) est acheminé vers le projet parent.
@@ -211,7 +211,7 @@ Pour vérifier le nom exact de la propriété générée, examinez le fichier [N
 Dans certains cas rares, différents packages contiendront des classes dans le même espace de noms. À compter de NuGet 5,7 & Visual Studio 2019 Update 7, équivalent à ProjectReference, PackageReference prend en charge [`Aliases`](/dotnet/api/microsoft.codeanalysis.projectreference.aliases) .
 Par défaut, aucun alias n’est fourni. Lorsqu’un alias est spécifié, *tous les* assemblys provenant du package annoté doivent être référencés avec un alias.
 
-Vous pouvez examiner l’utilisation de l’exemple sur [NuGet\Samples](https://github.com/NuGet/Samples/tree/master/PackageReferenceAliasesExample)
+Vous pouvez examiner l’utilisation de l’exemple sur [NuGet\Samples](https://github.com/NuGet/Samples/tree/main/PackageReferenceAliasesExample)
 
 Dans le fichier projet, spécifiez les alias comme suit :
 

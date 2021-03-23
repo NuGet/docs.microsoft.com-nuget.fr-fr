@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 7671b50b84bf1447fe94e02896786d1f309425dd
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777311"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859484"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -23,13 +23,17 @@ NuGet utilise les références des versions cibles de .NET Framework à de nombr
 - [packages.config](../reference/packages-config.md) : l’attribut `targetframework` d’une dépendance spécifie la variante d’un package à installer.
 
 > [!Note]
-> Le code source du client NuGet qui calcule les tableaux ci-dessous se trouve aux emplacements suivants :
-> - Noms des frameworks pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
-> - Priorité des frameworks et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
+> NuGet prend en charge tous les frameworks cibles .NET modernes :
+> - Pour obtenir la liste des versions les plus récentes des frameworks cibles, consultez la documentation [sur les frameworks cibles dans les projets de type SDK](/dotnet/standard/frameworks) .
 
 ## <a name="supported-frameworks"></a>Frameworks pris en charge
 
 Un framework est généralement référencé par un moniker du Framework cible ou TFM court. Dans .NET Standard cela est également généralisé à *TxM* pour permettre une seule référence à plusieurs infrastructures.
+
+> [!Note]
+> Le code source du client NuGet qui calcule les tableaux ci-dessous se trouve aux emplacements suivants :
+> - Noms des frameworks pris en charge : [FrameworkConstants.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/FrameworkConstants.cs)
+> - Priorité des frameworks et mappage : [DefaultFrameworkMappings.cs](https://github.com/NuGet/NuGet.Client/blob/dev/src/NuGet.Core/NuGet.Frameworks/DefaultFrameworkMappings.cs)
 
 Les clients NuGet prennent en charge les frameworks dans le tableau ci-dessous. Les équivalents sont indiqués entre crochets []. Notez que certains outils, tels que `dotnet`, peuvent utiliser les variantes de monikers TFM canoniques dans certains fichiers. Par exemple, `dotnet pack` utilise `.NETCoreApp2.0` dans un fichier `.nuspec` plutôt que `netcoreapp2.0`. Les différents outils du client NuGet gèrent correctement ces variantes, mais vous devez toujours utiliser des monikers TFM canoniques quand vous modifiez directement les fichiers.
 

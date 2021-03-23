@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 125579832db2ac32217d24f6fc6fc1b555f54350
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101435"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859224"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Meilleures pratiques pour une chaîne d’approvisionnement de logiciels sécurisée
 
@@ -20,7 +20,7 @@ Si vous n’avez pas conscience de ce qui se trouve dans votre chaîne d’appro
 
 ![État du Octoverse 2020-Open source](media/opensource-percent.png)
 
-## <a name="dependencies"></a>Dépendances 
+## <a name="dependencies"></a>Les dépendances 
 
 Le terme « chaîne d’approvisionnement logiciel » est utilisé pour faire référence à tout ce qui passe dans vos logiciels et à son origine. Il s’agit des dépendances et des propriétés de vos dépendances dont dépend votre chaîne d’approvisionnement logiciel. Une dépendance est ce que votre logiciel doit exécuter. Il peut s’agir de code, de fichiers binaires ou d’autres composants, et de leur provenance, tel qu’un référentiel ou un gestionnaire de package.
 
@@ -75,7 +75,7 @@ Il se trouve généralement dans l’un des deux emplacements suivants :
 -   [`packages.config`](../reference/packages-config.md) : Situé à la racine du projet.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) : Situé dans le fichier projet. 
 
-Selon la méthode que vous utilisez pour gérer vos dépendances NuGet, vous pouvez également utiliser Visual Studio pour afficher vos dépendances directement dans [Explorateur de solutions](/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019#solution-explorer) ou le [Gestionnaire de package NuGet](../consume-packages/install-use-packages-visual-studio.md).
+Selon la méthode que vous utilisez pour gérer vos dépendances NuGet, vous pouvez également utiliser Visual Studio pour afficher vos dépendances directement dans [Explorateur de solutions](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) ou le [Gestionnaire de package NuGet](../consume-packages/install-use-packages-visual-studio.md).
 
 Pour les environnements CLI, vous pouvez utiliser la [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) commande pour répertorier les dépendances de votre projet ou de votre solution. 
 
@@ -140,7 +140,7 @@ Pour configurer des stratégies d’approbation [du client, consultez la documen
 
 Les fichiers de verrouillage stockent le hachage du contenu de votre package. Si le hachage de contenu d’un package que vous souhaitez installer correspond au fichier de verrouillage, il garantit la répétabilité des packages.
 
-Pour activer les fichiers de verrouillage, [consultez la documentation suivante](../consume-packages/package-references-in-project-files#locking-dependencies).
+Pour activer les fichiers de verrouillage, [consultez la documentation suivante](../consume-packages/package-references-in-project-files.md#locking-dependencies).
 
 ## <a name="monitor-your-supply-chain"></a>Surveiller votre chaîne d’approvisionnement
 

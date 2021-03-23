@@ -1,18 +1,18 @@
 ---
-title: Meilleures pratiques pour la création de packages
+title: Meilleures pratiques de création de packages
 description: Guide général des meilleures pratiques pour la création de packages NuGet de haute qualité.
 author: chgill-MSFT
 ms.author: chgill
 ms.date: 09/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35eb000bddaa58726857cd3c1fd2362917f83196
-ms.sourcegitcommit: c19d398cecee3cad2d79a8b22650fc1988d41a3f
+ms.openlocfilehash: 7475cf655876f2c127e79a16ccf67c0c723d164f
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99420862"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859068"
 ---
-# <a name="package-authoring-best-practices"></a>Meilleures pratiques pour la création de packages
+# <a name="package-authoring-best-practices"></a>Meilleures pratiques de création de packages
 
 Ce guide est destiné à fournir aux auteurs de package NuGet une référence légère pour créer et publier des packages de haute qualité. Il se concentre principalement sur les meilleures pratiques spécifiques aux packages, telles que les métadonnées et la compression. Pour obtenir des suggestions plus approfondies sur la création de bibliothèques de haute qualité, consultez le Guide de la [bibliothèque open source](https://docs.microsoft.com/dotnet/standard/library-guidance/).net.
 
@@ -59,7 +59,7 @@ Les éléments de métadonnées de package peuvent également être [spécifiés
 Vous trouverez ci-dessous un mappage de table et décrivant les éléments de métadonnées de package disponibles :
 
 | Nom de la propriété Visual Studio                   | [Fichier projet/nom de la propriété MSBuild](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                          | [Nom de la propriété NuSpec](https://docs.microsoft.com/nuget/reference/nuspec#general-form-and-schema) | Description                                                                                                       |
-|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+|-----------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------|
 | [`Package id`](#package-id)                   | [`PackageId`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageid)                                                            | [`id`](https://docs.microsoft.com/nuget/reference/nuspec#id)                                      | Nom ou identificateur du package.                    |
 | [`Package version`](#package-version)         | [`PackageVersion`](https://docs.microsoft.com/dotnet/core/tools/csproj#packageversion)                                                  | [`version`](https://docs.microsoft.com/nuget/reference/nuspec#version)                            | Version du package NuGet.                                           |
 | [`Authors`](#authors)                         | [`Authors`](https://docs.microsoft.com/dotnet/core/tools/csproj#authors)                                                                | [`authors`](https://docs.microsoft.com/nuget/reference/nuspec#authors)                            | Liste séparée par des virgules des auteurs de packages, souvent en utilisant le « nom convivial » de l’individu ou d’une organisation.                             |
@@ -70,9 +70,9 @@ Vous trouverez ci-dessous un mappage de table et décrivant les éléments de m�
 | [`Project URL`](#project-url)                 | `PackageProjectUrl`                                                                                                                     | [`projectUrl`](https://docs.microsoft.com/nuget/reference/nuspec#projecturl)                      | URL de la page d’accueil du projet.                                                                                   |
 | [`Icon File`](#icon)                          | [`PackageIcon`](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-an-icon-image-file)                                  | [`icon`](https://docs.microsoft.com/nuget/reference/nuspec#icon)                                  | Chemin du fichier image de l’icône de package.                                                                      |
 | [`Repository URL`](#repository-type-and-url)  | [`RepositoryUrl`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositoryurl)                                                    | [`repository url`](https://docs.microsoft.com/nuget/reference/nuspec#repository)               | URL du référentiel à partir duquel le package a été généré.                                                           |
-| [`Repository type`](#repository-type-and-url) | [`RespositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | Type de référentiel sur lequel pointe l’URL de dépôt (c.-à-d., « git »).                                                   |
+| [`Repository type`](#repository-type-and-url) | [`RepositoryType`](https://docs.microsoft.com/dotnet/core/tools/csproj#repositorytype)                                                 | [`repository type`](https://docs.microsoft.com/nuget/reference/nuspec#repository)              | Type de référentiel sur lequel pointe l’URL de dépôt (c.-à-d., « git »).                                                   |
 | [`Tags`](#tags)                               | [`PackageTags`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagetags)                                                        | [`tags`](https://docs.microsoft.com/nuget/reference/nuspec#tags)                                  | Liste délimitée par des espaces des balises et mots clés qui décrivent le package. Les balises sont utilisées lors de la recherche des packages. |
-| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | Description des modifications apportées à cette version du package.                                                 |  |
+| [`Release notes`](#release-notes)             | [`PackageReleaseNotes`](https://docs.microsoft.com/dotnet/core/tools/csproj#packagereleasenotes)                                          | [`releaseNotes`](https://docs.microsoft.com/nuget/reference/nuspec#releasenotes)                  | Description des modifications apportées à cette version du package.                                                 |
 
 ### <a name="package-id"></a>ID du package
 
@@ -104,14 +104,14 @@ Pour obtenir des instructions plus avancées, consultez le Guide de contrôle de
 ✔️ incluez une brève description (jusqu’à 4000 caractères) pour décrire votre package.
 > Les descriptions de packages sont l’un des champs les plus importants dans la recherche NuGet. il s’agit probablement de la première chose que les consommateurs potentiels recherchent pour déterminer si un package est adapté à ces derniers.
 
-### <a name="copyright"></a>Copyright
+### <a name="copyright"></a>copyright
 
 ✔️ envisagez de Copyrighter votre package avec « Copyright (c) <nom/entreprise \> <année \> ».
 >Une mention de droits d’auteur indique essentiellement que votre travail ne peut pas être copié sans votre autorisation. L’inclusion d’une mention de droits d’auteur dans votre package est simple et n’a aucun effet.
 
 Exemple : Copyright (c) contoso 2020
 
-### <a name="licensing"></a>Licences
+### <a name="licensing"></a>Licence
 
 ✔️ [inclure une expression de licence ou un fichier de licence dans votre package](https://docs.microsoft.com/nuget/reference/msbuild-targets#packing-a-license-expression-or-a-license-file).
 > [!IMPORTANT]

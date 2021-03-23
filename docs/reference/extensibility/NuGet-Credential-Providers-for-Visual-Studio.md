@@ -5,19 +5,19 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/09/2017
 ms.topic: conceptual
-ms.openlocfilehash: f324f1e27e0d718571525152fcf16b55b900dbaa
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: ab3bde0d320375f854a8f0a98fb90acfecf54aa3
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777750"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859094"
 ---
 # <a name="authenticating-feeds-in-visual-studio-with-nuget-credential-providers"></a>Authentification de flux dans Visual Studio avec des fournisseurs d’informations d’identification NuGet
 
 L’extension Visual Studio NuGet 3.6 + prend en charge les fournisseurs d’informations d’identification, ce qui permet à NuGet de fonctionner avec les flux authentifiés.
 Après l’installation d’un fournisseur d’informations d’identification NuGet pour Visual Studio, l’extension NuGet Visual Studio acquière et actualise automatiquement les informations d’identification pour les flux authentifiés si nécessaire.
 
-Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 Dans Visual Studio, NuGet utilise un interne `VsCredentialProviderImporter` qui recherche également les fournisseurs d’informations d’identification de plug-in. Ces fournisseurs d’informations d’identification de plug-in doivent être détectables comme une exportation MEF de type `IVsCredentialProvider` .
 
@@ -58,7 +58,7 @@ public interface IVsCredentialProvider
 }
 ```
 
-Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProvider](https://github.com/NuGet/Samples/tree/master/VsCredentialProvider).
+Vous trouverez un exemple d’implémentation dans [l’exemple VsCredentialProvider](https://github.com/NuGet/Samples/tree/main/VsCredentialProvider).
 
 Chaque fournisseur d’informations d’identification NuGet pour Visual Studio doit :
 
@@ -78,4 +78,4 @@ Un fournisseur d’informations d’identification NuGet personnalisé pour Visu
 | bool non interactif | Si la valeur est true, le fournisseur d’informations d’identification doit supprimer toutes les invites utilisateur et utiliser les valeurs par défaut à la place. |
 | CancellationToken cancellationToken | Ce jeton d’annulation doit être vérifié pour déterminer si l’opération qui demande des informations d’identification a été annulée. |
 
-**Valeur de retour**: objet d’informations d’identification implémentant l' [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials?view=netstandard-2.0).
+**Valeur de retour**: objet d’informations d’identification implémentant l' [ `System.Net.ICredentials` interface](/dotnet/api/system.net.icredentials).

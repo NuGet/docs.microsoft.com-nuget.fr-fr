@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 6a68b07c42e6abf4ad57d0129fa76d7dd620145f
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777673"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859497"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -34,7 +34,7 @@ Dans cette rubrique :
 
 - Un `.nuspec` fichier n’est pas requis pour créer des packages pour les [projets de type SDK](../resources/check-project-format.md) (en général, les projets .net Core et .NET standard qui utilisent l' [attribut SDK](/dotnet/core/tools/csproj#additions)). (Notez qu’une `.nuspec` est générée lorsque vous créez le package.)
 
-   Si vous créez un package à l’aide de `dotnet.exe pack` ou de `msbuild pack target` , nous vous recommandons d’inclure à la place [toutes les propriétés](../reference/msbuild-targets.md#pack-target) qui se trouvent généralement dans le fichier du fichier `.nuspec` projet. Toutefois, vous pouvez choisir d' [utiliser un `.nuspec` fichier à compresser à l’aide de `dotnet.exe` ou `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec)de.
+   Si vous créez un package à l’aide de `dotnet.exe pack` ou de `msbuild pack target` , nous vous recommandons d’inclure à la place [toutes les propriétés](../reference/msbuild-targets.md#pack-target) qui se trouvent généralement dans le fichier du fichier `.nuspec` projet. Toutefois, vous pouvez choisir d' [utiliser un `.nuspec` fichier à compresser à l’aide de `dotnet.exe` ou `msbuild pack target` ](../reference/msbuild-targets.md#packing-using-a-nuspec-file)de.
 
 - Pour les projets migrés de `packages.config` vers [PackageReference](../consume-packages/package-references-in-project-files.md), un `.nuspec` fichier n’est pas requis pour créer le package. Utilisez plutôt [msbuild-t :Pack](../consume-packages/migrate-packages-config-to-package-reference.md#create-a-package-after-migration).
 
@@ -198,7 +198,7 @@ Par exemple, vous ajoutez le code suivant à votre NuSpec lors de la création d
 </package>
 ```
 
-[Icône de package NuSpec Sample.](https://github.com/NuGet/Samples/tree/master/PackageIconNuspecExample)
+[Icône de package NuSpec Sample.](https://github.com/NuGet/Samples/tree/main/PackageIconNuspecExample)
 
 Pour l’équivalent MSBuild, jetez un coup d’œil à la [compression d’un fichier image d’icône](msbuild-targets.md#packing-an-icon-image-file).
 
@@ -328,7 +328,7 @@ En général, quand vous avez un projet, vous créez le fichier `.nuspec` initia
 
 À l’exception de `$configuration$`, les valeurs dans le projet sont préférées à celles affectées au même jeton sur la ligne de commande.
 
-| Jeton | Source de la valeur | Valeur
+| par jeton | Source de la valeur | Valeur
 | --- | --- | ---
 | **$id $** | Fichier projet | AssemblyName (titre) à partir du fichier projet |
 | **$version $** | AssemblyInfo | AssemblyInformationalVersion si présente, sinon AssemblyVersion |
@@ -374,7 +374,7 @@ Lors du chargement d’un package sur nuget.org, l’attribut de chaque dépenda
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
 | native | native |
-| aucun | Aucun dossier |
+| Aucun | Aucun dossier |
 | all | Tous les dossiers |
 
 Par exemple, les lignes suivantes indiquent les dépendances sur `PackageA` version 1.1.0 ou ultérieure, et `PackageB` version 1.x.
@@ -486,7 +486,7 @@ L’élément `<frameworkAssemblies>` contient zéro ou plusieurs éléments `<f
 
 | Attribut | Description |
 | --- | --- |
-| **NomAssembly** | (Obligatoire) Nom d’assembly qualifié complet. |
+| **assemblyName** | (Obligatoire) Nom d’assembly qualifié complet. |
 | **targetFramework** | (Facultatif) Spécifie la version cible de .NET Framework à laquelle s’applique cette référence. Si cet attribut est omis, indique que la référence s’applique à tous les frameworks. Consultez [Versions cibles de .NET Framework](../reference/target-frameworks.md) pour connaître les identificateurs de framework exacts. |
 
 L’exemple suivant montre une référence à `System.Net` pour toutes les versions cibles de .NET Framework et une référence à `System.ServiceModel` pour .NET Framework 4.0 uniquement :
@@ -528,7 +528,7 @@ Chaque élément `<file>` spécifie les attributs suivants :
 | --- | --- |
 | **src** | Emplacement du ou des fichiers à inclure, soumis à des exclusions définies par l’attribut `exclude`. Le chemin est relatif au fichier `.nuspec` sauf si un chemin absolu est spécifié. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **cible** | Chemin relatif vers le dossier dans le package où les fichiers sources sont placés, qui doit commencer par `lib`, `content`, `build` ou `tools`. Consultez [Création d’un fichier .nuspec à partir d’un répertoire de travail basé sur une convention](../create-packages/creating-a-package.md#from-a-convention-based-working-directory). |
-| **exclure** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
+| **exclus** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 
 ### <a name="examples"></a>Exemples
 
@@ -758,7 +758,7 @@ Ces fichiers sont spécifiés avec un ensemble d’attributs qui décrivent comm
 | Attribut | Description |
 | --- | --- |
 | **inclusion** | (Obligatoire) Emplacement du ou des fichiers à inclure, soumis à des exclusions définies par l’attribut `exclude`. Le chemin d’accès est relatif au `contentFiles` dossier, à moins qu’un chemin d’accès absolu soit spécifié. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
-| **exclure** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
+| **exclus** | Liste de fichiers ou de modèles de fichiers séparés par un point-virgule à exclure de l’emplacement `src`. Le caractère générique `*` est autorisé et le caractère générique double `**` implique une recherche de dossier récursive. |
 | **buildAction** | Action de génération à assigner à l’élément de contenu pour MSBuild, par exemple,,,, `Content` `None` `Embedded Resource` `Compile` etc. La valeur par défaut est `Compile` . |
 | **copyToOutput** | Valeur booléenne indiquant si les éléments de contenu doivent être copiés dans le dossier de sortie de la génération (ou de la publication). La valeur par défaut est false. |
 | **flatten** | Valeur booléenne indiquant s’il faut copier des éléments de contenu dans un dossier unique dans la sortie de génération (true) ou conserver la structure de dossiers dans le package (false). Cet indicateur fonctionne uniquement lorsque l’indicateur copyToOutput est défini sur true. La valeur par défaut est false. |

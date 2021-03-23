@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 01/18/2018
 ms.topic: conceptual
-ms.openlocfilehash: e5c62177b40162cb8b6b37b0d272fb7a945156c1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 574ee874e2d6555a2e3e0a0643962e33b7ec1b09
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775711"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859445"
 ---
 # <a name="deleting-packages"></a>Supprimer des packages
 
 NuGet.org ne prend pas en charge la suppression définitive de packages. Cela compromettrait chaque projet dépendant de la disponibilité du package, en particulier dans le cas des workflows de build qui impliquent la restauration du package.
 
-nuget.org prend en charge l’annulation de la [liste d’un package](#unlisting-a-package), ce qui peut être fait dans la page de gestion des packages sur le site Web. Les packages supprimés de la liste n’apparaissent ni sur nuget.org ni dans l’interface utilisateur de Visual Studio, ni dans les résultats d’une recherche. Toutefois, vous pouvez quand même les télécharger et les installer en utilisant un numéro de version exact qui prend en charge la restauration des packages. De plus, il est toujours possible de découvrir les packages supprimés de la liste dans les scénarios spécifiques suivants :
+nuget.org ne prend pas en charge l’annulation de la [liste d’un package](#unlisting-a-package), ce qui peut être fait dans la page de gestion des packages sur le site Web. Les packages supprimés de la liste n’apparaissent ni sur nuget.org ni dans l’interface utilisateur de Visual Studio, ni dans les résultats d’une recherche. Toutefois, vous pouvez quand même les télécharger et les installer en utilisant un numéro de version exact qui prend en charge la restauration des packages. De plus, il est toujours possible de découvrir les packages supprimés de la liste dans les scénarios spécifiques suivants :
 
 - Restauration de packages à l’aide de versions flottantes (par exemple, `1.0.0-*`), si le dernier package disponible correspondant aux contraintes de version ou dépendance est un package supprimé de la liste.
 - Réplication des packages par le biais du catalogue (qui, lui aussi, contient des packages supprimés de la liste).

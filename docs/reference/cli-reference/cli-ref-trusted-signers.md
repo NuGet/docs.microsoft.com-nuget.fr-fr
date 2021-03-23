@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 4b6a1c3b6eb0fefd9a78c78233f974eb0db19e93
-ms.sourcegitcommit: aeb9072f2fcaca73dc9de05b7fd643f1aa7c5821
+ms.openlocfilehash: 9dd3fe3786c824c4a0a1cb252aa50cfc4458a483
+ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101101366"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104859419"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>commande des signataires approuvés (interface CLI NuGet)
 
@@ -19,7 +19,7 @@ ms.locfileid: "101101366"
 
 Obtient ou définit des signataires approuvés pour la configuration NuGet. Pour une utilisation supplémentaire, consultez [configurations NuGet courantes](../../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur l’apparence du schéma nuget.config, consultez la [Référence du fichier de configuration NuGet](../nuget-config-file.md).
 
-## <a name="usage"></a>Utilisation
+## <a name="usage"></a>Usage
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
@@ -42,6 +42,7 @@ Registered trusted signers:
       Service Index: https://api.nuget.org/v3/index.json
       Certificate fingerprint(s):
         SHA256 - 0E5F38F57DC1BCC806D8494F4F90FBCEDD988B46760709CBEEC6F4219AA6157D
+        SHA256 - 5A2901D6ADA3D18260B9C6DFE2133C95D74B9EEF6AE0E5DC334C8454D1477DF4
 
  2.   microsoft [author]
       Certificate fingerprint(s):
