@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 9d40d43d972537ee1cb11d54194ed6450ccd0b6e
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104858964"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387372"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet empaqueter et restaurer en tant que MSBuild cibles
 
@@ -68,8 +68,9 @@ Le tableau suivant décrit les MSBuild propriétés qui peuvent être ajoutées 
 | `license` | `PackageLicenseFile` | empty | Chemin d’accès à un fichier de licence dans le package si vous utilisez une licence personnalisée ou une licence à laquelle aucun identificateur SPDX n’a été affecté. Vous devez explicitement compresser le fichier de licence référencé. Correspond à `<license type="file">`. Consultez [compression d’une expression de licence ou d’un fichier de licence](#packing-a-license-expression-or-a-license-file). |
 | `LicenseUrl` | `PackageLicenseUrl` | empty | `PackageLicenseUrl` est déconseillé. Utilisez `PackageLicenseExpression` ou `PackageLicenseFile` à la place. |
 | `ProjectUrl` | `PackageProjectUrl` | empty | |
-| `Icon` | `PackageIcon` | empty | Chemin d’accès à une image dans le package à utiliser comme icône de package. Vous devez explicitement compresser le fichier image icône référencé. Pour plus d’informations, consultez [compression d’un fichier image d’icône](#packing-an-icon-image-file) et de [ `icon` métadonnées](/nuget/reference/nuspec#icon). |
+| `Icon` | `PackageIcon` | empty | Chemin d’accès à une image dans le package à utiliser comme icône de package. Vous devez explicitement compresser le fichier image icône référencé. Pour plus d’informations, consultez [compression d’un fichier image d’icône](#packing-an-icon-image-file) et de [ `icon` métadonnées](./nuspec.md#icon). |
 | `IconUrl` | `PackageIconUrl` | empty | `PackageIconUrl` est déconseillé en faveur de `PackageIcon` . Toutefois, pour une expérience de niveau inférieur, vous devez spécifier `PackageIconUrl` en plus de `PackageIcon` . |
+| `Readme` | `PackageReadmeFile` | empty | Vous devez explicitement compresser le fichier Lisez-moi référencé.|
 | `Tags` | `PackageTags` | empty | Liste de balises séparées par un point-virgule qui désigne le package. |
 | `ReleaseNotes` | `PackageReleaseNotes` | empty | Notes de publication du package. |
 | `Repository/Url` | `RepositoryUrl` | empty | URL du référentiel utilisée pour cloner ou récupérer le code source. Exemple : *https://github.com/ NuGet / NuGet . Client. git*. |
@@ -99,6 +100,7 @@ Le tableau suivant décrit les MSBuild propriétés qui peuvent être ajoutées 
 | `PackageProjectUrl` | |
 | `PackageIcon` | Spécifie le chemin d’accès de l’icône de package, relatif à la racine du package. Pour plus d’informations, consultez [compression d’une icône de fichier image](#packing-an-icon-image-file). |
 | `PackageReleaseNotes` | Notes de publication du package. |
+| `PackageReadmeFile` | Fichier Lisez-moi du package. |
 | `PackageTags` | Liste de balises séparées par un point-virgule qui désigne le package. |
 | `PackageOutputPath` | Détermine le chemin de sortie dans lequel le package compressé est déposé. La valeur par défaut est `$(OutputPath)`. |
 | `IncludeSymbols` | Cette valeur booléenne indique si le package doit créer un package de symboles supplémentaire quand le projet est compressé. Le format du package de symboles est contrôlé par la propriété `SymbolPackageFormat`. Pour plus d’informations, consultez [IncludeSymbols](#includesymbols). |
@@ -158,6 +160,28 @@ Par exemple :
 [Exemple d’icône de package](https://github.com/NuGet/Samples/tree/main/PackageIconExample).
 
 Pour obtenir l' nuspec équivalent, jetez un coup d’œil à la [ nuspec référence de l’icône](nuspec.md#icon).
+
+### <a name="packagereadmefile"></a>PackageReadmeFile
+
+Lors de la compression d’un fichier Lisez-moi, vous devez utiliser la `PackageReadmeFile` propriété pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Les formats de fichiers pris en charge incluent uniquement la démarque (*. MD*).
+
+Par exemple :
+
+```xml
+<PropertyGroup>
+    ...
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    ...
+</PropertyGroup>
+
+<ItemGroup>
+    ...
+    <None Include="docs\readme.md" Pack="true" PackagePath="\"/>
+    ...
+</ItemGroup>
+```
+
+Pour obtenir l' nuspec équivalent, jetez un coup d’œil sur la [ nuspec Référence du fichier Readme](nuspec.md#readme).
 
 ### <a name="output-assemblies"></a>Assemblys de sortie
 

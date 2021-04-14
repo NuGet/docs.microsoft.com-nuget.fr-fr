@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 4028657862cfd56d0653b370e8344cab8392d69d
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
+ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859497"
+ms.lasthandoff: 04/14/2021
+ms.locfileid: "107387411"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -205,6 +205,29 @@ Pour l’équivalent MSBuild, jetez un coup d’œil à la [compression d’un f
 > [!Tip]
 > Vous pouvez spécifier à la fois `icon` et `iconUrl` pour maintenir la compatibilité descendante avec les sources qui ne prennent pas en charge `icon` . Visual Studio prendra en charge `icon` les packages provenant d’une source basée sur des dossiers dans une version ultérieure.
 
+#### <a name="readme"></a>readme
+
+Lors de la compression d’un fichier Lisez-moi, vous devez utiliser l' `readme` élément pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Les formats de fichiers pris en charge incluent uniquement la démarque (*. MD*).
+
+Par exemple, vous ajoutez le code suivant à votre NuSpec pour empaqueter un fichier Lisez-moi avec votre projet :
+
+```xml
+<package>
+  <metadata>
+    ...
+    <readme>docs\readme.md</readme>
+    ...
+  </metadata>
+  <files>
+    ...
+    <file src="..\readme.md" target="docs\" />
+    ...
+  </files>
+</package>
+```
+
+Pour l’équivalent MSBuild, jetez un coup d’œil à la [compression d’un fichier Lisez-moi](msbuild-targets.md#packagereadmefile).
+
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à accepter la licence du package avant d’installer le package.
 
@@ -369,12 +392,12 @@ Lors du chargement d’un package sur nuget.org, l’attribut de chaque dépenda
 
 | Balise include/exclude | Dossiers affectés de la cible |
 | --- | --- |
-| contentFiles | Content |
+| contentFiles | Contenu |
 | runtime | Runtime, Resources et FrameworkAssemblies |
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |
 | native | native |
-| Aucun | Aucun dossier |
+| aucun | Aucun dossier |
 | all | Tous les dossiers |
 
 Par exemple, les lignes suivantes indiquent les dépendances sur `PackageA` version 1.1.0 ou ultérieure, et `PackageB` version 1.x.
