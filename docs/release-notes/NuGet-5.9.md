@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 24933ebb51851da2583b03e7fd3e55fade5e8a18
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
+ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859567"
+ms.lasthandoff: 04/15/2021
+ms.locfileid: "107508811"
 ---
 # <a name="nuget-59-release-notes"></a>Notes de publication de NuGet 5,9
 
@@ -18,12 +18,13 @@ Véhicules de distribution NuGet :
 
 | Version de NuGet | Disponible dans la version Visual Studio | Disponible dans les SDK .NET |
 |:---|:---|:---|
-| [**5.9**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,9](https://visualstudio.microsoft.com/downloads/) | [5,0](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.0**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,9](https://visualstudio.microsoft.com/downloads/) | [5.0.200](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
+| [**5.9.1**](https://nuget.org/downloads) | [Visual Studio 2019 version 16,9](https://visualstudio.microsoft.com/downloads/) | [5.0.202](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup> |
 
 <sup>1</sup> installé avec Visual Studio 2019 avec une charge de travail .net Core
   
 > [!NOTE]
-> Visual Studio 16,9, MSBuild 16,9 et .NET 5.0.3 + requièrent NuGet.exe 5,9 ou version ultérieure.
+> Visual Studio 16,9, MSBuild 16,9 et .NET 5.0.200 + requièrent NuGet.exe 5,9 ou version ultérieure.
 
 ## <a name="summary-whats-new-in-59"></a>Résumé : nouveautés de 5,9
 
@@ -187,7 +188,6 @@ Véhicules de distribution NuGet :
 
 * NuGetPackageFileService Fix-utilisation de pour MemoryStream- [#10503](https://github.com/NuGet/Home/issues/10503) jetable
 
-
 **[Liste de tous les problèmes résolus dans cette version-5.9.0](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=5f6be8c10485c0236b7ef889)**
 
 **[Liste des validations dans cette version-5.9.0](https://github.com/NuGet/NuGet.Client/compare/5.8.1.7021...5.9.0.7134)**
@@ -211,6 +211,15 @@ Merci à tous les contributeurs qui ont aidé à rendre cette version de NuGet e
 [rolfbjarne](https://github.com/rolfbjarne) | [3743](https://github.com/NuGet/NuGet.Client/pull/3743) | La sortie est encapsulée sur 80 caractères sur macOS lors de la redirection- [#10198](https://github.com/NuGet/Home/issues/10198)
 [xen2](https://github.com/xen2) | [2861](https://github.com/NuGet/NuGet.Client/pull/2861) | Rendre NuGet. PackageManagement disponible en tant que package .NET Standard- [#6150](https://github.com/NuGet/Home/issues/6150)
 [Anipik](https://github.com/Anipik) | [3810](https://github.com/NuGet/NuGet.Client/pull/3810) | Introduire une nouvelle propriété MSBuild pour exclure la sortie de génération pour des TFM spécifiques pendant la tâche de Pack- [#10396](https://github.com/NuGet/Home/issues/10396)
+
+## <a name="summary-whats-new-in-591"></a>Résumé : nouveautés de 5.9.1
+
+* « dotnet NuGet Remove source nuget.org » ne fonctionne pas la première fois- [#10745](https://github.com/NuGet/Home/issues/10745)
+* Désactivation de la validation par défaut sur Linux, mais activée par défaut sur Windows- [#10713](https://github.com/NuGet/Home/issues/10713)
+
+**[Liste de tous les problèmes résolus dans cette version-5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
+
+**[Liste des validations dans cette version-5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
 
 ## <a name="feedback-welcome"></a>Commentaires
 
