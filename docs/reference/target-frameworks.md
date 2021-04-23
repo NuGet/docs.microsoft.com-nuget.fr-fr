@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 12/11/2017
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: 9172aefb48ab3e542498f5a144f1d4f381ad55bd
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d7f91880096b5cbdca7447f7838634ff099c3c4c
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859484"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901718"
 ---
 # <a name="target-frameworks"></a>Versions cibles de .NET Framework
 
@@ -83,13 +83,15 @@ Plateforme Windows universelle | uap | uap [uap10.0] |
 | | | netstandard1.6 |
 | | | netstandard2.0 |
 | | | netstandard 2.1 |
-Application .NET Core | netcoreapp | netcoreapp1.0 |
+.NET 5 + (et .NET Core) | netcoreapp | netcoreapp1.0 |
 | | | netcoreapp1.1 |
 | | | netcoreapp2.0 |
 | | | netcoreapp2.1 |
 | | | netcoreapp2.2 |
 | | | netcoreapp 3.0 |
 | | | netcoreapp 3.1 |
+| | net | .net 5.0 |
+| | | .net 6.0 |
 Tizen | tizen | tizen3 |
 | | | tizen4 |
 
@@ -120,7 +122,7 @@ Les frameworks suivants sont dépréciés. Les packages ciblant ces frameworks d
 
 Un certain nombre de frameworks sont liés et compatibles entre eux, mais sans être nécessairement équivalents :
 
-| Infrastructure | Peut utiliser |
+| Framework | Peut utiliser |
 | -- | --- |
 | uap (Plateforme Windows universelle) | win81 |
 | | wpa81 |

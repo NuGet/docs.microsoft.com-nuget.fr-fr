@@ -5,20 +5,20 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 06/01/2017
 ms.topic: reference
-ms.openlocfilehash: 961a9d68e5cba09030401fc871a93bf1145b23a3
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 371e95c341efbce1c4a15facefc15cd51b266141
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777397"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901783"
 ---
 # <a name="uninstall-package-package-manager-console-in-visual-studio"></a>Uninstall-Package (console du gestionnaire de package dans Visual Studio)
 
-*Cette rubrique décrit la commande dans la [console du gestionnaire de package](../../consume-packages/install-use-packages-powershell.md) dans Visual Studio sur Windows. Pour obtenir la commande Uninstall-Package PowerShell générique, consultez la référence de la page [PackageManagement de PowerShell](/powershell/module/packagemanagement/?view=powershell-6).*
+*Cette rubrique décrit la commande dans la [console du gestionnaire de package](../../consume-packages/install-use-packages-powershell.md) dans Visual Studio sur Windows. Pour obtenir la commande Uninstall-Package PowerShell générique, consultez la référence de la page [PackageManagement de PowerShell](/powershell/module/packagemanagement).*
 
 Supprime un package d’un projet, en supprimant éventuellement ses dépendances. Si les autres packages dépendent de ce package, la commande va échouer, sauf si l’option –Force est spécifiée.
 
-## <a name="syntax"></a>Syntaxe
+## <a name="syntax"></a>Syntax
 
 ```ps
 Uninstall-Package [-Id] <string> [-RemoveDependencies] [-ProjectName <string>] [-Force]

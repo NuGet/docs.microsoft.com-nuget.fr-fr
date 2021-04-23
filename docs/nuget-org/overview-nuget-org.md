@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9a75ecbc589afa664e5684005e077b02913e8039
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: 2dac6ebd6367f3ed1a5ef9e81d843867a4a22f62
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67427014"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901874"
 ---
 # <a name="overview-of-nugetorg"></a>Vue d’ensemble de NuGet.org
 
@@ -18,7 +18,7 @@ NuGet.org est un hôte public qui héberge les packages NuGet utilisés par des 
 
 ## <a name="role-of-nugetorg-in-the-nuget-ecosystem"></a>Rôle de NuGet.org dans l’écosystème NuGet
 
-Dans son rôle d’hôte public, NuGet.org elle-même maintient le dépôt central de plus de 100.000 paquets uniques à [nuget.org](https://www.nuget.org). NuGet.org n’est pas le seul hôte possible pour les forfaits. La technologie NuGet vous permet également d’héberger des packages à titre privé dans le cloud (par exemple sur Azure DevOps), sur un réseau privé ou tout simplement sur votre système de fichiers local. Si vous êtes intéressé par un autre hôte ou une autre option d’hébergement, consultez [Hébergement de vos propres flux NuGet](../hosting-packages/overview.md).
+Dans son rôle d’hôte public, NuGet.org gère lui-même le référentiel central de plus de 100 000 packages uniques sur [NuGet.org](https://www.nuget.org). NuGet.org n’est pas le seul hôte possible pour les packages. La technologie NuGet vous permet également d’héberger des packages à titre privé dans le cloud (par exemple sur Azure DevOps), sur un réseau privé ou tout simplement sur votre système de fichiers local. Si vous êtes intéressé par un autre hôte ou une autre option d’hébergement, consultez [Hébergement de vos propres flux NuGet](../hosting-packages/overview.md).
 
 NuGet.org, comme tous les autres hôtes de packages NuGet, sert de point de connexion entre les *créateurs* et les *consommateurs* de packages. Les créateurs génèrent des packages NuGet utiles et les publient. Les consommateurs recherchent des packages pratiques et compatibles sur les hôtes accessibles, les téléchargent et incluent ces packages dans leurs projets. Une fois installés dans un projet, les API des packages sont disponibles pour le reste du code du projet.
 
@@ -48,6 +48,6 @@ Pour utiliser NuGet.org comme dépôt de packages avec les clients NuGet, vous d
 
 `https://api.nuget.org/v3/index.json`
 
-Les clients plus âgés peuvent toujours utiliser le protocole V2 pour atteindre NuGet.org. Toutefois, veuillez noter que les clients de NuGet 3.0 ou plus tard auront un service plus lent et moins fiable en utilisant le protocole V2 :
+Les clients plus anciens peuvent toujours utiliser le protocole v2 pour atteindre NuGet.org. Toutefois, veuillez noter que les clients NuGet 3,0 ou une version ultérieure auront un service plus lent et moins fiable à l’aide du protocole v2 :
 
-`https://www.nuget.org/api/v2` (**Le protocole V2 est déprécié !**)
+`https://www.nuget.org/api/v2` (**Le protocole v2 est déconseillé !**)

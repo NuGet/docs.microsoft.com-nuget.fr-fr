@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/13/2019
 ms.topic: reference
-ms.openlocfilehash: afc06c81bf0344f2086efd19111cc60d24d7f723
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 38620058bccde876152328302a6049f011c149db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859510"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901861"
 ---
-# <a name="nugetconfig-reference"></a>Référence nuget.config
+# <a name="nugetconfig-reference"></a>`nuget.config` faire
 
 Le comportement de NuGet est contrôlé par des paramètres dans des `NuGet.Config` fichiers ou différents `nuget.config` , comme décrit dans [configurations courantes de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
@@ -141,7 +141,7 @@ Si vous le souhaitez, les types d’authentification valides peuvent être spéc
 | cleartextpassword | Mot de passe non chiffré pour la source. Remarque : les variables d’environnement peuvent être utilisées pour améliorer la sécurité. |
 | validauthenticationtypes | Liste séparée par des virgules des types d’authentification valides pour cette source. Définissez cette valeur sur `basic` si le serveur publie NTLM ou Negotiate et que vos informations d’identification doivent être envoyées à l’aide du mécanisme de base, par exemple lors de l’utilisation d’un Pat avec un Azure DevOps Server local. Les autres valeurs valides incluent `negotiate` , `kerberos` , `ntlm` et `digest` , mais ces valeurs ne sont pas susceptibles d’être utiles. |
 
-**Exemple :**
+**Exemple :**
 
 Dans le fichier config, l’élément `<packageSourceCredentials>` contient des nœuds enfants pour chaque nom de source applicable (les espaces dans le nom sont remplacés par `_x0020_`). Autrement dit, pour les sources nommées « Contoso » et « Test Source », le fichier config contient les éléments suivants lors de l’utilisation de mots de passe chiffrés :
 
@@ -229,7 +229,7 @@ Identifie les sources actuellement désactivées. Peut être vide.
 | --- | --- |
 | (nom de source) | Valeur booléenne indiquant si la source est désactivée. |
 
-**Exemple :**
+**Exemple :**
 
 ```xml
 <disabledPackageSources>
@@ -350,9 +350,9 @@ Si aucune variable d’environnement n’est trouvée, NuGet utilise la valeur l
 
 Le tableau ci-dessous montre la syntaxe des variables environnement et la prise en charge du séparateur de chemin pour les fichiers NuGet.Config.
 
-### <a name="nugetconfig-environment-variable-support"></a>Prise en charge des variables d’environnement NuGet.Config
+### <a name="nugetconfig-environment-variable-support"></a>`NuGet.Config` prise en charge des variables d’environnement
 
-| Syntaxe | Séparateur de répertoire | nuget.exe Windows | dotnet.exe Windows | nuget.exe Mac (en mono) | dotnet.exe Mac |
+| Syntax | Séparateur de répertoire | nuget.exe Windows | dotnet.exe Windows | nuget.exe Mac (en mono) | dotnet.exe Mac |
 |---|---|---|---|---|---|
 | `%MY_VAR%` | `/`  | Oui | Oui | Oui | Oui |
 | `%MY_VAR%` | `\`  | Oui | Oui | Non | Non |

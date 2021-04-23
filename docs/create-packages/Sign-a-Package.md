@@ -6,12 +6,12 @@ ms.author: rmpablos
 ms.date: 03/06/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 64b28c29ae3b533bde7c8f41dd38a4ab0a5afef7
-ms.sourcegitcommit: 0cc6ac680c3202d0b036c0bed7910f6709215682
+ms.openlocfilehash: c0622520a325000d5fcb8fb884cb509ee4b641f4
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94550373"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901900"
 ---
 # <a name="signing-nuget-packages"></a>Signature de packages NuGet
 
@@ -19,7 +19,7 @@ Les packages signés permettent les contrôles de vérification de l’intégrit
 
 ## <a name="get-a-code-signing-certificate"></a>Obtenir un certificat de signature de code
 
-Des certificats valides peuvent être obtenus auprès d’une autorité de certification publique telle que [Symantec](https://trustcenter.websecurity.symantec.com/process/trust/productOptions?productType=SoftwareValidationClass3), [DigiCert](https://www.digicert.com/code-signing/), [Go Daddy](https://www.godaddy.com/web-security/code-signing-certificate), [Global Sign](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [certr](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. La liste complète des autorités de certification approuvées par Windows peut être obtenue à partir de [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
+Des certificats valides peuvent être obtenus auprès d’une autorité de certification publique telle que [DigiCert](https://www.digicert.com/code-signing/), le [signe global](https://www.globalsign.com/en/code-signing-certificate/), [Comodo](https://www.comodo.com/e-commerce/code-signing/code-signing-certificate.php), [CERT](https://www.certum.eu/certum/cert,offer_en_open_source_cs.xml), etc. La liste complète des autorités de certification approuvées par Windows peut être obtenue à partir de [http://aka.ms/trustcertpartners](/security/trusted-root/participants-list) .
 
 Vous pouvez utiliser des certificats auto-émis à des fins de test. Toutefois, les packages signés à l’aide de certificats auto-émis ne sont pas acceptés par NuGet.org. En savoir plus sur [la création d’un certificat de test](#create-a-test-certificate)
 

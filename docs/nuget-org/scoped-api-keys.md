@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 12d12d5294a474c4d3e4f5d3cad468bb515d21d5
-ms.sourcegitcommit: 2b50c450cca521681a384aa466ab666679a40213
+ms.openlocfilehash: a3d2504528249f3545e2eb5d9bce7713029638db
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "67426944"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901588"
 ---
 # <a name="scoped-api-keys"></a>Clés API délimitées
 
@@ -49,7 +49,7 @@ Dans l’exemple suivant, vous disposez d’une clé API nommée `Contoso servic
 
 Si vous travaillez sur plusieurs packages et que vous avez une longue liste de packages à gérer, vous pouvez choisir d’utiliser des modèles Glob pour sélectionner plusieurs packages en même temps. Par exemple, si vous voulez accorder des étendues spécifiques à une clé pour tous les packages dont l’ID commence par `Fabrikam.Service`, vous pouvez spécifier `fabrikam.service.*` dans la zone de texte **Modèle Glob**.
 
-![Créer des clés API](media/scoped-api-keys-glob-pattern.png)
+![Créer des clés API-2](media/scoped-api-keys-glob-pattern.png)
 
 L’utilisation de modèles Glob pour déterminer les autorisations de clé API s’applique également aux nouveaux packages correspondant au modèle Glob. Par exemple, si vous essayez d’envoyer (push) un nouveau package nommé `Fabrikam.Service.Framework`, vous pouvez utiliser la clé créée précédemment dans la mesure où le package correspond au modèle Glob `fabrikam.service.*`.
 
@@ -57,23 +57,23 @@ L’utilisation de modèles Glob pour déterminer les autorisations de clé API 
 
 Pour des raisons de sécurité, une clé qui vient d’être créée n’est jamais affichée sur l’écran et n’est disponible qu’à l’aide du bouton **Copier**. De même, la clé n’est pas accessible une fois la page actualisée.
 
-![Créer des clés API](media/scoped-api-keys-obtain-keys.png)
+![Créer des clés d’API-3](media/scoped-api-keys-obtain-keys.png)
 
 ## <a name="edit-existing-api-keys"></a>Modifier des clés API existantes
 
 Vous pouvez également mettre à jour les autorisations et les étendues d’une clé sans changer la clé. Si vous avez une clé avec une ou plusieurs étendues spécifiques pour un seul package, vous pouvez choisir d’appliquer la ou les mêmes étendues à un ou plusieurs packages.
 
-![Créer des clés API](media/scoped-api-keys-edit.png)
+![Créer des clés d’API-4](media/scoped-api-keys-edit.png)
 
 ## <a name="refresh-or-delete-existing-api-keys"></a>Actualiser ou supprimer des clés API existantes
 
 Le propriétaire du compte peut choisir d’actualiser la clé, auquel cas l’autorisation (sur les packages), l’étendue et l’expiration restent les mêmes. Toutefois, une nouvelle clé est émise, rendant l’ancienne clé inutilisable. C’est utile pour gérer les clés obsolètes ou en cas de risque de fuite des clés API.
 
-![Créer des clés API](media/scoped-api-keys-refresh.png)
+![Créer des clés API-5](media/scoped-api-keys-refresh.png)
 
 Vous pouvez également choisir de supprimer ces clés si elles ne sont plus nécessaires. Cette opération supprime la clé et la rend inutilisable.
 
-## <a name="faqs"></a>FAQ
+## <a name="faqs"></a>Foire aux questions
 
 ### <a name="what-happens-to-my-old-legacy-api-key"></a>Qu’advient-il de mon ancienne clé API (existante) ?
 

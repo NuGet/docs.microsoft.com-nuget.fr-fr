@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 47411641db47884f79f2bc9a4aa00035fc79993b
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387372"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901483"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet empaqueter et restaurer en tant que MSBuild cibles
 
@@ -162,6 +162,8 @@ Par exemple :
 Pour obtenir l' nuspec équivalent, jetez un coup d’œil à la [ nuspec référence de l’icône](nuspec.md#icon).
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
+
+*Pris en charge avec **NuGet 5.10.0 Preview 2**  /  **.net 5.0.3** et versions ultérieures*
 
 Lors de la compression d’un fichier Lisez-moi, vous devez utiliser la `PackageReadmeFile` propriété pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Les formats de fichiers pris en charge incluent uniquement la démarque (*. MD*).
 
@@ -365,7 +367,7 @@ La `pack` cible fournit deux points d’extension qui s’exécutent dans la bui
 - `FinalOutputPath`: Le chemin d’accès absolu du fichier ; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
 - `TargetPath`: (Facultatif) définit le moment où le fichier doit être placé dans un sous-dossier au sein de `lib\<TargetFramework>` , comme les assemblys satellites qui se trouvent dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
 
-Exemple :
+Exemple :
 
 ```xml
 <PropertyGroup>

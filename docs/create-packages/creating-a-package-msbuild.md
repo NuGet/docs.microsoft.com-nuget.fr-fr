@@ -1,16 +1,16 @@
 ---
 title: Créer un package NuGet avec MSBuild
-description: Guide détaillé sur le processus de conception et de création d’un package NuGet, comprenant des points de décision clés comme les fichiers et la gestion de versions.
+description: Guide détaillé du processus de conception et de création d’un package NuGet à l’aide de MSBuild, y compris les points de décision clés comme les fichiers et le contrôle de version.
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 48741668af932a532240f2796a9bf5d490ee8e35
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 18e0da335f65fde99d035388b95f35160757ee84
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98774444"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901458"
 ---
 # <a name="create-a-nuget-package-using-msbuild"></a>Créer un package NuGet avec MSBuild
 

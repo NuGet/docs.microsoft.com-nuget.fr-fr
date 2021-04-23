@@ -5,14 +5,14 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 10/02/2017
 ms.topic: reference
-ms.openlocfilehash: 98bea8a225f4864953f898ef57b26e9093f7c2e9
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 7bc0395a98e75fe006e048b91d84cb5c17220161
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779369"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901887"
 ---
-# <a name="powershell-reference"></a>Informations de référence sur PowerShell
+# <a name="powershell-reference"></a>Référence sur PowerShell
 
 La console du gestionnaire de package fournit une interface PowerShell dans Visual Studio sur Windows pour interagir avec NuGet via les commandes spécifiques listées ci-dessous. (La console n’est pas disponible actuellement dans Visual Studio pour Mac.) Pour obtenir un guide d’utilisation de la console, consultez la rubrique [installer et gérer des packages à l’aide](../consume-packages/install-use-packages-powershell.md) de la console du gestionnaire de package.
 
@@ -20,7 +20,7 @@ La console du gestionnaire de package fournit une interface PowerShell dans Visu
 > Toutes les commandes PowerShell sont liées uniquement à la consommation des packages. Aucune commande PowerShell n’est liée à la création et à la publication de packages, sauf dans la mesure où un package peut également être un consommateur d’autres packages.
 
 > [!Important]
-> Les commandes répertoriées ici sont spécifiques à la console du gestionnaire de package dans Visual Studio, et diffèrent des [commandes du module Package Management](/powershell/module/packagemanagement/?view=powershell-6) qui sont disponibles dans un environnement PowerShell général. Plus précisément, chaque environnement possède des commandes qui ne sont pas disponibles dans l’autre, et les commandes portant le même nom peuvent également différer dans leurs arguments spécifiques. Lorsque vous utilisez la console Package Management dans Visual Studio, les commandes et les arguments décrits dans cette rubrique s’appliquent.
+> Les commandes répertoriées ici sont spécifiques à la console du gestionnaire de package dans Visual Studio, et diffèrent des [commandes du module Package Management](/powershell/module/packagemanagement) qui sont disponibles dans un environnement PowerShell général. Plus précisément, chaque environnement possède des commandes qui ne sont pas disponibles dans l’autre, et les commandes portant le même nom peuvent également différer dans leurs arguments spécifiques. Lorsque vous utilisez la console Package Management dans Visual Studio, les commandes et les arguments décrits dans cette rubrique s’appliquent.
 
 | Commandes courantes | Description | Version de NuGet |
 | --- | --- | --- |

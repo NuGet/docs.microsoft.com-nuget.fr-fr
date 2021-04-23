@@ -1,17 +1,17 @@
 ---
 title: Notes de publication de NuGet 4.4 RTM
-description: Notes de publication de NuGet 4.4 RTM, avec notamment les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et les DCR.
+description: Notes de publication de NuGet 4,4 RTM, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
 author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 970a920a401b8a74c04d84cbad9933c54e3cd19e
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 980afffcd4202e019ffa87de5dccf947300a9c13
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776286"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901705"
 ---
 # <a name="nuget-44-release-notes"></a>Notes de publication de NuGet 4.4
 
@@ -187,7 +187,7 @@ Il n’existe pas de solution de contournement à ce jour.
 
 - RestoreOperationLogger.Do bloque les threads de pool de threads - [#5663](https://github.com/NuGet/Home/issues/5663)
 
-### <a name="docs"></a>Documentation
+### <a name="docs"></a>Docs
 
 - Documentation pour les indicateurs DependencyVersion et Framework de la commande Install - [#5858](https://github.com/NuGet/Home/issues/5858)
 

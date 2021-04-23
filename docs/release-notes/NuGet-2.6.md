@@ -1,16 +1,16 @@
 ---
 title: Notes de publication de NuGet 2,6
-description: Notes de publication de NuGet 2.6.1 pour WebMatrix, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
+description: Notes de publication de NuGet 2,6, y compris les problèmes connus, les correctifs de bogues, les fonctionnalités ajoutées et DCR.
 author: JonDouglas
 ms.author: jodou
 ms.date: 11/11/2016
 ms.topic: conceptual
-ms.openlocfilehash: 812a0e806e29c5a2141db4f2fbab4bf91b0983f9
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 6b25b9df062afc88466ad107e718f632878debfc
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98776834"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901419"
 ---
 # <a name="nuget-26-release-notes"></a>Notes de publication de NuGet 2,6
 
@@ -102,6 +102,6 @@ Les auteurs de package reposent davantage et plus d’informations sur les [stat
 
 En plus du nom d’opération différent, l’ID de package dépendant est également enregistré pour l’installation.  Une prochaine mise à jour de la galerie NuGet expose les données dans les rapports, ce qui permet aux auteurs de packages de comprendre parfaitement comment les développeurs installent leurs packages.
 
-## <a name="bug-fixes"></a>Résolutions de bogues
+## <a name="bug-fixes"></a>Correctifs de bogues
 
 NuGet 2,6 comprend également plusieurs correctifs de bogues. Pour obtenir la liste complète des éléments de travail corrigés dans NuGet 2,6, consultez le [suivi des problèmes NuGet pour cette version](https://nuget.codeplex.com/workitem/list/advanced?keyword=&status=Closed&type=All&priority=All&release=NuGet%202.6&assignedTo=All&component=All&sortField=LastUpdatedDate&sortDirection=Descending&page=0&reasonClosed=All).

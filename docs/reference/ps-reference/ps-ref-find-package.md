@@ -5,16 +5,16 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 6/1/2017
 ms.topic: reference
-ms.openlocfilehash: 83d0d62bbda07d07ea1e3b58e531447e2001b680
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 263835da64340a13737b32ab54ab057cb640a080
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777510"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901757"
 ---
 # <a name="find-package-package-manager-console-in-visual-studio"></a>Find-Package (console du gestionnaire de package dans Visual Studio)
 
-*Version 3.0 +; Cette rubrique décrit la commande dans la [console du gestionnaire de package](../../consume-packages/install-use-packages-powershell.md) dans Visual Studio sur Windows. Pour obtenir la commande Find-Package PowerShell générique, consultez la référence de la page [PackageManagement de PowerShell](/powershell/module/packagemanagement/?view=powershell-6).*
+*Version 3.0 +; Cette rubrique décrit la commande dans la [console du gestionnaire de package](../../consume-packages/install-use-packages-powershell.md) dans Visual Studio sur Windows. Pour obtenir la commande Find-Package PowerShell générique, consultez la référence de la page [PackageManagement de PowerShell](/powershell/module/packagemanagement).*
 
 Obtient le jeu de packages distants avec l’ID ou les mots clés spécifiés à partir de la source du package.
 

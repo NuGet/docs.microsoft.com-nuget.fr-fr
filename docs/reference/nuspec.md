@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/24/2019
 ms.topic: reference
 ms.reviewer: anangaur
-ms.openlocfilehash: a8a8058032b0b6c6ddcd5eed1cf22e75f0e3af72
-ms.sourcegitcommit: c8bf16420f235fc3e42c08cd0d56359e91d490e5
+ms.openlocfilehash: ed865aad6f72752adcf3e3921287a20b961c4a8a
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/14/2021
-ms.locfileid: "107387411"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901809"
 ---
 # <a name="nuspec-reference"></a>Informations de référence sur le fichier .nuspec
 
@@ -207,6 +207,8 @@ Pour l’équivalent MSBuild, jetez un coup d’œil à la [compression d’un f
 
 #### <a name="readme"></a>readme
 
+*Pris en charge avec **NuGet 5.10.0 Preview 2** et versions ultérieures*
+
 Lors de la compression d’un fichier Lisez-moi, vous devez utiliser l' `readme` élément pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Les formats de fichiers pris en charge incluent uniquement la démarque (*. MD*).
 
 Par exemple, vous ajoutez le code suivant à votre NuSpec pour empaqueter un fichier Lisez-moi avec votre projet :
@@ -226,7 +228,7 @@ Par exemple, vous ajoutez le code suivant à votre NuSpec pour empaqueter un fic
 </package>
 ```
 
-Pour l’équivalent MSBuild, jetez un coup d’œil à la [compression d’un fichier Lisez-moi](msbuild-targets.md#packagereadmefile).
+Pour l’équivalent MSBuild, jetez un coup d’œil à la [compression d’un fichier Lisez-moi](msbuild-targets.md#packagereadmefile). 
 
 #### <a name="requirelicenseacceptance"></a>requireLicenseAcceptance
 Valeur booléenne qui spécifie si le client doit inviter l’utilisateur à accepter la licence du package avant d’installer le package.
@@ -392,7 +394,7 @@ Lors du chargement d’un package sur nuget.org, l’attribut de chaque dépenda
 
 | Balise include/exclude | Dossiers affectés de la cible |
 | --- | --- |
-| contentFiles | Contenu |
+| contentFiles | Content |
 | runtime | Runtime, Resources et FrameworkAssemblies |
 | compile | lib |
 | build | build (propriétés et cibles MSBuild) |

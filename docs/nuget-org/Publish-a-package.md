@@ -6,12 +6,12 @@ ms.author: jodou
 ms.date: 05/18/2018
 ms.topic: conceptual
 ms.reviewer: anangaur
-ms.openlocfilehash: 5be7a4d4c31df9f2f4bda7bdb1ff9f4887108578
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 05a16d8bf609d727aba3ddbc42959a3deb97b24b
+ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775993"
+ms.lasthandoff: 04/22/2021
+ms.locfileid: "107901913"
 ---
 # <a name="publishing-packages"></a>Publication de packages
 
@@ -38,11 +38,9 @@ Ensuite, vous pouvez charger le package via le portail web nuget.org, l’envoye
 
 1. nuget.org indique si le nom du package est disponible. Si ce n’est pas le cas, modifiez l’identificateur du package dans votre projet, relancez la génération et retentez le chargement.
 
-1. Si le nom du package est disponible, nuget.org ouvre une section **Vérifier**, qui permet de consulter les métadonnées du manifeste de package. Pour modifier les métadonnées, modifiez votre projet (fichier projet ou fichier `.nuspec`), relancez la génération, recréez le package et relancez le chargement.
+1. Si le nom du package est disponible, nuget.org ouvre une section **Vérifier**, qui permet de consulter les métadonnées du manifeste de package. Si vous avez inclus un [fichier Lisez-moi](/docs/nuget-org/package-readme-on-nuget-org.md) dans votre package, consultez la version préliminaire pour vérifier que tout le contenu est correctement rendu. Pour modifier les métadonnées, modifiez votre projet (fichier projet ou fichier `.nuspec`), relancez la génération, recréez le package et relancez le chargement.
 
-1. Sous **Documentation de l’importation** vous pouvez coller Markdown, pointer sur vos documents avec une URL ou charger un fichier de documentation.
-
-1. Lorsque toutes les informations sont prêtes, sélectionnez le bouton **Envoyer**.
+2. Lorsque toutes les informations sont prêtes, sélectionnez le bouton **Envoyer**.
 
 ### <a name="command-line"></a>Ligne de commande
 
