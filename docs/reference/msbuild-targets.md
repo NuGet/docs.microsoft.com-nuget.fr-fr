@@ -10,12 +10,12 @@ no-loc:
 - MSBuild
 - .nuspec
 - nuspec
-ms.openlocfilehash: 0a10a6f1e4c71903232281c25a6c4b6bbc65fb34
-ms.sourcegitcommit: 40c039ace0330dd9e68922882017f9878f4283d1
+ms.openlocfilehash: 8ebf0329f9dc7af09a59f1498a934754842df365
+ms.sourcegitcommit: 08c5b2c956a1a45f0ea9fb3f50f55e41312d8ce3
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/22/2021
-ms.locfileid: "107901483"
+ms.lasthandoff: 04/27/2021
+ms.locfileid: "108067308"
 ---
 # <a name="nuget-pack-and-restore-as-msbuild-targets"></a>NuGet empaqueter et restaurer en tant que MSBuild cibles
 
@@ -77,7 +77,7 @@ Le tableau suivant décrit les MSBuild propriétés qui peuvent être ajoutées 
 | `Repository/Type` | `RepositoryType` | empty | Type de référentiel. Exemples : `git` (valeur par défaut), `tfs` . |
 | `Repository/Branch` | `RepositoryBranch` | empty | Informations de branche de référentiel facultatives. `RepositoryUrl` doit également être spécifié pour que cette propriété soit incluse. Exemple : *Master* ( NuGet 4.7.0 +). |
 | `Repository/Commit` | `RepositoryCommit` | empty | Validation ou ensemble de modifications de référentiel facultatif pour indiquer la source à partir de laquelle le package a été généré. `RepositoryUrl` doit également être spécifié pour que cette propriété soit incluse. Exemple : *0e4d1b598f350b3dc675018d539114d1328189ef* ( NuGet 4.7.0 +). |
-| `PackageType` | `<PackageType>DotNetCliTool, 1.0.0.0;Dependency, 2.0.0.0</PackageType>` | | |
+| `PackageType` | `<PackageType>CustomType1, 1.0.0.0;CustomType2</PackageType>` | | Indique l’utilisation prévue du package. Les types de packages utilisent le même format que les ID de package et sont délimités par `;` . Les types de package peuvent être avec version en ajoutant un `,` et une [`Version`](/dotnet/api/system.version) chaîne. Consultez [définir un NuGet type de package](../create-packages/set-package-type.md) ( NuGet 3.5.0 +). |
 | `Summary` | Non pris en charge | | |
 
 ### <a name="pack-target-inputs"></a>entrées de cible pack
@@ -163,7 +163,7 @@ Pour obtenir l' nuspec équivalent, jetez un coup d’œil à la [ nuspec réfé
 
 ### <a name="packagereadmefile"></a>PackageReadmeFile
 
-*Pris en charge avec **NuGet 5.10.0 Preview 2**  /  **.net 5.0.3** et versions ultérieures*
+*Pris en charge avec le kit de **NuGet**  /  **développement logiciel (SDK) .net** 5.10.0 Preview 2 et versions ultérieures*
 
 Lors de la compression d’un fichier Lisez-moi, vous devez utiliser la `PackageReadmeFile` propriété pour spécifier le chemin d’accès au package, relatif à la racine du package. En outre, vous devez vous assurer que le fichier est inclus dans le package. Les formats de fichiers pris en charge incluent uniquement la démarque (*. MD*).
 
@@ -367,7 +367,7 @@ La `pack` cible fournit deux points d’extension qui s’exécutent dans la bui
 - `FinalOutputPath`: Le chemin d’accès absolu du fichier ; s’il n’est pas fourni, l’identité est utilisée pour évaluer le chemin source.
 - `TargetPath`: (Facultatif) définit le moment où le fichier doit être placé dans un sous-dossier au sein de `lib\<TargetFramework>` , comme les assemblys satellites qui se trouvent dans leurs dossiers de culture respectifs. La valeur par défaut est le nom du fichier.
 
-Exemple :
+Exemple :
 
 ```xml
 <PropertyGroup>
