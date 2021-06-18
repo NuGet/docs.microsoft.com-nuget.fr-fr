@@ -5,18 +5,18 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/17/2020
 ms.topic: reference
-ms.openlocfilehash: 6f4adcdf3981e5ec0e5e88337a8c3bcdd9158ca3
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0b0d0445f21ae49bc4785a6de822f9b56ec5c453
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779161"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323659"
 ---
 # <a name="search-command-nuget-cli"></a>commande Search (interface CLI NuGet)
 
 **S’applique à :** &bullet; **versions prises en charge par** la consommation des packages : 5.8 +
 
-Recherche une source donnée à l’aide de la chaîne de requête fournie. Si aucune source n’est spécifiée, toutes les sources définies dans% AppData% \NuGet\NuGet.config sont utilisées.
+Recherche une source donnée à l’aide de la chaîne de requête fournie. Si aucune source n’est spécifiée, toutes les sources définies dans% AppData% \NuGet\NuGet.Config sont utilisées.
 
 ## <a name="usage"></a>Utilisation
 

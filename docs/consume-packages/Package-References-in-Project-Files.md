@@ -5,16 +5,16 @@ author: nkolev92
 ms.author: nikolev
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: df7c793d115622f04a148cbbc3ebf396a3e4ab69
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: c7b963352e0e9640844a213767a58c883ed0eeb9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859185"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323711"
 ---
 # <a name="package-references-packagereference-in-project-files"></a>Références de package ( `PackageReference` ) dans les fichiers projet
 
-Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’a pas d’impact sur les autres aspects de NuGet. Par exemple, les paramètres des fichiers `NuGet.config` (notamment les sources de packages) continuent d’être appliqués, comme cela est expliqué dans [Configurations courantes de NuGet](configuring-nuget-behavior.md).
+Les références de package utilisent le nœud `PackageReference` pour gérer les dépendances NuGet directement dans les fichiers projet, et non un fichier `packages.config` séparé. L’utilisation de PackageReference n’a pas d’impact sur les autres aspects de NuGet. Par exemple, les paramètres des fichiers `NuGet.Config` (notamment les sources de packages) continuent d’être appliqués, comme cela est expliqué dans [Configurations courantes de NuGet](configuring-nuget-behavior.md).
 
 Avec PackageReference, vous pouvez également utiliser des conditions MSBuild pour choisir des références de package par version cible de .NET Framework ou d’autres regroupements. Elle permet également de mieux contrôler les dépendances et les flux de contenu. Pour plus d’informations, consultez [Commandes pack et restore NuGet comme cibles MSBuild](../reference/msbuild-targets.md).
 
@@ -102,7 +102,7 @@ Les balises de métadonnées suivantes permettent de contrôler les ressources d
 | Tag | Description | Valeur par défaut |
 | --- | --- | --- |
 | IncludeAssets | Ces ressources sont consommées. | all |
-| ExcludeAssets | Ces ressources ne sont pas consommées. | Aucun |
+| ExcludeAssets | Ces ressources ne sont pas consommées. | aucun |
 | PrivateAssets | Ces ressources sont consommées, mais ne sont pas acheminées vers le projet parent. | contentfiles;analyzers;build |
 
 Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multiples doivent être séparées par un point-virgule, à l’exception de `all` et de `none` qui doivent s’afficher seules) :
@@ -117,7 +117,7 @@ Les valeurs autorisées pour ces balises sont les suivantes (les valeurs multipl
 | buildTransitive | *(5.0 +)* `.props` et `.targets` dans le dossier `buildTransitive`, pour les ressources qui circulent de manière transitive vers n’importe quel projet consommateur. Consultez la page [Fonctionnalité](https://github.com/NuGet/Home/wiki/Allow-package--authors-to-define-build-assets-transitive-behavior). |
 | analyzers | Analyseurs .NET |
 | native | Contenu du dossier `native` |
-| Aucun | Aucune des valeurs ci-dessus n’est utilisée. |
+| aucun | Aucune des valeurs ci-dessus n’est utilisée. |
 | all | Toutes les valeurs ci-dessus sont utilisées (sauf `none`) |
 
 Dans l’exemple suivant, tout (à l’exception des fichiers de contenu du package) est consommé par le projet et tout (à l’exception des fichiers de contenu et des analyseurs) est acheminé vers le projet parent.
@@ -305,7 +305,7 @@ Dans Visual Studio, vous pouvez également [supprimer des avertissements](/visua
 
 *Cette fonctionnalité est disponible avec NuGet **4.9** ou ultérieur, et avec Visual Studio 2017 **15.9** ou ultérieur.*
 
-L’entrée de la restauration NuGet est un ensemble de références de package provenant du fichier de projet (dépendances de niveau supérieur ou directes). La sortie est une fermeture complète de toutes les dépendances de package, notamment les dépendances transitives. NuGet s’efforce toujours de produire la même fermeture complète des dépendances de package si la liste PackageReference d’entrée ne change pas. Toutefois, tous les scénarios ne s’y prêtent pas. Par exemple :
+L’entrée de la restauration NuGet est un ensemble de références de package provenant du fichier de projet (dépendances de niveau supérieur ou directes). La sortie est une fermeture complète de toutes les dépendances de package, notamment les dépendances transitives. NuGet s’efforce toujours de produire la même fermeture complète des dépendances de package si la liste PackageReference d’entrée ne change pas. Toutefois, tous les scénarios ne s’y prêtent pas. Exemple :
 
 * Quand vous utilisez des versions flottantes comme `<PackageReference Include="My.Sample.Lib" Version="4.*"/>`. L’intention ici est de flotter vers la dernière version à chaque restauration de package. Mais dans certains scénarios, les utilisateurs peuvent exiger le verrouillage du graphe à une version récente donnée et son flottement vers une version ultérieure, si celle-ci est disponible, à la suite d’un mouvement explicite.
 * Une version plus récente du package correspondant aux exigences de version de PackageReference est publiée. Par exemple, 

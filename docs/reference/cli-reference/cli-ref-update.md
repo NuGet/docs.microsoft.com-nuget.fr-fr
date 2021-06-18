@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/07/2017
 ms.topic: reference
-ms.openlocfilehash: cfa7fdcc6af46fd5f4030ba424754291f697bc43
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 5f244e4cf15ca7afa0e6318a8c20d464ff75bd8e
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98779134"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323646"
 ---
 # <a name="update-command-nuget-cli"></a>Update, commande (interface CLI NuGet)
 
@@ -86,7 +86,7 @@ où `<configPath>` identifie un `packages.config` fichier solution ou qui réper
 
 - **`-Self`**
 
-  Met à jour nuget.exe vers la dernière version ; tous les autres arguments sont ignorés.
+  Mises à jour `nuget.exe` de la version la plus récente. `-Source` peut être utilisé, mais tous les autres arguments sont ignorés. Si aucune source n’est fournie, vérifie `nuget.org` les mises à jour, quels que soient les `NuGet.Config` paramètres.
 
 - **`-Source`**
 

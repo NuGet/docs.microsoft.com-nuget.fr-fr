@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 12/12/2017
 ms.topic: conceptual
-ms.openlocfilehash: 285504508fa88c96f5c7a23f15ef14d81ebc21e1
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 4f0a5a2355b34c39a435d24691a3f8ea10ee9c00
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98777771"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323828"
 ---
 # <a name="authenticating-feeds-with-nugetexe-credential-providers"></a>Authentification de flux avec des fournisseurs d’informations d’identification nuget.exe
 
@@ -37,7 +37,7 @@ Un fournisseur d’informations d’identification est un exécutable de ligne d
 Un fournisseur doit effectuer les opérations suivantes :
 
 - Déterminez si elle peut fournir des informations d’identification pour l’URI ciblé avant de lancer l’acquisition des informations d’identification. Si ce n’est pas le cas, il doit renvoyer le code d’État 1 sans informations d’identification.
-- Non modifié `Nuget.Config` (par exemple, en définissant des informations d’identification).
+- Non modifié `NuGet.Config` (par exemple, en définissant des informations d’identification).
 - Gérez la configuration du proxy HTTP seul, car NuGet ne fournit pas d’informations de proxy au plug-in.
 - Retournez les informations d’identification ou les détails de l’erreur à `nuget.exe` en écrivant un objet de réponse JSON (voir ci-dessous) dans stdout, en utilisant l’encodage UTF-8.
 - Émettez éventuellement une journalisation de suivi supplémentaire vers stderr. Aucun secret ne doit jamais être écrit dans stderr, car à des niveaux de détail « normal » ou « détaillé », ces traces sont répercutées par NuGet sur la console.

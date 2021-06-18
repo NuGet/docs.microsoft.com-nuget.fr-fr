@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 05/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: f1c7c4ce2872e18b1ed35ccbf3355a6192ab4a9c
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 0bd14104695a15d2e4c65a13b271143809c4ba8a
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775029"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323620"
 ---
 # <a name="troubleshooting-package-restore-errors"></a>Résolution des erreurs de restauration des packages
 
@@ -31,7 +31,7 @@ Si vous utilisez Visual Studio, commencez par activer la restauration des packag
 
 ![Activer la restauration des packages NuGet dans Outils/Options](../consume-packages/media/restore-01-autorestoreoptions.png)
 
-Vous pouvez également changer ces paramètres dans votre fichier `NuGet.config` (consultez la section sur le [consentement](#consent)). Si votre projet est un projet plus ancien qui utilise la restauration de packages intégrée à MSBuild, vous devrez peut-être [migrer](package-restore.md#migrate-to-automatic-package-restore-visual-studio) vers la restauration automatique des packages.
+Vous pouvez également changer ces paramètres dans votre fichier `NuGet.Config` (consultez la section sur le [consentement](#consent)). Si votre projet est un projet plus ancien qui utilise la restauration de packages intégrée à MSBuild, vous devrez peut-être [migrer](package-restore.md#migrate-to-automatic-package-restore-visual-studio) vers la restauration automatique des packages.
 
 <a name="missing"></a>
 
@@ -46,7 +46,7 @@ Use NuGet Package Restore to download them. The missing file is {name}.
 
 Cette erreur se produit quand vous tentez de générer un projet contenant des références à un ou plusieurs packages NuGet qui ne sont pas installés sur l’ordinateur ou dans le projet.
 
-- Lorsque vous utilisez le format de gestion [PackageReference](package-references-in-project-files.md) , cette erreur peut être un restes d’une packages.config à la migration de PackageReference et doit être [supprimée manuellement](../resources/NuGet-FAQ.md#working-with-packages) du fichier projet.
+- Lorsque vous utilisez le format de gestion [PackageReference](package-references-in-project-files.md) , cette erreur peut être un restes d’une packages.config à la migration de PackageReference et doit être [supprimée manuellement](/nuget/resources/nuget-faq#working-with-packages) du fichier projet.
 - Si [ packages.config](../reference/packages-config.md) est utilisé, l’erreur signifie que le package n’est pas installé dans le dossier `packages` à la racine de la solution.
 
 Cette situation se produit souvent quand vous obtenez le code source d’un projet à partir du contrôle de code source ou d’un autre téléchargement. Les packages sont généralement omis du contrôle de code source ou des téléchargements car ils peuvent être restaurés à partir de flux de packages comme nuget.org. Pour plus d’informations, consultez [Packages et contrôle de code source](Packages-and-Source-Control.md)). Leur inclusion engendrerait l’encombrement du dépôt ou la création inutile de fichiers .zip volumineux.

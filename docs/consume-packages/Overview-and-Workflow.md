@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 03/22/2018
 ms.topic: conceptual
-ms.openlocfilehash: 92968236262f891106ab2d4cd3ba399f1644400b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: d1d6df3bcc36d8a78fcee97099b301c9ffc440d9
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859211"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323633"
 ---
 # <a name="package-consumption-workflow"></a>Flux de travail de la consommation des packages
 
@@ -39,7 +39,7 @@ La [restauration du package](../consume-packages/package-restore.md) utilise les
 
 Il est parfois nécessaire de réinstaller les packages qui sont déjà inclus dans un projet, ce qui peut également réinstaller les dépendances. Pour cela, utilisez la commande `nuget reinstall` ou la console du Gestionnaire de package NuGet. Pour plus d’informations, consultez [Réinstallation et mise à jour des packages](../consume-packages/reinstalling-and-updating-packages.md).
 
-Enfin, le comportement de NuGet est régi par des fichiers `Nuget.Config`. Plusieurs fichiers peuvent être utilisés pour centraliser certains paramètres à différents niveaux, comme expliqué dans [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md).
+Enfin, le comportement de NuGet est régi par des fichiers `NuGet.Config`. Plusieurs fichiers peuvent être utilisés pour centraliser certains paramètres à différents niveaux, comme expliqué dans [Configuration du comportement de NuGet](../consume-packages/configuring-nuget-behavior.md).
 
 ## <a name="ways-to-install-a-nuget-package"></a>Méthodes d’installation d’un package NuGet
 

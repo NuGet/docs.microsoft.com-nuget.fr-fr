@@ -5,12 +5,12 @@ author: JonDouglas
 ms.author: jodou
 ms.date: 08/14/2017
 ms.topic: conceptual
-ms.openlocfilehash: 0ef309d95c6ef5437765c02791da6dab13794678
-ms.sourcegitcommit: ee6c3f203648a5561c809db54ebeb1d0f0598b68
+ms.openlocfilehash: 69adbbad20debf2e53f247e85d638b3226c0491d
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98775271"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323750"
 ---
 # <a name="how-nuget-resolves-package-dependencies"></a>Comment NuGet résout les dépendances de package
 
@@ -102,7 +102,7 @@ Avec `packages.config`, les dépendances d’un projet sont écrites dans `packa
 
 Avec `packages.config`, NuGet tente de résoudre les conflits de dépendance lors de l’installation de chaque package. Autrement dit, si le Package A est en cours d’installation et dépend du Package B, et si ce dernier est déjà répertorié dans `packages.config` comme une dépendance d’un autre élément, NuGet compare les versions du Package B demandé et tente de trouver une version respectant toutes les restrictions de version. Plus précisément, NuGet sélectionne la version la plus ancienne *majeure.mineure* qui répond aux dépendances.
 
-Par défaut, NuGet 2.8 recherche la version corrective la plus ancienne (voir [Notes de publication NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Vous pouvez contrôler ce paramètre via l’attribut `DependencyVersion` de `Nuget.Config`, et le commutateur `-DependencyVersion` sur la ligne de commande.  
+Par défaut, NuGet 2.8 recherche la version corrective la plus ancienne (voir [Notes de publication NuGet 2.8](../release-notes/nuget-2.8.md#patch-resolution-for-dependencies)). Vous pouvez contrôler ce paramètre via l’attribut `DependencyVersion` de `NuGet.Config`, et le commutateur `-DependencyVersion` sur la ligne de commande.  
 
 Le processus `packages.config` de résolution des dépendances devient complexe pour les graphiques de dépendance plus volumineux. Chaque nouvelle installation de package nécessite le parcours de l’ensemble du graphique, ce qui entraîne un risque de conflit de versions. En cas de conflit, l’installation est arrêtée, ce qui laisse le projet dans un état indéterminé, avec des modifications potentielles du fichier projet. Ce n’est pas un problème en cas d’utilisation d’autres formats de gestion des packages.
 

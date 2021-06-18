@@ -6,12 +6,12 @@ ms.author: patbel
 ms.date: 11/12/2018
 ms.topic: reference
 ms.reviewer: rmpablos
-ms.openlocfilehash: 9dd3fe3786c824c4a0a1cb252aa50cfc4458a483
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: a5f3564af8b96dfa673d2252aea2e77a79c184a4
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859419"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323588"
 ---
 # <a name="trusted-signers-command-nuget-cli"></a>commande des signataires approuvés (interface CLI NuGet)
 
@@ -19,7 +19,7 @@ ms.locfileid: "104859419"
 
 Obtient ou définit des signataires approuvés pour la configuration NuGet. Pour une utilisation supplémentaire, consultez [configurations NuGet courantes](../../consume-packages/configuring-nuget-behavior.md). Pour plus d’informations sur l’apparence du schéma nuget.config, consultez la [Référence du fichier de configuration NuGet](../nuget-config-file.md).
 
-## <a name="usage"></a>Usage
+## <a name="usage"></a>Utilisation
 
 ```cli
 nuget trusted-signers <list|add|remove|sync> [options]
@@ -62,14 +62,14 @@ Ajoute un signataire approuvé portant le nom donné à la configuration. Cette 
 ## <a name="options-for-add-based-on-a-package"></a>Options d’ajout basés sur un package
 
 ```cli
-nuget trusted-signers add <package(s)> -Name <name> [options]
+nuget trusted-signers add <package> -Name <name> [options]
 ```
 
-où `<package(s)>` se trouve un ou plusieurs `.nupkg` fichiers.
+où `<package>` est un `.nupkg` fichier signé.
 
 - **`-Author`**
 
-  Spécifie que la signature de l’auteur du ou des packages doit être approuvée.
+  Spécifie que la signature de l’auteur du package signé doit être approuvée.
 
 - **`-AllowUntrustedRoot`**
 
@@ -81,7 +81,7 @@ où `<package(s)>` se trouve un ou plusieurs `.nupkg` fichiers.
 
 - **`-Repository`**
 
-  Spécifie que la signature du référentiel ou la contre-signature du ou des packages doit être approuvée.
+  Spécifie que la signature de référentiel ou la contre-signature du package signé doit être approuvée.
 
 `-Author` `-Repository` Le fait de fournir à la fois et en même temps n’est pas pris en charge.
 

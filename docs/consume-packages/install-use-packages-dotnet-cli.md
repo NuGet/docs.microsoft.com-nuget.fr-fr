@@ -5,12 +5,12 @@ author: mikejo5000
 ms.author: mikejo
 ms.date: 06/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: fecf14f0f04d5063f89080b2756f988739c1412c
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 62c05aad388c25120d5b9f5143017a2f4f3b276b
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859263"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323607"
 ---
 # <a name="install-and-manage-packages-using-the-dotnet-cli"></a>Installer et gérer des packages à l’aide de l’interface CLI dotnet
 
@@ -30,7 +30,7 @@ Cet article explique l’utilisation de base de quelques-unes des commandes de l
 
 1. Ouvrez une ligne de commande et accédez au répertoire contenant votre fichier projet.
 
-2. Utilisez la commande suivante pour installer un package Nuget :
+2. Utilisez la commande suivante pour installer un package NuGet :
 
     ```dotnetcli
     dotnet add package <PACKAGE_NAME>
@@ -54,7 +54,7 @@ Cet article explique l’utilisation de base de quelques-unes des commandes de l
 
 ## <a name="install-a-specific-version-of-a-package"></a>Installer une version particulière d’un package
 
-Si vous ne spécifiez pas de version, NuGet installe la dernière version disponible du package. Vous pouvez également utiliser la commande [dotnet add package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) pour installer une version particulière d’un package Nuget :
+Si vous ne spécifiez pas de version, NuGet installe la dernière version disponible du package. Vous pouvez également utiliser la commande [dotnet Add Package](/dotnet/core/tools/dotnet-add-package?tabs=netcore2x) pour installer une version spécifique d’un package NuGet :
 
 ```dotnetcli
 dotnet add package <PACKAGE_NAME> --version <VERSION>

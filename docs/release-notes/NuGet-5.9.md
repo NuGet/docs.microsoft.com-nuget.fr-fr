@@ -5,12 +5,12 @@ author: erdembayar
 ms.author: eryondon
 ms.date: 3/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 50fd277a4f1f39b4a68a89cd07af4e21f0d3d831
-ms.sourcegitcommit: 1462f9f42ae36b3c990762ad4f02e38ab799ad09
+ms.openlocfilehash: 1152af99cf1421918a42d0d1faa33f1452f54a8f
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/15/2021
-ms.locfileid: "107508811"
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112323880"
 ---
 # <a name="nuget-59-release-notes"></a>Notes de publication de NuGet 5,9
 
@@ -220,6 +220,16 @@ Merci à tous les contributeurs qui ont aidé à rendre cette version de NuGet e
 **[Liste de tous les problèmes résolus dans cette version-5.9.1](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=6075f42efd068017639b4036)**
 
 **[Liste des validations dans cette version-5.9.1](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.9.1.8)**
+
+## <a name="known-issues"></a>Problèmes connus
+
+### <a name="nuget-59-pack-raises-null-reference-exception---10685"></a>le Pack NuGet 5,9 déclenche une `Null Reference` exception. - [#10685](https://github.com/NuGet/Home/issues/10685)
+
+#### <a name="issue"></a>Problème
+Quand String `pack` utilise un `.nuspec` fichier, la `NuGet 5.9` version lève une `null reference` exception si des [références d’assembly explicites](../reference/nuspec.md#explicit-assembly-references) sont spécifiées sans ajouter `reference groups` de pour les projets qui ciblent `multiple frameworks` .
+
+#### <a name="workaround"></a>Solution de contournement
+Utilisez `nuget.exe` [5.8.1](https://dist.nuget.org/win-x86-commandline/v5.8.1/nuget.exe)  ou la version la plus récente que `5.9.1` .
 
 ## <a name="feedback-welcome"></a>Commentaires
 
