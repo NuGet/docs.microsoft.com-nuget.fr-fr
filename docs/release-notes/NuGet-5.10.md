@@ -1,0 +1,155 @@
+---
+title: Notes de publication de NuGet 5,10
+description: Notes de publication de NuGet 5,10, y compris les nouvelles fonctionnalités, les correctifs de bogues et DCR.
+author: zkat
+ms.author: kmarchan
+ms.date: 6/11/2021
+ms.topic: conceptual
+ms.openlocfilehash: 666eda5803b540dc18a9310f61c92dc74ff2089e
+ms.sourcegitcommit: f3d98c23408a4a1c01ea92fc45493fa7bd97c3ee
+ms.translationtype: MT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 06/17/2021
+ms.locfileid: "112356538"
+---
+# <a name="nuget-510-release-notes"></a><span data-ttu-id="db5c2-103">Notes de publication de NuGet 5,10</span><span class="sxs-lookup"><span data-stu-id="db5c2-103">NuGet 5.10 Release Notes</span></span>
+
+<span data-ttu-id="db5c2-104">Véhicules de distribution NuGet :</span><span class="sxs-lookup"><span data-stu-id="db5c2-104">NuGet distribution vehicles:</span></span>
+
+| <span data-ttu-id="db5c2-105">Version de NuGet</span><span class="sxs-lookup"><span data-stu-id="db5c2-105">NuGet version</span></span> | <span data-ttu-id="db5c2-106">Disponible dans la version Visual Studio</span><span class="sxs-lookup"><span data-stu-id="db5c2-106">Available in Visual Studio version</span></span> | <span data-ttu-id="db5c2-107">Disponible dans les SDK .NET</span><span class="sxs-lookup"><span data-stu-id="db5c2-107">Available in .NET SDK(s)</span></span> |
+|:---|:---|:---|
+| [<span data-ttu-id="db5c2-108">**5.10.0**</span><span class="sxs-lookup"><span data-stu-id="db5c2-108">**5.10.0**</span></span>](https://nuget.org/downloads) | [<span data-ttu-id="db5c2-109">Visual Studio 2019 version 16,10</span><span class="sxs-lookup"><span data-stu-id="db5c2-109">Visual Studio 2019 version 16.10</span></span>](https://visualstudio.microsoft.com/downloads/) | <span data-ttu-id="db5c2-110">[5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup></span><span class="sxs-lookup"><span data-stu-id="db5c2-110">[5.0.300](https://dotnet.microsoft.com/download/dotnet-core/5.0)<sup>1</sup></span></span> |
+
+<span data-ttu-id="db5c2-111"><sup>1</sup> installé avec Visual Studio 2019 avec une charge de travail .net Core</span><span class="sxs-lookup"><span data-stu-id="db5c2-111"><sup>1</sup> Installed with Visual Studio 2019 with .NET Core workload</span></span>
+  
+> [!NOTE]
+> <span data-ttu-id="db5c2-112">Visual Studio 16,10, MSBuild 16,10 et .NET 5.0.300 + requièrent NuGet.exe 5,10 ou version ultérieure.</span><span class="sxs-lookup"><span data-stu-id="db5c2-112">Visual Studio 16.10, MSBuild 16.10, and .NET 5.0.300+ requires NuGet.exe 5.10 or later.</span></span>
+
+## <a name="summary-whats-new-in-510"></a><span data-ttu-id="db5c2-113">Résumé : nouveautés de 5,10</span><span class="sxs-lookup"><span data-stu-id="db5c2-113">Summary: What's New in 5.10</span></span>
+
+* <span data-ttu-id="db5c2-114">Signature : implémentation de la commande des signataires approuvés dotnet- [#8053](https://github.com/NuGet/Home/issues/8053)</span><span class="sxs-lookup"><span data-stu-id="db5c2-114">Signing: implement dotnet trusted-signers command - [#8053](https://github.com/NuGet/Home/issues/8053)</span></span>
+
+* <span data-ttu-id="db5c2-115">Désactivation de la validation par défaut sur Linux, mais activée par défaut sur Windows- [#10713](https://github.com/NuGet/Home/issues/10713)</span><span class="sxs-lookup"><span data-stu-id="db5c2-115">Make default validation disabled on Linux, but enabled by default on Windows - [#10713](https://github.com/NuGet/Home/issues/10713)</span></span>
+
+* <span data-ttu-id="db5c2-116">Ajouter une variable ENV pour la vérification de la signature du package sur .NET 5 + Linux/MAC- [#10742](https://github.com/NuGet/Home/issues/10742)</span><span class="sxs-lookup"><span data-stu-id="db5c2-116">Add an ENV Variable for Package Signing Verification on .NET 5+ Linux/MAC - [#10742](https://github.com/NuGet/Home/issues/10742)</span></span>
+
+* <span data-ttu-id="db5c2-117">Améliorer les performances de l’installation de nouveaux packages pour les solutions de grande taille- [#10166](https://github.com/NuGet/Home/issues/10166)</span><span class="sxs-lookup"><span data-stu-id="db5c2-117">Improve install new package performance for large solutions - [#10166](https://github.com/NuGet/Home/issues/10166)</span></span>
+
+* <span data-ttu-id="db5c2-118">Ajoutez le type de projet `nfproj` à la liste de supportedProjectExtensions pour l’interface CLI NuGet.</span><span class="sxs-lookup"><span data-stu-id="db5c2-118">Add the project type `nfproj` to the list of supportedProjectExtensions for Nuget CLI.</span></span><span data-ttu-id="db5c2-119"> - [#10562](https://github.com/NuGet/Home/issues/10562)</span><span class="sxs-lookup"><span data-stu-id="db5c2-119"> - [#10562](https://github.com/NuGet/Home/issues/10562)</span></span>
+
+### <a name="issues-fixed-in-this-release"></a><span data-ttu-id="db5c2-120">Problèmes résolus dans cette version</span><span class="sxs-lookup"><span data-stu-id="db5c2-120">Issues fixed in this release</span></span>
+
+* <span data-ttu-id="db5c2-121">Supprimer l' <requireLicenseAcceptance> élément lors de l’empaquetage d’un projet- [#5133](https://github.com/NuGet/Home/issues/5133)</span><span class="sxs-lookup"><span data-stu-id="db5c2-121">Suppress the <requireLicenseAcceptance> element when packing a project - [#5133](https://github.com/NuGet/Home/issues/5133)</span></span>
+
+* <span data-ttu-id="db5c2-122">[CPVM] l’avertissement de préversion doit s’afficher dans dotnet CLI- [#10226](https://github.com/NuGet/Home/issues/10226)</span><span class="sxs-lookup"><span data-stu-id="db5c2-122">[CPVM] preview warning should be shown on dotnet cli - [#10226](https://github.com/NuGet/Home/issues/10226)</span></span>
+
+* <span data-ttu-id="db5c2-123">Mettez à jour les jetons de couleur d’arrière-plan et de premier plan de PMUI sur CommonDocumentColors- [#10608](https://github.com/NuGet/Home/issues/10608)</span><span class="sxs-lookup"><span data-stu-id="db5c2-123">Update the background and foreground color tokens of the PMUI to CommonDocumentColors - [#10608](https://github.com/NuGet/Home/issues/10608)</span></span>
+
+* <span data-ttu-id="db5c2-124">[Coccinelle des bogues] Erreur « opération annulée par l’utilisateur » afficher dans la fenêtre de Liste d’erreurs lors du basculement rapide entre les onglets dans l’interface utilisateur PM- [#10671](https://github.com/NuGet/Home/issues/10671)</span><span class="sxs-lookup"><span data-stu-id="db5c2-124">[Bug Bash] Error “operation canceled by user” show in Error List window when switching between tabs quickly in PM UI - [#10671](https://github.com/NuGet/Home/issues/10671)</span></span>
+
+* <span data-ttu-id="db5c2-125">Interface utilisateur PM : améliorer les performances d’installation des packages au niveau de la solution- [#10210](https://github.com/NuGet/Home/issues/10210)</span><span class="sxs-lookup"><span data-stu-id="db5c2-125">PM UI:  Improve package installation performance on the solution level - [#10210](https://github.com/NuGet/Home/issues/10210)</span></span>
+
+* <span data-ttu-id="db5c2-126">Remplacez GetService par GetServiceAsync Everywhere dans NuGet. clients- [#3784](https://github.com/NuGet/Home/issues/3784)</span><span class="sxs-lookup"><span data-stu-id="db5c2-126">Replace GetService with GetServiceAsync everywhere in NuGet.Clients - [#3784](https://github.com/NuGet/Home/issues/3784)</span></span>
+
+* <span data-ttu-id="db5c2-127">Problème de performances de NuGet.exe Pack avec `..` chemin d’accès relatif- [#5016](https://github.com/NuGet/Home/issues/5016)</span><span class="sxs-lookup"><span data-stu-id="db5c2-127">NuGet.exe pack performance problem with `..` relative path - [#5016](https://github.com/NuGet/Home/issues/5016)</span></span>
+
+* <span data-ttu-id="db5c2-128">Les performances de « Pack NuGet » diminuent avec des niveaux plus élevés dans les chemins source- [#5706](https://github.com/NuGet/Home/issues/5706)</span><span class="sxs-lookup"><span data-stu-id="db5c2-128">The performance of "nuget pack" decreases with increasing levels in the source paths - [#5706](https://github.com/NuGet/Home/issues/5706)</span></span>
+
+* <span data-ttu-id="db5c2-129">NuGet n’est pas une erreur lors de l’empaquetage de NuSpec avec des fichiers dupliqués.</span><span class="sxs-lookup"><span data-stu-id="db5c2-129">NuGet doesn't error when packaging nuspec with duplicate files.</span></span><span data-ttu-id="db5c2-130"> - [#6941](https://github.com/NuGet/Home/issues/6941)</span><span class="sxs-lookup"><span data-stu-id="db5c2-130"> - [#6941](https://github.com/NuGet/Home/issues/6941)</span></span>
+
+* <span data-ttu-id="db5c2-131">Pack NuGet « le DateTimeOffset spécifié ne peut pas être converti en horodatage de fichier zip »- [#7001](https://github.com/NuGet/Home/issues/7001)</span><span class="sxs-lookup"><span data-stu-id="db5c2-131">NuGet pack "The DateTimeOffset specified cannot be converted into a Zip file timestamp" - [#7001](https://github.com/NuGet/Home/issues/7001)</span></span>
+
+* <span data-ttu-id="db5c2-132">Les horodateurs du fichier de package compressé sont déplacés par le fuseau horaire- [#7395](https://github.com/NuGet/Home/issues/7395)</span><span class="sxs-lookup"><span data-stu-id="db5c2-132">Timestamps of file of packed package is shifted by the timezone - [#7395](https://github.com/NuGet/Home/issues/7395)</span></span>
+
+* <span data-ttu-id="db5c2-133">NU1004 doit contenir plus d’informations actionnables- [#7696](https://github.com/NuGet/Home/issues/7696)</span><span class="sxs-lookup"><span data-stu-id="db5c2-133">NU1004 should contain more actionable information  - [#7696](https://github.com/NuGet/Home/issues/7696)</span></span>
+
+* <span data-ttu-id="db5c2-134">[Coccinelle des bogues] [Échec du test] Le fichier de verrouillage vide/incorrect ne doit pas être mis à jour lors de l’exécution de’dotnet restore--use-Lock-file--Locked-Mode'- [#8640](https://github.com/NuGet/Home/issues/8640)</span><span class="sxs-lookup"><span data-stu-id="db5c2-134">[Bug Bash][Test Failure] The empty/malformed lock file should not be updated when running ‘dotnet restore --use-lock-file --locked-mode’ - [#8640](https://github.com/NuGet/Home/issues/8640)</span></span>
+
+* <span data-ttu-id="db5c2-135">NuGetVersionRange permet l’analyse de plages logiquement incorrectes- [#9145](https://github.com/NuGet/Home/issues/9145)</span><span class="sxs-lookup"><span data-stu-id="db5c2-135">NuGetVersionRange allows logically incorrect ranges to be parsed - [#9145](https://github.com/NuGet/Home/issues/9145)</span></span>
+
+* <span data-ttu-id="db5c2-136">L’interface utilisateur PM ne peut pas afficher la couleur d’arrière-plan différenciable entre les sources de package sélectionnées et survolées- [#9538](https://github.com/NuGet/Home/issues/9538)</span><span class="sxs-lookup"><span data-stu-id="db5c2-136">PM UI can’t show distinguishable background color between selected and hovered package sources - [#9538](https://github.com/NuGet/Home/issues/9538)</span></span>
+
+* <span data-ttu-id="db5c2-137">La case à cocher permettant de sélectionner les projets à installer n’est pas lue par le lecteur d’écran- [#9578](https://github.com/NuGet/Home/issues/9578)</span><span class="sxs-lookup"><span data-stu-id="db5c2-137">Checkbox for selecting projects to install to isn't being read by screen reader - [#9578](https://github.com/NuGet/Home/issues/9578)</span></span>
+
+* <span data-ttu-id="db5c2-138">La sélection par défaut de la liste déroulante des versions du volet d’informations doit être installée/LatestStable sur les onglets installés/mises à jour- [#9887](https://github.com/NuGet/Home/issues/9887)</span><span class="sxs-lookup"><span data-stu-id="db5c2-138">Details Pane Versions Dropdown default selection should be Installed/LatestStable on Installed/Updates tabs - [#9887](https://github.com/NuGet/Home/issues/9887)</span></span>
+
+* <span data-ttu-id="db5c2-139">Supprimer le compte de solution pour certains kits de développement logiciel (SDK) .net 5 TargetPlatformMoniker de ` ,Version= `  -  [#9913](https://github.com/NuGet/Home/issues/9913)</span><span class="sxs-lookup"><span data-stu-id="db5c2-139">Remove workaround account for some .NET 5 SDKs report TargetPlatformMoniker of ` ,Version= ` - [#9913](https://github.com/NuGet/Home/issues/9913)</span></span>
+
+* <span data-ttu-id="db5c2-140">dotnet NuGet Verify est trop calme [#10316](https://github.com/NuGet/Home/issues/10316)</span><span class="sxs-lookup"><span data-stu-id="db5c2-140">dotnet nuget verify is too quiet - [#10316](https://github.com/NuGet/Home/issues/10316)</span></span>
+
+* <span data-ttu-id="db5c2-141">VersionRange ne peut pas analyser les plages à un chiffre- [#10342](https://github.com/NuGet/Home/issues/10342)</span><span class="sxs-lookup"><span data-stu-id="db5c2-141">VersionRange cannot parse single-digit ranges - [#10342](https://github.com/NuGet/Home/issues/10342)</span></span>
+
+* <span data-ttu-id="db5c2-142">VS solution Manager lève une exception null pour le débogage- [#10352](https://github.com/NuGet/Home/issues/10352)</span><span class="sxs-lookup"><span data-stu-id="db5c2-142">VS Solution manager throws null exception for during debugging - [#10352](https://github.com/NuGet/Home/issues/10352)</span></span>
+
+* <span data-ttu-id="db5c2-143">Déplacer les messages d’exception CLI vers des fichiers de ressources de chaîne- [#10392](https://github.com/NuGet/Home/issues/10392)</span><span class="sxs-lookup"><span data-stu-id="db5c2-143">Move CLI exception messages to String Resource files - [#10392](https://github.com/NuGet/Home/issues/10392)</span></span>
+
+* <span data-ttu-id="db5c2-144">Supprimer le code mort (TabItemButtonAutomationPeer)- [#10435](https://github.com/NuGet/Home/issues/10435)</span><span class="sxs-lookup"><span data-stu-id="db5c2-144">Remove dead code (TabItemButtonAutomationPeer) - [#10435](https://github.com/NuGet/Home/issues/10435)</span></span>
+
+* <span data-ttu-id="db5c2-145">Le menu contextuel de mise à jour doit défiler jusqu’au premier élément sélectionné- [#10498](https://github.com/NuGet/Home/issues/10498)</span><span class="sxs-lookup"><span data-stu-id="db5c2-145">Update context menu should scroll to first selected item - [#10498](https://github.com/NuGet/Home/issues/10498)</span></span>
+
+* <span data-ttu-id="db5c2-146">Les détails de la solution PMUI ont un chevauchement de barres horizontales [#10533](https://github.com/NuGet/Home/issues/10533)</span><span class="sxs-lookup"><span data-stu-id="db5c2-146">Solution PMUI Details has overlapping horizontal bar - [#10533](https://github.com/NuGet/Home/issues/10533)</span></span>
+
+* <span data-ttu-id="db5c2-147">Signature : les détails de la signature principale ne sont pas affichés lorsque le certificat a expiré et l’horodateur non fiable- [#10535](https://github.com/NuGet/Home/issues/10535)</span><span class="sxs-lookup"><span data-stu-id="db5c2-147">Signing:  primary signature details not displayed when certificate expired and timestamp untrusted - [#10535](https://github.com/NuGet/Home/issues/10535)</span></span>
+
+* <span data-ttu-id="db5c2-148">L’absence d’une source activée empêche l’interface utilisateur PM d’apparaître- [#10541](https://github.com/NuGet/Home/issues/10541)</span><span class="sxs-lookup"><span data-stu-id="db5c2-148">Having no enabled sources prevents the PM UI from showing - [#10541](https://github.com/NuGet/Home/issues/10541)</span></span>
+
+* <span data-ttu-id="db5c2-149">Les métadonnées du package (détails, dépréciation) ne sont parfois pas extraites de nuget.org dans CodeSpaces- [#10549](https://github.com/NuGet/Home/issues/10549)</span><span class="sxs-lookup"><span data-stu-id="db5c2-149">Package Metadata (details, deprecation) are sometimes not pulled from nuget.org in CodeSpaces - [#10549](https://github.com/NuGet/Home/issues/10549)</span></span>
+
+* <span data-ttu-id="db5c2-150">L’initialisation de PMUI échoue avec une exception pendant la session de débogage [#10559](https://github.com/NuGet/Home/issues/10559)</span><span class="sxs-lookup"><span data-stu-id="db5c2-150">PMUI initialization fails with exception during debug session - [#10559](https://github.com/NuGet/Home/issues/10559)</span></span>
+
+* <span data-ttu-id="db5c2-151">la restauration NuGet entraîne l’échec de la vérification de l’intégrité du package sur le système Big endian- [#10567](https://github.com/NuGet/Home/issues/10567)</span><span class="sxs-lookup"><span data-stu-id="db5c2-151">nuget restore results in a package integrity check failure on big endian system - [#10567](https://github.com/NuGet/Home/issues/10567)</span></span>
+
+* <span data-ttu-id="db5c2-152">FormatException est levée à la place de PackagingException- [#10595](https://github.com/NuGet/Home/issues/10595)</span><span class="sxs-lookup"><span data-stu-id="db5c2-152">FormatException is thrown instead of PackagingException - [#10595](https://github.com/NuGet/Home/issues/10595)</span></span>
+
+* <span data-ttu-id="db5c2-153">CPVM-problèmes d’accès concurrentiel dans l’algorithme de parcours du graphique- [#10598](https://github.com/NuGet/Home/issues/10598)</span><span class="sxs-lookup"><span data-stu-id="db5c2-153">CPVM - Concurrency issues in the graph walking algorithm - [#10598](https://github.com/NuGet/Home/issues/10598)</span></span>
+
+* <span data-ttu-id="db5c2-154">Ajouter des données de télémétrie de la version PowerShell de PMC- [#10609](https://github.com/NuGet/Home/issues/10609)</span><span class="sxs-lookup"><span data-stu-id="db5c2-154">Add PMC powershell version telemetry - [#10609](https://github.com/NuGet/Home/issues/10609)</span></span>
+
+* <span data-ttu-id="db5c2-155">Améliorer les performances de tri NuGetVersion- [#10611](https://github.com/NuGet/Home/issues/10611)</span><span class="sxs-lookup"><span data-stu-id="db5c2-155">Improve NuGetVersion sort performance - [#10611](https://github.com/NuGet/Home/issues/10611)</span></span>
+
+* <span data-ttu-id="db5c2-156">L’ajout de signataires approuvés a des arguments incohérents- [#10647](https://github.com/NuGet/Home/issues/10647)</span><span class="sxs-lookup"><span data-stu-id="db5c2-156">Trusted-signers Add has inconsistent arguments - [#10647](https://github.com/NuGet/Home/issues/10647)</span></span>
+
+* <span data-ttu-id="db5c2-157">Vs2019 v 16.9.0 : le basculement des onglets dans le gestionnaire de package NuGet de « mises à jour » vers « installé » ne met pas à jour le frame.</span><span class="sxs-lookup"><span data-stu-id="db5c2-157">Vs2019 v16.9.0: Switching tabs in NuGet Package Manager from "Updates" to "Installed" doesn't update the frame.</span></span><span data-ttu-id="db5c2-158"> - [#10654](https://github.com/NuGet/Home/issues/10654)</span><span class="sxs-lookup"><span data-stu-id="db5c2-158"> - [#10654](https://github.com/NuGet/Home/issues/10654)</span></span>
+
+* <span data-ttu-id="db5c2-159">Supprimer le « v » du numéro de version dans PMUI- [#10677](https://github.com/NuGet/Home/issues/10677)</span><span class="sxs-lookup"><span data-stu-id="db5c2-159">Remove the "v" from the version number in PMUI - [#10677](https://github.com/NuGet/Home/issues/10677)</span></span>
+
+* <span data-ttu-id="db5c2-160">INuGetProjectService. GetInstalledPackagesAsync lève une exception avant de recevoir la désignation du système de projet CPS- [#10681](https://github.com/NuGet/Home/issues/10681)</span><span class="sxs-lookup"><span data-stu-id="db5c2-160">INuGetProjectService.GetInstalledPackagesAsync throws before receiving CPS project system nomination - [#10681](https://github.com/NuGet/Home/issues/10681)</span></span>
+
+* <span data-ttu-id="db5c2-161">Les icônes incorporées entraînent l’accès refusé à la source « Microsoft Visual Studio les packages hors connexion » dans l’onglet Parcourir- [#10687](https://github.com/NuGet/Home/issues/10687)</span><span class="sxs-lookup"><span data-stu-id="db5c2-161">Embedded Icons cause Access Denied from source "Microsoft Visual Studio Offline Packages" on Browse tab - [#10687](https://github.com/NuGet/Home/issues/10687)</span></span>
+
+* <span data-ttu-id="db5c2-162">INuGetProjectService. GetInstalledPackagesAsync lève une exception lorsque MSBuildProjectExtensionsPath n’est pas défini- [#10739](https://github.com/NuGet/Home/issues/10739)</span><span class="sxs-lookup"><span data-stu-id="db5c2-162">INuGetProjectService.GetInstalledPackagesAsync throws when MSBuildProjectExtensionsPath is not set - [#10739](https://github.com/NuGet/Home/issues/10739)</span></span>
+
+* <span data-ttu-id="db5c2-163">« dotnet NuGet Remove source nuget.org » ne fonctionne pas la première fois- [#10745](https://github.com/NuGet/Home/issues/10745)</span><span class="sxs-lookup"><span data-stu-id="db5c2-163">"dotnet nuget remove source nuget.org" doesn't work the first time - [#10745](https://github.com/NuGet/Home/issues/10745)</span></span>
+
+* <span data-ttu-id="db5c2-164">NuGet bloque un thread ThreadPool dans une méthode Async en effectuant un appel synchrone au thread d’interface utilisateur [#10775](https://github.com/NuGet/Home/issues/10775)</span><span class="sxs-lookup"><span data-stu-id="db5c2-164">Nuget blocks a threadpool thread in an async method making a synchronous call to the UI thread - [#10775](https://github.com/NuGet/Home/issues/10775)</span></span>
+
+* <span data-ttu-id="db5c2-165">Outils-options de >-> chaîne du gestionnaire de package NuGet est tronquée- [#10779](https://github.com/NuGet/Home/issues/10779)</span><span class="sxs-lookup"><span data-stu-id="db5c2-165">Tools -> Options -> NuGet Package Manager string is truncated - [#10779](https://github.com/NuGet/Home/issues/10779)</span></span>
+
+* <span data-ttu-id="db5c2-166">`PackageLoadContext.GetInstalledAndTransitivePackagesAsync` est du code mort et nuit aux performances [#10790](https://github.com/NuGet/Home/issues/10790)</span><span class="sxs-lookup"><span data-stu-id="db5c2-166">`PackageLoadContext.GetInstalledAndTransitivePackagesAsync` is dead code and hurting performance - [#10790](https://github.com/NuGet/Home/issues/10790)</span></span>
+
+* <span data-ttu-id="db5c2-167">Utiliser l’icône incorporée dans les packages du SDK NuGet- [#10795](https://github.com/NuGet/Home/issues/10795)</span><span class="sxs-lookup"><span data-stu-id="db5c2-167">Use embedded icon in NuGet SDK packages - [#10795](https://github.com/NuGet/Home/issues/10795)</span></span>
+
+* <span data-ttu-id="db5c2-168">Mettre à jour la liste de licences SPDX- [#10806](https://github.com/NuGet/Home/issues/10806)</span><span class="sxs-lookup"><span data-stu-id="db5c2-168">Update the SPDX license list - [#10806](https://github.com/NuGet/Home/issues/10806)</span></span>
+
+<span data-ttu-id="db5c2-169">**[Liste de tous les problèmes résolus dans cette version-5,10](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=Z2lkOi8vcmFwdG9yL1JlbGVhc2UvNTY2MTQ)**</span><span class="sxs-lookup"><span data-stu-id="db5c2-169">**[List of all issues fixed in this release - 5.10](https://app.zenhub.com/workspaces/nuget-client-team-55aec9a240305cf007585881/reports/release?release=Z2lkOi8vcmFwdG9yL1JlbGVhc2UvNTY2MTQ)**</span></span>
+  
+<span data-ttu-id="db5c2-170">**[Liste des validations dans cette version-5.10.0](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.10.0.7240)**</span><span class="sxs-lookup"><span data-stu-id="db5c2-170">**[List of commits in this release - 5.10.0](https://github.com/NuGet/NuGet.Client/compare/5.9.0.7134...5.10.0.7240)**</span></span>
+  
+### <a name="community-contributions"></a><span data-ttu-id="db5c2-171">Contributions de la communauté</span><span class="sxs-lookup"><span data-stu-id="db5c2-171">Community contributions</span></span>
+
+<span data-ttu-id="db5c2-172">Merci à tous les contributeurs qui ont aidé à rendre cette version de NuGet extraordinaire !</span><span class="sxs-lookup"><span data-stu-id="db5c2-172">Thank you to all the contributors who helped make this NuGet release awesome!</span></span>
+
+|<span data-ttu-id="db5c2-173">Qui</span><span class="sxs-lookup"><span data-stu-id="db5c2-173">Who</span></span>|<span data-ttu-id="db5c2-174">Tirage</span><span class="sxs-lookup"><span data-stu-id="db5c2-174">PRs</span></span>|<span data-ttu-id="db5c2-175">Problèmes</span><span class="sxs-lookup"><span data-stu-id="db5c2-175">Issues</span></span>|
+|----|----|----|
+[<span data-ttu-id="db5c2-176">Louis-z</span><span class="sxs-lookup"><span data-stu-id="db5c2-176">louis-z</span></span>](https://github.com/louis-z) | [<span data-ttu-id="db5c2-177">3991</span><span class="sxs-lookup"><span data-stu-id="db5c2-177">3991</span></span>](https://github.com/NuGet/NuGet.Client/pull/3991) | <span data-ttu-id="db5c2-178">VersionRange ne peut pas analyser les plages à un chiffre- [#10342](https://github.com/NuGet/Home/issues/10342)</span><span class="sxs-lookup"><span data-stu-id="db5c2-178">VersionRange cannot parse single-digit ranges - [#10342](https://github.com/NuGet/Home/issues/10342)</span></span>
+[<span data-ttu-id="db5c2-179">omajid</span><span class="sxs-lookup"><span data-stu-id="db5c2-179">omajid</span></span>](https://github.com/omajid) | [<span data-ttu-id="db5c2-180">3860</span><span class="sxs-lookup"><span data-stu-id="db5c2-180">3860</span></span>](https://github.com/NuGet/NuGet.Client/pull/3860) | <span data-ttu-id="db5c2-181">NuGet. client build.sh est rompu [#10139](https://github.com/NuGet/Home/issues/10139)</span><span class="sxs-lookup"><span data-stu-id="db5c2-181">NuGet.Client build.sh is broken - [#10139](https://github.com/NuGet/Home/issues/10139)</span></span>
+[<span data-ttu-id="db5c2-182">Nirmal4G</span><span class="sxs-lookup"><span data-stu-id="db5c2-182">Nirmal4G</span></span>](https://github.com/Nirmal4G) | [<span data-ttu-id="db5c2-183">3623</span><span class="sxs-lookup"><span data-stu-id="db5c2-183">3623</span></span>](https://github.com/NuGet/NuGet.Client/pull/3623) | <span data-ttu-id="db5c2-184">NuGet. client build.sh est rompu [#10139](https://github.com/NuGet/Home/issues/10139)</span><span class="sxs-lookup"><span data-stu-id="db5c2-184">NuGet.Client build.sh is broken - [#10139](https://github.com/NuGet/Home/issues/10139)</span></span>
+[<span data-ttu-id="db5c2-185">BlackGad</span><span class="sxs-lookup"><span data-stu-id="db5c2-185">BlackGad</span></span>](https://github.com/BlackGad) | [<span data-ttu-id="db5c2-186">3953</span><span class="sxs-lookup"><span data-stu-id="db5c2-186">3953</span></span>](https://github.com/NuGet/NuGet.Client/pull/3953) | <span data-ttu-id="db5c2-187">Les performances de « Pack NuGet » diminuent avec des niveaux plus élevés dans les chemins source- [#5706](https://github.com/NuGet/Home/issues/5706)</span><span class="sxs-lookup"><span data-stu-id="db5c2-187">The performance of "nuget pack" decreases with increasing levels in the source paths - [#5706](https://github.com/NuGet/Home/issues/5706)</span></span>
+[<span data-ttu-id="db5c2-188">BlackGad</span><span class="sxs-lookup"><span data-stu-id="db5c2-188">BlackGad</span></span>](https://github.com/BlackGad) | [<span data-ttu-id="db5c2-189">3953</span><span class="sxs-lookup"><span data-stu-id="db5c2-189">3953</span></span>](https://github.com/NuGet/NuGet.Client/pull/3953) | <span data-ttu-id="db5c2-190">Problème de performances de NuGet.exe Pack avec..</span><span class="sxs-lookup"><span data-stu-id="db5c2-190">NuGet.exe pack performance problem with ..</span></span> <span data-ttu-id="db5c2-191">chemin d’accès relatif- [#5016](https://github.com/NuGet/Home/issues/5016)</span><span class="sxs-lookup"><span data-stu-id="db5c2-191">relative path - [#5016](https://github.com/NuGet/Home/issues/5016)</span></span>
+[<span data-ttu-id="db5c2-192">Marcin-krystianc</span><span class="sxs-lookup"><span data-stu-id="db5c2-192">marcin-krystianc</span></span>](https://github.com/marcin-krystianc) | [<span data-ttu-id="db5c2-193">3940</span><span class="sxs-lookup"><span data-stu-id="db5c2-193">3940</span></span>](https://github.com/NuGet/NuGet.Client/pull/3940) | <span data-ttu-id="db5c2-194">CPVM-problèmes d’accès concurrentiel dans l’algorithme de parcours du graphique- [#10598](https://github.com/NuGet/Home/issues/10598)</span><span class="sxs-lookup"><span data-stu-id="db5c2-194">CPVM - Concurrency issues in the graph walking algorithm - [#10598](https://github.com/NuGet/Home/issues/10598)</span></span>
+[<span data-ttu-id="db5c2-195">josesimoes</span><span class="sxs-lookup"><span data-stu-id="db5c2-195">josesimoes</span></span>](https://github.com/josesimoes) | [<span data-ttu-id="db5c2-196">3943</span><span class="sxs-lookup"><span data-stu-id="db5c2-196">3943</span></span>](https://github.com/NuGet/NuGet.Client/pull/3943) | <span data-ttu-id="db5c2-197">Ajoutez le type de projet nfproj à la liste des supportedProjectExtensions pour l’interface CLI NuGet.</span><span class="sxs-lookup"><span data-stu-id="db5c2-197">Add the project type nfproj to the list of supportedProjectExtensions for Nuget CLI.</span></span><span data-ttu-id="db5c2-198"> - [#10562](https://github.com/NuGet/Home/issues/10562)</span><span class="sxs-lookup"><span data-stu-id="db5c2-198"> - [#10562](https://github.com/NuGet/Home/issues/10562)</span></span>
+
+## <a name="feedback-welcome"></a><span data-ttu-id="db5c2-199">Commentaires</span><span class="sxs-lookup"><span data-stu-id="db5c2-199">Feedback welcome</span></span>
+
+<span data-ttu-id="db5c2-200">Vos commentaires sont très importants pour nous.</span><span class="sxs-lookup"><span data-stu-id="db5c2-200">Your feedback is important to us.</span></span>  <span data-ttu-id="db5c2-201">En cas de problème avec cette version, consultez nos [problèmes GitHub](https://github.com/NuGet/Home/issues) et la [communauté de développeurs Visual Studio](https://developercommunity.visualstudio.com/) pour les problèmes existants.</span><span class="sxs-lookup"><span data-stu-id="db5c2-201">If there are any problems with this release, check our [GitHub Issues](https://github.com/NuGet/Home/issues) and [Visual Studio Developer Community](https://developercommunity.visualstudio.com/) for existing issues.</span></span>  <span data-ttu-id="db5c2-202">Pour les nouveaux problèmes dans NuGet, signalez un [problème GitHub](https://github.com/NuGet/Home/issues/new).</span><span class="sxs-lookup"><span data-stu-id="db5c2-202">For new issues within NuGet, please report a [GitHub Issue](https://github.com/NuGet/Home/issues/new).</span></span>
+<span data-ttu-id="db5c2-203">Pour les problèmes généraux d’expérience NuGet, faites-le nous savoir par le biais de l’option [signaler un problème](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) trouvée dans votre IDE favori sous **aide > signaler un problème**.</span><span class="sxs-lookup"><span data-stu-id="db5c2-203">For general NuGet experience issues, let us know via the [Report a Problem](/visualstudio/ide/how-to-report-a-problem-with-visual-studio) option found in your favorite IDE under **Help > Report a Problem**.</span></span>
