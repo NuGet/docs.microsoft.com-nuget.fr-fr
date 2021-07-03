@@ -13,8 +13,8 @@
 ## [Règlement des litiges](policies/dispute-resolution.md)
 ## [Suppression de packages](policies/deleting-packages.md)
 ## [Exporter des contrôles](policies/export-control.md)
-# Référence
+# Informations de référence
 ## [API NuGet](../api/overview.md)
 ## [licenses.nuget.org](licenses.nuget.org.md)
 # Ressources
-## [FORUM AUX QUESTIONS](nuget-org-faq.md)
+## [FORUM AUX QUESTIONS](nuget-org-faq.yml)
