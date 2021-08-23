@@ -1,16 +1,16 @@
 ---
 title: Meilleures pratiques pour une chaîne d’approvisionnement de logiciels sécurisée
-description: Meilleures pratiques pour sécuriser votre chaîne d’approvisionnement logiciel à l’aide de NuGet & GitHub.
+description: meilleures pratiques pour sécuriser votre chaîne d’approvisionnement logiciel à l’aide de NuGet & GitHub.
 author: JonDouglas
 ms.author: jodou
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: e0f235d99e41e23a4551fbf7577f6c42e3381f5b
-ms.sourcegitcommit: bb9560dcc7055bde84b4940c5eb0db402bf46a48
+ms.openlocfilehash: 4575d4779ed90150cec667489c85875b7fb87a8d
+ms.sourcegitcommit: 5f706c62c97b78bbe3d8c7e95659976535fe486f
 ms.translationtype: MT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104859224"
+ms.lasthandoff: 08/23/2021
+ms.locfileid: "122726975"
 ---
 # <a name="best-practices-for-a-secure-software-supply-chain"></a>Meilleures pratiques pour une chaîne d’approvisionnement de logiciels sécurisée
 
@@ -60,34 +60,34 @@ L’utilisation d’open source aujourd’hui est importante et n’est pas cens
 
 ![État du Octoverse 2020-conseils](media/advisories.png)
 
-Nous allons aborder différents outils et techniques fournis par NuGet et GitHub, que vous pouvez utiliser aujourd’hui pour résoudre les risques potentiels au sein de votre projet. 
+nous allons aborder différents outils et techniques fournis par NuGet et GitHub, que vous pouvez utiliser aujourd’hui pour résoudre les risques potentiels au sein de votre projet. 
 
 ## <a name="knowing-what-is-in-your-environment"></a>Savoir ce qui se trouve dans votre environnement
 
-### <a name="nuget-dependency-graph"></a>Graphique de dépendance NuGet
+### <a name="nuget-dependency-graph"></a>NuGet graphique de dépendance
 
 **📦 Consommateur de package**
 
-Vous pouvez afficher vos dépendances NuGet dans votre projet en regardant directement dans le fichier projet respectif.
+vous pouvez afficher vos dépendances de NuGet dans votre projet en regardant directement dans le fichier projet respectif.
 
 Il se trouve généralement dans l’un des deux emplacements suivants :
 
 -   [`packages.config`](../reference/packages-config.md) : Situé à la racine du projet.
 -   [`<PackageReference>`](../consume-packages/package-references-in-project-files.md) : Situé dans le fichier projet. 
 
-Selon la méthode que vous utilisez pour gérer vos dépendances NuGet, vous pouvez également utiliser Visual Studio pour afficher vos dépendances directement dans [Explorateur de solutions](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) ou le [Gestionnaire de package NuGet](../consume-packages/install-use-packages-visual-studio.md).
+selon la méthode que vous utilisez pour gérer vos dépendances de NuGet, vous pouvez également utiliser Visual Studio pour afficher vos dépendances directement dans [Explorateur de solutions](/visualstudio/ide/solutions-and-projects-in-visual-studio#solution-explorer) ou [NuGet Gestionnaire de package](../consume-packages/install-use-packages-visual-studio.md).
 
 Pour les environnements CLI, vous pouvez utiliser la [`dotnet list package`](/dotnet/core/tools/dotnet-list-package) commande pour répertorier les dépendances de votre projet ou de votre solution. 
 
-Pour plus d’informations sur la gestion des dépendances NuGet, [consultez la documentation suivante](../consume-packages/overview-and-workflow.md).
+pour plus d’informations sur la gestion des dépendances de NuGet, [consultez la documentation suivante](../consume-packages/overview-and-workflow.md).
 
 ### <a name="github-dependency-graph"></a>Graphique des dépendances de GitHub 
 
 **📦 Consommateur de package | 📦🖊 Auteur du package**
 
-Vous pouvez utiliser le graphique de dépendance de GitHub pour voir les packages dont votre projet dépend et les dépôts qui en dépendent. Cela peut vous aider à voir toutes les vulnérabilités détectées dans ses dépendances.
+vous pouvez utiliser le graphique de dépendance de GitHub pour voir les packages dont votre projet dépend et les dépôts qui en dépendent. Cela peut vous aider à voir toutes les vulnérabilités détectées dans ses dépendances.
 
-Pour plus d’informations sur les dépendances de référentiel GitHub, [consultez la documentation suivante](https://github.co/dependency-graph).
+pour plus d’informations sur les dépendances de référentiel GitHub, [consultez la documentation suivante](https://github.co/dependency-graph).
 
 ### <a name="dependency-versions"></a>Versions de dépendance
 
@@ -95,14 +95,14 @@ Pour plus d’informations sur les dépendances de référentiel GitHub, [consul
 
 Pour garantir une chaîne d’approvisionnement sécurisée des dépendances, vous devez vous assurer que toutes vos dépendances & outils sont régulièrement mises à jour vers la dernière version stable, car elles incluent souvent les derniers correctifs de sécurité et de fonctionnalités pour les vulnérabilités connues. Vos dépendances peuvent inclure le code dont vous dépendez, les fichiers binaires que vous consommez, les outils que vous utilisez et d’autres composants. Cela peut inclure :
 
--   [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+-   [Visual Studio](https://visualstudio.microsoft.com/downloads/)
 -   [Runtime SDK .NET &](https://dotnet.microsoft.com/download)
 -   [NuGet](https://www.nuget.org/downloads)
 -   [Packages NuGet](../consume-packages/reinstalling-and-updating-packages.md)
 
 ## <a name="manage-your-dependencies"></a>Gérer vos dépendances
 
-### <a name="nuget-deprecated-and-vulnerable-dependencies"></a>Dépendances NuGet déconseillées et vulnérables
+### <a name="nuget-deprecated-and-vulnerable-dependencies"></a>NuGet les dépendances déconseillées et vulnérables
 
 **📦 Consommateur de package | 📦🖊 Auteur du package**
 
@@ -112,25 +112,25 @@ Vous pouvez utiliser l' [interface CLI dotnet](/dotnet/core/tools/dotnet-list-pa
 
 **📦 Consommateur de package | 📦🖊 Auteur du package**
 
-Si votre projet est hébergé sur GitHub, vous pouvez tirer parti de la [sécurité GitHub](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors) pour rechercher des failles de sécurité et des erreurs dans votre projet, et Dependabot les corrigera en ouvrant une demande de tirage (pull request) sur votre base de code. 
+si votre projet est hébergé sur GitHub, vous pouvez tirer parti de la [sécurité GitHub](https://docs.github.com/en/free-pro-team@latest/github/finding-security-vulnerabilities-and-errors-in-your-code/automatically-scanning-your-code-for-vulnerabilities-and-errors) pour rechercher les failles de sécurité et les erreurs dans votre projet, et Dependabot les corriger en ouvrant une demande de tirage (pull request) sur votre base de code. 
 
 L’interception des dépendances vulnérables avant leur introduction est l’un des objectifs du déplacement [« décalage vers la gauche »](https://en.wikipedia.org/wiki/Shift-left_testing) . La possibilité d’avoir des informations sur vos dépendances, telles que leur licence, les dépendances transitives et l’âge des dépendances, vous permet de le faire.
 
 Pour plus d’informations sur les alertes Dependabot & les mises à jour de sécurité, [consultez la documentation suivante](https://docs.github.com/en/github/managing-security-vulnerabilities/about-alerts-for-vulnerable-dependencies).
 
-### <a name="nuget-feeds"></a>Flux NuGet
+### <a name="nuget-feeds"></a>flux NuGet
 
 **📦 Consommateur de package**
 
-Lors de l’utilisation de plusieurs flux source NuGet publics & privés, un package peut être téléchargé à partir de n’importe quel flux. Pour vous assurer que votre Build est prévisible et sécurisée à partir d’attaques connues telles que la [confusion des dépendances](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), il est recommandé de savoir quels flux spécifiques proviennent de vos packages. Vous pouvez utiliser un flux unique ou un flux privé avec des capacités de protection en amont.
+lors de l’utilisation de plusieurs flux source de NuGet publics & privés, un package peut être téléchargé à partir de n’importe quel flux. Pour vous assurer que votre Build est prévisible et sécurisée à partir d’attaques connues telles que la [confusion des dépendances](https://medium.com/@alex.birsan/dependency-confusion-4a5d60fec610), il est recommandé de savoir quels flux spécifiques proviennent de vos packages. Vous pouvez utiliser un flux unique ou un flux privé avec des capacités de protection en amont.
 
-Pour plus d’informations sur la sécurisation de vos flux de packages, consultez [3 façons d’atténuer les risques lors de l’utilisation de flux de packages privés](https://azure.microsoft.com/en-us/resources/3-ways-to-mitigate-risk-using-private-package-feeds/).
+Pour plus d’informations sur la sécurisation de vos flux de packages, consultez [3 façons d’atténuer les risques lors de l’utilisation de flux de packages privés](https://azure.microsoft.com/resources/3-ways-to-mitigate-risk-using-private-package-feeds/).
 
 ### <a name="client-trust-policies"></a>Stratégies d’approbation des clients
 
 **📦 Consommateur de package**
 
-Il existe des stratégies que vous pouvez choisir pour lesquelles vous avez besoin des packages que vous utilisez pour être signés. Cela vous permet de faire confiance à l’auteur d’un package, à condition qu’il soit signé ou approuvé par un package s’il appartient à un utilisateur ou à un compte spécifique qui est un référentiel signé par NuGet.org.
+Il existe des stratégies que vous pouvez choisir pour lesquelles vous avez besoin des packages que vous utilisez pour être signés. cela vous permet de faire confiance à l’auteur d’un package, à condition qu’il soit signé ou approuvé par un package s’il appartient à un utilisateur ou à un compte spécifique qui est un référentiel signé par NuGet. org.
 
 Pour configurer des stratégies d’approbation [du client, consultez la documentation suivante](../consume-packages/installing-signed-packages.md).
 
@@ -148,7 +148,7 @@ Pour activer les fichiers de verrouillage, [consultez la documentation suivante]
 
 **📦🖊 Auteur du package**
 
-GitHub analyse les référentiels pour les clés API NuGet afin d’éviter des utilisations frauduleuses de secrets qui ont été accidentellement validés. 
+GitHub analyse les référentiels pour les clés d’API NuGet pour empêcher les utilisations frauduleuses de secrets qui ont été validés par erreur. 
 
 Pour en savoir plus sur l’analyse des secrets, consultez [à propos de l’analyse des secrets](https://docs.github.com/en/github/administering-a-repository/about-secret-scanning).
 
@@ -164,7 +164,7 @@ Pour créer un package, consultez [signer un package](../create-packages/sign-a-
 
 **📦🖊 Auteur du package**
 
-L’activation de l’authentification à deux facteurs (2FA) peut ajouter une couche de sécurité supplémentaire lors de la [connexion à votre compte GitHub](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa) ou au [référentiel de package public NuGet.org](../nuget-org/individual-accounts.md#enable-two-factor-authentication-2fa). Il est recommandé d’activer l’authentification à deux facteurs pour protéger votre compte.
+l’activation de l’authentification à deux facteurs (2FA) peut ajouter une couche de sécurité supplémentaire lors de la [connexion à votre compte GitHub](https://docs.github.com/en/github/authenticating-to-github/securing-your-account-with-two-factor-authentication-2fa) ou au [référentiel du package public NuGet. org](../nuget-org/individual-accounts.md#enable-two-factor-authentication-2fa). Il est recommandé d’activer l’authentification à deux facteurs pour protéger votre compte.
 
 ### <a name="package-id-prefix-reservation"></a>Réservation du préfixe d’ID de package 
 
@@ -182,10 +182,10 @@ Pour protéger l’écosystème de packages .NET quand vous avez pris connaissan
 
 Pour savoir comment déconseiller et délister un package, consultez la documentation suivante sur la [désapprobation](../nuget-org/deprecate-packages.md) et la [désinscription des packages](../nuget-org/policies/deleting-packages.md#unlisting-a-package).
 
-## <a name="summary"></a>Résumé
+## <a name="summary"></a>Récapitulatif
 
 Votre chaîne d’approvisionnement logiciel est tout ce qui entre ou affecte votre code. Même si les compromets de chaîne d’approvisionnement sont réels et en pleine popularité, ils sont toujours rares. l’élément le plus important que vous puissiez faire est de protéger votre chaîne logistique en **connaissant vos dépendances, en gérant vos dépendances** et en **surveillant votre chaîne logistique.**
 
-Vous avez appris les différentes méthodes que NuGet et [GitHub](/learn/modules/maintain-secure-repository-github/) fournissent, qui sont à votre disposition pour être plus efficaces pour l’affichage, la gestion et la surveillance de votre chaîne d’approvisionnement.
+vous avez appris les différentes méthodes qui NuGet et [GitHub](/learn/modules/maintain-secure-repository-github/) vous permettent d’être plus efficaces pour l’affichage, la gestion et la surveillance de votre chaîne d’approvisionnement.
 
 Pour plus d’informations sur la sécurisation des logiciels du monde, consultez [l’état du rapport de sécurité Octoverse 2020](https://octoverse.github.com/static/github-octoverse-2020-security-report.pdf).
